@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+---
+
+<BaseLayout title="Professional Activewear Manufacturer | FITCLO">
+  <Hero />
+  <Stats />
+  
+  <section class="py-24 bg-gray-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <div class="absolute -top-10 -left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+          <img 
+            src="https://sc02.alicdn.com/kf/Afa390f225edd4d7cadafa64b6ad03c40s.png" 
+            alt="Fabric Research" 
+            class="relative z-10 rounded-3xl shadow-2xl"
+          />
+        </div>
+        <div>
+          <h2 class="text-4xl font-bold mb-6">Innovative Fabric <span class="text-accent italic">R&D</span></h2>
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            We don't just sew apparel; we engineer textiles. Our in-house lab develops proprietary knits that offer superior breathability, 4-way stretch, and durability that lasts.
+          </p>
+          <ul class="space-y-4 mb-10">
+            {[
+              'Anti-Microbial Treatment',
+              'Quick-Dry Technology',
+              'Sustainable/Recycled Fibers',
+              'Custom Color Matching (Pantone)'
+            ].map(item => (
+              <li class="flex items-center space-x-3">
+                <div class="w-1.5 h-1.5 bg-accent rounded-full"></div>
+                <span class="font-semibold">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/capabilities" class="inline-block border-2 border-primary px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all">
+            Explore Capabilities
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ProductGrid />
+
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-16">Global Manufacturing Excellence</h2>
+      <div class="rounded-3xl overflow-hidden shadow-2xl relative">
+        <img 
+          src="https://sc02.alicdn.com/kf/A04428d73312944d383b8fa9d917bc4b60.png" 
+          alt="Our Factory" 
+          class="w-full h-[500px] object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-12">
+          <div class="text-left text-white max-w-2xl">
+            <h3 class="text-3xl font-bold mb-4 italic italic">State-of-the-art Production</h3>
+            <p class="text-gray-300">
+              Operating out of our 11,000m² facility in Xiamen, we combine traditional craftsmanship with advanced automation to deliver consistent quality at scale.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <InquiryForm />
+</BaseLayout>

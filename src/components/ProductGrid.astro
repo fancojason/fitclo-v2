@@ -1,0 +1,38 @@
+---
+const categories = [
+  { name: 'Yoga Leggings', image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', description: 'Seamless, high-waisted, and squat-proof.' },
+  { name: 'Sports Bras', image: 'https://images.unsplash.com/photo-1506197357084-58ba3df803ae?auto=format&fit=crop&w=800&q=80', description: 'High impact support with moisture-wicking tech.' },
+  { name: 'Gym Shorts', image: 'https://images.unsplash.com/photo-1591117207239-788cd82e427d?auto=format&fit=crop&w=800&q=80', description: 'Lightweight performance gear for intense training.' },
+  { name: 'Men Activewear', image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80', description: 'Compression tops and heavy-duty training gear.' },
+];
+---
+<section id="products" class="py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <h2 class="text-4xl font-bold mb-4">Core Collections</h2>
+        <p class="text-gray-500 max-w-lg text-lg">
+          Crafted with advanced textile technology and ergonomic designs. All available for white-label and full customization.
+        </p>
+      </div>
+      <a href="/contact" class="hidden md:block text-accent font-bold border-b-2 border-accent pb-1 hover:text-opacity-80 transition-all">
+        View Full Catalog
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {categories.map(cat => (
+        <div class="group cursor-pointer">
+          <div class="relative aspect-[3/4] overflow-hidden rounded-2xl mb-4">
+            <img src={cat.image} alt={cat.name} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute bottom-6 left-6 text-white font-bold">Inquire Now →</div>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-1">{cat.name}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{cat.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

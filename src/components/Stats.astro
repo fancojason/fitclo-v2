@@ -1,0 +1,20 @@
+---
+const stats = [
+  { value: '15+', label: 'Years Experience' },
+  { value: '12k m²', label: 'Production Plant' },
+  { value: '500k+', label: 'Monthly Capacity' },
+  { value: '50+', label: 'Global Partners' },
+];
+---
+<section id="factory" class="py-20 border-y border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map(stat => (
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">{stat.value}</div>
+          <div class="text-sm font-medium text-gray-500 uppercase tracking-widest">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

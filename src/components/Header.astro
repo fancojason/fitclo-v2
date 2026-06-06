@@ -1,32 +1,32 @@
 ---
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Products', href: '/products' },
-  { name: 'Ready To Ship', href: '/ready-to-ship' },
-  { name: 'Private Label', href: '/private-label' },
-  { name: 'Manufacturing', href: '/capabilities' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'PRODUCTS', href: '/products' },
+  { name: 'READY TO SHIP', href: '/ready-to-ship' },
+  { name: 'PRIVATE LABEL', href: '/private-label' },
+  { name: 'MANUFACTURING', href: '/capabilities' },
 ];
 ---
 
-<header class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+<header class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10 py-2">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-20">
-      <div class="flex-shrink-0 flex items-center">
-        <a href="/" class="text-2xl font-bold tracking-tighter text-primary">FITCLO</a>
+    <div class="flex justify-between items-center h-16">
+      <div class="flex-shrink-0 flex items-center space-x-3">
+        <a href="/" class="flex items-center space-x-3 group">
+          <div class="bg-accent p-1.5 rounded-sm flex items-center justify-center">
+            <span class="text-white font-black text-lg leading-none tracking-tighter">FC</span>
+          </div>
+          <span class="text-xl font-bold tracking-[0.2em] text-white group-hover:text-accent transition-colors">FITCLO</span>
+        </a>
       </div>
-      <nav class="hidden md:flex space-x-8">
+      <nav class="hidden md:flex space-x-10">
         {navItems.map(item => (
-          <a href={item.href} class="text-sm font-medium text-gray-700 hover:text-accent transition-colors">
+          <a href={item.href} class="text-[13px] font-semibold text-gray-300 hover:text-accent transition-colors tracking-[0.15em]">
             {item.name}
           </a>
         ))}
       </nav>
-      <div class="flex items-center space-x-4">
-        <a href="/contact" class="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-800 transition-all shadow-lg shadow-black/5">
-          Get Quote
-        </a>
+      <div class="md:hidden">
+        <!-- Mobile menu button -->
       </div>
     </div>
   </div>

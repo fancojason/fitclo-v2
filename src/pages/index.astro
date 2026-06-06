@@ -70,5 +70,65 @@ import InquiryForm from '../components/InquiryForm.astro';
     </div>
   </section>
 
+  <section class="py-24 bg-black text-white">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+        <div>
+          <h2 class="text-4xl font-bold mb-4 uppercase tracking-tighter">Factory Tour</h2>
+          <p class="text-gray-400 max-w-lg text-lg">
+            Witness our commitment to manufacturing excellence. Modern facilities and rigorous quality control at every stage.
+          </p>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="space-y-6">
+          <div class="rounded-2xl overflow-hidden aspect-video bg-gray-900 shadow-xl">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+              <source src="/videos/sewing-1.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <p class="text-sm font-bold tracking-widest text-accent uppercase">Sewing Department</p>
+        </div>
+        
+        <div class="space-y-6">
+          <div class="rounded-2xl overflow-hidden aspect-video bg-gray-900 shadow-xl">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+              <source src="/videos/cutting-1.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <p class="text-sm font-bold tracking-widest text-accent uppercase">Precision Cutting</p>
+        </div>
+
+        <div class="space-y-6 lg:row-span-2">
+          <div class="rounded-2xl overflow-hidden h-full bg-gray-900 shadow-xl min-h-[400px]">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+              <source src="/videos/warehouse.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <p class="text-sm font-bold tracking-widest text-accent uppercase">Global Logistics Center</p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="rounded-2xl overflow-hidden aspect-video bg-gray-900 shadow-xl">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+              <source src="/videos/sewing-2.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <p class="text-sm font-bold tracking-widest text-accent uppercase">Quality Inspection</p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="rounded-2xl overflow-hidden aspect-video bg-gray-900 shadow-xl">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+              <source src="/videos/cutting-2.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <p class="text-sm font-bold tracking-widest text-accent uppercase">Fabric Preparation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <InquiryForm />
 </BaseLayout>

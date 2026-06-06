@@ -8,7 +8,7 @@ export default {
         accent: '#c5a059',  // Gold/Bronze for luxury
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
       }
     },
   },

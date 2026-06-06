@@ -19,12 +19,40 @@ const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- WhatsApp Floating Button CSS -->
+    <style>
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        background-color: #128c7e;
+      }
+    </style>
   </head>
   <body class="bg-white text-primary font-['Inter',sans-serif]">
     <Header />
     <main>
       <slot />
     </main>
+    <a href="https://wa.me/8615218851638" class="whatsapp-float" target="_blank">
+      <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-2.202 0-3.991 1.789-3.991 3.991 0 .644.153 1.254.421 1.793l-.444 1.622 1.66-.435c.52.247 1.103.387 1.719.387 2.202 0 3.991-1.789 3.991-3.991s-1.789-3.991-3.991-3.991zm2.345 5.561c-.101.281-.582.479-.801.51-.218.03-.437.045-1.144-.241-.85-.344-1.391-1.206-1.434-1.263-.043-.058-.351-.468-.351-.897 0-.43.224-.641.304-.727.08-.086.175-.107.234-.107l.169.002c.06 0 .141-.022.213.151l.307.747c.037.09.062.195.002.316-.06.121-.09.195-.181.298-.09.103-.195.172-.278.271-.09.106-.184.212-.079.393.105.181.468.772.999 1.242.684.606 1.263.795 1.444.886.181.091.286.076.393-.045.107-.121.455-.53.577-.71.121-.181.241-.151.407-.091.166.06 1.052.497 1.233.587.181.091.301.135.346.21.045.076.045.438-.056.719zM12 2C6.477 2 2 6.477 2 12c0 1.891.528 3.655 1.446 5.162L2 22l4.953-1.303C8.406 21.522 10.137 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.634 0-3.15-.465-4.437-1.264l-.318-.198-2.946.774.789-2.876-.218-.347C3.961 15.068 3.5 13.582 3.5 12c0-4.687 3.813-8.5 8.5-8.5s8.5 3.813 8.5 8.5-3.813 8.5-8.5 8.5z"/></svg>
+    </a>
     <Footer />
   </body>
 </html>

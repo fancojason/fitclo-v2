@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         primary: '#1a1a1a', // Dark/Premium
-        accent: '#c5a059',  // Gold/Bronze for luxury
+        accent: '#C9A84C',  // Exact Luxopack Gold
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

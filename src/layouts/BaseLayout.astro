@@ -19,21 +19,22 @@ const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Floating Buttons CSS - Replicated Exact Luxopack Style -->
+    <!-- Floating Buttons CSS - Exact Luxopack Replication -->
     <style is:global>
       @keyframes wa-pulse {
-        0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
         70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
         100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
       }
       @keyframes pulse-gold {
-        0%, 100% { box-shadow: 0 8px 32px rgba(201, 168, 76, 0.4); }
-        50% { box-shadow: 0 8px 48px rgba(201, 168, 76, 0.85); }
+        0% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.5); }
+        70% { box-shadow: 0 0 0 15px rgba(201, 168, 76, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
       }
       @keyframes wiggle {
         0%, 100% { transform: rotate(0deg); }
-        25% { transform: rotate(-5deg); }
-        75% { transform: rotate(5deg); }
+        25% { transform: rotate(-8deg); }
+        75% { transform: rotate(8deg); }
       }
 
       .floating-controls {
@@ -44,7 +45,7 @@ const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props
         display: flex;
         justify-content: space-between;
         align-items: center;
-        z-index: 1000;
+        z-index: 9999;
         pointer-events: none;
       }
 
@@ -52,8 +53,7 @@ const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props
         pointer-events: auto;
         width: 64px;
         height: 64px;
-        background-color: #25d366;
-        color: #fff;
+        background-color: #25D366;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -62,36 +62,35 @@ const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props
         animation: wa-pulse 2s infinite;
       }
       .whatsapp-float:hover {
-        transform: scale(1.1) rotate(8deg);
+        transform: scale(1.1);
       }
       .whatsapp-float svg {
-        animation: wiggle 3s ease-in-out infinite;
+        animation: wiggle 3.5s ease-in-out infinite;
       }
 
       .quote-float {
         pointer-events: auto;
-        background-color: #c9a84c;
-        color: #0a0a0f;
-        padding: 0 26px;
-        height: 48px;
+        background-color: #C9A84C;
+        color: #FFFFFF;
+        padding: 0 28px;
+        height: 52px;
         border-radius: 50px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 800;
-        font-size: 14.1px;
+        font-size: 14.08px;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.5px;
         text-decoration: none;
         animation: pulse-gold 2.5s infinite;
         transition: all 0.3s ease;
+        box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
       }
       .quote-float:hover {
-        transform: scale(1.06);
-      }
-      .quote-float .tag-icon {
-        font-size: 18px;
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(201, 168, 76, 0.4);
       }
     </style>
   </head>
@@ -102,17 +101,20 @@ const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props
     </main>
     
     <div class="floating-controls">
-      <!-- WhatsApp Left -->
+      <!-- WhatsApp Left (Replicated SVG) -->
       <a href="https://api.whatsapp.com/send?phone=8615218851638&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20premium%20activewear%20collection%20and%20would%20like%20to%20discuss%20a%20custom%20project.%20Can%20we%20chat%3F" class="whatsapp-float" target="_blank">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        <svg width="32" height="32" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+          <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#4DC247"></path>
+          <path d="M229.54 510.35c0-155.17 126.08-281.3 281.3-281.3v0.02c155.24 0 281.34 126.12 281.34 281.3a281.47 281.47 0 0 1-35.05 135.89c-75.13 136.06-246.35 185.49-382.44 110.35l-155.6 50.00 50.73-151.10a280.23 280.23 0 0 1-40.25-145.17z m281.3 234.34c129.15 0 234.36-105.21 234.36-234.36 0-129.04-105.25-234.24-234.36-234.24-129.1 0-234.32 105.21-234.32 234.28 0 49.34 15.14 95.14 44.8 137.3l-29.48 86.91 90.30-28.69c36.43 25.17 80.25 38.82 128.7 38.82z m75.73-197.76c-4.65 0-11.39 8.4-18.38 17.1-7.53 9.38-15.33 19.09-21.12 19.09a16.38 16.38 0 0 1-8.21-2.6c-20.9-10.47-39.16-21.29-56.32-37.69-14.2-13.44-29.86-33.6-38.05-51.11a11.09 11.09 0 0 1-1.87-5.61c0-3.75 4.9-8.96 10.47-14.76 7.14-7.5 15.29-16.06 15.29-24.04 0-3.73-19-54.44-21.67-60.8-3.71-9.7-5.54-12.69-15.61-12.69-2.3 0-4.7 0.2-7.25-0.59l-6.54-0.53c-7.87 0-13.8 2.98-19.43 8.21-17.92 16.78-26.88 34.32-27.6 58.96v2.96c-0.38 25.79 12.28 51.49 26.47 72.4 32.04 47.4 65.28 88.81 118.61 113.04 16.04 7.46 53.01 23.12 70.91 23.12 21.26 0 56-13.41 64.53-34.34 3.39-8.57 6.35-18.98 6.35-28.33 0-1.49 0-3.73-0.78-5.58-2.6-4.48-63.38-36.2-69.76-36.2z" fill="#FFFFFF"></path>
         </svg>
       </a>
 
-      <!-- Quote Right -->
+      <!-- Quote Right (Replicated Tag SVG) -->
       <a href="#inquiry" class="quote-float">
         <span>Get a Free Quote</span>
-        <span class="tag-icon">🏷️</span>
+        <svg width="22" height="22" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+          <path d="M89.64 582.09a29.15 29.15 0 0 0 0 41.22l316.07 316.07a29.15 29.15 0 0 0 41.20 0l390.14-390.09c6.07-6.09 9.14-14.5 8.43-23.06l-11.60-139.33a145.74 145.74 0 1 0-153.18-38.52l-30.18 30.15a188.41 188.41 0 0 1-43.15-186.27l-104.54-8.70c-8.55-0.73-16.99 2.36-23.04 8.43L89.64 582.09zM714.24 201.14a87.08 87.08 0 1 1 114.51 124.17l-7.55-90.84a29.15 29.15 0 0 0-26.62-26.62l-80.33-6.70z" fill="#FFFFFF"></path>
+        </svg>
       </a>
     </div>
 

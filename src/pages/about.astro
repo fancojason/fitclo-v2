@@ -6,7 +6,7 @@ import InquiryForm from '../components/InquiryForm.astro';
 
 <BaseLayout title="About Us | FITCLO - Professional Activewear Manufacturer">
   <!-- Hero Section -->
-  <section class="relative h-[40vh] bg-black flex items-center justify-center overflow-hidden">
+  <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img 
         src="https://sc02.alicdn.com/kf/A04428d73312944d383b8fa9d917bc4b60.png" 
@@ -16,53 +16,62 @@ import InquiryForm from '../components/InquiryForm.astro';
       <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
     </div>
     <div class="relative z-10 text-center px-4">
-      <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 uppercase tracking-tighter">About <span class="text-accent italic">Fitclo</span></h1>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto">A professional activewear manufacturer and exporter dedicated to quality and innovation.</p>
+      <h1 class="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter font-['Montserrat',sans-serif]">About <span class="text-accent italic">Fitclo</span></h1>
+      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
+        A professional activewear manufacturer and exporter dedicated to quality and innovation.
+      </p>
     </div>
   </section>
 
   <!-- Company Introduction -->
-  <section class="py-24 bg-white">
+  <section class="py-24 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <h2 class="text-4xl font-bold mb-8 uppercase tracking-tighter">Manufacturing <span class="text-accent italic">Excellence</span></h2>
-          <div class="prose prose-lg text-gray-600 space-y-6">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-[32px] md:text-[40px] font-black mb-8 uppercase tracking-tighter font-['Montserrat',sans-serif]">Company <span class="text-accent italic">Introduction</span></h2>
+          <div class="space-y-6 text-[18px] text-gray-700 font-['Century_Gothic',sans-serif] leading-relaxed">
             <p>
-              Fitclo is a professional activewear manufacturer and exporter based in Dongguan, China. Established in 2010, we have grown from a small workshop into a leading factory with over 350 skilled employees and a 12,000 square meter production facility.
+              Fitclo is a professional activewear manufacturer dedicated to helping brands build and scale their activewear businesses.
             </p>
-
             <p>
-              We specialize in high-quality yoga wear, gym wear, and athletic apparel for global brands. Our mission is to make activewear sourcing easier, faster and more reliable for businesses of all sizes, from startups to established retailers.
+              Founded in 2010, Fitclo has grown into a vertically integrated manufacturing company with over 350 employees, a 16,000㎡ production facility and a monthly capacity of more than 450,000 pieces.
             </p>
-            <div class="flex flex-col space-y-4 pt-4">
-              <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <p>
+              We specialize in private label activewear, ready-to-ship programs and OEM manufacturing services for customers worldwide.
+            </p>
+            
+            <div class="flex flex-col space-y-6 pt-10">
+              <div class="flex items-start space-x-5 group">
+                <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-black transition-colors duration-300">
+                  <svg class="w-7 h-7 text-accent group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl mb-1">Our Mission</h3>
-                  <p class="text-gray-500">To make activewear sourcing easier, faster and more reliable through innovation and efficiency.</p>
+                  <h3 class="font-black text-xl mb-2 uppercase tracking-tight font-['Montserrat',sans-serif]">Our Mission</h3>
+                  <p class="text-gray-500 font-['Century_Gothic',sans-serif] text-[16px]">To make activewear sourcing easier, faster and more reliable through innovation and efficiency.</p>
                 </div>
               </div>
-              <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <div class="flex items-start space-x-5 group">
+                <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-black transition-colors duration-300">
+                  <svg class="w-7 h-7 text-accent group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl mb-1">Quality Commitment</h3>
-                  <p class="text-gray-500">Rigorous quality control at every stage of production to ensure your brand's reputation.</p>
+                  <h3 class="font-black text-xl mb-2 uppercase tracking-tight font-['Montserrat',sans-serif]">Quality Commitment</h3>
+                  <p class="text-gray-500 font-['Century_Gothic',sans-serif] text-[16px]">Rigorous quality control at every stage of production to ensure your brand's reputation.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="relative">
-          <div class="grid grid-cols-2 gap-4">
-            <img src="https://sc02.alicdn.com/kf/Afa390f225edd4d7cadafa64b6ad03c40s.png" alt="Factory" class="rounded-2xl shadow-lg w-full aspect-square object-cover" />
-            <img src="https://sc02.alicdn.com/kf/A04428d73312944d383b8fa9d917bc4b60.png" alt="Production" class="rounded-2xl shadow-lg w-full aspect-square object-cover mt-8" />
+        <div class="relative order-1 lg:order-2">
+          <div class="relative z-10 rounded-[40px] overflow-hidden shadow-2xl border-[12px] border-white">
+            <img 
+              src="https://sc01.alicdn.com/kf/H6e14b1172b5b4373998832db21c924d7G.png" 
+              alt="Fitclo Factory Building" 
+              class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+            />
           </div>
-          <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+          <div class="absolute -bottom-12 -right-12 w-80 h-80 bg-accent/20 rounded-full blur-[100px] -z-10"></div>
+          <div class="absolute -top-12 -left-12 w-64 h-64 bg-accent/10 rounded-full blur-[80px] -z-10"></div>
         </div>
       </div>
     </div>
@@ -74,8 +83,8 @@ import InquiryForm from '../components/InquiryForm.astro';
   <section class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold uppercase tracking-tighter">Why Customers <span class="text-accent italic">Choose Fitclo</span></h2>
-        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">We provide comprehensive solutions for activewear brands worldwide.</p>
+        <h2 class="text-4xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif]">Why Customers <span class="text-accent italic">Choose Fitclo</span></h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto font-['Century_Gothic',sans-serif] text-[18px]">We provide comprehensive solutions for activewear brands worldwide.</p>
       </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -85,12 +94,12 @@ import InquiryForm from '../components/InquiryForm.astro';
           { title: 'Custom Design', desc: 'Professional design team to help bring your ideas to life.', icon: 'M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z' },
           { title: 'Reliable Quality', desc: 'SGS/ISO certified production standards and 100% inspection.', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' }
         ].map(item => (
-          <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-            <div class="w-14 h-14 bg-black text-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path></svg>
+          <div class="bg-white p-10 rounded-[32px] shadow-sm border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
+            <div class="w-16 h-16 bg-black text-accent rounded-[20px] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-accent group-hover:text-black transition-all duration-300 shadow-lg shadow-black/5">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path></svg>
             </div>
-            <h3 class="text-xl font-bold mb-3">{item.title}</h3>
-            <p class="text-gray-500 leading-relaxed">{item.desc}</p>
+            <h3 class="text-[22px] font-black mb-4 font-['Montserrat',sans-serif] uppercase tracking-tight">{item.title}</h3>
+            <p class="text-gray-500 leading-relaxed font-['Century_Gothic',sans-serif]">{item.desc}</p>
           </div>
         ))}
       </div>

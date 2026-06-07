@@ -1,77 +1,188 @@
 ---
 ---
-<section id="inquiry" class="py-24 bg-primary text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <h2 class="text-4xl font-bold mb-6 italic">Ready to Scale?</h2>
-        <p class="text-xl text-gray-400 mb-8">
-          Request a custom quote or order a sample set. Our packaging consultants respond within 12 hours.
-        </p>
-        
-        <ul class="space-y-4">
-          {[
-            'Free Technical Design Mockups',
-            'Low MOQ for Emerging Brands',
-            'Full OEM/ODM Production',
-            'Global Logistics & Tax Handling'
-          ].map(item => (
-            <li class="flex items-center space-x-3 text-gray-300">
-              <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+<section id="inquiry" class="py-24 bg-[#0A0A0F] text-white overflow-hidden">
+  <div class="max-w-[1000px] mx-auto px-6 lg:px-10">
+    <!-- Header Section (Replicated from Luxopack) -->
+    <div class="text-center mb-16">
+      <p class="text-[13px] font-bold tracking-[0.3em] text-[#C9A84C] uppercase mb-6 font-['Montserrat',sans-serif]">
+        GET A FREE QUOTE
+      </p>
+      <div class="flex items-center justify-center space-x-6 mb-4">
+        <span class="text-5xl">🎁</span>
+        <h2 class="text-[36px] md:text-[52px] font-black leading-[1.1] font-['Montserrat',sans-serif]">
+          Free Quote + Logo Mockup <br/>
+          <span class="text-[#C9A84C] italic">in 24 Hours</span>
+        </h2>
       </div>
-
-      <div class="bg-white rounded-3xl p-8 shadow-2xl">
-        <form id="inquiry-form" class="space-y-6">
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-              <input type="text" name="name" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:ring-2 focus:ring-accent outline-none" required />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Work Email</label>
-              <input type="email" name="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:ring-2 focus:ring-accent outline-none" required />
-            </div>
-          </div>
-          
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Company / Brand Name</label>
-            <input type="text" name="company" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:ring-2 focus:ring-accent outline-none" />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Product Category</label>
-            <select name="category" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:ring-2 focus:ring-accent outline-none">
-              <option>Yoga Wear / Leggings</option>
-              <option>Sports Bras</option>
-              <option>Men Gym Shorts</option>
-              <option>Other Athletic Apparel</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Annual Order (Pieces)</label>
-            <input type="number" name="quantity" placeholder="e.g. 5000" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:ring-2 focus:ring-accent outline-none" />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">How can we help you?</label>
-            <textarea name="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:ring-2 focus:ring-accent outline-none"></textarea>
-          </div>
-
-          <button type="submit" class="w-full bg-accent text-white py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all shadow-lg shadow-accent/20">
-            Send Inquiry
-          </button>
-          <p id="form-status" class="text-center text-sm mt-4 hidden"></p>
-          <p class="text-center text-xs text-gray-400">By clicking send, you agree to our Privacy Policy.</p>
-        </form>
-      </div>
+      <p class="text-[16px] md:text-[18px] text-white/40 font-['Century_Gothic',sans-serif] max-w-2xl mx-auto">
+        No commitment. No spam. Our Activewear consultant will contact you directly with a free design mockup and factory-direct price.
+      </p>
     </div>
+
+    <!-- Consultant Card (Replicated from Luxopack) -->
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+      <div class="flex items-center space-x-6 z-10">
+        <div class="w-16 h-16 bg-[#C9A84C] rounded-full flex items-center justify-center text-black text-2xl font-black font-['Montserrat',sans-serif]">
+          J
+        </div>
+        <div>
+          <h3 class="text-[18px] font-bold text-white font-['Montserrat',sans-serif]">
+            Hi, I'm Jason — your Activewear consultant 👋
+          </h3>
+          <p class="text-[14px] text-white/40 font-['Century_Gothic',sans-serif]">
+            Fill the form below and I'll personally respond with your free quote.
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 z-10">
+        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+        <span class="text-[13px] font-bold text-white/60 font-['Century_Gothic',sans-serif]">Online · Avg. 2h reply</span>
+      </div>
+      <!-- Decorative background glow -->
+      <div class="absolute -right-10 -top-10 w-32 h-32 bg-[#C9A84C]/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="text-center mb-12">
+      <span class="text-[12px] font-bold tracking-widest text-white/20 uppercase font-['Inter',sans-serif]">
+        — or fill the form below —
+      </span>
+    </div>
+
+    <!-- Inquiry Form (Luxopack High-Fidelity Style) -->
+    <form id="inquiry-form" class="space-y-8 font-['Century_Gothic',sans-serif]">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Row 1 -->
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold tracking-widest text-white/40 uppercase">YOUR NAME *</label>
+          <input 
+            type="text" 
+            name="name" 
+            placeholder="John Smith" 
+            required 
+            class="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-white focus:border-[#C9A84C] focus:bg-white/10 outline-none transition-all placeholder:text-white/10"
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold tracking-widest text-white/40 uppercase">COMPANY NAME</label>
+          <input 
+            type="text" 
+            name="company" 
+            placeholder="Your Brand / Company" 
+            class="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-white focus:border-[#C9A84C] focus:bg-white/10 outline-none transition-all placeholder:text-white/10"
+          />
+        </div>
+
+        <!-- Row 2 -->
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold tracking-widest text-white/40 uppercase">EMAIL ADDRESS *</label>
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="john@company.com" 
+            required 
+            class="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-white focus:border-[#C9A84C] focus:bg-white/10 outline-none transition-all placeholder:text-white/10"
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold tracking-widest text-white/40 uppercase">WHATSAPP / PHONE</label>
+          <input 
+            type="text" 
+            name="phone" 
+            placeholder="+1 234 567 8900" 
+            class="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-white focus:border-[#C9A84C] focus:bg-white/10 outline-none transition-all placeholder:text-white/10"
+          />
+        </div>
+
+        <!-- Row 3 (Updated Dropdowns) -->
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold tracking-widest text-white/40 uppercase">PRODUCT TYPE *</label>
+          <div class="relative">
+            <select name="product_type" required class="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-white appearance-none focus:border-[#C9A84C] focus:bg-white/10 outline-none transition-all">
+              <option value="" disabled selected class="bg-[#0A0A0F]">Select product type...</option>
+              <option value="Yoga Set" class="bg-[#0A0A0F]">Yoga Set</option>
+              <option value="Sport Bras" class="bg-[#0A0A0F]">Sport Bras</option>
+              <option value="Leggings" class="bg-[#0A0A0F]">Leggings</option>
+              <option value="Yoga Top" class="bg-[#0A0A0F]">Yoga Top</option>
+              <option value="Gym Shorts" class="bg-[#0A0A0F]">Gym Shorts</option>
+              <option value="T-shirt" class="bg-[#0A0A0F]">T-shirt</option>
+              <option value="Multiple Types / others" class="bg-[#0A0A0F]">Multiple Types / others</option>
+            </select>
+            <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold tracking-widest text-white/40 uppercase">ESTIMATED QUANTITY *</label>
+          <div class="relative">
+            <select name="quantity" required class="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-white appearance-none focus:border-[#C9A84C] focus:bg-white/10 outline-none transition-all">
+              <option value="" disabled selected class="bg-[#0A0A0F]">Select quantity...</option>
+              <option value="100-300 PCS" class="bg-[#0A0A0F]">100 - 300 PCS (Low MOQ)</option>
+              <option value="300-1000 PCS" class="bg-[#0A0A0F]">300 - 1,000 PCS</option>
+              <option value="1000-5000 PCS" class="bg-[#0A0A0F]">1,000 - 5,000 PCS</option>
+              <option value="5000+ PCS" class="bg-[#0A0A0F]">5,000+ PCS (High Volume)</option>
+            </select>
+            <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold tracking-widest text-white/40 uppercase">FABRIC & COLOR</label>
+          <div class="relative">
+            <select name="material" class="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-white appearance-none focus:border-[#C9A84C] focus:bg-white/10 outline-none transition-all">
+              <option value="Nylon/Spandex (Standard)" class="bg-[#0A0A0F]">Nylon/Spandex (Standard)</option>
+              <option value="Recycled Polyester" class="bg-[#0A0A0F]">Recycled Polyester</option>
+              <option value="Cotton Blend" class="bg-[#0A0A0F]">Cotton Blend</option>
+              <option value="Custom Fabric Request" class="bg-[#0A0A0F]">Custom Fabric Request</option>
+            </select>
+            <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold tracking-widest text-white/40 uppercase">LOGO PLACEMENT</label>
+          <div class="relative">
+            <select name="logo_placement" class="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-white appearance-none focus:border-[#C9A84C] focus:bg-white/10 outline-none transition-all">
+              <option value="Chest/Left Chest" class="bg-[#0A0A0F]">Chest / Left Chest</option>
+              <option value="Waistband" class="bg-[#0A0A0F]">Waistband</option>
+              <option value="Leg (Sides/Back)" class="bg-[#0A0A0F]">Leg (Sides / Back)</option>
+              <option value="Back Neck" class="bg-[#0A0A0F]">Back Neck</option>
+              <option value="Other / Multiple" class="bg-[#0A0A0F]">Other / Multiple</option>
+            </select>
+            <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Width Message -->
+      <div class="space-y-2">
+        <label class="text-[11px] font-bold tracking-widest text-white/40 uppercase">YOUR MESSAGE</label>
+        <textarea 
+          name="message" 
+          rows="4" 
+          placeholder="Please describe your requirements in detail..." 
+          class="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-white focus:border-[#C9A84C] focus:bg-white/10 outline-none transition-all placeholder:text-white/10"
+        ></textarea>
+      </div>
+
+      <div class="pt-4">
+        <button type="submit" class="w-full bg-[#C9A84C] text-[#0A0A0F] py-6 rounded-lg font-black text-[18px] uppercase tracking-widest hover:bg-[#d4b55a] transition-all shadow-[0_20px_40px_rgba(201,168,76,0.15)] active:scale-[0.98] font-['Montserrat',sans-serif]">
+          Send My Free Quote
+        </button>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between text-[11px] font-bold tracking-widest text-white/20 uppercase py-6 border-t border-white/5 mt-10">
+        <p>© 2026 Fitclo Manufacturing. All rights reserved.</p>
+        <p class="mt-4 md:mt-0">100% Privacy Protected · No Spam Ever</p>
+      </div>
+      <p id="form-status" class="text-center text-sm hidden"></p>
+    </form>
   </div>
 </section>
 
@@ -85,7 +196,7 @@
 
     status.textContent = 'Sending...';
     status.classList.remove('hidden', 'text-red-500', 'text-green-500');
-    status.classList.add('text-gray-500');
+    status.classList.add('text-white/40');
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
@@ -99,15 +210,15 @@
 
       const result = await res.json();
       if (result.success) {
-        status.textContent = result.message;
-        status.classList.replace('text-gray-500', 'text-green-500');
+        status.textContent = "Thank you! Jason will get back to you within 24 hours.";
+        status.classList.replace('text-white/40', 'text-[#C9A84C]');
         form.reset();
       } else {
         throw new Error(result.error);
       }
     } catch (err) {
-      status.textContent = 'Something went wrong. Please try again.';
-      status.classList.replace('text-gray-500', 'text-red-500');
+      status.textContent = 'Something went wrong. Please try again or contact us via WhatsApp.';
+      status.classList.replace('text-white/40', 'text-red-500');
     }
   });
 </script>

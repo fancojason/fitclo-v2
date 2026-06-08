@@ -18,18 +18,17 @@ import InquiryForm from '../components/InquiryForm.astro';
       <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-32">
         <!-- Left Image -->
         <div class="w-full lg:w-[48%] relative group lg:-translate-x-12">
-          <div class="relative rounded-xl overflow-hidden shadow-2xl">
+          <div class="relative rounded-xl overflow-hidden shadow-2xl bg-white">
             <img 
               src="https://sc01.alicdn.com/kf/H46ed3fe349ab48c2afc8e8066a7bc4517.png" 
               alt="Innovative Fabric Research & Development" 
-              class="w-full h-[420px] object-cover transition-transform duration-1000 group-hover:scale-105"
+              class="w-full aspect-[5/3] h-auto object-contain transition-transform duration-1000 group-hover:scale-105"
             />
             <!-- FITCLO Overlay in the top-left blank grid cell -->
             <div class="absolute top-0 left-0 w-1/2 h-1/3 flex flex-col items-center justify-center p-4 z-20">
               <span class="font-['Montserrat',sans-serif] font-black text-[20px] md:text-[24px] lg:text-[28px] text-black tracking-widest uppercase">FC | FITCLO</span>
               <span class="font-['Century_Gothic',sans-serif] font-bold text-[9px] md:text-[11px] text-gray-500 tracking-[0.2em] uppercase mt-1">Innovative Lab</span>
             </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
           </div>
           <!-- Decorative Glow -->
           <div class="absolute -top-16 -left-16 w-64 h-64 bg-[#C9A84C]/10 blur-[100px] rounded-full pointer-events-none opacity-50"></div>

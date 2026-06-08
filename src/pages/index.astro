@@ -13,20 +13,37 @@ import InquiryForm from '../components/InquiryForm.astro';
   <LiveProduction />
   <Stats />
   
-  <section class="py-24 bg-gray-50 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="relative">
-          <div class="absolute -top-10 -left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
-          <img 
-            src="https://sc02.alicdn.com/kf/Afa390f225edd4d7cadafa64b6ad03c40s.png" 
-            alt="Fabric Research" 
-            class="relative z-10 rounded-3xl shadow-2xl"
-          />
+  <section class="py-24 bg-black text-white overflow-hidden border-t border-white/5">
+    <div class="max-w-[1700px] mx-auto px-6 lg:px-16">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-32">
+        <!-- Left Image -->
+        <div class="w-full lg:w-[48%] relative group lg:-translate-x-12">
+          <div class="relative rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src="https://sc01.alicdn.com/kf/H46ed3fe349ab48c2afc8e8066a7bc4517.png" 
+              alt="Innovative Fabric Research & Development" 
+              class="w-full h-[420px] object-cover transition-transform duration-1000 group-hover:scale-105"
+            />
+            <!-- FITCLO Overlay in the top-left blank grid cell -->
+            <div class="absolute top-0 left-0 w-1/2 h-1/3 flex flex-col items-center justify-center p-4 z-20">
+              <span class="font-['Montserrat',sans-serif] font-black text-[20px] md:text-[24px] lg:text-[28px] text-black tracking-widest uppercase">FC | FITCLO</span>
+              <span class="font-['Century_Gothic',sans-serif] font-bold text-[9px] md:text-[11px] text-gray-500 tracking-[0.2em] uppercase mt-1">Innovative Lab</span>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+          </div>
+          <!-- Decorative Glow -->
+          <div class="absolute -top-16 -left-16 w-64 h-64 bg-[#C9A84C]/10 blur-[100px] rounded-full pointer-events-none opacity-50"></div>
         </div>
-        <div>
-          <h2 class="text-4xl font-black mb-6 font-['Montserrat',sans-serif] uppercase tracking-tighter">Innovative Fabric <span class="text-[#C9A84C] italic">R&D</span></h2>
-          <p class="text-lg text-gray-600 mb-8 leading-relaxed font-['Century_Gothic',sans-serif]">
+
+        <!-- Right Content -->
+        <div class="w-full lg:w-[44%] text-center lg:text-left lg:translate-x-6">
+          <h3 class="text-[#C9A84C] font-bold tracking-[0.3em] text-[12px] md:text-[13px] mb-3 uppercase font-['Montserrat',sans-serif]">
+            R&D Innovation
+          </h3>
+          <h2 class="text-[26px] md:text-[32px] lg:text-[36px] font-bold text-white mb-8 leading-tight font-['Montserrat',sans-serif] tracking-tight whitespace-nowrap">
+            Innovative Fabric <span class="text-[#C9A84C] italic">R&D</span>
+          </h2>
+          <p class="text-gray-400 text-[17px] mb-12 max-w-xl leading-relaxed font-['Century_Gothic',sans-serif]">
             We don't just sew apparel; we engineer textiles. Our in-house lab develops proprietary knits that offer superior breathability, 4-way stretch, and durability that lasts.
           </p>
           <ul class="space-y-4 mb-10 font-['Century_Gothic',sans-serif]">
@@ -38,11 +55,11 @@ import InquiryForm from '../components/InquiryForm.astro';
             ].map(item => (
               <li class="flex items-center space-x-3">
                 <div class="w-1.5 h-1.5 bg-[#C9A84C] rounded-full"></div>
-                <span class="font-bold">{item}</span>
+                <span class="font-bold text-gray-300">{item}</span>
               </li>
             ))}
           </ul>
-          <a href="/capabilities" class="inline-block border-2 border-black px-8 py-3 rounded-full font-black uppercase tracking-widest text-sm hover:bg-black hover:text-white transition-all font-['Century_Gothic',sans-serif]">
+          <a href="/capabilities" class="inline-block border border-[#C9A84C] text-[#C9A84C] font-extrabold py-3.5 px-8 rounded-md transition-all hover:bg-[#C9A84C] hover:text-black hover:scale-[1.02] active:scale-95 text-[14px] uppercase tracking-wider font-['Century_Gothic',sans-serif]">
             Explore Capabilities
           </a>
         </div>

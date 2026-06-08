@@ -1,10 +1,13 @@
+
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
+
 const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props;
 ---
+
 
 <html lang="en">
   <head>
@@ -18,7 +21,7 @@ const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style is:global>
       @font-face {
         font-family: 'Century Gothic';
@@ -46,6 +49,7 @@ const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props
         75% { transform: rotate(8deg); }
       }
 
+
       .floating-controls {
         position: fixed;
         bottom: 32px;
@@ -58,74 +62,10 @@ const { title = "Fitclo | Private Label Activewear Manufacturer" } = Astro.props
         pointer-events: none;
       }
 
+
       .whatsapp-float {
         pointer-events: auto;
         width: 64px;
         height: 64px;
         background-color: #25D366;
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        animation: wa-pulse 2s infinite;
-        overflow: hidden;
-      }
-      .whatsapp-float:hover {
-        transform: scale(1.1);
-      }
-      .whatsapp-float .wa-img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        animation: wiggle 3.5s ease-in-out infinite;
-      }
-
-      .quote-float {
-        pointer-events: auto;
-        background-color: #C9A84C;
-        color: #000000;
-        padding: 0 28px;
-        height: 52px;
-        border-radius: 50px;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 800;
-        font-size: 14.08px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-transform: none;
-        letter-spacing: 0.5px;
-        text-decoration: none;
-        animation: pulse-gold 2.5s infinite;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
-      }
-      .quote-float:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(201, 168, 76, 0.4);
-      }
-    </style>
-  </head>
-  <body class="bg-white text-primary font-['Inter',sans-serif]">
-    <Header />
-    <main>
-      <slot />
-    </main>
-    
-    <div class="floating-controls">
-      <!-- WhatsApp Left (Exact Luxopack Icon) -->
-      <a href="https://api.whatsapp.com/send?phone=8615218851638&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20premium%20activewear%20collection%20and%20would%20like%20to%20discuss%20a%20custom%20project.%20Can%20we%20chat%3F" class="whatsapp-float" target="_blank">
-        <img src="/images/whatsapp-icon.webp" alt="WhatsApp" width="64" height="64" class="wa-img" />
-      </a>
-
-      <!-- Quote Right (Exact Luxopack Style) -->
-      <a href="#inquiry" class="quote-float">
-        <span>Get a Free Quote</span>
-        <span class="tag-icon">🏷️</span>
-      </a>
-    </div>
-
-    <Footer />
-  </body>
-</html>

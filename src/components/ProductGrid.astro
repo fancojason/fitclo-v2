@@ -2,7 +2,7 @@
 const categories = [
   { 
     name: 'Sports Bra', 
-    image: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80',
+    image: 'https://sc01.alicdn.com/kf/Hcd3a09975e5547b9baa61b4fb2cee8390.png',
     link: '/capabilities#sports-bra'
   },
   { 
@@ -59,8 +59,8 @@ const categories = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {categories.map(cat => (
         <a href={cat.link} class="group block bg-[#EEEEEE] p-4 rounded-[20px] hover:scale-[1.01] transition-all duration-500 shadow-lg">
-          <!-- Compact Portrait Image frame (aspect-[3/4] + narrow container = stunning fit) -->
-          <div class="relative aspect-[3/4] overflow-hidden rounded-[15px] bg-white">
+          <!-- Compact Portrait Image frame (aspect-[4/5] + narrow container = stunning fit) -->
+          <div class="relative aspect-[4/5] overflow-hidden rounded-[15px] bg-white">
             <img 
               src={cat.image} 
               alt={cat.name} 

@@ -1,37 +1,79 @@
 ---
 const categories = [
-  { name: 'Yoga Leggings', image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', description: 'Seamless, high-waisted, and squat-proof.' },
-  { name: 'Sports Bras', image: 'https://images.unsplash.com/photo-1506197357084-58ba3df803ae?auto=format&fit=crop&w=800&q=80', description: 'High impact support with moisture-wicking tech.' },
-  { name: 'Gym Shorts', image: 'https://images.unsplash.com/photo-1591117207239-788cd82e427d?auto=format&fit=crop&w=800&q=80', description: 'Lightweight performance gear for intense training.' },
-  { name: 'Men Activewear', image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80', description: 'Compression tops and heavy-duty training gear.' },
+  { 
+    name: 'Hoodies', 
+    image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80',
+    link: '/capabilities#hoodies'
+  },
+  { 
+    name: 'Compression', 
+    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80',
+    link: '/capabilities#compression'
+  },
+  { 
+    name: 'Tops', 
+    image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80',
+    link: '/capabilities#tops'
+  },
+  { 
+    name: 'Bottoms', 
+    image: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&w=800&q=80',
+    link: '/capabilities#bottoms'
+  },
+  { 
+    name: 'Streetwear', 
+    image: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=800&q=80',
+    link: '/capabilities#streetwear'
+  },
+  { 
+    name: 'Hats', 
+    image: 'https://images.unsplash.com/photo-1534215754734-18e55d13ce35?auto=format&fit=crop&w=800&q=80',
+    link: '/capabilities#hats'
+  },
 ];
 ---
-<section id="products" class="py-24">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-end mb-12">
-      <div>
-        <h2 class="text-4xl font-bold mb-4">Core Collections</h2>
-        <p class="text-gray-500 max-w-lg text-lg">
+
+<section id="products" class="py-32 bg-black text-white overflow-hidden border-t border-white/5">
+  <div class="max-w-[1700px] mx-auto px-6 lg:px-16">
+    <!-- Header aligned perfectly with the other sections -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+      <div class="lg:-translate-x-6">
+        <h3 class="text-[#C9A84C] font-bold tracking-[0.3em] text-[12px] md:text-[13px] mb-3 uppercase font-['Montserrat',sans-serif]">
+          Featured Categories
+        </h3>
+        <h2 class="text-[26px] md:text-[32px] lg:text-[36px] font-bold text-white leading-tight font-['Montserrat',sans-serif] tracking-tight uppercase whitespace-nowrap">
+          Core <span class="text-[#C9A84C] italic">Collections</span>
+        </h2>
+        <p class="text-gray-400 mt-4 max-w-xl text-[16px] md:text-[17px] leading-relaxed font-['Century_Gothic',sans-serif]">
           Crafted with advanced textile technology and ergonomic designs. All available for white-label and full customization.
         </p>
       </div>
-      <a href="/contact" class="hidden md:block text-accent font-bold border-b-2 border-accent pb-1 hover:text-opacity-80 transition-all">
-        View Full Catalog
-      </a>
+      <div class="lg:translate-x-6">
+        <a href="/capabilities" class="inline-block border border-[#C9A84C] text-[#C9A84C] font-extrabold py-3.5 px-8 rounded-md transition-all hover:bg-[#C9A84C] hover:text-black hover:scale-[1.02] active:scale-95 text-[14px] uppercase tracking-wider font-['Century_Gothic',sans-serif]">
+          View Full Catalog
+        </a>
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Categories Grid (Replica of the user's reference image) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {categories.map(cat => (
-        <div class="group cursor-pointer">
-          <div class="relative aspect-[3/4] overflow-hidden rounded-2xl mb-4">
-            <img src={cat.image} alt={cat.name} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-              <div class="absolute bottom-6 left-6 text-white font-bold">Inquire Now →</div>
-            </div>
+        <a href={cat.link} class="group block bg-[#EEEEEE] p-5 rounded-[24px] hover:scale-[1.01] transition-all duration-500 shadow-xl">
+          <!-- Image frame -->
+          <div class="relative aspect-[3/4] overflow-hidden rounded-[18px] bg-white">
+            <img 
+              src={cat.image} 
+              alt={cat.name} 
+              class="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-105 group-hover:grayscale-0" 
+            />
           </div>
-          <h3 class="text-xl font-bold mb-1">{cat.name}</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">{cat.description}</p>
-        </div>
+          <!-- Label below -->
+          <div class="mt-4 flex items-center justify-between px-1">
+            <h3 class="text-[18px] md:text-[20px] font-bold text-black font-['Century_Gothic',sans-serif] tracking-wide transition-colors group-hover:text-[#C9A84C]">
+              {cat.name} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1.5 ml-1">→</span>
+            </h3>
+          </div>
+        </a>
       ))}
     </div>
   </div>

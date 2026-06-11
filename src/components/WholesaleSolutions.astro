@@ -7,7 +7,7 @@ const wholesaleProducts = [
     image: 'https://sc01.alicdn.com/kf/Ha73bf41967194aeeb3016945aacc9ba9R.jpg',
     moq: '50 Sets',
     leadTime: '7-10 days',
-    customization: 'Logo / Label / Pkg',
+    customization: 'Logo / Label / Packing',
     selectValue: 'Yoga Set'
   },
   {
@@ -37,7 +37,7 @@ const wholesaleProducts = [
     image: 'https://sc01.alicdn.com/kf/H6dea2380db0944b0957904c8458265c8H.png',
     moq: '100 Pcs',
     leadTime: '12-15 days',
-    customization: 'Logo / Pkg / Tag',
+    customization: 'Logo / Packing / Tag',
     selectValue: 'Multiple Types / others'
   }
 ];
@@ -107,8 +107,8 @@ const wholesaleProducts = [
               {product.description}
             </p>
 
-            <!-- Meta Information Row (Symmetric grid-cols-3 with optimized font sizes, keeping everything strictly on one line) -->
-            <div class="grid grid-cols-3 gap-1 border-t border-white/5 pt-4 mb-6 text-[10px] md:text-[11px] font-['Century_Gothic',sans-serif]">
+            <!-- Meta Information Row (Custom grid-cols-[auto_auto_1fr] to compress spacing and shift right columns left, keeping MOQ fixed) -->
+            <div class="grid grid-cols-[auto_auto_1fr] gap-x-6 md:gap-x-8 border-t border-white/5 pt-4 mb-6 text-[10px] md:text-[11px] font-['Century_Gothic',sans-serif]">
               <div>
                 <span class="block text-gray-500 uppercase tracking-wider mb-1">MOQ</span>
                 <span class="block font-bold text-white text-[11px] md:text-[12px] whitespace-nowrap">{product.moq}</span>
@@ -117,9 +117,9 @@ const wholesaleProducts = [
                 <span class="block text-gray-500 uppercase tracking-wider mb-1">Lead Time</span>
                 <span class="block font-bold text-white text-[11px] md:text-[12px] whitespace-nowrap">{product.leadTime}</span>
               </div>
-              <div>
+              <div class="min-w-0">
                 <span class="block text-gray-500 uppercase tracking-wider mb-1">Customization</span>
-                <span class="block font-bold text-white text-[11px] md:text-[12px] whitespace-nowrap">{product.customization}</span>
+                <span class="block font-bold text-white text-[11px] md:text-[12px] whitespace-nowrap overflow-hidden text-ellipsis" title={product.customization}>{product.customization}</span>
               </div>
             </div>
 

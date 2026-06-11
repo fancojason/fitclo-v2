@@ -3,7 +3,7 @@ const wholesaleProducts = [
   {
     badge: '🔥 NEW ARRIVAL',
     title: "Women's Yoga Set",
-    description: "Trending activewear set with multiple color options, featuring a high-waisted leggings design, four-way stretch fabric, and squat-proof coverage. Ideal for yoga, gym training, running, and athleisure collections.",
+    description: "Premium multi-color activewear set featuring high-waisted, squat-proof leggings and four-way stretch fabric. Engineered for yoga, gym, and everyday athleisure.",
     image: 'https://sc01.alicdn.com/kf/Ha73bf41967194aeeb3016945aacc9ba9R.jpg',
     moq: '50 Sets',
     leadTime: '7-10 days',
@@ -13,7 +13,7 @@ const wholesaleProducts = [
   {
     badge: '★ BESTSELLER',
     title: "Seamless Sports Bra",
-    description: "High-support seamless sports bra engineered with moisture-wicking technology and premium removable cups. Crafted for high-intensity training.",
+    description: "High-support seamless sports bra featuring moisture-wicking technology and premium removable cups. Crafted for high-intensity gym training.",
     image: 'https://sc01.alicdn.com/kf/Hcd3a09975e5547b9baa61b4fb2cee8390.png',
     moq: '100 Pcs',
     leadTime: '10-12 days',
@@ -23,7 +23,7 @@ const wholesaleProducts = [
   {
     badge: '💎 PREMIUM',
     title: "High-Waisted Leggings",
-    description: "Buttery-soft crossover high-waisted leggings with compression support. 100% squat-proof coverage and flatlock stitching for maximum comfort.",
+    description: "Buttery-soft crossover leggings with high-waisted compression support. 100% squat-proof coverage and flatlock stitching for ultimate comfort.",
     image: 'https://sc01.alicdn.com/kf/H4837d48e3e704fc8a3173a9ed39554feK.png',
     moq: '100 Pcs',
     leadTime: '10-12 days',
@@ -33,7 +33,7 @@ const wholesaleProducts = [
   {
     badge: '⚡ TRENDING',
     title: "Athletic Flare Pants",
-    description: "Elegant high-waisted flare pants designed with lightweight, breathable 4-way stretch fabric. Perfect for gym transitions and premium athleisure wear.",
+    description: "Elegant high-waisted flare pants designed with breathable, 4-way stretch fabric. Perfect for active transitions and premium athleisure wear.",
     image: 'https://sc01.alicdn.com/kf/H6dea2380db0944b0957904c8458265c8H.png',
     moq: '100 Pcs',
     leadTime: '12-15 days',
@@ -102,32 +102,32 @@ const wholesaleProducts = [
               {product.title}
             </h4>
 
-            <!-- Description (Line clamp removed to display content fully) -->
-            <p class="text-gray-400 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif] mb-6 flex-grow">
+            <!-- Description -->
+            <p class="text-gray-400 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif] mb-6 flex-grow line-clamp-3">
               {product.description}
             </p>
 
-            <!-- Meta Information Row (Asymmetric layout to support longer text, font size increased) -->
+            <!-- Meta Information Row (Asymmetric layout to support longer text, optimized size) -->
             <div class="grid grid-cols-[1fr_1fr_1.5fr] gap-2 border-t border-white/5 pt-4 mb-6 text-[11px] md:text-[12px] font-['Century_Gothic',sans-serif]">
               <div>
                 <span class="block text-gray-500 uppercase tracking-wider mb-1">MOQ</span>
-                <span class="block font-bold text-white text-[13px] md:text-[14px]">{product.moq}</span>
+                <span class="block font-bold text-white text-[12px] md:text-[13px]">{product.moq}</span>
               </div>
               <div>
                 <span class="block text-gray-500 uppercase tracking-wider mb-1">Lead Time</span>
-                <span class="block font-bold text-white text-[13px] md:text-[14px]">{product.leadTime}</span>
+                <span class="block font-bold text-white text-[12px] md:text-[13px]">{product.leadTime}</span>
               </div>
               <div>
                 <span class="block text-gray-500 uppercase tracking-wider mb-1">Customization</span>
-                <span class="block font-bold text-white text-[13px] md:text-[14px] leading-tight">{product.customization}</span>
+                <span class="block font-bold text-white text-[12px] md:text-[13px] leading-tight">{product.customization}</span>
               </div>
             </div>
 
-            <!-- Premium Gold Quote CTA Button Replicating Luxopack exactly -->
+            <!-- Premium Gold Quote CTA Button Replicating Luxopack exactly (sleeker padding) -->
             <a 
               href="#inquiry" 
               data-product={product.selectValue}
-              class="quote-product-btn mt-auto block w-full py-3.5 rounded-lg text-center text-[13px] font-bold text-[#C9A84C] border border-[#C9A84C] hover:bg-[#C9A84C] hover:text-black transition-all duration-300 font-['Century_Gothic',sans-serif] tracking-wider"
+              class="quote-product-btn mt-auto block w-full py-2.5 rounded-lg text-center text-[13px] font-bold text-[#C9A84C] border border-[#C9A84C] hover:bg-[#C9A84C] hover:text-black transition-all duration-300 font-['Century_Gothic',sans-serif] tracking-wider"
             >
               → Quote This Product
             </a>

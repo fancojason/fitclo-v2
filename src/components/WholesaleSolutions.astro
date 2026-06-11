@@ -1,4 +1,46 @@
 ---
+const wholesaleProducts = [
+  {
+    badge: '🔥 NEW ARRIVAL',
+    title: "Women's Yoga Set",
+    description: "Trending activewear set with multiple color options, featuring a high-waisted leggings design, four-way stretch fabric, and squat-proof coverage. Ideal for yoga, gym training, running, and athleisure collections.",
+    image: 'https://sc01.alicdn.com/kf/Ha73bf41967194aeeb3016945aacc9ba9R.jpg',
+    moq: '50 Sets',
+    leadTime: '7-10 days',
+    customization: 'Logo / Labels / Packaging',
+    selectValue: 'Yoga Set'
+  },
+  {
+    badge: '★ BESTSELLER',
+    title: "Seamless Sports Bra",
+    description: "High-support seamless sports bra engineered with moisture-wicking technology and premium removable cups. Crafted for high-intensity training.",
+    image: 'https://sc01.alicdn.com/kf/Hcd3a09975e5547b9baa61b4fb2cee8390.png',
+    moq: '100 Pcs',
+    leadTime: '10-12 days',
+    customization: 'Logo / Colors / Tags',
+    selectValue: 'Sport Bras'
+  },
+  {
+    badge: '💎 PREMIUM',
+    title: "High-Waisted Leggings",
+    description: "Buttery-soft crossover high-waisted leggings with compression support. 100% squat-proof coverage and flatlock stitching for maximum comfort.",
+    image: 'https://sc01.alicdn.com/kf/H4837d48e3e704fc8a3173a9ed39554feK.png',
+    moq: '100 Pcs',
+    leadTime: '10-12 days',
+    customization: 'Labels / Length / Tags',
+    selectValue: 'Leggings'
+  },
+  {
+    badge: '⚡ TRENDING',
+    title: "Athletic Flare Pants",
+    description: "Elegant high-waisted flare pants designed with lightweight, breathable 4-way stretch fabric. Perfect for gym transitions and premium athleisure wear.",
+    image: 'https://sc01.alicdn.com/kf/H6dea2380db0944b0957904c8458265c8H.png',
+    moq: '100 Pcs',
+    leadTime: '12-15 days',
+    customization: 'Logo / Packaging / Tags',
+    selectValue: 'Multiple Types / others'
+  }
+];
 ---
 
 <section id="wholesale" class="py-24 bg-black text-white overflow-hidden border-t border-white/5">
@@ -30,5 +72,88 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
       </div>
     </div>
+
+    <!-- 4-Column Premium Wholesale Products Grid replicating Luxopack, aligned perfectly left and right -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 lg:-ml-12 lg:-mr-12">
+      {wholesaleProducts.map((product) => (
+        <div class="rounded-2xl bg-[#111111] border border-white/10 overflow-hidden flex flex-col group transition-all duration-300 hover:border-[#C9A84C]/30 hover:translate-y-[-4px]">
+          <!-- Card Image Container -->
+          <div class="p-3">
+            <div class="relative aspect-square overflow-hidden bg-[#18181B] rounded-xl flex items-center justify-center">
+              <img 
+                src={product.image} 
+                alt={product.title} 
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" 
+              />
+            </div>
+          </div>
+
+          <!-- Product Details Content -->
+          <div class="p-5 flex flex-col flex-grow text-left">
+            <!-- Badge pill -->
+            <div class="flex items-center mb-4">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#C9A84C]/10 text-[#C9A84C] border border-[#C9A84C]/20 font-['Century_Gothic',sans-serif]">
+                {product.badge}
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h4 class="text-[17px] md:text-[18px] font-bold text-white mb-2 font-['Montserrat',sans-serif] tracking-tight">
+              {product.title}
+            </h4>
+
+            <!-- Description -->
+            <p class="text-gray-400 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif] mb-6 flex-grow line-clamp-3">
+              {product.description}
+            </p>
+
+            <!-- Meta Information Row -->
+            <div class="grid grid-cols-3 gap-2 border-t border-white/5 pt-4 mb-6 text-[10px] font-['Century_Gothic',sans-serif]">
+              <div>
+                <span class="block text-gray-500 uppercase tracking-wider mb-1">MOQ</span>
+                <span class="block font-bold text-white text-[11px] truncate">{product.moq}</span>
+              </div>
+              <div>
+                <span class="block text-gray-500 uppercase tracking-wider mb-1">Lead Time</span>
+                <span class="block font-bold text-white text-[11px] truncate">{product.leadTime}</span>
+              </div>
+              <div>
+                <span class="block text-gray-500 uppercase tracking-wider mb-1">Customization</span>
+                <span class="block font-bold text-white text-[11px] truncate" title={product.customization}>{product.customization}</span>
+              </div>
+            </div>
+
+            <!-- Quote CTA Button linking to form with click handler for auto-selection -->
+            <a 
+              href="#inquiry" 
+              data-product={product.selectValue}
+              class="quote-product-btn mt-auto block w-full py-3 rounded-lg text-center text-[12px] font-bold text-gray-400 border border-white/10 hover:border-[#C9A84C]/50 hover:text-white hover:bg-[#C9A84C]/5 transition-all duration-300 font-['Century_Gothic',sans-serif] tracking-wider"
+            >
+              → Quote This Product
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
+<!-- Prefill Form Selection Script -->
+<script>
+  function initQuotePrefill() {
+    const quoteBtns = document.querySelectorAll('.quote-product-btn');
+    quoteBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const productType = btn.getAttribute('data-product');
+        const select = document.querySelector('select[name="product_type"]') as HTMLSelectElement | null;
+        if (select && productType) {
+          select.value = productType;
+        }
+      });
+    });
+  }
+
+  // Run on load and after standard navigations
+  initQuotePrefill();
+  document.addEventListener('astro:page-load', initQuotePrefill);
+</script>

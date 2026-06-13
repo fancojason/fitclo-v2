@@ -122,18 +122,18 @@ const brandingOptions = [
             {option.title}
           </h4>
           
-          <p class="text-[#C9A84C] text-[11px] font-bold uppercase tracking-wider mb-3 font-['Century_Gothic',sans-serif]">
-            Best for: <span class="text-gray-400 font-normal normal-case">{option.bestFor}</span>
+          <p class="text-[#C9A84C] text-[12px] font-bold uppercase tracking-wider mb-3 font-['Century_Gothic',sans-serif]">
+            Best for: <span class="text-[#C9A84C] font-bold normal-case">{option.bestFor}</span>
           </p>
           
           <p class="text-gray-400 text-[14px] leading-relaxed font-['Century_Gothic',sans-serif] mb-4 line-clamp-2">
             {option.description}
           </p>
 
-          <ul class="space-y-1.5">
+          <ul class="space-y-2">
             {option.features.map(feature => (
-              <li class="flex items-center text-[12px] text-gray-500 font-['Century_Gothic',sans-serif]">
-                <span class="w-1 h-1 rounded-full bg-[#C9A84C] mr-2"></span>
+              <li class="flex items-center text-[13px] text-gray-400 font-bold font-['Century_Gothic',sans-serif]">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mr-2"></span>
                 {feature}
               </li>
             ))}

@@ -243,13 +243,9 @@ const wholesaleProducts = [
 ];
 ---
 
-<<<<<<< HEAD
 <section id="wholesale" class="pt-24 pb-12 bg-black text-white overflow-hidden border-t border-white/5">
-=======
-<section id="wholesale" class="py-24 bg-black text-white overflow-hidden border-t border-white/5">
->>>>>>> d334504 (chore: implement critical SEO fixes, resolve broken links, and fix sitemap configuration)
   <div class="max-w-[1700px] mx-auto px-6 lg:px-16">
-    <!-- Header aligned perfectly with Left Image of Innovative Fabric R&D (shifted 48px left on desktop) -->
+    <!-- Header aligned perfectly with Left Image of Innovative Fabric R&D -->
     <div class="flex flex-col mb-10 lg:-translate-x-12">
       <h3 class="text-[#C9A84C] font-bold tracking-[0.1em] text-[11px] md:text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
         B2B Wholesale Solutions
@@ -262,7 +258,7 @@ const wholesaleProducts = [
       </p>
     </div>
 
-    <!-- Wide Panoramic Banner Card matching Luxopack width, taller height, aligned perfectly to R&D (left) and Live Production (right) -->
+    <!-- Wide Panoramic Banner Card -->
     <div class="rounded-[20px] overflow-hidden border border-white/10 relative group bg-[#111111] shadow-2xl transition-all duration-500 hover:border-[#C9A84C]/30 hover:shadow-[0_15px_40px_rgba(201,168,76,0.1)] lg:-ml-12 lg:-mr-12">
       <div class="relative aspect-[16/9] md:aspect-[21/9] lg:aspect-[2.2/1] overflow-hidden bg-[#0A0A0A]">
         <img 
@@ -270,14 +266,13 @@ const wholesaleProducts = [
           alt="Premium Wholesale Activewear Custom Solutions" 
           class="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.01] group-hover:brightness-[1.03]" 
         />
-        <!-- Metallic shimmer light sweep effect on hover -->
+        <!-- Metallic shimmer light sweep effect -->
         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1200ms] ease-out pointer-events-none z-10"></div>
-        <!-- Shadow overlay for depth -->
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
       </div>
     </div>
 
-    <!-- 4-Column Premium Wholesale Products Grid replicating Luxopack, aligned perfectly left and right -->
+    <!-- 4-Column Premium Wholesale Products Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 lg:-ml-12 lg:-mr-12">
       {wholesaleProducts.map((product) => (
         <div class="rounded-2xl bg-[#111111] border border-white/10 overflow-hidden flex flex-col group transition-all duration-300 hover:border-[#C9A84C]/30 hover:translate-y-[-4px]">
@@ -311,7 +306,7 @@ const wholesaleProducts = [
               {product.description}
             </p>
 
-            <!-- Meta Information Row (Custom grid-cols-[auto_auto_1fr] to compress spacing and shift right columns left, keeping MOQ fixed) -->
+            <!-- Meta Information Row -->
             <div class="grid grid-cols-[auto_auto_1fr] gap-x-6 md:gap-x-8 border-t border-white/5 pt-4 mb-6 text-[10px] md:text-[11px] font-['Century_Gothic',sans-serif]">
               <div>
                 <span class="block text-gray-500 uppercase tracking-wider mb-1">MOQ</span>
@@ -327,7 +322,7 @@ const wholesaleProducts = [
               </div>
             </div>
 
-            <!-- Premium Gold Quote CTA Button Replicating Luxopack exactly (sleeker padding, subtle gold outline) -->
+            <!-- Premium Gold Quote CTA Button -->
             <a 
               href="#inquiry" 
               data-product={product.selectValue}

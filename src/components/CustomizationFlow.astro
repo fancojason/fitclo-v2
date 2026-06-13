@@ -1,0 +1,170 @@
+---
+const customizationSteps = [
+  {
+    id: "01",
+    title: "Logo Customization",
+    subtitle: "Send Inquiry",
+    items: [
+      { name: "3D Silicone LOGO", img: "https://sc01.alicdn.com/kf/Ha15c02eb9afa405a99b21e7b8bd2db7eD.png" },
+      { name: "Glossy Surface", img: "https://sc01.alicdn.com/kf/Hcd3a09975e5547b9baa61b4fb2cee8390.png" },
+      { name: "Silver Reflective", img: "https://sc01.alicdn.com/kf/Ha39d99ef0dec44eb9b423d0b8860bfc6s.png" },
+      { name: "Embossed LOGO", img: "https://sc01.alicdn.com/kf/H562806e88b924244a95814d15769ed64P.png" }
+    ]
+  },
+  {
+    id: "02",
+    title: "Style & Design Customization",
+    subtitle: "Send Inquiry",
+    description: "Choose from our existing styles or develop your own with our sampling team.",
+    items: [
+      { name: "Custom Design", icon: "🎨" },
+      { name: "Premium Fabrics", icon: "🧵" },
+      { name: "Perfect Fit", icon: "👕" }
+    ],
+    mainImg: "https://sc01.alicdn.com/kf/H18faaf7b76ce499fb29fd8a0f9c3a519Y.png"
+  },
+  {
+    id: "03",
+    title: "Fabric Customization",
+    subtitle: "Send Inquiry",
+    description: "Performance fabric options for different handfeel and market positioning.",
+    fabrics: ["Nylon-Spandex", "Brushed Fabric", "Ribbed Fabric", "Interlock", "Recycled Fabric", "Antibacterial"]
+  },
+  {
+    id: "04",
+    title: "Color & Pattern Customization",
+    subtitle: "Send Inquiry",
+    colors: ["#1a1a1a", "#ffffff", "#c9a84c", "#4a5568", "#2d3748", "#1a365d", "#c53030", "#2f855a", "#b7791f", "#2b6cb0", "#44337a", "#285e61"]
+  },
+  {
+    id: "05",
+    title: "Private Label & Packaging",
+    subtitle: "Send Inquiry",
+    items: [
+      { name: "Hang Tags", img: "https://sc01.alicdn.com/kf/H03e3e2128b9c458aab0c23e1628b1c12S.png" },
+      { name: "Wash Label", img: "https://sc01.alicdn.com/kf/H551e8c3c2b6c44928bc7be5acaf07853S.png" },
+      { name: "Poly Bag", img: "https://sc02.alicdn.com/kf/Aa6c5bf20cc14428a9fb842b0adfd2820c.png" },
+      { name: "Main Label", img: "https://sc01.alicdn.com/kf/Hb0aca160c56742728d9ea91d985fb2aeQ.png" }
+    ]
+  }
+];
+---
+
+<section class="py-24 bg-black text-white border-t border-white/5">
+  <div class="max-w-[1700px] mx-auto px-6 lg:px-16">
+    <div class="mb-16 text-center lg:text-left">
+      <h3 class="text-[#C9A84C] font-bold tracking-[0.3em] text-[12px] uppercase font-['Century_Gothic',sans-serif] mb-4">
+        Customization Process
+      </h3>
+      <h2 class="text-[32px] md:text-[40px] font-bold font-['Montserrat',sans-serif] tracking-tight">
+        One-Stop <span class="text-[#C9A84C] italic">OEM/ODM</span> Solutions
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:-ml-12 lg:-mr-12">
+      <!-- 01 Logo Customization -->
+      <div class="lg:col-span-4 bg-[#111111] rounded-2xl border border-white/10 p-8 flex flex-col transition-all hover:border-[#C9A84C]/30">
+        <div class="flex justify-between items-start mb-8">
+          <div>
+            <span class="text-[#C9A84C] font-black text-xl mr-2">01</span>
+            <h4 class="inline-block text-lg font-bold font-['Montserrat',sans-serif]">Logo Customization</h4>
+          </div>
+          <a href="#inquiry" class="px-4 py-1.5 rounded-full border border-[#C9A84C] text-[#C9A84C] text-[10px] font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all">Send Inquiry</a>
+        </div>
+        <div class="grid grid-cols-2 gap-3 flex-grow">
+          {customizationSteps[0].items.map(item => (
+            <div class="bg-[#18181B] rounded-xl p-3 border border-white/5 group hover:border-[#C9A84C]/20 transition-all">
+              <img src={item.img} alt={item.name} class="w-full aspect-square object-contain mb-3 brightness-90 group-hover:brightness-100 transition-all" />
+              <p class="text-[10px] text-gray-400 font-bold text-center uppercase tracking-tighter">{item.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 02 Style & Design -->
+      <div class="lg:col-span-5 bg-[#111111] rounded-2xl border border-white/10 p-8 flex flex-col transition-all hover:border-[#C9A84C]/30">
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <span class="text-[#C9A84C] font-black text-xl mr-2">02</span>
+            <h4 class="inline-block text-lg font-bold font-['Montserrat',sans-serif]">Style & Design</h4>
+          </div>
+          <a href="#inquiry" class="px-4 py-1.5 rounded-full border border-[#C9A84C] text-[#C9A84C] text-[10px] font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all">Send Inquiry</a>
+        </div>
+        <p class="text-gray-400 text-[12px] mb-8 font-['Century_Gothic',sans-serif]">Choose from our existing styles or develop your own with our sampling team.</p>
+        <div class="flex flex-col md:flex-row gap-8 items-center flex-grow">
+          <div class="w-full md:w-1/2 flex flex-col gap-4">
+            {customizationSteps[1].items.map(item => (
+              <div class="flex items-center gap-4 bg-[#18181B] p-4 rounded-xl border border-white/5">
+                <span class="text-2xl">{item.icon}</span>
+                <div>
+                  <p class="text-[13px] font-bold text-white uppercase">{item.name}</p>
+                  <p class="text-[10px] text-gray-500">Professional support</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="w-full md:w-1/2 rounded-xl overflow-hidden border border-white/5">
+            <img src={customizationSteps[1].mainImg} alt="Design Showcase" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 Fabric Customization -->
+      <div class="lg:col-span-3 bg-[#111111] rounded-2xl border border-white/10 p-8 flex flex-col transition-all hover:border-[#C9A84C]/30">
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <span class="text-[#C9A84C] font-black text-xl mr-2">03</span>
+            <h4 class="inline-block text-lg font-bold font-['Montserrat',sans-serif]">Fabric R&D</h4>
+          </div>
+          <a href="#inquiry" class="px-4 py-1.5 rounded-full border border-[#C9A84C] text-[#C9A84C] text-[10px] font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all">Send Inquiry</a>
+        </div>
+        <div class="grid grid-cols-1 gap-3 flex-grow">
+          {customizationSteps[2].fabrics.map(fabric => (
+            <div class="bg-[#18181B] px-4 py-3 rounded-lg border border-white/5 flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-[#C9A84C]"></div>
+              <span class="text-[12px] text-gray-300 font-bold uppercase tracking-tight">{fabric}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 04 Color & Pattern -->
+      <div class="lg:col-span-5 bg-[#111111] rounded-2xl border border-white/10 p-8 flex flex-col transition-all hover:border-[#C9A84C]/30">
+        <div class="flex justify-between items-start mb-8">
+          <div>
+            <span class="text-[#C9A84C] font-black text-xl mr-2">04</span>
+            <h4 class="inline-block text-lg font-bold font-['Montserrat',sans-serif]">Color & Pattern</h4>
+          </div>
+          <a href="#inquiry" class="px-4 py-1.5 rounded-full border border-[#C9A84C] text-[#C9A84C] text-[10px] font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all">Send Inquiry</a>
+        </div>
+        <div class="grid grid-cols-6 gap-3 mb-6">
+          {customizationSteps[3].colors.map(color => (
+            <div class="aspect-square rounded-lg border border-white/10 shadow-inner" style={`background-color: ${color}`}></div>
+          ))}
+        </div>
+        <p class="text-[11px] text-gray-500 italic mt-auto">More colors available upon request. We support full Pantone color matching for all collections.</p>
+      </div>
+
+      <!-- 05 Private Label -->
+      <div class="lg:col-span-7 bg-[#111111] rounded-2xl border border-white/10 p-8 flex flex-col transition-all hover:border-[#C9A84C]/30">
+        <div class="flex justify-between items-start mb-8">
+          <div>
+            <span class="text-[#C9A84C] font-black text-xl mr-2">05</span>
+            <h4 class="inline-block text-lg font-bold font-['Montserrat',sans-serif]">Private Label & Packaging</h4>
+          </div>
+          <a href="#inquiry" class="px-4 py-1.5 rounded-full border border-[#C9A84C] text-[#C9A84C] text-[10px] font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black transition-all">Send Inquiry</a>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 flex-grow">
+          {customizationSteps[4].items.map(item => (
+            <div class="bg-[#18181B] rounded-xl p-3 border border-white/5 flex flex-col items-center group hover:border-[#C9A84C]/20 transition-all">
+              <div class="w-full aspect-[4/3] rounded-lg overflow-hidden mb-3 bg-[#0A0A0A]">
+                <img src={item.img} alt={item.name} class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+              </div>
+              <p class="text-[11px] text-gray-400 font-bold uppercase tracking-tighter text-center">{item.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

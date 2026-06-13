@@ -3,27 +3,22 @@ const marketplaceItems = [
   {
     title: "Hundreds of Suppliers to Compare",
     desc: "Finding the right supplier takes time and often comes with uncertainty.",
-    icon: "✕"
   },
   {
     title: "Unclear Factory Background",
     desc: "Difficult to verify production capabilities and quality standards.",
-    icon: "✕"
   },
   {
     title: "Inconsistent Quality",
     desc: "Products may come from different factories with varying quality levels.",
-    icon: "✕"
   },
   {
     title: "Communication Delays",
     desc: "Messages often pass through multiple parties, slowing down projects.",
-    icon: "✕"
   },
   {
     title: "Higher Sourcing Costs",
     desc: "Platform fees and middlemen can increase overall purchasing costs.",
-    icon: "✕"
   }
 ];
 
@@ -31,32 +26,27 @@ const fitclooItems = [
   {
     title: "Verified Activewear Manufacturer",
     desc: "Specializing in yoga wear, sports bras, leggings, shorts, tank tops, and jumpsuits.",
-    icon: "✓"
   },
   {
     title: "Private Label & Custom Branding",
     desc: "Custom logos, woven labels, blank labels, packaging, and retail-ready solutions.",
-    icon: "✓"
   },
   {
     title: "Low MOQ",
     desc: "Flexible minimum order quantities for startups and growing activewear brands.",
-    icon: "✓"
   },
   {
     title: "Stable Production Capacity",
     desc: "Reliable manufacturing with strict quality control and consistent lead times.",
-    icon: "✓"
   },
   {
     title: "Factory-Direct Wholesale Pricing",
     desc: "No middlemen. Competitive wholesale pricing and long-term partnership support.",
-    icon: "✓"
   }
 ];
 ---
 
-<section id="advantage" class="py-24 bg-black text-white border-t border-white/5">
+<section id="advantage" class="py-24 bg-black text-white border-t border-white/5 overflow-hidden">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
     <!-- Header -->
     <div class="mb-16 text-center">
@@ -72,18 +62,20 @@ const fitclooItems = [
     </div>
 
     <!-- Comparison Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch relative">
       <!-- Left: Marketplace -->
       <div class="bg-[#111111] rounded-2xl border border-white/5 p-8 md:p-12 transition-all duration-300">
-        <h4 class="text-gray-500 text-[14px] font-bold tracking-[0.2em] mb-10 uppercase font-['Century_Gothic',sans-serif]">
+        <h4 class="text-gray-500 text-[14px] font-bold tracking-[0.2em] mb-12 uppercase font-['Century_Gothic',sans-serif]">
           Sourcing Through Marketplaces
         </h4>
-        <div class="space-y-8">
+        <div class="space-y-10">
           {marketplaceItems.map((item) => (
-            <div class="flex gap-4">
-              <span class="text-red-900/50 text-[18px] font-bold mt-0.5">{item.icon}</span>
+            <div class="flex gap-5">
+              <svg class="w-4 h-4 text-red-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
               <div>
-                <h5 class="text-white text-[16px] font-bold mb-1 font-['Montserrat',sans-serif]">{item.title}</h5>
+                <h5 class="text-white text-[16px] font-bold mb-1.5 font-['Montserrat',sans-serif]">{item.title}</h5>
                 <p class="text-gray-500 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif]">{item.desc}</p>
               </div>
             </div>
@@ -92,23 +84,29 @@ const fitclooItems = [
       </div>
 
       <!-- Right: Fitcloo Direct -->
-      <div class="bg-[#111111] rounded-2xl border-2 border-[#C9A84C]/40 p-8 md:p-12 relative shadow-[0_0_40px_rgba(201,168,76,0.05)] transition-all duration-300">
-        <!-- Badge -->
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#C9A84C] rounded-full">
-          <span class="text-black text-[10px] font-black uppercase tracking-widest font-['Century_Gothic',sans-serif]">
-            Most Popular
-          </span>
+      <div class="bg-[#111111] rounded-2xl border border-[#C9A84C]/20 p-8 md:p-12 relative shadow-[0_0_40px_rgba(201,168,76,0.05)] transition-all duration-300 overflow-hidden">
+        <!-- Corner Ribbon Badge - Luxopack Style -->
+        <div class="absolute top-0 right-0 w-32 h-32 overflow-hidden pointer-events-none">
+          <div class="absolute top-7 -right-8 w-40 bg-[#C9A84C] py-1 rotate-45 text-center shadow-lg">
+            <span class="text-black text-[10px] font-black uppercase tracking-widest font-['Century_Gothic',sans-serif]">
+              Most Popular
+            </span>
+          </div>
         </div>
 
-        <h4 class="text-[#C9A84C] text-[14px] font-bold tracking-[0.2em] mb-10 uppercase font-['Century_Gothic',sans-serif]">
+        <h4 class="text-[#C9A84C] text-[14px] font-bold tracking-[0.2em] mb-12 uppercase font-['Century_Gothic',sans-serif]">
           Fitcloo Factory-Direct
         </h4>
-        <div class="space-y-8">
+        <div class="space-y-10">
           {fitclooItems.map((item) => (
-            <div class="flex gap-4">
-              <span class="text-[#C9A84C] text-[18px] font-bold mt-0.5">{item.icon}</span>
+            <div class="flex gap-5">
+              <div class="bg-green-500 rounded-sm p-0.5 mt-1 flex-shrink-0">
+                <svg class="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
               <div>
-                <h5 class="text-white text-[16px] font-bold mb-1 font-['Montserrat',sans-serif]">{item.title}</h5>
+                <h5 class="text-white text-[16px] font-bold mb-1.5 font-['Montserrat',sans-serif]">{item.title}</h5>
                 <p class="text-gray-400 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif]">{item.desc}</p>
               </div>
             </div>

@@ -1,0 +1,72 @@
+---
+const certs = [
+  {
+    icon: "🌿",
+    title: "OEKO-TEX",
+    desc: "Standard 100"
+  },
+  {
+    icon: "🛡️",
+    title: "BSCI Audit",
+    desc: "Ethical Sourcing"
+  },
+  {
+    icon: "♻️",
+    title: "GRS Certified",
+    desc: "Recycled Content"
+  },
+  {
+    icon: "🏆",
+    title: "ISO 9001",
+    desc: "Quality Management"
+  },
+  {
+    icon: "🔬",
+    title: "SGS Tested",
+    desc: "Lab Verified"
+  },
+  {
+    icon: "🇪🇺",
+    title: "REACH",
+    desc: "EU Compliant"
+  }
+];
+---
+
+<section id="certifications" class="py-20 bg-[#0A0A0F] text-white border-t border-white/5">
+  <div class="max-w-[1400px] mx-auto px-6 text-center">
+    <!-- Header -->
+    <div class="mb-16">
+      <h3 class="text-[#C9A84C] font-bold tracking-[0.3em] text-[11px] md:text-[12px] mb-4 uppercase font-['Century_Gothic',sans-serif]">
+        CERTIFICATIONS & COMPLIANCE
+      </h3>
+      <h2 class="text-[32px] md:text-[42px] font-bold text-white font-['Montserrat',sans-serif] tracking-tight">
+        Built to Global Standards
+      </h2>
+    </div>
+
+    <!-- Certifications Row -->
+    <div class="flex flex-wrap justify-center gap-8 md:gap-16 lg:gap-20">
+      {certs.map((cert) => (
+        <div class="flex flex-col items-center group">
+          <!-- Circle Icon Container -->
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-[#C9A84C]/30 flex items-center justify-center bg-white/[0.02] transition-all duration-300 group-hover:border-[#C9A84C] group-hover:bg-white/[0.05] group-hover:scale-110 mb-5">
+            <span class="text-2xl md:text-3xl filter saturate-[0.8] group-hover:saturate-100 transition-all">
+              {cert.icon}
+            </span>
+          </div>
+          
+          <!-- Text Labels -->
+          <div class="text-center">
+            <h4 class="text-[12px] md:text-[13px] font-bold text-white tracking-widest uppercase font-['Century_Gothic',sans-serif] mb-1">
+              {cert.title}
+            </h4>
+            <p class="text-[10px] md:text-[11px] font-bold text-white/30 tracking-wider uppercase font-['Century_Gothic',sans-serif]">
+              {cert.desc}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

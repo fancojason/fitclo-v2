@@ -24,12 +24,12 @@ const features = [
 ---
 
 <section id="why-fitclo" class="py-24 bg-[#0A0A0F] text-white overflow-hidden border-t border-white/5">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
+  <div class="max-w-[1700px] mx-auto px-6 lg:px-16">
     <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
       
-      <!-- Left Side: Large Factory Exterior Image -->
-      <div class="w-full lg:w-1/2 relative group">
-        <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-auto lg:h-[600px]">
+      <!-- Left Side: Large Factory Exterior Image (Expanded Width & Aligned) -->
+      <div class="w-full lg:w-[55%] relative group lg:-translate-x-12">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-auto lg:h-[620px]">
           <img 
             src="https://sc01.alicdn.com/kf/H092634453c16476fb8d485cd1dcb4ab49.png" 
             alt="FITCLO Factory Exterior" 
@@ -57,13 +57,13 @@ const features = [
       </div>
 
       <!-- Right Side: Content (Refined Typography & Spacing) -->
-      <div class="w-full lg:w-1/2">
+      <div class="w-full lg:w-[40%]">
         <div class="mb-10">
-          <h3 class="text-[#C9A84C] font-bold tracking-[0.3em] text-[11px] mb-4 uppercase font-['Century_Gothic',sans-serif]">
+          <h3 class="text-[#C9A84C] font-bold tracking-[0.3em] text-[13px] mb-4 uppercase font-['Century_Gothic',sans-serif]">
             WHY FITCLO
           </h3>
-          <h2 class="text-[32px] md:text-[42px] lg:text-[48px] font-bold leading-[1.1] font-['Montserrat',sans-serif] tracking-tight mb-5">
-            Manufacturing Direct.<br/>
+          <h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold leading-[1.1] font-['Montserrat',sans-serif] tracking-tight mb-5">
+            Factory Direct.<br/>
             <span class="text-[#C9A84C] italic">Zero Middlemen.</span>
           </h2>
           <p class="text-white/40 text-[15px] md:text-[16px] leading-relaxed font-['Century_Gothic',sans-serif] max-w-[500px]">
@@ -71,10 +71,10 @@ const features = [
           </p>
         </div>
 
-        <!-- Feature Cards (Improved Visibility & Spacing) -->
+        <!-- Feature Cards (Dark Blue Luxopack Style) -->
         <div class="space-y-3.5">
           {features.map((feature) => (
-            <div class="bg-[#161616] border border-white/10 p-5 rounded-2xl transition-all duration-300 hover:border-[#C9A84C]/30 hover:bg-[#1A1A1A] group">
+            <div class="bg-[#0D1526] border border-white/10 p-5 rounded-2xl transition-all duration-300 hover:border-[#C9A84C]/30 hover:bg-[#111C33] group">
               <div class="flex items-center gap-5">
                 <!-- Icon Box -->
                 <div class="w-10 h-10 rounded-lg bg-black/60 flex items-center justify-center text-xl flex-shrink-0 border border-white/10 transition-colors group-hover:border-[#C9A84C]/40">
@@ -84,7 +84,7 @@ const features = [
                   <h4 class="text-white text-[15px] font-bold mb-0.5 font-['Montserrat',sans-serif]">
                     {feature.title}
                   </h4>
-                  <p class="text-white/30 text-[12px] leading-relaxed font-['Century_Gothic',sans-serif]">
+                  <p class="text-white/50 text-[12px] leading-relaxed font-['Century_Gothic',sans-serif]">
                     {feature.description}
                   </p>
                 </div>

@@ -1,0 +1,149 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Send Your Requirements",
+    description: "Tell us what you’re looking for. Whether you need ready-to-ship styles, custom logos or OEM development, our team will guide you through the next steps.",
+    subTitle: "WHAT YOU CAN SEND:",
+    items: [
+      "Product photos or references",
+      "Logo files",
+      "Required quantity",
+      "Fabric preferences",
+      "Packaging requirements",
+      "Your own design sketches"
+    ]
+  },
+  {
+    number: "02",
+    title: "Dedicated Account Manager",
+    description: "One experienced account manager supports your project from inquiry to delivery. Fast communication, transparent pricing and reliable after-sales service.",
+    subTitle: "YOU WILL RECEIVE:",
+    items: [
+      "Product recommendations",
+      "Detailed quotation",
+      "Fabric suggestions",
+      "Logo customization options",
+      "Sample arrangements",
+      "Estimated production timeline"
+    ]
+  },
+  {
+    number: "03",
+    title: "Confirm Order & Production",
+    description: "After sample approval, production begins with strict quality control and regular progress updates at every manufacturing stage.",
+    subTitle: "PRODUCTION PROCESS:",
+    items: [
+      "Fabric preparation",
+      "Cutting & sewing",
+      "Logo application",
+      "Quality inspection",
+      "Packing",
+      "Final inspection"
+    ]
+  },
+  {
+    number: "04",
+    title: "Delivery Worldwide",
+    description: "Your products are carefully packed and shipped to your warehouse, store or fulfillment center via our global logistics network.",
+    subTitle: "SHIPPING OPTIONS:",
+    items: [
+      "Express Shipping (DHL/FedEx)",
+      "Air Freight",
+      "Sea Freight",
+      "DDP Shipping",
+      "Amazon FBA Delivery",
+      "Door-to-Door Service"
+    ]
+  }
+];
+
+const timeline = [
+  { label: "Inquiry Response", value: "Within 24 Hours" },
+  { label: "Sample Development", value: "3–7 Days" },
+  { label: "Private Label Production", value: "15–25 Days" },
+  { label: "Ready-To-Ship Orders", value: "3–7 Days" },
+  { label: "Shipping", value: "Global Logistics Support" }
+];
+---
+
+<section id="how-it-works" class="py-24 bg-[#050505] text-white overflow-hidden border-t border-white/5">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
+    <!-- Header Section -->
+    <div class="text-center mb-20">
+      <h3 class="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] mb-6 uppercase font-['Century_Gothic',sans-serif]">
+        HOW IT WORKS
+      </h3>
+      <h2 class="text-[40px] md:text-[56px] lg:text-[72px] font-bold leading-[0.95] font-['Montserrat',sans-serif] tracking-tight mb-8">
+        From Idea To Launch<br/>
+        <span class="text-[#C9A84C]">In 4 Simple Steps</span>
+      </h2>
+      <p class="text-[#A3A3A3] text-[18px] leading-relaxed font-['Century_Gothic',sans-serif] max-w-[720px] mx-auto">
+        Whether you’re launching a new activewear brand or expanding your collection, Fitclo makes sourcing simple, fast and transparent — from your first inquiry to final delivery.
+      </p>
+    </div>
+
+    <!-- Steps Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+      {steps.map((step) => (
+        <div class="group relative pt-12">
+          <!-- Step Number Background -->
+          <div class="absolute top-0 left-0 text-[80px] font-black text-white/5 font-['Montserrat',sans-serif] leading-none transition-all duration-500 group-hover:text-[#C9A84C]/10">
+            {step.number}
+          </div>
+          
+          <div class="relative z-10">
+            <h4 class="text-[20px] font-bold text-white mb-4 font-['Montserrat',sans-serif] group-hover:text-[#C9A84C] transition-colors duration-300">
+              {step.title}
+              <div class="h-0.5 w-0 bg-[#C9A84C] group-hover:w-full transition-all duration-500 mt-1"></div>
+            </h4>
+            
+            <p class="text-[#A3A3A3] text-[14px] leading-relaxed font-['Century_Gothic',sans-serif] mb-6">
+              {step.description}
+            </p>
+
+            <div class="pt-6 border-t border-white/5">
+              <h5 class="text-[#C9A84C] text-[10px] font-bold tracking-widest uppercase mb-4 font-['Century_Gothic',sans-serif]">
+                {step.subTitle}
+              </h5>
+              <ul class="space-y-2">
+                {step.items.map(item => (
+                  <li class="flex items-center text-[12px] text-white/60 font-['Century_Gothic',sans-serif]">
+                    <span class="w-1 h-1 rounded-full bg-[#C9A84C]/40 mr-2"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Typical Timeline Module -->
+    <div class="max-w-[1000px] mx-auto">
+      <div class="bg-[#111111] rounded-2xl border border-white/5 p-8 md:p-12 overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-1 h-full bg-[#C9A84C]/50"></div>
+        
+        <div class="flex flex-col md:flex-row items-center justify-between mb-10 gap-6">
+          <div class="text-center md:text-left">
+            <h4 class="text-white text-[20px] font-bold font-['Montserrat',sans-serif] mb-2">Typical Timeline</h4>
+            <p class="text-[#A3A3A3] text-[13px] font-['Century_Gothic',sans-serif]">Transparent delivery times for every project stage.</p>
+          </div>
+          <a href="#inquiry" class="inline-block border border-[#C9A84C]/30 text-[#C9A84C] font-bold py-2.5 px-6 rounded-md hover:bg-[#C9A84C] hover:text-black transition-all text-[12px] uppercase tracking-widest font-['Century_Gothic',sans-serif]">
+            Get Started Now
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-0">
+          {timeline.map((item, index) => (
+            <div class={`flex flex-col p-4 ${index !== timeline.length - 1 ? 'md:border-r border-white/5' : ''}`}>
+              <span class="text-[#A3A3A3] text-[11px] font-bold uppercase tracking-widest mb-2 font-['Century_Gothic',sans-serif]">{item.label}</span>
+              <span class="text-[#C9A84C] text-[14px] font-bold font-['Montserrat',sans-serif]">{item.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+const articles = [
+  {
+    category: "Sourcing Guide",
+    title: "Custom Activewear Manufacturer China: Complete Buyer's Guide",
+    link: "#"
+  },
+  {
+    category: "Small Brand Guide",
+    title: "How to Choose an Activewear Manufacturer for Startup Brands",
+    link: "#"
+  },
+  {
+    category: "Comparison",
+    title: "Private Label Activewear vs. White Label: Which is Right for You?",
+    link: "#"
+  },
+  {
+    category: "Brand Strategy",
+    title: "How to Build a Successful Activewear Brand with Low MOQ",
+    link: "#"
+  }
+];
+---
+
+<section class="py-24 bg-[#050505] text-white">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
+    <div class="mb-16">
+      <h3 class="text-[#C9A84C] font-bold tracking-[0.15em] text-[13px] mb-4 uppercase font-['Century_Gothic',sans-serif]">
+        KNOWLEDGE HUB
+      </h3>
+      <h2 class="text-[32px] md:text-[44px] font-bold leading-[1.1] font-['Century_Gothic',sans-serif] tracking-tight mb-5">
+        Everything you need to know before <br/>
+        <span class="text-[#C9A84C] italic">launching your brand</span>
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      {articles.map((article) => (
+        <a 
+          href={article.link} 
+          class="group flex flex-col md:flex-row md:items-center justify-between p-8 bg-[#000000] border border-white/5 rounded-2xl transition-all duration-300 hover:border-[#C9A84C]/30 hover:bg-[#0B0B0B]"
+        >
+          <div class="flex items-center space-x-8">
+            <span class="text-[#C9A84C]/50 text-[12px] font-bold tracking-[0.2em] uppercase font-['Century_Gothic',sans-serif] hidden md:block w-40">
+              {article.category}
+            </span>
+            <h4 class="text-[18px] md:text-[22px] font-bold text-white group-hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">
+              {article.title}
+            </h4>
+          </div>
+          <div class="mt-4 md:mt-0 flex items-center space-x-2 text-[#C9A84C] text-[14px] font-bold uppercase tracking-widest font-['Century_Gothic',sans-serif]">
+            <span>Read →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

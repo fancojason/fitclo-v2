@@ -83,33 +83,32 @@ const timeline = [
       </p>
     </div>
 
-    <!-- Steps Grid (Refined Typography) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+    <!-- Steps Grid (Refined Typography & Luxopack Style) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16 mb-24">
       {steps.map((step) => (
-        <div class="group relative pt-12">
-          <!-- Step Number Background (Refined Position & Size) -->
-          <div class="absolute top-2 left-0 text-[45px] font-black text-white/10 font-['Montserrat',sans-serif] leading-none transition-all duration-500 group-hover:text-[#C9A84C]/20">
+        <div class="group relative">
+          <!-- Step Number (Luxopack Style: Dark Muted Gold, Montserrat) -->
+          <div class="text-[36px] font-bold text-[#5A4D2E] font-['Montserrat',sans-serif] leading-none mb-6">
             {step.number}
           </div>
           
-          <div class="relative z-10">
-            <h4 class="text-[17px] font-bold text-white mb-4 font-['Montserrat',sans-serif] group-hover:text-[#C9A84C] transition-colors duration-300">
+          <div class="relative">
+            <h4 class="text-[17px] font-bold text-white mb-3 font-['Montserrat',sans-serif]">
               {step.title}
-              <div class="h-0.5 w-0 bg-[#C9A84C] group-hover:w-full transition-all duration-500 mt-1"></div>
             </h4>
             
-            <p class="text-white/40 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif] mb-6">
+            <p class="text-white/40 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif] mb-8 min-h-[40px]">
               {step.description}
             </p>
 
-            <div class="pt-6 border-t border-white/5">
-              <h5 class="text-[#C9A84C] text-[10px] font-bold tracking-widest uppercase mb-4 font-['Century_Gothic',sans-serif]">
+            <div class="pt-8 border-t border-white/10">
+              <h5 class="text-[#C9A84C]/70 text-[10px] font-bold tracking-widest uppercase mb-4 font-['Century_Gothic',sans-serif]">
                 {step.subTitle}
               </h5>
-              <ul class="space-y-2">
+              <ul class="space-y-2.5">
                 {step.items.map(item => (
-                  <li class="flex items-center text-[12px] text-white/60 font-['Century_Gothic',sans-serif]">
-                    <span class="w-1 h-1 rounded-full bg-[#C9A84C]/40 mr-2"></span>
+                  <li class="flex items-start text-[12px] text-white/40 font-['Century_Gothic',sans-serif] leading-tight">
+                    <span class="w-1 h-1 rounded-full bg-[#C9A84C]/30 mr-2 mt-1.5 flex-shrink-0"></span>
                     {item}
                   </li>
                 ))}

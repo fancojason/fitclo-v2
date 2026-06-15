@@ -23,7 +23,7 @@ const articles = [
 ];
 ---
 
-<section class="py-24 bg-[#050505] text-white">
+<section class="py-24 bg-white text-black border-t border-gray-100">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
     <div class="mb-16">
       <h3 class="text-[#C9A84C] font-bold tracking-[0.15em] text-[13px] mb-4 uppercase font-['Century_Gothic',sans-serif]">
@@ -31,25 +31,25 @@ const articles = [
       </h3>
       <h2 class="text-[32px] md:text-[44px] font-bold leading-[1.1] font-['Century_Gothic',sans-serif] tracking-tight mb-5">
         Everything you need to know before <br/>
-        <span class="text-[#C9A84C] italic">launching your brand</span>
+        <span class="text-[#C9A84C] italic text-black/90">launching your brand</span>
       </h2>
     </div>
 
-    <div class="space-y-4">
+    <div class="space-y-0 border-t border-gray-100">
       {articles.map((article) => (
         <a 
           href={article.link} 
-          class="group flex flex-col md:flex-row md:items-center justify-between p-8 bg-[#000000] border border-white/5 rounded-2xl transition-all duration-300 hover:border-[#C9A84C]/30 hover:bg-[#0B0B0B]"
+          class="group flex flex-col md:flex-row md:items-center justify-between py-10 border-b border-gray-100 transition-all duration-300 hover:px-4"
         >
           <div class="flex items-center space-x-8">
-            <span class="text-[#C9A84C]/50 text-[12px] font-bold tracking-[0.2em] uppercase font-['Century_Gothic',sans-serif] hidden md:block w-40">
+            <span class="text-[#C9A84C]/60 text-[12px] font-bold tracking-[0.2em] uppercase font-['Century_Gothic',sans-serif] hidden md:block w-48">
               {article.category}
             </span>
-            <h4 class="text-[18px] md:text-[22px] font-bold text-white group-hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">
+            <h4 class="text-[18px] md:text-[24px] font-bold text-black/80 group-hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">
               {article.title}
             </h4>
           </div>
-          <div class="mt-4 md:mt-0 flex items-center space-x-2 text-[#C9A84C] text-[14px] font-bold uppercase tracking-widest font-['Century_Gothic',sans-serif]">
+          <div class="mt-4 md:mt-0 flex items-center space-x-2 text-[#C9A84C] text-[14px] font-bold uppercase tracking-widest font-['Century_Gothic',sans-serif] group-hover:translate-x-2 transition-transform">
             <span>Read →</span>
           </div>
         </a>

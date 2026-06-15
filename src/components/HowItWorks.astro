@@ -74,7 +74,7 @@ const timeline = [
       <h3 class="text-[#C9A84C] font-bold tracking-[0.15em] text-[13px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
         HOW IT WORKS
       </h3>
-      <h2 class="text-[28px] md:text-[36px] lg:text-[44px] font-bold leading-[1.1] font-['Montserrat',sans-serif] tracking-tight mb-6">
+      <h2 class="text-[28px] md:text-[36px] lg:text-[44px] font-bold leading-[1.1] font-['Century_Gothic',sans-serif] tracking-tight mb-6">
         From Idea To Launch<br/>
         <span class="text-[#C9A84C]">In 4 Simple Steps</span>
       </h2>
@@ -88,12 +88,12 @@ const timeline = [
       {steps.map((step) => (
         <div class="group relative">
           <!-- Step Number (Luxopack Style: Darker, Faded Gold, Montserrat) -->
-          <div class="text-[42px] font-bold text-[#443B22] font-['Montserrat',sans-serif] leading-none mb-6">
+          <div class="text-[42px] font-bold text-[#443B22] font-['Century_Gothic',sans-serif] leading-none mb-6">
             {step.number}
           </div>
           
           <div class="relative">
-            <h4 class="text-[17px] font-bold text-white mb-3 font-['Montserrat',sans-serif]">
+            <h4 class="text-[17px] font-bold text-white mb-3 font-['Century_Gothic',sans-serif]">
               {step.title}
             </h4>
             
@@ -136,7 +136,7 @@ const timeline = [
         
         <div class="flex flex-col md:flex-row items-center justify-between mb-10 gap-6">
           <div class="text-center md:text-left">
-            <h4 class="text-white text-[18px] font-bold font-['Montserrat',sans-serif] mb-2">Typical Timeline</h4>
+            <h4 class="text-white text-[18px] font-bold font-['Century_Gothic',sans-serif] mb-2">Typical Timeline</h4>
             <p class="text-white/40 text-[13px] font-['Century_Gothic',sans-serif]">Transparent delivery times for every project stage.</p>
           </div>
           <a href="#inquiry" class="inline-block border border-[#C9A84C]/30 text-[#C9A84C] font-bold py-2.5 px-6 rounded-md hover:bg-[#C9A84C] hover:text-black transition-all text-[12px] uppercase tracking-widest font-['Century_Gothic',sans-serif]">
@@ -148,7 +148,7 @@ const timeline = [
           {timeline.map((item, index) => (
             <div class={`flex flex-col p-4 ${index !== timeline.length - 1 ? 'md:border-r border-white/5' : ''}`}>
               <span class="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-2 font-['Century_Gothic',sans-serif]">{item.label}</span>
-              <span class="text-[#C9A84C] text-[13px] font-bold font-['Montserrat',sans-serif]">{item.value}</span>
+              <span class="text-[#C9A84C] text-[13px] font-bold font-['Century_Gothic',sans-serif]">{item.value}</span>
             </div>
           ))}
         </div>

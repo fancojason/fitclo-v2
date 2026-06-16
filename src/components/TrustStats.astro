@@ -1,0 +1,25 @@
+---
+const stats = [
+  { value: "8+", label: "Years Export Experience" },
+  { value: "1000+", label: "Styles Available" },
+  { value: "50+", label: "Countries Served" },
+  { value: "7 Days", label: "Ready To Ship" }
+];
+---
+
+<section id="trust-stats" class="py-16 bg-[#050505] border-y border-white/5 font-['Century_Gothic',sans-serif]">
+  <div class="max-w-[1700px] mx-auto px-6 lg:px-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map((stat) => (
+        <div class="text-center group transition-transform duration-500 hover:scale-105">
+          <div class="text-[36px] md:text-[44px] lg:text-[56px] font-bold text-[#C9A84C] mb-2 leading-none">
+            {stat.value}
+          </div>
+          <div class="text-white/60 text-[11px] md:text-[13px] font-bold uppercase tracking-widest">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

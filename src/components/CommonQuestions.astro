@@ -1,0 +1,51 @@
+---
+const faqs = [
+  {
+    question: "How to find a reliable activewear manufacturer in China?",
+    answer: "Look for manufacturers with proven export experience, transparent production processes and stable quality standards. A reliable partner should offer factory-direct communication, sample development, flexible customization and consistent lead times."
+  },
+  {
+    question: "What is the MOQ for private label activewear?",
+    answer: "MOQ starts from 50 pieces for ready-to-ship styles with logo customization. For OEM activewear production, MOQ varies depending on fabric and design complexity. We provide flexible solutions for both growing and established brands."
+  },
+  {
+    question: "Can I customize logo, labels and packaging?",
+    answer: "Yes. Fitclo offers complete private label solutions including heat transfer logos, silicone logos, woven labels, care labels, hang tags, and custom packaging bags. Everything is customized to your brand identity."
+  }
+];
+---
+
+<section id="common-questions" class="py-24 bg-[#080808] text-white overflow-hidden">
+  <div class="container mx-auto px-6 max-w-7xl">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="block text-[#C9A84C] text-[11px] font-bold tracking-[0.25em] uppercase mb-3">
+        COMMON QUESTIONS
+      </span>
+      <h2 class="text-[32px] md:text-[48px] font-bold mb-4 leading-tight font-['Century_Gothic',sans-serif] tracking-tight">
+        Activewear <span class="text-[#C9A84C] italic">Intelligence</span>
+      </h2>
+      <p class="text-white/60 text-[15px] md:text-[16px] max-w-[650px] mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
+        Get answers to the most common questions about private label activewear, 
+        ready-to-ship collections and manufacturing in China.
+      </p>
+    </div>
+
+    <!-- FAQ Cards Vertical Stack -->
+    <div class="max-w-4xl mx-auto space-y-6">
+      {faqs.map((faq) => (
+        <div class="group relative bg-[#000000] border border-white/5 rounded-[24px] p-8 md:p-10 transition-all duration-500 hover:border-[#C9A84C]/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+          <!-- Gold Accent Line Animation -->
+          <div class="absolute top-0 left-0 w-0 h-[2px] bg-[#C9A84C] transition-all duration-500 group-hover:w-full"></div>
+          
+          <h3 class="text-[#C9A84C] text-[16px] md:text-[19px] font-bold mb-5 leading-tight font-['Century_Gothic',sans-serif]">
+            {faq.question}
+          </h3>
+          <p class="text-white/60 text-[13px] md:text-[15px] leading-[1.8] font-['Century_Gothic',sans-serif]">
+            {faq.answer}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

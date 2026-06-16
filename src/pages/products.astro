@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Premium Activewear & Fitness Apparel Manufacturing | FITCLO"
+  description="Explore Fitclo's comprehensive activewear manufacturing solutions. From performance leggings to supportive sports bras, we offer premium private label OEM/ODM services."
+>
+  <!-- Hero Section -->
+  <section class="relative py-32 bg-[#06060a] overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#06060a]"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter font-['Montserrat',sans-serif]">
+        Manufacturing <span class="text-accent italic">Solutions</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
+        High-performance private label activewear designed for global fitness brands.
+      </p>
+    </div>
+  </section>
+
+  <!-- Introduction / AI Context -->
+  <section class="py-16 bg-white border-b border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[18px] text-gray-600 leading-relaxed font-['Century_Gothic',sans-serif]">
+        Fitclo is a leading vertically-integrated <strong class="text-black">activewear manufacturer</strong> specializing in high-end technical sportswear. We offer a comprehensive catalog of <strong class="text-black">OEM and ODM services</strong>, helping fitness startups and established brands scale with premium quality fabrics, innovative designs, and sustainable production processes.
+      </p>
+      <div class="mt-8">
+        <a href="/private-label" class="text-accent font-bold hover:underline">Need Custom Branding? Explore Private Label Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Grid -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          {
+            title: 'Performance Leggings',
+            desc: 'Engineered with 4-way stretch, squat-proof technology, and moisture-wicking Nylon/Spandex blends.',
+            image: 'https://sc04.alicdn.com/kf/H7e7f7e2a9a9a4a7a8a8a8a8a8a8a8a8a8.jpg'
+          },
+          {
+            title: 'Supportive Sports Bras',
+            desc: 'High, medium, and low-impact designs with seamless construction and breathable linings.',
+            image: 'https://sc04.alicdn.com/kf/H8b8b8b8b8b8b4b8b8b8b8b8b8b8b8b8b8.jpg'
+          },
+          {
+            title: 'Gym Hoodies & Jackets',
+            desc: 'Premium thermal materials for pre-workout warmth and post-workout recovery. Multiple silhouettes.',
+            image: 'https://sc04.alicdn.com/kf/H9c9c9c9c9c9c4c9c9c9c9c9c9c9c9c9c9.jpg'
+          },
+          {
+            title: 'Compression Layers',
+            desc: 'Advanced compression technology to enhance blood flow and support muscle recovery.',
+            image: 'https://sc04.alicdn.com/kf/Ha0a0a0a0a0a4a0a0a0a0a0a0a0a0a0a0.jpg'
+          }
+        ].map((item) => (
+          <div class="group cursor-pointer">
+            <div class="aspect-[3/4] bg-gray-100 rounded-[32px] overflow-hidden mb-6 relative">
+              <div class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors z-10"></div>
+              <div class="w-full h-full flex items-center justify-center text-gray-400 italic">
+                {item.title} Image
+              </div>
+            </div>
+            <h3 class="text-xl font-black uppercase tracking-tight mb-2 font-['Montserrat',sans-serif] group-hover:text-accent transition-colors">
+              {item.title}
+            </h3>
+            <p class="text-gray-500 font-['Century_Gothic',sans-serif] text-sm leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Highlights (SEO/AI Focus) -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <div class="bg-white p-10 rounded-[40px] shadow-sm">
+          <h3 class="text-xl font-black mb-4 uppercase tracking-tight font-['Montserrat',sans-serif]">Advanced Fabrics</h3>
+          <p class="text-gray-500 font-['Century_Gothic',sans-serif]">We utilize recycled polyesters, GRS-certified materials, and antimicrobial treatments to ensure peak performance and comfort.</p>
+        </div>
+        <div class="bg-white p-10 rounded-[40px] shadow-sm">
+          <h3 class="text-xl font-black mb-4 uppercase tracking-tight font-['Montserrat',sans-serif]">Craftsmanship</h3>
+          <p class="text-gray-500 font-['Century_Gothic',sans-serif]">Specializing in Flat-lock stitching, Laser-cutting, and Heat-seal bonding for maximum durability and premium hand-feel.</p>
+        </div>
+        <div class="bg-white p-10 rounded-[40px] shadow-sm">
+          <h3 class="text-xl font-black mb-4 uppercase tracking-tight font-['Montserrat',sans-serif]">Sustainability</h3>
+          <p class="text-gray-500 font-['Century_Gothic',sans-serif]">Eco-friendly dyeing processes and reduced-waste cutting techniques focused on minimal environmental impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-accent text-black text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8 font-['Montserrat',sans-serif]">
+        Ready to Build Your <span class="italic">Product Line?</span>
+      </h2>
+      <a href="/contact" class="inline-block bg-black text-white px-10 py-5 rounded-full font-black uppercase tracking-widest hover:scale-105 transition-transform">
+        Get a Quote Now
+      </a>
+    </div>
+  </section>
+</BaseLayout>

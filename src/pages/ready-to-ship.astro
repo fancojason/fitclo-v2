@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+---
+
+<BaseLayout 
+  title="Ready to Ship Activewear Wholesale | Fast Global Delivery"
+  description="Instant inventory solutions for your activewear brand. Explore Fitclo's ready-to-ship collection with low MOQs, high-quality gym wear, and 4,000,000+ units in stock."
+>
+  <!-- Hero Section -->
+  <section class="relative h-[50vh] flex items-center justify-center bg-[#06060a] overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://sc04.alicdn.com/kf/Hcc2d5570d1a94d4ea98d26ce3312893dj.png" 
+        alt="Ready to Ship Inventory" 
+        class="w-full h-full object-cover opacity-20"
+      />
+    </div>
+    <div class="relative z-10 text-center px-4">
+      <span class="inline-block px-4 py-1 bg-accent text-black text-[12px] font-black tracking-widest uppercase mb-6 rounded-full">Fast-Track Inventory</span>
+      <h1 class="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter font-['Montserrat',sans-serif]">Ready to <span class="text-accent italic">Ship</span></h1>
+      <p class="text-xl text-white/70 max-w-2xl mx-auto font-['Century_Gothic',sans-serif]">
+        Empowering your brand with high-quality activewear, ready for immediate global dispatch.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stock Highlights (SEO/AI Context) -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <div class="text-center p-10 bg-gray-50 rounded-[40px] border border-transparent hover:border-accent/30 transition-all">
+          <div class="text-4xl font-black text-black mb-4 font-['Montserrat',sans-serif]">4M+</div>
+          <h3 class="text-lg font-bold uppercase mb-3">Units in Stock</h3>
+          <p class="text-gray-500 text-sm font-['Century_Gothic',sans-serif]">A massive inventory across multiple categories, ensuring you never run out of stock during peak seasons.</p>
+        </div>
+        <div class="text-center p-10 bg-gray-50 rounded-[40px] border border-transparent hover:border-accent/30 transition-all">
+          <div class="text-4xl font-black text-black mb-4 font-['Montserrat',sans-serif]">48H</div>
+          <h3 class="text-lg font-bold uppercase mb-3">Order Processing</h3>
+          <p class="text-gray-500 text-sm font-['Century_Gothic',sans-serif]">Efficient logistics systems allowing us to process and ship your wholesale orders within 48 hours.</p>
+        </div>
+        <div class="text-center p-10 bg-gray-50 rounded-[40px] border border-transparent hover:border-accent/30 transition-all">
+          <div class="text-4xl font-black text-black mb-4 font-['Montserrat',sans-serif]">Low MOQ</div>
+          <h3 class="text-lg font-bold uppercase mb-3">Start with 10 Pcs</h3>
+          <p class="text-gray-500 text-sm font-['Century_Gothic',sans-serif]">Lowering the entry barrier for emerging brands and influencers to test the market with premium products.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Categories (SEO Keywords) -->
+  <section class="py-24 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-16">
+        <h2 class="text-4xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif]">Available <span class="text-accent italic">Categories</span></h2>
+        <p class="text-gray-500 mt-4 font-['Century_Gothic',sans-serif]">High-demand gym wear and yoga apparel items available for immediate wholesale.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="group relative overflow-hidden rounded-[40px] bg-black aspect-[16/9]">
+          <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 to-transparent"></div>
+          <div class="absolute bottom-10 left-10 z-20">
+            <h3 class="text-3xl font-black text-white uppercase tracking-tighter font-['Montserrat',sans-serif] mb-2">Yoga & Pilates</h3>
+            <p class="text-white/60 text-sm mb-6 max-w-xs">Naked-feel leggings, high-waist sets, and soft-touch tops available in 20+ colors.</p>
+            <a href="#inquiry" class="inline-block px-6 py-3 bg-accent text-black font-bold text-xs uppercase tracking-widest rounded-full">Check Stock</a>
+          </div>
+        </div>
+        <div class="group relative overflow-hidden rounded-[40px] bg-black aspect-[16/9]">
+          <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 to-transparent"></div>
+          <div class="absolute bottom-10 left-10 z-20">
+            <h3 class="text-3xl font-black text-white uppercase tracking-tighter font-['Montserrat',sans-serif] mb-2">Training & Gym</h3>
+            <p class="text-white/60 text-sm mb-6 max-w-xs">Performance shorts, sweat-wicking tees, and compression layers for men and women.</p>
+            <a href="#inquiry" class="inline-block px-6 py-3 bg-accent text-black font-bold text-xs uppercase tracking-widest rounded-full">Check Stock</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Wholesale with Fitclo? (B2B SEO) -->
+  <section class="py-24 bg-[#06060a] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-4xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif] mb-8">Why Scale with <span class="text-accent italic">Fitclo Wholesale?</span></h2>
+        <div class="space-y-8">
+          <div class="flex items-start space-x-6">
+            <div class="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2 uppercase">Consistent Quality</h4>
+              <p class="text-white/50 text-sm font-['Century_Gothic',sans-serif]">Every batch is produced in our own vertically integrated factory, ensuring the same high quality for every order.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-6">
+            <div class="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2 uppercase">Real-Time Inventory Management</h4>
+              <p class="text-white/50 text-sm font-['Century_Gothic',sans-serif]">Access our real-time stock levels through our consultant team to plan your sales campaigns effectively.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <InquiryForm id="inquiry" />
+</BaseLayout>

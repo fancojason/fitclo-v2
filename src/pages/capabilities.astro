@@ -1,22 +1,134 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import InquiryForm from '../components/InquiryForm.astro';
 ---
-<BaseLayout title="Manufacturing Capabilities | FITCLO">
-  <div class="py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1 class="text-5xl font-bold mb-12 italic">Our Capabilities</h1>
-    <div class="grid md:grid-cols-2 gap-16">
-      <div class="bg-gray-50 p-10 rounded-3xl">
-        <h2 class="text-2xl font-bold mb-6">OEM / Private Label</h2>
-        <p class="text-gray-600 leading-relaxed">
-          We provide full-service private label manufacturing. From your initial design sketches to the final shelf-ready product, we handle every step with precision.
-        </p>
-      </div>
-      <div class="bg-gray-50 p-10 rounded-3xl">
-        <h2 class="text-2xl font-bold mb-6">ODM / Custom Development</h2>
-        <p class="text-gray-600 leading-relaxed">
-          Leverage our in-house R&D team to develop unique silhouettes and proprietary fabric blends that set your brand apart in the market.
-        </p>
+
+<BaseLayout 
+  title="Advanced Manufacturing Capabilities | Activewear Factory | FITCLO"
+  description="Explore Fitclo's state-of-the-art 12,000㎡ production facility. Advanced fabric R&D, GRS-certified sustainable manufacturing, and strict quality control systems."
+>
+  <!-- Hero Section -->
+  <section class="relative h-[50vh] flex items-center justify-center bg-black overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://sc01.alicdn.com/kf/H08b0f9ae720a4061a79917c3d7f739663.png" 
+        alt="Fitclo Factory Floor" 
+        class="w-full h-full object-cover opacity-40"
+      />
+    </div>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter font-['Montserrat',sans-serif]">Manufacturing <span class="text-accent italic">Excellence</span></h1>
+      <p class="text-xl text-white/70 max-w-2xl mx-auto font-['Century_Gothic',sans-serif]">
+        Precision engineering meets innovative craftsmanship in our world-class production facilities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Factory Stats (Semantic Data) -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        {[
+          { label: 'Factory Area', value: '12,000㎡' },
+          { label: 'Monthly Capacity', value: '450k Pcs' },
+          { label: 'Total Employees', value: '350+' },
+          { label: 'R&D Experts', value: '25+' }
+        ].map((stat) => (
+          <div class="p-8 border-b-2 border-gray-100 hover:border-accent transition-colors">
+            <span class="block text-accent font-black text-4xl mb-2 font-['Montserrat',sans-serif]">{stat.value}</span>
+            <span class="text-gray-500 uppercase text-xs tracking-widest font-bold">{stat.label}</span>
+          </div>
+        ))}
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Detailed Capabilities (SEO Content) -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-20">
+        <!-- Fabric R&D -->
+        <div>
+          <h2 class="text-3xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif] mb-8">Fabric R&D <span class="text-accent italic">& Innovation</span></h2>
+          <div class="space-y-6 text-gray-600 font-['Century_Gothic',sans-serif] leading-relaxed">
+            <p>Our dedicated fabric research and development team collaborates with top yarn suppliers to create proprietary materials. We specialize in:</p>
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                <span><strong>GRS Certified Recycled Fabrics</strong>: Sustainable polyester and nylon made from post-consumer waste.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                <span><strong>Advanced Compression Tech</strong>: Engineered gradients to support muscle stability and reduce fatigue.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                <span><strong>Silver-Ion Antimicrobial</strong>: Integrated fabric treatments that prevent odor and bacteria growth.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Production Technology -->
+        <div>
+          <h2 class="text-3xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif] mb-8">Production <span class="text-accent italic">Technology</span></h2>
+          <div class="space-y-6 text-gray-600 font-['Century_Gothic',sans-serif] leading-relaxed">
+            <p>We invest in the latest machinery to ensure precision and durability in every garment:</p>
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                <span><strong>Auto-Cutting Systems</strong>: Computer-controlled precision cutting to minimize fabric waste.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                <span><strong>4-Needle 6-Thread (Flatlock)</strong>: Specialized stitching for seamless comfort and high durability.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                <span><strong>Heat-Seal & Laser Cut</strong>: For high-end athletic wear requiring clean edges and minimal weight.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality Control (Authority Signal) -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#06060a] rounded-[60px] p-16 md:p-24 text-white overflow-hidden relative">
+        <div class="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif] mb-8">Strict <span class="text-accent italic">Quality Control</span></h2>
+            <p class="text-white/60 text-lg mb-8 font-['Century_Gothic',sans-serif]">Our 100% inspection policy ensures that zero defects leave our factory.</p>
+            <div class="space-y-6">
+              {[
+                'Raw Material Inspection (IQC)',
+                'In-Line Quality Inspection (IPQC)',
+                'Final Garment Testing (FQC)',
+                'Pre-shipment Audit (OQC)'
+              ].map((step) => (
+                <div class="flex items-center space-x-4">
+                  <div class="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-black">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span class="text-lg font-bold uppercase tracking-tight">{step}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <img 
+              src="https://sc01.alicdn.com/kf/Hcc2d5570d1a94d4ea98d26ce3312893dj.png" 
+              alt="Quality Control Testing" 
+              class="rounded-[40px] opacity-80"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <InquiryForm />
 </BaseLayout>

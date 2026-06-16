@@ -78,7 +78,7 @@ const timeline = [
         From Idea to Launch<br/>
         <span class="text-[#C9A84C] italic">in 4 Simple Steps</span>
       </h2>
-      <p class="text-white/40 max-w-[620px] mx-auto text-[15px] md:text-[16px] leading-relaxed font-['Century_Gothic',sans-serif]">
+      <p class="text-white/60 max-w-[620px] mx-auto text-[15px] md:text-[16px] leading-relaxed font-['Century_Gothic',sans-serif]">
         Whether you’re launching a new activewear brand or expanding your collection, Fitclo makes sourcing simple, fast and transparent — from your first inquiry to final delivery.
       </p>
     </div>
@@ -97,7 +97,7 @@ const timeline = [
               {step.title}
             </h4>
             
-            <p class="text-white/40 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif] mb-8 min-h-[40px]">
+            <p class="text-white/60 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif] mb-8 min-h-[40px]">
               {step.description}
             </p>
 
@@ -107,7 +107,7 @@ const timeline = [
               </h5>
               <ul class="space-y-2.5">
                 {step.items.map(item => (
-                  <li class="flex items-start text-[12px] text-white/40 font-['Century_Gothic',sans-serif] leading-tight">
+                  <li class="flex items-start text-[12px] text-white/60 font-['Century_Gothic',sans-serif] leading-tight">
                     <span class="w-1 h-1 rounded-full bg-[#C9A84C]/30 mr-2 mt-1.5 flex-shrink-0"></span>
                     {item}
                   </li>
@@ -137,7 +137,7 @@ const timeline = [
         <div class="flex flex-col md:flex-row items-center justify-between mb-10 gap-6">
           <div class="text-center md:text-left">
             <h4 class="text-white text-[18px] font-bold font-['Century_Gothic',sans-serif] mb-2">Typical Timeline</h4>
-            <p class="text-white/40 text-[13px] font-['Century_Gothic',sans-serif]">Transparent delivery times for every project stage.</p>
+            <p class="text-white/60 text-[13px] font-['Century_Gothic',sans-serif]">Transparent delivery times for every project stage.</p>
           </div>
           <a href="#inquiry" class="inline-block border border-[#C9A84C]/30 text-[#C9A84C] font-bold py-2.5 px-6 rounded-md hover:bg-[#C9A84C] hover:text-black transition-all text-[12px] uppercase tracking-widest font-['Century_Gothic',sans-serif]">
             Get Started Now
@@ -147,7 +147,7 @@ const timeline = [
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-0">
           {timeline.map((item, index) => (
             <div class={`flex flex-col p-4 ${index !== timeline.length - 1 ? 'md:border-r border-white/5' : ''}`}>
-              <span class="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-2 font-['Century_Gothic',sans-serif]">{item.label}</span>
+              <span class="text-white/50 text-[10px] font-bold uppercase tracking-widest mb-2 font-['Century_Gothic',sans-serif]">{item.label}</span>
               <span class="text-[#C9A84C] text-[13px] font-bold font-['Century_Gothic',sans-serif]">{item.value}</span>
             </div>
           ))}

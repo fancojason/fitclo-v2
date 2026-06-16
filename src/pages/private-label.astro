@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+---
+
+<BaseLayout 
+  title="Private Label Activewear Manufacturer | Custom Sportswear Solutions"
+  description="Build your activewear brand with Fitclo's private label services. We offer end-to-end OEM/ODM manufacturing, low MOQs, custom branding, and premium quality yoga wear."
+>
+  <!-- Hero Section -->
+  <section class="relative h-[60vh] flex items-center justify-center bg-[#06060a] overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://sc01.alicdn.com/kf/Hcc2d5570d1a94d4ea98d26ce3312893dj.png" 
+        alt="Private Label Manufacturing" 
+        class="w-full h-full object-cover opacity-30"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 w-full text-left">
+      <h1 class="text-5xl md:text-8xl font-black text-white mb-6 uppercase tracking-tighter font-['Montserrat',sans-serif] leading-none">
+        Your Brand,<br /><span class="text-accent italic">Our Expertise</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/70 max-w-2xl font-['Century_Gothic',sans-serif] leading-relaxed">
+        Comprehensive private label activewear manufacturing designed to help fitness entrepreneurs and established brands scale with ease.
+      </p>
+    </div>
+  </section>
+
+  <!-- Service Overview (AI/SEO Context) -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <h2 class="text-4xl font-black mb-8 uppercase tracking-tighter font-['Montserrat',sans-serif]">What is <span class="text-accent italic">Private Label?</span></h2>
+          <div class="space-y-6 text-[18px] text-gray-600 font-['Century_Gothic',sans-serif] leading-relaxed">
+            <p>
+              Private labeling allows you to sell high-quality activewear manufactured by Fitclo under your own brand name. We provide the infrastructure, technology, and craftsmanship, while you focus on marketing and growth.
+            </p>
+            <p>
+              Whether you need <strong class="text-black">custom logo application</strong>, specialized <strong class="text-black">hang tags</strong>, or fully bespoke <strong class="text-black">OEM designs</strong>, our team ensures your brand identity is reflected in every stitch.
+            </p>
+            <p>
+              <a href="/products" class="text-accent font-bold hover:underline">View our product catalog for inspiration →</a>
+            </p>
+          </div>
+          
+          <div class="mt-12 grid grid-cols-2 gap-8">
+            <div class="border-l-4 border-accent pl-6">
+              <span class="block text-3xl font-black font-['Montserrat',sans-serif]">100+</span>
+              <span class="text-gray-500 uppercase text-sm font-bold tracking-widest">Low MOQ Options</span>
+            </div>
+            <div class="border-l-4 border-accent pl-6">
+              <span class="block text-3xl font-black font-['Montserrat',sans-serif]">7-15D</span>
+              <span class="text-gray-500 uppercase text-sm font-bold tracking-widest">Sampling Time</span>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <img 
+            src="https://sc04.alicdn.com/kf/Hcc2d5570d1a94d4ea98d26ce3312893dj.png" 
+            alt="Custom Labeling Process" 
+            class="rounded-[40px] shadow-2xl relative z-10"
+          />
+          <div class="absolute -top-10 -right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Process (Step-by-Step for AI/SEO) -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif]">Our <span class="text-accent italic">Manufacturing Process</span></h2>
+      </div>
+      
+      <div class="grid md:grid-cols-5 gap-4">
+        {[
+          { step: '01', title: 'Consult', desc: 'Discussing your design concepts and fabric requirements.' },
+          { step: '02', title: 'Design', desc: 'Creating tech packs and CAD drawings for your approval.' },
+          { step: '03', title: 'Sample', desc: 'Producing a physical prototype for fit and quality testing.' },
+          { step: '04', title: 'Bulk', desc: 'Mass production with 100% rigorous quality control.' },
+          { step: '05', title: 'Ship', desc: 'Global logistics and secure door-to-door delivery.' }
+        ].map((item) => (
+          <div class="bg-white p-8 rounded-3xl hover:bg-accent group transition-all duration-300">
+            <span class="block text-4xl font-black text-accent group-hover:text-black mb-4 font-['Montserrat',sans-serif]">{item.step}</span>
+            <h3 class="text-xl font-bold mb-2 uppercase group-hover:text-black">{item.title}</h3>
+            <p class="text-gray-500 group-hover:text-black/80 text-sm font-['Century_Gothic',sans-serif]">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Customization Options -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif]">Branding <span class="text-accent italic">Customization</span></h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 text-accent">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Custom Labels & Tags</h3>
+          <p class="text-gray-500 font-['Century_Gothic',sans-serif]">Woven labels, heat-transfer neck labels, and premium hang tags to elevate your brand presence.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 text-accent">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Branded Packaging</h3>
+          <p class="text-gray-500 font-['Century_Gothic',sans-serif]">Eco-friendly poly bags, custom boxes, and sustainable shipping materials with your logo.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 text-accent">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Custom Prints & Colors</h3>
+          <p class="text-gray-500 font-['Century_Gothic',sans-serif]">Sublimation printing, screen printing, embroidery, and custom Pantone color matching.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <InquiryForm />
+</BaseLayout>

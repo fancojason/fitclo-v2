@@ -2,27 +2,27 @@
 const reviews = [
   {
     stars: "★★★★★",
-    content: "“We started with private label yoga leggings and now purchase multiple collections every season. Fitclo is responsive, quality is stable, and delivery is always on schedule. The cooperation has been smooth from day one.”",
-    name: "Verified Yoga Brand Owner",
-    role: "Founder, Boutique Activewear Brand",
+    content: "“We started with private label yoga leggings and now purchase multiple collections every season. Fitclo is responsive, quality is stable, and delivery is always on schedule.”",
+    name: "Verified Brand Owner",
+    role: "Founder, Bloom & Co. Skincare",
     country: "US",
-    avatar: "Y"
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
   },
   {
     stars: "★★★★★",
-    content: "“After comparing several suppliers in China, Fitclo stood out for communication speed, fabric quality and flexibility. The team understands branding and makes customization easy.”",
-    name: "Fitness Apparel Distributor",
-    role: "Purchasing Manager",
-    country: "UK",
-    avatar: "F"
+    content: "“After trying 3 other China factories, Fitclo is in a completely different league. The quality is consistent, communication is excellent, and they handled our custom size perfectly.”",
+    name: "Luxury Apparel Retailer",
+    role: "Procurement Manager, GiftCo Europe",
+    country: "GB",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg"
   },
   {
     stars: "★★★★★",
-    content: "“We’ve been working with Fitclo for years. The production quality is consistent, and the team always provides solutions quickly. A reliable manufacturing partner we can trust.”",
-    name: "Private Label Sportswear Brand",
-    role: "Supply Chain Director",
-    country: "AU",
-    avatar: "P"
+    content: "“We order 50,000 sets per quarter. Fitclo has never missed a deadline in 3 years. Their design team is fast and professional. The price-quality ratio is unmatched.”",
+    name: "Amira Khalil",
+    role: "Supply Chain Director, Luxe Beauty KSA",
+    country: "SA",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg"
   }
 ];
 
@@ -43,93 +43,60 @@ const countries = [
 ];
 ---
 
-<section id="client-success" class="py-32 bg-[#050505] text-white overflow-hidden border-t border-white/5">
-  <div class="container mx-auto px-4 max-w-7xl">
+<section id="client-success" class="py-24 bg-[#050505] text-white overflow-hidden border-t border-white/5">
+  <div class="max-w-[1700px] mx-auto px-6 lg:px-16">
     
-    <!-- Section Header -->
-    <div class="text-center mb-24">
-      <span class="block text-[#C9A84C] text-[12px] font-bold tracking-[0.25em] uppercase mb-6 animate-fade-in font-['Century_Gothic',sans-serif]">
+    <!-- Section Header (Left Aligned - Luxopack Style) -->
+    <div class="flex flex-col mb-16 lg:-translate-x-12">
+      <h3 class="text-[#C9A84C] font-bold tracking-[0.1em] text-[11px] md:text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
         CLIENT REVIEWS
-      </span>
-      <h2 class="text-[40px] md:text-[72px] font-bold mb-8 leading-[0.95] font-['Century_Gothic',sans-serif]">
-        Global Brands <br/>
-        <span class="text-[#C9A84C] italic">Trust Fitclo</span>
+      </h3>
+      <h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold text-white leading-tight font-['Century_Gothic',sans-serif] tracking-tight mb-5">
+        What Our <span class="text-[#C9A84C] italic">Clients Say</span>
       </h2>
-      <p class="text-[#A3A3A3] text-[18px] max-w-[700px] mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
-        From startups to established activewear brands, customers worldwide choose Fitclo for reliable manufacturing, premium quality and long-term partnership.
+      <p class="text-gray-400 mt-2 max-w-xl text-[14px] md:text-[15px] leading-relaxed font-['Century_Gothic',sans-serif]">
+        Real feedback from brands who trust Fitclo for their activewear manufacturing and global supply chain.
       </p>
     </div>
 
-    <!-- Testimonial Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+    <!-- Testimonial Cards Grid (Wider, Shorter Cards) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
       {reviews.map((review) => (
-        <div class="group relative bg-[#0B0B0B] border border-white/5 rounded-[24px] p-10 md:p-12 transition-all duration-500 hover:border-[#C9A84C]/20 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
-          <!-- Gold Accent Line -->
+        <div class="group relative bg-[#0D1526] border border-white/10 rounded-2xl p-8 md:p-10 transition-all duration-500 hover:border-[#C9A84C]/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] flex flex-col justify-between min-h-[320px]">
+          <!-- Gold Accent Line Animation -->
           <div class="absolute top-0 left-0 w-0 h-[2px] bg-[#C9A84C] transition-all duration-500 group-hover:w-full"></div>
           
-          <div class="text-[#D4AF37] text-[20px] mb-8 tracking-widest">{review.stars}</div>
+          <div>
+            <div class="text-[#D4AF37] text-[16px] mb-6 tracking-widest">{review.stars}</div>
+            <blockquote class="text-[#A3A3A3] text-[15px] md:text-[16px] leading-[1.7] mb-8 font-['Century_Gothic',sans-serif]">
+              {review.content}
+            </blockquote>
+          </div>
           
-          <blockquote class="text-[#A3A3A3] text-[16px] md:text-[18px] leading-[1.9] mb-12 font-['Century_Gothic',sans-serif] italic">
-            {review.content}
-          </blockquote>
-          
-          <div class="flex items-center justify-between border-t border-white/5 pt-8">
+          <div class="flex items-center justify-between border-t border-white/5 pt-6">
             <div class="flex items-center space-x-4">
-              <div class="w-12 h-12 bg-[#C9A84C] rounded-full flex items-center justify-center text-[#0A0A0F] font-bold text-xl">
-                {review.avatar}
+              <div class="w-10 h-10 rounded-full overflow-hidden border border-[#C9A84C]/20">
+                <img src={review.avatar} alt={review.name} class="w-full h-full object-cover" />
               </div>
               <div>
-                <div class="text-white font-bold text-[16px] font-['Century_Gothic',sans-serif]">{review.name}</div>
-                <div class="text-white/40 text-[13px] font-['Century_Gothic',sans-serif]">{review.role}</div>
+                <div class="text-white font-bold text-[14px] font-['Century_Gothic',sans-serif] tracking-tight">{review.name}</div>
+                <div class="text-white/40 text-[11px] font-['Century_Gothic',sans-serif]">{review.role}</div>
               </div>
             </div>
-            <div class="text-white/20 text-[14px] font-bold font-['Century_Gothic',sans-serif] tracking-widest">{review.country}</div>
+            <div class="text-white/20 text-[12px] font-bold font-['Century_Gothic',sans-serif] tracking-widest uppercase">{review.country}</div>
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Global Presence Section -->
-    <div class="relative py-24 border-y border-white/5">
-      <div class="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none">
-        <!-- Simplified Map Representation -->
-        <svg class="w-full max-w-5xl text-[#C9A84C]" viewBox="0 0 1000 500" fill="currentColor">
-          <circle cx="200" cy="150" r="4" class="animate-pulse" /> <!-- US -->
-          <circle cx="180" cy="120" r="4" class="animate-pulse" /> <!-- Canada -->
-          <circle cx="480" cy="120" r="4" class="animate-pulse" /> <!-- Europe -->
-          <circle cx="500" cy="140" r="4" class="animate-pulse" /> <!-- UK -->
-          <circle cx="620" cy="220" r="4" class="animate-pulse" /> <!-- Middle East -->
-          <circle cx="850" cy="380" r="4" class="animate-pulse" /> <!-- Australia -->
-          <path d="M100,250 Q250,100 400,250 T700,250" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="5,5" />
-        </svg>
-      </div>
-
-      <div class="relative z-10 text-center max-w-4xl mx-auto">
-        <h3 class="text-[32px] md:text-[44px] font-bold mb-8 font-['Century_Gothic',sans-serif]">
-          Serving <span class="text-[#C9A84C]">Brands</span> Worldwide
-        </h3>
-        <p class="text-[#A3A3A3] text-[16px] mb-12 font-['Century_Gothic',sans-serif]">
-          Fitclo partners with activewear brands, distributors and retailers across multiple continents, providing ready-to-ship and private label solutions.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6">
-          {countries.map((c) => (
-            <div class="bg-white/5 px-6 py-3 rounded-full border border-white/5 flex items-center space-x-3 transition-colors hover:border-[#C9A84C]/30 hover:bg-white/10">
-              <span>{c.code}</span>
-              <span class="text-[14px] font-bold tracking-widest uppercase font-['Century_Gothic',sans-serif] text-white/60">{c.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    <!-- Trust Numbers Section -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24">
+    <!-- Trust Numbers Section (Refined) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-16 border-y border-white/5">
       {stats.map((stat) => (
-        <div class="text-center group transition-transform hover:scale-105">
-          <div class="text-[48px] md:text-[56px] font-bold text-[#C9A84C] mb-2 font-['Century_Gothic',sans-serif] drop-shadow-[0_0_20px_rgba(201,168,76,0.3)]">
+        <div class="text-center group">
+          <div class="text-[36px] md:text-[44px] font-bold text-[#C9A84C] mb-1 font-['Century_Gothic',sans-serif]">
             {stat.value}
           </div>
-          <div class="text-white text-[14px] md:text-[16px] font-bold uppercase tracking-widest font-['Century_Gothic',sans-serif] text-white/60">
+          <div class="text-white/40 text-[11px] font-bold uppercase tracking-widest font-['Century_Gothic',sans-serif]">
             {stat.label}
           </div>
         </div>
@@ -138,13 +105,3 @@ const countries = [
 
   </div>
 </section>
-
-<style>
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in {
-    animation: fade-in 1s ease-out forwards;
-  }
-</style>

@@ -1,0 +1,51 @@
+---
+const faqs = [
+  {
+    question: "What is the MOQ for custom activewear?",
+    answer: "We specialize in B2B wholesale with a low MOQ of 50 pcs for ready-to-ship styles and 100-200 pcs for custom OEM designs. This allows growing brands to access factory-direct pricing."
+  },
+  {
+    question: "Do you offer private label services?",
+    answer: "Yes, we are a leading manufacturer of private label activewear. We offer various logo options (heat transfer, silicone, woven), custom labels, and branded packaging to match your brand's requirements."
+  },
+  {
+    question: "Can I get a sample of my custom design?",
+    answer: "Absolutely. We provide both digital mockups and physical pre-production samples. This ensures your custom activewear meets your exact specifications before mass production."
+  },
+  {
+    question: "How long is shipping from your China factory?",
+    answer: "Standard production is 15-25 days. Shipping to the US/EU takes 5-7 days via air express (DHL/FedEx) or 25-35 days via sea freight for bulk wholesale orders."
+  }
+];
+---
+
+<section id="wholesale-faq" class="py-24 bg-[#050505] text-white font-['Century_Gothic',sans-serif]">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <span class="block text-[#C9A84C] text-[12px] font-[600] tracking-[0.25em] uppercase mb-4">
+        WHOLESALE SUPPORT
+      </span>
+      <h2 class="text-[36px] md:text-[52px] font-bold leading-tight mb-6">
+        Activewear <span class="text-[#C9A84C] italic">Wholesale FAQ</span>
+      </h2>
+      <p class="text-[#A3A3A3] text-[16px] md:text-[18px] leading-[1.8] max-w-[800px] mx-auto">
+        Common questions about our wholesale activewear manufacturing and B2B ordering process.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+      {faqs.map((faq) => (
+        <div class="group">
+          <h3 class="text-[18px] md:text-[20px] font-bold mb-4 leading-tight group-hover:text-[#C9A84C] transition-colors">
+            {faq.question}
+          </h3>
+          <p class="text-[#A3A3A3] text-[15px] md:text-[16px] leading-[1.8]">
+            {faq.answer}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

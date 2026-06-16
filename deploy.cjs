@@ -64,6 +64,8 @@ async function deploy() {
       'src/components/BlogPosts.astro',
       'src/components/Footer.astro',
       'src/components/AccessoriesBanner.astro',
+      'src/components/FloatingButtons.astro',
+      'astro.config.mjs',
       'src/pages/index.astro',
       'src/pages/about.astro',
       'tailwind.config.mjs',

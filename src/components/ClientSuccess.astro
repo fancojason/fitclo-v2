@@ -1,0 +1,169 @@
+---
+const testimonials = [
+  {
+    stars: "★★★★★",
+    review: "“We started with private label yoga leggings and now purchase multiple collections every season. Fitclo is responsive, quality is stable, and delivery is always on schedule. The cooperation has been smooth from day one.”",
+    name: "Verified Yoga Brand Owner",
+    role: "Founder, xxx Athletics",
+    country: "US",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+  },
+  {
+    stars: "★★★★★",
+    review: "“After comparing several suppliers in China, Fitclo stood out for communication speed, fabric quality and flexibility. The team understands branding and makes customization easy.”",
+    name: "Fitness Apparel Distributor",
+    role: "Purchasing Manager, xxx Sport Europe",
+    country: "UK",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  {
+    stars: "★★★★★",
+    review: "“We’ve been working with Fitclo for years. The production quality is consistent, and the team always provides solutions quickly. A reliable manufacturing partner we can trust.”",
+    name: "Private Label Sportswear Brand",
+    role: "Supply Chain Director, xxx Australia",
+    country: "AU",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg"
+  }
+];
+
+const stats = [
+  { value: "8+", label: "Years Export Experience" },
+  { value: "1000+", label: "Styles Available" },
+  { value: "50+", label: "Countries Served" },
+  { value: "7 Days", label: "Ready To Ship" }
+];
+
+const countries = [
+  { name: "USA", flag: "🇺🇸" },
+  { name: "Canada", flag: "🇨🇦" },
+  { name: "UK", flag: "🇬🇧" },
+  { name: "Europe", flag: "🇪🇺" },
+  { name: "Australia", flag: "🇦🇺" },
+  { name: "Middle East", flag: "🇦🇪" }
+];
+---
+
+<section id="client-success" class="py-32 bg-[#050505] text-white overflow-hidden font-['Century_Gothic',sans-serif]">
+  <div class="container mx-auto px-6 max-w-7xl">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-20">
+      <span class="block text-[#C9A84C] text-[12px] font-bold tracking-[0.25em] uppercase mb-6">
+        CLIENT REVIEWS
+      </span>
+      <h2 class="text-[40px] md:text-[72px] font-bold mb-8 leading-[0.95] tracking-tight">
+        Global Brands <br/>
+        <span class="text-[#C9A84C]">Trust Fitclo</span>
+      </h2>
+      <p class="text-[#A3A3A3] text-[18px] max-w-[700px] mx-auto leading-relaxed">
+        From startups to established activewear brands, customers worldwide choose Fitclo for reliable manufacturing, premium quality and long-term partnership.
+      </p>
+    </div>
+
+    <!-- Testimonial Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+      {testimonials.map((item) => (
+        <div class="group relative bg-[#0B0B0B] border border-white/5 rounded-[24px] p-8 md:p-12 transition-all duration-500 hover:-translate-y-2 hover:border-[#C9A84C]/30 hover:shadow-[0_20px_40px_rgba(201,168,76,0.05)] flex flex-col justify-between min-h-[400px]">
+          <!-- Top Gold Accent -->
+          <div class="absolute top-0 left-0 w-0 h-[2px] bg-[#C9A84C] transition-all duration-500 group-hover:w-full"></div>
+          
+          <div>
+            <div class="text-[#D4AF37] text-[14px] mb-8 tracking-widest">{item.stars}</div>
+            <blockquote class="text-[#A3A3A3] text-[16px] md:text-[18px] leading-[1.9] mb-8 italic">
+              {item.review}
+            </blockquote>
+          </div>
+          
+          <div class="flex items-center space-x-4 pt-8 border-t border-white/5">
+            <div class="w-12 h-12 rounded-full overflow-hidden border border-[#C9A84C]/20">
+              <img src={item.avatar} alt={item.name} class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <div class="text-white font-bold text-[15px]">{item.name}</div>
+              <div class="text-white/40 text-[12px]">{item.role}</div>
+            </div>
+            <div class="ml-auto text-white/30 text-[14px] font-bold">{item.country}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Serving Brands Worldwide (Global Presence) -->
+    <div class="relative bg-[#0B0B0B] rounded-[32px] border border-white/5 p-8 md:p-20 mb-32 overflow-hidden">
+      <!-- Background Map Texture (SVG Placeholder) -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice">
+          <path fill="currentColor" d="M150,150 Q200,100 250,150 T350,150" />
+          <!-- Simplistic representation of map for style -->
+          <circle cx="200" cy="200" r="2" fill="#C9A84C" class="animate-pulse" />
+          <circle cx="450" cy="150" r="3" fill="#C9A84C" class="animate-pulse" style="animation-delay: 1s" />
+          <circle cx="700" cy="250" r="2" fill="#C9A84C" class="animate-pulse" style="animation-delay: 0.5s" />
+          <circle cx="850" cy="180" r="4" fill="#C9A84C" class="animate-pulse" style="animation-delay: 1.5s" />
+        </svg>
+      </div>
+
+      <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="max-w-md">
+          <h3 class="text-[32px] md:text-[42px] font-bold text-white mb-6 leading-tight">
+            Serving Brands <br/> <span class="text-[#C9A84C]">Worldwide</span>
+          </h3>
+          <p class="text-[#A3A3A3] text-[16px] leading-relaxed mb-8">
+            Fitclo partners with activewear brands, distributors and retailers across multiple continents, providing ready-to-ship and private label solutions.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            {countries.map(c => (
+              <span class="px-4 py-2 bg-white/5 rounded-full text-[13px] font-bold text-white/70 border border-white/10 hover:border-[#C9A84C]/40 hover:text-[#C9A84C] transition-all cursor-default">
+                {c.flag} {c.name}
+              </span>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Trust Badge / Visual -->
+        <div class="hidden md:block relative w-[300px] h-[300px]">
+           <div class="absolute inset-0 bg-[#C9A84C]/5 rounded-full blur-[80px]"></div>
+           <div class="absolute inset-0 flex items-center justify-center">
+             <div class="w-full h-full border border-[#C9A84C]/10 rounded-full animate-spin-slow"></div>
+             <div class="absolute w-4/5 h-4/5 border border-[#C9A84C]/5 rounded-full animate-reverse-spin"></div>
+             <div class="absolute text-center">
+                <div class="text-[64px] font-black text-[#C9A84C] leading-none">50+</div>
+                <div class="text-[12px] font-bold tracking-[0.2em] text-white/50 uppercase mt-2">Countries Served</div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Numbers -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 py-16 border-y border-white/5">
+      {stats.map((stat) => (
+        <div class="text-center group transition-transform duration-500 hover:scale-105">
+          <div class="text-[44px] md:text-[56px] font-bold text-[#C9A84C] mb-2 leading-none">
+            {stat.value}
+          </div>
+          <div class="text-white text-[16px] font-medium">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes reverse-spin {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  .animate-reverse-spin {
+    animation: reverse-spin 15s linear infinite;
+  }
+</style>

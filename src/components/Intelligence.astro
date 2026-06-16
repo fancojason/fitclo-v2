@@ -40,50 +40,56 @@ const faqSchema = {
 };
 ---
 
-<section id="intelligence" class="py-24 bg-[#080808] text-white overflow-hidden">
-  <div class="container mx-auto px-4 max-w-7xl">
+<section id="intelligence" class="py-24 bg-[#050505] text-white overflow-hidden font-['Century_Gothic',sans-serif]">
+  <div class="container mx-auto px-6 max-w-5xl">
     <!-- Section Header -->
-    <div class="text-center mb-12">
-      <span class="block text-[#C9A84C] text-[11px] font-bold tracking-[0.25em] uppercase mb-2 animate-fade-in">
-        COMMON QUESTIONS
+    <div class="mb-16 text-left">
+      <span class="block text-[#C9A84C] text-[12px] font-bold tracking-[0.25em] uppercase mb-4">
+        FAQ
       </span>
-      <h2 class="text-[32px] md:text-[48px] font-bold mb-4 leading-tight font-['Century_Gothic',sans-serif]">
-        Activewear <span class="text-[#C9A84C] italic">Intelligence</span>
+      <h2 class="text-[36px] md:text-[52px] font-bold mb-6 leading-[1.1] tracking-tight">
+        Questions We Get <span class="text-[#C9A84C] italic">All the Time</span>
       </h2>
-      <p class="text-white/60 text-[15px] md:text-[16px] max-w-[650px] mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
-        Get answers to the most common questions about private label activewear, 
-        ready-to-ship collections and manufacturing in China.
+      <p class="text-[#A3A3A3] text-[16px] md:text-[18px] max-w-[700px] leading-relaxed">
+        Everything you need to know before placing your first order.
       </p>
     </div>
 
-    <!-- FAQ Cards Vertical Stack -->
-    <div class="max-w-4xl mx-auto space-y-5">
+    <!-- FAQ Accordion (Luxopack Style) -->
+    <div class="border-t border-white/10">
       {faqs.map((faq) => (
-        <div class="group relative bg-[#000000] border border-white/5 rounded-[20px] p-7 md:p-9 transition-all duration-500 hover:border-[#C9A84C]/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
-          <!-- Gold Accent Line Animation -->
-          <div class="absolute top-0 left-0 w-0 h-[2px] bg-[#C9A84C] transition-all duration-500 group-hover:w-full"></div>
-          
-          <h3 class="text-[#C9A84C] text-[16px] md:text-[19px] font-bold mb-4 leading-tight font-['Century_Gothic',sans-serif]">
-            {faq.question}
-          </h3>
-          <p class="text-white/60 text-[13px] md:text-[15px] leading-[1.7] font-['Century_Gothic',sans-serif]">
-            {faq.answer}
-          </p>
-        </div>
+        <details class="group border-b border-white/10">
+          <summary class="flex items-center justify-between py-8 cursor-pointer list-none">
+            <h3 class="text-[16px] md:text-[19px] font-bold text-white group-hover:text-[#C9A84C] transition-colors duration-300 pr-8">
+              {faq.question}
+            </h3>
+            <div class="relative w-6 h-6 flex-shrink-0 flex items-center justify-center border border-white/20 rounded-full group-hover:border-[#C9A84C]/50 transition-colors duration-300">
+              <!-- Plus Icon -->
+              <span class="absolute w-2.5 h-[1.5px] bg-white group-open:bg-[#C9A84C] group-hover:bg-[#C9A84C]"></span>
+              <span class="absolute h-2.5 w-[1.5px] bg-white group-open:hidden group-hover:bg-[#C9A84C]"></span>
+            </div>
+          </summary>
+          <div class="pb-10 animate-fade-down">
+            <p class="text-[#A3A3A3] text-[15px] md:text-[16px] leading-[1.8] max-w-4xl">
+              {faq.answer}
+            </p>
+          </div>
+        </details>
       ))}
     </div>
   </div>
 </section>
 
-<!-- JSON-LD FAQ Schema -->
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
 <style>
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(10px); }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  @keyframes fade-down {
+    from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .animate-fade-in {
-    animation: fade-in 1s ease-out forwards;
+  .animate-fade-down {
+    animation: fade-down 0.4s ease-out forwards;
   }
 </style>

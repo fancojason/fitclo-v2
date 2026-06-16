@@ -1,0 +1,90 @@
+---
+const articles = [
+  {
+    category: "BUYER GUIDE",
+    title: "How To Find A Reliable Activewear Manufacturer In China",
+    description: "Learn how to evaluate factories, compare suppliers and avoid common sourcing mistakes.",
+    slug: "#"
+  },
+  {
+    category: "PRIVATE LABEL",
+    title: "Private Label Activewear: The Complete Beginner Guide",
+    description: "Everything you need to know about logos, labels, packaging and launching your own brand.",
+    slug: "#"
+  },
+  {
+    category: "FABRIC GUIDE",
+    title: "Nylon vs Polyester Leggings: Which Fabric Is Better?",
+    description: "Compare comfort, stretch, durability and cost to choose the right fabric.",
+    slug: "#"
+  },
+  {
+    category: "TREND REPORT",
+    title: "Top Activewear Trends In 2026",
+    description: "Explore the colors, styles and product categories shaping the next generation of activewear.",
+    slug: "#"
+  },
+  {
+    category: "BUSINESS GUIDE",
+    title: "How To Start An Activewear Brand In 2026",
+    description: "From product development to manufacturing, branding and shipping — here’s the complete roadmap.",
+    slug: "#"
+  },
+  {
+    category: "READY TO SHIP",
+    title: "Ready-To-Ship vs OEM Activewear: Which Is Right For You?",
+    description: "Compare lead times, MOQ, pricing and customization options to find the best solution.",
+    slug: "#"
+  }
+];
+---
+
+<section id="blog-intelligence" class="py-24 bg-[#050505] text-white font-['Century_Gothic',sans-serif]">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="block text-[#C9A84C] text-[12px] font-[600] tracking-[0.25em] uppercase mb-4">
+        ACTIVEWEAR INTELLIGENCE
+      </span>
+      <h2 class="text-[40px] md:text-[72px] font-bold leading-tight mb-6">
+        Insights For <br/>
+        <span class="text-[#C9A84C] italic">Growing Brands</span>
+      </h2>
+      <p class="text-[#A3A3A3] text-[18px] leading-[1.8] max-w-[720px] mx-auto">
+        Learn everything about activewear sourcing, private label manufacturing and industry trends — straight from an experienced factory.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {articles.map((article) => (
+        <a href={article.slug} class="group bg-[#090909] border border-[#C9A84C]/15 rounded-[20px] p-8 transition-all duration-300 hover:-translate-y-[5px] hover:border-[#C9A84C]">
+          <div class="mb-4">
+            <span class="text-[#C9A84C] text-[11px] font-bold tracking-widest uppercase">{article.category}</span>
+          </div>
+          <h3 class="text-[20px] md:text-[22px] font-bold mb-4 leading-tight group-hover:text-[#C9A84C] transition-colors">
+            {article.title}
+          </h3>
+          <p class="text-[#A3A3A3] text-[14px] leading-relaxed mb-8">
+            {article.description}
+          </p>
+          
+          <div class="flex items-center text-[#C9A84C] text-[14px] font-bold mb-6">
+            Read Article 
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+
+          <div class="pt-6 border-t border-white/5 flex items-center gap-4 text-[#737373] text-[14px]">
+            <span>By Fitclo Team</span>
+            <span class="w-1.5 h-1.5 bg-white/10 rounded-full"></span>
+            <span>June 2026</span>
+            <span class="w-1.5 h-1.5 bg-white/10 rounded-full"></span>
+            <span>8 min read</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

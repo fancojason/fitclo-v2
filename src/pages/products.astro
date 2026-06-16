@@ -7,28 +7,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Explore Fitclo's comprehensive activewear manufacturing solutions. From performance leggings to supportive sports bras, we offer premium private label OEM/ODM services."
 >
   <!-- Hero Section -->
-  <section class="relative py-32 bg-[#06060a] overflow-hidden">
-    <div class="absolute inset-0 opacity-20">
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#06060a]"></div>
+  <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://sc04.alicdn.com/kf/H7e7f7e2a9a9a4a7a8a8a8a8a8a8a8a8a8.jpg" 
+        alt="Manufacturing Solutions" 
+        class="w-full h-full object-cover opacity-40"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
     </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter font-['Montserrat',sans-serif]">
-        Manufacturing <span class="text-accent italic">Solutions</span>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] font-['Century_Gothic',sans-serif] tracking-tight">
+        Manufacturing <span class="text-[#C9A84C] italic">Solutions</span>
       </h1>
-      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
-        High-performance private label activewear designed for global fitness brands.
+      <p class="text-[18px] md:text-[20px] text-white/80 max-w-2xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
+        Precision-engineered private label activewear for global performance brands.
       </p>
     </div>
   </section>
 
   <!-- Introduction / AI Context -->
-  <section class="py-16 bg-white border-b border-gray-100">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="text-[18px] text-gray-600 leading-relaxed font-['Century_Gothic',sans-serif]">
-        Fitclo is a leading vertically-integrated <strong class="text-black">activewear manufacturer</strong> specializing in high-end technical sportswear. We offer a comprehensive catalog of <strong class="text-black">OEM and ODM services</strong>, helping fitness startups and established brands scale with premium quality fabrics, innovative designs, and sustainable production processes.
+  <section class="py-24 bg-white border-b border-gray-100">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-[16px] md:text-[18px] text-gray-600 leading-[1.8] font-['Century_Gothic',sans-serif]">
+        Fitclo is a leading vertically-integrated <strong class="text-black font-bold">activewear manufacturer</strong> specializing in high-end technical sportswear. We offer a comprehensive catalog of <strong class="text-black font-bold">OEM and ODM services</strong>, helping fitness startups and established brands scale with premium quality fabrics, innovative designs, and sustainable production processes.
       </p>
-      <div class="mt-8">
-        <a href="/private-label" class="text-accent font-bold hover:underline">Need Custom Branding? Explore Private Label Services →</a>
+      <div class="mt-12">
+        <a href="/private-label" class="group inline-flex items-center text-[#C9A84C] font-bold font-['Century_Gothic',sans-serif] text-[14px] md:text-[15px] uppercase tracking-[0.2em]">
+          Need Custom Branding? Explore Private Label Services
+          <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -36,6 +44,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- Categories Grid -->
   <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
+          OUR PRODUCTS
+        </h3>
+        <h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold text-black leading-tight font-['Century_Gothic',sans-serif] tracking-tight">
+          Product <span class="text-[#C9A84C] italic">Categories</span>
+        </h2>
+      </div>
+
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {[
           {
@@ -62,14 +79,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] bg-gray-100 rounded-[32px] overflow-hidden mb-6 relative">
               <div class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors z-10"></div>
-              <div class="w-full h-full flex items-center justify-center text-gray-400 italic">
+              <div class="w-full h-full flex items-center justify-center text-gray-400 italic font-['Century_Gothic',sans-serif] text-sm">
                 {item.title} Image
               </div>
             </div>
-            <h3 class="text-xl font-black uppercase tracking-tight mb-2 font-['Montserrat',sans-serif] group-hover:text-accent transition-colors">
+            <h3 class="text-[18px] md:text-[21px] font-bold uppercase tracking-tight mb-3 font-['Century_Gothic',sans-serif] group-hover:text-[#C9A84C] transition-colors">
               {item.title}
             </h3>
-            <p class="text-gray-500 font-['Century_Gothic',sans-serif] text-sm leading-relaxed">
+            <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6]">
               {item.desc}
             </p>
           </div>
@@ -82,30 +99,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-3 gap-12">
-        <div class="bg-white p-10 rounded-[40px] shadow-sm">
-          <h3 class="text-xl font-black mb-4 uppercase tracking-tight font-['Montserrat',sans-serif]">Advanced Fabrics</h3>
-          <p class="text-gray-500 font-['Century_Gothic',sans-serif]">We utilize recycled polyesters, GRS-certified materials, and antimicrobial treatments to ensure peak performance and comfort.</p>
+        <div class="bg-white p-10 rounded-[40px] shadow-sm border border-gray-100">
+          <h3 class="text-[18px] md:text-[21px] font-bold mb-4 uppercase tracking-tight font-['Century_Gothic',sans-serif]">Advanced Fabrics</h3>
+          <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6]">We utilize recycled polyesters, GRS-certified materials, and antimicrobial treatments to ensure peak performance and comfort.</p>
         </div>
-        <div class="bg-white p-10 rounded-[40px] shadow-sm">
-          <h3 class="text-xl font-black mb-4 uppercase tracking-tight font-['Montserrat',sans-serif]">Craftsmanship</h3>
-          <p class="text-gray-500 font-['Century_Gothic',sans-serif]">Specializing in Flat-lock stitching, Laser-cutting, and Heat-seal bonding for maximum durability and premium hand-feel.</p>
+        <div class="bg-white p-10 rounded-[40px] shadow-sm border border-gray-100">
+          <h3 class="text-[18px] md:text-[21px] font-bold mb-4 uppercase tracking-tight font-['Century_Gothic',sans-serif]">Craftsmanship</h3>
+          <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6]">Specializing in Flat-lock stitching, Laser-cutting, and Heat-seal bonding for maximum durability and premium hand-feel.</p>
         </div>
-        <div class="bg-white p-10 rounded-[40px] shadow-sm">
-          <h3 class="text-xl font-black mb-4 uppercase tracking-tight font-['Montserrat',sans-serif]">Sustainability</h3>
-          <p class="text-gray-500 font-['Century_Gothic',sans-serif]">Eco-friendly dyeing processes and reduced-waste cutting techniques focused on minimal environmental impact.</p>
+        <div class="bg-white p-10 rounded-[40px] shadow-sm border border-gray-100">
+          <h3 class="text-[18px] md:text-[21px] font-bold mb-4 uppercase tracking-tight font-['Century_Gothic',sans-serif]">Sustainability</h3>
+          <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6]">Eco-friendly dyeing processes and reduced-waste cutting techniques focused on minimal environmental impact.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-24 bg-accent text-black text-center">
+  <section class="py-24 bg-[#0B0B0B] text-white text-center">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8 font-['Montserrat',sans-serif]">
-        Ready to Build Your <span class="italic">Product Line?</span>
+      <h2 class="text-[32px] md:text-[48px] lg:text-[56px] font-bold uppercase tracking-tight mb-12 font-['Century_Gothic',sans-serif] leading-tight">
+        Ready to Build Your <br/><span class="text-[#C9A84C] italic">Product Line?</span>
       </h2>
-      <a href="/contact" class="inline-block bg-black text-white px-10 py-5 rounded-full font-black uppercase tracking-widest hover:scale-105 transition-transform">
-        Get a Quote Now
+      <a href="/contact" class="group relative inline-flex items-center space-x-4 bg-[#C9A84C] text-[#0A0A0F] px-[40px] py-[18px] rounded-lg text-[16px] font-[900] transition-all hover:scale-[1.02] hover:bg-[#d4b55a] active:scale-95 shadow-[0_15px_30px_rgba(201,168,76,0.2)] font-['Century_Gothic',sans-serif] uppercase tracking-widest">
+        <span>Get Factory Pricing</span>
+        <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
       </a>
     </div>
   </section>

@@ -8,7 +8,7 @@ export default {
         accent: '#C9A84C',  // Exact Luxopack Gold
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['"Century Gothic"', 'AppleGothic', 'sans-serif'],
       }
     },
   },

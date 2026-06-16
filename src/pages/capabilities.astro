@@ -8,17 +8,20 @@ import InquiryForm from '../components/InquiryForm.astro';
   description="Explore Fitclo's state-of-the-art 12,000㎡ production facility. Advanced fabric R&D, GRS-certified sustainable manufacturing, and strict quality control systems."
 >
   <!-- Hero Section -->
-  <section class="relative h-[50vh] flex items-center justify-center bg-black overflow-hidden">
+  <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img 
         src="https://sc01.alicdn.com/kf/H08b0f9ae720a4061a79917c3d7f739663.png" 
         alt="Fitclo Factory Floor" 
         class="w-full h-full object-cover opacity-40"
       />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
     </div>
     <div class="relative z-10 text-center px-4">
-      <h1 class="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter font-['Montserrat',sans-serif]">Manufacturing <span class="text-accent italic">Excellence</span></h1>
-      <p class="text-xl text-white/70 max-w-2xl mx-auto font-['Century_Gothic',sans-serif]">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight font-['Century_Gothic',sans-serif] tracking-tight">
+        Manufacturing <span class="text-[#C9A84C] italic">Excellence</span>
+      </h1>
+      <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
         Precision engineering meets innovative craftsmanship in our world-class production facilities.
       </p>
     </div>
@@ -34,9 +37,9 @@ import InquiryForm from '../components/InquiryForm.astro';
           { label: 'Total Employees', value: '350+' },
           { label: 'R&D Experts', value: '25+' }
         ].map((stat) => (
-          <div class="p-8 border-b-2 border-gray-100 hover:border-accent transition-colors">
-            <span class="block text-accent font-black text-4xl mb-2 font-['Montserrat',sans-serif]">{stat.value}</span>
-            <span class="text-gray-500 uppercase text-xs tracking-widest font-bold">{stat.label}</span>
+          <div class="p-8 border-b-2 border-gray-100 hover:border-[#C9A84C] transition-colors group">
+            <span class="block text-[#C9A84C] font-bold text-3xl md:text-4xl mb-2 font-['Century_Gothic',sans-serif] transition-transform group-hover:scale-110 origin-left">{stat.value}</span>
+            <span class="text-gray-500 uppercase text-[11px] tracking-widest font-bold font-['Century_Gothic',sans-serif]">{stat.label}</span>
           </div>
         ))}
       </div>
@@ -49,21 +52,26 @@ import InquiryForm from '../components/InquiryForm.astro';
       <div class="grid lg:grid-cols-2 gap-20">
         <!-- Fabric R&D -->
         <div>
-          <h2 class="text-3xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif] mb-8">Fabric R&D <span class="text-accent italic">& Innovation</span></h2>
-          <div class="space-y-6 text-gray-600 font-['Century_Gothic',sans-serif] leading-relaxed">
+          <h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
+            INNOVATION
+          </h3>
+          <h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold text-black leading-tight font-['Century_Gothic',sans-serif] tracking-tight mb-8">
+            Fabric R&D <span class="text-[#C9A84C] italic">& Innovation</span>
+          </h2>
+          <div class="space-y-6 text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-relaxed">
             <p>Our dedicated fabric research and development team collaborates with top yarn suppliers to create proprietary materials. We specialize in:</p>
-            <ul class="space-y-4">
-              <li class="flex items-start space-x-3">
-                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
-                <span><strong>GRS Certified Recycled Fabrics</strong>: Sustainable polyester and nylon made from post-consumer waste.</span>
+            <ul class="space-y-5">
+              <li class="flex items-start space-x-4 group">
+                <span class="w-1.5 h-1.5 bg-[#C9A84C] rounded-full mt-2.5 flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+                <span><strong class="text-black">GRS Certified Recycled Fabrics</strong>: Sustainable polyester and nylon made from post-consumer waste.</span>
               </li>
-              <li class="flex items-start space-x-3">
-                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
-                <span><strong>Advanced Compression Tech</strong>: Engineered gradients to support muscle stability and reduce fatigue.</span>
+              <li class="flex items-start space-x-4 group">
+                <span class="w-1.5 h-1.5 bg-[#C9A84C] rounded-full mt-2.5 flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+                <span><strong class="text-black">Advanced Compression Tech</strong>: Engineered gradients to support muscle stability and reduce fatigue.</span>
               </li>
-              <li class="flex items-start space-x-3">
-                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
-                <span><strong>Silver-Ion Antimicrobial</strong>: Integrated fabric treatments that prevent odor and bacteria growth.</span>
+              <li class="flex items-start space-x-4 group">
+                <span class="w-1.5 h-1.5 bg-[#C9A84C] rounded-full mt-2.5 flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+                <span><strong class="text-black">Silver-Ion Antimicrobial</strong>: Integrated fabric treatments that prevent odor and bacteria growth.</span>
               </li>
             </ul>
           </div>
@@ -71,21 +79,26 @@ import InquiryForm from '../components/InquiryForm.astro';
 
         <!-- Production Technology -->
         <div>
-          <h2 class="text-3xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif] mb-8">Production <span class="text-accent italic">Technology</span></h2>
-          <div class="space-y-6 text-gray-600 font-['Century_Gothic',sans-serif] leading-relaxed">
+          <h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
+            TECHNOLOGY
+          </h3>
+          <h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold text-black leading-tight font-['Century_Gothic',sans-serif] tracking-tight mb-8">
+            Production <span class="text-[#C9A84C] italic">Technology</span>
+          </h2>
+          <div class="space-y-6 text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-relaxed">
             <p>We invest in the latest machinery to ensure precision and durability in every garment:</p>
-            <ul class="space-y-4">
-              <li class="flex items-start space-x-3">
-                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
-                <span><strong>Auto-Cutting Systems</strong>: Computer-controlled precision cutting to minimize fabric waste.</span>
+            <ul class="space-y-5">
+              <li class="flex items-start space-x-4 group">
+                <span class="w-1.5 h-1.5 bg-[#C9A84C] rounded-full mt-2.5 flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+                <span><strong class="text-black">Auto-Cutting Systems</strong>: Computer-controlled precision cutting to minimize fabric waste.</span>
               </li>
-              <li class="flex items-start space-x-3">
-                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
-                <span><strong>4-Needle 6-Thread (Flatlock)</strong>: Specialized stitching for seamless comfort and high durability.</span>
+              <li class="flex items-start space-x-4 group">
+                <span class="w-1.5 h-1.5 bg-[#C9A84C] rounded-full mt-2.5 flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+                <span><strong class="text-black">4-Needle 6-Thread (Flatlock)</strong>: Specialized stitching for seamless comfort and high durability.</span>
               </li>
-              <li class="flex items-start space-x-3">
-                <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
-                <span><strong>Heat-Seal & Laser Cut</strong>: For high-end athletic wear requiring clean edges and minimal weight.</span>
+              <li class="flex items-start space-x-4 group">
+                <span class="w-1.5 h-1.5 bg-[#C9A84C] rounded-full mt-2.5 flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+                <span><strong class="text-black">Heat-Seal & Laser Cut</strong>: For high-end athletic wear requiring clean edges and minimal weight.</span>
               </li>
             </ul>
           </div>
@@ -97,11 +110,16 @@ import InquiryForm from '../components/InquiryForm.astro';
   <!-- Quality Control (Authority Signal) -->
   <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-[#06060a] rounded-[60px] p-16 md:p-24 text-white overflow-hidden relative">
+      <div class="bg-[#0B0B0B] rounded-[60px] p-12 md:p-24 text-white overflow-hidden relative shadow-2xl">
         <div class="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter font-['Montserrat',sans-serif] mb-8">Strict <span class="text-accent italic">Quality Control</span></h2>
-            <p class="text-white/60 text-lg mb-8 font-['Century_Gothic',sans-serif]">Our 100% inspection policy ensures that zero defects leave our factory.</p>
+            <h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
+              QUALITY CONTROL
+            </h3>
+            <h2 class="text-[30px] md:text-[44px] font-bold leading-tight font-['Century_Gothic',sans-serif] tracking-tight mb-8 text-white">
+              Strict <span class="text-[#C9A84C] italic">Quality Control</span>
+            </h2>
+            <p class="text-white/60 text-lg mb-10 font-['Century_Gothic',sans-serif] leading-relaxed">Our 100% inspection policy ensures that zero defects leave our factory.</p>
             <div class="space-y-6">
               {[
                 'Raw Material Inspection (IQC)',
@@ -109,20 +127,21 @@ import InquiryForm from '../components/InquiryForm.astro';
                 'Final Garment Testing (FQC)',
                 'Pre-shipment Audit (OQC)'
               ].map((step) => (
-                <div class="flex items-center space-x-4">
-                  <div class="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-black">
+                <div class="flex items-center space-x-4 group">
+                  <div class="w-6 h-6 rounded-full bg-[#C9A84C] flex items-center justify-center text-black group-hover:scale-110 transition-transform">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
-                  <span class="text-lg font-bold uppercase tracking-tight">{step}</span>
+                  <span class="text-[16px] md:text-[18px] font-bold uppercase tracking-tight font-['Century_Gothic',sans-serif] text-white/90 group-hover:text-[#C9A84C] transition-colors">{step}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div class="hidden lg:block">
+          <div class="hidden lg:block relative">
+            <div class="absolute inset-0 bg-[#C9A84C]/5 rounded-[40px] blur-3xl -z-10"></div>
             <img 
               src="https://sc01.alicdn.com/kf/Hcc2d5570d1a94d4ea98d26ce3312893dj.png" 
               alt="Quality Control Testing" 
-              class="rounded-[40px] opacity-80"
+              class="rounded-[40px] opacity-80 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
             />
           </div>
         </div>

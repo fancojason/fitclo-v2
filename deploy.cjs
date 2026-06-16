@@ -61,13 +61,22 @@ async function deploy() {
       'src/components/HowItWorks.astro',
       'src/components/Intelligence.astro',
       'src/components/Testimonials.astro',
+      'src/components/GlobalPresence.astro',
+      'src/components/TrustStats.astro',
       'src/components/BlogPosts.astro',
+      'src/components/BlogIntelligence.astro',
       'src/components/Footer.astro',
       'src/components/AccessoriesBanner.astro',
       'src/components/FloatingButtons.astro',
+      'src/components/ClientSuccess.astro',
       'astro.config.mjs',
       'src/pages/index.astro',
       'src/pages/about.astro',
+      'src/pages/products.astro',
+      'src/pages/ready-to-ship.astro',
+      'src/pages/private-label.astro',
+      'src/pages/capabilities.astro',
+      'src/pages/contact.astro',
       'tailwind.config.mjs',
       'history_summary.md',
     ];
@@ -92,7 +101,7 @@ async function deploy() {
 
     console.log('Creating commit...');
     const newCommit = await request('POST', `/repos/${REPO}/git/commits`, {
-      message: 'feat: add Client Success (Testimonials & Global Presence) section',
+      message: 'feat: sync subpage typography and add Activewear Intelligence section',
       tree: newTree.sha,
       parents: [lastCommitSha],
     });

@@ -1,17 +1,17 @@
 ---
 const countries = [
-  { name: "USA", flag: "🇺🇸" },
-  { name: "Canada", flag: "🇨🇦" },
-  { name: "UK", flag: "🇬🇧" },
-  { name: "Russia", flag: "🇷🇺" },
-  { name: "Spain", flag: "🇪🇸" },
-  { name: "Mexico", flag: "🇲🇽" },
-  { name: "Costa Rica", flag: "🇨🇷" },
-  { name: "Honduras", flag: "🇭🇳" },
-  { name: "Australia", flag: "🇦🇺" },
-  { name: "Germany", flag: "🇩🇪" },
-  { name: "France", flag: "🇫🇷" },
-  { name: "UAE", flag: "🇦🇪" }
+  { name: "USA", code: "us" },
+  { name: "Canada", code: "ca" },
+  { name: "UK", code: "gb" },
+  { name: "Russia", code: "ru" },
+  { name: "Spain", code: "es" },
+  { name: "Mexico", code: "mx" },
+  { name: "Costa Rica", code: "cr" },
+  { name: "Honduras", code: "hn" },
+  { name: "Australia", code: "au" },
+  { name: "Germany", code: "de" },
+  { name: "France", code: "fr" },
+  { name: "UAE", code: "ae" }
 ];
 ---
 
@@ -37,11 +37,21 @@ const countries = [
           <p class="text-[#A3A3A3] text-[15px] leading-relaxed mb-8">
             Fitclo partners with activewear brands, distributors and retailers across multiple continents, providing ready-to-ship and private label solutions.
           </p>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-4">
             {countries.map(c => (
-              <span class="px-3 py-1.5 bg-white/5 rounded-full text-[12px] font-bold text-white/70 border border-white/10 hover:border-[#C9A84C]/40 hover:text-[#C9A84C] transition-all cursor-default">
-                {c.flag} {c.name}
-              </span>
+              <div class="group relative cursor-help">
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-[#C9A84C]/50 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                  <img 
+                    src={`https://flagcdn.com/w80/${c.code}.png`} 
+                    alt={c.name}
+                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <!-- Tooltip for Country Name -->
+                <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/90 text-white text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-white/10 z-20">
+                  {c.name}
+                </div>
+              </div>
             ))}
           </div>
         </div>

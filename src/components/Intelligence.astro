@@ -43,7 +43,7 @@ const faqSchema = {
 <section id="intelligence" class="py-24 bg-[#050505] text-white overflow-hidden font-['Century_Gothic',sans-serif]">
   <div class="container mx-auto px-6 max-w-4xl">
     <!-- Section Header -->
-    <div class="mb-16 text-left max-w-2xl mx-auto md:ml-auto md:mr-10">
+    <div class="mb-16 text-left max-w-2xl mx-auto md:ml-auto md:mr-20">
       <span class="block text-[#C9A84C] text-[12px] font-bold tracking-[0.25em] uppercase mb-4">
         FAQ
       </span>
@@ -56,17 +56,17 @@ const faqSchema = {
     </div>
 
     <!-- FAQ Accordion (Luxopack Style) -->
-    <div class="border-t border-white/10 max-w-2xl mx-auto md:ml-auto md:mr-10">
+    <div class="border-t border-white/10 max-w-2xl mx-auto md:ml-auto md:mr-20">
       {faqs.map((faq) => (
         <details name="faq" class="group border-b border-white/10">
           <summary class="flex items-center justify-between py-8 cursor-pointer list-none">
-            <h3 class="text-[16px] md:text-[18px] font-bold text-white group-hover:text-[#C9A84C] transition-colors duration-300 pr-4 leading-tight">
+            <h3 class="text-[16px] md:text-[18px] font-bold text-white group-hover:text-[#C9A84C] transition-colors duration-300 pr-2 leading-tight">
               {faq.question}
             </h3>
             <div class="relative w-8 h-8 flex-shrink-0 flex items-center justify-center border-[2.5px] border-[#C9A84C] rounded-full transition-all duration-300 group-hover:scale-110 shadow-[0_0_15px_rgba(201,168,76,0.2)]">
-              <!-- Plus Icon (Bolder) -->
-              <span class="absolute w-3.5 h-[3px] bg-[#C9A84C] rounded-full"></span>
-              <span class="absolute h-3.5 w-[3px] bg-[#C9A84C] rounded-full group-open:hidden"></span>
+              <!-- Plus Icon (Even Bolder) -->
+              <span class="absolute w-4 h-[3.5px] bg-[#C9A84C] rounded-full"></span>
+              <span class="absolute h-4 w-[3.5px] bg-[#C9A84C] rounded-full group-open:hidden"></span>
             </div>
           </summary>
           <div class="pb-10 animate-fade-down">

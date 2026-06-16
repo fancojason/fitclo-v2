@@ -2,15 +2,27 @@
 const faqs = [
   {
     question: "How to find a reliable activewear manufacturer in China?",
-    answer: "Look for manufacturers with proven export experience, transparent production processes and stable quality standards. A reliable partner should offer factory-direct communication, sample development, flexible customization and consistent lead times."
+    answer: "Look for manufacturers with proven export experience, transparent production processes and stable quality standards. A reliable partner should offer factory-direct communication, sample development, flexible customization and consistent lead times. Fitclo specializes in private label and OEM activewear manufacturing with customers across USA, Europe, Australia and the Middle East."
   },
   {
     question: "What is the MOQ for private label activewear?",
-    answer: "MOQ starts from 50 pieces for ready-to-ship styles with logo customization. For OEM activewear production, MOQ varies depending on fabric and design complexity. We provide flexible solutions for both growing and established brands."
+    answer: "MOQ depends on product type and customization requirements. For ready-to-ship styles with logo customization, MOQ starts from 50 pieces. For OEM activewear production, MOQ may vary depending on fabric and design complexity. Our team provides flexible solutions for both growing brands and established businesses."
   },
   {
     question: "Can I customize logo, labels and packaging?",
-    answer: "Yes. Fitclo offers complete private label solutions including heat transfer logos, silicone logos, woven labels, care labels, hang tags, and custom packaging bags. Everything is customized to your brand identity."
+    answer: "Yes. Fitclo offers complete private label solutions including heat transfer logos, silicone logos, woven labels, care labels, hang tags, and custom packaging bags. Everything can be customized according to your brand identity."
+  },
+  {
+    question: "How long does activewear production take?",
+    answer: "Ready-to-ship products can usually be delivered within 7 days. Private label orders generally take 15–25 days depending on customization requirements. OEM development timelines vary according to fabric sourcing and sample approval. Our team provides a detailed timeline before production begins."
+  },
+  {
+    question: "What fabrics do you use for activewear?",
+    answer: "We offer a wide range of premium fabrics including Nylon-Spandex, Polyester-Spandex, Recycled Fabrics, Seamless Fabrics, Ribbed Fabrics, and Quick-Dry Fabrics. Fabric recommendations are based on your target market, product positioning and budget."
+  },
+  {
+    question: "Why choose Fitclo over trading companies?",
+    answer: "Fitclo is a factory-direct activewear manufacturer with in-house production and strict quality control. Customers work directly with our team throughout the entire process, ensuring faster communication, transparent pricing and consistent product quality. Our focus is to help brands grow through reliable manufacturing and long-term partnership."
   }
 ];
 ---
@@ -19,13 +31,13 @@ const faqs = [
   <div class="container mx-auto px-6 max-w-7xl">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <span class="block text-[#C9A84C] text-[11px] font-bold tracking-[0.25em] uppercase mb-3">
+      <span class="block text-[#C9A84C] text-[11px] font-bold tracking-[0.25em] uppercase mb-3 animate-fade-in">
         COMMON QUESTIONS
       </span>
-      <h2 class="text-[32px] md:text-[48px] font-bold mb-4 leading-tight font-['Century_Gothic',sans-serif] tracking-tight">
+      <h2 class="text-[32px] md:text-[48px] font-bold mb-4 leading-tight font-['Century_Gothic',sans-serif] tracking-tight animate-fade-in">
         Activewear <span class="text-[#C9A84C] italic">Intelligence</span>
       </h2>
-      <p class="text-white/60 text-[15px] md:text-[16px] max-w-[650px] mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
+      <p class="text-white/60 text-[15px] md:text-[16px] max-w-[650px] mx-auto font-['Century_Gothic',sans-serif] leading-relaxed animate-fade-in">
         Get answers to the most common questions about private label activewear, 
         ready-to-ship collections and manufacturing in China.
       </p>
@@ -49,3 +61,13 @@ const faqs = [
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+</style>

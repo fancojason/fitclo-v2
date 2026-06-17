@@ -38,7 +38,28 @@ const {
 		
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+		<!-- Structured Data (JSON-LD) for SEO/GEO -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "ClothingStore",
+				"name": "FITCLO",
+				"alternateName": "Fitclo Activewear Manufacturer",
+				"url": "https://www.fitcloo.com",
+				"logo": "https://www.fitcloo.com/favicon.svg",
+				"foundingDate": "2010",
+				"description": "Professional activewear and yoga wear manufacturer in China with 16,000㎡ facility. Specializing in private label, OEM, and ODM services.",
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "CN"
+				},
+				"knowsAbout": ["Activewear Manufacturing", "Yoga Wear OEM", "Private Label Sportswear", "Custom Gym Clothing"],
+				"areaServed": "Worldwide"
+			}
+		</script>
 	</head>
+
 	<body class="bg-white selection:bg-accent selection:text-black">
 		<Header />
 		<main>

@@ -2,21 +2,31 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-[#06060a] border-t border-white/5 pt-24 pb-12">
-  <div class="max-w-[1700px] mx-auto px-6 lg:px-16">
+<footer class="bg-[#06060a] pt-24 pb-12 relative overflow-hidden">
+  <!-- Subtle Gradient Border -->
+  <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C9A84C]/30 to-transparent"></div>
+  
+  <div class="max-w-[1700px] mx-auto px-6 lg:px-16 relative">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-16 lg:gap-24 mb-24">
-      <!-- Brand Section -->
+      <!-- Brand & Newsletter Section -->
       <div class="lg:col-span-1">
         <div class="text-[28px] font-bold tracking-tighter text-white mb-8 font-['Century_Gothic',sans-serif]">
           FC | <span class="text-[#C9A84C]">FITCLO</span>
         </div>
-        <p class="text-white/40 text-[15px] leading-relaxed max-w-xs font-['Century_Gothic',sans-serif] mb-8">
+        <p class="text-white/40 text-[15px] leading-relaxed max-w-xs font-['Century_Gothic',sans-serif] mb-10">
           China's trusted factory-direct manufacturer of premium activewear. Serving 500+ brands worldwide since 2010.
         </p>
-        <div class="flex space-x-6">
-          <a href="#" class="text-white/20 hover:text-[#C9A84C] transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-          </a>
+        
+        <!-- Minimal Newsletter -->
+        <div class="max-w-xs relative group">
+          <input 
+            type="email" 
+            placeholder="Subscribe for factory updates" 
+            class="w-full bg-transparent border-b border-white/10 py-3 text-[14px] text-white focus:outline-none focus:border-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif] placeholder:text-white/20"
+          />
+          <button class="absolute right-0 top-1/2 -translate-y-1/2 text-[#C9A84C] hover:translate-x-1 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
         </div>
       </div>
 
@@ -27,10 +37,14 @@ const year = new Date().getFullYear();
             Resources
           </h4>
           <ul class="space-y-4">
-            <li><a href="/blogs" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">Blog & Insights</a></li>
-            <li><a href="/blogs/pricing" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">Price Guide</a></li>
-            <li><a href="/blogs/moq" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">MOQ Guide</a></li>
-            <li><a href="/about" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">Certifications</a></li>
+            {['Blog & Insights', 'Price Guide', 'MOQ Guide', 'Certifications'].map((item) => (
+              <li>
+                <a href={item === 'Blog & Insights' ? '/blogs' : item === 'Price Guide' ? '/blogs/pricing' : item === 'MOQ Guide' ? '/blogs/moq' : '/about'} 
+                   class="inline-block text-white/40 hover:text-white hover:translate-x-1 transition-all text-[14px] font-['Century_Gothic',sans-serif]">
+                  {item}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -39,10 +53,13 @@ const year = new Date().getFullYear();
             Top Categories
           </h4>
           <ul class="space-y-4">
-            <li><a href="/capabilities" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">Yoga Sets</a></li>
-            <li><a href="/capabilities" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">Sport Bras</a></li>
-            <li><a href="/capabilities" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">Leggings</a></li>
-            <li><a href="/capabilities" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">Gym Wear</a></li>
+            {['Yoga Sets', 'Sport Bras', 'Leggings', 'Gym Wear'].map((item) => (
+              <li>
+                <a href="/capabilities" class="inline-block text-white/40 hover:text-white hover:translate-x-1 transition-all text-[14px] font-['Century_Gothic',sans-serif]">
+                  {item}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -51,9 +68,13 @@ const year = new Date().getFullYear();
             Company
           </h4>
           <ul class="space-y-4">
-            <li><a href="/about" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">About Us</a></li>
-            <li><a href="/#inquiry" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">FAQ & Support</a></li>
-            <li><a href="/#inquiry" class="text-white/40 hover:text-white transition-colors text-[14px] font-['Century_Gothic',sans-serif]">Get a Quote</a></li>
+            {['About Us', 'FAQ & Support', 'Get a Quote'].map((item) => (
+              <li>
+                <a href={item === 'About Us' ? '/about' : '/#inquiry'} class="inline-block text-white/40 hover:text-white hover:translate-x-1 transition-all text-[14px] font-['Century_Gothic',sans-serif]">
+                  {item}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -62,7 +83,10 @@ const year = new Date().getFullYear();
             Contact
           </h4>
           <ul class="space-y-4">
-            <li class="text-white/40 text-[14px] font-['Century_Gothic',sans-serif]">sales@fitcloo.com</li>
+            <li class="text-white/40 text-[14px] font-['Century_Gothic',sans-serif] flex items-center">
+              <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3 animate-pulse"></span>
+              sales@fitcloo.com
+            </li>
             <li class="text-white/40 text-[14px] font-['Century_Gothic',sans-serif]">Xiamen, China</li>
           </ul>
         </div>
@@ -70,8 +94,16 @@ const year = new Date().getFullYear();
     </div>
 
     <!-- Bottom Bar -->
-    <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[11px] font-bold tracking-[0.1em] uppercase font-['Century_Gothic',sans-serif] text-white/20">
+    <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[11px] font-black tracking-[0.1em] uppercase font-['Century_Gothic',sans-serif] text-white/20">
       <p>© {year} FITCLO APPAREL MFG. ALL RIGHTS RESERVED.</p>
+      <div class="mt-4 md:mt-0 flex items-center space-x-6">
+        <span>Global Support: 24/7 Available</span>
+        <div class="flex space-x-4">
+          <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+          <a href="#" class="hover:text-white transition-colors">Instagram</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
+

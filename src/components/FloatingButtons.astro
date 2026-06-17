@@ -4,13 +4,16 @@
 <!-- Floating Controls (WhatsApp Left, Quote Right) -->
 <div class="floating-controls">
   <!-- WhatsApp Left -->
-  <a 
-    href="https://api.whatsapp.com/send?phone=8615218851638&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20premium%20activewear%20collection%20and%20would%20like%20to%20discuss%20a%20custom%20project.%20Can%20we%20chat%3F" 
-    target="_blank" 
-    class="whatsapp-float"
-  >
-    <img src="/images/whatsapp-icon.webp" class="wa-img" alt="WhatsApp" />
-  </a>
+  <div class="whatsapp-container">
+    <a 
+      href="https://api.whatsapp.com/send?phone=8615218851638&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20premium%20activewear%20collection%20and%20would%20like%20to%20discuss%20a%20custom%20project.%20Can%20we%20chat%3F" 
+      target="_blank" 
+      class="whatsapp-float"
+    >
+      <img src="/images/whatsapp-icon.webp" class="wa-img" alt="WhatsApp" />
+    </a>
+    <span class="wa-tooltip font-['Century_Gothic',sans-serif]">Contact Us</span>
+  </div>
 
   <!-- Quote Right -->
   <a href="#inquiry" class="quote-float">
@@ -51,8 +54,49 @@
     pointer-events: none;
   }
 
-  .whatsapp-float {
+  .whatsapp-container {
     pointer-events: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .wa-tooltip {
+    position: absolute;
+    left: 80px;
+    background: #25D366;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .whatsapp-container:hover .wa-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  /* Add arrow to tooltip */
+  .wa-tooltip::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid #25D366;
+  }
+
+  .whatsapp-float {
     width: 64px;
     height: 64px;
     background-color: #25D366;

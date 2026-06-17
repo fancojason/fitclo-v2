@@ -52,7 +52,7 @@ const guides = [
       <p class="text-[11px] font-bold tracking-[0.3em] text-[#C9A84C] uppercase mb-4 font-['Century_Gothic',sans-serif]">
         ACTIVEWEAR BUYING GUIDES
       </p>
-      <h2 class="text-[32px] md:text-[52px] font-bold leading-tight font-['Century_Gothic',sans-serif] tracking-tight mb-6">
+      <h2 class="text-[28px] md:text-[44px] font-bold leading-tight font-['Century_Gothic',sans-serif] tracking-tight mb-6">
         Custom <span class="text-[#C9A84C] italic">Activewear Resources</span>
       </h2>
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -60,7 +60,7 @@ const guides = [
           Explore our factory-direct guides for custom yoga sets, leggings, sport bras with logo, 
           MOQ planning, and factory pricing before you request a professional quote.
         </p>
-        <a href="/guides" class="text-[#C9A84C] text-[13px] font-bold tracking-widest uppercase border-b border-[#C9A84C]/30 pb-1 hover:border-[#C9A84C] transition-all whitespace-nowrap font-['Century_Gothic',sans-serif]">
+        <a href="/guides" class="text-[#C9A84C] text-[13px] font-bold tracking-widest border-b-2 border-[#C9A84C] pb-1 hover:border-[#C9A84C] transition-all whitespace-nowrap font-['Century_Gothic',sans-serif]">
           View All Guides →
         </a>
       </div>
@@ -69,17 +69,17 @@ const guides = [
     <!-- Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {guides.map(guide => (
-        <a href={guide.link} class="group block bg-[#131317] border border-white/5 p-10 rounded-xl hover:border-[#C9A84C]/30 transition-all duration-500 hover:bg-[#18181d]">
-          <p class="text-[10px] font-bold tracking-[0.2em] text-[#C9A84C] mb-6 font-['Century_Gothic',sans-serif]">
+        <a href={guide.link} class="group block bg-[#131317] border border-white/5 p-8 rounded-xl hover:border-[#C9A84C]/30 transition-all duration-500 hover:bg-[#18181d]">
+          <p class="text-[11px] font-bold tracking-[0.2em] text-[#C9A84C] mb-6 font-['Century_Gothic',sans-serif] uppercase">
             {guide.type}
           </p>
-          <h3 class="text-[22px] font-bold mb-4 font-['Century_Gothic',sans-serif] leading-tight group-hover:text-[#C9A84C] transition-colors">
+          <h3 class="text-[20px] font-bold mb-4 font-['Century_Gothic',sans-serif] leading-tight group-hover:text-[#C9A84C] transition-colors">
             {guide.title}
           </h3>
-          <p class="text-[14px] text-white/30 font-['Century_Gothic',sans-serif] mb-8 leading-relaxed line-clamp-3">
+          <p class="text-[14px] text-white/50 font-['Century_Gothic',sans-serif] mb-4 leading-relaxed line-clamp-3">
             {guide.desc}
           </p>
-          <span class="text-[12px] font-bold text-[#C9A84C] font-['Century_Gothic',sans-serif] tracking-widest uppercase border-b border-transparent group-hover:border-[#C9A84C] pb-1 transition-all">
+          <span class="text-[12px] font-black text-[#C9A84C] font-['Century_Gothic',sans-serif] tracking-widest uppercase border-b border-transparent group-hover:border-[#C9A84C] pb-1 transition-all">
             {guide.linkText}
           </span>
         </a>

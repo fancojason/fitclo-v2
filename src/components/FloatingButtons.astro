@@ -136,7 +136,7 @@
     background: linear-gradient(135deg, #C9A84C, #E5C77A);
     color: #000000;
     padding: 0 28px;
-    height: 52px;
+    height: 46px;
     border-radius: 50px;
     font-family: 'Century_Gothic', sans-serif;
     font-weight: 800;
@@ -148,12 +148,12 @@
     letter-spacing: 0.5px;
     text-decoration: none;
     animation: pulse-gold 2.5s infinite;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   .quote-float:hover {
-    transform: translateY(-5px);
+    transform: scale(1.1);
     background-color: #d4b55a;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 30px rgba(201, 168, 76, 0.4);
   }
 
   @media (max-width: 768px) {

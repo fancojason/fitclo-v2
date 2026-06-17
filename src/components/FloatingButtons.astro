@@ -5,15 +5,25 @@
 <div class="floating-controls">
   <!-- WhatsApp Left -->
   <div class="whatsapp-container">
-    <a 
-      href="https://api.whatsapp.com/send?phone=8615218851638&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20premium%20activewear%20collection%20and%20would%20like%20to%20discuss%20a%20custom%20project.%20Can%20we%20chat%3F" 
-      target="_blank" 
+    <button 
+      id="wa-trigger"
       class="whatsapp-float"
+      aria-label="Contact on WhatsApp"
     >
       <img src="/images/whatsapp-icon.webp" class="wa-img" alt="WhatsApp" />
-    </a>
+    </button>
     <span class="wa-tooltip font-['Century_Gothic',sans-serif]">Contact Us</span>
   </div>
+
+<script>
+  const waTrigger = document.getElementById('wa-trigger');
+  if (waTrigger) {
+    waTrigger.addEventListener('click', () => {
+      const waUrl = "https://api.whatsapp.com/send?phone=8615218851638&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20premium%20activewear%20collection%20and%20would%20like%20to%20discuss%20a%20custom%20project.%20Can%20we%20chat%3F";
+      window.open(waUrl, '_blank');
+    });
+  }
+</script>
 
   <!-- Quote Right -->
   <a href="#inquiry" class="quote-float">
@@ -97,6 +107,9 @@
   }
 
   .whatsapp-float {
+    cursor: pointer;
+    border: none;
+    outline: none;
     width: 64px;
     height: 64px;
     background-color: #25D366;

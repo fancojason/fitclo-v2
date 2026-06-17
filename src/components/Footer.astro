@@ -88,53 +88,6 @@ const year = new Date().getFullYear();
           <h4 class="text-[14px] font-bold tracking-[0.05em] uppercase text-[#C9A84C] mb-4 font-['Century_Gothic',sans-serif]">
             Contact
           </h4>
-
-          <ul class="space-y-2.5">
-            {['Blog & Insights', 'Price Guide', 'MOQ Guide', 'Certifications'].map((item) => (
-              <li>
-                <a href={item === 'Blog & Insights' ? '/blogs' : item === 'Price Guide' ? '/blogs/pricing' : item === 'MOQ Guide' ? '/blogs/moq' : '/about'} 
-                   class="inline-block text-white/60 hover:text-white hover:translate-x-1 transition-all text-[14px] font-['Century_Gothic',sans-serif]">
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-[14px] font-bold tracking-[0.05em] uppercase text-[#C9A84C] mb-8 font-['Century_Gothic',sans-serif]">
-            Top Categories
-          </h4>
-          <ul class="space-y-2.5">
-            {['Yoga Sets', 'Sport Bras', 'Leggings', 'Gym Wear'].map((item) => (
-              <li>
-                <a href="/capabilities" class="inline-block text-white/60 hover:text-white hover:translate-x-1 transition-all text-[14px] font-['Century_Gothic',sans-serif]">
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-[14px] font-bold tracking-[0.05em] uppercase text-[#C9A84C] mb-8 font-['Century_Gothic',sans-serif]">
-            Company
-          </h4>
-          <ul class="space-y-2.5">
-            {['About Us', 'FAQ & Support', 'Get a Quote'].map((item) => (
-              <li>
-                <a href={item === 'About Us' ? '/about' : '/#inquiry'} class="inline-block text-white/60 hover:text-white hover:translate-x-1 transition-all text-[14px] font-['Century_Gothic',sans-serif]">
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-[14px] font-bold tracking-[0.05em] uppercase text-[#C9A84C] mb-8 font-['Century_Gothic',sans-serif]">
-            Contact
-          </h4>
           <ul class="space-y-2.5">
             <li class="text-white/60 text-[14px] font-['Century_Gothic',sans-serif] flex items-center">
               <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3 animate-pulse"></span>

@@ -91,18 +91,23 @@ const guides = [
           {guides.map(guide => (
             <a href={guide.link} class="group block bg-[#131317] border border-white/5 p-6 md:p-8 rounded-2xl hover:border-[#C9A84C]/30 transition-all duration-500">
               <div class="mb-4 flex">
-                <span class="inline-block px-4 py-1.5 bg-[#0a0a0f] rounded-full text-[10px] font-bold tracking-[0.2em] text-[#C9A84C] uppercase font-['Century_Gothic',sans-serif]">
+                <span class="inline-block px-4 py-1.5 bg-[#1a1c2e] rounded-full text-[10px] font-bold tracking-[0.2em] text-[#C9A84C] uppercase font-['Century_Gothic',sans-serif]">
                   {guide.type}
                 </span>
               </div>
               
-              <h2 class="text-[20px] md:text-[22px] font-bold text-white mb-4 font-['Century_Gothic',sans-serif] leading-tight group-hover:text-[#C9A84C] transition-colors">
+              <h2 class="text-[19px] md:text-[21px] font-bold text-white mb-4 font-['Century_Gothic',sans-serif] leading-tight group-hover:text-[#C9A84C] transition-colors">
                 {guide.title}
               </h2>
               
               <div class="flex items-center space-x-4 mb-5 text-[12px] text-white/50 font-['Century_Gothic',sans-serif]">
                 <div class="flex items-center">
-                  <svg class="w-4 h-4 mr-2 text-[#C9A84C]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM7 12h5v5H7z"/></svg>
+                  <div class="w-4 h-4 mr-2 relative bg-white rounded-[2px] overflow-hidden flex flex-col shadow-sm">
+                    <div class="h-1.5 bg-[#ff4b4b] w-full"></div>
+                    <div class="flex-grow flex items-center justify-center">
+                      <div class="w-2 h-2 border-[1.5px] border-gray-300 rounded-[1px]"></div>
+                    </div>
+                  </div>
                   <span>{guide.date}</span>
                 </div>
                 <span>•</span>

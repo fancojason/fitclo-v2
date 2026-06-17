@@ -1,0 +1,89 @@
+---
+const guides = [
+  {
+    type: "PILLAR PAGE",
+    title: "Custom Yoga Sets Manufacturer",
+    desc: "MOQ 100 pcs, premium breathable fabrics, squat-proof technology, and global logistics support.",
+    link: "/guides/yoga-sets",
+    linkText: "Explore Yoga Sets →"
+  },
+  {
+    type: "PILLAR PAGE",
+    title: "Custom Leggings Manufacturer",
+    desc: "High-waist designs, moisture-wicking materials, hidden pockets, and custom digital printing.",
+    link: "/guides/leggings",
+    linkText: "Explore Leggings →"
+  },
+  {
+    type: "PILLAR PAGE",
+    title: "Sport Bras with Custom Logo",
+    desc: "Medium to high support, removable pads, adjustable straps, and precision logo branding.",
+    link: "/guides/sport-bras",
+    linkText: "Explore Sport Bras →"
+  },
+  {
+    type: "PRICE GUIDE",
+    title: "How Much Does Custom Activewear Cost?",
+    desc: "Compare fabric types, finishing costs, MOQ price tiers, and real factory-direct pricing examples.",
+    link: "/guides/pricing",
+    linkText: "Read Price Guide →"
+  },
+  {
+    type: "MOQ GUIDE",
+    title: "Custom Activewear MOQ Guide",
+    desc: "Understand the benefits of 50 vs 200 vs 500 pcs, setup costs, sampling, and ideal starting quantities.",
+    link: "/guides/moq",
+    linkText: "Read MOQ Guide →"
+  },
+  {
+    type: "COMPARISON GUIDE",
+    title: "Private Label vs OEM Manufacturing",
+    desc: "Compare cost, customization depth, lead times, and unboxing effects before choosing your supply strategy.",
+    link: "/guides/private-label-vs-oem",
+    linkText: "Read Comparison →"
+  }
+];
+---
+
+<section class="py-24 bg-[#0e0e12] text-white">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <!-- Header -->
+    <div class="mb-16 relative">
+      <p class="text-[11px] font-bold tracking-[0.3em] text-[#C9A84C] uppercase mb-4 font-['Century_Gothic',sans-serif]">
+        ACTIVEWEAR BUYING GUIDES
+      </p>
+      <h2 class="text-[32px] md:text-[52px] font-bold leading-tight font-['Century_Gothic',sans-serif] tracking-tight mb-6">
+        Custom <span class="text-[#C9A84C] italic">Activewear Resources</span>
+      </h2>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <p class="text-[15px] text-white/40 font-['Century_Gothic',sans-serif] max-w-2xl leading-relaxed">
+          Explore our factory-direct guides for custom yoga sets, leggings, sport bras with logo, 
+          MOQ planning, and factory pricing before you request a professional quote.
+        </p>
+        <a href="/guides" class="text-[#C9A84C] text-[13px] font-bold tracking-widest uppercase border-b border-[#C9A84C]/30 pb-1 hover:border-[#C9A84C] transition-all whitespace-nowrap font-['Century_Gothic',sans-serif]">
+          View All Guides →
+        </a>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {guides.map(guide => (
+        <a href={guide.link} class="group block bg-[#131317] border border-white/5 p-10 rounded-xl hover:border-[#C9A84C]/30 transition-all duration-500 hover:bg-[#18181d]">
+          <p class="text-[10px] font-bold tracking-[0.2em] text-[#C9A84C] mb-6 font-['Century_Gothic',sans-serif]">
+            {guide.type}
+          </p>
+          <h3 class="text-[22px] font-bold mb-4 font-['Century_Gothic',sans-serif] leading-tight group-hover:text-[#C9A84C] transition-colors">
+            {guide.title}
+          </h3>
+          <p class="text-[14px] text-white/30 font-['Century_Gothic',sans-serif] mb-8 leading-relaxed line-clamp-3">
+            {guide.desc}
+          </p>
+          <span class="text-[12px] font-bold text-[#C9A84C] font-['Century_Gothic',sans-serif] tracking-widest uppercase border-b border-transparent group-hover:border-[#C9A84C] pb-1 transition-all">
+            {guide.linkText}
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

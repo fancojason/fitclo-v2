@@ -1,0 +1,50 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+
+const { title, type, description } = Astro.props;
+---
+
+<BaseLayout title={`${title} | Fitclo Guides`}>
+  <!-- Hero -->
+  <section class="relative py-32 bg-black overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+    </div>
+    <div class="max-w-[1200px] mx-auto px-6 relative z-10 text-center">
+      <p class="text-[11px] font-bold tracking-[0.3em] text-[#C9A84C] uppercase mb-6 font-['Century_Gothic',sans-serif]">
+        {type}
+      </p>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight font-['Century_Gothic',sans-serif] tracking-tight">
+        {title}
+      </h1>
+      <p class="text-lg md:text-xl text-white/60 max-w-3xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
+        {description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Placeholder -->
+  <section class="py-24 bg-white">
+    <div class="max-w-[800px] mx-auto px-6">
+      <div class="prose prose-lg max-w-none font-['Century_Gothic',sans-serif] text-gray-700 leading-relaxed">
+        <slot />
+        
+        <div class="mt-20 p-10 bg-gray-50 rounded-2xl border border-gray-100">
+          <h3 class="text-2xl font-bold text-black mb-4 font-['Century_Gothic',sans-serif]">Ready to start your project?</h3>
+          <p class="text-gray-500 mb-8">
+            Now that you've read our guide, you're ready to take the next step. 
+            Request a free quote and design mockup from our experts today.
+          </p>
+          <a href="#inquiry" class="inline-block bg-[#C9A84C] text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-[#C9A84C] transition-all">
+            Get Started Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="inquiry">
+    <InquiryForm />
+  </div>
+</BaseLayout>

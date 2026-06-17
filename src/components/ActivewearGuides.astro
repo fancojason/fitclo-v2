@@ -60,7 +60,7 @@ const guides = [
           Explore our factory-direct guides for custom yoga sets, leggings, sport bras with logo, 
           MOQ planning, and factory pricing before you request a professional quote.
         </p>
-        <a href="/guides" class="text-[#C9A84C] text-[13px] font-bold tracking-widest border-b-2 border-[#C9A84C] pb-0.5 hover:text-white hover:border-white transition-all whitespace-nowrap font-['Century_Gothic',sans-serif]">
+        <a href="/blogs" class="text-[#C9A84C] text-[13px] font-bold tracking-widest border-b-2 border-[#C9A84C] pb-0.5 hover:text-white hover:border-white transition-all whitespace-nowrap font-['Century_Gothic',sans-serif]">
           View All Guides →
         </a>
       </div>
@@ -69,7 +69,7 @@ const guides = [
     <!-- Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
       {guides.map(guide => (
-        <a href={guide.link} class="group block bg-[#131317] border border-white/5 p-6 rounded-xl hover:border-[#C9A84C]/30 transition-all duration-500 hover:bg-[#18181d]">
+        <a href={guide.link.replace('/guides/', '/blogs/')} class="group block bg-[#131317] border border-white/5 p-6 rounded-xl hover:border-[#C9A84C]/30 transition-all duration-500 hover:bg-[#18181d]">
           <p class="text-[11px] font-bold tracking-[0.1em] text-[#C9A84C] mb-2 font-['Century_Gothic',sans-serif] uppercase">
             {guide.type}
           </p>

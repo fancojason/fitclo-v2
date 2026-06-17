@@ -1,10 +1,127 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ActivewearGuides from '../../components/ActivewearGuides.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+
+const guides = [
+  {
+    type: "PILLAR PAGE",
+    title: "Custom Yoga Sets Manufacturer",
+    desc: "A comprehensive guide on sourcing premium yoga sets. Learn about squat-proof fabrics, seam technology, and private label customization options for your yoga brand.",
+    link: "/guides/yoga-sets",
+    linkText: "Explore Yoga Sets →",
+    image: "https://sc01.alicdn.com/kf/Hcd3a09975e5547b9baa61b4fb2cee8390.png"
+  },
+  {
+    type: "PILLAR PAGE",
+    title: "Custom Leggings Manufacturer",
+    desc: "Discover how to develop high-performance leggings. From moisture-wicking materials to high-waist compression patterns, we cover everything for professional brands.",
+    link: "/guides/leggings",
+    linkText: "Explore Leggings →",
+    image: "https://sc01.alicdn.com/kf/Ha16ea96d535245ac9951b70f83399e0eY.jpg"
+  },
+  {
+    type: "PILLAR PAGE",
+    title: "Sport Bras with Custom Logo",
+    desc: "Sourcing guide for professional sport bras. Explore support levels, padding types, and precision logo branding techniques for premium activewear lines.",
+    link: "/guides/sport-bras",
+    linkText: "Explore Sport Bras →",
+    image: "https://sc01.alicdn.com/kf/Hcc2d5570d1a94d4ea98d26ce3312893dj.png"
+  },
+  {
+    type: "PRICE GUIDE",
+    title: "How Much Does Custom Activewear Cost?",
+    desc: "Get transparency on factory-direct pricing. We break down fabric costs, manufacturing labor, and how volume impacts your final unit price.",
+    link: "/guides/pricing",
+    linkText: "Read Price Guide →",
+    image: "https://sc01.alicdn.com/kf/H08b0f9ae720a4061a79917c3d7f739663.png"
+  },
+  {
+    type: "MOQ GUIDE",
+    title: "Custom Activewear MOQ Guide",
+    desc: "Understanding Minimum Order Quantities in activewear manufacturing. Learn why 100pcs is the industry standard and how to plan your inventory effectively.",
+    link: "/guides/moq",
+    linkText: "Read MOQ Guide →",
+    image: "https://sc01.alicdn.com/kf/H884ba8683a5149558bb5623a0bc673b8T.png"
+  },
+  {
+    type: "COMPARISON GUIDE",
+    title: "Private Label vs OEM Manufacturing",
+    desc: "Which manufacturing model fits your brand? A deep dive into the differences between ready-to-ship private label and full OEM custom production.",
+    link: "/guides/private-label-vs-oem",
+    linkText: "Read Comparison →",
+    image: "https://sc01.alicdn.com/kf/Hbd3301b518ce4b96872e80fbbd5803adZ.png"
+  }
+];
 ---
 
 <BaseLayout title="Activewear Buying Guides & Resources | Fitclo">
-  <div class="pt-20">
-    <ActivewearGuides />
-  </div>
+  <!-- Hero Section -->
+  <section class="pt-40 pb-20 bg-[#0e0e12] border-b border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="max-w-3xl">
+        <p class="text-[11px] font-bold tracking-[0.4em] text-[#C9A84C] uppercase mb-6 font-['Century_Gothic',sans-serif]">
+          Resources & Insights
+        </p>
+        <h1 class="text-[40px] md:text-[60px] font-bold text-white leading-tight font-['Century_Gothic',sans-serif] tracking-tight mb-8">
+          Activewear <span class="text-[#C9A84C] italic">Buying Guides</span>
+        </h1>
+        <p class="text-[17px] text-white/50 font-['Century_Gothic',sans-serif] leading-relaxed">
+          Expert insights and factory-direct guides to help you navigate the complexities of activewear manufacturing, sourcing, and brand scaling.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Grid -->
+  <section class="py-24 bg-[#0e0e12]">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {guides.map(guide => (
+          <a href={guide.link} class="group block">
+            <div class="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-white/5">
+              <img 
+                src={guide.image} 
+                alt={guide.title} 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+            </div>
+            <div>
+              <p class="text-[11px] font-bold tracking-[0.2em] text-[#C9A84C] mb-3 font-['Century_Gothic',sans-serif] uppercase">
+                {guide.type}
+              </p>
+              <h2 class="text-[24px] font-bold text-white mb-4 font-['Century_Gothic',sans-serif] leading-tight group-hover:text-[#C9A84C] transition-colors">
+                {guide.title}
+              </h2>
+              <p class="text-[15px] text-white/40 font-['Century_Gothic',sans-serif] mb-6 leading-relaxed line-clamp-2">
+                {guide.desc}
+              </p>
+              <span class="text-[13px] font-black text-[#C9A84C] font-['Century_Gothic',sans-serif] tracking-tight border-b border-[#C9A84C]/70 group-hover:border-[#C9A84C] group-hover:text-white pb-[1px] transition-all">
+                {guide.linkText}
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / Contact Section -->
+  <section class="py-24 bg-[#0e0e12] border-t border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="bg-[#131317] rounded-[40px] p-12 lg:p-20 relative overflow-hidden border border-white/5 text-center">
+        <h2 class="text-[30px] md:text-[45px] font-bold text-white mb-8 font-['Century_Gothic',sans-serif] tracking-tight leading-tight max-w-2xl mx-auto">
+          Ready to Start Your <span class="text-[#C9A84C] italic">Custom Project?</span>
+        </h2>
+        <p class="text-[17px] text-white/50 mb-12 max-w-xl mx-auto font-['Century_Gothic',sans-serif]">
+          Connect with our consultants for a detailed quote and factory-direct support for your brand.
+        </p>
+        <a href="/#inquiry" class="inline-block bg-[#C9A84C] text-[#0A0A0F] px-10 py-5 rounded-full font-black text-[15px] uppercase tracking-widest hover:bg-white transition-all font-['Century_Gothic',sans-serif]">
+          Get a Free Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <InquiryForm />
 </BaseLayout>

@@ -44,12 +44,12 @@ const guides = [
 <BaseLayout title="The Fitclo Activewear Blog | Expert Manufacturing Guides">
   <div class="bg-[#0e0e12] min-h-screen">
     <!-- Hero Section -->
-    <section class="pt-48 pb-24 text-center">
+    <section class="pt-56 pb-28 text-center">
       <div class="max-w-[1400px] mx-auto px-6">
-        <h1 class="text-[45px] md:text-[65px] font-bold text-white mb-10 font-['Century_Gothic',sans-serif] tracking-tight">
+        <h1 class="text-[55px] md:text-[85px] font-bold text-white mb-12 font-['Century_Gothic',sans-serif] tracking-tight">
           The Fitclo <span class="italic">Activewear Blog</span>
         </h1>
-        <p class="text-[17px] text-white/50 max-w-2xl mx-auto leading-relaxed font-['Century_Gothic',sans-serif]">
+        <p class="text-[18px] text-white/50 max-w-2xl mx-auto leading-relaxed font-['Century_Gothic',sans-serif]">
           Expert guides on custom activewear sourcing, premium fabric strategy,
           and manufacturing excellence — written by factory specialists.
         </p>
@@ -57,36 +57,36 @@ const guides = [
     </section>
 
     <!-- Blog Grid -->
-    <section class="pb-32">
-      <div class="max-w-[1100px] mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+    <section class="pb-40">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
           {guides.map(guide => (
-            <a href={guide.link} class="group block bg-[#131317] border border-white/5 p-10 rounded-2xl hover:border-[#C9A84C]/30 transition-all duration-500">
-              <div class="mb-8 flex items-center justify-between">
-                <span class="text-[11px] font-bold tracking-[0.2em] text-[#C9A84C] uppercase font-['Century_Gothic',sans-serif]">
+            <a href={guide.link} class="group block bg-[#131317] border border-white/5 p-12 rounded-[32px] hover:border-[#C9A84C]/30 transition-all duration-500">
+              <div class="mb-10 flex items-center space-x-4">
+                <span class="text-[11px] font-bold tracking-[0.3em] text-[#C9A84C] uppercase font-['Century_Gothic',sans-serif]">
                   {guide.type}
                 </span>
-                <div class="w-12 h-[1px] bg-white/10 group-hover:bg-[#C9A84C]/30 transition-colors"></div>
+                <div class="flex-grow h-[1px] bg-white/5 group-hover:bg-[#C9A84C]/20 transition-colors"></div>
               </div>
               
-              <h2 class="text-[26px] font-bold text-white mb-6 font-['Century_Gothic',sans-serif] leading-tight group-hover:text-[#C9A84C] transition-colors">
+              <h2 class="text-[30px] font-bold text-white mb-8 font-['Century_Gothic',sans-serif] leading-tight group-hover:text-[#C9A84C] transition-colors">
                 {guide.title}
               </h2>
               
-              <div class="flex items-center space-x-4 mb-8 text-[13px] text-white/30 font-['Century_Gothic',sans-serif]">
+              <div class="flex items-center space-x-6 mb-10 text-[14px] text-white/30 font-['Century_Gothic',sans-serif]">
                 <div class="flex items-center">
-                  <span class="mr-2">📅</span>
+                  <span class="mr-3 text-lg">📅</span>
                   <span>{guide.date}</span>
                 </div>
-                <span>•</span>
+                <div class="w-1.5 h-1.5 rounded-full bg-white/10"></div>
                 <span>{guide.readTime}</span>
               </div>
               
-              <p class="text-[15px] text-white/50 font-['Century_Gothic',sans-serif] mb-10 leading-relaxed">
+              <p class="text-[16px] text-white/50 font-['Century_Gothic',sans-serif] mb-12 leading-relaxed">
                 {guide.desc}
               </p>
               
-              <span class="text-[14px] font-bold text-[#C9A84C] font-['Century_Gothic',sans-serif] tracking-widest border-b border-transparent group-hover:border-[#C9A84C] pb-1 transition-all">
+              <span class="text-[15px] font-bold text-[#C9A84C] font-['Century_Gothic',sans-serif] tracking-widest border-b border-[#C9A84C]/30 group-hover:border-[#C9A84C] group-hover:text-white pb-1.5 transition-all">
                 {guide.linkText}
               </span>
             </a>

@@ -63,9 +63,11 @@ const categories = [
           <div class="relative aspect-[4/5] overflow-hidden rounded-[15px] bg-white">
             <img 
               src={cat.image} 
-              alt={cat.name} 
+              alt={`Custom ${cat.name} Manufacturing - Fitclo Private Label Activewear`} 
               class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-[1.05]" 
+              loading="lazy"
             />
+
             <!-- Metallic Shimmer Sweep Light Effect on hover -->
             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1000ms] ease-out pointer-events-none z-10"></div>
           </div>

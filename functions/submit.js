@@ -11,7 +11,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: "FITCLO Website <onboarding@resend.dev>",
-        to: ["jason@dgfanco.com"],
+        to: ["fancojason@gmail.com"],
         subject: `New B2B Inquiry from ${data.name}`,
         html: `
           <h1>New Inquiry Received</h1>

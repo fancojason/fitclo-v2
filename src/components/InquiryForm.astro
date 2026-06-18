@@ -253,6 +253,9 @@
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
+    
+    // Remove file object from JSON payload as JSON.stringify doesn't support it
+    delete data.file;
 
     try {
       const res = await fetch('/submit', {

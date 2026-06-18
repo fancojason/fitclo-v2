@@ -29,6 +29,26 @@ export async function onRequestPost(context) {
       }),
     });
 
+    const resData = await res.json();
+
+    if (!res.ok) {
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: `Resend Error (${res.status}): ${resData.message || JSON.stringify(resData)}` 
+      }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    return new Response(JSON.stringify({ 
+      success: true, 
+      message: "Success" 
+    }), {
+      headers: { "Content-Type": "application/json" },
+    });
+
+
     if (!res.ok) {
       const errorData = await res.json();
       const detailedError = errorData.message || JSON.stringify(errorData);

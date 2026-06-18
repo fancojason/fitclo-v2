@@ -270,8 +270,15 @@
         body: JSON.stringify(data),
       });
 
-      const result = await res.json();
-      if (result.success) {
+      const text = await res.text();
+      let result;
+      try {
+        result = JSON.parse(text);
+      } catch (e) {
+        throw new Error(`Invalid Server Response: ${text.substring(0, 100)}`);
+      }
+
+      if (res.ok && result.success) {
         status.classList.add('hidden');
         submitBtn.innerHTML = `<span>✅</span> <span>SENT! JASON WILL REPLY WITHIN 24 HOURS.</span>`;
         submitBtn.classList.remove('bg-[#C9A84C]', 'hover:bg-[#d4b55a]');
@@ -279,10 +286,11 @@
         form.reset();
         if (fileNameDisplay) fileNameDisplay.textContent = 'No file selected';
       } else {
-        throw new Error(result.error);
+        throw new Error(result.error || result.message || `Error ${res.status}`);
       }
     } catch (err) {
-      status.textContent = err.message || 'Something went wrong. Please try again or contact us via WhatsApp.';
+      console.error('Submission Error:', err);
+      status.textContent = `Error: ${err.message}`;
       status.classList.replace('text-white/40', 'text-red-500');
       status.classList.remove('hidden');
       submitBtn.disabled = false;

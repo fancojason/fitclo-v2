@@ -247,9 +247,15 @@
     e.preventDefault();
     if (!status) return;
 
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalBtnContent = submitBtn.innerHTML;
+
     status.textContent = 'Sending...';
     status.classList.remove('hidden', 'text-red-500', 'text-green-500');
     status.classList.add('text-white/40');
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'SENDING...';
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
@@ -266,8 +272,10 @@
 
       const result = await res.json();
       if (result.success) {
-        status.textContent = "Thank you! Jason will get back to you within 24 hours.";
-        status.classList.replace('text-white/40', 'text-[#C9A84C]');
+        status.classList.add('hidden');
+        submitBtn.innerHTML = `<span>✅</span> <span>SENT! JASON WILL REPLY WITHIN 24 HOURS.</span>`;
+        submitBtn.classList.remove('bg-[#C9A84C]', 'hover:bg-[#d4b55a]');
+        submitBtn.classList.add('bg-green-700');
         form.reset();
         if (fileNameDisplay) fileNameDisplay.textContent = 'No file selected';
       } else {
@@ -276,6 +284,9 @@
     } catch (err) {
       status.textContent = 'Something went wrong. Please try again or contact us via WhatsApp.';
       status.classList.replace('text-white/40', 'text-red-500');
+      status.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnContent;
     }
   });
 </script>

@@ -11,17 +11,20 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: "FITCLO Website <onboarding@resend.dev>",
-        to: ["sales@fitcloo.com"], // Assuming sales@fitcloo.com based on domain
+        to: ["jason@dgfanco.com"],
         subject: `New B2B Inquiry from ${data.name}`,
         html: `
           <h1>New Inquiry Received</h1>
           <p><strong>Name:</strong> ${data.name}</p>
           <p><strong>Email:</strong> ${data.email}</p>
           <p><strong>Company:</strong> ${data.company || 'N/A'}</p>
-          <p><strong>Category:</strong> ${data.category}</p>
-          <p><strong>Est. Annual Order:</strong> ${data.quantity || 'N/A'}</p>
+          <p><strong>Phone/WhatsApp:</strong> ${data.phone || 'N/A'}</p>
+          <p><strong>Product Type:</strong> ${data.product_type || 'N/A'}</p>
+          <p><strong>Quantity:</strong> ${data.quantity || 'N/A'}</p>
+          <p><strong>Material:</strong> ${data.material || 'N/A'}</p>
+          <p><strong>Logo Placement:</strong> ${data.logo_placement || 'N/A'}</p>
           <p><strong>Message:</strong></p>
-          <p>${data.message}</p>
+          <p>${data.message || 'No message provided'}</p>
         `,
       }),
     });

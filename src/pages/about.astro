@@ -70,11 +70,11 @@ import InquiryForm from '../components/InquiryForm.astro';
           </div>
         </div>
         <div class="relative order-1 lg:order-2 lg:col-span-3 ml-auto w-full">
-          <div class="relative z-10 rounded-l-[40px] lg:rounded-l-[80px] overflow-hidden shadow-2xl border-[12px] border-white border-r-0">
+          <div class="relative z-10 rounded-[20px] lg:rounded-[40px] overflow-hidden shadow-xl border-[8px] border-white max-w-[90%] ml-auto">
             <img 
               src="https://sc01.alicdn.com/kf/H08b0f9ae720a4061a79917c3d7f739663.png" 
               alt="Fitclo 16,000sqm China Activewear Factory Building - ISO & SGS Certified Manufacturer" 
-              class="w-full h-[500px] lg:h-[600px] object-cover object-top transform hover:scale-105 transition-transform duration-700"
+              class="w-full h-auto transform hover:scale-105 transition-transform duration-700"
               loading="lazy"
             />
           </div>
@@ -102,19 +102,20 @@ import InquiryForm from '../components/InquiryForm.astro';
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- Left: Factory Photos Grid -->
-        <div class="relative group">
-          <div class="overflow-hidden shadow-2xl rounded-[32px]">
-            <img 
-              src="https://sc01.alicdn.com/kf/Hcc2d5570d1a94d4ea98d26ce3312893dj.png" 
-              alt="Fitclo Factory Operations" 
-              class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
-            />
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- Left: Factory Photos Grid -->
+          <div class="relative group">
+            <div class="overflow-hidden shadow-xl rounded-[24px] max-w-[90%] mx-auto">
+              <img 
+                src="https://sc01.alicdn.com/kf/Hcc2d5570d1a94d4ea98d26ce3312893dj.png" 
+                alt="Fitclo Factory Operations" 
+                class="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <!-- Decorative element -->
+            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-[#C9A84C]/20 rounded-full blur-3xl -z-10"></div>
           </div>
-          <!-- Decorative element -->
-          <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-[#C9A84C]/20 rounded-full blur-3xl -z-10"></div>
-        </div>
+
 
         <!-- Right: Value Props List (XMYoohoo Style) -->
         <div class="space-y-8">
@@ -176,7 +177,7 @@ import InquiryForm from '../components/InquiryForm.astro';
         <img 
           src="https://sc01.alicdn.com/kf/Hfd7099e6ab8a449db9590c84b4fdb066I.png" 
           alt="Fitclo Certifications" 
-          class="w-full h-auto transition-all duration-500 cursor-pointer"
+          class="max-w-[800px] w-full h-auto transition-all duration-500 cursor-pointer hover:scale-[1.02]"
         />
       </div>
     </div>

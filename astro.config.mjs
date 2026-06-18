@@ -5,4 +5,3 @@ export default defineConfig({
   site: 'https://www.fitcloo.com',
   integrations: [tailwind()]
 });
-

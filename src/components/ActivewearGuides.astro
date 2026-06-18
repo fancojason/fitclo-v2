@@ -4,42 +4,42 @@ const guides = [
     type: "PILLAR PAGE",
     title: "Custom Yoga Sets Manufacturer",
     desc: "MOQ 100 pcs, premium breathable fabrics, squat-proof technology, and global logistics support.",
-    link: "/guides/yoga-sets",
+    link: "/blogs/fabrics",
     linkText: "Explore Yoga Sets →"
   },
   {
     type: "PILLAR PAGE",
     title: "Custom Leggings Manufacturer",
     desc: "High-waist designs, moisture-wicking materials, hidden pockets, and custom digital printing.",
-    link: "/guides/leggings",
+    link: "/blogs/leggings",
     linkText: "Explore Leggings →"
   },
   {
     type: "PILLAR PAGE",
     title: "Sport Bras with Custom Logo",
     desc: "Medium to high support, removable pads, adjustable straps, and precision logo branding.",
-    link: "/guides/sport-bras",
+    link: "/blogs/sport-bras",
     linkText: "Explore Sport Bras →"
   },
   {
     type: "PRICE GUIDE",
     title: "How Much Does Custom Activewear Cost?",
     desc: "Compare fabric types, finishing costs, MOQ price tiers, and real factory-direct pricing examples.",
-    link: "/guides/pricing",
+    link: "/blogs/pricing",
     linkText: "Read Price Guide →"
   },
   {
     type: "MOQ GUIDE",
     title: "Custom Activewear MOQ Guide",
     desc: "Understand the benefits of 50 vs 200 vs 500 pcs, setup costs, sampling, and ideal starting quantities.",
-    link: "/guides/moq",
+    link: "/blogs/moq",
     linkText: "Read MOQ Guide →"
   },
   {
     type: "COMPARISON GUIDE",
-    title: "Private Label vs OEM Manufacturing",
-    desc: "Compare cost, customization depth, lead times, and unboxing effects before choosing your supply strategy.",
-    link: "/guides/private-label-vs-oem",
+    title: "OEM vs Private Label: The Ultimate Comparison Guide",
+    desc: "Compare structure, cost, customization depth and lead times to choose the right manufacturing model.",
+    link: "/blogs/oem-odm",
     linkText: "Read Comparison →"
   }
 ];
@@ -69,7 +69,7 @@ const guides = [
     <!-- Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
       {guides.map(guide => (
-        <a href={guide.link.replace('/guides/', '/blogs/')} class="group block bg-[#131317] border border-white/5 p-6 rounded-xl hover:border-[#C9A84C]/30 transition-all duration-500 hover:bg-[#18181d]">
+        <a href={guide.link} class="group block bg-[#131317] border border-white/5 p-6 rounded-xl hover:border-[#C9A84C]/30 transition-all duration-500 hover:bg-[#18181d]">
           <p class="text-[11px] font-bold tracking-[0.1em] text-[#C9A84C] mb-2 font-['Century_Gothic',sans-serif] uppercase">
             {guide.type}
           </p>

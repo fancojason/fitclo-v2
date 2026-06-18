@@ -1,233 +1,135 @@
 ---
 ---
-<section id="inquiry" class="py-24 bg-[#0e0e12] text-white overflow-hidden">
-  <div class="max-w-[1000px] mx-auto px-6 lg:px-10">
-    <!-- Header Section (Replicated from Luxopack) -->
-    <div class="text-center mb-10">
-      <p class="text-[11px] font-[600] tracking-[0.3em] text-[#C9A84C] uppercase mb-2 font-['Century_Gothic',sans-serif]">
-        GET A FREE QUOTE
-      </p>
-      <div class="flex items-start justify-center space-x-4 mb-6">
-        <span class="text-[32px] md:text-[44px] leading-none select-none mt-[4px] md:mt-[6px]">🎁</span>
-        <h2 class="text-[28px] md:text-[44px] font-bold leading-[1.1] font-['Century_Gothic',sans-serif] tracking-tight text-left">
-          Free Quote + <span class="text-white">Logo Mockup</span> <br/>
-          <div class="text-center w-full">
-            <span class="text-[#C9A84C] italic">in 24 Hours</span>
-          </div>
-        </h2>
+
+<section id="inquiry" class="py-24 bg-black relative overflow-hidden border-t border-white/5">
+  <!-- Section Title -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-16 text-center">
+    <h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[11px] md:text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
+      Request a Quote
+    </h3>
+    <h2 class="text-[32px] md:text-[48px] lg:text-[56px] font-bold text-white mb-6 leading-tight font-['Century_Gothic',sans-serif] tracking-tight">
+      Start Your <span class="text-[#C9A84C] italic">Brand Journey</span>
+    </h2>
+    <p class="text-[15px] md:text-[16px] text-white/50 font-['Century_Gothic',sans-serif] max-w-2xl mx-auto leading-relaxed">
+      No commitment. No spam. Our Activewear consultant will contact you directly with a free design mockup and factory-direct price.
+    </p>
+  </div>
+
+  <div class="max-w-[800px] mx-auto px-6 lg:px-8">
+    <!-- Consultant Card -->
+    <div class="bg-[#131313] border border-[#3a3222] rounded-xl p-6 mb-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+      <div class="flex items-center space-x-6 z-10">
+        <div class="w-16 h-16 bg-[#C9A84C] rounded-full flex items-center justify-center text-black text-2xl font-black font-['Century_Gothic',sans-serif]">
+          J
+        </div>
+        <div>
+          <h3 class="text-[18px] font-bold text-white font-['Century_Gothic',sans-serif]">
+            Hi, I'm Jason — your activewear consultant 👋
+          </h3>
+          <p class="text-[14px] text-white/40 font-['Century_Gothic',sans-serif] mt-1">
+            Expert in fabric sourcing, technical construction, and B2B logistics.
+          </p>
+        </div>
       </div>
-      <p class="text-[14px] md:text-[15px] text-white/40 font-['Century_Gothic',sans-serif] max-w-2xl mx-auto leading-relaxed">
-        No commitment. No spam. Our activewear consultant will contact you directly with a free design mockup and factory-direct price.
-      </p>
+      <div class="flex items-center space-x-2 text-[#C9A84C] text-[13px] font-bold group-hover:translate-x-1 transition-transform z-10">
+        <span>ONLINE NOW</span>
+        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+      </div>
+      <div class="absolute top-0 right-0 w-32 h-32 bg-[#C9A84C]/5 blur-[60px] rounded-full"></div>
     </div>
 
-    <div class="max-w-[800px] mx-auto">
-      <!-- Consultant Card -->
-      <div class="bg-[#131313] border border-[#3a3222] rounded-xl p-6 mb-4 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
-        <div class="flex items-center space-x-4 z-10">
-          <div class="w-12 h-12 bg-gradient-to-br from-[#E6C36A] via-[#C9A84C] to-[#9B7A30] rounded-full flex items-center justify-center text-black text-xl font-bold font-['Century_Gothic',sans-serif] shadow-lg">
-            J
-          </div>
-          <div>
-            <h3 class="text-[16px] font-bold text-white font-['Century_Gothic',sans-serif]">
-              Hi, I'm Jason — your activewear consultant 👋
-            </h3>
-            <p class="text-[13px] text-white/40 font-['Century_Gothic',sans-serif]">
-              Fill the form below and I'll personally respond with your free quote.
-            </p>
-          </div>
+    <!-- Main Form -->
+    <form id="inquiry-form" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold text-[#C9A84C] uppercase tracking-[0.15em] ml-1">Full Name</label>
+          <input type="text" name="name" required placeholder="Enter your name"
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#C9A84C]/50 transition-all font-['Century_Gothic',sans-serif] text-[15px]" />
         </div>
-        <div class="flex items-center space-x-2 z-10">
-          <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-          <span class="text-[12px] text-white/40 font-['Century_Gothic',sans-serif]">Online · Avg. 2h reply</span>
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold text-[#C9A84C] uppercase tracking-[0.15em] ml-1">Work Email</label>
+          <input type="email" name="email" required placeholder="name@company.com"
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#C9A84C]/50 transition-all font-['Century_Gothic',sans-serif] text-[15px]" />
         </div>
       </div>
 
-      <div class="text-center mb-4 mt-[-8px]">
-        <span class="text-[12px] font-medium tracking-[0.1em] text-white/50 font-['Century_Gothic',sans-serif]">
-          —— or fill the form below —
-        </span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold text-[#C9A84C] uppercase tracking-[0.15em] ml-1">Product Type</label>
+          <select name="product" required
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#C9A84C]/50 transition-all font-['Century_Gothic',sans-serif] text-[15px] appearance-none">
+            <option value="" disabled selected>Select a category</option>
+            <option value="Yoga Sets">Custom Yoga Sets</option>
+            <option value="Leggings">High-Performance Leggings</option>
+            <option value="Sports Bras">Sports Bras (High Support)</option>
+            <option value="Shorts">Gym & Biker Shorts</option>
+            <option value="Men's Wear">Men's Performance Wear</option>
+            <option value="Other">Other Custom Activewear</option>
+          </select>
+        </div>
+        <div class="space-y-2">
+          <label class="text-[11px] font-bold text-[#C9A84C] uppercase tracking-[0.15em] ml-1">Estimated Quantity</label>
+          <select name="quantity" required
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#C9A84C]/50 transition-all font-['Century_Gothic',sans-serif] text-[15px] appearance-none">
+            <option value="" disabled selected>Select quantity range</option>
+            <option value="50-100">50 - 100 pcs (Ready to Ship)</option>
+            <option value="100-500">100 - 500 pcs (Commercial Scale)</option>
+            <option value="500-1000">500 - 1000 pcs (Production Ready)</option>
+            <option value="1000+">1000+ pcs (Wholesale/Enterprise)</option>
+          </select>
+        </div>
       </div>
 
-      <!-- Inquiry Form -->
-      <form id="inquiry-form" class="space-y-6 font-['Century_Gothic',sans-serif]">
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Row 1 -->
-          <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">YOUR NAME *</label>
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="John Smith" 
-              required 
-              class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
-            />
-          </div>
-          <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">COMPANY NAME</label>
-            <input 
-              type="text" 
-              name="company" 
-              placeholder="Your Brand / Company" 
-              class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
-            />
-          </div>
+      <div class="space-y-2">
+        <label class="text-[11px] font-bold text-[#C9A84C] uppercase tracking-[0.15em] ml-1">Your Vision & Tech Requirements</label>
+        <textarea name="message" required rows="4" placeholder="Tell us about your fabric needs, custom logo placement, or design ideas..."
+          class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#C9A84C]/50 transition-all font-['Century_Gothic',sans-serif] text-[15px] resize-none"></textarea>
+      </div>
 
-          <!-- Row 2 -->
-          <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">EMAIL ADDRESS *</label>
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="john@company.com" 
-              required 
-              class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
-            />
+      <!-- File Upload (Optional) -->
+      <div class="relative group">
+        <input type="file" name="file" id="file-upload" class="hidden" />
+        <label for="file-upload" class="flex items-center justify-center space-x-3 w-full border-2 border-dashed border-white/10 hover:border-[#C9A84C]/30 py-8 rounded-xl cursor-pointer transition-all bg-white/0 hover:bg-white/5 group">
+          <svg class="w-6 h-6 text-white/30 group-hover:text-[#C9A84C] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+          </svg>
+          <div class="text-left">
+            <span class="block text-[14px] font-bold text-white/60 group-hover:text-white transition-colors">Upload Tech Pack / Logo (Optional)</span>
+            <span id="file-name" class="block text-[12px] text-white/30">Max size 10MB. Formats: PDF, PNG, JPG</span>
           </div>
-          <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">WHATSAPP / PHONE</label>
-            <input 
-              type="text" 
-              name="phone" 
-              placeholder="+1 234 567 8900" 
-              class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
-            />
-          </div>
+        </label>
+      </div>
 
-          <!-- Row 3 -->
-          <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">PRODUCT TYPE *</label>
-            <div class="relative">
-              <select name="product_type" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
-                <option value="" disabled selected class="bg-[#0A0A0F]">Select product type...</option>
-                <option value="Yoga Set" class="bg-[#0A0A0F]">Yoga Set</option>
-                <option value="Sport Bras" class="bg-[#0A0A0F]">Sport Bras</option>
-                <option value="Leggings" class="bg-[#0A0A0F]">Leggings</option>
-                <option value="Yoga Top" class="bg-[#0A0A0F]">Yoga Top</option>
-                <option value="Gym Shorts" class="bg-[#0A0A0F]">Gym Shorts</option>
-                <option value="T-shirt" class="bg-[#0A0A0F]">T-shirt</option>
-                <option value="Multiple Types / others" class="bg-[#0A0A0F]">Multiple Types / others</option>
-              </select>
-              <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">ESTIMATED QUANTITY *</label>
-            <div class="relative">
-              <select name="quantity" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
-                <option value="" disabled selected class="bg-[#0A0A0F]">Select quantity...</option>
-                <option value="100-300 PCS" class="bg-[#0A0A0F]">100 - 300 PCS (Low MOQ)</option>
-                <option value="300-1000 PCS" class="bg-[#0A0A0F]">300 - 1,000 PCS</option>
-                <option value="1000-5000 PCS" class="bg-[#0A0A0F]">1,000 - 5,000 PCS</option>
-                <option value="5000+ PCS" class="bg-[#0A0A0F]">5,000+ PCS (High Volume)</option>
-              </select>
-              <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Row 4 -->
-          <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">FABRIC & COLOR</label>
-            <div class="relative">
-              <select name="material" class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
-                <option value="Nylon/Spandex (Standard)" class="bg-[#0A0A0F]">Nylon/Spandex (Standard)</option>
-                <option value="Recycled Polyester" class="bg-[#0A0A0F]">Recycled Polyester</option>
-                <option value="Cotton Blend" class="bg-[#0A0A0F]">Cotton Blend</option>
-                <option value="Custom Fabric Request" class="bg-[#0A0A0F]">Custom Fabric Request</option>
-              </select>
-              <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">LOGO PLACEMENT</label>
-            <div class="relative">
-              <select name="logo_placement" class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
-                <option value="Chest/Left Chest" class="bg-[#0A0A0F]">Chest / Left Chest</option>
-                <option value="Waistband" class="bg-[#0A0A0F]">Waistband</option>
-                <option value="Leg (Sides/Back)" class="bg-[#0A0A0F]">Leg (Sides / Back)</option>
-                <option value="Back Neck" class="bg-[#0A0A0F]">Back Neck</option>
-                <option value="Other / Multiple" class="bg-[#0A0A0F]">Other / Multiple</option>
-              </select>
-              <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Full Width Message -->
-        <div class="space-y-2">
-          <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">TELL US MORE (OPTIONAL)</label>
-          <textarea 
-            name="message" 
-            rows="4" 
-            placeholder="Please tell us the style number you're interested in, whether you need logo customization, custom designs, or our latest catalog." 
-            class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
-          ></textarea>
-        </div>
-
-        <!-- Upload Section -->
-        <div class="space-y-2">
-          <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">UPLOAD LOGO / REFERENCE IMAGE (OPTIONAL)</label>
-          <div class="relative group cursor-pointer">
-            <input type="file" name="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
-            <div class="w-full border border-dashed border-[#C9A84C]/40 bg-[#15151a] rounded-lg py-8 flex flex-col items-center justify-center transition-all group-hover:border-[#C9A84C] group-hover:bg-[#1a1a21]">
-              <div class="mb-3 text-[#C9A84C]/60 group-hover:text-[#C9A84C] transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+      <div class="pt-6">
+        <button type="submit" 
+          class="w-full bg-[#C9A84C] hover:bg-[#d4b55a] text-black font-black py-5 rounded-xl text-[14px] tracking-[0.2em] transition-all transform hover:scale-[1.01] flex items-center justify-center space-x-3 shadow-[0_10px_30px_rgba(201,168,76,0.2)] group">
+          <span>SEND MY INQUIRY</span>
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+        
+        <!-- Trust Badges -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 w-full">
+          {[
+            'Free Design Mockup',
+            'No Hidden Fees',
+            'Sample Before Bulk',
+            'Reply in 24 Hours'
+          ].map(badge => (
+            <div class="flex items-center space-x-2">
+              <div class="w-4 h-4 bg-green-600 rounded flex items-center justify-center">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p class="text-[13px] text-white/60 mb-1 font-bold">Click to upload PNG, AI, PDF · Max 10MB</p>
-              <p class="text-[11px] text-[#C9A84C] font-bold" id="file-name">No file selected</p>
+              <span class="text-[11px] md:text-[12px] font-medium text-white/50 font-['Century_Gothic',sans-serif] tracking-wide">{badge}</span>
             </div>
-          </div>
+          ))}
         </div>
-
-        <div class="pt-2 flex flex-col sm:flex-row gap-4">
-          <button type="submit" class="flex-1 bg-[#C9A84C] text-[#0A0A0F] py-4 rounded-lg font-black text-[14px] md:text-[16px] uppercase tracking-[0.1em] hover:bg-[#d4b55a] transition-all shadow-[0_20px_40px_rgba(201,168,76,0.1)] active:scale-[0.98] font-['Century_Gothic',sans-serif] flex items-center justify-center space-x-3">
-            <span>🚀</span>
-            <span>SEND MY REQUEST</span>
-          </button>
-          <a href="#" class="flex-1 border border-[#C9A84C] text-[#C9A84C] py-4 rounded-lg font-black text-[14px] md:text-[16px] uppercase tracking-[0.1em] hover:bg-[#C9A84C] hover:text-[#0A0A0F] transition-all flex items-center justify-center space-x-3 font-['Century_Gothic',sans-serif]">
-            <span>📄</span>
-            <span>DOWNLOAD PROFILE (PDF)</span>
-          </a>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="flex flex-col items-center space-y-2 pt-0 text-center">
-          <div class="flex items-center justify-center space-x-2 text-[14px] font-medium text-white/60 font-['Century_Gothic',sans-serif]">
-            <span>🔒</span>
-            <span>Your information is safe. We respond within 24 hours on business days.</span>
-          </div>
-          
-          <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 w-full">
-            {[
-              'Free Design Mockup',
-              'No Hidden Fees',
-              'Sample Before Bulk',
-              'Reply in 24 Hours'
-            ].map(badge => (
-              <div class="flex items-center space-x-2">
-                <div class="w-4 h-4 bg-green-600 rounded flex items-center justify-center">
-                  <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span class="text-[11px] md:text-[12px] font-medium text-white/50 font-['Century_Gothic',sans-serif] tracking-wide">{badge}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <p id="form-status" class="text-center text-sm hidden"></p>
-      </form>
-    </div>
+      </div>
+      <p id="form-status" class="text-center text-sm hidden"></p>
+    </form>
   </div>
 </section>
 
@@ -260,8 +162,8 @@
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
     
-    // Remove file object from JSON payload as JSON.stringify doesn't support it
-    delete data.file;
+    // Remove file object from JSON payload
+    delete (data as any).file;
 
     try {
       const res = await fetch('/submit', {
@@ -288,7 +190,7 @@
       } else {
         throw new Error(result.error || result.message || `Error ${res.status}`);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Submission Error:', err);
       status.textContent = `Error: ${err.message}`;
       status.classList.replace('text-white/40', 'text-red-500');

@@ -35,7 +35,7 @@ const categories = [
 
 <section id="products" class="py-24 bg-black text-white overflow-hidden border-t border-white/5">
   <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
-    <!-- Header aligned perfectly with the first and third grid card edges (No translations, max-w-1200px) -->
+    <!-- Header -->
     <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-6">
       <div>
         <h3 class="text-[#C9A84C] font-bold tracking-[0.1em] text-[11px] md:text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
@@ -55,11 +55,10 @@ const categories = [
       </div>
     </div>
 
-    <!-- Categories Grid (Narrower card widths, fits perfectly on a single screen) -->
+    <!-- Categories Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {categories.map(cat => (
         <a href={cat.link} class="group block bg-[#EEEEEE] p-4 rounded-[20px] border border-transparent hover:border-[#C9A84C]/30 hover:shadow-[0_10px_30px_rgba(201,168,76,0.12)] hover:-translate-y-1 transition-all duration-500">
-          <!-- Compact Portrait Image frame (aspect-[4/5] + narrow container = stunning fit) -->
           <div class="relative aspect-[4/5] overflow-hidden rounded-[15px] bg-white">
             <img 
               src={cat.image} 
@@ -67,7 +66,6 @@ const categories = [
               class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-[1.05]" 
               loading="lazy"
             />
-
             <!-- Metallic Shimmer Sweep Light Effect on hover -->
             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1000ms] ease-out pointer-events-none z-10"></div>
           </div>

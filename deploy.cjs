@@ -1,14 +1,14 @@
 const fs = require('fs');
 const https = require('https');
 
-const TOKEN = process.env.GITHUB_TOKEN; // GitHub Token from environment variable
+const TOKEN = process.env.GITHUB_TOKEN; // Use env var for security
 const REPO = 'fancojason/fitclo-v2';
 const BRANCH = 'main';
 
 async function request(method, path, data) {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'api.github.com',
+      hostname: '20.205.243.168', // IP for api.github.com
       port: 443,
       path,
       method,
@@ -16,7 +16,9 @@ async function request(method, path, data) {
         'Authorization': `token ${TOKEN}`,
         'User-Agent': 'Node.js',
         'Content-Type': 'application/json',
+        'Host': 'api.github.com', // Explicit Host header
       },
+      servername: 'api.github.com', // SNI for SSL
     };
 
     const req = https.request(options, (res) => {
@@ -65,11 +67,30 @@ async function deploy() {
       'src/components/TrustStats.astro',
       'src/components/BlogPosts.astro',
       'src/components/BlogIntelligence.astro',
+      'src/components/WholesaleFAQ.astro',
       'src/components/Footer.astro',
       'src/components/AccessoriesBanner.astro',
       'src/components/FloatingButtons.astro',
       'src/components/ClientSuccess.astro',
+      'src/components/ClientLogos.astro',
+      'src/components/ActivewearGuides.astro',
+      'src/layouts/GuideLayout.astro',
+      'src/pages/blogs/index.astro',
+      'src/pages/blogs/yoga-sets.astro',
+      'src/pages/blogs/leggings.astro',
+      'src/pages/blogs/sport-bras.astro',
+      'src/pages/blogs/pricing.astro',
+      'src/pages/blogs/moq.astro',
+      'src/pages/blogs/private-label-vs-oem.astro',
+      'src/pages/blogs/quality-control.astro',
+      'src/pages/blogs/sustainability.astro',
+      'src/pages/blogs/sourcing-tips.astro',
+      'src/pages/blogs/launch-guide.astro',
+      'src/pages/blogs/construction.astro',
+      'src/pages/blogs/logistics.astro',
+      'package.json',
       'astro.config.mjs',
+
       'src/pages/index.astro',
       'src/pages/about.astro',
       'src/pages/products.astro',
@@ -77,7 +98,10 @@ async function deploy() {
       'src/pages/private-label.astro',
       'src/pages/capabilities.astro',
       'src/pages/contact.astro',
+      'functions/submit.js',
+      'public/robots.txt',
       'tailwind.config.mjs',
+
       'history_summary.md',
     ];
 
@@ -101,8 +125,9 @@ async function deploy() {
 
     console.log('Creating commit...');
     const newCommit = await request('POST', `/repos/${REPO}/git/commits`, {
-      message: 'feat: sync subpage typography and add Activewear Intelligence section',
+      message: 'feat: final blog replica and SEO optimization updates',
       tree: newTree.sha,
+
       parents: [lastCommitSha],
     });
 

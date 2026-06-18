@@ -282,7 +282,7 @@
         throw new Error(result.error);
       }
     } catch (err) {
-      status.textContent = 'Something went wrong. Please try again or contact us via WhatsApp.';
+      status.textContent = err.message || 'Something went wrong. Please try again or contact us via WhatsApp.';
       status.classList.replace('text-white/40', 'text-red-500');
       status.classList.remove('hidden');
       submitBtn.disabled = false;

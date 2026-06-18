@@ -31,7 +31,8 @@ export async function onRequestPost(context) {
 
     if (!res.ok) {
       const errorData = await res.json();
-      throw new Error(errorData.message || "Failed to send email via Resend");
+      const detailedError = errorData.message || JSON.stringify(errorData);
+      throw new Error(`Resend Error: ${detailedError}`);
     }
 
     return new Response(JSON.stringify({ 

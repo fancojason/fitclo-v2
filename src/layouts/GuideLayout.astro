@@ -5,7 +5,10 @@ import InquiryForm from '../components/InquiryForm.astro';
 const { title, type, description } = Astro.props;
 ---
 
-<BaseLayout title={`${title} | Fitclo Guides`}>
+<BaseLayout 
+  title={`${title} | Fitclo Guides`}
+  description={description}
+>
   <!-- Hero -->
   <section class="relative py-32 bg-black overflow-hidden">
     <div class="absolute inset-0 opacity-20">

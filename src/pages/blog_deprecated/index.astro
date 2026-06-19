@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = [
+  {
+    title: "Scaling Your Activewear Brand: The Strategic Advantage of Ready-to-Ship Inventory",
+    desc: "How high-volume retailers maximize ROI and cash flow by leveraging premium stock collections.",
+    slug: "scaling-activewear-inventory",
+    category: "Strategy"
+  },
+  {
+    title: "Quality Control at Scale: Our Zero-Defect Protocol for Large Orders",
+    desc: "A deep dive into the 4-stage inspection system that ensures zero defects for $30k+ shipments.",
+    slug: "quality-assurance-large-volume",
+    category: "Quality"
+  },
+  {
+    title: "The Economics of High-Volume Wholesale: Maximizing Your ROI",
+    desc: "Financial insights on how to optimize procurement costs and increase margins on bulk orders.",
+    slug: "economics-of-high-volume-wholesale",
+    category: "Finance"
+  },
+  {
+    title: "Activewear Trends 2026: The B2B Buyer's Guide for US/EU Markets",
+    desc: "Data-driven analysis of trending styles, colors, and fabrics retailers are sourcing now.",
+    slug: "activewear-trends-2026",
+    category: "Trends"
+  },
+  {
+    title: "The Logistics of Large-Scale Import: Shipping $30k+ Orders from China",
+    desc: "Mastering sea freight, customs, and landed cost optimization for high-volume activewear.",
+    slug: "logistics-of-large-scale-import",
+    category: "Logistics"
+  },
+  {
+    title: "Sustainability in Wholesale: GRS-Certified Solutions for Premium Brands",
+    desc: "Meeting ESG goals and attracting eco-conscious consumers through sustainable manufacturing.",
+    slug: "sustainability-in-wholesale",
+    category: "Sustainability"
+  },
+  {
+    title: "How to Vet a China Activewear Factory: Trust Signals for Big Buyers",
+    desc: "Identifying vertically integrated manufacturers and avoiding middlemen in the supply chain.",
+    slug: "vetting-activewear-manufacturer",
+    category: "Insights"
+  },
+  {
+    title: "Custom Branding for High-Volume Orders: Private Label Strategy",
+    desc: "Elevating stock collections with premium custom labels, tags, and packaging at scale.",
+    slug: "custom-branding-at-scale",
+    category: "Branding"
+  },
+  {
+    title: "Boutique Chains & The Power of Stock Activewear: JIT Inventory",
+    desc: "Why multi-location fitness brands prefer our ready-to-ship program over bespoke manufacturing.",
+    slug: "boutique-fitness-wholesale",
+    category: "Retail"
+  },
+  {
+    title: "The Future of Technical Activewear: Fabric Innovations 2026",
+    desc: "Exploring bio-synthetics and thermal regulation in the high-end fitness market.",
+    slug: "future-of-technical-activewear",
+    category: "Innovation"
+  }
+];
+---
+
+<BaseLayout 
+  title="B2B Insights & Wholesale Strategy Blog | FITCLO"
+  description="Expert advice on activewear manufacturing, supply chain optimization, and market trends for high-volume retailers and fitness brands."
+>
+  <section class="py-32 bg-[#06060a]">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h1 class="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter font-['Montserrat',sans-serif]">B2B <span class="text-accent italic">Insights</span></h1>
+      <p class="text-xl text-white/70 max-w-2xl mx-auto font-['Century_Gothic',sans-serif]">Strategic intelligence for high-volume activewear retailers and fitness brand owners.</p>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12">
+        {posts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="group border-b border-gray-100 pb-12 block">
+            <span class="text-accent font-black uppercase text-xs tracking-widest mb-4 block">{post.category}</span>
+            <h2 class="text-3xl font-black uppercase tracking-tighter mb-4 font-['Montserrat',sans-serif] group-hover:text-accent transition-colors leading-tight">
+              {post.title}
+            </h2>
+            <p class="text-gray-500 font-['Century_Gothic',sans-serif] leading-relaxed mb-6">
+              {post.desc}
+            </p>
+            <span class="text-black font-bold uppercase text-sm tracking-widest flex items-center">
+              Read Article 
+              <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-gray-50 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl font-black uppercase mb-6 font-['Montserrat',sans-serif]">Looking for Specific Data?</h2>
+      <p class="text-gray-600 mb-8 font-['Century_Gothic',sans-serif]">Our senior supply chain consultants are available for personalized strategy calls for partners aiming for $250k+ annual volume.</p>
+      <a href="/contact" class="inline-block bg-black text-white px-10 py-4 rounded-full font-black uppercase tracking-widest hover:scale-105 transition-transform">Book Strategy Call</a>
+    </div>
+  </section>
+</BaseLayout>

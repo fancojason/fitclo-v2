@@ -1,24 +1,25 @@
 const fs = require('fs');
 const https = require('https');
+const path = require('path');
 
 const TOKEN = process.env.GITHUB_TOKEN; // Use env var for security
 const REPO = 'fancojason/fitclo-v2';
 const BRANCH = 'main';
 
-async function request(method, path, data) {
+async function request(method, urlPath, data) {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: '20.205.243.168', // IP for api.github.com
       port: 443,
-      path,
+      path: urlPath,
       method,
       headers: {
         'Authorization': `token ${TOKEN}`,
         'User-Agent': 'Node.js',
         'Content-Type': 'application/json',
-        'Host': 'api.github.com', // Explicit Host header
+        'Host': 'api.github.com',
       },
-      servername: 'api.github.com', // SNI for SSL
+      servername: 'api.github.com',
     };
 
     const req = https.request(options, (res) => {
@@ -39,6 +40,21 @@ async function request(method, path, data) {
   });
 }
 
+function getAllFiles(dirPath, arrayOfFiles) {
+  const files = fs.readdirSync(dirPath);
+  arrayOfFiles = arrayOfFiles || [];
+  files.forEach(function(file) {
+    if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+      if (file !== 'node_modules' && file !== '.git' && file !== 'dist') {
+        arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
+      }
+    } else {
+      arrayOfFiles.push(path.join(dirPath, "/", file));
+    }
+  });
+  return arrayOfFiles;
+}
+
 async function deploy() {
   try {
     console.log('Fetching latest commit...');
@@ -46,78 +62,38 @@ async function deploy() {
     const lastCommitSha = branchInfo.commit.sha;
     const baseTreeSha = branchInfo.commit.commit.tree.sha;
 
-    const files = [
-      'src/layouts/BaseLayout.astro',
-      'src/components/Header.astro',
-      'src/components/Hero.astro',
-      'src/components/Stats.astro',
-      'src/components/InquiryForm.astro',
-      'src/components/LiveProduction.astro',
-      'src/components/ProductGrid.astro',
-      'src/components/WholesaleSolutions.astro',
-      'src/components/SampleCTA.astro',
-      'src/components/BrandingOptions.astro',
-      'src/components/FactoryAdvantage.astro',
-      'src/components/WhyFitclo.astro',
-      'src/components/Certifications.astro',
-      'src/components/HowItWorks.astro',
-      'src/components/Intelligence.astro',
-      'src/components/Testimonials.astro',
-      'src/components/GlobalPresence.astro',
-      'src/components/TrustStats.astro',
-      'src/components/BlogPosts.astro',
-      'src/components/BlogIntelligence.astro',
-      'src/components/WholesaleFAQ.astro',
-      'src/components/Footer.astro',
-      'src/components/AccessoriesBanner.astro',
-      'src/components/FloatingButtons.astro',
-      'src/components/ClientSuccess.astro',
-      'src/components/ClientLogos.astro',
-      'src/components/ActivewearGuides.astro',
-      'src/layouts/GuideLayout.astro',
-      'src/pages/blogs/index.astro',
-      'src/pages/blogs/yoga-sets.astro',
-      'src/pages/blogs/leggings.astro',
-      'src/pages/blogs/sport-bras.astro',
-      'src/pages/blogs/pricing.astro',
-      'src/pages/blogs/moq.astro',
-      'src/pages/blogs/private-label-vs-oem.astro',
-      'src/pages/blogs/quality-control.astro',
-      'src/pages/blogs/sustainability.astro',
-      'src/pages/blogs/sourcing-tips.astro',
-      'src/pages/blogs/launch-guide.astro',
-      'src/pages/blogs/construction.astro',
-      'src/pages/blogs/logistics.astro',
-      'package.json',
-      'astro.config.mjs',
-
-      'src/pages/index.astro',
-      'src/pages/about.astro',
-      'src/pages/products.astro',
-      'src/pages/ready-to-ship.astro',
-      'src/pages/private-label.astro',
-      'src/pages/capabilities.astro',
-      'src/pages/contact.astro',
-      'functions/submit.js',
-      'public/robots.txt',
-      'tailwind.config.mjs',
-
-      'history_summary.md',
-    ];
-
-    console.log('Building tree...');
+    console.log('Building tree from all local files...');
+    const allLocalFiles = getAllFiles('.');
     const tree = [];
-    for (const file of files) {
-      if (fs.existsSync(file)) {
+
+    // Filter and normalize paths for GitHub
+    for (let filePath of allLocalFiles) {
+      let relativePath = path.relative('.', filePath).replace(/\\/g, '/');
+      
+      // Skip certain files
+      if (relativePath.startsWith('.accio') || relativePath === 'package-lock.json' || relativePath.startsWith('node_modules') || relativePath.startsWith('dist')) {
+        continue;
+      }
+
+      if (fs.existsSync(filePath)) {
         tree.push({
-          path: file,
+          path: relativePath,
           mode: '100644',
           type: 'blob',
-          content: fs.readFileSync(file, 'utf8'),
+          content: fs.readFileSync(filePath, 'utf8'),
         });
       }
     }
 
+    // Explicitly delete package-lock.json
+    tree.push({
+      path: 'package-lock.json',
+      mode: '100644',
+      type: 'blob',
+      sha: null
+    });
+
+    console.log(`Uploading ${tree.length} items to tree...`);
     const newTree = await request('POST', `/repos/${REPO}/git/trees`, {
       base_tree: baseTreeSha,
       tree,
@@ -125,9 +101,8 @@ async function deploy() {
 
     console.log('Creating commit...');
     const newCommit = await request('POST', `/repos/${REPO}/git/commits`, {
-      message: 'feat: final blog replica and SEO optimization updates',
+      message: 'fix: header syntax error and clean build v8',
       tree: newTree.sha,
-
       parents: [lastCommitSha],
     });
 

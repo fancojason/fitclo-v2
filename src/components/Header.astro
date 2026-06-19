@@ -8,22 +8,19 @@ const navItems = [
 ];
 ---
 
-<header class="fixed w-full z-50 bg-black/95 backdrop-blur-md relative">
+<header class="fixed w-full top-0 left-0 z-50 bg-black/95 backdrop-blur-md">
   <!-- Top Navigation Gold Gradient Line -->
-  <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent opacity-80"></div>
+  <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent opacity-60"></div>
   
   <div class="max-w-[1600px] mx-auto px-6 lg:px-10">
     <div class="flex justify-between items-center h-[80px]">
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center space-x-3.5 group">
-          <!-- Pixel-perfect Luxopack-styled Overlapping FC Logo Element -->
           <div class="relative w-9 h-9 flex items-center justify-center font-['Century_Gothic',sans-serif] text-[24px] font-black tracking-tighter leading-none select-none">
             <span class="text-white absolute translate-x-[-5px] translate-y-[-2px] transition-transform duration-300 group-hover:translate-x-[-6px]">F</span>
             <span class="text-[#C9A84C] absolute translate-x-[6px] translate-y-[2px] transition-transform duration-300 group-hover:translate-x-[7px]">C</span>
           </div>
-          <!-- Vertical Divider Divider Bar -->
           <div class="h-5 w-[1px] bg-white/20"></div>
-          <!-- Luxopack Typographic Grid: White FIT + Gold CLO -->
           <div class="text-[19px] font-bold tracking-[0.12em] font-['Century_Gothic',sans-serif] uppercase select-none flex items-center">
             <span class="text-white transition-colors duration-300 group-hover:text-white/80">Fit</span>
             <span class="text-[#C9A84C] transition-colors duration-300 group-hover:text-[#d4b55a] ml-[1px]">clo</span>
@@ -32,19 +29,13 @@ const navItems = [
       </div>
       <nav class="hidden md:flex space-x-10 items-center">
         {navItems.map(item => (
-          <a 
-            href={item.href} 
-            class="relative text-[17px] font-normal text-white/90 hover:text-[#C9A84C] hover:translate-y-[-2px] transition-all duration-300 tracking-[0.5px] font-['Century_Gothic',sans-serif] pb-1.5 group"
-          >
+          <a href={item.href} class="relative text-[17px] font-normal text-white/90 hover:text-[#C9A84C] hover:translate-y-[-2px] transition-all duration-300 tracking-[0.5px] font-['Century_Gothic',sans-serif] pb-1.5 group">
             {item.name}
-            <!-- Luxurious Luxopack-style underline slider expanding from center -->
             <span class="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#C9A84C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
           </a>
         ))}
       </nav>
-      <div class="md:hidden">
-        <!-- Mobile menu button -->
-      </div>
+      <div class="md:hidden"></div>
     </div>
   </div>
 </header>

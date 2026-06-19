@@ -1,11 +1,7 @@
 {
   "name": "fitclo-v2",
   "type": "module",
-<<<<<<< HEAD
-  "version": "0.0.6",
-=======
-  "version": "0.0.7",
->>>>>>> 9df54a6ad34363378f11843b139a493c9912613d
+  "version": "0.0.8",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

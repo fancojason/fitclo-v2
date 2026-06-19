@@ -3,263 +3,371 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const guides = [
   {
-    type: "PRICE GUIDE",
-    title: "How Much Does Custom Activewear Cost in China?",
-    date: "June 18, 2026",
-    readTime: "10 min read",
-    desc: "Real factory-direct price ranges for yoga sets, leggings, and sport bras. Includes fabric costs, finishing costs and MOQ price tiers.",
-    link: "/blogs/pricing",
-    linkText: "Read Article →"
-  },
-  {
-    type: "MOQ GUIDE",
-    title: "Custom Activewear MOQ Guide: 100 vs 500 vs 1000 pcs",
-    date: "June 18, 2026",
-    readTime: "9 min read",
-    desc: "Understand when 100 pcs is enough, why 500 pcs is often the best first commercial order, and how 1000 pcs improves unit pricing.",
-    link: "/blogs/moq",
-    linkText: "Read Article →"
-  },
-  {
-    type: "MANUFACTURING",
-    title: "OEM vs Private Label: The Ultimate Comparison Guide",
-    date: "June 18, 2026",
+    type: "SUPPLY CHAIN",
+    title: "Scaling Your Activewear Brand: The Strategic Advantage of Ready-to-Ship Inventory",
+    date: "June 19, 2026",
     readTime: "8 min read",
-    desc: "Compare structure, cost, customization depth and lead times to choose the right manufacturing model for your brand.",
-    link: "/blogs/oem-odm",
-    linkText: "Read Article →"
-  },
-  {
-    type: "FABRIC SCIENCE",
-    title: "Performance Fabrics: Why Nulu-Feel is the Gold Standard",
-    date: "June 18, 2026",
-    readTime: "7 min read",
-    desc: "Explain how premium fabrics from Fitclo solve the comfort and durability requirements for high-end yoga brands.",
-    link: "/blogs/fabrics",
+    desc: "How high-volume retailers maximize ROI and cash flow by leveraging premium stock collections.",
+    link: "/blogs/scaling-activewear-inventory",
     linkText: "Read Article →"
   },
   {
     type: "QUALITY CONTROL",
-    title: "The 5-Point Quality Control Checklist for Activewear Brands",
-    date: "June 18, 2026",
-    readTime: "11 min read",
-    desc: "Standardize your quality expectations. From stretch tests to seam strength, ensure your manufacturer meets global standards.",
-    link: "/blogs/quality-control",
+    title: "Quality Control at Scale: Our Zero-Defect Protocol for Large Orders",
+    date: "June 19, 2026",
+    readTime: "10 min read",
+    desc: "A deep dive into the 4-stage inspection system that ensures zero defects for $30k+ shipments.",
+    link: "/blogs/quality-assurance-large-volume",
     linkText: "Read Article →"
   },
   {
-    type: "SUSTAINABILITY",
-    title: "Sourcing Recycled Fabrics: The 2026 Eco-Activewear Guide",
-    date: "June 18, 2026",
-    readTime: "9 min read",
-    desc: "Explore RPET, recycled nylon, and sustainable dyeing processes. How to build an eco-friendly brand with factory-direct sourcing.",
-    link: "/blogs/sustainability",
-    linkText: "Read Article →"
-  },
-  {
-    type: "SOURCING STRATEGY",
-    title: "5 Red Flags to Watch When Sourcing Activewear from China",
-    date: "June 18, 2026",
-    readTime: "6 min read",
-    desc: "Avoid common pitfalls. Learn how to identify real factories versus trading companies and protect your brand's supply chain.",
-    link: "/blogs/sourcing-tips",
-    linkText: "Read Article →"
-  },
-  {
-    type: "BRAND BUILDING",
-    title: "How to Launch an Activewear Brand: A Step-by-Step Guide",
-    date: "June 18, 2026",
-    readTime: "15 min read",
-    desc: "From technical sketches to mass production. A complete roadmap for emerging entrepreneurs looking to scale with Fitclo.",
-    link: "/blogs/launch-guide",
-    linkText: "Read Article →"
-  },
-  {
-    type: "CONSTRUCTION",
-    title: "Seamless vs Cut-and-Sew: Choosing the Right Construction",
-    date: "June 18, 2026",
-    readTime: "8 min read",
-    desc: "Deep dive into manufacturing techniques. Understand which construction method suits your design, budget, and target market.",
-    link: "/blogs/manufacturing",
-    linkText: "Read Article →"
-  },
-  {
-    type: "LOGISTICS",
-    title: "Activewear Shipping & Logistics: Reducing Lead Times",
-    date: "June 18, 2026",
-    readTime: "7 min read",
-    desc: "Optimize your supply chain. Learn about air vs sea freight, DDP terms, and how to manage inventory for peak seasons.",
-    link: "/blogs/shipping",
+    type: "FINANCE",
+    title: "The Economics of High-Volume Wholesale: Maximizing Your ROI",
+    date: "June 19, 2026",
+    readTime: "12 min read",
+    desc: "Financial insights on how to optimize procurement costs and increase margins on bulk orders.",
+    link: "/blogs/economics-of-high-volume-wholesale",
     linkText: "Read Article →"
   },
   {
     type: "TREND ANALYSIS",
-    title: "Top Activewear Trends Shaping the 2026 B2B Market",
-    date: "June 18, 2026",
+    title: "Activewear Trends 2026: The B2B Buyer's Guide for US/EU Markets",
+    date: "June 19, 2026",
     readTime: "9 min read",
-    desc: "Stay ahead of the competition. Explore the colors, textures, and silhouettes that wholesale buyers are prioritizing for the 2026 season.",
-    link: "/blogs/trends",
+    desc: "Data-driven analysis of trending styles, colors, and fabrics retailers are sourcing now.",
+    link: "/blogs/activewear-trends-2026",
     linkText: "Read Article →"
   },
   {
-    type: "PACKAGING",
-    title: "Unboxing Experience: How Premium Packaging Impacts Retention",
-    date: "June 18, 2026",
-    readTime: "6 min read",
-    desc: "More than just a bag. Discover how custom frosted sliders, tissue paper, and thank-you cards transform a generic product into a luxury brand.",
-    link: "/blogs/packaging",
-    linkText: "Read Article →"
-  },
-  {
-    type: "TECH PACKS",
-    title: "The Essential Activewear Tech Pack: Why Accuracy Saves Thousands",
-    date: "June 18, 2026",
-    readTime: "12 min read",
-    desc: "Prevent manufacturing errors before they happen. A guide to creating comprehensive technical files that ensure your designs are executed perfectly.",
-    link: "/blogs/tech-pack",
-    linkText: "Read Article →"
-  },
-  {
-    type: "PERFORMANCE",
-    title: "High-Compression Fabrics: The Science of Performance Leggings",
-    date: "June 18, 2026",
-    readTime: "8 min read",
-    desc: "Analyze the blend of nylon and spandex that creates the perfect compression. Ideal for high-intensity training and professional gym wear.",
-    link: "/blogs/leggings",
-    linkText: "Read Article →"
-  },
-  {
-    type: "PRODUCT GUIDE",
-    title: "Maximum Support: Designing High-Impact Sport Bras",
-    date: "June 18, 2026",
-    readTime: "10 min read",
-    desc: "Explore construction techniques for high-impact support. From molded cups to adjustable straps, learn how to build the perfect sport bra.",
-    link: "/blogs/sport-bras",
-    linkText: "Read Article →"
-  },
-  {
-    type: "MARKETING",
-    title: "How to Scale Your Brand with Influencer Marketing",
-    date: "June 18, 2026",
-    readTime: "9 min read",
-    desc: "Discover how to partner with fitness influencers to drive brand awareness and sales for your new activewear collection.",
-    link: "/blogs/influencer-marketing",
-    linkText: "Read Article →"
-  },
-  {
-    type: "COMPLIANCE",
-    title: "Understanding Global Activewear Quality Standards: ISO, SGS & BSCI",
-    date: "June 18, 2026",
+    type: "LOGISTICS",
+    title: "The Logistics of Large-Scale Import: Shipping $30k+ Orders from China",
+    date: "June 19, 2026",
     readTime: "11 min read",
-    desc: "A guide to the certifications that matter. Learn how ISO and SGS standards protect your brand's reputation and ensure product safety.",
+    desc: "Mastering sea freight, customs, and landed cost optimization for high-volume activewear.",
+    link: "/blogs/logistics-of-large-scale-import",
+    linkText: "Read Article →"
+  },
+  {
+    type: "SUSTAINABILITY",
+    title: "Sustainability in Wholesale: GRS-Certified Solutions for Premium Brands",
+    date: "June 19, 2026",
+    readTime: "8 min read",
+    desc: "Meeting ESG goals and attracting eco-conscious consumers through sustainable manufacturing.",
+    link: "/blogs/sustainability-in-wholesale",
+    linkText: "Read Article →"
+  },
+  {
+    type: "INDUSTRY INSIGHTS",
+    title: "How to Vet a China Activewear Factory: Trust Signals for Big Buyers",
+    date: "June 19, 2026",
+    readTime: "10 min read",
+    desc: "Identifying vertically integrated manufacturers and avoiding middlemen in the supply chain.",
+    link: "/blogs/vetting-activewear-manufacturer",
+    linkText: "Read Article →"
+  },
+  {
+    type: "BRANDING",
+    title: "Custom Branding for High-Volume Orders: Private Label Strategy",
+    date: "June 19, 2026",
+    readTime: "9 min read",
+    desc: "Elevating stock collections with premium custom labels, tags, and packaging at scale.",
+    link: "/blogs/custom-branding-at-scale",
+    linkText: "Read Article →"
+  },
+  {
+    type: "RETAIL STRATEGY",
+    title: "Boutique Chains & The Power of Stock Activewear: JIT Inventory",
+    date: "June 19, 2026",
+    readTime: "7 min read",
+    desc: "Why multi-location fitness brands prefer our ready-to-ship program over bespoke manufacturing.",
+    link: "/blogs/boutique-fitness-wholesale",
+    linkText: "Read Article →"
+  },
+  {
+    type: "TEXTILE INNOVATION",
+    title: "The Future of Technical Activewear: Fabric Science 2026",
+    date: "June 19, 2026",
+    readTime: "11 min read",
+    desc: "Exploring bio-ceramic yarns and phase-change materials in the next generation of performance wear.",
+    link: "/blogs/future-of-technical-activewear",
+    linkText: "Read Article →"
+  },
+  {
+    type: "MANUFACTURING",
+    title: "Private Label vs. OEM: Selecting the Right Model for Your Growth",
+    date: "June 19, 2026",
+    readTime: "9 min read",
+    desc: "A strategic comparison for brands scaling from startup to mid-market enterprise.",
+    link: "/blogs/private-label-vs-oem",
+    linkText: "Read Article →"
+  },
+  {
+    type: "QUALITY STANDARDS",
+    title: "Understanding GRS and OEKO-TEX: Essential Certifications for B2B Buyers",
+    date: "June 19, 2026",
+    readTime: "8 min read",
+    desc: "Why international compliance certifications are non-negotiable for premium market entry.",
     link: "/blogs/quality-standards",
     linkText: "Read Article →"
   },
   {
-    type: "TIMELINE",
-    title: "The B2B Manufacturing Timeline: From Design to Delivery",
-    date: "June 18, 2026",
-    readTime: "7 min read",
-    desc: "Manage your expectations. A detailed breakdown of the time required for sampling, mass production, and global shipping.",
+    type: "SUPPLY CHAIN",
+    title: "The Activewear Production Cycle: From Tech Pack to Shipment",
+    date: "June 19, 2026",
+    readTime: "10 min read",
+    desc: "A step-by-step timeline of high-volume manufacturing for retailers and brand owners.",
     link: "/blogs/order-cycle",
     linkText: "Read Article →"
   },
   {
-    type: "BUSINESS MODEL",
-    title: "Dropshipping vs. Wholesale: Which Model Fits Your Activewear Brand?",
+    type: "DESIGN GUIDE",
+    title: "Technical Design for Performance: Building a Better Tech Pack",
+    date: "June 19, 2026",
+    readTime: "11 min read",
+    desc: "How precise specifications reduce sampling rounds and accelerate time-to-market.",
+    link: "/blogs/tech-pack",
+    linkText: "Read Article →"
+  },
+  {
+    type: "SOURCING",
+    title: "Sourcing Technical Fabrics: The Buyer's Guide to Synthetic Blends",
+    date: "June 19, 2026",
+    readTime: "9 min read",
+    desc: "Mastering Nylon/Spandex ratios and interlock weaves for premium hand-feel and performance.",
+    link: "/blogs/fabrics",
+    linkText: "Read Article →"
+  },
+  {
+    type: "MOQ GUIDE",
+    title: "Navigating MOQ: Low-Volume Sourcing for New Collections",
+    date: "June 18, 2026",
+    readTime: "7 min read",
+    desc: "Strategic ways to maintain variety while meeting factory minimums for new activewear brands.",
+    link: "/blogs/moq",
+    linkText: "Read Article →"
+  },
+  {
+    type: "PRICE GUIDE",
+    title: "Activewear Manufacturing Costs: A Transparent Breakdown",
+    date: "June 18, 2026",
+    readTime: "8 min read",
+    desc: "Understanding the variables that influence unit pricing in high-volume production.",
+    link: "/blogs/pricing",
+    linkText: "Read Article →"
+  },
+  {
+    type: "FABRIC SCIENCE",
+    title: "The Science of Moisture-Wicking: Performance Textile Engineering",
     date: "June 18, 2026",
     readTime: "10 min read",
-    desc: "Compare the pros and cons of dropshipping and wholesale. Choose the distribution strategy that aligns with your capital and growth goals.",
-    link: "/blogs/business-models",
+    desc: "How capillary action and fiber cross-sections define modern performance apparel.",
+    link: "/blogs/moisture-wicking",
+    linkText: "Read Article →"
+  },
+  {
+    type: "MANUFACTURING",
+    title: "OEM vs ODM: Choosing Your Development Path",
+    date: "June 18, 2026",
+    readTime: "9 min read",
+    desc: "Which manufacturing model aligns with your design capabilities and market strategy?",
+    link: "/blogs/oem-odm",
+    linkText: "Read Article →"
+  },
+  {
+    type: "QUALITY CONTROL",
+    title: "In-Line Inspection: Preventing Defects Before They Happen",
+    date: "June 18, 2026",
+    readTime: "11 min read",
+    desc: "Our rigorous quality control process from raw material arrival to final finishing.",
+    link: "/blogs/quality-control",
+    linkText: "Read Article →"
+  },
+  {
+    type: "LOGISTICS",
+    title: "Global Shipping for Activewear: Optimizing Your Supply Chain",
+    date: "June 18, 2026",
+    readTime: "8 min read",
+    desc: "Strategies for reducing lead times and shipping costs in international garment trade.",
+    link: "/blogs/shipping",
+    linkText: "Read Article →"
+  },
+  {
+    type: "SUSTAINABILITY",
+    title: "Eco-Friendly Fabrics: The Shift Toward Recycled Polyester",
+    date: "June 18, 2026",
+    readTime: "9 min read",
+    desc: "How sustainable textiles are reshaping the activewear landscape for the 2026 market.",
+    link: "/blogs/eco-friendly-fabrics",
     linkText: "Read Article →"
   },
   {
     type: "SIZING GUIDE",
-    title: "The Ultimate Global Sizing Guide for Activewear Brand Owners",
+    title: "Global Sizing Standards: US vs EU Market Requirements",
     date: "June 18, 2026",
-    readTime: "12 min read",
-    desc: "Prevent returns by getting your sizing right. A comprehensive look at US, EU, and Asian sizing standards for athletic apparel.",
+    readTime: "10 min read",
+    desc: "A comprehensive guide to grading and fit consistency for international activewear brands.",
     link: "/blogs/sizing-guide",
     linkText: "Read Article →"
   },
   {
     type: "DYEING",
-    title: "Fabric Dyeing 101: Understanding Oeko-Tex & GRS Standards",
+    title: "Color Consistency at Scale: Technical Dyeing Standards",
     date: "June 18, 2026",
-    readTime: "9 min read",
-    desc: "Learn about the chemicals used in activewear dyeing and how to ensure your brand meets international safety and environmental standards.",
+    readTime: "8 min read",
+    desc: "Ensuring Pantone accuracy and colorfastness across high-volume production runs.",
     link: "/blogs/dyeing-standards",
     linkText: "Read Article →"
   },
   {
-    type: "SCALING",
-    title: "From 100 to 10,000 Pieces: The Scalability Roadmap for Brands",
-    date: "June 18, 2026",
-    readTime: "11 min read",
-    desc: "Moving from small-batch to mass production? Here is how to manage your cash flow, inventory, and factory relationships as you grow.",
-    link: "/blogs/scaling-roadmap",
-    linkText: "Read Article →"
-  },
-  {
-    type: "TECH FABRIC",
-    title: "The Science of Sweat: How Moisture-Wicking Technology Works",
-    date: "June 18, 2026",
-    readTime: "8 min read",
-    desc: "Understand the capillary action behind high-performance fabrics. Learn why moisture management is the #1 requirement for activewear.",
-    link: "/blogs/moisture-wicking",
-    linkText: "Read Article →"
-  },
-  {
-    type: "LOGO PRINTING",
-    title: "Screen Printing vs. Heat Transfer: Choosing the Right Method",
+    type: "CONSTRUCTION",
+    title: "Flatlock vs Overlock: Choosing the Right Seams for Performance",
     date: "June 18, 2026",
     readTime: "7 min read",
-    desc: "Compare durability, cost, and visual finish. Choose the best printing technique for your activewear logos and branding.",
+    desc: "How garment construction impacts durability, comfort, and the athlete's experience.",
+    link: "/blogs/construction",
+    linkText: "Read Article →"
+  },
+  {
+    type: "PRINTING",
+    title: "Sublimation vs Screen Printing: Technical Performance Guide",
+    date: "June 18, 2026",
+    readTime: "9 min read",
+    desc: "Which branding method offers the best durability and breathability for your designs?",
     link: "/blogs/printing-methods",
     linkText: "Read Article →"
   },
   {
-    type: "DESIGN GUIDE",
-    title: "The 2026 Design Guide: Balancing Aesthetics and Performance",
+    type: "SCALING",
+    title: "From Startup to Scale: Your Manufacturing Growth Roadmap",
     date: "June 18, 2026",
-    readTime: "13 min read",
-    desc: "Explore the intersection of fashion and function. Learn how to design activewear that looks great and performs under pressure.",
-    link: "/blogs/design-guide",
+    readTime: "12 min read",
+    desc: "Strategic advice on managing production as your activewear brand moves into high-volume retail.",
+    link: "/blogs/scaling-roadmap",
     linkText: "Read Article →"
   },
   {
-    type: "BRAND IDENTITY",
-    title: "Activewear Branding: How to Build a Premium Identity",
+    type: "PACKAGING",
+    title: "The Unboxing Experience: Sustainable Packaging Strategy",
     date: "June 18, 2026",
-    readTime: "9 min read",
-    desc: "Your logo is just the beginning. Learn how to create a consistent brand story through labels, hangtags, and custom hardware.",
-    link: "/blogs/branding",
+    readTime: "8 min read",
+    desc: "How premium, eco-friendly packaging enhances brand value and consumer loyalty.",
+    link: "/blogs/packaging",
     linkText: "Read Article →"
   },
   {
-    type: "SUSTAINABILITY",
-    title: "The Rise of Eco-Friendly Fabrics in Activewear",
+    type: "MARKETING",
+    title: "Influencer Marketing for Activewear: A B2B Perspective",
     date: "June 18, 2026",
     readTime: "10 min read",
-    desc: "Explore the shift toward recycled nylon, polyester, and organic cotton. Learn how to market your brand's green credentials.",
-    link: "/blogs/eco-friendly-fabrics",
+    desc: "How brand owners leverage social proof to drive high-volume wholesale demand.",
+    link: "/blogs/influencer-marketing",
+    linkText: "Read Article →"
+  },
+  {
+    type: "SOURCING",
+    title: "Building Factory Relationships: The Key to Supply Chain Stability",
+    date: "June 18, 2026",
+    readTime: "9 min read",
+    desc: "Moving beyond transactional sourcing to long-term manufacturing partnerships.",
+    link: "/blogs/sourcing-tips",
+    linkText: "Read Article →"
+  },
+  {
+    type: "COMPRESSION",
+    title: "The Science of Compression: Medical Grade vs Fashion Grade",
+    date: "June 18, 2026",
+    readTime: "11 min read",
+    desc: "Understanding mmHg ratings and zoned compression for performance-enhancing activewear.",
+    link: "/blogs/compression-science",
+    linkText: "Read Article →"
+  },
+  {
+    type: "LAUNCH GUIDE",
+    title: "Launching a New Collection: Production Timeline Essentials",
+    date: "June 18, 2026",
+    readTime: "10 min read",
+    desc: "How to manage sampling, production, and shipping for a successful seasonal launch.",
+    link: "/blogs/launch-guide",
     linkText: "Read Article →"
   },
   {
     type: "QUALITY CONTROL",
-    title: "The Squat-Proof Test: Ensuring Opacity in Performance Leggings",
+    title: "Squat-Proof Testing: Ensuring Fabric Opacity and Durability",
     date: "June 18, 2026",
     readTime: "8 min read",
-    desc: "Nothing kills a brand faster than transparent leggings. Learn the science of fabric density (GSM) and interlock knitting.",
+    desc: "Our internal lab protocols for testing legging performance under extreme stretch conditions.",
     link: "/blogs/squat-proof-testing",
     linkText: "Read Article →"
   },
   {
-    type: "TECH WEAR",
-    title: "The Science of Compression: Why It's More Than Just Tight Fabric",
+    type: "BRANDING",
+    title: "Private Label Strategy: Building Brand Equity with Stock Styles",
+    date: "June 18, 2026",
+    readTime: "9 min read",
+    desc: "How to use high-quality factory styles to build a unique brand identity through custom branding.",
+    link: "/blogs/branding",
+    linkText: "Read Article →"
+  },
+  {
+    type: "BUSINESS MODELS",
+    title: "Wholesale vs Dropshipping: Which Model Scales for Activewear?",
+    date: "June 18, 2026",
+    readTime: "10 min read",
+    desc: "Analyzing margins, control, and scalability in different garment business architectures.",
+    link: "/blogs/business-models",
+    linkText: "Read Article →"
+  },
+  {
+    type: "TREND ANALYSIS",
+    title: "The Rise of Tech-Luxe: Premium Materials in Activewear",
     date: "June 18, 2026",
     readTime: "11 min read",
-    desc: "Understand the physiological benefits of graduated compression. From muscle recovery to increased blood flow.",
+    desc: "Why high-end consumers are moving toward technical fabrics with a luxury hand-feel.",
+    link: "/blogs/trends",
+    linkText: "Read Article →"
+  },
+  {
+    type: "PRODUCT GUIDE",
+    title: "The Yoga Set Collection: Design and Functionality Guide",
+    date: "June 18, 2026",
+    readTime: "9 min read",
+    desc: "Designing cohesive sets that balance aesthetic appeal with high-performance functionality.",
+    link: "/blogs/yoga-sets",
+    linkText: "Read Article →"
+  },
+  {
+    type: "PRODUCT GUIDE",
+    title: "High-Performance Leggings: Engineering the Perfect Fit",
+    date: "June 18, 2026",
+    readTime: "10 min read",
+    desc: "From waistband tension to gusset design — the anatomy of top-selling activewear leggings.",
+    link: "/blogs/leggings",
+    linkText: "Read Article →"
+  },
+  {
+    type: "PRODUCT GUIDE",
+    title: "Technical Sports Bras: Support, Comfort, and Material Choice",
+    date: "June 18, 2026",
+    readTime: "9 min read",
+    desc: "A buyer's guide to impact levels, strap design, and internal cup construction.",
+    link: "/blogs/sport-bras",
+    linkText: "Read Article →"
+  },
+  {
+    type: "SUSTAINABILITY",
+    title: "Circular Fashion in Activewear: Design for Longevity",
+    date: "June 18, 2026",
+    readTime: "10 min read",
+    desc: "Implementing circular economy principles in the design and production of performance garments.",
+    link: "/blogs/sustainability",
+    linkText: "Read Article →"
+  },
+  {
+    type: "COMPRESSION",
+    title: "Compression Science: Benefits for Recovery and Performance",
+    date: "June 18, 2026",
+    readTime: "11 min read",
+    desc: "The physiological effects of graduated compression on muscle oxygenation and blood flow.",
     link: "/blogs/compression-science",
     linkText: "Read Article →"
   },

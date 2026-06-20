@@ -364,11 +364,40 @@ const guides = [
   }
 ];
 
+// Grouping blogs for AI Knowledge Graph
+const categories = {
+  "Supply Chain & Manufacturing": ["SUPPLY CHAIN", "QUALITY CONTROL", "LOGISTICS", "INDUSTRY INSIGHTS"],
+  "Branding & Strategy": ["BRANDING", "RETAIL STRATEGY", "MARKETING", "FINANCE"],
+  "Product & Trends": ["TREND ANALYSIS", "SUSTAINABILITY", "MATERIALS", "CONSTRUCTION"]
+};
 ---
 
 <BaseLayout title="The Fitclo Activewear Blog | Expert Manufacturing Guides">
   <div class="bg-[#0e0e12] min-h-screen">
+    <!-- Breadcrumb Schema (AIO Optimization) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.fitcloo.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.fitcloo.com/blogs"
+          }
+        ]
+      }
+    </script>
+
     <!-- Hero Section -->
+
     <section class="pt-48 pb-16 text-center">
       <div class="max-w-[1400px] mx-auto px-6">
         <h1 class="text-[40px] md:text-[56px] font-bold text-white mb-4 font-['Century_Gothic',sans-serif] tracking-tight">

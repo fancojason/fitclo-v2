@@ -165,47 +165,5 @@ const {
 		<Footer />
 		<FloatingButtons />
 
-		<!-- Google Translate Integration Script -->
-		<script is:inline>
-			function googleTranslateElementInit() {
-				new google.translate.TranslateElement({
-					pageLanguage: 'en',
-					layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-					autoDisplay: false,
-				}, 'google_translate_element');
-			}
-
-			window.doGTranslate = function(lang_pair) {
-				if(lang_pair.value) lang_pair = lang_pair.value;
-				if(lang_pair == '') return;
-				var lang = lang_pair.split('|')[1];
-				var teCombo = document.querySelector('.goog-te-combo');
-				if(teCombo == null || teCombo.value == null) {
-					setTimeout(function(){ window.doGTranslate(lang_pair); }, 500);
-				} else {
-					teCombo.value = lang;
-					teCombo.dispatchEvent(new Event('change'));
-				}
-			}
-		</script>
-		<script is:inline src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-		<style is:global>
-			/* Hide Google Translate Bar and Gadgets */
-			.goog-te-banner-frame.skiptranslate { display: none !important; }
-			body { top: 0px !important; }
-			.goog-logo-link { display: none !important; }
-			.trans-section { display: none !important; }
-			.goog-te-gadget { color: transparent !important; }
-			.goog-te-gadget .goog-te-combo {
-				background-color: #0A0A0F !important;
-				color: white !important;
-				border: 1px solid rgba(255,255,255,0.1) !important;
-				padding: 4px !important;
-				border-radius: 4px !important;
-			}
-			#goog-gt-tt { display: none !important; }
-			.goog-te-spinner-pos { display: none !important; }
-		</style>
 	</body>
 </html>

@@ -87,14 +87,27 @@ const year = new Date().getFullYear();
 
         <div>
           <h4 class="text-[14px] font-bold tracking-[0.05em] uppercase text-[#C9A84C] mb-4 font-['Century_Gothic',sans-serif]">
-            Contact
+            Language
           </h4>
-          <ul class="space-y-2.5">
-            <li class="text-white/60 text-[14px] font-['Century_Gothic',sans-serif] flex items-center">
-              <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3 animate-pulse"></span>
-              jason@dgfanco.com
-            </li>
-          </ul>
+          <div id="google_translate_element" class="opacity-0 w-0 h-0 overflow-hidden absolute"></div>
+          <div class="relative group/lang flex items-center cursor-pointer">
+            <svg class="w-4 h-4 text-white/60 group-hover/lang:text-[#C9A84C] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9-9H3m9 9L3 12m0 0l9-9m-9 9h18" />
+            </svg>
+            <span class="ml-2 text-[14px] text-white/60 group-hover/lang:text-white transition-colors font-['Century_Gothic',sans-serif] uppercase tracking-wider">English (EN)</span>
+            
+            <div class="absolute bottom-full left-0 mb-4 py-3 w-48 bg-[#0A0A0F] border border-white/10 rounded-xl shadow-[0_-20px_50px_rgba(0,0,0,0.6)] opacity-0 invisible group-hover/lang:opacity-100 group-hover/lang:visible transition-all duration-300 translate-y-[-10px] group-hover/lang:translate-y-0 z-[60]">
+              <div class="px-5 py-2 text-[11px] text-[#C9A84C] font-bold tracking-[0.15em] uppercase border-b border-white/5 mb-2 font-['Century_Gothic',sans-serif]">Select Language</div>
+              <a href="javascript:void(0)" onclick="window.doGTranslate('en|en')" class="block px-5 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">English</a>
+              <a href="javascript:void(0)" onclick="window.doGTranslate('en|fr')" class="block px-5 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Français</a>
+              <a href="javascript:void(0)" onclick="window.doGTranslate('en|de')" class="block px-5 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Deutsch</a>
+              <a href="javascript:void(0)" onclick="window.doGTranslate('en|es')" class="block px-5 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Español</a>
+              <a href="javascript:void(0)" onclick="window.doGTranslate('en|it')" class="block px-5 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Italiano</a>
+              <a href="javascript:void(0)" onclick="window.doGTranslate('en|pt')" class="block px-5 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Português</a>
+              <a href="javascript:void(0)" onclick="window.doGTranslate('en|ru')" class="block px-5 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Pусский</a>
+              <a href="javascript:void(0)" onclick="window.doGTranslate('en|ar')" class="block px-5 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">العربية</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

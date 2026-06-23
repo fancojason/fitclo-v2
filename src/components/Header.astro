@@ -33,28 +33,6 @@ const navItems = [
             <span class="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#C9A84C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
           </a>
         ))}
-        
-        <!-- Language Selector Wrapper -->
-        <div id="google_translate_element" class="opacity-0 w-0 h-0 overflow-hidden absolute"></div>
-        <div class="relative group/lang flex items-center cursor-pointer ml-6 pl-6 border-l border-white/20 h-full">
-          <svg class="w-5 h-5 text-white/90 group-hover/lang:text-[#C9A84C] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9-9H3m9 9L3 12m0 0l9-9m-9 9h18" />
-          </svg>
-          <span class="ml-2.5 text-[17px] font-normal text-white/90 group-hover/lang:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif] tracking-[0.5px] uppercase">EN</span>
-          
-          <!-- Dropdown simulation -->
-          <div class="absolute top-[80%] right-0 mt-4 py-3 w-48 bg-[#0A0A0F] border border-white/10 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] opacity-0 invisible group-hover/lang:opacity-100 group-hover/lang:visible transition-all duration-300 translate-y-2 group-hover/lang:translate-y-0 z-[60]">
-            <div class="px-5 py-2 text-[11px] text-[#C9A84C] font-bold tracking-[0.15em] uppercase border-b border-white/5 mb-2 font-['Century_Gothic',sans-serif]">Select Language</div>
-            <a href="javascript:void(0)" onclick="window.doGTranslate('en|en'); document.querySelector('.group\\/lang span').innerText='EN';" class="block px-5 py-2.5 text-[14px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">English</a>
-            <a href="javascript:void(0)" onclick="window.doGTranslate('en|fr'); document.querySelector('.group\\/lang span').innerText='FR';" class="block px-5 py-2.5 text-[14px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Français</a>
-            <a href="javascript:void(0)" onclick="window.doGTranslate('en|de'); document.querySelector('.group\\/lang span').innerText='DE';" class="block px-5 py-2.5 text-[14px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Deutsch</a>
-            <a href="javascript:void(0)" onclick="window.doGTranslate('en|es'); document.querySelector('.group\\/lang span').innerText='ES';" class="block px-5 py-2.5 text-[14px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Español</a>
-            <a href="javascript:void(0)" onclick="window.doGTranslate('en|it'); document.querySelector('.group\\/lang span').innerText='IT';" class="block px-5 py-2.5 text-[14px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Italiano</a>
-            <a href="javascript:void(0)" onclick="window.doGTranslate('en|pt'); document.querySelector('.group\\/lang span').innerText='PT';" class="block px-5 py-2.5 text-[14px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Português</a>
-            <a href="javascript:void(0)" onclick="window.doGTranslate('en|ru'); document.querySelector('.group\\/lang span').innerText='RU';" class="block px-5 py-2.5 text-[14px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">Pусский</a>
-            <a href="javascript:void(0)" onclick="window.doGTranslate('en|ar'); document.querySelector('.group\\/lang span').innerText='AR';" class="block px-5 py-2.5 text-[14px] text-white/80 hover:bg-white/5 hover:text-[#C9A84C] transition-colors font-['Century_Gothic',sans-serif]">العربية</a>
-          </div>
-        </div>
       </nav>
       <div class="md:hidden"></div>
     </div>

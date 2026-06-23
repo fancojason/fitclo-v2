@@ -33,6 +33,28 @@ const navItems = [
             <span class="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#C9A84C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
           </a>
         ))}
+        
+        <!-- Language Selector Wrapper -->
+        <div id="google_translate_element" class="opacity-0 w-0 h-0 overflow-hidden absolute"></div>
+        <div class="relative group/lang flex items-center cursor-pointer ml-4 pl-4 border-l border-white/10">
+          <svg class="w-4 h-4 text-white/60 group-hover/lang:text-[#C9A84C] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9-9H3m9 9L3 12m0 0l9-9m-9 9h18" />
+          </svg>
+          <span class="ml-2 text-[14px] font-bold text-white/60 group-hover/lang:text-white transition-colors font-['Century_Gothic',sans-serif] uppercase tracking-wider">EN</span>
+          
+          <!-- Dropdown simulation using Google Translate widget triggers -->
+          <div class="absolute top-full right-0 mt-2 py-2 w-48 bg-[#0A0A0F] border border-white/10 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover/lang:opacity-100 group-hover/lang:visible transition-all duration-300 translate-y-2 group-hover/lang:translate-y-0 z-[60]">
+            <div class="px-4 py-2 text-[11px] text-[#C9A84C] font-bold tracking-widest uppercase border-b border-white/5 mb-2">Select Language</div>
+            <a href="javascript:void(0)" onclick="window.doGTranslate('en|en')" class="block px-4 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-white transition-colors">English</a>
+            <a href="javascript:void(0)" onclick="window.doGTranslate('en|fr')" class="block px-4 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-white transition-colors">Français</a>
+            <a href="javascript:void(0)" onclick="window.doGTranslate('en|de')" class="block px-4 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-white transition-colors">Deutsch</a>
+            <a href="javascript:void(0)" onclick="window.doGTranslate('en|es')" class="block px-4 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-white transition-colors">Español</a>
+            <a href="javascript:void(0)" onclick="window.doGTranslate('en|it')" class="block px-4 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-white transition-colors">Italiano</a>
+            <a href="javascript:void(0)" onclick="window.doGTranslate('en|pt')" class="block px-4 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-white transition-colors">Português</a>
+            <a href="javascript:void(0)" onclick="window.doGTranslate('en|ru')" class="block px-4 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-white transition-colors">Pусский</a>
+            <a href="javascript:void(0)" onclick="window.doGTranslate('en|ar')" class="block px-4 py-2 text-[13px] text-white/80 hover:bg-white/5 hover:text-white transition-colors">العربية</a>
+          </div>
+        </div>
       </nav>
       <div class="md:hidden"></div>
     </div>

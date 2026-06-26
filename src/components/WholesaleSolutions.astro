@@ -365,8 +365,8 @@ const wholesaleProducts = [
 
             <!-- Premium Gold Quote CTA Button Replicating Luxopack exactly (sleeker padding, subtle gold outline) -->
             <a 
-              href="#inquiry" 
-              data-product={product.selectValue}
+              href={`https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20am%20interested%20in%20your%20${encodeURIComponent(product.title)}.%20Can%20we%20discuss%20the%20details%3F`}
+              target="_blank"
               class="quote-product-btn mt-auto block w-full py-2.5 rounded-lg text-center text-[13px] font-bold text-[#C9A84C] border border-[#C9A84C]/30 hover:border-[#C9A84C] hover:bg-[#C9A84C] hover:text-black transition-all duration-300 font-['Century_Gothic',sans-serif] tracking-wider"
             >
               → Quote This Product

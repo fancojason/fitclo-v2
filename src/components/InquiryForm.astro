@@ -258,25 +258,22 @@
     submitBtn.textContent = 'SENDING...';
 
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    const data: any = Object.fromEntries(formData.entries());
     
-    // Remove file object from JSON payload as JSON.stringify doesn't support it
+    // Remove file object from JSON payload
     delete data.file;
 
     try {
       const res = await fetch('/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify(data),
       });
 
-      const text = await res.text();
-      let result;
-      try {
-        result = JSON.parse(text);
-      } catch (e) {
-        throw new Error(`Invalid Server Response: ${text.substring(0, 100)}`);
-      }
+      const result = await res.json();
 
       if (res.ok && result.success) {
         status.classList.add('hidden');
@@ -288,7 +285,7 @@
       } else {
         throw new Error(result.error || result.message || `Error ${res.status}`);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Submission Error:', err);
       status.textContent = `Error: ${err.message}`;
       status.classList.replace('text-white/40', 'text-red-500');

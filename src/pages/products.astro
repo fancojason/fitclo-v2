@@ -246,13 +246,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           {
             title: "Premium Yoga Shorts Set",
             desc: "High-waist sculpting shorts with supportive racerback bra. Professional 4-needle 6-thread stitching.",
-            image: "https://img.alicdn.com/imgextra/i4/O1CN0157rG0z1YvC1zK0vS6_!!6000000003114-0-tps-1051-1226.jpg",
+            image: "https://sc01.alicdn.com/kf/H772bb8cd8d0b43248173234fa5346f67P.png",
             moq: "50"
           },
           {
             title: "Essential Yoga Leggings Set",
             desc: "Classic high-compression leggings paired with a versatile scoop-neck sports bra. 10+ colors available.",
-            image: "https://img.alicdn.com/imgextra/i4/O1CN01fUe7sV1oE6wZ6pC6v_!!6000000005194-0-tps-1090-1234.jpg",
+            image: "https://sc01.alicdn.com/kf/H699564deaff04b57ab05c9d1e6b95066a.png",
+            moq: "50"
+          },
+          {
+            title: "Luxury Criss-Cross Bra",
+            desc: "Elegant open-back design with supportive compression fabric. Ideal for luxury branding. High-elastic performance material.",
+            image: "https://sc01.alicdn.com/kf/Hde2258a46c8d40f6b3a38098a28a49cfJ.png",
             moq: "50"
           },
           {
@@ -260,17 +266,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             desc: "Elegant all-in-one tennis dress with built-in shorts and supportive racerback. High-performance moisture-wicking fabric.",
             image: "https://sc01.alicdn.com/kf/H9d1abad109d7478080461dad9271b7ecG.png",
             moq: "50"
-          },
-          {
-            title: "Seamless Performance Bra",
-            desc: "Flattering activewear bra with built-in support and racerback straps. Perfect for yoga, gym, and casual high-end athleisure.",
-            image: "https://img.alicdn.com/imgextra/i3/O1CN01tUf6E1256E6e6R6uW_!!6000000007474-0-tps-1065-1250.jpg",
-            moq: "50"
           }
         ].map((item) => (
-          <div class="group cursor-pointer">
-            <div class="aspect-[3/4] bg-gray-100 rounded-[32px] overflow-hidden mb-6 relative">
-              <div class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors z-10"></div>
+          <div class="group flex flex-col h-full bg-white border border-gray-100 rounded-[32px] p-6 hover:shadow-xl transition-all duration-300">
+            <div class="aspect-[3/4] bg-gray-50 rounded-[24px] overflow-hidden mb-6 relative">
               <img 
                 src={item.image} 
                 alt={item.title} 
@@ -288,9 +287,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <h3 class="text-[18px] md:text-[21px] font-bold uppercase tracking-tight mb-3 font-['Century_Gothic',sans-serif] group-hover:text-[#C9A84C] transition-colors">
               {item.title}
             </h3>
-            <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6]">
+            <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6] mb-8 flex-grow">
               {item.desc}
             </p>
+            <a 
+              href={`https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20am%20interested%20in%20your%20${encodeURIComponent(item.title)}.%20Can%20we%20discuss%20the%20details%3F`}
+              target="_blank"
+              class="w-full py-3.5 rounded-xl text-center text-[13px] font-bold text-black bg-[#C9A84C] hover:bg-black hover:text-[#C9A84C] transition-all duration-300 font-['Century_Gothic',sans-serif] tracking-widest uppercase"
+            >
+              → Get Wholesale Price
+            </a>
           </div>
         ))}
       </div>

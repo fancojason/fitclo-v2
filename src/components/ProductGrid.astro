@@ -30,30 +30,6 @@ const categories = [
     image: 'https://sc01.alicdn.com/kf/H6dea2380db0944b0957904c8458265c8H.png',
     link: '/capabilities#sports-pants'
   },
-  { 
-    name: "Premium Yoga Shorts Set",
-    image: "https://sc01.alicdn.com/kf/H772bb8cd8d0b43248173234fa5346f67P.png",
-    link: "/contact",
-    moq: "50"
-  },
-  { 
-    name: "Essential Yoga Leggings Set",
-    image: "https://sc01.alicdn.com/kf/H699564deaff04b57ab05c9d1e6b95066a.png",
-    link: "/contact",
-    moq: "50"
-  },
-  { 
-    name: "Luxury Criss-Cross Bra",
-    image: "https://sc01.alicdn.com/kf/Hde2258a46c8d40f6b3a38098a28a49cfJ.png",
-    link: "/contact",
-    moq: "50"
-  },
-  { 
-    name: "Active Performance Dress",
-    image: "https://sc01.alicdn.com/kf/H9d1abad109d7478080461dad9271b7ecG.png",
-    link: "/contact",
-    moq: "50"
-  },
 ];
 ---
 
@@ -92,14 +68,6 @@ const categories = [
             />
             <!-- Metallic Shimmer Sweep Light Effect on hover -->
              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1000ms] ease-out pointer-events-none z-10"></div>
-            
-            {cat.moq && (
-              <div class="absolute top-3 left-3 z-20">
-                <span class="bg-[#C9A84C] text-black text-[9px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter shadow-lg">
-                  MOQ: {cat.moq}
-                </span>
-              </div>
-            )}
           </div>
           <!-- Label below -->
           <div class="mt-3 flex items-center justify-between px-1">

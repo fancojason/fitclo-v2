@@ -118,48 +118,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             title: 'Compression Layers',
             desc: 'Advanced compression technology to enhance blood flow and support muscle recovery.',
             image: 'https://sc04.alicdn.com/kf/Ha0a0a0a0a0a4a0a0a0a0a0a0a0a0a0a0.jpg'
-          },
-          {
-            title: "Premium Yoga Shorts Set",
-            desc: "High-waist sculpting shorts with supportive racerback bra. Professional 4-needle 6-thread stitching.",
-            image: "https://sc01.alicdn.com/kf/H772bb8cd8d0b43248173234fa5346f67P.png",
-            moq: "50"
-          },
-          {
-            title: "Essential Yoga Leggings Set",
-            desc: "Classic high-compression leggings paired with a versatile scoop-neck sports bra. 10+ colors available.",
-            image: "https://sc01.alicdn.com/kf/H699564deaff04b57ab05c9d1e6b95066a.png",
-            moq: "50"
-          },
-          {
-            title: "Luxury Criss-Cross Bra",
-            desc: "Elegant open-back design with supportive compression fabric. Ideal for yoga and luxury branding.",
-            image: "https://sc01.alicdn.com/kf/Hde2258a46c8d40f6b3a38098a28a49cfJ.png",
-            moq: "50"
-          },
-          {
-            title: "Active Performance Dress",
-            desc: "Flattering activewear dress with built-in shorts and supportive straps. Perfect for tennis and casual activewear.",
-            image: "https://sc01.alicdn.com/kf/H9d1abad109d7478080461dad9271b7ecG.png",
-            moq: "50"
           }
         ].map((item) => (
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] bg-gray-100 rounded-[32px] overflow-hidden mb-6 relative">
               <div class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors z-10"></div>
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              
-              {item.moq && (
-                <div class="absolute top-4 left-4 z-20">
-                  <span class="bg-[#C9A84C] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
-                    MOQ: {item.moq}
-                  </span>
-                </div>
-              )}
+              <div class="w-full h-full flex items-center justify-center text-gray-400 italic font-['Century_Gothic',sans-serif] text-sm">
+                {item.title} Image
+              </div>
             </div>
             <h3 class="text-[18px] md:text-[21px] font-bold uppercase tracking-tight mb-3 font-['Century_Gothic',sans-serif] group-hover:text-[#C9A84C] transition-colors">
               {item.title}

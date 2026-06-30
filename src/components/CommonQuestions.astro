@@ -27,7 +27,8 @@ const faqs = [
 ];
 ---
 
-<section id="common-questions" class="py-24 bg-[#080808] text-white overflow-hidden">
+
+<section id="common-questions" class="py-24 bg-[#080808] text-white overflow-hidden" itemscope itemtype="https://schema.org/FAQPage">
   <div class="container mx-auto px-6 max-w-4xl">
     <!-- Section Header -->
     <div class="text-center mb-16">
@@ -43,24 +44,28 @@ const faqs = [
       </p>
     </div>
 
+
     <!-- FAQ Cards Vertical Stack -->
     <div class="max-w-4xl mx-auto space-y-4">
       {faqs.map((faq) => (
-        <div class="group relative bg-[#000000] border border-white/5 rounded-[20px] p-6 md:p-8 transition-all duration-500 hover:border-[#C9A84C]/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+        <div class="group relative bg-[#000000] border border-white/5 rounded-[20px] p-6 md:p-8 transition-all duration-500 hover:border-[#C9A84C]/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
           <!-- Gold Accent Line Animation -->
           <div class="absolute top-0 left-0 w-0 h-[2px] bg-[#C9A84C] transition-all duration-500 group-hover:w-full"></div>
           
-          <h3 class="text-[#C9A84C] text-[16px] md:text-[19px] font-bold mb-5 leading-tight font-['Century_Gothic',sans-serif]">
+          <h3 class="text-[#C9A84C] text-[16px] md:text-[19px] font-bold mb-5 leading-tight font-['Century_Gothic',sans-serif]" itemprop="name">
             {faq.question}
           </h3>
-          <p class="text-white/60 text-[13px] md:text-[15px] leading-[1.8] font-['Century_Gothic',sans-serif]">
-            {faq.answer}
-          </p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-white/60 text-[13px] md:text-[15px] leading-[1.8] font-['Century_Gothic',sans-serif]" itemprop="text">
+              {faq.answer}
+            </p>
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
 
 <style>
   @keyframes fade-in {

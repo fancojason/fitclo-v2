@@ -6,7 +6,7 @@ const cases = [
     challenge: "High direct shipping costs to Venezuela and strict color accuracy requirements for a new private label launch.",
     solution: "Implemented the Miami Consolidation Strategy and used our Ready-to-Ship (RTS) program with custom branding. Provided 3 rounds of Lab Dips for precise color matching.",
     result: "Logistics costs reduced by 40%. Successfully launched with 200 sets delivered to the Miami forwarder within 10 days.",
-    image: "https://sc01.alicdn.com/kf/Hda9265e06f104fb7a323d391cceba604W.jpg"
+    image: "https://sc02.alicdn.com/kf/Aaffbf3c90f7e49eebda1f448371cf402j.png"
   },
   {
     title: "From Tech Pack to Market: Developing a Boutique Yoga Collection",
@@ -14,7 +14,7 @@ const cases = [
     challenge: "A US startup required high-stretch reflective silver logos and specific Pantone matching for a luxury yoga set.",
     solution: "Utilized High-Stretch Reflective Heat Transfer technology and sourced 230GSM Interlock fabric. Provided a dedicated account manager for 24/7 technical support.",
     result: "First sample approved immediately. Initial production of 500 pieces achieved zero defects and 100% customer satisfaction.",
-    image: "https://sc01.alicdn.com/kf/H69e4c9c168c24a2597281d847286d74ax.png"
+    image: "https://sc02.alicdn.com/kf/A522f2892f89f483f9fce3d093333c94cQ.png"
   },
   {
     title: "Rapid Fulfillment for a High-End Fitness Chain in Miami",
@@ -22,7 +22,7 @@ const cases = [
     challenge: "A premium yoga studio chain needed custom branded instructor uniforms for a grand opening event within 10 days.",
     solution: "Selected our best-selling 230GSM Interlock ready-stock styles. Accelerated logo application and used express shipping to their Miami location.",
     result: "Order delivered in 8 days. 150+ sets utilized for the grand opening, leading to a long-term contract for seasonal staff uniforms.",
-    image: "https://sc01.alicdn.com/kf/Ha974ce5357c14c0794c03fc2d4662306Y.jpg"
+    image: "https://sc02.alicdn.com/kf/A8aca50d3b6aa4af8baf24646cf9ea658e.png"
   }
 ];
 ---
@@ -47,10 +47,14 @@ const cases = [
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {cases.map((item) => (
         <div class="group bg-[#0D1526]/40 border border-white/5 rounded-[32px] overflow-hidden hover:border-[#C9A84C]/30 transition-all duration-500 flex flex-col h-full">
-          <div class="px-8 pt-8">
-            <span class="bg-[#C9A84C] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
-              {item.category}
-            </span>
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+            <img src={item.image} alt={item.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute top-6 left-6 z-20">
+              <span class="bg-[#C9A84C] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                {item.category}
+              </span>
+            </div>
           </div>
           
           <div class="p-8 flex-grow flex flex-col">

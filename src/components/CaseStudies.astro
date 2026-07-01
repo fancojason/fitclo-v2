@@ -48,10 +48,14 @@ const cases = [
       {cases.map((item) => (
         <div class="group bg-[#0D1526]/40 border border-white/5 rounded-[32px] overflow-hidden hover:border-[#C9A84C]/30 transition-all duration-500 flex flex-col h-full">
           <div class="aspect-[16/10] overflow-hidden relative">
-            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500 z-10"></div>
-            <img src={item.image} alt={item.title} class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110" />
+            <img 
+              src={item.image} 
+              alt={item.title} 
+              class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1 group-hover:contrast-125" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
             <div class="absolute top-6 left-6 z-20">
-              <span class="bg-[#C9A84C] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              <span class="bg-[#C9A84C] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
                 {item.category}
               </span>
             </div>

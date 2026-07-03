@@ -1,51 +1,50 @@
-
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 
 const guides = [
   {
-    type: "TEXTILE R&D",
-    title: "Strategic Fabric R&D for Premium Brands",
-    date: "June 20, 2026",
+    type: "FABRIC R&D",
+    title: "Strategic Fabric R&D: How to Build a Unique Brand Identity in 2026",
+    date: "July 03, 2026",
     readTime: "9 min read",
-    desc: "How high-volume brands leverage our R&D lab for exclusive textiles.",
+    desc: "In a saturated market, exclusive fabric is the ultimate competitive moat. Learn how Fitclo co-develops proprietary textiles for high-volume brands.",
     link: "/blogs/fabric-rd-strategy",
     linkText: "Read Article →"
   },
   {
     type: "COMPLIANCE",
-    title: "The ESG Advantage: Ethical Manufacturing",
-    date: "June 20, 2026",
+    title: "The ESG Advantage: Ethical Manufacturing as a Risk Mitigation Strategy",
+    date: "July 03, 2026",
     readTime: "10 min read",
-    desc: "How ethical supply chains mitigate risk for global corporations.",
+    desc: "For US and EU corporations, an ethical supply chain is an insurance policy. Explore our BSCI-audited facilities and social compliance roadmap.",
     link: "/blogs/ethical-manufacturing-esg",
     linkText: "Read Article →"
   },
   {
-    type: "EFFICIENCY",
-    title: "Mastering Lead Times: Seasonal Production Planning",
-    date: "June 20, 2026",
+    type: "SUPPLY CHAIN",
+    title: "Mastering Lead Times: Seasonal Production Planning for Activewear Brands",
+    date: "July 03, 2026",
     readTime: "11 min read",
-    desc: "Optimizing production cycles for $30k+ retail orders.",
+    desc: "How Fitclo's vertical integration and capacity reservation models protect $30k+ buyers from seasonal production delays.",
     link: "/blogs/optimizing-production-timelines",
     linkText: "Read Article →"
   },
   {
-    type: "TRANSPARENCY",
-    title: "Transparent Pricing: Cost Breakdown Strategies",
-    date: "June 20, 2026",
+    type: "FINANCIAL",
+    title: "Cost Breakdown Transparency: Managing ROI in High-Volume Manufacturing",
+    date: "July 03, 2026",
     readTime: "12 min read",
-    desc: "Managing ROI and unit costs in high-volume procurement.",
+    desc: "A radical look at activewear unit costs. How volume discount tiers and price locks help B2B partners maintain stable margins.",
     link: "/blogs/cost-breakdown-transparency",
     linkText: "Read Article →"
   },
   {
-    type: "TECH GUIDE",
-    title: "Seamless vs. Cut & Sew: A B2B Guide",
-    date: "June 20, 2026",
+    type: "MANUFACTURING",
+    title: "Seamless vs. Cut & Sew Activewear: Which Technology Fits Your High-Volume Line?",
+    date: "July 03, 2026",
     readTime: "10 min read",
-    desc: "Choosing the right technology for your high-performance line.",
+    desc: "A technical comparison of circular knitting vs. traditional assembly. Choosing the right tech for your $30k+ product line.",
     link: "/blogs/seamless-vs-cut-sew",
     linkText: "Read Article →"
   },
@@ -113,3 +112,109 @@ const guides = [
     linkText: "Read Article →"
   },
   {
+    type: "CUSTOMIZATION",
+    title: "Beyond the Logo: Full-Spectrum Customization for Emerging Fitness Brands",
+    date: "July 1, 2026",
+    readTime: "12 min read",
+    desc: "Explore our comprehensive branding options including custom fabrics, colors, hardware, and premium packaging.",
+    link: "/blogs/customization-options-explained",
+    linkText: "Read Article →"
+  },
+  {
+    type: "TECHNICAL",
+    title: "The Precision Fit: A Technical Guide to Yoga Leggings Measurements for Sourcing Managers",
+    date: "July 1, 2026",
+    readTime: "11 min read",
+    desc: "A technical guide on how to provide accurate measurements and tech packs to your manufacturing partner for a perfect fit.",
+    link: "/blogs/technical-measurements-guide",
+    linkText: "Read Article →"
+  },
+  {
+    type: "R&D",
+    title: "Cooling Tech: How Recycled Nylon 66 is Revolutionizing Summer Activewear",
+    date: "July 1, 2026",
+    readTime: "9 min read",
+    desc: "Discover how we use premium recycled nylon 66 to create sustainable activewear that keeps athletes cool and dry.",
+    link: "/blogs/cooling-tech-recycled-nylon",
+    linkText: "Read Article →"
+  }
+];
+---
+
+<BaseLayout 
+  title="B2B Activewear Sourcing & Manufacturing Guides | FITCLO"
+  description="Expert insights for fitness brands. Learn about custom manufacturing, fabric technology, and supply chain optimization from a leading activewear factory."
+>
+  <main class="pt-32 pb-24 font-['Century_Gothic',sans-serif]">
+    <!-- Hero Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-3xl">
+        <span class="text-accent font-black uppercase tracking-widest text-sm mb-4 block">Expert Resources</span>
+        <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 font-['Montserrat',sans-serif]">
+          Strategic <span class="text-accent italic">B2B Guides</span>
+        </h1>
+        <p class="text-xl text-gray-500 leading-relaxed font-bold">
+          Deep dives into the technical, logistical, and strategic aspects of professional activewear manufacturing. Designed for brand owners and sourcing managers.
+        </p>
+      </div>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {guides.map((guide) => (
+          <article class="group relative flex flex-col items-start p-8 rounded-[40px] border border-gray-100 bg-white hover:bg-black transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
+            <span class="text-accent font-black uppercase tracking-widest text-[10px] mb-4 py-1 px-3 bg-accent/10 rounded-full group-hover:bg-accent group-hover:text-black">
+              {guide.type}
+            </span>
+            <h2 class="text-2xl font-black uppercase tracking-tight mb-4 font-['Montserrat',sans-serif] group-hover:text-white transition-colors">
+              {guide.title}
+            </h2>
+            <div class="flex items-center space-x-3 text-xs text-gray-400 mb-6 group-hover:text-gray-500">
+              <span>{guide.date}</span>
+              <span>•</span>
+              <span>{guide.readTime}</span>
+            </div>
+            <p class="text-gray-500 mb-8 leading-relaxed font-bold group-hover:text-white/70 transition-colors">
+              {guide.desc}
+            </p>
+            <a 
+              href={guide.link}
+              class="mt-auto inline-flex items-center text-sm font-black uppercase tracking-widest text-black group-hover:text-accent transition-colors border-b-2 border-accent pb-1"
+            >
+              {guide.linkText}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
+      <div class="bg-black rounded-[60px] p-12 md:p-24 text-center relative overflow-hidden">
+        <div class="relative z-10">
+          <h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-8 font-['Montserrat',sans-serif]">
+            Ready to Build Your <span class="text-accent italic">Own Success Story?</span>
+          </h2>
+          <p class="text-white/60 text-xl mb-12 max-w-2xl mx-auto font-bold">
+            Consult with our product specialists and turn your design concepts into professional activewear collections.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+            <a 
+              href="/contact" 
+              class="w-full sm:w-auto px-10 py-4 bg-accent text-black rounded-full font-black uppercase tracking-widest hover:scale-105 transition-all text-center"
+            >
+              Start Your Inquiry
+            </a>
+            <a 
+              href="/products" 
+              class="w-full sm:w-auto px-10 py-4 border border-white/20 text-white rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center"
+            >
+              View Catalog
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

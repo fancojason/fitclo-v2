@@ -1,0 +1,262 @@
+---
+const categories = [
+  { id: 'all', label: 'All Questions', icon: 'all' },
+  { id: 'manufacturing', label: 'Manufacturing', icon: 'factory' },
+  { id: 'private-label', label: 'Private Label', icon: 'tag' },
+  { id: 'moq', label: 'MOQ & Pricing', icon: 'moq' },
+  { id: 'customization', label: 'Customization', icon: 'pen' },
+  { id: 'shipping', label: 'Shipping', icon: 'truck' },
+];
+
+const faqs = [
+  {
+    id: 1,
+    category: 'manufacturing',
+    question: "How to find a reliable activewear manufacturer in China?",
+    answer: "Look for manufacturers with proven export experience, transparent production processes and stable quality standards. A reliable partner should offer factory-direct communication, sample development, flexible customization and consistent lead times. Fitclo specializes in private label and OEM activewear manufacturing with customers across USA, Europe, Australia and the Middle East."
+  },
+  {
+    id: 2,
+    category: 'moq',
+    question: "What is the MOQ for private label activewear?",
+    answer: "MOQ depends on product type and customization requirements. For ready-to-ship styles with logo customization, MOQ starts from 50 pieces. For OEM activewear production, MOQ may vary depending on fabric and design complexity. Our team provides flexible solutions for both growing brands and established businesses."
+  },
+  {
+    id: 3,
+    category: 'customization',
+    question: "Can I customize logo, labels and packaging?",
+    answer: "Yes. Fitclo offers complete private label solutions including heat transfer logos, silicone logos, woven labels, care labels, hang tags, and custom packaging bags. Everything can be customized according to your brand identity."
+  },
+  {
+    id: 4,
+    category: 'manufacturing',
+    question: "What is the production lead time?",
+    answer: "Ready-to-ship products can usually be delivered within 7 days. Private label orders generally take 15–25 days depending on customization requirements. OEM development timelines vary according to fabric sourcing and sample approval. Our team provides a detailed timeline before production begins."
+  },
+  {
+    id: 5,
+    category: 'moq',
+    question: "Do you provide samples before bulk order?",
+    answer: "Yes, we always provide a physical pre-production sample for your approval before starting the bulk order. This ensures the fit, fabric, and branding are exactly as you envisioned."
+  },
+  {
+    id: 6,
+    category: 'manufacturing',
+    question: "How do you ensure the quality of your products?",
+    answer: "We have a strict 4-point quality control system. Each garment undergoes fabric inspection, in-line checking, and a final 100% manual check before packaging. We use premium machines and high-filament yarns to ensure zero-defect production."
+  }
+];
+---
+
+<section id="activewear-intelligence-v2" class="py-24 bg-[#050505] text-white font-['Century_Gothic',sans-serif]">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-16">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[11px] md:text-[12px] mb-3 uppercase">COMMON QUESTIONS</h3>
+      <h2 class="text-[36px] md:text-[52px] font-bold text-white mb-6 tracking-tight">Activewear Intelligence</h2>
+      <div class="w-20 h-[2px] bg-[#C9A84C] mx-auto mb-8"></div>
+      <p class="text-white/60 max-w-2xl mx-auto text-[15px] md:text-[16px] leading-relaxed">
+        Get answers to the most common questions about private label activewear, ready-to-ship collections and manufacturing in China.
+      </p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="flex flex-wrap justify-center gap-4 mb-16">
+      {categories.map((cat) => (
+        <button 
+          class="category-tab group flex flex-col items-center justify-center w-[120px] h-[100px] rounded-xl border border-white/10 bg-white/5 transition-all duration-300 hover:border-[#C9A84C]/50 hover:bg-[#C9A84C]/5"
+          data-category={cat.id}
+        >
+          <div class="mb-3 text-white/40 group-hover:text-[#C9A84C] transition-colors tab-icon">
+            {cat.icon === 'all' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            )}
+            {cat.icon === 'factory' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            )}
+            {cat.icon === 'tag' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+              </svg>
+            )}
+            {cat.icon === 'moq' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            )}
+            {cat.icon === 'pen' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+              </svg>
+            )}
+            {cat.icon === 'truck' && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+              </svg>
+            )}
+          </div>
+          <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-white/40 group-hover:text-white transition-colors tab-label">{cat.label}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="max-w-4xl mx-auto space-y-3" id="faq-container-v2">
+      {faqs.map((faq, index) => (
+        <div 
+          class="faq-item-v2 group bg-white/5 border border-white/5 rounded-xl overflow-hidden transition-all duration-500"
+          data-category={faq.category}
+        >
+          <button class="faq-trigger-v2 w-full flex items-center justify-between p-6 md:p-8 text-left">
+            <div class="flex items-center gap-6">
+              <span class="text-[14px] font-bold text-white/20 font-mono">{String(index + 1).padStart(2, '0')}</span>
+              <h4 class="text-[16px] md:text-[18px] font-bold text-white group-hover:text-[#C9A84C] transition-colors leading-tight">{faq.question}</h4>
+            </div>
+            <div class="w-7 h-7 flex-shrink-0 flex items-center justify-center border border-white/10 rounded-full group-hover:border-[#C9A84C]/50 transition-colors">
+              <span class="plus-icon text-[#C9A84C] text-[20px] transition-transform duration-300 group-active:rotate-90">+</span>
+              <span class="minus-icon hidden text-[#C9A84C] text-[20px]">-</span>
+            </div>
+          </button>
+          <div class="faq-content-v2 hidden px-8 pb-10 ml-[52px] md:ml-[74px]">
+            <div class="flex gap-6 items-start">
+               <div class="hidden md:flex w-12 h-12 flex-shrink-0 items-center justify-center border border-[#C9A84C]/20 rounded-full bg-[#C9A84C]/5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#C9A84C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+               </div>
+               <p class="text-white/60 text-[15px] md:text-[16px] leading-[1.8] max-w-2xl">
+                {faq.answer}
+               </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Footer Explore Hub -->
+    <div class="mt-20 max-w-4xl mx-auto">
+      <div class="bg-white/5 border border-white/5 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden group">
+        <!-- Corner Accent -->
+        <div class="absolute top-0 right-0 w-24 h-24 bg-[#C9A84C]/10 transition-all duration-500 group-hover:bg-[#C9A84C]/20" style="clip-path: polygon(100% 0, 0 0, 100% 100%);"></div>
+        <div class="absolute top-2 right-2 w-1.5 h-1.5 bg-[#C9A84C] rounded-full"></div>
+
+        <div class="flex items-center gap-8 text-center md:text-left">
+          <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center border border-white/10 rounded-2xl bg-white/5 transition-transform duration-500 group-hover:scale-110 group-hover:border-[#C9A84C]/30">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#C9A84C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-[22px] md:text-[24px] font-bold text-white mb-2">Want to Explore More?</h4>
+            <p class="text-white/40 text-[14px] md:text-[15px]">Browse more industry insights, guides and resources in our Activewear Intelligence Hub.</p>
+          </div>
+        </div>
+
+        <div class="text-center md:text-right flex-shrink-0">
+          <a href="/blogs" class="inline-block bg-[#C9A84C] hover:bg-[#b8973d] text-black px-10 py-5 rounded-lg font-bold text-[13px] uppercase tracking-wider transition-all duration-300 hover:shadow-[0_10px_20px_rgba(201,168,76,0.3)] mb-4">
+            Explore Intelligence Hub →
+          </a>
+          <p class="text-[11px] text-white/30 uppercase tracking-[0.15em] font-bold">All guides, articles and reports in one place.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const setupIntelligenceFAQ = () => {
+    const tabs = document.querySelectorAll('.category-tab');
+    const items = document.querySelectorAll('.faq-item-v2');
+    const triggers = document.querySelectorAll('.faq-trigger-v2');
+
+    if (!tabs.length) return;
+
+    // Set initial active state
+    const setActiveTab = (tab) => {
+      tabs.forEach(t => {
+        t.classList.remove('active-tab-v2', 'border-[#C9A84C]/50', 'bg-[#C9A84C]/5');
+        const icon = t.querySelector('.tab-icon');
+        const label = t.querySelector('.tab-label');
+        icon.classList.remove('text-[#C9A84C]');
+        icon.classList.add('text-white/40');
+        label.classList.remove('text-white');
+        label.classList.add('text-white/40');
+      });
+      
+      tab.classList.add('active-tab-v2', 'border-[#C9A84C]/50', 'bg-[#C9A84C]/5');
+      const icon = tab.querySelector('.tab-icon');
+      const label = tab.querySelector('.tab-label');
+      icon.classList.remove('text-white/40');
+      icon.classList.add('text-[#C9A84C]');
+      label.classList.remove('text-white/40');
+      label.classList.add('text-white');
+    };
+
+    setActiveTab(tabs[0]);
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        setActiveTab(tab);
+        const category = tab.getAttribute('data-category');
+        
+        items.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const content = trigger.nextElementSibling;
+        const isOpen = !content.classList.contains('hidden');
+        const item = trigger.parentElement;
+        const plusIcon = trigger.querySelector('.plus-icon');
+        const minusIcon = trigger.querySelector('.minus-icon');
+
+        if (isOpen) {
+          content.classList.add('hidden');
+          item.classList.remove('bg-white/[0.08]', 'border-[#C9A84C]/30');
+          plusIcon.classList.remove('hidden');
+          minusIcon.classList.add('hidden');
+        } else {
+          content.classList.remove('hidden');
+          item.classList.add('bg-white/[0.08]', 'border-[#C9A84C]/30');
+          plusIcon.classList.add('hidden');
+          minusIcon.classList.remove('hidden');
+        }
+      });
+    });
+  };
+
+  // Run on page load and view transition
+  setupIntelligenceFAQ();
+  document.addEventListener('astro:after-swap', setupIntelligenceFAQ);
+</script>
+
+<style>
+  .active-tab-v2 {
+    border-color: rgba(201, 168, 76, 0.5) !important;
+    background-color: rgba(201, 168, 76, 0.05) !important;
+  }
+  
+  .faq-item-v2 {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-content-v2 {
+    animation: slideDown 0.4s ease-out forwards;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

@@ -1,0 +1,90 @@
+  {
+    type: "STRATEGY",
+    title: "Strategic Fabric R&D: Building a Brand Moat with Custom Textiles",
+    date: "July 03, 2026",
+    readTime: "9 min read",
+    desc: "In a saturated market, exclusive fabric is the ultimate competitive moat. Learn how Fitclo co-develops proprietary textiles for high-end brands seeking differentiation.",
+    link: "/blogs/strategic-fabric-rd-brand-moat",
+    linkText: "Read Article →"
+  },
+  {
+    type: "COMPLIANCE",
+    title: "The ESG Advantage: Why BSCI Audits are Critical for Corporate Procurement",
+    date: "July 03, 2026",
+    readTime: "10 min read",
+    desc: "For mid-to-large Western enterprises, an ethical supply chain is an insurance policy. Explore our BSCI-audited facilities and ESG roadmap.",
+    link: "/blogs/esg-advantage-bsci-audit",
+    linkText: "Read Article →"
+  },
+  {
+    type: "OPERATIONS",
+    title: "Mastering Lead Times: Solving Peak Season Production Bottlenecks",
+    date: "July 03, 2026",
+    readTime: "8 min read",
+    desc: "How Fitclo's vertical integration and capacity reservation models solve peak season scheduling for retail chains and seasonal brands.",
+    link: "/blogs/mastering-lead-times-capacity-reservation",
+    linkText: "Read Article →"
+  },
+  {
+    type: "FINANCE",
+    title: "Cost Breakdown Transparency: Understanding Factory Pricing Logic",
+    date: "July 03, 2026",
+    readTime: "11 min read",
+    desc: "A technical look at factory pricing. How transparency in ROI optimization and unit costs helps finance-driven procurement partners.",
+    link: "/blogs/cost-breakdown-transparency-roi",
+    linkText: "Read Article →"
+  },
+  {
+    type: "CONSTRUCTION",
+    title: "Seamless vs. Cut & Sew: A Product Manager's Guide to Selection",
+    date: "July 03, 2026",
+    readTime: "7 min read",
+    desc: "A technical comparison of manufacturing technologies. Choosing the right construction for professional Product Directors and Managers.",
+    link: "/blogs/seamless-vs-cut-sew-product-manager-guide",
+    linkText: "Read Article →"
+  },
+  {
+    type: "CUSTOMIZATION",
+    title: "Elevating Activewear: Premium Embroidery Logo Customization for Hoodies & Sweatpants",
+    date: "July 02, 2026",
+    readTime: "8 min read",
+    desc: "In the competitive world of private label activewear, nothing conveys luxury and durability quite like professional embroidery. Perfect for heavyweight hoodies and sweatpants.",
+    link: "/blogs/premium-embroidery-logo-customization",
+    linkText: "Read Article →"
+  },
+  {
+    type: "FABRIC TECH",
+    title: "Why 230GSM Interlock is the Secret to Squat-Proof Leggings",
+    date: "July 01, 2026",
+    readTime: "7 min read",
+    desc: "Discover why 230GSM Interlock is the industry standard for high-end yoga wear and professional performance leggings.",
+    link: "/blogs/why-230gsm-interlock-is-the-secret",
+    linkText: "Read Article →"
+  },
+  {
+    type: "LOGISTICS",
+    title: "The Ultimate Logistics Guide: Shipping Activewear from China",
+    date: "June 30, 2026",
+    readTime: "8 min read",
+    desc: "Navigate the complexities of international shipping. From Guangzhou factory floor to your warehouse in Miami or Europe.",
+    link: "/blogs/ultimate-logistics-guide-shipping-activewear",
+    linkText: "Read Article →"
+  },
+  {
+    type: "STRATEGY",
+    title: "Private Label vs. Custom Manufacturing: Choosing Your Path",
+    date: "June 28, 2026",
+    readTime: "9 min read",
+    desc: "Navigate the choice between Private Label and OEM/Custom manufacturing to optimize your brand's growth and margins.",
+    link: "/blogs/private-label-vs-custom-manufacturing",
+    linkText: "Read Article →"
+  },
+  {
+    type: "SUSTAINABILITY",
+    title: "Eco-Performance: Sustainable Fabrics in Activewear Manufacturing",
+    date: "June 25, 2026",
+    readTime: "10 min read",
+    desc: "Explore the future of athletic apparel. Balancing high-performance compression with eco-friendly recycled materials.",
+    link: "/blogs/eco-performance-sustainable-fabrics-activewear",
+    linkText: "Read Article →"
+  },

@@ -58,7 +58,23 @@ const faqs = [
     answer: "We offer comprehensive global logistics solutions. For urgent orders, we use air express (DHL/FedEx/UPS) with 3-7 day delivery. For larger wholesale orders, we provide cost-effective sea freight (DDP/CIF) and railway options. We handle all export documentation and can deliver directly to your warehouse or Amazon FBA center."
   }
 ];
+
+// Generate FAQ Schema for SEO/GEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <section id="activewear-intelligence-v2" class="py-24 bg-[#050505] text-white font-['Century_Gothic',sans-serif]">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-16">

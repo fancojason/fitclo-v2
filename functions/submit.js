@@ -20,7 +20,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: "Fitclo Website <onboarding@resend.dev>",
-        to: ["jason@dgfanco.com"],
+        to: ["fancojason@gmail.com"],
         subject: `New Inquiry from ${data.name}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; color: #333; max-width: 600px; border: 1px solid #eee; border-radius: 10px;">

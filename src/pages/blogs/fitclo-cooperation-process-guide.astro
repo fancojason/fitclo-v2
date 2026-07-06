@@ -12,32 +12,70 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
 
   <!-- Flowchart Container -->
   <div class="my-16 space-y-12">
-    {[
-      { step: "01", title: "Select & Browse", desc: "Browse our extensive product catalog and select the styles that align with your brand's vision. We offer a wide range of yoga wear, gym sets, and high-performance essentials." },
-      { step: "02", title: "Send Requirements", desc: "Send us the style numbers you've chosen, along with your brand logo (AI/PDF format) and any specific customization requirements (fabric, colors, labels)." },
-      { step: "03", title: "Detail Quotation", desc: "Our consultants provide a comprehensive quote, covering sample development costs, bulk production pricing, estimated lead times, and optimized shipping options." },
-      { step: "04", title: "Sample Approval", desc: "We produce physical samples for your review. This stage allows you to verify the fit, fabric quality, and branding precision before we commit to mass production." },
-      { step: "05", title: "Mass Production", desc: "Once the sample is approved, our vertical production line begins. We maintain strict quality control throughout the cutting, sewing, and branding phases." },
-      { step: "06", title: "Inspection & Delivery", desc: "After final quality inspections, we arrange secure shipment to your destination—whether it's a private warehouse, retail hub, or Amazon FBA center." }
-    ].map((item, index) => (
-      <div class="relative flex items-start gap-8 group">
-        <!-- Connector Line -->
-        {index !== 5 && (
-          <div class="absolute left-6 top-12 w-[2px] h-[calc(100%+24px)] bg-gradient-to-b from-[#C9A84C]/40 to-transparent"></div>
-        )}
-        
-        <!-- Step Number Icon -->
-        <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-[#C9A84C] bg-[#050505] flex items-center justify-center z-10 group-hover:bg-[#C9A84C] group-hover:text-black transition-all duration-300">
-          <span class="text-[14px] font-bold font-mono">{item.step}</span>
-        </div>
-        
-        <!-- Content -->
-        <div class="pt-2">
-          <h3 class="text-[20px] font-bold text-white mb-2 group-hover:text-[#C9A84C] transition-colors">{item.title}</h3>
-          <p class="text-white/60 leading-relaxed text-[15px]">{item.desc}</p>
-        </div>
+    <div class="relative flex items-start gap-8 group">
+      <div class="absolute left-6 top-12 w-[2px] h-[calc(100%+24px)] bg-gradient-to-b from-[#C9A84C]/40 to-transparent"></div>
+      <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-[#C9A84C] bg-[#050505] flex items-center justify-center z-10 group-hover:bg-[#C9A84C] group-hover:text-black transition-all duration-300">
+        <span class="text-[14px] font-bold font-mono">01</span>
       </div>
-    ))}
+      <div class="pt-2">
+        <h3 class="text-[20px] font-bold text-white mb-2 group-hover:text-[#C9A84C] transition-colors">Select & Browse</h3>
+        <p class="text-white/60 leading-relaxed text-[15px]">Browse our extensive product catalog and select the styles that align with your brand's vision. We offer a wide range of yoga wear, gym sets, and high-performance essentials.</p>
+      </div>
+    </div>
+
+    <div class="relative flex items-start gap-8 group">
+      <div class="absolute left-6 top-12 w-[2px] h-[calc(100%+24px)] bg-gradient-to-b from-[#C9A84C]/40 to-transparent"></div>
+      <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-[#C9A84C] bg-[#050505] flex items-center justify-center z-10 group-hover:bg-[#C9A84C] group-hover:text-black transition-all duration-300">
+        <span class="text-[14px] font-bold font-mono">02</span>
+      </div>
+      <div class="pt-2">
+        <h3 class="text-[20px] font-bold text-white mb-2 group-hover:text-[#C9A84C] transition-colors">Send Requirements</h3>
+        <p class="text-white/60 leading-relaxed text-[15px]">Send us the style numbers you've chosen, along with your brand logo (AI/PDF format) and any specific customization requirements (fabric, colors, labels).</p>
+      </div>
+    </div>
+
+    <div class="relative flex items-start gap-8 group">
+      <div class="absolute left-6 top-12 w-[2px] h-[calc(100%+24px)] bg-gradient-to-b from-[#C9A84C]/40 to-transparent"></div>
+      <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-[#C9A84C] bg-[#050505] flex items-center justify-center z-10 group-hover:bg-[#C9A84C] group-hover:text-black transition-all duration-300">
+        <span class="text-[14px] font-bold font-mono">03</span>
+      </div>
+      <div class="pt-2">
+        <h3 class="text-[20px] font-bold text-white mb-2 group-hover:text-[#C9A84C] transition-colors">Detail Quotation</h3>
+        <p class="text-white/60 leading-relaxed text-[15px]">Our consultants provide a comprehensive quote, covering sample development costs, bulk production pricing, estimated lead times, and optimized shipping options.</p>
+      </div>
+    </div>
+
+    <div class="relative flex items-start gap-8 group">
+      <div class="absolute left-6 top-12 w-[2px] h-[calc(100%+24px)] bg-gradient-to-b from-[#C9A84C]/40 to-transparent"></div>
+      <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-[#C9A84C] bg-[#050505] flex items-center justify-center z-10 group-hover:bg-[#C9A84C] group-hover:text-black transition-all duration-300">
+        <span class="text-[14px] font-bold font-mono">04</span>
+      </div>
+      <div class="pt-2">
+        <h3 class="text-[20px] font-bold text-white mb-2 group-hover:text-[#C9A84C] transition-colors">Sample Approval</h3>
+        <p class="text-white/60 leading-relaxed text-[15px]">We produce physical samples for your review. This stage allows you to verify the fit, fabric quality, and branding precision before we commit to mass production.</p>
+      </div>
+    </div>
+
+    <div class="relative flex items-start gap-8 group">
+      <div class="absolute left-6 top-12 w-[2px] h-[calc(100%+24px)] bg-gradient-to-b from-[#C9A84C]/40 to-transparent"></div>
+      <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-[#C9A84C] bg-[#050505] flex items-center justify-center z-10 group-hover:bg-[#C9A84C] group-hover:text-black transition-all duration-300">
+        <span class="text-[14px] font-bold font-mono">05</span>
+      </div>
+      <div class="pt-2">
+        <h3 class="text-[20px] font-bold text-white mb-2 group-hover:text-[#C9A84C] transition-colors">Mass Production</h3>
+        <p class="text-white/60 leading-relaxed text-[15px]">Once the sample is approved, our vertical production line begins. We maintain strict quality control throughout the cutting, sewing, and branding phases.</p>
+      </div>
+    </div>
+
+    <div class="relative flex items-start gap-8 group">
+      <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-[#C9A84C] bg-[#050505] flex items-center justify-center z-10 group-hover:bg-[#C9A84C] group-hover:text-black transition-all duration-300">
+        <span class="text-[14px] font-bold font-mono">06</span>
+      </div>
+      <div class="pt-2">
+        <h3 class="text-[20px] font-bold text-white mb-2 group-hover:text-[#C9A84C] transition-colors">Inspection & Delivery</h3>
+        <p class="text-white/60 leading-relaxed text-[15px]">After final quality inspections, we arrange secure shipment to your destination—whether it's a private warehouse, retail hub, or Amazon FBA center.</p>
+      </div>
+    </div>
   </div>
 
   <h3>Why Our Process Works for You</h3>

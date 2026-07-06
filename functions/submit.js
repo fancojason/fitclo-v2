@@ -19,8 +19,8 @@ export async function onRequestPost(context) {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Fitclo Website <onboarding@resend.dev>",
-        to: ["fancojason@gmail.com"],
+        from: "Fitclo Website <inquiry@fitcloo.com>",
+        to: ["jasongfanco@gmail.com"],
         subject: `New Inquiry from ${data.name}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; color: #333; max-width: 600px; border: 1px solid #eee; border-radius: 10px;">

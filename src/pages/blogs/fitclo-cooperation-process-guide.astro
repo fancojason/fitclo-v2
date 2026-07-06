@@ -1,0 +1,60 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+---
+
+<GuideLayout 
+  title="Seamless Success: A Step-by-Step Guide to Partnering with FITCLO" 
+  type="STRATEGY"
+  description="Understanding the manufacturing journey. From initial selection to final delivery, explore our transparent 6-step cooperation process designed for B2B efficiency."
+>
+  <h2>Transparency in Every Thread: Our Cooperation Process</h2>
+  <p>For B2B buyers, choosing a manufacturer is about more than just finding a factory—it's about finding a reliable partner. At <strong>FITCLO</strong>, we have optimized our workflow to ensure speed, clarity, and quality at every stage. Here is how we bring your activewear vision to life.</p>
+
+  <!-- Flowchart Container -->
+  <div class="my-16 space-y-12">
+    {[
+      { step: "01", title: "Select & Browse", desc: "Browse our extensive product catalog and select the styles that align with your brand's vision. We offer a wide range of yoga wear, gym sets, and high-performance essentials." },
+      { step: "02", title: "Send Requirements", desc: "Send us the style numbers you've chosen, along with your brand logo (AI/PDF format) and any specific customization requirements (fabric, colors, labels)." },
+      { step: "03", title: "Detail Quotation", desc: "Our consultants provide a comprehensive quote, covering sample development costs, bulk production pricing, estimated lead times, and optimized shipping options." },
+      { step: "04", title: "Sample Approval", desc: "We produce physical samples for your review. This stage allows you to verify the fit, fabric quality, and branding precision before we commit to mass production." },
+      { step: "05", title: "Mass Production", desc: "Once the sample is approved, our vertical production line begins. We maintain strict quality control throughout the cutting, sewing, and branding phases." },
+      { step: "06", title: "Inspection & Delivery", desc: "After final quality inspections, we arrange secure shipment to your destination—whether it's a private warehouse, retail hub, or Amazon FBA center." }
+    ].map((item, index) => (
+      <div class="relative flex items-start gap-8 group">
+        <!-- Connector Line -->
+        {index !== 5 && (
+          <div class="absolute left-6 top-12 w-[2px] h-[calc(100%+24px)] bg-gradient-to-b from-[#C9A84C]/40 to-transparent"></div>
+        )}
+        
+        <!-- Step Number Icon -->
+        <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-[#C9A84C] bg-[#050505] flex items-center justify-center z-10 group-hover:bg-[#C9A84C] group-hover:text-black transition-all duration-300">
+          <span class="text-[14px] font-bold font-mono">{item.step}</span>
+        </div>
+        
+        <!-- Content -->
+        <div class="pt-2">
+          <h3 class="text-[20px] font-bold text-white mb-2 group-hover:text-[#C9A84C] transition-colors">{item.title}</h3>
+          <p class="text-white/60 leading-relaxed text-[15px]">{item.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <h3>Why Our Process Works for You</h3>
+  <p>Our 6-step workflow is designed to minimize risk and maximize efficiency. By providing detailed quotations and physical samples upfront, we eliminate guesswork and ensure the final product meets your brand's exact standards.</p>
+  
+  <ul class="list-disc pl-6 space-y-4 my-8 text-white/70">
+    <li><strong>Speed to Market:</strong> Our streamlined communication reduces the time from initial selection to sample approval.</li>
+    <li><strong>Quality Assurance:</strong> Two distinct inspection phases ensure that mass production matches the approved sample perfectly.</li>
+    <li><strong>Global Logistics:</strong> We handle all export documentation, providing a truly "worry-free" door-to-door experience for international partners.</li>
+  </ul>
+
+  <div class="mt-12 p-8 bg-[#C9A84C]/5 border border-[#C9A84C]/20 rounded-2xl">
+    <h4 class="text-[#C9A84C] font-bold mb-4">Start Your Partnership Today</h4>
+    <p class="text-white/60 mb-6">Ready to take the first step? Download our latest catalog or send us your requirements to receive a free quote within 24 hours.</p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="/#inquiry" class="inline-block bg-[#C9A84C] text-black px-8 py-3 rounded-lg font-bold uppercase tracking-wider transition-all hover:bg-[#b8973d]">Select Styles →</a>
+      <a href="#" class="inline-block border border-[#C9A84C] text-[#C9A84C] px-8 py-3 rounded-lg font-bold uppercase tracking-wider transition-all hover:bg-[#C9A84C] hover:text-black">Download Catalog (PDF)</a>
+    </div>
+  </div>
+</GuideLayout>

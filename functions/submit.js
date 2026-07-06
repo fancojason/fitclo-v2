@@ -19,7 +19,7 @@ export async function onRequestPost(context) {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Fitclo Website <inquiry@fitcloo.com>",
+        from: "Fitclo Website <onboarding@resend.dev>",
         to: ["jasongfanco@gmail.com"],
         subject: `New Inquiry from ${data.name}`,
         html: `

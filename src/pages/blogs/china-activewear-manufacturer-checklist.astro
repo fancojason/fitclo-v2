@@ -92,8 +92,8 @@ const faqSchema = {
       </div>
     </header>
 
-    <section class="py-16">
-      <div class="max-w-[900px] mx-auto px-6">
+    <section class="py-16 md:py-20">
+      <div class="max-w-[860px] mx-auto px-5 md:px-6">
         <div class="p-7 md:p-9 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-xl mb-14">
           <h2 class="text-[20px] font-black text-black mb-4">Short Answer</h2>
           <p class="text-[16px] leading-relaxed text-gray-700">
@@ -101,7 +101,7 @@ const faqSchema = {
           </p>
         </div>
 
-        <div class="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-black prose-p:text-gray-700 prose-li:text-gray-700 prose-a:text-[#9B7A30]">
+        <div class="article-body">
           <p>
             Many activewear brands begin sourcing with the same question: <strong>which China activewear manufacturer can I trust?</strong> The answer is rarely found in a beautiful catalog alone. A catalog shows what a supplier wants to sell. A verification process shows whether the supplier can actually produce, control, and ship your order reliably.
           </p>
@@ -141,32 +141,34 @@ const faqSchema = {
           <p>
             A reliable supplier should separate three timelines: stock availability, sample development, and bulk production. These are not the same.
           </p>
-          <table>
-            <thead>
-              <tr>
-                <th>Production Path</th>
-                <th>Typical Use Case</th>
-                <th>Buyer Risk</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Ready-to-ship with logo</td>
-                <td>Fast launch, market testing, low MOQ</td>
-                <td>Limited fabric/color exclusivity</td>
-              </tr>
-              <tr>
-                <td>Private label customization</td>
-                <td>Logo, labels, packaging, selected stock styles</td>
-                <td>Branding approval must be clear</td>
-              </tr>
-              <tr>
-                <td>Full OEM/ODM development</td>
-                <td>Custom patterns, colors, fabrics, trims</td>
-                <td>Higher MOQ and longer development cycle</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Production Path</th>
+                  <th>Typical Use Case</th>
+                  <th>Buyer Risk</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ready-to-ship with logo</td>
+                  <td>Fast launch, market testing, low MOQ</td>
+                  <td>Limited fabric/color exclusivity</td>
+                </tr>
+                <tr>
+                  <td>Private label customization</td>
+                  <td>Logo, labels, packaging, selected stock styles</td>
+                  <td>Branding approval must be clear</td>
+                </tr>
+                <tr>
+                  <td>Full OEM/ODM development</td>
+                  <td>Custom patterns, colors, fabrics, trims</td>
+                  <td>Higher MOQ and longer development cycle</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <p>
             If you are testing a new brand, a low MOQ private label program can reduce inventory pressure. If you are scaling an established line, OEM/ODM offers more product differentiation.
           </p>
@@ -248,3 +250,132 @@ const faqSchema = {
     <InquiryForm />
   </article>
 </BaseLayout>
+
+<style>
+  .article-body {
+    color: #374151;
+    font-size: 17px;
+    line-height: 1.82;
+  }
+
+  .article-body > * + * {
+    margin-top: 1.15rem;
+  }
+
+  .article-body p {
+    margin: 0 0 1.25rem;
+  }
+
+  .article-body strong {
+    color: #111827;
+    font-weight: 800;
+  }
+
+  .article-body a {
+    color: #8a6a24;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+
+  .article-body h2 {
+    margin: 3.5rem 0 1.15rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid #e5e7eb;
+    color: #0f172a;
+    font-size: clamp(1.55rem, 2.4vw, 2.1rem);
+    line-height: 1.22;
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  .article-body h3 {
+    margin: 2.25rem 0 0.85rem;
+    color: #111827;
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+    line-height: 1.35;
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  .article-body ul {
+    margin: 1rem 0 1.8rem;
+    padding: 1.25rem 1.4rem;
+    list-style: none;
+    background: #fafafa;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+  }
+
+  .article-body li {
+    position: relative;
+    padding-left: 1.35rem;
+    margin: 0.75rem 0;
+    line-height: 1.65;
+  }
+
+  .article-body li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: #C9A84C;
+  }
+
+  .table-wrap {
+    margin: 1.6rem 0 2rem;
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+  }
+
+  .article-body table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    background: #ffffff;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .article-body th {
+    background: #0e0e12;
+    color: #C9A84C;
+    text-align: left;
+    font-weight: 900;
+    padding: 1rem 1.1rem;
+    border: 0;
+  }
+
+  .article-body td {
+    padding: 1rem 1.1rem;
+    border-top: 1px solid #e5e7eb;
+    color: #374151;
+    vertical-align: top;
+  }
+
+  .article-body tr:nth-child(even) td {
+    background: #fafafa;
+  }
+
+  @media (max-width: 640px) {
+    .article-body {
+      font-size: 16px;
+      line-height: 1.78;
+    }
+
+    .article-body h2 {
+      margin-top: 3rem;
+    }
+
+    .article-body ul {
+      padding: 1rem 1.1rem;
+      border-radius: 10px;
+    }
+  }
+</style>

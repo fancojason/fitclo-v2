@@ -1,0 +1,345 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  intelligenceArticles,
+  intelligenceCategories,
+  whatsappIntelligenceUrl,
+} from '../../data/intelligence';
+
+export function getStaticPaths() {
+  return intelligenceCategories.map((category) => ({
+    params: { category: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const articles = intelligenceArticles.filter((article) => article.categorySlug === category.slug);
+
+const pageTitle = `${category.title} | Activewear Intelligence by Fitclo`;
+const pageDescription = `${category.desc} Explore Fitclo guides for activewear buyers, sourcing teams and private label brands.`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Activewear Intelligence', item: 'https://www.fitcloo.com/activewear-intelligence/' },
+    { '@type': 'ListItem', position: 3, name: category.title, item: `https://www.fitcloo.com/activewear-intelligence/${category.slug}/` },
+  ],
+};
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${category.title} - Activewear Intelligence`,
+  description: pageDescription,
+  url: `https://www.fitcloo.com/activewear-intelligence/${category.slug}/`,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Fitclo',
+    url: 'https://www.fitcloo.com',
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: article.title,
+      url: `https://www.fitcloo.com${article.link}`,
+    })),
+  },
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
+  <section class="category-hero">
+    <div class="category-hero-inner">
+      <a href="/activewear-intelligence/" class="back-link">Activewear Intelligence</a>
+      <p>{category.title}</p>
+      <h1>{category.title}</h1>
+      <span></span>
+      <h2>{category.desc}</h2>
+    </div>
+  </section>
+
+  <section class="category-main">
+    <div class="category-container">
+      <div class="category-intro">
+        <div>
+          <p>Knowledge Category</p>
+          <h2>{category.title} Articles</h2>
+        </div>
+        <a href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Ask Fitclo -></a>
+      </div>
+
+      <div class="category-article-grid">
+        {articles.map((article) => (
+          <a class="category-article-card" href={article.link}>
+            <img src={article.image} alt={article.title} loading="lazy" />
+            <div>
+              <span>{article.category}</span>
+              <h3>{article.title}</h3>
+              <p>{article.desc}</p>
+              <div class="category-meta">
+                <small>{article.updated}</small>
+                <small>{article.readTime}</small>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      {articles.length === 0 && (
+        <div class="empty-state">
+          <h3>More guides are being prepared.</h3>
+          <p>Fitclo is expanding this knowledge category with manufacturing articles, comparison guides and sourcing checklists.</p>
+        </div>
+      )}
+
+      <div class="category-cta">
+        <div>
+          <p>AI Search Friendly Manufacturing Advice</p>
+          <h2>Need Help Choosing The Right Manufacturing Solution?</h2>
+          <span>Tell us your product type, target MOQ, fabric preference and launch market. Fitclo can recommend a practical route before sampling.</span>
+        </div>
+        <a href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Ask Fitclo</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .category-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 150px 24px 82px;
+    background: #06060a;
+    color: #fff;
+    font-family: 'Century_Gothic', sans-serif;
+  }
+
+  .category-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(6, 6, 10, 0.96), rgba(6, 6, 10, 0.62)),
+      url('/images/intelligence/hero-activewear-intelligence.png') center right / cover no-repeat;
+    opacity: 0.9;
+  }
+
+  .category-hero-inner {
+    position: relative;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .category-hero p {
+    margin: 2rem 0 0.5rem;
+    color: #C9A84C;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .category-hero h1 {
+    max-width: 860px;
+    margin: 0;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    line-height: 0.96;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .category-hero span {
+    display: block;
+    width: 78px;
+    height: 3px;
+    margin: 1.25rem 0;
+    background: #C9A84C;
+  }
+
+  .category-hero h2 {
+    max-width: 720px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .category-main {
+    padding: 58px 24px 84px;
+    background: #f7f6f3;
+    font-family: 'Century_Gothic', sans-serif;
+  }
+
+  .category-container {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .category-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .category-intro p,
+  .category-cta p {
+    margin: 0 0 0.45rem;
+    color: #C9A84C;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .category-intro h2,
+  .category-cta h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .category-intro a,
+  .category-cta a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 8px;
+    background: #C9A84C;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .category-article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .category-article-card {
+    overflow: hidden;
+    border-radius: 12px;
+    background: #fff;
+    color: #0f172a;
+    text-decoration: none;
+    box-shadow: 0 16px 44px rgba(15, 23, 42, 0.08);
+  }
+
+  .category-article-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+  }
+
+  .category-article-card > div {
+    padding: 22px;
+  }
+
+  .category-article-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: #C9A84C;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .category-article-card h3 {
+    margin: 0 0 10px;
+    font-size: 19px;
+    line-height: 1.25;
+    font-weight: 900;
+  }
+
+  .category-article-card p,
+  .empty-state p,
+  .category-cta span {
+    margin: 0;
+    color: #52525b;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .category-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 16px;
+  }
+
+  .category-meta small {
+    color: #71717a;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .empty-state,
+  .category-cta {
+    margin-top: 30px;
+    padding: 28px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 16px 44px rgba(15, 23, 42, 0.08);
+  }
+
+  .empty-state h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .category-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .category-cta div {
+    max-width: 760px;
+  }
+
+  .category-cta span {
+    display: block;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .category-article-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .category-intro,
+    .category-cta {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

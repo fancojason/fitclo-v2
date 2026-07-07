@@ -1,106 +1,74 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  intelligenceArticles,
+  intelligenceCategories,
+  intelligenceFaqs,
+  whatsappIntelligenceUrl,
+} from '../data/intelligence';
 
-const categories = [
-  {
-    title: 'Buyer Guide',
-    desc: 'Factory vetting, MOQ planning, sourcing risks and supplier selection for private label activewear buyers.',
-    count: '12 Articles',
-    tone: 'gold',
-    icon: 'book',
-    link: '/blogs/china-activewear-manufacturer-checklist',
-  },
-  {
-    title: 'Fabric Guide',
-    desc: 'Nylon, polyester, recycled yarns, GSM, compression, squat-proof testing and performance fabric choices.',
-    count: '10 Articles',
-    tone: 'green',
-    icon: 'fabric',
-    link: '/blogs/fabrics',
-  },
-  {
-    title: 'Private Label Guide',
-    desc: 'Logo methods, labels, packaging, ready-to-ship styles and brand launch workflows.',
-    count: '9 Articles',
-    tone: 'purple',
-    icon: 'tag',
-    link: '/blogs/private-label-activewear-manufacturer-uk',
-  },
-  {
-    title: 'Business Guide',
-    desc: 'Inventory strategy, launch planning, pricing logic, margin protection and scaling activewear brands.',
-    count: '11 Articles',
-    tone: 'blue',
-    icon: 'chart',
-    link: '/blogs/wholesale-gym-wear-australia-sourcing-guide',
-  },
-  {
-    title: 'Trend Report',
-    desc: 'Market signals, sustainable fabrics, regional demand and product directions for 2026 collections.',
-    count: '8 Articles',
-    tone: 'rose',
-    icon: 'trend',
-    link: '/blogs/activewear-trends-2026',
-  },
-  {
-    title: 'Comparison',
-    desc: 'Side-by-side guides for construction, fabric, sourcing model and supplier decision making.',
-    count: '7 Articles',
-    tone: 'gold',
-    icon: 'scale',
-    link: '/blogs/seamless-vs-cut-sew-product-manager-guide',
-  },
-];
-
-const popular = [
-  {
-    tag: 'Buyer Guide',
-    title: 'China Activewear Manufacturer Checklist: How to Verify a Real Factory Before You Order',
-    desc: 'A practical verification checklist for brands sourcing private label activewear from China.',
-    link: '/blogs/china-activewear-manufacturer-checklist',
-    image: '/images/intelligence/cover-factory-guide.png',
-  },
-  {
-    tag: 'Australia',
-    title: 'Private Label Activewear Manufacturer for Australian Brands',
-    desc: 'Low-MOQ sourcing, private label yoga wear, gym wear and shipping planning for Australia.',
-    link: '/blogs/private-label-activewear-manufacturer-australia',
-    image: '/images/intelligence/cover-brand-planning.png',
-  },
-  {
-    tag: 'United Kingdom',
-    title: 'Wholesale Gym Wear UK: Sourcing Guide for Fitness Brands and Boutiques',
-    desc: 'A practical launch guide for UK gym wear wholesalers and private label activewear brands.',
-    link: '/blogs/wholesale-gym-wear-uk-sourcing-guide',
-    image: '/images/intelligence/cover-fabric-guide.png',
-  },
-  {
-    tag: 'Construction',
-    title: 'Seamless vs Cut-and-Sew Activewear: Product Manager Decision Guide',
-    desc: 'Compare construction methods by fit, MOQ, cost, support, fabric and quality control.',
-    link: '/blogs/seamless-vs-cut-sew-product-manager-guide',
-    image: '/images/intelligence/cover-private-label.png',
-  },
-  {
-    tag: 'Sustainability',
-    title: 'Sustainable Activewear Manufacturer for Australian Brands',
-    desc: 'How to plan recycled fabrics, lower-risk MOQ and verified sustainability claims.',
-    link: '/blogs/sustainable-activewear-manufacturer-australia',
-    image: '/images/intelligence/cover-trend-report.png',
-  },
-];
+const categories = intelligenceCategories;
+const featured = intelligenceArticles.filter((article) => article.featured);
+const popular = intelligenceArticles.slice(0, 5);
 
 const resources = [
   { icon: 'cap', title: 'Expert Knowledge', desc: 'Manufacturing insights written for activewear founders, sourcing teams and product managers.' },
   { icon: 'doc', title: 'Practical Guides', desc: 'Actionable checklists you can use before sampling, production and shipment.' },
   { icon: 'globe', title: 'Global Perspective', desc: 'Region-specific guidance for the US, UK, Australia, Europe and growing markets.' },
 ];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Activewear Intelligence Hub',
+  description: 'The complete knowledge hub for activewear brands, buyers and manufacturers covering sourcing, fabrics, production, private label manufacturing and brand building.',
+  url: 'https://www.fitcloo.com/activewear-intelligence/',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Fitclo',
+    url: 'https://www.fitcloo.com',
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: intelligenceArticles.slice(0, 10).map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: article.title,
+      url: `https://www.fitcloo.com${article.link}`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: intelligenceFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Activewear Intelligence', item: 'https://www.fitcloo.com/activewear-intelligence/' },
+  ],
+};
 ---
 
 <BaseLayout
   title="Activewear Intelligence Hub | Fitclo Manufacturing Knowledge Base"
-  description="Explore Fitclo's Activewear Intelligence Hub for private label activewear sourcing guides, fabric knowledge, buyer checklists, trend reports and manufacturing comparisons."
+  description="The complete activewear knowledge hub for brands, buyers and manufacturers covering sourcing, private label manufacturing, fabrics, production and brand building."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <section class="hub-hero">
     <div class="hub-hero-media">
       <img src="/images/intelligence/hero-activewear-intelligence.png" alt="Fitclo activewear intelligence knowledge hub" />
@@ -109,8 +77,8 @@ const resources = [
       <p class="hub-brand">FITCLO</p>
       <h1>Activewear Intelligence</h1>
       <div class="hub-line"></div>
-      <p class="hub-lead">Insights for building and scaling private label activewear brands.</p>
-      <p class="hub-copy">Your go-to resource for manufacturing knowledge, fabrics, trends, sourcing decisions and business strategy in the activewear industry.</p>
+      <p class="hub-lead">The Complete Knowledge Hub for Activewear Brands, Buyers & Manufacturers.</p>
+      <p class="hub-copy">Explore sourcing, private label manufacturing, fabrics, production decisions and brand-building guidance from an activewear factory perspective.</p>
       <form class="hub-search" action="/blogs" method="get">
         <input type="search" name="q" placeholder="Search guides, articles and more..." aria-label="Search guides, articles and more" />
         <button type="submit" aria-label="Search">
@@ -124,12 +92,38 @@ const resources = [
 
   <section class="hub-main">
     <div class="hub-container">
+      <div class="section-title-row featured-heading">
+        <div>
+          <p class="section-kicker">Featured Guides</p>
+          <h2>Start With These Core Manufacturing Guides</h2>
+        </div>
+        <a href="/activewear-intelligence/buyer-guide/">Browse categories -></a>
+      </div>
+
+      <div class="featured-grid">
+        {featured.map((article) => (
+          <a class="featured-card" href={article.link}>
+            <span>{article.category}</span>
+            <h3>{article.title}</h3>
+            <p>{article.desc}</p>
+            <div class="article-meta">
+              <small>{article.updated}</small>
+              <small>{article.readTime}</small>
+            </div>
+            <strong>Read Guide -></strong>
+          </a>
+        ))}
+      </div>
+
       <div class="category-grid">
         {categories.map((category) => (
-          <a class={`category-card tone-${category.tone}`} href={category.link}>
+          <a class={`category-card tone-${category.tone}`} href={`/activewear-intelligence/${category.slug}/`}>
             <div class="category-icon">
               {category.icon === 'book' && (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H7a3 3 0 0 0-3 3V5.5Zm0 0V21m4-14h8m-8 4h8" /></svg>
+              )}
+              {category.icon === 'factory' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 20V9l5 3V9l5 3V6h6v14H4Zm3-4h2m3 0h2m3 0h2" /></svg>
               )}
               {category.icon === 'fabric' && (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m4 8 4-4 4 4 4-4 4 4-4 4 4 4-4 4-4-4-4 4-4-4 4-4-4-4Zm4 4 4-4 4 4-4 4-4-4Z" /></svg>
@@ -156,7 +150,7 @@ const resources = [
       </div>
 
       <div class="section-title-row">
-        <h2>Popular Articles</h2>
+        <h2>Latest Insights</h2>
         <a href="/blogs">View all articles -></a>
       </div>
 
@@ -165,11 +159,31 @@ const resources = [
           <a class="popular-card" href={article.link}>
             <img src={article.image} alt={article.title} loading="lazy" />
             <div>
-              <span>{article.tag}</span>
+              <span>{article.category}</span>
               <h3>{article.title}</h3>
               <p>{article.desc}</p>
+              <div class="article-meta">
+                <small>{article.updated}</small>
+                <small>{article.readTime}</small>
+              </div>
             </div>
           </a>
+        ))}
+      </div>
+
+      <div class="section-title-row faq-heading">
+        <div>
+          <p class="section-kicker">Popular Questions</p>
+          <h2>Activewear Manufacturing FAQ</h2>
+        </div>
+      </div>
+
+      <div class="hub-faq">
+        {intelligenceFaqs.map((faq) => (
+          <article>
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </article>
         ))}
       </div>
 
@@ -204,9 +218,9 @@ const resources = [
           </div>
         ))}
         <div class="contact-box">
-          <h3>Need More Information?</h3>
-          <p>Our team is here to help you build your activewear brand with factory-direct guidance.</p>
-          <a href="https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20Activewear%20Intelligence%20Hub%20and%20would%20like%20to%20discuss%20a%20private%20label%20activewear%20project.%20Can%20we%20chat%3F" target="_blank" rel="noopener">Contact Us -></a>
+          <h3>Need Help Choosing The Right Manufacturing Solution?</h3>
+          <p>Ask Fitclo to recommend fabric, MOQ and production method for your activewear project.</p>
+          <a href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Ask Fitclo -></a>
         </div>
       </div>
     </div>
@@ -347,9 +361,89 @@ const resources = [
     margin: 0 auto;
   }
 
+  .featured-heading {
+    margin-top: 0;
+  }
+
+  .section-kicker {
+    margin: 0 0 0.45rem;
+    color: #C9A84C;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 34px;
+  }
+
+  .featured-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+    padding: 28px;
+    border: 1px solid rgba(201, 168, 76, 0.18);
+    border-radius: 12px;
+    background: #fff;
+    color: #0f172a;
+    text-decoration: none;
+    box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+  }
+
+  .featured-card span,
+  .popular-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: #C9A84C;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .featured-card h3 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    line-height: 1.18;
+    font-weight: 900;
+  }
+
+  .featured-card p {
+    margin: 0;
+    color: #52525b;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .featured-card strong {
+    margin-top: auto;
+    padding-top: 22px;
+    color: #a77d20;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 16px;
+  }
+
+  .article-meta small {
+    color: #71717a;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
   .category-grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 18px;
     margin-top: -6px;
   }
@@ -484,18 +578,8 @@ const resources = [
     object-fit: cover;
   }
 
-  .popular-card div {
+  .popular-card > div {
     padding: 18px;
-  }
-
-  .popular-card span {
-    display: block;
-    margin-bottom: 8px;
-    color: #C9A84C;
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
   }
 
   .popular-card h3 {
@@ -510,6 +594,39 @@ const resources = [
     color: #666;
     font-size: 12px;
     line-height: 1.55;
+  }
+
+  .popular-card .article-meta {
+    margin-top: 14px;
+  }
+
+  .hub-faq {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .hub-faq article {
+    padding: 24px;
+    border: 1px solid rgba(17, 24, 39, 0.08);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
+  }
+
+  .hub-faq h3 {
+    margin: 0 0 10px;
+    color: #0f172a;
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 900;
+  }
+
+  .hub-faq p {
+    margin: 0;
+    color: #52525b;
+    font-size: 13px;
+    line-height: 1.65;
   }
 
   .hub-bottom {
@@ -588,8 +705,10 @@ const resources = [
   }
 
   @media (max-width: 1180px) {
+    .featured-grid,
     .category-grid,
-    .popular-grid {
+    .popular-grid,
+    .hub-faq {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
@@ -605,7 +724,9 @@ const resources = [
     }
 
     .category-grid,
+    .featured-grid,
     .popular-grid,
+    .hub-faq,
     .hub-bottom {
       grid-template-columns: 1fr;
     }

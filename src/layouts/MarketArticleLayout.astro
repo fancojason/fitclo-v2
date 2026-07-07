@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+import { whatsappIntelligenceUrl } from '../data/intelligence';
 
 const {
   title,
@@ -17,8 +18,10 @@ const articleSchema = {
   headline: title,
   description,
   author: {
-    '@type': 'Organization',
-    name: 'Fitclo',
+    '@type': 'Person',
+    name: 'Jason Chen',
+    jobTitle: 'Founder of Fitclo, Activewear Manufacturing Specialist',
+    description: 'Activewear manufacturing specialist with 8+ years of export experience.',
   },
   publisher: {
     '@type': 'Organization',
@@ -32,11 +35,22 @@ const articleSchema = {
   dateModified: '2026-07-07',
   mainEntityOfPage: Astro.url.href,
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blogs', item: 'https://www.fitcloo.com/blogs/' },
+    { '@type': 'ListItem', position: 3, name: title, item: Astro.url.href },
+  ],
+};
 ---
 
 <BaseLayout title={`${title} | Fitclo Blog`} description={description}>
   <article class="market-article bg-white font-['Century_Gothic',sans-serif]">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
     <header class="market-hero">
       <div class="market-bg">
@@ -70,6 +84,34 @@ const articleSchema = {
     <section class="market-body-wrap">
       <div class="market-body">
         <slot />
+
+        <section class="market-author">
+          <p>Author Authority</p>
+          <h2>Jason Chen, Founder of Fitclo</h2>
+          <span>Activewear Manufacturing Specialist with 8+ years of export experience helping global brands plan sourcing, fabric selection, MOQ, private label production and shipping.</span>
+        </section>
+
+        <section class="related-guides">
+          <div>
+            <p>Related Guides</p>
+            <h2>Continue Your Activewear Manufacturing Research</h2>
+          </div>
+          <div class="related-grid">
+            <a href="/activewear-intelligence/">Activewear Intelligence Hub</a>
+            <a href="/blogs/china-activewear-manufacturer-checklist">Factory Verification Checklist</a>
+            <a href="/private-label">Private Label Manufacturing</a>
+            <a href="/capabilities">Factory Capabilities</a>
+          </div>
+        </section>
+
+        <section class="ask-fitclo">
+          <div>
+            <p>AI Conversion CTA</p>
+            <h2>Need Help Choosing The Right Manufacturing Solution?</h2>
+            <span>Ask Fitclo to recommend fabric, MOQ and production method for your activewear project.</span>
+          </div>
+          <a href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Ask Fitclo</a>
+        </section>
       </div>
     </section>
 
@@ -217,6 +259,84 @@ const articleSchema = {
 
   .market-body-wrap {
     padding: 4.5rem 1.25rem;
+  }
+
+  .market-author,
+  .related-guides,
+  .ask-fitclo {
+    margin-top: 3rem;
+    padding: 2rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
+  }
+
+  .market-author p,
+  .related-guides p,
+  .ask-fitclo p {
+    margin: 0 0 0.5rem;
+    color: #C9A84C;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .market-author h2,
+  .related-guides h2,
+  .ask-fitclo h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    font-weight: 900;
+  }
+
+  .market-author span,
+  .ask-fitclo span {
+    display: block;
+    margin-top: 0.85rem;
+    color: #52525b;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-top: 1.35rem;
+  }
+
+  .related-grid a {
+    padding: 1rem;
+    border-radius: 10px;
+    background: #f7f6f3;
+    color: #0f172a;
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .ask-fitclo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: #f7f6f3;
+  }
+
+  .ask-fitclo a {
+    flex: 0 0 auto;
+    padding: 0.95rem 1.35rem;
+    border-radius: 8px;
+    background: #C9A84C;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
   }
 
   .market-body {

@@ -152,6 +152,16 @@ export const intelligenceArticles = [
     updated: 'Updated July 07, 2026',
   },
   {
+    category: 'Manufacturing Guide',
+    categorySlug: 'manufacturing-guide',
+    title: 'Why Some Activewear Factories Fail to Deliver Consistent Quality',
+    desc: 'Learn the production control issues that cause unstable activewear quality and how buyers can reduce risk.',
+    link: '/blogs/why-activewear-factories-fail-consistent-quality',
+    image: '/images/intelligence/cover-factory-guide.png',
+    readTime: '8 min read',
+    updated: 'Updated July 07, 2026',
+  },
+  {
     category: 'Business Guide',
     categorySlug: 'business-guide',
     title: 'Low MOQ vs Bulk Production for Activewear Brands',
@@ -159,6 +169,36 @@ export const intelligenceArticles = [
     link: '/blogs/moq',
     image: '/images/intelligence/cover-brand-planning.png',
     readTime: '7 min read',
+    updated: 'Updated July 07, 2026',
+  },
+  {
+    category: 'Comparison',
+    categorySlug: 'comparison-center',
+    title: 'OEM vs ODM vs Private Label Activewear',
+    desc: 'Compare manufacturing models by control, MOQ, speed, cost, uniqueness and buyer risk.',
+    link: '/blogs/oem-vs-odm-vs-private-label-activewear',
+    image: '/images/intelligence/cover-private-label.png',
+    readTime: '9 min read',
+    updated: 'Updated July 07, 2026',
+  },
+  {
+    category: 'Comparison',
+    categorySlug: 'comparison-center',
+    title: 'Ready-to-Ship vs Custom Activewear Production',
+    desc: 'Choose the best launch path by comparing MOQ, lead time, exclusivity and inventory risk.',
+    link: '/blogs/ready-to-ship-vs-custom-activewear-production',
+    image: '/images/intelligence/cover-brand-planning.png',
+    readTime: '8 min read',
+    updated: 'Updated July 07, 2026',
+  },
+  {
+    category: 'Comparison',
+    categorySlug: 'comparison-center',
+    title: 'China vs Vietnam Activewear Manufacturing',
+    desc: 'A sourcing comparison for brands evaluating fabric access, MOQ flexibility, lead time and supplier fit.',
+    link: '/blogs/china-vs-vietnam-activewear-manufacturing',
+    image: '/images/intelligence/cover-factory-guide.png',
+    readTime: '9 min read',
     updated: 'Updated July 07, 2026',
   },
 ];
@@ -175,6 +215,34 @@ export const intelligenceFaqs = [
   {
     question: 'How does Fitclo help brands choose the right manufacturing solution?',
     answer: 'Fitclo helps buyers compare ready-to-ship private label, logo customization, OEM development, ODM design support, fabric options and MOQ planning.',
+  },
+];
+
+export const comparisonTopics = [
+  {
+    title: 'OEM vs ODM vs Private Label',
+    desc: 'Choose the right manufacturing model by comparing buyer control, MOQ, speed and product uniqueness.',
+    link: '/blogs/oem-vs-odm-vs-private-label-activewear',
+  },
+  {
+    title: 'Ready-to-Ship vs Custom Production',
+    desc: 'Compare fast private label launch routes with full OEM development for long-term brand control.',
+    link: '/blogs/ready-to-ship-vs-custom-activewear-production',
+  },
+  {
+    title: 'Nylon vs Polyester',
+    desc: 'Understand fabric hand feel, opacity, compression, cost and performance for leggings and yoga sets.',
+    link: '/blogs/fabrics',
+  },
+  {
+    title: 'China vs Vietnam Manufacturing',
+    desc: 'Evaluate supplier depth, fabric access, MOQ flexibility, lead time and sourcing fit.',
+    link: '/blogs/china-vs-vietnam-activewear-manufacturing',
+  },
+  {
+    title: 'Low MOQ vs Bulk Production',
+    desc: 'Balance launch risk, margin, cash flow and replenishment planning before placing an order.',
+    link: '/blogs/moq',
   },
 ];
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
+  comparisonTopics,
   intelligenceArticles,
   intelligenceCategories,
   whatsappIntelligenceUrl,
@@ -75,6 +76,18 @@ const collectionSchema = {
         </div>
         <a href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Ask Fitclo -></a>
       </div>
+
+      {category.slug === 'comparison-center' && (
+        <div class="comparison-center">
+          {comparisonTopics.map((topic) => (
+            <a href={topic.link}>
+              <h3>{topic.title}</h3>
+              <p>{topic.desc}</p>
+              <span>Compare -></span>
+            </a>
+          ))}
+        </div>
+      )}
 
       <div class="category-article-grid">
         {articles.map((article) => (
@@ -241,6 +254,49 @@ const collectionSchema = {
     gap: 24px;
   }
 
+  .comparison-center {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0 0 28px;
+  }
+
+  .comparison-center a {
+    display: flex;
+    flex-direction: column;
+    min-height: 210px;
+    padding: 20px;
+    border: 1px solid rgba(201, 168, 76, 0.18);
+    border-radius: 12px;
+    background: #fff;
+    color: #0f172a;
+    text-decoration: none;
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.07);
+  }
+
+  .comparison-center h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 900;
+  }
+
+  .comparison-center p {
+    margin: 0;
+    color: #52525b;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .comparison-center span {
+    margin-top: auto;
+    padding-top: 18px;
+    color: #a77d20;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
   .category-article-card {
     overflow: hidden;
     border-radius: 12px;
@@ -332,7 +388,8 @@ const collectionSchema = {
   }
 
   @media (max-width: 900px) {
-    .category-article-grid {
+    .category-article-grid,
+    .comparison-center {
       grid-template-columns: 1fr;
     }
 

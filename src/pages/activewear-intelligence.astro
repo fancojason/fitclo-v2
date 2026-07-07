@@ -216,8 +216,8 @@ const resources = [
 <style>
   .hub-hero {
     position: relative;
-    min-height: 520px;
-    padding: 150px 24px 72px;
+    min-height: 430px;
+    padding: 86px 24px 58px;
     overflow: hidden;
     color: #fff;
     background: #08080b;
@@ -236,7 +236,7 @@ const resources = [
     object-fit: cover;
     object-position: 62% center;
     opacity: 1;
-    filter: saturate(0.98) contrast(1.04) brightness(0.9);
+    filter: saturate(1.02) contrast(0.98) brightness(1.08);
   }
 
   .hub-hero-media::after {
@@ -244,30 +244,31 @@ const resources = [
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.55) 36%, rgba(0, 0, 0, 0.18) 61%, rgba(0, 0, 0, 0.54) 100%),
-      linear-gradient(0deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.08) 46%, rgba(0, 0, 0, 0.22));
+      linear-gradient(90deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.42) 34%, rgba(0, 0, 0, 0.05) 62%, rgba(0, 0, 0, 0.38) 100%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.04) 48%, rgba(0, 0, 0, 0.14));
   }
 
   .hub-hero-inner {
     position: relative;
-    max-width: 1180px;
+    max-width: 1280px;
     margin: 0 auto;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
   }
 
   .hub-brand {
     margin: 0 0 0.25rem;
     color: #C9A84C;
-    font-size: clamp(1.5rem, 3vw, 2.3rem);
+    font-size: clamp(1.35rem, 2.4vw, 1.9rem);
     line-height: 1;
     font-weight: 900;
     letter-spacing: 0;
   }
 
   .hub-hero h1 {
-    max-width: 720px;
+    max-width: 650px;
     margin: 0;
     color: #fff;
-    font-size: clamp(3rem, 6.8vw, 5.9rem);
+    font-size: clamp(2.55rem, 5.4vw, 4.65rem);
     line-height: 0.96;
     font-weight: 900;
     letter-spacing: 0;
@@ -275,9 +276,9 @@ const resources = [
   }
 
   .hub-line {
-    width: 86px;
-    height: 4px;
-    margin: 1.4rem 0 1.5rem;
+    width: 76px;
+    height: 3px;
+    margin: 1rem 0 1.2rem;
     background: #C9A84C;
   }
 
@@ -299,8 +300,8 @@ const resources = [
 
   .hub-search {
     display: flex;
-    width: min(560px, 100%);
-    min-height: 58px;
+    width: min(520px, 100%);
+    min-height: 50px;
     overflow: hidden;
     border-radius: 999px;
     background: #fff;
@@ -318,7 +319,7 @@ const resources = [
   }
 
   .hub-search button {
-    width: 64px;
+    width: 56px;
     border: 0;
     background: #C9A84C;
     color: #fff;

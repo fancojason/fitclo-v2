@@ -58,42 +58,42 @@ const popular = [
     title: 'China Activewear Manufacturer Checklist: How to Verify a Real Factory Before You Order',
     desc: 'A practical verification checklist for brands sourcing private label activewear from China.',
     link: '/blogs/china-activewear-manufacturer-checklist',
-    image: 'https://sc01.alicdn.com/kf/H884ba8683a5149558bb5623a0bc673b8T.png',
+    image: '/images/intelligence/cover-factory-guide.png',
   },
   {
     tag: 'Australia',
     title: 'Private Label Activewear Manufacturer for Australian Brands',
     desc: 'Low-MOQ sourcing, private label yoga wear, gym wear and shipping planning for Australia.',
     link: '/blogs/private-label-activewear-manufacturer-australia',
-    image: 'https://sc01.alicdn.com/kf/H884ba8683a5149558bb5623a0bc673b8T.png',
+    image: '/images/intelligence/cover-brand-planning.png',
   },
   {
     tag: 'United Kingdom',
     title: 'Wholesale Gym Wear UK: Sourcing Guide for Fitness Brands and Boutiques',
     desc: 'A practical launch guide for UK gym wear wholesalers and private label activewear brands.',
     link: '/blogs/wholesale-gym-wear-uk-sourcing-guide',
-    image: 'https://sc01.alicdn.com/kf/Hfd7099e6ab8a449db9590c84b4fdb066I.png',
+    image: '/images/intelligence/cover-fabric-guide.png',
   },
   {
     tag: 'Construction',
     title: 'Seamless vs Cut-and-Sew Activewear: Product Manager Decision Guide',
     desc: 'Compare construction methods by fit, MOQ, cost, support, fabric and quality control.',
     link: '/blogs/seamless-vs-cut-sew-product-manager-guide',
-    image: 'https://sc01.alicdn.com/kf/H884ba8683a5149558bb5623a0bc673b8T.png',
+    image: '/images/intelligence/cover-private-label.png',
   },
   {
     tag: 'Sustainability',
     title: 'Sustainable Activewear Manufacturer for Australian Brands',
     desc: 'How to plan recycled fabrics, lower-risk MOQ and verified sustainability claims.',
     link: '/blogs/sustainable-activewear-manufacturer-australia',
-    image: 'https://sc01.alicdn.com/kf/Hfd7099e6ab8a449db9590c84b4fdb066I.png',
+    image: '/images/intelligence/cover-trend-report.png',
   },
 ];
 
 const resources = [
-  { title: 'Expert Knowledge', desc: 'Manufacturing insights written for activewear founders, sourcing teams and product managers.' },
-  { title: 'Practical Guides', desc: 'Actionable checklists you can use before sampling, production and shipment.' },
-  { title: 'Global Perspective', desc: 'Region-specific guidance for the US, UK, Australia, Europe and growing markets.' },
+  { icon: 'cap', title: 'Expert Knowledge', desc: 'Manufacturing insights written for activewear founders, sourcing teams and product managers.' },
+  { icon: 'doc', title: 'Practical Guides', desc: 'Actionable checklists you can use before sampling, production and shipment.' },
+  { icon: 'globe', title: 'Global Perspective', desc: 'Region-specific guidance for the US, UK, Australia, Europe and growing markets.' },
 ];
 ---
 
@@ -103,7 +103,7 @@ const resources = [
 >
   <section class="hub-hero">
     <div class="hub-hero-media">
-      <img src="https://sc01.alicdn.com/kf/H884ba8683a5149558bb5623a0bc673b8T.png" alt="Fitclo activewear intelligence knowledge hub" />
+      <img src="/images/intelligence/hero-activewear-intelligence.png" alt="Fitclo activewear intelligence knowledge hub" />
     </div>
     <div class="hub-hero-inner">
       <p class="hub-brand">FITCLO</p>
@@ -176,7 +176,27 @@ const resources = [
       <div class="hub-bottom">
         {resources.map((resource) => (
           <div class="resource-item">
-            <div class="resource-mark">FIT</div>
+            <div class="resource-mark">
+              {resource.icon === 'cap' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M7 10.7v4.1c1.4 1.5 3.1 2.2 5 2.2s3.6-.7 5-2.2v-4.1" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M19 10v4" />
+                </svg>
+              )}
+              {resource.icon === 'doc' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M7 3h7l4 4v14H7V3Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M14 3v5h5M9.5 12h6M9.5 15h6M9.5 18h4" />
+                </svg>
+              )}
+              {resource.icon === 'globe' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3.6 9h16.8M3.6 15h16.8M12 3c2.2 2.4 3.2 5.4 3.2 9s-1 6.6-3.2 9M12 3C9.8 5.4 8.8 8.4 8.8 12s1 6.6 3.2 9" />
+                </svg>
+              )}
+            </div>
             <div>
               <h3>{resource.title}</h3>
               <p>{resource.desc}</p>
@@ -508,14 +528,17 @@ const resources = [
   .resource-mark {
     display: grid;
     place-items: center;
-    width: 54px;
-    height: 54px;
+    width: 58px;
+    height: 58px;
     flex: 0 0 auto;
-    border-radius: 12px;
+    border-radius: 14px;
     background: rgba(201, 168, 76, 0.12);
     color: #C9A84C;
-    font-size: 12px;
-    font-weight: 900;
+  }
+
+  .resource-mark svg {
+    width: 32px;
+    height: 32px;
   }
 
   .resource-item h3,

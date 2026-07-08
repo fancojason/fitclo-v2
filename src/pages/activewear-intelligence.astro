@@ -1,15 +1,129 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import {
-  intelligenceArticles,
   intelligenceCategories,
   intelligenceFaqs,
   whatsappIntelligenceUrl,
 } from '../data/intelligence';
 
 const categories = intelligenceCategories;
-const featured = intelligenceArticles.filter((article) => article.featured);
-const popular = intelligenceArticles.slice(0, 5);
+const featured = [
+  {
+    category: 'Buyer Guide',
+    title: 'How to Choose the Right Activewear Manufacturer for Your Brand',
+    desc: 'Learn how to compare factory capability, MOQ, sampling support, production control and export experience before choosing a manufacturing partner.',
+    link: '/blogs/choosing-private-label-manufacturer',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Private Label Guide',
+    title: 'How to Start a Private Label Activewear Brand in 2026',
+    desc: 'A practical launch roadmap for founders planning product direction, private label branding, samples, MOQ and first production.',
+    link: '/blogs/launch-guide',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Manufacturing Guide',
+    title: 'Activewear Manufacturing Process: From Design to Bulk Production',
+    desc: 'Understand how design ideas move through tech packs, fabric approval, sampling, cutting, sewing, quality control and packing.',
+    link: '/blogs/production-process-guide',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Fabric Guide',
+    title: 'Nylon vs Polyester: Which Fabric Is Better for Activewear?',
+    desc: 'Compare hand feel, compression, opacity, stretch recovery and cost so you can choose better fabrics for leggings and yoga sets.',
+    link: '/blogs/fabrics',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Comparison',
+    title: 'OEM vs Private Label Activewear: Complete Guide for Brands',
+    desc: 'Compare product control, development speed, MOQ, uniqueness and buyer risk before choosing your activewear sourcing model.',
+    link: '/blogs/private-label-vs-oem',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+];
+
+const popular = [
+  {
+    category: 'Buyer Guide',
+    title: 'How to Find a Reliable Activewear Manufacturer in China',
+    desc: 'A practical sourcing guide for checking factory credibility, production capability, quality systems and buyer risk before ordering.',
+    link: '/blogs/china-activewear-manufacturer-checklist',
+    image: '/images/intelligence/cover-factory-guide.png',
+    readTime: '11 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Business Guide',
+    title: 'How to Start an Activewear Brand from Scratch',
+    desc: 'Plan your first activewear collection, launch route, supplier requirements, MOQ and product testing strategy.',
+    link: '/blogs/launch-guide',
+    image: '/images/intelligence/cover-brand-planning.png',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Manufacturing Guide',
+    title: 'Activewear Production Process Explained: From Design to Delivery',
+    desc: 'See how activewear moves from design and sample approval into fabric sourcing, production, QC and shipment.',
+    link: '/blogs/production-process-guide',
+    image: '/images/intelligence/cover-factory-guide.png',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Fabric Guide',
+    title: 'Best Fabrics for Yoga Leggings: Nylon, Polyester and Spandex Explained',
+    desc: 'Understand fabric composition, compression, opacity, recovery and hand feel for leggings and yoga sets.',
+    link: '/blogs/fabrics',
+    image: '/images/intelligence/cover-fabric-guide.png',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Private Label Guide',
+    title: 'How to Customize Your Activewear Brand with Logo, Labels and Packaging',
+    desc: 'Compare logo methods, woven labels, hangtags, packaging and stock-style customization for brand launches.',
+    link: '/blogs/customization-options-explained',
+    image: '/images/intelligence/cover-private-label.png',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Buyer Guide',
+    title: 'Activewear MOQ Explained: How Much Do You Need to Start?',
+    desc: 'Learn how MOQ affects sampling, fabric choice, cash flow, unit cost and launch risk for activewear brands.',
+    link: '/blogs/moq',
+    image: '/images/intelligence/cover-brand-planning.png',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Comparison',
+    title: 'OEM vs ODM vs Private Label Activewear Explained',
+    desc: 'Compare manufacturing models by buyer control, factory support, speed, cost, MOQ and product uniqueness.',
+    link: '/blogs/oem-vs-odm-vs-private-label-activewear',
+    image: '/images/intelligence/cover-private-label.png',
+    readTime: '9 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Trend Report',
+    title: 'Activewear Trends 2026: What Brands Should Know',
+    desc: 'Review fabric, styling, sustainability and market signals that can guide upcoming activewear collections.',
+    link: '/blogs/activewear-trends-2026',
+    image: '/images/intelligence/cover-trend-report.png',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+];
 
 const resources = [
   { icon: 'cap', title: 'Expert Knowledge', desc: 'Manufacturing insights written for activewear founders, sourcing teams and product managers.' },
@@ -30,7 +144,7 @@ const pageSchema = {
   },
   mainEntity: {
     '@type': 'ItemList',
-    itemListElement: intelligenceArticles.slice(0, 10).map((article, index) => ({
+    itemListElement: [...featured, ...popular].map((article, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: article.title,
@@ -95,7 +209,7 @@ const breadcrumbSchema = {
       <div class="section-title-row featured-heading">
         <div>
           <p class="section-kicker">Featured Guides</p>
-          <h2>Start With These Core Manufacturing Guides</h2>
+          <h2>Start With The Brand-Building Journey</h2>
         </div>
         <a href="/activewear-intelligence/buyer-guide/">Browse categories -></a>
       </div>
@@ -110,7 +224,7 @@ const breadcrumbSchema = {
               <small>{article.updated}</small>
               <small>{article.readTime}</small>
             </div>
-            <strong>Read Guide -></strong>
+            <strong>Read Guide</strong>
           </a>
         ))}
       </div>
@@ -150,7 +264,10 @@ const breadcrumbSchema = {
       </div>
 
       <div class="section-title-row">
-        <h2>Latest Insights</h2>
+        <div>
+          <p class="section-kicker">Popular Articles</p>
+          <h2>Guides For Every Buyer Decision Stage</h2>
+        </div>
         <a href="/blogs">View all articles -></a>
       </div>
 
@@ -169,6 +286,21 @@ const breadcrumbSchema = {
             </div>
           </a>
         ))}
+      </div>
+
+      <div class="decision-path">
+        <div>
+          <p class="section-kicker">Next Step</p>
+          <h2>Choose Your Manufacturing Path</h2>
+          <span>Move from research to action: compare private label, factory capability, ready-to-ship programs and product categories before contacting Fitclo.</span>
+        </div>
+        <nav aria-label="Activewear manufacturing decision links">
+          <a href="/private-label">Private Label</a>
+          <a href="/capabilities">Factory Capability</a>
+          <a href="/ready-to-ship">Ready To Ship</a>
+          <a href="/products">Product Categories</a>
+          <a href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Ask Fitclo</a>
+        </nav>
       </div>
 
       <div class="section-title-row faq-heading">
@@ -376,16 +508,16 @@ const breadcrumbSchema = {
 
   .featured-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
     margin-bottom: 34px;
   }
 
   .featured-card {
     display: flex;
     flex-direction: column;
-    min-height: 280px;
-    padding: 28px;
+    min-height: 300px;
+    padding: 22px;
     border: 1px solid rgba(201, 168, 76, 0.18);
     border-radius: 12px;
     background: #fff;
@@ -407,7 +539,7 @@ const breadcrumbSchema = {
 
   .featured-card h3 {
     margin: 0 0 12px;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1.18;
     font-weight: 900;
   }
@@ -415,7 +547,7 @@ const breadcrumbSchema = {
   .featured-card p {
     margin: 0;
     color: #52525b;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.65;
   }
 
@@ -559,11 +691,13 @@ const breadcrumbSchema = {
 
   .popular-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 22px;
   }
 
   .popular-card {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     border-radius: 10px;
     background: #fff;
@@ -579,6 +713,9 @@ const breadcrumbSchema = {
   }
 
   .popular-card > div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     padding: 18px;
   }
 
@@ -597,7 +734,69 @@ const breadcrumbSchema = {
   }
 
   .popular-card .article-meta {
+    padding-top: 10px;
     margin-top: 14px;
+  }
+
+  .decision-path {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 34px;
+    padding: 30px;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 18px 55px rgba(15, 23, 42, 0.07);
+  }
+
+  .decision-path > div {
+    max-width: 560px;
+  }
+
+  .decision-path h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .decision-path span {
+    display: block;
+    margin-top: 10px;
+    color: #52525b;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .decision-path nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .decision-path nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 15px;
+    border: 1px solid rgba(201, 168, 76, 0.24);
+    border-radius: 999px;
+    background: rgba(201, 168, 76, 0.08);
+    color: #8a6417;
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .decision-path nav a:last-child {
+    border-color: #C9A84C;
+    background: #C9A84C;
+    color: #fff;
   }
 
   .hub-faq {
@@ -729,6 +928,15 @@ const breadcrumbSchema = {
     .hub-faq,
     .hub-bottom {
       grid-template-columns: 1fr;
+    }
+
+    .decision-path {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .decision-path nav {
+      justify-content: flex-start;
     }
 
     .category-card {

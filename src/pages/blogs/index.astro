@@ -527,6 +527,11 @@ const guides = [
 ];
 
 const blogModules = import.meta.glob('./*.astro', { eager: true });
+const blogSourceModules = import.meta.glob('./*.astro', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
 const listedLinks = new Set(guides.map((guide) => guide.link.replace(/\/$/, '')));
 const generatedTitleOverrides: Record<string, string> = {
   branding: 'Activewear Branding Guide: Logo, Label and Packaging Decisions',
@@ -592,9 +597,36 @@ const generatedGuides = Object.keys(blogModules)
   .filter((guide) => !listedLinks.has(guide.link.replace(/\/$/, '')))
   .sort((a, b) => a.title.localeCompare(b.title));
 
-const allGuides = [...guides, ...generatedGuides].filter((guide, index, list) => {
+const titleFromSource = (source: string, fallback: string) => {
+  const propTitle = source.match(/\btitle=(["'])(.*?)\1/s)?.[2];
+  const constTitle = source.match(/const\s+title\s*=\s*(["'`])([\s\S]*?)\1\s*;/)?.[2];
+
+  return (constTitle ?? propTitle ?? fallback)
+    .replace(/\s*\|\s*Fitclo.*$/i, '')
+    .replace(/\s*\|\s*FITCLO.*$/i, '')
+    .trim();
+};
+
+const articleTitleByLink = Object.fromEntries(
+  Object.entries(blogSourceModules)
+    .map(([path, source]) => {
+      const slug = path.replace('./', '').replace(/\.astro$/, '');
+      return [`/blogs/${slug}`, titleFromSource(String(source), titleFromSlug(slug))];
+    })
+    .filter(([link]) => link !== '/blogs/index' && !link.includes('.')),
+);
+
+const dedupedGuides = [...guides, ...generatedGuides].filter((guide, index, list) => {
   const normalizedLink = guide.link.replace(/\/$/, '');
   return list.findIndex((item) => item.link.replace(/\/$/, '') === normalizedLink) === index;
+});
+
+const allGuides = dedupedGuides.map((guide) => {
+  const normalizedLink = guide.link.replace(/\/$/, '');
+  return {
+    ...guide,
+    title: articleTitleByLink[normalizedLink] ?? guide.title,
+  };
 });
 ---
 
@@ -624,30 +656,32 @@ const allGuides = [...guides, ...generatedGuides].filter((guide, index, list) =>
             <div class="absolute -right-20 -top-20 w-40 h-40 bg-[#C9A84C]/5 rounded-full blur-[80px] group-hover:bg-[#C9A84C]/10 transition-all duration-500"></div>
             
             <div class="p-7 md:p-8 relative z-10 flex h-full min-h-[360px] flex-col">
-              <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="mb-5">
                 <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C9A84C] px-3 py-1 rounded border border-[#C9A84C]/20 bg-[#C9A84C]/5">
                   {guide.type}
                 </span>
-                <div class="flex shrink-0 items-center gap-2 text-white/55 text-[12px]">
-                  <span class="relative inline-flex h-3.5 w-3.5 overflow-hidden rounded-[2px] bg-white shadow-[0_0_0_1px_rgba(255,255,255,0.25)]" aria-hidden="true">
-                    <span class="absolute inset-x-0 top-0 h-[5px] bg-[#ff6b5f]"></span>
-                    <span class="absolute bottom-[3px] left-[3px] h-[2px] w-[2px] rounded-full bg-[#C9A84C]"></span>
-                    <span class="absolute bottom-[3px] right-[3px] h-[2px] w-[2px] rounded-full bg-[#C9A84C]"></span>
-                  </span>
-                  <span>{guide.date}</span>
-                </div>
               </div>
 
-              <h2 class="text-[20px] md:text-[21px] font-bold mb-4 group-hover:text-[#C9A84C] transition-colors duration-300 leading-[1.25] tracking-normal">
+              <h2 class="text-[19px] md:text-[20px] font-bold mb-4 group-hover:text-[#C9A84C] transition-colors duration-300 leading-[1.25] tracking-normal">
                 {guide.title}
               </h2>
+
+              <div class="mb-6 flex items-center gap-2 text-white/45 text-[12px]">
+                <span class="relative inline-flex h-3.5 w-3.5 overflow-hidden rounded-[2px] bg-white shadow-[0_0_0_1px_rgba(255,255,255,0.25)]" aria-hidden="true">
+                  <span class="absolute inset-x-0 top-0 h-[5px] bg-[#ff6b5f]"></span>
+                  <span class="absolute bottom-[3px] left-[3px] h-[2px] w-[2px] rounded-full bg-[#C9A84C]"></span>
+                  <span class="absolute bottom-[3px] right-[3px] h-[2px] w-[2px] rounded-full bg-[#C9A84C]"></span>
+                </span>
+                <span>{guide.date}</span>
+                <span class="text-white/25">•</span>
+                <span>{guide.readTime}</span>
+              </div>
 
               <p class="text-white/45 text-sm leading-relaxed mb-8">
                 {guide.desc}
               </p>
 
-              <div class="mt-auto flex items-center justify-between gap-4 pt-6 border-t border-white/5">
-                <span class="text-white/35 text-[12px]">{guide.readTime}</span>
+              <div class="mt-auto flex items-center justify-start gap-4 pt-6 border-t border-white/5">
                 <a 
                   href={guide.link} 
                   class="inline-flex items-center gap-2 text-[13px] font-black text-[#C9A84C] transition-all hover:text-white"

@@ -629,10 +629,10 @@ const allGuides = [...guides, ...generatedGuides].filter((guide, index, list) =>
                   {guide.type}
                 </span>
                 <div class="flex shrink-0 items-center gap-2 text-white/45 text-[12px]">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-[#C9A84C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
-                  </svg>
+                  <span class="text-[12px] leading-none" aria-hidden="true">🗓️</span>
                   <span>{guide.date}</span>
+                  <span class="text-white/25">•</span>
+                  <span>{guide.readTime}</span>
                 </div>
               </div>
 
@@ -644,8 +644,7 @@ const allGuides = [...guides, ...generatedGuides].filter((guide, index, list) =>
                 {guide.desc}
               </p>
 
-              <div class="mt-auto flex items-center justify-between gap-4 pt-6 border-t border-white/5">
-                <span class="text-white/30 text-[12px]">{guide.readTime}</span>
+              <div class="mt-auto flex items-center justify-end gap-4 pt-6 border-t border-white/5">
                 <a 
                   href={guide.link} 
                   class="inline-flex items-center gap-2 text-[13px] font-black text-[#C9A84C] transition-all hover:text-white"

@@ -4,166 +4,180 @@ import Footer from '../components/Footer.astro';
 import FloatingButtons from '../components/FloatingButtons.astro';
 import '../styles/global.css';
 
-const { 
-  title = "FITCLO - Professional Activewear Manufacturer",
-  description = "Fitclo is a professional activewear manufacturer specializing in high-quality gym wear, yoga apparel, and sportswear for global brands.",
-  canonicalURL = new URL(Astro.url.pathname, "https://www.fitcloo.com").href
+const {
+  title = 'FITCLO - Professional Activewear Manufacturer',
+  description = 'Fitclo is a professional activewear manufacturer specializing in high-quality gym wear, yoga apparel, and sportswear for global brands.',
+  canonicalURL,
+  image = 'https://www.fitcloo.com/images/intelligence/hero-activewear-intelligence.png',
+  structuredData = [],
+  autoArticleSchema = true,
 } = Astro.props;
+
+const siteUrl = 'https://www.fitcloo.com';
+const canonicalPath =
+  Astro.url.pathname.endsWith('/') || Astro.url.pathname.includes('.')
+    ? Astro.url.pathname
+    : `${Astro.url.pathname}/`;
+const pageUrl = canonicalURL ?? new URL(canonicalPath, siteUrl).href;
+const schemaItems = Array.isArray(structuredData) ? structuredData : [structuredData];
+const isBlogArticle = autoArticleSchema && canonicalPath.startsWith('/blogs/') && canonicalPath !== '/blogs/';
+const pathSegments = canonicalPath.split('/').filter(Boolean);
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
+  name: 'Fitclo',
+  alternateName: 'FITCLO Activewear Manufacturer',
+  url: siteUrl,
+  logo: 'https://www.fitcloo.com/favicon.svg',
+  foundingDate: '2016',
+  description:
+    'Fitclo is a China-based activewear manufacturer for private label yoga wear, leggings, sports bras, gym clothing and OEM/ODM sportswear production.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+86-171-6083-7538',
+    contactType: 'sales',
+    areaServed: ['US', 'GB', 'AU', 'CA', 'EU'],
+    availableLanguage: ['English', 'Chinese'],
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Guangzhou',
+    addressRegion: 'Guangdong',
+    addressCountry: 'CN',
+  },
+  areaServed: ['United States', 'United Kingdom', 'Australia', 'Canada', 'European Union'],
+  knowsAbout: [
+    'Private label activewear manufacturing',
+    'OEM and ODM sportswear production',
+    'Yoga leggings manufacturing',
+    'Sports bra manufacturing',
+    'Activewear fabric development',
+    'Low MOQ activewear sourcing',
+    'Seamless activewear production',
+  ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  name: 'Fitclo',
+  url: siteUrl,
+  publisher: {
+    '@id': `${siteUrl}/#organization`,
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/activewear-intelligence/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: `${siteUrl}/`,
+    },
+    ...pathSegments.map((segment, index) => {
+      const itemPath = `/${pathSegments.slice(0, index + 1).join('/')}/`;
+      const label = segment
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+      return {
+        '@type': 'ListItem',
+        position: index + 2,
+        name: index === pathSegments.length - 1 ? title.replace(/\s\|\s.*$/, '') : label,
+        item: new URL(itemPath, siteUrl).href,
+      };
+    }),
+  ],
+};
+
+const autoArticle = isBlogArticle
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title.replace(/\s\|\s.*$/, ''),
+      description,
+      image,
+      dateModified: '2026-07-10',
+      mainEntityOfPage: pageUrl,
+      author: {
+        '@type': 'Organization',
+        name: 'Fitclo Manufacturing Team',
+        url: `${siteUrl}/about/`,
+      },
+      publisher: {
+        '@id': `${siteUrl}/#organization`,
+      },
+      about: [
+        'activewear manufacturing',
+        'private label sportswear',
+        'OEM ODM activewear sourcing',
+      ],
+    }
+  : null;
+
+const pageStructuredData = [
+  organizationSchema,
+  websiteSchema,
+  breadcrumbSchema,
+  ...(autoArticle ? [autoArticle] : []),
+  ...schemaItems.filter(Boolean),
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="preload" as="image" href="https://sc01.alicdn.com/kf/H884ba8683a5149558bb5623a0bc673b8T.png" fetchpriority="high" />
-		<meta name="generator" content={Astro.generator} />
-		
-		<!-- SEO Meta Tags -->
-		<title>{title}</title>
-		<meta name="description" content={description} />
-		<link rel="canonical" href={canonicalURL} />
-		<meta name="robots" content="index, follow" />
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" as="image" href="https://sc01.alicdn.com/kf/H884ba8683a5149558bb5623a0bc673b8T.png" fetchpriority="high" />
+    <meta name="generator" content={Astro.generator} />
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={canonicalURL} />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={pageUrl} />
+    <meta name="robots" content="index, follow" />
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={canonicalURL} />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta property="og:type" content={isBlogArticle ? 'article' : 'website'} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
 
-		<!-- Structured Data (JSON-LD) for SEO/GEO -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "ClothingStore",
-				"name": "FITCLO",
-				"alternateName": "Fitclo Activewear Manufacturer",
-				"url": "https://www.fitcloo.com",
-				"logo": "https://sc01.alicdn.com/kf/H8f27abddb40d4300874f693d698ed50dd.png",
-				"foundingDate": "2016",
-				"description": "Premium Factory-Direct Activewear Manufacturer in China. Professional production capacity for Private Label Yoga Sets, Leggings, and Gym Wear. 16,000㎡ Guangzhou headquarters with Dongguan & Yiwu plants. BSCI & OEKO-TEX certified.",
-				"address": {
-					"@type": "PostalAddress",
-					"streetAddress": "No. 128, Industrial Zone",
-					"addressLocality": "Guangzhou",
-					"addressRegion": "Guangdong",
-					"postalCode": "510000",
-					"addressCountry": "CN"
-				},
-				"contactPoint": {
-					"@type": "ContactPoint",
-					"telephone": "+86-152-1885-1638",
-					"contactType": "sales",
-					"areaServed": "Worldwide",
-					"availableLanguage": ["en", "zh"]
-				},
-				"sameAs": [
-					"https://www.fitcloo.com"
-				],
-				"knowsAbout": [
-					"Activewear Manufacturing", 
-					"Yoga Wear OEM/ODM", 
-					"Private Label Sportswear", 
-					"Custom Gym Clothing",
-					"Seamless Knitting Technology",
-					"4-needle 6-thread Flatlock Stitching",
-					"Recycled Nylon & Sustainable Fabrics",
-					"Moisture-Wicking Fabric R&D"
-				],
-				"areaServed": ["United States", "United Kingdom", "Australia", "Canada", "Germany", "European Union"],
-				"award": ["BSCI Certified Factory", "OEKO-TEX Standard 100", "16+ Years Industry Experience", "Monthly Capacity 450,000 Pcs"],
-				"location": [
-					{
-						"@type": "Place",
-						"name": "Fitclo Guangzhou Headquarters",
-						"address": { "@type": "PostalAddress", "addressLocality": "Guangzhou", "addressRegion": "Guangdong", "addressCountry": "CN" },
-						"description": "Main 16,000㎡ manufacturing and design hub."
-					},
-					{
-						"@type": "Place",
-						"name": "Fitclo Dongguan Plant",
-						"address": { "@type": "PostalAddress", "addressLocality": "Dongguan", "addressRegion": "Guangdong", "addressCountry": "CN" },
-						"description": "Specialized high-volume sewing facility."
-					},
-					{
-						"@type": "Place",
-						"name": "Fitclo Yiwu Logistics & Production",
-						"address": { "@type": "PostalAddress", "addressLocality": "Yiwu", "addressRegion": "Zhejiang", "addressCountry": "CN" },
-						"description": "Seamless production and global logistics center."
-					}
-				],
-				"certification": [
-					{
-						"@type": "Certification",
-						"name": "BSCI",
-						"description": "Business Social Compliance Initiative"
-					},
-					{
-						"@type": "Certification",
-						"name": "OEKO-TEX Standard 100",
-						"description": "Safety and eco-friendly textile certification"
-					}
-				]
-			}
-		</script>
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={pageUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
 
-		<!-- FAQ Schema (AIO Optimization) -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "FAQPage",
-				"mainEntity": [
-					{
-						"@type": "Question",
-						"name": "What is the MOQ for custom activewear at Fitclo?",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "Our minimum order quantity (MOQ) starts from 50 pieces for ready-to-ship styles with logo customization, and 150-200 pieces for fully customized private label projects."
-						}
-					},
-					{
-						"@type": "Question",
-						"name": "Where are the Fitclo factories located?",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "Fitclo operates a 16,000㎡ factory in Guangzhou and additional facilities in Dongguan and Yiwu, with over 500 staff and 20+ production lines."
-						}
-					},
-					{
-						"@type": "Question",
-						"name": "Does Fitclo provide OEM and ODM services?",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "Yes, we specialize in both OEM (Original Equipment Manufacturing) and ODM (Original Design Manufacturing), offering full-service solutions from pattern making to final garment production."
-						}
-					}
-				]
-			}
-		</script>
-		
-		<!-- SEO/GEO Tags -->
-		<meta name="geo.region" content="CN-44" />
-		<meta name="geo.placename" content="Dongguan" />
-		<meta name="geo.position" content="23.0207;113.7518" />
-		<meta name="ICBM" content="23.0207, 113.7518" />
-	</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-	<body class="bg-white selection:bg-accent selection:text-black">
-		<Header />
-		<main>
-			<slot />
-		</main>
-		<Footer />
-		<FloatingButtons />
+    <script type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
 
-	</body>
+    <meta name="geo.region" content="CN-44" />
+    <meta name="geo.placename" content="Guangzhou" />
+    <meta name="geo.position" content="23.1291;113.2644" />
+    <meta name="ICBM" content="23.1291, 113.2644" />
+  </head>
+
+  <body class="bg-white selection:bg-accent selection:text-black">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <FloatingButtons />
+  </body>
 </html>

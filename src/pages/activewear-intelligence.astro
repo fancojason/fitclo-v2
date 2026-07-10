@@ -1,0 +1,949 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  intelligenceCategories,
+  intelligenceFaqs,
+  whatsappIntelligenceUrl,
+} from '../data/intelligence';
+
+const categories = intelligenceCategories;
+const featured = [
+  {
+    category: 'Buyer Guide',
+    title: 'How to Choose the Right Activewear Manufacturer for Your Brand',
+    desc: 'Learn how to compare factory capability, MOQ, sampling support, production control and export experience before choosing a manufacturing partner.',
+    link: '/blogs/choosing-private-label-manufacturer',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Private Label Guide',
+    title: 'How to Start a Private Label Activewear Brand in 2026',
+    desc: 'A practical launch roadmap for founders planning product direction, private label branding, samples, MOQ and first production.',
+    link: '/blogs/launch-guide',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Manufacturing Guide',
+    title: 'Activewear Manufacturing Process: From Design to Bulk Production',
+    desc: 'Understand how design ideas move through tech packs, fabric approval, sampling, cutting, sewing, quality control and packing.',
+    link: '/blogs/production-process-guide',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Fabric Guide',
+    title: 'Nylon vs Polyester: Which Fabric Is Better for Activewear?',
+    desc: 'Compare hand feel, compression, opacity, stretch recovery and cost so you can choose better fabrics for leggings and yoga sets.',
+    link: '/blogs/fabrics',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Comparison',
+    title: 'OEM vs Private Label Activewear: Complete Guide for Brands',
+    desc: 'Compare product control, development speed, MOQ, uniqueness and buyer risk before choosing your activewear sourcing model.',
+    link: '/blogs/private-label-vs-oem',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+];
+
+const popular = [
+  {
+    category: 'Buyer Guide',
+    title: 'How to Find a Reliable Activewear Manufacturer in China',
+    desc: 'A practical sourcing guide for checking factory credibility, production capability, quality systems and buyer risk before ordering.',
+    link: '/blogs/china-activewear-manufacturer-checklist',
+    image: '/images/intelligence/cover-factory-guide.png',
+    readTime: '11 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Business Guide',
+    title: 'How to Start an Activewear Brand from Scratch',
+    desc: 'Plan your first activewear collection, launch route, supplier requirements, MOQ and product testing strategy.',
+    link: '/blogs/launch-guide',
+    image: '/images/intelligence/cover-brand-planning.png',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Manufacturing Guide',
+    title: 'Activewear Production Process Explained: From Design to Delivery',
+    desc: 'See how activewear moves from design and sample approval into fabric sourcing, production, QC and shipment.',
+    link: '/blogs/production-process-guide',
+    image: '/images/intelligence/cover-factory-guide.png',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Fabric Guide',
+    title: 'Best Fabrics for Yoga Leggings: Nylon, Polyester and Spandex Explained',
+    desc: 'Understand fabric composition, compression, opacity, recovery and hand feel for leggings and yoga sets.',
+    link: '/blogs/fabrics',
+    image: '/images/intelligence/cover-fabric-guide.png',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Private Label Guide',
+    title: 'How to Customize Your Activewear Brand with Logo, Labels and Packaging',
+    desc: 'Compare logo methods, woven labels, hangtags, packaging and stock-style customization for brand launches.',
+    link: '/blogs/customization-options-explained',
+    image: '/images/intelligence/cover-private-label.png',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Buyer Guide',
+    title: 'Activewear MOQ Explained: How Much Do You Need to Start?',
+    desc: 'Learn how MOQ affects sampling, fabric choice, cash flow, unit cost and launch risk for activewear brands.',
+    link: '/blogs/moq',
+    image: '/images/intelligence/cover-brand-planning.png',
+    readTime: '7 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Comparison',
+    title: 'OEM vs ODM vs Private Label Activewear Explained',
+    desc: 'Compare manufacturing models by buyer control, factory support, speed, cost, MOQ and product uniqueness.',
+    link: '/blogs/oem-vs-odm-vs-private-label-activewear',
+    image: '/images/intelligence/cover-private-label.png',
+    readTime: '9 min read',
+    updated: 'Updated July 08, 2026',
+  },
+  {
+    category: 'Trend Report',
+    title: 'Activewear Trends 2026: What Brands Should Know',
+    desc: 'Review fabric, styling, sustainability and market signals that can guide upcoming activewear collections.',
+    link: '/blogs/activewear-trends-2026',
+    image: '/images/intelligence/cover-trend-report.png',
+    readTime: '8 min read',
+    updated: 'Updated July 08, 2026',
+  },
+];
+
+const resources = [
+  { icon: 'cap', title: 'Expert Knowledge', desc: 'Manufacturing insights written for activewear founders, sourcing teams and product managers.' },
+  { icon: 'doc', title: 'Practical Guides', desc: 'Actionable checklists you can use before sampling, production and shipment.' },
+  { icon: 'globe', title: 'Global Perspective', desc: 'Region-specific guidance for the US, UK, Australia, Europe and growing markets.' },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Activewear Intelligence Hub',
+  description: 'The complete knowledge hub for activewear brands, buyers and manufacturers covering sourcing, fabrics, production, private label manufacturing and brand building.',
+  url: 'https://www.fitcloo.com/activewear-intelligence/',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Fitclo',
+    url: 'https://www.fitcloo.com',
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: [...featured, ...popular].map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: article.title,
+      url: `https://www.fitcloo.com${article.link}`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: intelligenceFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Activewear Intelligence', item: 'https://www.fitcloo.com/activewear-intelligence/' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Activewear Intelligence Hub | Fitclo Manufacturing Knowledge Base"
+  description="The complete activewear knowledge hub for brands, buyers and manufacturers covering sourcing, private label manufacturing, fabrics, production and brand building."
+  structuredData={[pageSchema, faqSchema]}
+>
+  <section class="hub-hero">
+    <div class="hub-hero-media">
+      <img src="/images/intelligence/hero-activewear-intelligence.png" alt="Fitclo activewear intelligence knowledge hub" />
+    </div>
+    <div class="hub-hero-inner">
+      <p class="hub-brand">FITCLO</p>
+      <h1>Activewear Intelligence</h1>
+      <div class="hub-line"></div>
+      <p class="hub-lead">The Complete Knowledge Hub for Activewear Brands, Buyers & Manufacturers.</p>
+      <p class="hub-copy">Explore sourcing, private label manufacturing, fabrics, production decisions and brand-building guidance from an activewear factory perspective.</p>
+      <form class="hub-search" action="/blogs" method="get">
+        <input type="search" name="q" placeholder="Search guides, articles and more..." aria-label="Search guides, articles and more" />
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section class="hub-main">
+    <div class="hub-container">
+      <div class="section-title-row featured-heading">
+        <div>
+          <p class="section-kicker">Featured Guides</p>
+          <h2>Start With The Brand-Building Journey</h2>
+        </div>
+        <a href="/activewear-intelligence/buyer-guide/">Browse categories -></a>
+      </div>
+
+      <div class="featured-grid">
+        {featured.map((article) => (
+          <a class="featured-card" href={article.link}>
+            <span>{article.category}</span>
+            <h3>{article.title}</h3>
+            <p>{article.desc}</p>
+            <div class="article-meta">
+              <small>{article.updated}</small>
+              <small>{article.readTime}</small>
+            </div>
+            <strong>Read Guide</strong>
+          </a>
+        ))}
+      </div>
+
+      <div class="category-grid">
+        {categories.map((category) => (
+          <a class={`category-card tone-${category.tone}`} href={`/activewear-intelligence/${category.slug}/`}>
+            <div class="category-icon">
+              {category.icon === 'book' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H7a3 3 0 0 0-3 3V5.5Zm0 0V21m4-14h8m-8 4h8" /></svg>
+              )}
+              {category.icon === 'factory' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 20V9l5 3V9l5 3V6h6v14H4Zm3-4h2m3 0h2m3 0h2" /></svg>
+              )}
+              {category.icon === 'fabric' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m4 8 4-4 4 4 4-4 4 4-4 4 4 4-4 4-4-4-4 4-4-4 4-4-4-4Zm4 4 4-4 4 4-4 4-4-4Z" /></svg>
+              )}
+              {category.icon === 'tag' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 7h.01M4 12V5a1 1 0 0 1 1-1h7l8 8-8 8-8-8Z" /></svg>
+              )}
+              {category.icon === 'chart' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 19h16M7 16V9m5 7V5m5 11v-4M6 8l5-4 4 5 4-3" /></svg>
+              )}
+              {category.icon === 'trend' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 19V5m0 14h16M7 15l4-4 3 3 5-7" /></svg>
+              )}
+              {category.icon === 'scale' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v18m-6-7 3-7 3 7a3 3 0 0 1-6 0Zm6-7H5m7 0h7m-1 7 3-7 3 7a3 3 0 0 1-6 0Z" /></svg>
+              )}
+            </div>
+            <h2>{category.title}</h2>
+            <p>{category.desc}</p>
+            <span class="article-count">{category.count}</span>
+            <span class="explore">Explore Guides <strong>-></strong></span>
+          </a>
+        ))}
+      </div>
+
+      <div class="section-title-row">
+        <div>
+          <p class="section-kicker">Popular Articles</p>
+          <h2>Guides For Every Buyer Decision Stage</h2>
+        </div>
+        <a href="/blogs">View all articles -></a>
+      </div>
+
+      <div class="popular-grid">
+        {popular.map((article) => (
+          <a class="popular-card" href={article.link}>
+            <img src={article.image} alt={article.title} loading="lazy" />
+            <div>
+              <span>{article.category}</span>
+              <h3>{article.title}</h3>
+              <p>{article.desc}</p>
+              <div class="article-meta">
+                <small>{article.updated}</small>
+                <small>{article.readTime}</small>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="decision-path">
+        <div>
+          <p class="section-kicker">Next Step</p>
+          <h2>Choose Your Manufacturing Path</h2>
+          <span>Move from research to action: compare private label, factory capability, ready-to-ship programs and product categories before contacting Fitclo.</span>
+        </div>
+        <nav aria-label="Activewear manufacturing decision links">
+          <a href="/private-label">Private Label</a>
+          <a href="/capabilities">Factory Capability</a>
+          <a href="/ready-to-ship">Ready To Ship</a>
+          <a href="/products">Product Categories</a>
+          <a href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Ask Fitclo</a>
+        </nav>
+      </div>
+
+      <div class="section-title-row faq-heading">
+        <div>
+          <p class="section-kicker">Popular Questions</p>
+          <h2>Activewear Manufacturing FAQ</h2>
+        </div>
+      </div>
+
+      <div class="hub-faq">
+        {intelligenceFaqs.map((faq) => (
+          <article>
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="hub-bottom">
+        {resources.map((resource) => (
+          <div class="resource-item">
+            <div class="resource-mark">
+              {resource.icon === 'cap' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M7 10.7v4.1c1.4 1.5 3.1 2.2 5 2.2s3.6-.7 5-2.2v-4.1" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M19 10v4" />
+                </svg>
+              )}
+              {resource.icon === 'doc' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M7 3h7l4 4v14H7V3Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M14 3v5h5M9.5 12h6M9.5 15h6M9.5 18h4" />
+                </svg>
+              )}
+              {resource.icon === 'globe' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3.6 9h16.8M3.6 15h16.8M12 3c2.2 2.4 3.2 5.4 3.2 9s-1 6.6-3.2 9M12 3C9.8 5.4 8.8 8.4 8.8 12s1 6.6 3.2 9" />
+                </svg>
+              )}
+            </div>
+            <div>
+              <h3>{resource.title}</h3>
+              <p>{resource.desc}</p>
+            </div>
+          </div>
+        ))}
+        <div class="contact-box">
+          <h3>Need Help Choosing The Right Manufacturing Solution?</h3>
+          <p>Ask Fitclo to recommend fabric, MOQ and production method for your activewear project.</p>
+          <a href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Ask Fitclo -></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hub-hero {
+    position: relative;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 118px 24px 64px;
+    overflow: hidden;
+    color: #fff;
+    background: #08080b;
+    font-family: 'Century_Gothic', sans-serif;
+  }
+
+  .hub-hero-media,
+  .hub-hero-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hub-hero-media img {
+    object-fit: cover;
+    object-position: 64% 46%;
+    opacity: 1;
+    filter: saturate(1.02) contrast(0.98) brightness(1.08);
+  }
+
+  .hub-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.42) 34%, rgba(0, 0, 0, 0.05) 62%, rgba(0, 0, 0, 0.38) 100%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.04) 48%, rgba(0, 0, 0, 0.14));
+  }
+
+  .hub-hero-inner {
+    position: relative;
+    width: 100%;
+    max-width: 1520px;
+    margin: 0 auto;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  }
+
+  .hub-brand {
+    margin: 0 0 0.25rem;
+    color: #C9A84C;
+    font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  .hub-hero h1 {
+    max-width: 650px;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.55rem, 5.4vw, 4.65rem);
+    line-height: 0.96;
+    font-weight: 900;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .hub-line {
+    width: 76px;
+    height: 3px;
+    margin: 1rem 0 1.2rem;
+    background: #C9A84C;
+  }
+
+  .hub-lead {
+    margin: 0 0 0.75rem;
+    color: #fff;
+    font-size: 17px;
+    line-height: 1.55;
+    font-weight: 900;
+  }
+
+  .hub-copy {
+    max-width: 560px;
+    margin: 0 0 1.7rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .hub-search {
+    display: flex;
+    width: min(560px, 100%);
+    min-height: 56px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.25);
+  }
+
+  .hub-search input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    padding: 0 24px;
+    color: #111827;
+    font-size: 15px;
+    outline: none;
+  }
+
+  .hub-search button {
+    width: 60px;
+    border: 0;
+    background: #C9A84C;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  .hub-search svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hub-main {
+    background: #f7f6f3;
+    padding: 38px 24px 80px;
+    font-family: 'Century_Gothic', sans-serif;
+  }
+
+  .hub-container {
+    max-width: 1340px;
+    margin: 0 auto;
+  }
+
+  .featured-heading {
+    margin-top: 0;
+  }
+
+  .section-kicker {
+    margin: 0 0 0.45rem;
+    color: #C9A84C;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 34px;
+  }
+
+  .featured-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    padding: 22px;
+    border: 1px solid rgba(201, 168, 76, 0.18);
+    border-radius: 12px;
+    background: #fff;
+    color: #0f172a;
+    text-decoration: none;
+    box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+  }
+
+  .featured-card span,
+  .popular-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: #C9A84C;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .featured-card h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    line-height: 1.18;
+    font-weight: 900;
+  }
+
+  .featured-card p {
+    margin: 0;
+    color: #52525b;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .featured-card strong {
+    margin-top: auto;
+    padding-top: 22px;
+    color: #a77d20;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 16px;
+  }
+
+  .article-meta small {
+    color: #71717a;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: -6px;
+  }
+
+  .category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 320px;
+    padding: 28px 20px 22px;
+    border: 1px solid rgba(17, 24, 39, 0.06);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #111827;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 26px 65px rgba(15, 23, 42, 0.12);
+  }
+
+  .category-icon {
+    display: grid;
+    place-items: center;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 22px;
+    border-radius: 999px;
+    background: rgba(201, 168, 76, 0.12);
+    color: #C9A84C;
+  }
+
+  .category-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .tone-green .category-icon { background: rgba(113, 135, 83, 0.14); color: #718753; }
+  .tone-purple .category-icon { background: rgba(132, 109, 166, 0.14); color: #846da6; }
+  .tone-blue .category-icon { background: rgba(105, 122, 150, 0.14); color: #697a96; }
+  .tone-rose .category-icon { background: rgba(205, 117, 123, 0.14); color: #cd757b; }
+
+  .category-card h2 {
+    margin: 0 0 12px;
+    color: #0f172a;
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .category-card p {
+    margin: 0;
+    color: #3f3f46;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .article-count {
+    margin-top: auto;
+    padding-top: 22px;
+    color: #71717a;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .explore {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 40px;
+    margin-top: 18px;
+    border-radius: 7px;
+    background: #C9A84C;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .tone-green .explore { background: #718753; }
+  .tone-purple .explore { background: #846da6; }
+  .tone-blue .explore { background: #697a96; }
+  .tone-rose .explore { background: #cd757b; }
+
+  .section-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin: 56px 0 24px;
+  }
+
+  .section-title-row h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .section-title-row a {
+    color: #a77d20;
+    font-size: 13px;
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .popular-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .popular-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fff;
+    color: #0f172a;
+    text-decoration: none;
+    box-shadow: 0 14px 38px rgba(15, 23, 42, 0.08);
+  }
+
+  .popular-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .popular-card > div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .popular-card h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 900;
+  }
+
+  .popular-card p {
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .popular-card .article-meta {
+    padding-top: 10px;
+    margin-top: 14px;
+  }
+
+  .decision-path {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 34px;
+    padding: 30px;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 18px 55px rgba(15, 23, 42, 0.07);
+  }
+
+  .decision-path > div {
+    max-width: 560px;
+  }
+
+  .decision-path h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .decision-path span {
+    display: block;
+    margin-top: 10px;
+    color: #52525b;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .decision-path nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .decision-path nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 15px;
+    border: 1px solid rgba(201, 168, 76, 0.24);
+    border-radius: 999px;
+    background: rgba(201, 168, 76, 0.08);
+    color: #8a6417;
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .decision-path nav a:last-child {
+    border-color: #C9A84C;
+    background: #C9A84C;
+    color: #fff;
+  }
+
+  .hub-faq {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .hub-faq article {
+    padding: 24px;
+    border: 1px solid rgba(17, 24, 39, 0.08);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
+  }
+
+  .hub-faq h3 {
+    margin: 0 0 10px;
+    color: #0f172a;
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 900;
+  }
+
+  .hub-faq p {
+    margin: 0;
+    color: #52525b;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .hub-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.2fr;
+    gap: 24px;
+    align-items: stretch;
+    margin-top: 58px;
+    padding: 28px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 18px 55px rgba(15, 23, 42, 0.07);
+  }
+
+  .resource-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .resource-mark {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    flex: 0 0 auto;
+    border-radius: 14px;
+    background: rgba(201, 168, 76, 0.12);
+    color: #C9A84C;
+  }
+
+  .resource-mark svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .resource-item h3,
+  .contact-box h3 {
+    margin: 0 0 8px;
+    color: #111827;
+    font-size: 15px;
+    font-weight: 900;
+  }
+
+  .resource-item p,
+  .contact-box p {
+    margin: 0;
+    color: #52525b;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .contact-box {
+    padding: 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #C9A84C, #b98924);
+    color: #fff;
+  }
+
+  .contact-box h3,
+  .contact-box p {
+    color: #fff;
+  }
+
+  .contact-box a {
+    display: inline-flex;
+    margin-top: 18px;
+    padding: 12px 18px;
+    border-radius: 7px;
+    background: #fff;
+    color: #a77d20;
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1180px) {
+    .featured-grid,
+    .category-grid,
+    .popular-grid,
+    .hub-faq {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hub-bottom {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .hub-hero {
+      min-height: auto;
+      padding-top: 124px;
+    }
+
+    .category-grid,
+    .featured-grid,
+    .popular-grid,
+    .hub-faq,
+    .hub-bottom {
+      grid-template-columns: 1fr;
+    }
+
+    .decision-path {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .decision-path nav {
+      justify-content: flex-start;
+    }
+
+    .category-card {
+      min-height: auto;
+    }
+
+    .section-title-row {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

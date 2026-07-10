@@ -1,55 +1,78 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Private Label Activewear Manufacturing',
+  brand: {
+    '@type': 'Brand',
+    name: 'Fitclo',
+  },
+  manufacturer: {
+    '@id': 'https://www.fitcloo.com/#organization',
+  },
+  category: 'Activewear, Yoga Wear, Gym Wear, Sportswear',
+  description:
+    "Fitclo manufactures private label leggings, sports bras, yoga sets, gym wear and athleisure apparel for global fitness brands.",
+  image: 'https://www.fitcloo.com/images/intelligence/cover-private-label.png',
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    offerCount: 8,
+    seller: {
+      '@id': 'https://www.fitcloo.com/#organization',
+    },
+  },
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Activewear Manufacturing',
+  provider: {
+    '@id': 'https://www.fitcloo.com/#organization',
+  },
+  areaServed: ['United States', 'United Kingdom', 'Australia', 'Canada', 'European Union'],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Fitclo Activewear Manufacturing Solutions',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Private Label Activewear',
+          description: 'Logo, label, packaging and stock style customization for activewear brands.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'OEM/ODM Activewear Development',
+          description: 'Custom pattern, fabric, color, trim and technical activewear development.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Ready-to-Ship Wholesale Activewear',
+          description: 'Low MOQ stock leggings, sports bras, yoga sets and gym wear with fast dispatch.',
+        },
+      },
+    ],
+  },
+};
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Premium Activewear & Fitness Apparel Manufacturing | FITCLO"
   description="Explore Fitclo's comprehensive activewear manufacturing solutions. From performance leggings to supportive sports bras, we offer premium private label OEM/ODM services."
+  structuredData={[productSchema, serviceSchema]}
 >
-  <!-- Invisible Manufacturing Schema for AI/SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Activewear Manufacturing",
-      "provider": {
-        "@type": "ClothingStore",
-        "name": "Fitclo"
-      },
-      "areaServed": "Worldwide",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Manufacturing Capabilities",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Seamless Leggings Production",
-              "description": "High-tech seamless knitting for maximum comfort and durability."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Flatlock Stitching Service",
-              "description": "Premium 4-needle 6-thread stitching for high-performance activewear."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Private Label ODM/OEM",
-              "description": "Full-service design and manufacturing for fitness brands."
-            }
-          }
-        ]
-      }
-    }
-  </script>
-
   <!-- Hero Section -->
   <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">

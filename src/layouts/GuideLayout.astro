@@ -1,13 +1,80 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+import { whatsappIntelligenceUrl } from '../data/intelligence';
 
-const { title, type, description } = Astro.props;
+const { title, type = 'Activewear Manufacturing Guide', description: suppliedDescription } = Astro.props;
+const description =
+  suppliedDescription ??
+  `A Fitclo guide to ${title.toLowerCase()} for private label activewear brands, covering sourcing decisions, manufacturing planning, quality control and scalable production.`;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: {
+    '@type': 'Person',
+    name: 'Jason Chen',
+    jobTitle: 'Founder of Fitclo, Activewear Manufacturing Specialist',
+    description: 'Activewear manufacturing specialist with 8+ years of export experience.',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Fitclo',
+    url: 'https://www.fitcloo.com',
+  },
+  dateModified: '2026-07-07',
+  mainEntityOfPage: Astro.url.href,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blogs', item: 'https://www.fitcloo.com/blogs/' },
+    { '@type': 'ListItem', position: 3, name: title, item: Astro.url.href },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: `What is this Fitclo guide about?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: description,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can Fitclo help with private label activewear manufacturing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Fitclo helps global brands with private label activewear, OEM/ODM development, logo customization, fabric selection, sampling, bulk production and shipping.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What products can Fitclo manufacture?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Fitclo manufactures leggings, sports bras, yoga sets, gym wear, athleisure apparel, seamless activewear and custom performance clothing for fitness brands.',
+      },
+    },
+  ],
+};
 ---
 
 <BaseLayout 
   title={`${title} | Fitclo Guides`}
   description={description}
+  structuredData={[articleSchema, faqSchema]}
+  autoArticleSchema={false}
 >
   <!-- Hero -->
   <section class="relative py-32 bg-black overflow-hidden">
@@ -51,15 +118,29 @@ const { title, type, description } = Astro.props;
 
       <div class="prose prose-lg max-w-none font-['Century_Gothic',sans-serif] text-gray-700 leading-relaxed">
         <slot />
+
+        <div class="not-prose mt-16 p-8 bg-white border border-gray-100 rounded-2xl shadow-[0_18px_50px_rgba(15,23,42,0.06)] font-['Century_Gothic',sans-serif]">
+          <p class="text-[#C9A84C] text-[11px] font-black tracking-[0.18em] uppercase mb-2">Author Authority</p>
+          <h3 class="text-2xl font-black text-black mb-3">Jason Chen, Founder of Fitclo</h3>
+          <p class="text-gray-600 text-[15px] leading-relaxed mb-0">Activewear Manufacturing Specialist with 8+ years of export experience helping global brands plan fabrics, MOQ, private label development, production control and shipping.</p>
+        </div>
+
+        <div class="not-prose mt-8 p-8 bg-gray-50 rounded-2xl border border-gray-100 font-['Century_Gothic',sans-serif]">
+          <h3 class="text-2xl font-black text-black mb-5">Related Guides</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <a href="/activewear-intelligence/" class="block p-5 bg-white rounded-xl border border-gray-100 text-black no-underline font-bold">Activewear Intelligence Hub</a>
+            <a href="/blogs/china-activewear-manufacturer-checklist" class="block p-5 bg-white rounded-xl border border-gray-100 text-black no-underline font-bold">Factory Verification Checklist</a>
+            <a href="/private-label" class="block p-5 bg-white rounded-xl border border-gray-100 text-black no-underline font-bold">Private Label Manufacturing</a>
+          </div>
+        </div>
         
-        <div class="mt-20 p-10 bg-gray-50 rounded-2xl border border-gray-100">
-          <h3 class="text-2xl font-bold text-black mb-4 font-['Century_Gothic',sans-serif]">Ready to start your project?</h3>
+        <div class="mt-10 p-10 bg-gray-50 rounded-2xl border border-gray-100">
+          <h3 class="text-2xl font-bold text-black mb-4 font-['Century_Gothic',sans-serif]">Need Help Choosing The Right Manufacturing Solution?</h3>
           <p class="text-gray-500 mb-8">
-            Now that you've read our guide, you're ready to take the next step. 
-            Connect with our production experts for a free consulting session.
+            Ask Fitclo to recommend fabric, MOQ and production method for your activewear project.
           </p>
-          <a href="https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20premium%20activewear%20collection%20and%20would%20like%20to%20discuss%20a%20custom%20project.%20Can%20we%20chat%3F" target="_blank" class="inline-block bg-[#C9A84C] text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-[#C9A84C] transition-all">
-            Consult Expert Now
+          <a href={whatsappIntelligenceUrl} target="_blank" class="inline-block bg-[#C9A84C] text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-[#C9A84C] transition-all">
+            Ask Fitclo
           </a>
         </div>
       </div>

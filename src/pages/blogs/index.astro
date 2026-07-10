@@ -528,7 +528,32 @@ const guides = [
 
 const blogModules = import.meta.glob('./*.astro', { eager: true });
 const listedLinks = new Set(guides.map((guide) => guide.link.replace(/\/$/, '')));
+const generatedTitleOverrides: Record<string, string> = {
+  branding: 'Activewear Branding Guide: Logo, Label and Packaging Decisions',
+  'business-models': 'Activewear Business Models: Wholesale, Private Label and OEM Compared',
+  construction: 'Activewear Construction Guide: Seamless vs Cut-and-Sew Methods',
+  ecommerce: 'Ecommerce Strategy for Activewear Brands: Launch, Inventory and Reorders',
+  fabrics: 'Activewear Fabric Guide: Nylon, Polyester, Spandex and Performance Knits',
+  leggings: 'Custom Leggings Manufacturing Guide for Private Label Brands',
+  logistics: 'Activewear Logistics Guide: Shipping, Duties and Delivery Planning',
+  manufacturing: 'Activewear Manufacturing Guide: From Sampling to Bulk Production',
+  'moisture-wicking': 'Moisture-Wicking Activewear Fabrics: How Performance Finishes Work',
+  moq: 'Activewear MOQ Guide: How Many Pieces Should Your Brand Start With?',
+  'oem-odm': 'OEM and ODM Activewear Manufacturing: Which Model Fits Your Brand?',
+  packaging: 'Activewear Packaging Guide: Poly Bags, Hangtags and Premium Presentation',
+  pricing: 'Activewear Manufacturing Cost Guide: Fabric, Labor, MOQ and Margins',
+  'private-label-vs-oem': 'Private Label vs OEM Activewear: Manufacturing Model Comparison',
+  'quality-control': 'Activewear Quality Control Guide: Fabric, Stitching and Final Inspection',
+  shipping: 'Shipping Activewear from China: Air, Sea, DDP and Duty Planning',
+  'sizing-guide': 'Activewear Sizing Guide: Fit, Grading and Measurement Control',
+  'sport-bras': 'Sports Bra Manufacturing Guide: Support, Fit, Fabric and Construction',
+  sustainability: 'Sustainable Activewear Manufacturing Guide: Fabrics, Claims and Certifications',
+  'tech-pack': 'Activewear Tech Pack Guide: Specs, Measurements and Sample Accuracy',
+  trends: 'Activewear Trend Report: Fabrics, Colors and Product Directions',
+  'yoga-sets': 'Yoga Set Manufacturing Guide: Leggings, Bras, Tops and Private Label Launch',
+};
 const titleFromSlug = (slug: string) =>
+  generatedTitleOverrides[slug] ??
   slug
     .split('-')
     .map((word) => {
@@ -567,7 +592,10 @@ const generatedGuides = Object.keys(blogModules)
   .filter((guide) => !listedLinks.has(guide.link.replace(/\/$/, '')))
   .sort((a, b) => a.title.localeCompare(b.title));
 
-const allGuides = [...guides, ...generatedGuides];
+const allGuides = [...guides, ...generatedGuides].filter((guide, index, list) => {
+  const normalizedLink = guide.link.replace(/\/$/, '');
+  return list.findIndex((item) => item.link.replace(/\/$/, '') === normalizedLink) === index;
+});
 ---
 
 <BaseLayout title="B2B Activewear Manufacturing Guides | Fitclo Insights">
@@ -595,31 +623,34 @@ const allGuides = [...guides, ...generatedGuides];
             <!-- Decorative Background Element -->
             <div class="absolute -right-20 -top-20 w-40 h-40 bg-[#C9A84C]/5 rounded-full blur-[80px] group-hover:bg-[#C9A84C]/10 transition-all duration-500"></div>
             
-            <div class="p-8 relative z-10">
-              <div class="flex items-center justify-between mb-8">
+            <div class="p-7 md:p-8 relative z-10 flex h-full min-h-[360px] flex-col">
+              <div class="flex items-start justify-between gap-4 mb-6">
                 <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C9A84C] px-3 py-1 rounded border border-[#C9A84C]/20 bg-[#C9A84C]/5">
                   {guide.type}
                 </span>
-                <div class="flex items-center gap-2 text-white/30 text-[12px]">
+                <div class="flex shrink-0 items-center gap-2 text-white/45 text-[12px]">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-[#C9A84C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+                  </svg>
                   <span>{guide.date}</span>
                 </div>
               </div>
 
-              <h2 class="text-2xl font-bold mb-4 group-hover:text-[#C9A84C] transition-colors duration-300 leading-tight h-16 line-clamp-2">
+              <h2 class="text-[21px] md:text-[22px] font-bold mb-4 group-hover:text-[#C9A84C] transition-colors duration-300 leading-[1.25] tracking-normal">
                 {guide.title}
               </h2>
 
-              <p class="text-white/40 text-sm leading-relaxed mb-8 h-20 line-clamp-3">
+              <p class="text-white/45 text-sm leading-relaxed mb-8">
                 {guide.desc}
               </p>
 
-              <div class="flex items-center justify-between pt-8 border-t border-white/5">
+              <div class="mt-auto flex items-center justify-between gap-4 pt-6 border-t border-white/5">
                 <span class="text-white/30 text-[12px]">{guide.readTime}</span>
                 <a 
                   href={guide.link} 
-                  class="flex items-center gap-2 text-[13px] font-bold uppercase tracking-wider text-white group-hover:text-[#C9A84C] transition-all"
+                  class="inline-flex items-center gap-2 rounded-full bg-[#C9A84C] px-4 py-2 text-[11px] font-black uppercase tracking-[0.14em] text-black transition-all hover:bg-white hover:text-black"
                 >
-                  {guide.linkText}
+                  Read Article
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

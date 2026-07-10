@@ -4,5 +4,5 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://www.fitcloo.com',
-  integrations: [tailwind()]
+  integrations: [tailwind(), sitemap()]
 });

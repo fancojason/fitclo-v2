@@ -1,4 +1,6 @@
 User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=no,use=reference
 Allow: /
 
 Sitemap: https://www.fitcloo.com/sitemap-index.xml
+Sitemap: https://www.fitcloo.com/sitemap-0.xml

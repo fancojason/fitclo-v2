@@ -3,6 +3,105 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const guides = [
   {
+    type: "DESIGN ENGINEERING",
+    title: "Anatomical Panel Design for Performance Activewear",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "How anatomical panel design improves fit, mobility, compression placement and visual shaping in leggings, sports bras and performance activewear.",
+    link: "/blogs/anatomical-panel-design",
+    linkText: "Read Article"
+  },
+  {
+    type: "FABRIC TREND REPORT",
+    title: "Eco-Performance Fabric Trends for Activewear Brands",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "A practical guide to recycled nylon, recycled polyester, bio-based yarns and durability testing for sustainable activewear programs.",
+    link: "/blogs/eco-performance-fabric-trends",
+    linkText: "Read Article"
+  },
+  {
+    type: "FABRIC GUIDE",
+    title: "Fabric Weight Selection Guide for Leggings, Bras and Gym Wear",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "Choose activewear fabric weight by GSM, opacity, compression, season, product category and target retail positioning.",
+    link: "/blogs/fabric-weight-selection-guide",
+    linkText: "Read Article"
+  },
+  {
+    type: "SUSTAINABILITY",
+    title: "Navigating GRS Certification for Sustainable Activewear",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "What activewear brands should know about GRS certification, recycled fabric claims, supplier documentation and responsible sourcing.",
+    link: "/blogs/navigating-grs-certification",
+    linkText: "Read Article"
+  },
+  {
+    type: "FABRIC COMPARISON",
+    title: "Nylon 66 vs Standard Nylon for Premium Activewear",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "Compare Nylon 66 and standard nylon for activewear by hand feel, durability, abrasion resistance, stretch recovery and cost.",
+    link: "/blogs/nylon-66-vs-standard-nylon",
+    linkText: "Read Article"
+  },
+  {
+    type: "BRANDING COMPARISON",
+    title: "Silicone Transfer vs Screen Printing for Activewear Logos",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "Compare silicone transfer and screen printing for activewear logo customization by durability, stretch, texture, cost and MOQ.",
+    link: "/blogs/silicone-transfer-vs-screen-printing",
+    linkText: "Read Article"
+  },
+  {
+    type: "QUALITY CONTROL",
+    title: "Squat-Proof Testing Protocol for Activewear Leggings",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "A buyer-friendly squat-proof testing protocol covering opacity, color, stretch direction, fabric weight and sample approval.",
+    link: "/blogs/squat-proof-testing-protocol",
+    linkText: "Read Article"
+  },
+  {
+    type: "TREND REPORT",
+    title: "Studio-to-Street Luxury Trends in Activewear",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "How studio-to-street luxury trends shape activewear design, fabric selection, color planning and private label strategy.",
+    link: "/blogs/studio-to-street-luxury-trends",
+    linkText: "Read Article"
+  },
+  {
+    type: "SUPPLY CHAIN",
+    title: "Supply Chain Resilience Strategy for Activewear Brands",
+    date: "July 10, 2026",
+    readTime: "8 min read",
+    desc: "Build supply chain resilience through supplier vetting, fabric planning, backup options, reorder systems and production visibility.",
+    link: "/blogs/supply-chain-resilience-strategy",
+    linkText: "Read Article"
+  },
+  {
+    type: "MANUFACTURING GUIDE",
+    title: "Why Vertical Integration Improves Activewear Manufacturing Reliability",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "How vertically integrated activewear manufacturing improves fabric control, sampling speed, production communication and reorders.",
+    link: "/blogs/vertical-integration-reliability",
+    linkText: "Read Article"
+  },
+  {
+    type: "QUALITY CONTROL",
+    title: "Zero-Defect Inspection System for Activewear Production",
+    date: "July 10, 2026",
+    readTime: "7 min read",
+    desc: "How activewear factories reduce defects through fabric inspection, inline QC, measurement checks, final inspection and packing control.",
+    link: "/blogs/zero-defect-inspection-system",
+    linkText: "Read Article"
+  },
+  {
     type: "FABRIC TECHNOLOGY",
     title: "The Comfort Revolution: Why Brushed Fabrics are Dominating Activewear Trends",
     date: "July 10, 2026",
@@ -426,6 +525,49 @@ const guides = [
     linkText: "Read Article →"
   }
 ];
+
+const blogModules = import.meta.glob('./*.astro', { eager: true });
+const listedLinks = new Set(guides.map((guide) => guide.link.replace(/\/$/, '')));
+const titleFromSlug = (slug: string) =>
+  slug
+    .split('-')
+    .map((word) => {
+      const upperWords: Record<string, string> = {
+        b2b: 'B2B',
+        bsci: 'BSCI',
+        ddp: 'DDP',
+        esg: 'ESG',
+        gsm: 'GSM',
+        grs: 'GRS',
+        odm: 'ODM',
+        oem: 'OEM',
+        qc: 'QC',
+        roi: 'ROI',
+        uk: 'UK',
+        us: 'US',
+      };
+
+      return upperWords[word] ?? word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(' ');
+
+const generatedGuides = Object.keys(blogModules)
+  .map((path) => path.replace('./', '').replace(/\.astro$/, ''))
+  .filter((slug) => slug !== 'index')
+  .filter((slug) => !slug.includes('.'))
+  .map((slug) => ({
+    type: 'ACTIVEWEAR GUIDE',
+    title: titleFromSlug(slug),
+    date: 'Updated July 10, 2026',
+    readTime: '7 min read',
+    desc: 'A Fitclo activewear manufacturing guide covering sourcing, fabric selection, private label production, quality control and scalable brand planning.',
+    link: `/blogs/${slug}`,
+    linkText: 'Read Article',
+  }))
+  .filter((guide) => !listedLinks.has(guide.link.replace(/\/$/, '')))
+  .sort((a, b) => a.title.localeCompare(b.title));
+
+const allGuides = [...guides, ...generatedGuides];
 ---
 
 <BaseLayout title="B2B Activewear Manufacturing Guides | Fitclo Insights">
@@ -448,7 +590,7 @@ const guides = [
 
       <!-- Article Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {guides.map((guide) => (
+        {allGuides.map((guide) => (
           <div class="group relative bg-[#0e0e12] border border-white/5 rounded-2xl overflow-hidden hover:border-[#C9A84C]/30 transition-all duration-500">
             <!-- Decorative Background Element -->
             <div class="absolute -right-20 -top-20 w-40 h-40 bg-[#C9A84C]/5 rounded-full blur-[80px] group-hover:bg-[#C9A84C]/10 transition-all duration-500"></div>

@@ -26,8 +26,9 @@ const guidePages = [
 
 const blogModules = import.meta.glob('./blogs/*.astro', { eager: true });
 const blogPages = Object.keys(blogModules)
-  .map((path) => path.replace('./blogs/', '').replace('.astro', ''))
+  .map((path) => path.replace('./blogs/', '').replace(/\.astro$/, ''))
   .filter((slug) => slug !== 'index')
+  .filter((slug) => !slug.includes('.'))
   .map((slug) => `/blogs/${slug}/`);
 
 const intelligenceCategoryPages = intelligenceCategories.map(

@@ -12,6 +12,31 @@ const {
   tags = [],
 } = Astro.props;
 
+const marketPlanningRows = [
+  ['Market fit', `Check sizing, preferred product categories and retail expectations for ${market} buyers.`, 'Start with core leggings, sports bras, yoga sets or gym wear styles that match local demand.'],
+  ['Sourcing route', 'Compare ready-to-ship private label, low-MOQ customization and full OEM/ODM development.', 'Choose the route that protects launch speed, cash flow and product differentiation.'],
+  ['Quality proof', 'Verify fabric composition, stretch recovery, opacity, stitching, labels, packaging and final inspection.', 'Approve a real sample and written QC checklist before bulk production.'],
+  ['Landed cost', 'Estimate factory unit cost, branding, packaging, freight, duty and delivery timing together.', 'Plan landed cost early so wholesale or DTC margins stay realistic.'],
+];
+
+const marketFaqs = [
+  {
+    question: `What should ${market} activewear brands verify before choosing a manufacturer?`,
+    answer:
+      'Brands should verify factory ownership, fabric knowledge, MOQ, sampling timelines, production capacity, quality control steps, export experience and communication speed before placing an order.',
+  },
+  {
+    question: 'Does Fitclo support private label activewear and OEM/ODM production?',
+    answer:
+      'Yes. Fitclo supports ready-to-ship logo customization, private label activewear programs and full OEM/ODM development for leggings, sports bras, yoga sets, gym wear and athleisure collections.',
+  },
+  {
+    question: 'What information helps Fitclo recommend the right activewear production plan?',
+    answer:
+      'Fitclo can recommend a better plan when buyers share target product category, fabric preference, logo method, quantity, size range, launch timeline, destination market and target retail positioning.',
+  },
+];
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -49,32 +74,14 @@ const breadcrumbSchema = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: `What should ${market} activewear brands verify before choosing a manufacturer?`,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Brands should verify factory ownership, fabric knowledge, MOQ, sampling timelines, production capacity, quality control steps, export experience and communication speed before placing an order.',
-      },
+  mainEntity: marketFaqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: answer,
     },
-    {
-      '@type': 'Question',
-      name: 'Does Fitclo support private label activewear and OEM/ODM production?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Fitclo supports ready-to-ship logo customization, private label activewear programs and full OEM/ODM development for leggings, sports bras, yoga sets, gym wear and athleisure collections.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What information helps Fitclo recommend the right activewear production plan?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Fitclo can recommend a better plan when buyers share target product category, fabric preference, logo method, quantity, size range, launch timeline, destination market and target retail positioning.',
-      },
-    },
-  ],
+  })),
 };
 ---
 
@@ -111,7 +118,63 @@ const faqSchema = {
 
     <section class="market-body-wrap">
       <div class="market-body">
+        <section class="market-visual-guide">
+          <div class="market-visual-media">
+            <img src="/images/intelligence/cover-brand-planning.png" alt={`Fitclo activewear sourcing planning for ${market} brands`} loading="lazy" />
+          </div>
+          <div class="market-visual-copy">
+            <p>Market Snapshot</p>
+            <h2>Plan the order around local demand, landed cost and launch timing.</h2>
+            <span>
+              Fitclo market guides are written for buyers who need practical sourcing decisions, not generic trend summaries. Use the framework below before comparing factories, samples or bulk orders.
+            </span>
+          </div>
+        </section>
+
+        <section class="market-planning">
+          <div class="market-planning-head">
+            <p>Buyer Planning Table</p>
+            <h2>What {market} brands should check before ordering</h2>
+          </div>
+          <div class="market-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Decision Area</th>
+                  <th>What To Check</th>
+                  <th>Fitclo Recommendation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {marketPlanningRows.map((row) => (
+                  <tr>
+                    <td>{row[0]}</td>
+                    <td>{row[1]}</td>
+                    <td>{row[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <slot />
+
+        <section class="market-faq">
+          <p>Frequently Asked Questions</p>
+          <h2>Common questions from {market} activewear buyers</h2>
+          <div class="market-faq-list">
+            {marketFaqs.map((item) => (
+              <details>
+                <summary>
+                  {item.question}
+                  <span>+</span>
+                </summary>
+                <div>{item.answer}</div>
+              </details>
+            ))}
+          </div>
+        </section>
 
         <section class="market-author">
           <p>Author Authority</p>
@@ -121,7 +184,7 @@ const faqSchema = {
 
         <section class="related-guides">
           <div>
-            <p>Related Guides</p>
+            <p>Related Reading</p>
             <h2>Continue Your Activewear Manufacturing Research</h2>
           </div>
           <div class="related-grid">
@@ -461,6 +524,150 @@ const faqSchema = {
     vertical-align: top;
   }
 
+  .market-visual-guide {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    overflow: hidden;
+    margin: 0 0 2.5rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 8px;
+    background: #0b0b0f;
+    box-shadow: 0 22px 70px rgba(15, 23, 42, 0.12);
+  }
+
+  .market-visual-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+  }
+
+  .market-visual-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.25rem;
+    color: #fff;
+  }
+
+  .market-visual-copy p,
+  .market-planning-head p,
+  .market-faq > p {
+    margin: 0 0 0.55rem;
+    color: #C9A84C;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .market-body .market-visual-copy h2,
+  .market-body .market-planning-head h2,
+  .market-body .market-faq h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: inherit;
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+    line-height: 1.12;
+    font-weight: 900;
+  }
+
+  .market-body .market-visual-copy h2 {
+    color: #fff;
+  }
+
+  .market-body .market-planning-head h2 {
+    color: #0f172a;
+    line-height: 1.2;
+  }
+
+  .market-visual-copy span {
+    display: block;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.95rem;
+    line-height: 1.72;
+  }
+
+  .market-planning {
+    overflow: hidden;
+    margin: 0 0 3rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 18px 55px rgba(15, 23, 42, 0.06);
+  }
+
+  .market-planning-head {
+    padding: 1.6rem;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  .market-body .market-planning .market-table {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .market-faq {
+    margin-top: 3rem;
+    padding: 2rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 8px;
+    background: #f8f7f3;
+  }
+
+  .market-body .market-faq h2 {
+    color: #0f172a;
+    font-size: clamp(1.55rem, 2.4vw, 2rem);
+  }
+
+  .market-faq-list {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1.35rem;
+  }
+
+  .market-faq-list details {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    padding: 1rem;
+  }
+
+  .market-faq-list summary {
+    cursor: pointer;
+    list-style: none;
+    color: #0f172a;
+    font-size: 0.95rem;
+    font-weight: 900;
+    line-height: 1.45;
+  }
+
+  .market-faq-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .market-faq-list summary span {
+    float: right;
+    margin-left: 1rem;
+    color: #C9A84C;
+    font-weight: 900;
+  }
+
+  .market-faq-list details[open] summary span {
+    transform: rotate(45deg);
+  }
+
+  .market-faq-list details > div {
+    margin-top: 0.85rem;
+    color: #52525b;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
   @media (max-width: 820px) {
     .market-hero {
       padding-top: 8.5rem;
@@ -480,6 +687,10 @@ const faqSchema = {
     .market-panel div {
       justify-content: center;
       margin-top: 0.85rem;
+    }
+
+    .market-visual-guide {
+      grid-template-columns: 1fr;
     }
 
     .market-body {

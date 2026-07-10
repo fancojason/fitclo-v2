@@ -3,13 +3,26 @@ import BaseLayout from './BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
 import { whatsappIntelligenceUrl } from '../data/intelligence';
 
-const { title, type = 'Activewear Manufacturing Guide', description: suppliedDescription } = Astro.props;
+const {
+  title,
+  type = 'Activewear Manufacturing Guide',
+  description: suppliedDescription,
+  articleImage: suppliedArticleImage,
+  quickAnswerTitle = 'Use this guide as a buyer checklist before sampling, bulk production or supplier approval.',
+  quickTakeaways: suppliedQuickTakeaways,
+  insightTitle = 'A strong article should help buyers make a sourcing decision, not just explain a topic.',
+  insightDescription = 'Fitclo guides connect product goals, fabric choices, MOQ planning, quality control and shipping so brand owners can compare options before placing an order.',
+  planningTableTitle = 'What buyers should check before moving forward',
+  planningRows: suppliedPlanningRows,
+  faqs: suppliedFaqs,
+  relatedReading: suppliedRelatedReading,
+} = Astro.props;
 const description =
   suppliedDescription ??
   `A Fitclo guide to ${title.toLowerCase()} for private label activewear brands, covering sourcing decisions, manufacturing planning, quality control and scalable production.`;
 
 const articleContext = `${title} ${type}`.toLowerCase();
-const articleImage = articleContext.includes('fabric') || articleContext.includes('nylon') || articleContext.includes('polyester') || articleContext.includes('gsm')
+const inferredArticleImage = articleContext.includes('fabric') || articleContext.includes('nylon') || articleContext.includes('polyester') || articleContext.includes('gsm')
   ? '/images/intelligence/cover-fabric-guide.png'
   : articleContext.includes('trend') || articleContext.includes('sustainable') || articleContext.includes('eco')
     ? '/images/intelligence/cover-trend-report.png'
@@ -18,14 +31,16 @@ const articleImage = articleContext.includes('fabric') || articleContext.include
       : articleContext.includes('launch') || articleContext.includes('business') || articleContext.includes('moq') || articleContext.includes('scaling')
         ? '/images/intelligence/cover-brand-planning.png'
         : '/images/intelligence/cover-factory-guide.png';
+const articleImage = suppliedArticleImage ?? inferredArticleImage;
 
-const quickTakeaways = [
+const defaultQuickTakeaways = [
   'Confirm the sourcing goal first: launch speed, product uniqueness, MOQ, margin or production control.',
   'Ask for fabric, sample, quality control and shipping details before approving any bulk activewear order.',
   'Use the table below to turn the article into a practical buyer checklist for your next production plan.',
 ];
+const quickTakeaways = suppliedQuickTakeaways ?? defaultQuickTakeaways;
 
-const planningRows = articleContext.includes('fabric') || articleContext.includes('nylon') || articleContext.includes('polyester') || articleContext.includes('gsm')
+const defaultPlanningRows = articleContext.includes('fabric') || articleContext.includes('nylon') || articleContext.includes('polyester') || articleContext.includes('gsm')
   ? [
       ['Fabric decision', 'Compare GSM, composition, stretch direction, opacity and hand feel.', 'Request fabric swatches and a washed sample before approving bulk fabric.'],
       ['Performance test', 'Check squat-proof coverage, recovery, pilling, shrinkage and colorfastness.', 'Test darker and lighter colors separately because opacity can change by dye lot.'],
@@ -48,8 +63,9 @@ const planningRows = articleContext.includes('fabric') || articleContext.include
           ['Production plan', 'Separate stock availability, sample timeline, bulk lead time and shipping schedule.', 'Approve a realistic timeline before sending deposit.'],
           ['Buyer risk', 'Most activewear problems come from unclear specs, weak fabric testing or late QC.', 'Use a written checklist for fabric, fit, stitching, packing and final inspection.'],
         ];
+const planningRows = suppliedPlanningRows ?? defaultPlanningRows;
 
-const visibleFaqs = [
+const defaultVisibleFaqs = [
   {
     question: 'What is this Fitclo guide about?',
     answer: description,
@@ -65,8 +81,9 @@ const visibleFaqs = [
       'Fitclo manufactures leggings, sports bras, yoga sets, gym wear, athleisure apparel, seamless activewear and custom performance clothing for fitness brands.',
   },
 ];
+const visibleFaqs = suppliedFaqs ?? defaultVisibleFaqs;
 
-const relatedReading = [
+const defaultRelatedReading = [
   {
     title: 'Activewear Intelligence Hub',
     desc: 'Browse Fitclo sourcing guides, fabric explainers, manufacturing checklists and comparison articles.',
@@ -83,6 +100,7 @@ const relatedReading = [
     link: '/private-label',
   },
 ];
+const relatedReading = suppliedRelatedReading ?? defaultRelatedReading;
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -162,7 +180,7 @@ const faqSchema = {
       <section class="mb-10 rounded-[8px] border border-[#C9A84C]/20 bg-[#C9A84C]/5 p-6 font-['Century_Gothic',sans-serif] md:p-8">
         <p class="mb-3 text-[11px] font-black uppercase tracking-[0.22em] text-[#C9A84C]">Quick Answer</p>
         <h2 class="mb-5 text-[22px] font-black leading-tight text-black md:text-[28px]">
-          Use this guide as a buyer checklist before sampling, bulk production or supplier approval.
+          {quickAnswerTitle}
         </h2>
         <div class="grid gap-4 md:grid-cols-3">
           {quickTakeaways.map((item, index) => (
@@ -188,10 +206,10 @@ const faqSchema = {
         <div class="flex flex-col justify-center p-7 text-white md:p-10">
           <p class="mb-3 text-[11px] font-black uppercase tracking-[0.22em] text-[#C9A84C]">Manufacturing Insight</p>
           <h2 class="mb-4 text-[26px] font-black leading-tight md:text-[34px]">
-            A strong article should help buyers make a sourcing decision, not just explain a topic.
+            {insightTitle}
           </h2>
           <p class="mb-0 text-[15px] leading-relaxed text-white/68">
-            Fitclo guides connect product goals, fabric choices, MOQ planning, quality control and shipping so brand owners can compare options before placing an order.
+            {insightDescription}
           </p>
         </div>
       </section>
@@ -199,7 +217,7 @@ const faqSchema = {
       <section class="mb-14 overflow-hidden rounded-[8px] border border-gray-200 bg-white font-['Century_Gothic',sans-serif] shadow-[0_18px_55px_rgba(15,23,42,0.06)]">
         <div class="border-b border-gray-100 p-6 md:p-7">
           <p class="mb-2 text-[11px] font-black uppercase tracking-[0.22em] text-[#C9A84C]">Planning Table</p>
-          <h2 class="m-0 text-[22px] font-black leading-tight text-black md:text-[28px]">What buyers should check before moving forward</h2>
+          <h2 class="m-0 text-[22px] font-black leading-tight text-black md:text-[28px]">{planningTableTitle}</h2>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full min-w-[720px] border-collapse text-left text-[14px]">

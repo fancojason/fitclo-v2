@@ -3,7 +3,10 @@ import BaseLayout from './BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
 import { whatsappIntelligenceUrl } from '../data/intelligence';
 
-const { title, type, description } = Astro.props;
+const { title, type = 'Activewear Manufacturing Guide', description: suppliedDescription } = Astro.props;
+const description =
+  suppliedDescription ??
+  `A Fitclo guide to ${title.toLowerCase()} for private label activewear brands, covering sourcing decisions, manufacturing planning, quality control and scalable production.`;
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -34,14 +37,45 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: title, item: Astro.url.href },
   ],
 };
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: `What is this Fitclo guide about?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: description,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can Fitclo help with private label activewear manufacturing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Fitclo helps global brands with private label activewear, OEM/ODM development, logo customization, fabric selection, sampling, bulk production and shipping.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What products can Fitclo manufacture?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Fitclo manufactures leggings, sports bras, yoga sets, gym wear, athleisure apparel, seamless activewear and custom performance clothing for fitness brands.',
+      },
+    },
+  ],
+};
 ---
 
 <BaseLayout 
   title={`${title} | Fitclo Guides`}
   description={description}
+  structuredData={[articleSchema, faqSchema]}
+  autoArticleSchema={false}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <!-- Hero -->
   <section class="relative py-32 bg-black overflow-hidden">
     <div class="absolute inset-0 opacity-20">

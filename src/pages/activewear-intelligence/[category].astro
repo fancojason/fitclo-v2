@@ -53,10 +53,7 @@ const collectionSchema = {
 };
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
-
+<BaseLayout title={pageTitle} description={pageDescription} structuredData={[collectionSchema]}>
   <section class="category-hero">
     <div class="category-hero-inner">
       <a href="/activewear-intelligence/" class="back-link">Activewear Intelligence</a>

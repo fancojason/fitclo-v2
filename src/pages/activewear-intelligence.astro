@@ -179,10 +179,8 @@ const breadcrumbSchema = {
 <BaseLayout
   title="Activewear Intelligence Hub | Fitclo Manufacturing Knowledge Base"
   description="The complete activewear knowledge hub for brands, buyers and manufacturers covering sourcing, private label manufacturing, fabrics, production and brand building."
+  structuredData={[pageSchema, faqSchema]}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <section class="hub-hero">
     <div class="hub-hero-media">
       <img src="/images/intelligence/hero-activewear-intelligence.png" alt="Fitclo activewear intelligence knowledge hub" />

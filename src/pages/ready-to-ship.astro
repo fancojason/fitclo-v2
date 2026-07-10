@@ -1,11 +1,63 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+
+const readyToShipSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Ready-to-Ship Activewear Wholesale',
+  serviceType: 'Ready-to-Ship Activewear Wholesale',
+  provider: {
+    '@id': 'https://www.fitcloo.com/#organization',
+  },
+  areaServed: ['United States', 'United Kingdom', 'Australia', 'Canada', 'European Union'],
+  description:
+    'Fitclo supplies ready-to-ship wholesale activewear, including yoga sets, leggings, sports bras and gym wear with low MOQ logo customization and fast global dispatch.',
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'USD',
+    seller: {
+      '@id': 'https://www.fitcloo.com/#organization',
+    },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Ready-to-Ship Activewear Categories',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Ready-to-Ship Yoga Sets',
+          category: 'Yoga Wear',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Ready-to-Ship Leggings',
+          category: 'Activewear',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Ready-to-Ship Sports Bras',
+          category: 'Sportswear',
+        },
+      },
+    ],
+  },
+};
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Ready to Ship Activewear Wholesale | Fast Global Delivery"
   description="Instant inventory solutions for your activewear brand. Explore Fitclo's ready-to-ship collection with low MOQs, high-quality gym wear, and 4,000,000+ units in stock."
+  structuredData={[readyToShipSchema]}
 >
   <!-- Hero Section -->
   <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">

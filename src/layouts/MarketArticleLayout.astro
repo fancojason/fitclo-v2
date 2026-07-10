@@ -45,13 +45,41 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: title, item: Astro.url.href },
   ],
 };
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: `What should ${market} activewear brands verify before choosing a manufacturer?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Brands should verify factory ownership, fabric knowledge, MOQ, sampling timelines, production capacity, quality control steps, export experience and communication speed before placing an order.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Fitclo support private label activewear and OEM/ODM production?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Fitclo supports ready-to-ship logo customization, private label activewear programs and full OEM/ODM development for leggings, sports bras, yoga sets, gym wear and athleisure collections.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What information helps Fitclo recommend the right activewear production plan?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Fitclo can recommend a better plan when buyers share target product category, fabric preference, logo method, quantity, size range, launch timeline, destination market and target retail positioning.',
+      },
+    },
+  ],
+};
 ---
 
-<BaseLayout title={`${title} | Fitclo Blog`} description={description}>
+<BaseLayout title={`${title} | Fitclo Blog`} description={description} structuredData={[articleSchema, faqSchema]} autoArticleSchema={false}>
   <article class="market-article bg-white font-['Century_Gothic',sans-serif]">
-    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-
     <header class="market-hero">
       <div class="market-bg">
         <img

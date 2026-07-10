@@ -1,11 +1,56 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+
+const privateLabelSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Private Label Activewear Manufacturing',
+  serviceType: 'Private Label Activewear Manufacturing',
+  provider: {
+    '@id': 'https://www.fitcloo.com/#organization',
+  },
+  areaServed: ['United States', 'United Kingdom', 'Australia', 'Canada', 'European Union'],
+  description:
+    'Fitclo provides private label activewear manufacturing with logo customization, labels, hang tags, packaging, sampling, OEM/ODM development and bulk production.',
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Fitness apparel brands, yoga wear brands, gym wear retailers and activewear startups',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Private Label Activewear Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Logo Customization',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Custom Labels and Packaging',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'OEM/ODM Activewear Development',
+        },
+      },
+    ],
+  },
+};
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Private Label Activewear Manufacturer | Custom Sportswear Solutions"
   description="Build your activewear brand with Fitclo's private label services. We offer end-to-end OEM/ODM manufacturing, low MOQs, custom branding, and premium quality yoga wear."
+  structuredData={[privateLabelSchema]}
 >
   <!-- Hero Section -->
   <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">

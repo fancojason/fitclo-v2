@@ -1,203 +1,529 @@
 ---
-import GuideLayout from '../../layouts/GuideLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { whatsappIntelligenceUrl } from '../../data/intelligence';
+
+const title = 'Anatomical Panel Design for Activewear: Fit, Compression and Manufacturing Guide';
+const description =
+  'Learn how anatomical panel design affects activewear fit, mobility, compression, seam comfort, sizing and sample approval for leggings, sports bras and training apparel.';
+const publishedDate = 'July 11, 2026';
+const readTime = '13 min read';
+
+const faqs = [
+  {
+    question: 'What is anatomical panel design in activewear?',
+    answer:
+      'Anatomical panel design means shaping garment panels around body movement zones instead of treating the garment as a flat sketch. It is used to improve fit, compression, mobility, seam comfort and visual shaping.',
+  },
+  {
+    question: 'Is anatomical panel design better for leggings or sports bras?',
+    answer:
+      'It can benefit both. Leggings use panels for waistband support, gussets, pocket placement and shaping lines. Sports bras use panels for underband stability, cup support, strap angle and ventilation.',
+  },
+  {
+    question: 'Does panel design increase activewear production cost?',
+    answer:
+      'It can increase sampling and sewing complexity when there are many panels, contrast fabrics or curved seams. The cost is worthwhile when the design improves fit, support, product differentiation or retail value.',
+  },
+  {
+    question: 'Can Fitclo help develop private label activewear with anatomical panels?',
+    answer:
+      'Yes. Fitclo can help brands review product goals, fabric options, pattern structure, sampling, logo placement, quality checks and bulk production for leggings, sports bras, gym wear and yoga sets.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  image: 'https://www.fitcloo.com/images/intelligence/cover-fabric-guide.png',
+  datePublished: '2026-07-11',
+  dateModified: '2026-07-11',
+  mainEntityOfPage: 'https://www.fitcloo.com/blogs/anatomical-panel-design/',
+  author: {
+    '@type': 'Person',
+    name: 'Jason Chen',
+    jobTitle: 'Founder of Fitclo, Activewear Manufacturing Specialist',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Fitclo',
+    url: 'https://www.fitcloo.com',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
 ---
 
-<GuideLayout
-  title="Anatomical Panel Design for Activewear: Fit, Compression and Manufacturing Guide"
-  type="TECHNICAL DESIGN GUIDE"
-  description="Learn how anatomical panel design affects activewear fit, mobility, compression, seam comfort, sizing and sample approval for leggings, sports bras and training apparel."
-  articleImage="/images/intelligence/cover-fabric-guide.png"
-  quickAnswerTitle="Anatomical panel design is the use of curved panels, seam placement and fabric direction to match how the body moves, stretches and needs support during training."
-  quickTakeaways={[
-    'Use anatomical panels when fit, compression placement, shaping lines or movement comfort are part of the product value.',
-    'Panel design should be reviewed together with fabric stretch direction, seam construction, size grading and sample testing.',
-    'For private label activewear, the best panel plan is one that improves wearability without creating unnecessary production risk or cost.',
-  ]}
-  insightTitle="Panel design is where product design becomes manufacturing engineering."
-  insightDescription="A curved seam, gusset, mesh insert or side panel can improve performance only when the pattern, fabric, stitching and grading are planned together before bulk production."
-  planningTableTitle="Panel design decisions to review before sampling"
-  planningRows={[
-    ['Movement zone', 'Map where the garment must stretch, bend, compress or ventilate.', 'Start with body movement needs before drawing decorative seam lines.'],
-    ['Fabric direction', 'Check whether each panel follows the required stretch direction.', 'Align high-stretch areas with hip, knee, shoulder or bust movement.'],
-    ['Seam position', 'Review whether seams sit away from high-friction or high-pressure points.', 'Avoid seams that rub the inner thigh, underarm, underbust or crotch curve.'],
-    ['Sample approval', 'Test fit, opacity, recovery, seam comfort and size grading on real bodies.', 'Approve a production-ready sample before bulk cutting.'],
-  ]}
-  faqs={[
-    {
-      question: 'What is anatomical panel design in activewear?',
-      answer: 'Anatomical panel design means shaping garment panels around body movement zones instead of treating the garment as a flat sketch. It is used to improve fit, compression, mobility, seam comfort and visual shaping.',
-    },
-    {
-      question: 'Is anatomical panel design better for leggings or sports bras?',
-      answer: 'It can benefit both. Leggings use panels for waistband support, gussets, pocket placement and shaping lines. Sports bras use panels for underband stability, cup support, strap angle and ventilation.',
-    },
-    {
-      question: 'Does panel design increase activewear production cost?',
-      answer: 'It can increase sampling and sewing complexity when there are many panels, contrast fabrics or curved seams. The cost is worthwhile when the design improves fit, support, product differentiation or retail value.',
-    },
-    {
-      question: 'Can Fitclo help develop private label activewear with anatomical panels?',
-      answer: 'Yes. Fitclo can help brands review product goals, fabric options, pattern structure, sampling, logo placement, quality checks and bulk production for leggings, sports bras, gym wear and yoga sets.',
-    },
-  ]}
-  relatedReading={[
-    {
-      title: 'Leggings Manufacturing Guide',
-      desc: 'Review compression fabric, squat-proof testing, waistband construction and fit approval.',
-      link: '/blogs/leggings',
-    },
-    {
-      title: 'Sports Bra Manufacturing Guide',
-      desc: 'Compare support levels, fabric choices, straps, cups, underbands and fit testing.',
-      link: '/blogs/sport-bras',
-    },
-    {
-      title: 'Seamless vs Cut-and-Sew Activewear',
-      desc: 'Choose the right construction method for panels, seams, support and customization.',
-      link: '/blogs/seamless-vs-cut-sew-product-manager-guide',
-    },
-    {
-      title: 'Private Label Activewear',
-      desc: 'Explore Fitclo private label solutions for logo, labels, packaging and OEM/ODM development.',
-      link: '/private-label',
-    },
-  ]}
+<BaseLayout
+  title={`${title} | Fitclo Blog`}
+  description={description}
+  image="https://www.fitcloo.com/images/intelligence/cover-fabric-guide.png"
+  structuredData={[articleSchema, faqSchema]}
+  autoArticleSchema={false}
 >
-  <p><strong>Search intent:</strong> buyers searching for anatomical panel design usually want to know whether this design approach can improve fit, support and product value, and whether it is worth adding to a private label activewear collection. The short answer is yes when the panel layout has a functional reason: better movement, stronger compression control, cleaner shaping, more stable support or improved ventilation.</p>
+  <article class="fitclo-lux-article">
+    <div class="fitclo-lux-wrap">
+      <span class="fitclo-lux-tag">Technical Guide · Activewear Design</span>
+      <h1>{title}</h1>
+      <div class="fitclo-lux-meta">
+        <span class="fitclo-calendar" aria-hidden="true"></span>
+        <span>{publishedDate}</span>
+        <span>·</span>
+        <span>{readTime}</span>
+        <span>·</span>
+        <span>by the Fitclo manufacturing team</span>
+      </div>
 
-  <p>For activewear brands, anatomical panel design should not be treated as decoration. A curved side panel, gusset, underband panel or mesh insert affects how fabric stretches, how seams carry stress and how the garment feels after repeated movement. This is why panel design belongs in the technical development stage, not only in the visual design stage.</p>
+      <p>
+        Anatomical panel design is one of the clearest ways to make activewear feel more technical, better fitted and more valuable. For leggings, sports bras and training tops, panel placement affects stretch, support, opacity, seam comfort and how premium the garment feels on the body.
+      </p>
 
-  <h2>What Anatomical Panel Design Means</h2>
-  <p>Anatomical panel design means dividing a garment into panels that follow body shape and movement zones. Instead of cutting a legging, sports bra or training top as a simple flat shape, the pattern is planned around areas that need stretch, compression, coverage, ventilation or support.</p>
+      <div class="fitclo-answer" data-aeo="answer">
+        <p>
+          <strong>Short version:</strong> anatomical panel design uses curved panels, seam placement and fabric direction to match how the body moves, stretches and needs support during training. It is worth using when the panels improve fit, compression placement, shaping, ventilation or durability. It should be approved together with fabric stretch, seam type, size grading and real movement testing before bulk production.
+        </p>
+      </div>
 
-  <p>In activewear manufacturing, panel design is closely linked to fabric direction, seam allowance, stitch type, size grading and quality control. A panel line can look good in a mockup, but if it fights the fabric stretch direction or sits on a friction point, the finished garment can feel uncomfortable.</p>
+      <h2>What anatomical panel design means</h2>
+      <p>
+        Anatomical panel design means dividing a garment into panels that follow body shape and movement zones. Instead of cutting a legging, sports bra or training top as a simple flat shape, the pattern is planned around areas that need stretch, compression, coverage, ventilation or support.
+      </p>
+      <p>
+        In activewear manufacturing, panel design is linked to fabric direction, seam allowance, stitch type, size grading and quality control. A panel line can look good in a mockup, but if it fights the fabric stretch direction or sits on a friction point, the finished garment can feel uncomfortable.
+      </p>
 
-  <h2>When Brands Should Use Anatomical Panels</h2>
-  <p>Anatomical panels are most useful when the garment needs to do more than cover the body. They make sense for products where fit, shaping, compression or mobility is part of the selling point.</p>
+      <h2>When brands should use anatomical panels</h2>
+      <p>
+        Anatomical panels are most useful when the garment needs to do more than cover the body. They make sense for products where fit, shaping, compression or mobility is part of the selling point.
+      </p>
+      <div class="fitclo-table-scroll">
+        <table>
+          <tr>
+            <th>Product type</th>
+            <th>Useful panel applications</th>
+            <th>Buyer benefit</th>
+          </tr>
+          <tr>
+            <td><strong>Leggings</strong></td>
+            <td>High-rise waistband, gusset, side pocket panels, curved back yoke, contour seams</td>
+            <td>Better waist hold, movement comfort, shaping and practical storage</td>
+          </tr>
+          <tr>
+            <td><strong>Sports bras</strong></td>
+            <td>Underband panels, cup shaping, power mesh wings, strap angle panels</td>
+            <td>Better support, reduced bounce, stable fit and breathable zones</td>
+          </tr>
+          <tr>
+            <td><strong>Training tops</strong></td>
+            <td>Raglan sleeves, underarm panels, back ventilation panels, curved side seams</td>
+            <td>Better shoulder movement, less underarm friction and improved airflow</td>
+          </tr>
+          <tr>
+            <td><strong>Compression sets</strong></td>
+            <td>Targeted support panels, contrast fabric zones, reinforced stress areas</td>
+            <td>More technical product story and stronger performance positioning</td>
+          </tr>
+        </table>
+      </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Product Type</th>
-        <th>Useful Panel Applications</th>
-        <th>Buyer Benefit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Leggings</td>
-        <td>High-rise waistband, gusset, side pocket panels, curved back yoke, contour seams</td>
-        <td>Better waist hold, movement comfort, shaping and practical storage</td>
-      </tr>
-      <tr>
-        <td>Sports bras</td>
-        <td>Underband panels, cup shaping, power mesh wings, strap angle panels</td>
-        <td>Better support, reduced bounce, stable fit and breathable zones</td>
-      </tr>
-      <tr>
-        <td>Training tops</td>
-        <td>Raglan sleeves, underarm panels, back ventilation panels, curved side seams</td>
-        <td>Better shoulder movement, less underarm friction and improved airflow</td>
-      </tr>
-      <tr>
-        <td>Compression sets</td>
-        <td>Targeted support panels, contrast knit or fabric zones, reinforced stress areas</td>
-        <td>More technical product story and stronger performance positioning</td>
-      </tr>
-    </tbody>
-  </table>
+      <h2>The main decision: functional panel or decorative seam?</h2>
+      <p>
+        The most important buyer question is not whether the panel looks modern. The question is whether the panel improves the product. A functional panel changes fit, support, stretch, coverage, ventilation or durability. A decorative seam only changes the visual line.
+      </p>
+      <h3>Functional panels usually justify the complexity when they:</h3>
+      <ul>
+        <li>Improve waistband stability or prevent rolling.</li>
+        <li>Add support to the underbust, side body or shoulder zones.</li>
+        <li>Move seams away from high-friction areas.</li>
+        <li>Control fabric stretch across the hip, knee, bust or back.</li>
+        <li>Add ventilation where customers feel heat during training.</li>
+        <li>Create a clear product story that supports a higher retail price.</li>
+      </ul>
 
-  <h2>The Main Decision: Functional Panel or Decorative Seam?</h2>
-  <p>The most important buyer question is not whether the panel looks modern. The question is whether the panel improves the product. A functional panel changes fit, support, stretch, coverage, ventilation or durability. A decorative seam only changes the visual line.</p>
+      <div class="fitclo-callout">
+        <strong>Factory note:</strong> decorative seam lines can still support brand identity, but they should not make sewing harder unless they add visible value for the customer. Too many unnecessary panels can increase sample rounds, sewing time and defect risk.
+      </div>
 
-  <h3>Functional panels usually justify the complexity when they:</h3>
-  <ul>
-    <li>Improve waistband stability or prevent rolling.</li>
-    <li>Add support to the underbust, side body or shoulder zones.</li>
-    <li>Move seams away from high-friction areas.</li>
-    <li>Control fabric stretch across the hip, knee, bust or back.</li>
-    <li>Add ventilation where customers feel heat during training.</li>
-    <li>Create a clear product story that supports a higher retail price.</li>
-  </ul>
+      <h2>How panel design affects fit and compression</h2>
+      <p>
+        Compression is not only created by fabric weight or spandex percentage. Pattern shape and panel placement also affect how pressure is distributed on the body. If a panel is too narrow, too curved or cut against the wrong stretch direction, the garment can feel tight in one area and loose in another.
+      </p>
+      <p>
+        For leggings, panel design often affects the waistband, hip, glute, thigh and knee zones. For sports bras, it affects underband pressure, cup position, side support, strap angle and back stability. In both cases, fit approval should be done through movement testing, not just standing photos.
+      </p>
 
-  <p>Decorative seams can still be useful for brand identity, but they should not make sewing harder unless they add visible value for the customer. Too many unnecessary panels can increase sample rounds, sewing time and defect risk.</p>
+      <h2>Manufacturing factors buyers should discuss with the factory</h2>
+      <p>
+        Before approving an anatomical panel design, buyers should ask the factory how the design will be produced. This helps avoid attractive samples that become unstable in bulk production.
+      </p>
+      <div class="fitclo-table-scroll">
+        <table>
+          <tr>
+            <th>Manufacturing factor</th>
+            <th>Why it matters</th>
+            <th>Question to ask</th>
+          </tr>
+          <tr>
+            <td><strong>Fabric stretch direction</strong></td>
+            <td>Controls movement comfort and recovery</td>
+            <td>Does each panel follow the correct stretch direction?</td>
+          </tr>
+          <tr>
+            <td><strong>Seam type</strong></td>
+            <td>Affects comfort, durability and bulk production consistency</td>
+            <td>Will this use flatlock, overlock, coverstitch or another seam?</td>
+          </tr>
+          <tr>
+            <td><strong>Curved seam accuracy</strong></td>
+            <td>Curves are harder to sew consistently than straight seams</td>
+            <td>Can the factory maintain this curve across all sizes?</td>
+          </tr>
+          <tr>
+            <td><strong>Size grading</strong></td>
+            <td>Panels must scale correctly from small to large sizes</td>
+            <td>Will the panel shape still sit correctly after grading?</td>
+          </tr>
+          <tr>
+            <td><strong>Bulk cutting control</strong></td>
+            <td>Small cutting variation can shift panel alignment</td>
+            <td>How will cutting accuracy be checked before sewing?</td>
+          </tr>
+        </table>
+      </div>
 
-  <h2>How Panel Design Affects Fit and Compression</h2>
-  <p>Compression is not only created by fabric weight or spandex percentage. Pattern shape and panel placement also affect how pressure is distributed on the body. If a panel is too narrow, too curved or cut against the wrong stretch direction, the garment can feel tight in one area and loose in another.</p>
+      <h2>Common mistakes in anatomical panel activewear</h2>
+      <p>
+        Many panel design problems appear during sampling or after the first customer feedback. The most common issue is adding panel lines without confirming how they affect comfort and manufacturing consistency.
+      </p>
+      <ul>
+        <li><strong>Too many panels:</strong> more seams can create more friction, more sewing time and more inspection points.</li>
+        <li><strong>Wrong seam location:</strong> seams placed on the inner thigh, underarm or underbust can irritate the skin during movement.</li>
+        <li><strong>Ignoring fabric recovery:</strong> a panel may fit well at first but lose shape after washing or repeated stretch.</li>
+        <li><strong>Weak size grading:</strong> a flattering panel on size S may sit too high, too low or too narrow on larger sizes.</li>
+        <li><strong>Decorative panels with no purpose:</strong> these can increase cost without improving customer experience.</li>
+      </ul>
 
-  <p>For leggings, panel design often affects the waistband, hip, glute, thigh and knee zones. For sports bras, it affects underband pressure, cup position, side support, strap angle and back stability. In both cases, fit approval should be done through movement testing, not just standing photos.</p>
+      <h2>Sample approval checklist</h2>
+      <p>Use this checklist before confirming a panel-based design for bulk production.</p>
+      <ul>
+        <li>Check the garment during squats, lunges, arm raises or sport-specific movement.</li>
+        <li>Confirm seams do not rub or create pressure marks after movement.</li>
+        <li>Test opacity where panels stretch across the hip, thigh or bust.</li>
+        <li>Wash the sample and recheck panel shape, seam puckering and measurements.</li>
+        <li>Review panel placement on at least two body types or sizes when possible.</li>
+        <li>Confirm logo placement does not conflict with curved seams or high-stretch zones.</li>
+        <li>Ask the factory to explain how panel alignment will be inspected in bulk production.</li>
+      </ul>
 
-  <h2>Manufacturing Factors Buyers Should Discuss With the Factory</h2>
-  <p>Before approving an anatomical panel design, buyers should ask the factory how the design will be produced. This helps avoid attractive samples that become unstable in bulk production.</p>
+      <h2>How this applies to private label activewear</h2>
+      <p>
+        For private label brands, anatomical panel design can help create a more ownable product without starting from a completely new fabric program. A brand might customize a proven leggings base with a revised waistband, contour seam, pocket panel or contrast insert. This can make the product feel more developed while keeping sampling risk more manageable than a full technical rebuild.
+      </p>
+      <p>
+        For full OEM/ODM development, panel design can go deeper: custom pattern blocks, specific compression zones, contrast fabrics, mesh ventilation and brand-specific fit rules. This route gives more differentiation, but it requires clearer tech packs, more sample testing and stronger factory communication.
+      </p>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Manufacturing Factor</th>
-        <th>Why It Matters</th>
-        <th>Question to Ask</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Fabric stretch direction</td>
-        <td>Controls movement comfort and recovery</td>
-        <td>Does each panel follow the correct stretch direction?</td>
-      </tr>
-      <tr>
-        <td>Seam type</td>
-        <td>Affects comfort, durability and bulk production consistency</td>
-        <td>Will this use flatlock, overlock, coverstitch or another seam?</td>
-      </tr>
-      <tr>
-        <td>Curved seam accuracy</td>
-        <td>Curves are more difficult to sew consistently than straight seams</td>
-        <td>Can the factory maintain this curve across all sizes?</td>
-      </tr>
-      <tr>
-        <td>Size grading</td>
-        <td>Panels must scale correctly from small to large sizes</td>
-        <td>Will the panel shape still sit correctly after grading?</td>
-      </tr>
-      <tr>
-        <td>Bulk cutting control</td>
-        <td>Small cutting variation can shift panel alignment</td>
-        <td>How will cutting accuracy be checked before sewing?</td>
-      </tr>
-    </tbody>
-  </table>
+      <div class="fitclo-callout fitclo-cta-box">
+        <strong>Need help developing a panel-based activewear style?</strong>
+        <span>Send Fitclo your product category, quantity, fabric direction and reference design. We can help review panel structure, sampling risk, logo placement and bulk production route.</span>
+        <a class="fitclo-cta" href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Talk to Fitclo</a>
+      </div>
 
-  <h2>Common Mistakes in Anatomical Panel Activewear</h2>
-  <p>Many panel design problems appear during sampling or after the first customer feedback. The most common issue is adding panel lines without confirming how they affect comfort and manufacturing consistency.</p>
+      <h2>Frequently asked questions</h2>
+      <div class="fitclo-faq-list">
+        {faqs.map((item) => (
+          <div class="fitclo-faq-item">
+            <div class="fitclo-faq-q">{item.question}</div>
+            <div class="fitclo-faq-a">{item.answer}</div>
+          </div>
+        ))}
+      </div>
 
-  <ul>
-    <li><strong>Too many panels:</strong> more seams can create more friction, more sewing time and more inspection points.</li>
-    <li><strong>Wrong seam location:</strong> seams placed on the inner thigh, underarm or underbust can irritate the skin during movement.</li>
-    <li><strong>Ignoring fabric recovery:</strong> a panel may fit well at first but lose shape after washing or repeated stretch.</li>
-    <li><strong>Weak size grading:</strong> a flattering panel on size S may sit too high, too low or too narrow on larger sizes.</li>
-    <li><strong>Decorative panels with no purpose:</strong> these can increase cost without improving customer experience.</li>
-  </ul>
+      <h2>Related reading</h2>
+      <ul class="fitclo-related">
+        <li><a href="/blogs/leggings">Leggings Manufacturing Guide: Compression, Squat-Proof Fabric and Fit Approval</a></li>
+        <li><a href="/blogs/sport-bras">Sports Bra Manufacturing Guide: Support Levels, Fabrics and Fit Tests</a></li>
+        <li><a href="/blogs/seamless-vs-cut-sew-product-manager-guide">Seamless vs Cut-and-Sew Activewear: Product Manager Decision Guide</a></li>
+        <li><a href="/activewear-intelligence/fabric-guide/">Activewear Fabric Guide Hub</a></li>
+        <li><a href="/private-label">Private Label Activewear Manufacturing</a></li>
+      </ul>
+    </div>
+  </article>
+</BaseLayout>
 
-  <h2>Sample Approval Checklist</h2>
-  <p>Use this checklist before confirming a panel-based design for bulk production.</p>
+<style>
+  :global(body) {
+    background: #0a0a0f;
+  }
 
-  <ul>
-    <li>Check the garment during squats, lunges, arm raises or sport-specific movement.</li>
-    <li>Confirm seams do not rub or create pressure marks after movement.</li>
-    <li>Test opacity where panels stretch across the hip, thigh or bust.</li>
-    <li>Wash the sample and recheck panel shape, seam puckering and measurements.</li>
-    <li>Review panel placement on at least two body types or sizes when possible.</li>
-    <li>Confirm logo placement does not conflict with curved seams or high-stretch zones.</li>
-    <li>Ask the factory to explain how panel alignment will be inspected in bulk production.</li>
-  </ul>
+  .fitclo-lux-article {
+    --lux-bg: #0a0a0f;
+    --lux-sec: #12121a;
+    --lux-gold: #c9a84c;
+    --lux-border: rgba(255, 255, 255, 0.08);
+    --lux-gray: #8a8a9a;
+    background:
+      radial-gradient(circle at top left, rgba(201, 168, 76, 0.08), transparent 34rem),
+      linear-gradient(180deg, #0a0a0f 0%, #09090d 100%);
+    color: rgba(255, 255, 255, 0.85);
+    font-family: "Century Gothic", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
 
-  <h2>How This Applies to Private Label Activewear</h2>
-  <p>For private label brands, anatomical panel design can help create a more ownable product without starting from a completely new fabric program. A brand might customize a proven leggings base with a revised waistband, contour seam, pocket panel or contrast insert. This can make the product feel more developed while keeping sampling risk more manageable than a full technical rebuild.</p>
+  .fitclo-lux-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 72px 24px 92px;
+  }
 
-  <p>For full OEM/ODM development, panel design can go deeper: custom pattern blocks, specific compression zones, contrast fabrics, mesh ventilation and brand-specific fit rules. This route gives more differentiation, but it requires clearer tech packs, more sample testing and stronger factory communication.</p>
+  .fitclo-lux-tag {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 5px 14px;
+    border: 1px solid rgba(201, 168, 76, 0.32);
+    border-radius: 999px;
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--lux-gold);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
 
-  <h2>Fitclo Recommendation</h2>
-  <p>If your collection depends on fit and body shaping, use anatomical panel design intentionally. Start with the product goal, then decide which panels are needed to support that goal. For example, a premium leggings line may need a stable high-rise waistband, gusset, contour back yoke and side pocket panel. A high-support sports bra may need underband reinforcement, cup shaping and power mesh side panels.</p>
+  .fitclo-lux-article h1 {
+    margin: 0 0 14px;
+    color: #fff;
+    font-size: clamp(1.85rem, 4vw, 2.7rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.15;
+  }
 
-  <p>Fitclo can help private label and OEM/ODM activewear buyers review fabric options, panel structure, sample fit, logo placement, size grading and quality control before bulk production. If you are planning leggings, sports bras, yoga sets or gym wear with technical panel details, share your product category, target quantity, fabric preference and reference design so the team can recommend a realistic development route.</p>
-</GuideLayout>
+  .fitclo-lux-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 36px;
+    color: var(--lux-gray);
+    font-size: 0.85rem;
+  }
+
+  .fitclo-calendar {
+    position: relative;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 2px;
+    background: #f3f0e8;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  }
+
+  .fitclo-calendar::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4px;
+    border-radius: 2px 2px 0 0;
+    background: #ef675c;
+  }
+
+  .fitclo-calendar::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: var(--lux-gold);
+    box-shadow: 4px 0 0 var(--lux-gold);
+  }
+
+  .fitclo-lux-article h2 {
+    margin: 44px 0 14px;
+    color: #fff;
+    font-size: clamp(1.3rem, 2.4vw, 1.48rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+
+  .fitclo-lux-article h3 {
+    margin: 28px 0 10px;
+    color: var(--lux-gold);
+    font-size: 1.08rem;
+    font-weight: 850;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .fitclo-lux-article p,
+  .fitclo-lux-article li {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .fitclo-lux-article p {
+    margin: 0 0 1.15rem;
+  }
+
+  .fitclo-lux-article a {
+    color: var(--lux-gold);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .fitclo-lux-article a:hover {
+    opacity: 0.82;
+  }
+
+  .fitclo-lux-article ul,
+  .fitclo-lux-article ol {
+    margin: 16px 0 24px;
+    padding-left: 1.25rem;
+  }
+
+  .fitclo-lux-article li {
+    margin: 8px 0;
+    padding-left: 0.1rem;
+  }
+
+  .fitclo-lux-article strong {
+    color: #fff;
+    font-weight: 850;
+  }
+
+  .fitclo-answer,
+  .fitclo-callout {
+    margin: 24px 0;
+    padding: 18px 22px;
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    border-left: 4px solid var(--lux-gold);
+    border-radius: 10px;
+    background: var(--lux-sec);
+  }
+
+  .fitclo-answer p,
+  .fitclo-callout p {
+    margin-bottom: 0;
+  }
+
+  .fitclo-table-scroll {
+    overflow-x: auto;
+    margin: 20px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fitclo-lux-article table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--lux-sec);
+    font-size: 0.92rem;
+  }
+
+  .fitclo-lux-article th,
+  .fitclo-lux-article td {
+    border: 1px solid var(--lux-border);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .fitclo-lux-article th {
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--lux-gold);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.45;
+    text-transform: uppercase;
+  }
+
+  .fitclo-lux-article td {
+    color: rgba(255, 255, 255, 0.76);
+    line-height: 1.65;
+  }
+
+  .fitclo-cta-box {
+    display: grid;
+    gap: 12px;
+  }
+
+  .fitclo-cta-box span {
+    display: block;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .fitclo-cta {
+    display: inline-block;
+    justify-self: start;
+    margin-top: 4px;
+    padding: 13px 28px;
+    border-radius: 6px;
+    background: var(--lux-gold);
+    color: #060608 !important;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .fitclo-faq-list {
+    margin-top: 8px;
+  }
+
+  .fitclo-faq-item {
+    border-bottom: 1px solid var(--lux-border);
+    padding: 18px 0;
+  }
+
+  .fitclo-faq-q {
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 850;
+    line-height: 1.45;
+  }
+
+  .fitclo-faq-a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .fitclo-related {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 720px) {
+    .fitclo-lux-wrap {
+      padding: 52px 18px 72px;
+    }
+
+    .fitclo-lux-article h1 {
+      font-size: clamp(1.75rem, 9vw, 2.35rem);
+    }
+  }
+</style>

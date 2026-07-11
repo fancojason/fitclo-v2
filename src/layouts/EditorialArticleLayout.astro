@@ -45,10 +45,9 @@ const articleSchema = {
   dateModified: modifiedIso,
   mainEntityOfPage: Astro.url.href,
   author: {
-    '@type': 'Person',
-    name: 'Jason Chen',
-    jobTitle: 'Founder of Fitclo, Activewear Manufacturing Specialist',
-    description: 'Activewear manufacturing specialist with 8+ years of export experience.',
+    '@type': 'Organization',
+    name: 'FITCLO Team',
+    url: 'https://www.fitcloo.com/about/',
   },
   publisher: {
     '@type': 'Organization',
@@ -101,7 +100,7 @@ const structuredData = faqSchema
         <span>&bull;</span>
         <span>{readTime}</span>
         <span>&bull;</span>
-        <span>by Jason Chen, Founder of Fitclo</span>
+        <span>By FITCLO Team</span>
       </div>
 
       <div class="fitclo-editorial-answer" data-aeo="answer">

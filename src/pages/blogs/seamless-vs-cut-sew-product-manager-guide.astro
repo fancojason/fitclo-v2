@@ -10,8 +10,9 @@ const articleSchema = {
   headline: title,
   description,
   author: {
-    "@type": "Organization",
-    name: "Fitclo"
+    "@type": "Person",
+    name: "Jason Chen",
+    jobTitle: "Founder of Fitclo, Activewear Manufacturing Specialist"
   },
   publisher: {
     "@type": "Organization",
@@ -22,7 +23,7 @@ const articleSchema = {
     }
   },
   datePublished: "2026-07-03",
-  dateModified: "2026-07-07",
+  dateModified: "2026-07-11",
   mainEntityOfPage: "https://www.fitcloo.com/blogs/seamless-vs-cut-sew-product-manager-guide"
 };
 const faqSchema = {
@@ -66,7 +67,7 @@ const matrix = [
 ];
 ---
 
-<BaseLayout title={`${title} | Fitclo Blog`} description={description}>
+<BaseLayout title={`${title} | Fitclo Blog`} description={description} autoArticleSchema={false} legacyShell={true}>
   <article class="bg-white font-['Century_Gothic',sans-serif]">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

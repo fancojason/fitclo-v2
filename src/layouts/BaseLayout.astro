@@ -12,6 +12,8 @@ const {
   image = 'https://www.fitcloo.com/images/intelligence/hero-activewear-intelligence.png',
   structuredData = [],
   autoArticleSchema = true,
+  legacyShell,
+  robots = 'index, follow',
 } = Astro.props;
 
 const siteUrl = 'https://www.fitcloo.com';
@@ -21,8 +23,61 @@ const canonicalPath =
     : `${Astro.url.pathname}/`;
 const pageUrl = canonicalURL ?? new URL(canonicalPath, siteUrl).href;
 const schemaItems = Array.isArray(structuredData) ? structuredData : [structuredData];
-const isBlogArticle = autoArticleSchema && canonicalPath.startsWith('/blogs/') && canonicalPath !== '/blogs/';
+const isBlogDetail = canonicalPath.startsWith('/blogs/') && canonicalPath !== '/blogs/';
+const cleanArticleTitle = title.replace(/\s\|\s.*$/, '').trim();
+const createSeoTitle = (value: string) => {
+  const maxBaseLength = 61;
+  if (value.length <= maxBaseLength) return `${value} | Fitclo`;
+  const shortened = value.slice(0, maxBaseLength).replace(/\s+\S*$/, '').replace(/[,:;-]+$/, '');
+  return `${shortened} | Fitclo`;
+};
+const normalizeMetaDescription = (value: string) => {
+  let result = value.trim();
+  if (result.length < 100) {
+    result = `${result} Practical guidance for activewear buyers comparing materials, MOQ, production quality and sourcing risk.`;
+  }
+  if (result.length > 180) {
+    result = `${result.slice(0, 177).replace(/\s+\S*$/, '').replace(/[,:;-]+$/, '')}.`;
+  }
+  return result;
+};
+const documentTitle = isBlogDetail ? createSeoTitle(cleanArticleTitle) : title;
+const metaDescription = isBlogDetail ? normalizeMetaDescription(description) : description;
+const isBlogArticle = autoArticleSchema && isBlogDetail;
+const shouldUseLegacyShell = legacyShell ?? isBlogArticle;
 const pathSegments = canonicalPath.split('/').filter(Boolean);
+const legacyContext = `${title} ${description}`.toLowerCase();
+const legacyKind = /( vs |compare|comparison|difference)/.test(legacyContext)
+  ? 'comparison-guide'
+  : /(fabric|nylon|polyester|textile|compression)/.test(legacyContext)
+    ? 'technical-guide'
+    : /(private label|branding|logo|packaging|custom)/.test(legacyContext)
+      ? 'private-label-guide'
+      : /(trend|market|future|growth|2026)/.test(legacyContext)
+        ? 'trend-report'
+        : /(price|cost|margin|inventory|wholesale|scal|business|economics)/.test(legacyContext)
+          ? 'business-guide'
+          : /(factory|manufacturer|supplier|vetting|sourcing)/.test(legacyContext)
+            ? 'buyer-guide'
+            : 'manufacturing-guide';
+const legacyType = legacyKind
+  .split('-')
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ');
+const legacyFaqs = [
+  {
+    question: `What is the main buyer decision in ${title.replace(/\s\|\s.*$/, '').toLowerCase()}?`,
+    answer: description,
+  },
+  {
+    question: 'Can Fitclo turn this guidance into a production recommendation?',
+    answer: 'Yes. Fitclo can compare fabric, MOQ, sampling, branding, quality control and shipping options for private label or OEM/ODM activewear projects.',
+  },
+  {
+    question: 'What project information should a buyer send Fitclo?',
+    answer: 'Send the product category, reference design or tech pack, target quantity, fabric direction, size range, logo method, destination market and required delivery date.',
+  },
+];
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -107,14 +162,18 @@ const autoArticle = isBlogArticle
   ? {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
-      headline: title.replace(/\s\|\s.*$/, ''),
-      description,
+      headline: cleanArticleTitle,
+      description: metaDescription,
       image,
-      dateModified: '2026-07-10',
+      datePublished: '2026-07-11',
+      dateModified: '2026-07-11',
       mainEntityOfPage: pageUrl,
+      articleSection: legacyType,
+      keywords: [title.replace(/\s\|\s.*$/, ''), 'activewear manufacturing', 'private label activewear', legacyType],
       author: {
-        '@type': 'Organization',
-        name: 'Fitclo Manufacturing Team',
+        '@type': 'Person',
+        name: 'Jason Chen',
+        jobTitle: 'Founder of Fitclo, Activewear Manufacturing Specialist',
         url: `${siteUrl}/about/`,
       },
       publisher: {
@@ -128,11 +187,24 @@ const autoArticle = isBlogArticle
     }
   : null;
 
+const legacyFaqSchema = isBlogArticle
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: legacyFaqs.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      })),
+    }
+  : null;
+
 const pageStructuredData = [
   organizationSchema,
   websiteSchema,
   breadcrumbSchema,
   ...(autoArticle ? [autoArticle] : []),
+  ...(legacyFaqSchema ? [legacyFaqSchema] : []),
   ...schemaItems.filter(Boolean),
 ];
 ---
@@ -145,21 +217,21 @@ const pageStructuredData = [
     <link rel="preload" as="image" href="https://sc01.alicdn.com/kf/H884ba8683a5149558bb5623a0bc673b8T.png" fetchpriority="high" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{documentTitle}</title>
+    <meta name="description" content={metaDescription} />
     <link rel="canonical" href={pageUrl} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
 
-    <meta property="og:type" content={isBlogArticle ? 'article' : 'website'} />
+    <meta property="og:type" content={isBlogDetail ? 'article' : 'website'} />
     <meta property="og:url" content={pageUrl} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={isBlogDetail ? cleanArticleTitle : title} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:image" content={image} />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={pageUrl} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
+    <meta property="twitter:title" content={isBlogDetail ? cleanArticleTitle : title} />
+    <meta property="twitter:description" content={metaDescription} />
     <meta property="twitter:image" content={image} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -176,8 +248,8 @@ const pageStructuredData = [
   <body class="bg-white selection:bg-accent selection:text-black">
     <Header />
     <main>
-      {isBlogArticle ? (
-        <LegacyBlogShell title={title} description={description}>
+      {shouldUseLegacyShell ? (
+        <LegacyBlogShell title={title} description={description} articleKind={legacyKind} type={legacyType} faqs={autoArticleSchema ? legacyFaqs : []}>
           <slot />
         </LegacyBlogShell>
       ) : (

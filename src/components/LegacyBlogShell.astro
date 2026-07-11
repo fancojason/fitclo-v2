@@ -1,10 +1,10 @@
 ---
 import { whatsappIntelligenceUrl } from '../data/intelligence';
 
-const { title, description } = Astro.props;
+const { title, description, articleKind = 'buyer-guide', type = 'Buyer Guide', faqs: suppliedFaqs } = Astro.props;
 const cleanTitle = title.replace(/\s\|\s.*$/, '');
 
-const faqs = [
+const faqs = suppliedFaqs ?? [
   {
     question: `What is the main buyer decision in ${cleanTitle}?`,
     answer: description,
@@ -18,11 +18,149 @@ const faqs = [
     answer: 'Send the product category, reference design or tech pack, target quantity, fabric direction, size range, logo method, destination market and required delivery date.',
   },
 ];
+
+const takeawaysByKind = {
+  'comparison-guide': [
+    'Compare each option against the same product brief, quantity, quality and delivery requirement.',
+    'Include development time, MOQ, defect risk and reorder flexibility alongside unit price.',
+    'Choose the route that solves the product job without unnecessary complexity.',
+  ],
+  'technical-guide': [
+    'Connect the technical feature to a measurable wearer benefit.',
+    'Confirm material, pattern, grading and production feasibility before bulk approval.',
+    'Use movement, wash and durability testing on finished garments.',
+  ],
+  'private-label-guide': [
+    'Define the target customer, retail price, launch date and first-order quantity first.',
+    'Approve logo, labels, packaging, fabric and fit on one complete sample.',
+    'Keep the first assortment focused until demand and fit are proven.',
+  ],
+  'trend-report': [
+    'Separate lasting customer demand from short-lived visual trends.',
+    'Validate fabric, MOQ, testing and production feasibility before adoption.',
+    'Select only directions that fit the brand customer and price point.',
+  ],
+  'business-guide': [
+    'Model landed cost, margin, cash exposure and SKU-level demand before ordering.',
+    'Scale proven styles instead of increasing total SKU count too early.',
+    'Plan reorder lead time and factory capacity before the first sell-through.',
+  ],
+  'manufacturing-guide': [
+    'Translate expectations into measurable fabric, measurement and construction standards.',
+    'Approve a representative pre-production sample before bulk cutting.',
+    'Use in-line and final inspection evidence before shipment release.',
+  ],
+  'buyer-guide': [
+    'Verify real production control and technical knowledge, not catalog images alone.',
+    'Separate sample quality, bulk capability, lead time and export responsibility.',
+    'Agree specifications, QC evidence and corrective action before deposit.',
+  ],
+};
+const quickTakeaways = takeawaysByKind[articleKind] ?? takeawaysByKind['buyer-guide'];
+
+const decisionRowsByKind = {
+  'comparison-guide': [
+    ['Product fit', 'Which option best supports the required fit, function and construction?', 'Choose by product job, not trend.'],
+    ['Commercial fit', 'Compare MOQ, development time, landed cost and reorder flexibility.', 'Use the same assumptions for both options.'],
+    ['Risk', 'Identify quality, supplier and inventory risks that differ by route.', 'Approve the route with manageable evidence-based risk.'],
+  ],
+  'technical-guide': [
+    ['Performance', 'Define the wearer benefit and measurable approval criteria.', 'Test on a finished garment.'],
+    ['Feasibility', 'Check material, pattern, machinery, grading and operator consistency.', 'Review with technical and production teams.'],
+    ['Validation', 'Movement, wash, recovery and durability testing.', 'Approve results before bulk production.'],
+  ],
+  'business-guide': [
+    ['Economics', 'Landed cost, margin, discounts, returns and cash cycle.', 'Model realistic sell-through.'],
+    ['Inventory', 'SKU demand, safety stock and reorder lead time.', 'Scale proven styles first.'],
+    ['Capacity', 'Material commitments, production slots and delivery calendar.', 'Reserve capacity before peak demand.'],
+  ],
+  'trend-report': [
+    ['Customer relevance', 'Does the direction solve a real style or performance need?', 'Use customer evidence.'],
+    ['Feasibility', 'Fabric availability, MOQ, testing and lead time.', 'Validate before marketing.'],
+    ['Durability', 'Margin, reorder potential and likely trend lifespan.', 'Prioritize repeatable demand.'],
+  ],
+  'private-label-guide': [
+    ['Launch route', 'Branded stock, private label customization or OEM/ODM.', 'Match control to budget and deadline.'],
+    ['Brand assets', 'Logo, labels, care content, packaging and size presentation.', 'Approve one retail-ready sample.'],
+    ['Inventory risk', 'SKU count, MOQ, margin and reorder plan.', 'Start focused and expand with demand.'],
+  ],
+  'manufacturing-guide': [
+    ['Specification', 'Materials, measurements, construction and tolerances.', 'Resolve details before sample approval.'],
+    ['Production', 'Cutting, sewing, branding and in-line checks.', 'Use the approved sample as reference.'],
+    ['Release', 'Final quality, quantity, packing and documents.', 'Release only after inspection.'],
+  ],
+  'buyer-guide': [
+    ['Supplier proof', 'Factory control, technical knowledge and relevant capacity.', 'Review real production evidence.'],
+    ['Sample proof', 'Fabric, fit, measurements, stitching and branding.', 'Keep a final approved reference.'],
+    ['Order protection', 'Timeline, QC, payment and corrective action.', 'Agree responsibilities before deposit.'],
+  ],
+};
+const decisionRows = decisionRowsByKind[articleKind] ?? decisionRowsByKind['buyer-guide'];
+const checklistTitle = articleKind === 'comparison-guide' ? 'At-a-glance decision framework' : `${type} decision checklist`;
+const expertByKind = {
+  'comparison-guide': {
+    title: 'How to make the final choice',
+    paragraphs: [
+      `Apply ${cleanTitle.toLowerCase()} to one defined product brief. Keep fabric quality, quantity, branding, destination and delivery timing equal so the comparison reflects the manufacturing route rather than different assumptions.`,
+      'Include sampling time, MOQ, quality-control difficulty, landed cost and reorder flexibility. The best choice is the option that delivers the required wearer benefit with manageable operational and inventory risk.',
+    ],
+    mistakes: ['Comparing unlike specifications or Incoterms.', 'Paying for customization before demand is proven.', 'Using unit price as the only decision factor.'],
+  },
+  'technical-guide': {
+    title: 'From technical idea to production evidence',
+    paragraphs: [
+      `In ${cleanTitle.toLowerCase()}, begin with the wearer benefit and convert it into measurable sample criteria. Material, pattern and construction choices should support that benefit across the intended size range.`,
+      'Approve the feature on a finished garment after movement, wash and durability checks. Ask how the factory will control placement, measurements and workmanship during bulk production.',
+    ],
+    mistakes: ['Adding technical details without a clear benefit.', 'Testing one size or one color only.', 'Skipping repeatable bulk-control criteria.'],
+  },
+  'private-label-guide': {
+    title: 'Building a retail-ready private label program',
+    paragraphs: [
+      `Use ${cleanTitle.toLowerCase()} to decide how much control the current launch needs. Branded stock reduces development risk, while custom development is useful when distinct fit or construction supports customer value.`,
+      'Approve the garment as a complete retail unit, including fabric, measurements, logo, labels, care content, packaging and size presentation. This makes production and later reorders more consistent.',
+    ],
+    mistakes: ['Launching too many SKUs at once.', 'Approving branding details after production starts.', 'Adding custom details with no customer value.'],
+  },
+  'trend-report': {
+    title: 'Validating the opportunity before sourcing',
+    paragraphs: [
+      `Treat ${cleanTitle.toLowerCase()} as a planning signal. Confirm that the direction fits the target customer, price point and brand position before adding it to a collection.`,
+      'Then check fabric availability, MOQ, testing, construction and lead time. A trend is commercially useful only when the factory can execute it reliably and the product can support margin and reorders.',
+    ],
+    mistakes: ['Confusing social visibility with durable demand.', 'Ignoring production feasibility before launch marketing.', 'Spreading inventory across too many unproven directions.'],
+  },
+  'business-guide': {
+    title: 'Turning the strategy into measurable decisions',
+    paragraphs: [
+      `For ${cleanTitle.toLowerCase()}, connect each recommendation to landed cost, margin, cash exposure and SKU-level demand. Average collection performance can hide slow colors or sizes.`,
+      'Use stage gates: validate fit and demand, identify the products that drive sales, then increase volume or reserve capacity. Keep experimental products separate from the replenishment plan for proven core styles.',
+    ],
+    mistakes: ['Scaling total SKU count instead of proven demand.', 'Ignoring the cash cycle behind lower unit prices.', 'Planning launch quantities without reorder timing.'],
+  },
+  'manufacturing-guide': {
+    title: 'How buyers can verify production control',
+    paragraphs: [
+      `The lesson in ${cleanTitle.toLowerCase()} should be connected to a written specification and approved reference sample. Incoming material, in-line production and final inspection each control different risks.`,
+      'Agree the milestones that need evidence before production begins. The supplier should explain how defects are identified, corrected, reinspected and recorded before the order is released for shipment.',
+    ],
+    mistakes: ['Starting bulk work before approvals are complete.', 'Using subjective quality descriptions.', 'Reducing final inspection time after earlier delays.'],
+  },
+  'buyer-guide': {
+    title: 'How to turn supplier claims into evidence',
+    paragraphs: [
+      `For ${cleanTitle.toLowerCase()}, ask who controls materials, sampling, production, inspection and corrective action. Specific process answers are more useful than a broad company presentation.`,
+      'Use staged commitment: verify capability, test technical judgment during sampling, then approve bulk production against written specifications and inspection requirements.',
+    ],
+    mistakes: ['Choosing from catalog images alone.', 'Treating one sample as proof of bulk consistency.', 'Leaving delivery and defect responsibility unclear.'],
+  },
+};
+const expertProfile = expertByKind[articleKind] ?? expertByKind['buyer-guide'];
 ---
 
-<article class="fitclo-legacy-editorial">
+<article class={`fitclo-legacy-editorial article-kind-${articleKind}`}>
   <div class="fitclo-legacy-wrap">
-    <span class="fitclo-legacy-tag">Activewear Intelligence &bull; Buyer Guide</span>
+    <span class="fitclo-legacy-tag">Activewear Intelligence &bull; {type}</span>
     <h1>{cleanTitle}</h1>
     <div class="fitclo-legacy-meta">
       <span class="fitclo-legacy-calendar" aria-hidden="true"></span>
@@ -30,32 +168,80 @@ const faqs = [
       <span>&bull;</span>
       <span>8 min read</span>
       <span>&bull;</span>
-      <span>by the Fitclo manufacturing team</span>
+      <span>by Jason Chen, Founder of Fitclo</span>
     </div>
 
     <div class="fitclo-legacy-answer" data-aeo="answer">
       <p><strong>Short version:</strong> {description}</p>
+      <ul>
+        {quickTakeaways.map((item) => <li>{item}</li>)}
+      </ul>
     </div>
+
+    {articleKind === 'comparison-guide' && (
+      <section class="fitclo-legacy-section fitclo-legacy-priority-table">
+        <h2>{checklistTitle}</h2>
+        <div class="fitclo-legacy-table-scroll">
+          <table>
+            <thead><tr><th>Decision area</th><th>What to compare</th><th>Buyer action</th></tr></thead>
+            <tbody>
+              {decisionRows.map((row) => <tr><td><strong>{row[0]}</strong></td><td>{row[1]}</td><td>{row[2]}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
 
     <div class="fitclo-legacy-content">
       <slot />
     </div>
 
+    <section class="fitclo-legacy-section">
+      <h2>{expertProfile.title}</h2>
+      {expertProfile.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      <h3>Common mistakes to avoid</h3>
+      <ul>
+        {expertProfile.mistakes.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    {articleKind !== 'comparison-guide' && (
+      <section class="fitclo-legacy-section">
+        <h2>{checklistTitle}</h2>
+        <div class="fitclo-legacy-table-scroll">
+          <table>
+            <thead><tr><th>Decision area</th><th>What to check</th><th>Buyer action</th></tr></thead>
+            <tbody>
+              {decisionRows.map((row) => <tr><td><strong>{row[0]}</strong></td><td>{row[1]}</td><td>{row[2]}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
     <div class="fitclo-legacy-callout fitclo-legacy-cta-box">
       <strong>Need help applying this guide to your activewear project?</strong>
       <span>Send Fitclo your product category, target quantity, fabric preference and delivery market for a practical manufacturing recommendation.</span>
       <a class="fitclo-legacy-cta" href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Talk to Fitclo</a>
+      <nav class="fitclo-legacy-commercial-links" aria-label="Fitclo manufacturing options">
+        <a href="/private-label">Private Label</a>
+        <a href="/capabilities">Factory Capabilities</a>
+        <a href="/ready-to-ship">Ready to Ship</a>
+        <a href="/products">Products</a>
+      </nav>
     </div>
 
-    <section class="fitclo-legacy-section">
-      <h2>Frequently asked questions</h2>
-      {faqs.map((item) => (
-        <div class="fitclo-legacy-faq-item">
-          <div class="fitclo-legacy-faq-q">{item.question}</div>
-          <div class="fitclo-legacy-faq-a">{item.answer}</div>
-        </div>
-      ))}
-    </section>
+    {faqs.length > 0 && (
+      <section class="fitclo-legacy-section">
+        <h2>Frequently asked questions</h2>
+        {faqs.map((item) => (
+          <div class="fitclo-legacy-faq-item">
+            <div class="fitclo-legacy-faq-q">{item.question}</div>
+            <div class="fitclo-legacy-faq-a">{item.answer}</div>
+          </div>
+        ))}
+      </section>
+    )}
 
     <section class="fitclo-legacy-section">
       <h2>Related reading</h2>
@@ -167,6 +353,11 @@ const faqs = [
     margin: 0;
   }
 
+  .fitclo-legacy-answer ul {
+    margin: 10px 0 0;
+    padding-left: 1.25rem;
+  }
+
   .fitclo-legacy-content > article {
     max-width: none !important;
     margin: 0 !important;
@@ -265,16 +456,32 @@ const faqs = [
     border-radius: 8px;
   }
 
+  .fitclo-legacy-content table,
+  .fitclo-legacy-table-scroll table {
+    border-collapse: collapse;
+    background: var(--legacy-sec);
+  }
+
   .fitclo-legacy-content table {
     display: block;
     width: 100%;
     min-width: 0;
     overflow-x: auto;
     margin: 20px 0;
-    border-collapse: collapse;
     border-radius: 8px;
-    background: var(--legacy-sec);
     -webkit-overflow-scrolling: touch;
+  }
+
+  .fitclo-legacy-table-scroll {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fitclo-legacy-table-scroll table {
+    width: 100%;
+    min-width: 620px;
   }
 
   .fitclo-legacy-content table > thead,
@@ -286,16 +493,24 @@ const faqs = [
   }
 
   .fitclo-legacy-content th,
-  .fitclo-legacy-content td {
+  .fitclo-legacy-content td,
+  .fitclo-legacy-table-scroll th,
+  .fitclo-legacy-table-scroll td {
     border: 1px solid var(--legacy-border);
     padding: 12px 14px;
     text-align: left;
     vertical-align: top;
   }
 
-  .fitclo-legacy-content th {
+  .fitclo-legacy-content th,
+  .fitclo-legacy-table-scroll th {
     background: rgba(201, 168, 76, 0.1);
     color: var(--legacy-gold);
+  }
+
+  .fitclo-legacy-table-scroll td {
+    color: rgba(255, 255, 255, 0.76);
+    line-height: 1.65;
   }
 
   .fitclo-legacy-content [class*="bg-gray"],
@@ -329,12 +544,31 @@ const faqs = [
     text-transform: uppercase;
   }
 
+  .fitclo-legacy-commercial-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-top: 4px;
+    padding-top: 14px;
+    border-top: 1px solid var(--legacy-border);
+  }
+
+  .fitclo-legacy-commercial-links a {
+    color: rgba(255, 255, 255, 0.72) !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
   .fitclo-legacy-section {
     margin-top: 48px;
   }
 
   .fitclo-legacy-section > h2 {
     margin-top: 0 !important;
+  }
+
+  .fitclo-legacy-priority-table {
+    margin: 34px 0 42px;
   }
 
   .fitclo-legacy-faq-item {

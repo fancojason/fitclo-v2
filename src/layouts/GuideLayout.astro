@@ -1,156 +1,460 @@
 ---
 import EditorialArticleLayout from './EditorialArticleLayout.astro';
+import { intelligenceArticles } from '../data/intelligence';
 
 const {
-  title,
+  title: suppliedTitle,
   type = 'Activewear Manufacturing Guide',
   description: suppliedDescription,
   articleImage: suppliedArticleImage,
   quickAnswerTitle: suppliedQuickAnswerTitle,
   quickTakeaways: suppliedQuickTakeaways,
-  planningTableTitle = 'What buyers should check before moving forward',
+  planningTableTitle: suppliedPlanningTableTitle,
   planningRows: suppliedPlanningRows,
+  tableHeaders: suppliedTableHeaders,
   faqs: suppliedFaqs,
   relatedReading: suppliedRelatedReading,
-  date = 'July 11, 2026',
-  readTime = '10 min read',
+  date: suppliedDate,
+  readTime: suppliedReadTime,
 } = Astro.props;
 
-const description = suppliedDescription ??
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
+const intelligenceEntry = intelligenceArticles.find((article) => article.link === currentPath);
+const title = intelligenceEntry?.title ?? suppliedTitle;
+const description = suppliedDescription ?? intelligenceEntry?.desc ??
   `A practical Fitclo guide to ${title.toLowerCase()} for activewear buyers, covering product decisions, manufacturing risk, quality control and scalable production.`;
+const context = `${title} ${type} ${description}`.toLowerCase();
 
-const context = `${title} ${type}`.toLowerCase();
-const isFabric = /(fabric|nylon|polyester|gsm|moisture|wicking|textile|dye|colorfast|recycled)/.test(context);
-const isBrand = /(private label|branding|logo|oem|odm|launch|business|scal|ecommerce|influencer|packaging)/.test(context);
-const isLogistics = /(shipping|logistics|freight|import|ddp|duty|lead time|supply chain)/.test(context);
-const isFactory = /(factory|manufacturer|manufacturing|quality|inspection|audit|production|sewing|construction)/.test(context);
+const inferredKind = /( vs |compare|comparison|difference)/.test(context)
+  ? 'comparison-center'
+  : /(private label|branding|logo|packaging|hangtag|embroidery|customization|ready-to-ship)/.test(context)
+    ? 'private-label-guide'
+    : /(fabric|nylon|polyester|gsm|compression|moisture|wicking|textile|squat-proof|recycled yarn)/.test(context)
+      ? 'fabric-guide'
+      : /(trend|market|future|growth|2026)/.test(context)
+        ? 'trend-report'
+        : /(pricing|margin|inventory|ecommerce|business|scal|roi|cash flow|supply chain)/.test(context)
+          ? 'business-guide'
+          : /(factory|manufacturer|supplier|sourcing|audit|vetting|reliable)/.test(context)
+            ? 'buyer-guide'
+            : /(production|quality|inspection|sewing|construction|lead time|automation|tracking)/.test(context)
+              ? 'manufacturing-guide'
+              : 'technical-guide';
 
-const articleImage = suppliedArticleImage ?? (
+const articleKind = intelligenceEntry?.categorySlug ?? inferredKind;
+const resolvedType = intelligenceEntry?.category ?? type;
+const date = suppliedDate ?? intelligenceEntry?.updated?.replace(/^Updated\s+/, '') ?? 'July 11, 2026';
+const readTime = suppliedReadTime ?? intelligenceEntry?.readTime ?? '10 min read';
+
+const isComparison = articleKind === 'comparison-center';
+const isPrivateLabel = articleKind === 'private-label-guide';
+const isFabric = articleKind === 'fabric-guide';
+const isManufacturing = articleKind === 'manufacturing-guide';
+const isBuyer = articleKind === 'buyer-guide';
+const isBusiness = articleKind === 'business-guide';
+const isTrend = articleKind === 'trend-report';
+
+const articleImage = suppliedArticleImage ?? intelligenceEntry?.image ?? (
   isFabric
     ? '/images/intelligence/cover-fabric-guide.png'
-    : isBrand
-      ? '/images/intelligence/cover-private-label.png'
-      : /(trend|sustainable|eco)/.test(context)
+    : isPrivateLabel || isBusiness
+      ? '/images/intelligence/cover-brand-planning.png'
+      : isTrend
         ? '/images/intelligence/cover-trend-report.png'
         : '/images/intelligence/cover-factory-guide.png'
 );
 
-const quickAnswerTitle = suppliedQuickAnswerTitle ?? (
-  isFabric
-    ? 'Choose activewear fabric by product use, knit structure, GSM, stretch recovery, opacity and wash performance. Approve swatches and a washed sample before bulk production.'
-    : isBrand
-      ? 'Choose the production route that matches your launch speed, MOQ, budget and need for product exclusivity. Approve every logo, label and packaging detail on one complete sample.'
-      : isLogistics
-        ? 'Plan shipping from the required delivery date backwards. Compare landed cost, transit time, customs responsibility and document requirements before confirming production.'
-        : isFactory
-          ? 'A reliable result depends on clear specifications, approved samples, controlled production and documented inspection. Verify each stage before paying for or shipping a bulk order.'
-          : 'Use this guide to define the product goal, compare realistic options and confirm the key quality checks before sampling or bulk production.'
-);
+const quickAnswerByKind = {
+  'buyer-guide': `Use ${title.toLowerCase()} to verify supplier control, technical knowledge, sample consistency, quality evidence and delivery reliability before paying for bulk production.`,
+  'private-label-guide': `For ${title.toLowerCase()}, choose the route that matches launch speed, MOQ, brand control and budget, then approve logo, labels, packaging and fit on one complete sample.`,
+  'manufacturing-guide': `The practical value of ${title.toLowerCase()} is process control: define the specification, approve a reference sample, monitor production and verify quality before shipment.`,
+  'fabric-guide': `Evaluate ${title.toLowerCase()} by measurable performance, product application and wash results rather than composition or GSM alone. Approve the fabric together with garment fit.`,
+  'comparison-center': `There is no universal winner in ${title.toLowerCase()}. Choose the option that best matches product function, MOQ, lead time, margin and the level of control your brand actually needs.`,
+  'business-guide': `Use ${title.toLowerCase()} to protect cash flow and margin by connecting product scope, MOQ, landed cost, launch timing and replenishment decisions.`,
+  'trend-report': `Treat ${title.toLowerCase()} as a product-planning signal, not a reason to copy every trend. Validate the idea against your customer, price point, fabric feasibility and reorder potential.`,
+  'technical-guide': `Use ${title.toLowerCase()} to connect the technical feature with wearer benefit, production feasibility, testing standards and sample approval.`,
+};
+const quickAnswerTitle = suppliedQuickAnswerTitle ?? quickAnswerByKind[articleKind] ?? quickAnswerByKind['technical-guide'];
 
-const quickTakeaways = suppliedQuickTakeaways ?? (
-  isFabric
+const takeawaysByKind = {
+  'buyer-guide': [
+    'Verify real production control and relevant activewear experience, not catalog images alone.',
+    'Separate sample quality, bulk capability, lead time and export responsibility during evaluation.',
+    'Put fabric, fit, stitching, packing and inspection expectations in writing before deposit.',
+  ],
+  'private-label-guide': [
+    'Define the target customer, retail price, first-order quantity and launch deadline before sampling.',
+    'Choose between branded stock, private label customization and OEM/ODM based on useful control.',
+    'Approve logo files, labels, care content, packaging and size presentation before bulk production.',
+  ],
+  'manufacturing-guide': [
+    'Convert product expectations into measurable fabric, measurement and construction standards.',
+    'Approve a representative pre-production sample before bulk cutting begins.',
+    'Ask for in-line and final inspection evidence tied to the approved specification.',
+  ],
+  'fabric-guide': [
+    'Composition and GSM are starting points; knit structure and finishing change real performance.',
+    'Test opacity, recovery, pilling, shrinkage and colorfastness in the intended color.',
+    'Approve fabric and garment fit together because stretch changes measurements and support.',
+  ],
+  'comparison-center': [
+    'Compare options against the same product brief, quantity, quality level and delivery requirement.',
+    'Include sampling cost, lead time, defect risk and reorder flexibility, not unit price alone.',
+    'Choose the route that solves the product job with the least unnecessary complexity.',
+  ],
+  'business-guide': [
+    'Model landed cost, retail margin and inventory exposure before committing to SKU count.',
+    'Use smaller validation orders when demand or fit is not yet proven.',
+    'Plan replenishment and production capacity before the first collection sells through.',
+  ],
+  'trend-report': [
+    'Separate durable customer demand from short-lived visual trends.',
+    'Check fabric availability, MOQ, testing and production feasibility before adopting a direction.',
+    'Use one or two relevant signals to strengthen the collection rather than overbuilding SKUs.',
+  ],
+  'technical-guide': [
+    'Define the wearer benefit before choosing a technical construction or feature.',
+    'Confirm the feature can be graded, sewn and inspected consistently across sizes.',
+    'Use movement, wash and durability testing before approving bulk production.',
+  ],
+};
+const quickTakeaways = suppliedQuickTakeaways ?? takeawaysByKind[articleKind] ?? takeawaysByKind['technical-guide'];
+
+const comparisonVariant = /(seamless|cut-and-sew|construction)/.test(context)
+  ? [
+      ['Seamless construction', 'Soft, body-hugging products with engineered knit zones and fewer major seams.', 'Check yarn, knit density, tube sizing, opacity and specialized MOQ.'],
+      ['Cut-and-sew construction', 'Structured support, pockets, panels, precise grading and mixed materials.', 'Check fabric lot, pattern accuracy, seam comfort and panel alignment.'],
+      ['Hybrid collection', 'Brands that need lifestyle comfort plus performance-led products.', 'Use each construction where it adds a clear wearer or commercial benefit.'],
+    ]
+  : /(china|vietnam|factory|trading)/.test(context)
     ? [
-        'Compare composition and GSM together; neither number proves performance by itself.',
-        'Test opacity, recovery, pilling, shrinkage and colorfastness in the intended color.',
-        'Approve fabric and garment fit together because stretch changes measurements and support.',
+        ['Supplier ecosystem', 'Relevant fabrics, trims, sampling support and production depth.', 'Compare capability using the same tech pack and quality expectation.'],
+        ['Commercial fit', 'MOQ, lead time, payment terms, communication and landed cost.', 'Use total risk and delivery reliability, not unit price alone.'],
+        ['Best choice', 'The supplier that controls the processes your product depends on.', 'Verify claims through samples, documents and production evidence.'],
       ]
-    : isBrand
+    : [
+        ['Faster route', 'Market testing, lower development risk and simpler product requirements.', 'Use when speed and cash flow matter more than exclusivity.'],
+        ['Custom route', 'Distinct fit, fabric, construction or long-term product ownership.', 'Use when differentiation justifies added MOQ, time and sampling.'],
+        ['Decision rule', 'Match control and complexity to proven customer demand.', 'Do not pay for customization that the buyer cannot see or value.'],
+      ];
+
+const fabricVariant = /(squat|opacity)/.test(context)
+  ? [
+      ['Opacity under stretch', 'Whether skin or underwear becomes visible during squats and lunges.', 'Test every intended color on the approved garment size.'],
+      ['Stretch recovery', 'Whether the fabric returns without bagging or whitening.', 'Repeat stretch and wash tests before approval.'],
+      ['Garment construction', 'Seam, gusset and pattern tension can change coverage.', 'Approve opacity on a finished garment, not a loose swatch only.'],
+    ]
+  : /(recycled|sustainable|eco|bio-based)/.test(context)
+    ? [
+        ['Material claim', 'Recycled or lower-impact fiber content and supporting documentation.', 'Match marketing claims to verifiable supplier records.'],
+        ['Performance', 'Recovery, pilling, opacity, colorfastness and wash stability.', 'Apply the same performance tests used for virgin materials.'],
+        ['Bulk traceability', 'Certification scope, transaction documents and dye-lot control.', 'Confirm required documents before placing the fabric order.'],
+      ]
+    : /(compression|sculpt|230gsm|heavyweight)/.test(context)
       ? [
-          'Define target customer, retail price, launch date and first-order quantity before sampling.',
-          'Keep the first collection focused so fit, quality and cash flow are easier to control.',
-          'Confirm logo files, labels, packaging and size information before bulk production begins.',
+          ['Support level', 'Fabric modulus, recovery, GSM and pattern reduction.', 'Evaluate pressure and movement on the finished garment.'],
+          ['Comfort', 'Breathability, seam pressure and mobility during extended wear.', 'Test on more than one body type and activity.'],
+          ['Durability', 'Bagging, pilling and recovery after repeated wash and stretch.', 'Set measurable approval limits before bulk production.'],
         ]
-      : isLogistics
-        ? [
-            'Compare factory price and landed cost, including freight, duty and destination charges.',
-            'Confirm carton data, HS codes and commercial documents before cargo leaves the factory.',
-            'Allow time for final inspection, customs clearance and delivery instead of using transit time alone.',
-          ]
-        : [
-            'Turn product expectations into measurable fabric, fit, stitching and packing standards.',
-            'Approve a representative pre-production sample before bulk cutting starts.',
-            'Use in-line and final inspection evidence to catch problems before shipment.',
-          ]
-);
+      : [
+          ['Fabric specification', 'Composition, GSM, knit structure, stretch direction and hand feel.', 'Request swatches plus a washed garment sample in the intended color.'],
+          ['Performance testing', 'Recovery, pilling, shrinkage, colorfastness and product-specific coverage.', 'Write acceptable results into the sample approval.'],
+          ['Bulk consistency', 'Dye-lot variation, width, weight and finishing consistency.', 'Ask how bulk fabric is inspected against the approved sample.'],
+        ];
+
+const manufacturingVariant = /(quality|inspection|defect|qc)/.test(context)
+  ? [
+      ['Incoming control', 'Fabric, trims, color and quantity before cutting.', 'Request inspection evidence tied to the approved sample.'],
+      ['In-line control', 'Measurements, stitching and recurring defects during production.', 'Correct trends before the full order is completed.'],
+      ['Final inspection', 'AQL or agreed defect limits, packing and shipment readiness.', 'Do not rely only on finished-product photos.'],
+    ]
+  : /(timeline|tracking|automation|digital|lead time)/.test(context)
+    ? [
+        ['Pre-production', 'Fabric, trims, labels, patterns and approval deadlines.', 'Use a milestone calendar with named owners.'],
+        ['Production visibility', 'Cutting, sewing, branding, inspection and packing status.', 'Request evidence at risk-sensitive milestones.'],
+        ['Delay control', 'Material changes, rework, capacity and shipping cutoffs.', 'Escalate decisions early instead of compressing final QC.'],
+      ]
+    : [
+        ['Specification', 'Tech pack, measurements, materials, construction and tolerances.', 'Resolve ambiguous details before sample approval.'],
+        ['Production control', 'Pre-production sample, cutting, sewing and branding checks.', 'Keep one approved reference available to production and QC.'],
+        ['Shipment release', 'Final measurements, workmanship, quantity and packing.', 'Release cargo only after documented final inspection.'],
+      ];
+
+const privateLabelVariant = /(ready|stock|quick)/.test(context)
+  ? [
+      ['Product selection', 'Proven stock styles, available colors, sizes and replenishment potential.', 'Choose a focused assortment that matches the launch customer.'],
+      ['Brand application', 'Logo method, labels, packaging and care information.', 'Approve one complete branded sample before the order.'],
+      ['Launch risk', 'MOQ, stock availability and reorder timing.', 'Confirm availability again immediately before payment.'],
+    ]
+  : [
+      ['Launch route', 'Branded stock, private label customization or full OEM/ODM.', 'Match control to budget, MOQ and deadline.'],
+      ['Brand assets', 'Logo, labels, care content, packaging and size presentation.', 'Approve one complete retail-ready sample.'],
+      ['Commercial risk', 'SKU count, reorder plan, margin and inventory exposure.', 'Start focused and expand after demand and fit are proven.'],
+    ];
+
+const businessVariant = /(price|cost|margin|roi)/.test(context)
+  ? [
+      ['Landed cost', 'Product, branding, packaging, freight, duty and destination charges.', 'Compare quotations using the same assumptions.'],
+      ['Margin', 'Wholesale or DTC price, discounts, returns and marketing cost.', 'Protect margin with realistic sell-through, not ideal pricing.'],
+      ['Cash exposure', 'Deposit, balance, transit time and inventory holding period.', 'Plan working capital before increasing order volume.'],
+    ]
+  : [
+      ['Demand proof', 'Sales by style, color, size and channel.', 'Scale proven demand instead of total SKU count.'],
+      ['Inventory plan', 'Opening quantity, safety stock and reorder lead time.', 'Use smaller, faster replenishment where feasible.'],
+      ['Capacity plan', 'Factory slots, material commitments and delivery calendar.', 'Reserve capacity before peak-season demand.'],
+    ];
+
+const trendVariant = [
+  ['Customer relevance', 'Does the direction solve a real fit, comfort, style or sustainability need?', 'Use customer evidence before adding a new SKU.'],
+  ['Manufacturing feasibility', 'Fabric availability, MOQ, testing, construction and lead time.', 'Validate feasibility before marketing the concept.'],
+  ['Commercial durability', 'Retail positioning, margin, reorder potential and trend lifespan.', 'Prioritize signals that can support more than one launch.'],
+];
+
+const technicalVariant = [
+  ['User benefit', 'The fit, comfort, support, mobility or durability improvement.', 'Define the benefit in measurable sample criteria.'],
+  ['Production feasibility', 'Pattern, material, machinery, grading and operator consistency.', 'Review the feature with pattern and production teams.'],
+  ['Validation', 'Movement, wash, durability and size-set testing.', 'Approve performance before bulk production.'],
+];
 
 const planningRows = suppliedPlanningRows ?? (
-  isFabric
-    ? [
-        ['Fabric specification', 'Composition, GSM, knit structure, stretch direction, opacity and hand feel.', 'Request swatches plus a washed garment sample in the intended color.'],
-        ['Performance testing', 'Recovery, pilling, shrinkage, colorfastness and squat-proof coverage.', 'Write acceptable results into the sample approval and QC checklist.'],
-        ['Bulk consistency', 'Dye-lot variation, width, weight and finishing consistency.', 'Ask the supplier how bulk fabric is inspected and matched to the approved sample.'],
-      ]
-    : isBrand
-      ? [
-          ['Launch route', 'Ready-to-ship branding, private label stock or full OEM/ODM development.', 'Match product control to budget, MOQ and launch deadline.'],
-          ['Brand assets', 'Logo method, labels, care content, packaging and size presentation.', 'Approve one complete branded sample before production.'],
-          ['Commercial risk', 'SKU count, reorder plan, retail margin and unsold inventory exposure.', 'Start with focused styles and expand after fit and demand are proven.'],
-        ]
-      : isLogistics
-        ? [
-            ['Delivery plan', 'Required arrival date, production finish date and shipping method.', 'Build a buffer for inspection, customs and local delivery.'],
-            ['Landed cost', 'Freight, duty, tax, brokerage and destination charges.', 'Compare quotations on the same Incoterm and carton assumptions.'],
-            ['Documents', 'Invoice, packing list, HS code, labels and import requirements.', 'Confirm document responsibility before shipment.'],
-          ]
-        : [
-            ['Supplier proof', 'Factory control, technical knowledge, capacity and relevant export experience.', 'Review real production evidence and ask process-specific questions.'],
-            ['Sample approval', 'Fabric, measurements, fit, stitching, branding and packaging.', 'Keep written comments and approve the final reference sample.'],
-            ['Quality control', 'In-line checks, final inspection, defect limits and corrective action.', 'Agree inspection standards before bulk production starts.'],
-          ]
+  isComparison ? comparisonVariant
+    : isFabric ? fabricVariant
+      : isManufacturing ? manufacturingVariant
+        : isPrivateLabel ? privateLabelVariant
+          : isBusiness ? businessVariant
+            : isTrend ? trendVariant
+              : isBuyer ? [
+                  ['Supplier proof', 'Factory control, technical knowledge, capacity and relevant export experience.', 'Review real production evidence and process-specific answers.'],
+                  ['Sample approval', 'Fabric, measurements, fit, stitching, branding and packing.', 'Keep written comments and a final approved reference.'],
+                  ['Order protection', 'Timeline, QC, payment stages, documents and corrective action.', 'Agree responsibilities before deposit.'],
+                ]
+                : technicalVariant
 );
 
-const faqs = suppliedFaqs ?? [
-  {
-    question: `What should buyers check first when researching ${title.toLowerCase()}?`,
-    answer: quickAnswerTitle,
+const tableTitleByKind = {
+  'buyer-guide': 'Buyer verification checklist',
+  'private-label-guide': 'Private label launch checklist',
+  'manufacturing-guide': 'Production and quality control checkpoints',
+  'fabric-guide': 'Fabric performance and approval checklist',
+  'comparison-center': 'At-a-glance comparison',
+  'business-guide': 'Commercial planning framework',
+  'trend-report': 'Trend validation framework',
+  'technical-guide': 'Technical approval checklist',
+};
+const planningTableTitle = suppliedPlanningTableTitle ?? tableTitleByKind[articleKind] ?? tableTitleByKind['technical-guide'];
+
+const tableHeadersByKind = {
+  'comparison-center': ['Option or factor', 'Best use', 'Watch point'],
+  'fabric-guide': ['Test area', 'What it reveals', 'Buyer action'],
+  'manufacturing-guide': ['Production stage', 'Control point', 'Buyer evidence'],
+  'private-label-guide': ['Brand decision', 'What to define', 'Approval action'],
+  'business-guide': ['Commercial area', 'What to model', 'Planning action'],
+  'trend-report': ['Validation area', 'Question to answer', 'Planning action'],
+  'buyer-guide': ['Verification area', 'What to check', 'Buyer action'],
+  'technical-guide': ['Technical area', 'What to check', 'Approval action'],
+};
+const tableHeaders = suppliedTableHeaders ?? tableHeadersByKind[articleKind] ?? tableHeadersByKind['technical-guide'];
+
+const expertProfileByKind = {
+  'buyer-guide': {
+    title: 'How buyers should apply this guide',
+    paragraphs: [
+      `For a buyer researching ${title.toLowerCase()}, the first goal is to separate supplier claims from production evidence. Ask the supplier to connect every promise to a real process: who controls the material, who approves the pattern, where production happens, when quality is checked and what happens if the order does not match the approved sample. Strong answers are specific, consistent and supported by current records or production examples.`,
+      'Use staged commitment to reduce sourcing risk. Review capability first, then test communication and technical judgment during sampling, and only then approve bulk production against written specifications. This approach gives a new brand useful evidence before a large payment, while an established buyer can use the same checkpoints to compare capacity, repeat-order consistency and corrective-action speed across suppliers.',
+    ],
+    mistakes: [
+      'Choosing from polished product photos without verifying production ownership or technical knowledge.',
+      'Treating one good sample as proof that the factory can control bulk materials, grading and workmanship.',
+      'Leaving defect limits, delivery responsibility or corrective action until after production starts.',
+    ],
   },
-  {
-    question: 'Can Fitclo support low-MOQ private label and full OEM/ODM activewear?',
-    answer: 'Yes. Fitclo supports ready-to-ship logo customization, private label programs and full OEM/ODM development for leggings, sports bras, yoga sets, gym wear and athleisure products.',
+  'private-label-guide': {
+    title: 'How to turn the idea into a launch-ready product',
+    paragraphs: [
+      `The practical question behind ${title.toLowerCase()} is how much product control the brand needs at its current stage. Ready stock with branding can validate demand quickly, private label customization can improve presentation, and full OEM/ODM can create distinct fit or construction. The best route is the one that creates customer value without adding development cost, MOQ or delay that the first order cannot support.`,
+      'Treat the approved sample as a complete retail unit, not only a garment. Review fabric, measurements, logo scale, label wording, care content, packaging, barcode or size marks and carton requirements together. Small branding decisions made late can delay an otherwise finished order, while a complete approval record makes reorders faster and reduces differences between sampling, production and customer delivery.',
+    ],
+    mistakes: [
+      'Adding too many colors, sizes and styles before fit and customer demand are proven.',
+      'Approving the garment while leaving logos, labels or packaging for the production stage.',
+      'Paying for custom details that do not improve customer experience or brand recognition.',
+    ],
   },
-  {
-    question: 'What information should I send to receive a useful production recommendation?',
-    answer: 'Share the product category, reference images or tech pack, target quantity, fabric preference, logo method, size range, delivery market and required launch date.',
+  'manufacturing-guide': {
+    title: 'What reliable production control looks like',
+    paragraphs: [
+      `In ${title.toLowerCase()}, reliability comes from linked controls rather than one final inspection. The tech pack and approved sample define the target; incoming material checks protect fabric and trim quality; in-line checks detect repeated sewing or measurement problems; final inspection confirms workmanship, quantity and packing. If one stage has no owner or evidence, later inspection may identify the problem only after most of the order is complete.`,
+      'Buyers do not need to manage every factory operation, but they should agree the milestones that require approval or reporting. Material readiness, pre-production sample approval, size-set confirmation, early production measurements, branding placement and final inspection are practical control points. The supplier should also explain how nonconforming pieces are separated, repaired, reinspected and recorded before shipment release.',
+    ],
+    mistakes: [
+      'Starting bulk cutting before fabric, trims, patterns and the pre-production sample are fully approved.',
+      'Using vague instructions such as premium quality instead of measurable tolerances and workmanship criteria.',
+      'Compressing final quality control because earlier approvals or material decisions were delayed.',
+    ],
   },
+  'fabric-guide': {
+    title: 'How to evaluate performance beyond the fabric label',
+    paragraphs: [
+      `For ${title.toLowerCase()}, fiber composition and GSM help describe the material but do not predict the complete garment experience. Yarn quality, knit density, finishing, stretch direction, pattern tension and color can change softness, support, opacity and recovery. Buyers should compare candidate fabrics against one product brief and test the performance that matters for the intended activity rather than choosing from hand feel alone.`,
+      'Final approval should use a finished garment in the intended color and size range. A loose swatch cannot show how the fabric behaves across the hip, bust, knee, waistband or seam lines. Wash the sample, remeasure it, inspect surface change and repeat movement tests. For bulk orders, also ask how dye-lot color, fabric width, weight and finishing are checked against the approved reference.',
+    ],
+    mistakes: [
+      'Assuming a higher GSM or spandex percentage automatically means better compression or quality.',
+      'Testing only black fabric even though light colors may show different opacity and dye behavior.',
+      'Approving a swatch without checking finished-garment fit, recovery and wash stability.',
+    ],
+  },
+  'comparison-center': {
+    title: 'How to make a fair manufacturing comparison',
+    paragraphs: [
+      `A useful decision in ${title.toLowerCase()} starts with equal assumptions. Compare the same product function, quality level, quantity, branding scope, destination and required delivery date. A lower quotation may reflect a different fabric, simplified construction, excluded packaging or another shipping responsibility, so unit prices are meaningful only when the underlying specification and commercial terms match.`,
+      'Score each route against the factors that matter to the current collection: wearer performance, development speed, MOQ, product uniqueness, quality-control difficulty, landed cost and reorder flexibility. A startup testing fit and demand may choose differently from an established brand protecting an exclusive product. Record the reason for the decision so later customer feedback and reorder data can confirm or challenge the original assumptions.',
+    ],
+    mistakes: [
+      'Comparing quotations that use different materials, Incoterms, packaging or order quantities.',
+      'Choosing the most customizable route before customer demand justifies its MOQ and development time.',
+      'Ignoring reorder stability, defect risk and inventory exposure when comparing unit prices.',
+    ],
+  },
+  'business-guide': {
+    title: 'How to connect the strategy to commercial numbers',
+    paragraphs: [
+      `The value of ${title.toLowerCase()} depends on translating the idea into SKU-level economics. Estimate product and branding cost, freight, duty, discounts, returns, marketing and the time cash remains tied up before inventory sells. A collection can have an attractive gross margin on paper and still create pressure if too many colors or sizes sell slowly or if the reorder lead time is longer than the sales cycle.`,
+      'Use stage gates for growth. Validate fit and customer response, identify the styles and sizes that drive sales, then negotiate volume or reserve capacity for proven demand. Keep a separate plan for experimental products so one trend test does not distort core inventory. Supplier discussions become more useful when the brand can share target landed cost, launch window, reorder expectation and the commercial reason behind each quantity.',
+    ],
+    mistakes: [
+      'Using average collection sales instead of demand by style, color and size.',
+      'Increasing order volume for a lower unit cost without modeling slower sell-through and cash exposure.',
+      'Planning the launch but not the reorder lead time, material availability or capacity requirement.',
+    ],
+  },
+  'trend-report': {
+    title: 'How brands should validate a trend before sourcing',
+    paragraphs: [
+      `Use ${title.toLowerCase()} as a filter for product opportunities rather than a list of styles to copy. A relevant direction should connect to the target customer's activity, fit preference, wardrobe and price expectation. Look for repeated signals across customer feedback, retailer assortments and search behavior, then decide whether the idea strengthens the existing brand position or creates an unrelated collection.`,
+      'Manufacturing feasibility is part of trend validation. Confirm fabric availability, color risk, MOQ, construction difficulty, testing requirements and realistic lead time before announcing a launch. A visually strong concept can lose margin if it needs special yarn, many sample rounds or complex trims. The strongest trend adoption usually changes one or two meaningful product elements while keeping fit, quality and replenishment familiar.',
+    ],
+    mistakes: [
+      'Treating social-media visibility as proof of durable customer demand.',
+      'Marketing sustainability or performance claims before materials and tests can support them.',
+      'Adding several unproven directions to one collection and weakening inventory focus.',
+    ],
+  },
+  'technical-guide': {
+    title: 'How to move from technical concept to sample approval',
+    paragraphs: [
+      `For ${title.toLowerCase()}, define the wearer benefit before selecting construction, material or machinery. The sample criteria should explain what must improve, such as support, mobility, ventilation, seam comfort or durability. This gives the pattern, fabric and production teams a shared target and prevents technical-looking details from adding cost without improving the product.`,
+      'Review feasibility across sizes and real movement. A feature that works on one sample may shift after grading, interact with fabric stretch or become difficult to sew consistently. Approve the final design only after checking measurements, movement, wash behavior and the factory method for controlling the feature in bulk production.',
+    ],
+    mistakes: [
+      'Adding technical details without a defined wearer or commercial benefit.',
+      'Approving one size without reviewing grading and placement across the size range.',
+      'Skipping wash, movement or durability testing before production.',
+    ],
+  },
+};
+const expertProfile = expertProfileByKind[articleKind] ?? expertProfileByKind['technical-guide'];
+
+const faqByKind = {
+  'buyer-guide': [
+    { question: `What should buyers verify first about ${title.toLowerCase()}?`, answer: quickAnswerTitle },
+    { question: 'What evidence is stronger than supplier claims?', answer: 'Use approved samples, live production evidence, written specifications, inspection records, export documents and clear responsibility for corrective action.' },
+    { question: 'When should a buyer reject a supplier?', answer: 'Reject or pause when the supplier cannot explain materials, production ownership, quality controls, realistic lead time or how defects will be corrected.' },
+  ],
+  'private-label-guide': [
+    { question: `What is the safest way to approach ${title.toLowerCase()}?`, answer: quickAnswerTitle },
+    { question: 'Is private label suitable for a first activewear collection?', answer: 'It can be, especially when a brand needs lower development risk, faster sampling and a focused test order before investing in fully custom products.' },
+    { question: 'What must be approved before bulk production?', answer: 'Approve the garment, measurements, fabric, logo, labels, care content, packaging and size presentation together on a complete sample.' },
+  ],
+  'manufacturing-guide': [
+    { question: `What is the main production lesson in ${title.toLowerCase()}?`, answer: quickAnswerTitle },
+    { question: 'What should buyers monitor during activewear production?', answer: 'Monitor material readiness, approved samples, cutting, key measurements, stitching, branding, quantity, final inspection and packing.' },
+    { question: 'How can brands reduce bulk quality risk?', answer: 'Use measurable specifications, a pre-production sample, in-line checks, final inspection and written corrective-action responsibilities.' },
+  ],
+  'fabric-guide': [
+    { question: `How should brands evaluate ${title.toLowerCase()}?`, answer: quickAnswerTitle },
+    { question: 'Which activewear fabric tests matter most?', answer: 'Prioritize product-specific opacity, stretch recovery, pilling, shrinkage, colorfastness, dimensional stability and wash testing.' },
+    { question: 'Why is a fabric swatch not enough for approval?', answer: 'Pattern tension, seams, color and garment fit change how the fabric stretches and performs, so final approval should use a finished garment sample.' },
+  ],
+  'comparison-center': [
+    { question: `Which option is better in ${title.toLowerCase()}?`, answer: quickAnswerTitle },
+    { question: 'What should be kept equal during a manufacturing comparison?', answer: 'Compare the same product brief, quality level, quantity, branding scope, delivery market and Incoterm so the result is meaningful.' },
+    { question: 'Should the lowest unit price decide the result?', answer: 'No. Include development time, MOQ, defect risk, freight, duty, inventory exposure and reorder flexibility.' },
+  ],
+  'business-guide': [
+    { question: `How should a brand use ${title.toLowerCase()}?`, answer: quickAnswerTitle },
+    { question: 'Which numbers should activewear brands model before ordering?', answer: 'Model landed cost, expected selling price, gross margin, discounts, returns, SKU-level demand, deposit timing and reorder lead time.' },
+    { question: 'When should a brand increase order volume?', answer: 'Increase volume after fit, quality and SKU-level demand are proven and the margin gain exceeds added inventory and cash-flow risk.' },
+  ],
+  'trend-report': [
+    { question: `How should brands interpret ${title.toLowerCase()}?`, answer: quickAnswerTitle },
+    { question: 'How can a brand tell whether a trend is commercially useful?', answer: 'Check customer relevance, price fit, manufacturing feasibility, content potential, margin and whether the direction can support reorders.' },
+    { question: 'Should every trend enter the next collection?', answer: 'No. Select only the signals that fit the brand customer and can be executed with reliable fabric, fit and production quality.' },
+  ],
+};
+const faqs = suppliedFaqs ?? faqByKind[articleKind] ?? [
+  { question: `What should buyers understand about ${title.toLowerCase()}?`, answer: quickAnswerTitle },
+  { question: 'How should a technical activewear feature be approved?', answer: 'Define its wearer benefit, production method, size-grading behavior and measurable movement, wash and durability tests.' },
+  { question: 'Can Fitclo help evaluate technical feasibility?', answer: 'Yes. Fitclo can review product references, fabrics, construction, sampling risk, MOQ and production requirements.' },
 ];
 
-const relatedReading = suppliedRelatedReading ?? [
-  {
-    title: 'China Activewear Manufacturer Verification Checklist',
-    desc: 'Verify factory capability, fabric knowledge, quality systems and delivery planning before ordering.',
-    link: '/blogs/china-activewear-manufacturer-checklist',
-  },
-  {
-    title: 'Activewear Fabric Guide',
-    desc: 'Compare nylon, polyester, GSM, stretch recovery and squat-proof testing.',
-    link: '/blogs/fabrics',
-  },
-  {
-    title: 'Private Label Activewear Manufacturing',
-    desc: 'Compare ready-to-ship branding, private label customization and OEM/ODM development.',
-    link: '/private-label',
-  },
-  {
-    title: 'Activewear Intelligence Hub',
-    desc: 'Browse more sourcing guides, comparisons and manufacturing checklists.',
-    link: '/activewear-intelligence/',
-  },
+const sameCategory = intelligenceEntry
+  ? intelligenceArticles.filter((article) => article.categorySlug === intelligenceEntry.categorySlug && article.link !== currentPath)
+  : [];
+const currentIndex = intelligenceEntry ? intelligenceArticles.findIndex((article) => article.link === currentPath) : 0;
+const rotatingRelated = sameCategory.length > 0
+  ? [...sameCategory.slice(currentIndex % sameCategory.length), ...sameCategory.slice(0, currentIndex % sameCategory.length)].slice(0, 3)
+  : [];
+const fallbackRelated = [
+  { title: 'China Activewear Manufacturer Verification Checklist', desc: 'Verify factory capability, quality systems and delivery planning.', link: '/blogs/china-activewear-manufacturer-checklist' },
+  { title: 'Activewear Fabric Guide', desc: 'Compare composition, GSM, opacity and performance tests.', link: '/blogs/fabrics' },
+  { title: 'MOQ Planning for Activewear Brands', desc: 'Balance launch risk, unit cost and inventory exposure.', link: '/blogs/moq' },
 ];
+const relatedReading = suppliedRelatedReading ?? (
+  rotatingRelated.length > 0
+    ? [
+        ...rotatingRelated.map((article) => ({ title: article.title, desc: article.desc, link: article.link })),
+        { title: 'Activewear Intelligence Hub', desc: 'Browse more Fitclo buyer, fabric and manufacturing guides.', link: '/activewear-intelligence/' },
+      ]
+    : [
+        ...fallbackRelated,
+        { title: 'Activewear Intelligence Hub', desc: 'Browse more Fitclo buyer, fabric and manufacturing guides.', link: '/activewear-intelligence/' },
+      ]
+);
+
+const ctaTitle = isComparison
+  ? 'Need help choosing between these manufacturing options?'
+  : isFabric
+    ? 'Need help selecting and testing the right activewear fabric?'
+    : isPrivateLabel
+      ? 'Need a practical private label launch route?'
+      : isManufacturing || isBuyer
+        ? 'Need help verifying a production plan or supplier?'
+        : 'Need a production recommendation for your activewear project?';
+const ctaText = `Send Fitclo your product category, target quantity, destination market and the decision behind ${title.toLowerCase()}. We will recommend a practical next step before sampling.`;
 ---
 
 <EditorialArticleLayout
   title={title}
   description={description}
-  type={type}
+  type={resolvedType}
+  articleKind={articleKind}
   date={date}
   readTime={readTime}
   articleImage={articleImage}
   quickAnswerTitle={quickAnswerTitle}
   quickTakeaways={quickTakeaways}
+  expertSectionTitle={expertProfile.title}
+  expertParagraphs={expertProfile.paragraphs}
+  commonMistakes={expertProfile.mistakes}
   planningTableTitle={planningTableTitle}
   planningRows={planningRows}
+  planningPlacement={isComparison ? 'before' : 'after'}
+  tableHeaders={tableHeaders}
   faqs={faqs}
   relatedReading={relatedReading}
+  ctaTitle={ctaTitle}
+  ctaText={ctaText}
 >
   <slot />
 </EditorialArticleLayout>

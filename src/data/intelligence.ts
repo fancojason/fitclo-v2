@@ -134,7 +134,7 @@ export const intelligenceArticles = [
   {
     category: 'Manufacturing Guide',
     categorySlug: 'manufacturing-guide',
-    title: 'Inside a Chinese Activewear Factory',
+    title: 'Inside a Chinese Activewear Factory: Production Process and Quality Control',
     desc: 'See how sampling, cutting, sewing, inspection and packing connect inside a reliable activewear factory.',
     link: '/blogs/manufacturing',
     image: '/images/intelligence/cover-factory-guide.png',
@@ -374,7 +374,7 @@ export const intelligenceArticles = [
   {
     category: 'Fabric Guide',
     categorySlug: 'fabric-guide',
-    title: 'Fabric R&D Report',
+    title: 'Activewear Fabric R&D Report: Performance and Product Planning',
     desc: 'A research-led guide to activewear fabric direction, performance requirements and product planning.',
     link: '/blogs/fabric-rd-report',
     image: '/images/intelligence/cover-fabric-guide.png',
@@ -694,7 +694,7 @@ export const intelligenceArticles = [
   {
     category: 'Comparison',
     categorySlug: 'comparison-center',
-    title: 'Private Label vs OEM',
+    title: 'Private Label vs OEM Activewear: Speed, MOQ and Product Control',
     desc: 'Understand the practical differences between branded stock programs and OEM development.',
     link: '/blogs/private-label-vs-oem',
     image: '/images/intelligence/cover-private-label.png',
@@ -704,7 +704,7 @@ export const intelligenceArticles = [
   {
     category: 'Comparison',
     categorySlug: 'comparison-center',
-    title: 'OEM vs ODM Guide',
+    title: 'OEM vs ODM Activewear Manufacturing: Control, MOQ and Development',
     desc: 'Compare design ownership, sample development, factory support and production control.',
     link: '/blogs/oem-vs-odm-guide',
     image: '/images/intelligence/cover-private-label.png',

@@ -6,15 +6,24 @@ const {
   title,
   description,
   type = 'Activewear Manufacturing Guide',
+  articleKind = 'buyer-guide',
   date = 'July 11, 2026',
   readTime = '10 min read',
   articleImage = '/images/intelligence/cover-factory-guide.png',
   quickAnswerTitle,
   quickTakeaways = [],
+  expertSectionTitle,
+  expertParagraphs = [],
+  commonMistakesTitle = 'Common mistakes to avoid',
+  commonMistakes = [],
   planningTableTitle = 'Buyer decision checklist',
   planningRows = [],
+  planningPlacement = 'after',
+  tableHeaders = ['Decision area', 'What to check', 'Fitclo recommendation'],
   faqs = [],
   relatedReading = [],
+  ctaTitle = 'Need a production recommendation for your activewear project?',
+  ctaText = 'Send Fitclo your product category, target quantity, fabric preference and delivery market. We can help you compare the most practical fabric, MOQ and manufacturing route.',
   publishedIso = '2026-07-11',
   modifiedIso = '2026-07-11',
 } = Astro.props;
@@ -24,6 +33,13 @@ const articleSchema = {
   '@type': 'Article',
   headline: title,
   description,
+  articleSection: type,
+  keywords: [
+    title,
+    'activewear manufacturing',
+    'private label activewear',
+    articleKind.replace(/-/g, ' '),
+  ],
   image: articleImage.startsWith('http') ? articleImage : `https://www.fitcloo.com${articleImage}`,
   datePublished: publishedIso,
   dateModified: modifiedIso,
@@ -75,7 +91,7 @@ const structuredData = faqSchema
   structuredData={structuredData}
   autoArticleSchema={false}
 >
-  <article class="fitclo-editorial-article">
+  <article class={`fitclo-editorial-article article-kind-${articleKind}`}>
     <div class="fitclo-editorial-wrap">
       <span class="fitclo-editorial-tag">{type} &bull; Activewear Intelligence</span>
       <h1>{title}</h1>
@@ -85,7 +101,7 @@ const structuredData = faqSchema
         <span>&bull;</span>
         <span>{readTime}</span>
         <span>&bull;</span>
-        <span>by the Fitclo manufacturing team</span>
+        <span>by Jason Chen, Founder of Fitclo</span>
       </div>
 
       <div class="fitclo-editorial-answer" data-aeo="answer">
@@ -97,20 +113,57 @@ const structuredData = faqSchema
         )}
       </div>
 
+      {planningPlacement === 'before' && planningRows.length > 0 && (
+        <section class="fitclo-editorial-section fitclo-editorial-priority-table">
+          <h2>{planningTableTitle}</h2>
+          <div class="fitclo-editorial-table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  {tableHeaders.map((heading) => <th>{heading}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                {planningRows.map((row) => (
+                  <tr>
+                    <td><strong>{row[0]}</strong></td>
+                    <td>{row[1]}</td>
+                    <td>{row[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
       <div class="fitclo-editorial-body">
         <slot />
       </div>
 
-      {planningRows.length > 0 && (
+      {expertParagraphs.length > 0 && (
+        <section class="fitclo-editorial-section fitclo-editorial-expert-section">
+          <h2>{expertSectionTitle}</h2>
+          {expertParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+          {commonMistakes.length > 0 && (
+            <>
+              <h3>{commonMistakesTitle}</h3>
+              <ul>
+                {commonMistakes.map((item) => <li>{item}</li>)}
+              </ul>
+            </>
+          )}
+        </section>
+      )}
+
+      {planningPlacement !== 'before' && planningRows.length > 0 && (
         <section class="fitclo-editorial-section">
           <h2>{planningTableTitle}</h2>
           <div class="fitclo-editorial-table-scroll">
             <table>
               <thead>
                 <tr>
-                  <th>Decision area</th>
-                  <th>What to check</th>
-                  <th>Fitclo recommendation</th>
+                  {tableHeaders.map((heading) => <th>{heading}</th>)}
                 </tr>
               </thead>
               <tbody>
@@ -128,9 +181,15 @@ const structuredData = faqSchema
       )}
 
       <div class="fitclo-editorial-callout fitclo-editorial-cta-box">
-        <strong>Need a production recommendation for your activewear project?</strong>
-        <span>Send Fitclo your product category, target quantity, fabric preference and delivery market. We can help you compare the most practical fabric, MOQ and manufacturing route.</span>
+        <strong>{ctaTitle}</strong>
+        <span>{ctaText}</span>
         <a class="fitclo-editorial-cta" href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Talk to Fitclo</a>
+        <nav class="fitclo-editorial-commercial-links" aria-label="Fitclo manufacturing options">
+          <a href="/private-label">Private Label</a>
+          <a href="/capabilities">Factory Capabilities</a>
+          <a href="/ready-to-ship">Ready to Ship</a>
+          <a href="/products">Products</a>
+        </nav>
       </div>
 
       {faqs.length > 0 && (
@@ -348,10 +407,6 @@ const structuredData = faqSchema
     -webkit-overflow-scrolling: touch;
   }
 
-  .fitclo-editorial-body .market-note {
-    display: none;
-  }
-
   .fitclo-editorial-body table > thead,
   .fitclo-editorial-body table > tbody,
   .fitclo-editorial-body table > tfoot {
@@ -424,6 +479,25 @@ const structuredData = faqSchema
 
   .fitclo-editorial-section > h2 {
     margin-top: 0;
+  }
+
+  .fitclo-editorial-priority-table {
+    margin: 34px 0 42px;
+  }
+
+  .fitclo-editorial-commercial-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-top: 4px;
+    padding-top: 14px;
+    border-top: 1px solid var(--editorial-border);
+  }
+
+  .fitclo-editorial-commercial-links a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.78rem;
+    font-weight: 700;
   }
 
   .fitclo-editorial-faq-item {

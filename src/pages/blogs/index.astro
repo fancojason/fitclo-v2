@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { intelligenceArticles } from '../../data/intelligence';
 
 const guides = [
   {
@@ -615,6 +616,9 @@ const articleTitleByLink = Object.fromEntries(
     })
     .filter(([link]) => link !== '/blogs/index' && !link.includes('.')),
 );
+const intelligenceTitleByLink = Object.fromEntries(
+  intelligenceArticles.map((article) => [article.link.replace(/\/$/, ''), article.title]),
+);
 
 const dedupedGuides = [...guides, ...generatedGuides].filter((guide, index, list) => {
   const normalizedLink = guide.link.replace(/\/$/, '');
@@ -625,7 +629,7 @@ const allGuides = dedupedGuides.map((guide) => {
   const normalizedLink = guide.link.replace(/\/$/, '');
   return {
     ...guide,
-    title: articleTitleByLink[normalizedLink] ?? guide.title,
+    title: intelligenceTitleByLink[normalizedLink] ?? articleTitleByLink[normalizedLink] ?? guide.title,
   };
 });
 ---

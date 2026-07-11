@@ -1,0 +1,519 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { whatsappIntelligenceUrl } from '../data/intelligence';
+
+const {
+  title,
+  description,
+  type = 'Activewear Manufacturing Guide',
+  date = 'July 11, 2026',
+  readTime = '10 min read',
+  articleImage = '/images/intelligence/cover-factory-guide.png',
+  quickAnswerTitle,
+  quickTakeaways = [],
+  planningTableTitle = 'Buyer decision checklist',
+  planningRows = [],
+  faqs = [],
+  relatedReading = [],
+  publishedIso = '2026-07-11',
+  modifiedIso = '2026-07-11',
+} = Astro.props;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  image: articleImage.startsWith('http') ? articleImage : `https://www.fitcloo.com${articleImage}`,
+  datePublished: publishedIso,
+  dateModified: modifiedIso,
+  mainEntityOfPage: Astro.url.href,
+  author: {
+    '@type': 'Person',
+    name: 'Jason Chen',
+    jobTitle: 'Founder of Fitclo, Activewear Manufacturing Specialist',
+    description: 'Activewear manufacturing specialist with 8+ years of export experience.',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Fitclo',
+    url: 'https://www.fitcloo.com',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blogs', item: 'https://www.fitcloo.com/blogs/' },
+    { '@type': 'ListItem', position: 3, name: title, item: Astro.url.href },
+  ],
+};
+
+const faqSchema = faqs.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      })),
+    }
+  : null;
+
+const structuredData = faqSchema
+  ? [articleSchema, breadcrumbSchema, faqSchema]
+  : [articleSchema, breadcrumbSchema];
+---
+
+<BaseLayout
+  title={`${title} | Fitclo Blog`}
+  description={description}
+  image={articleImage.startsWith('http') ? articleImage : `https://www.fitcloo.com${articleImage}`}
+  structuredData={structuredData}
+  autoArticleSchema={false}
+>
+  <article class="fitclo-editorial-article">
+    <div class="fitclo-editorial-wrap">
+      <span class="fitclo-editorial-tag">{type} &bull; Activewear Intelligence</span>
+      <h1>{title}</h1>
+      <div class="fitclo-editorial-meta">
+        <span class="fitclo-editorial-calendar" aria-hidden="true"></span>
+        <span>{date}</span>
+        <span>&bull;</span>
+        <span>{readTime}</span>
+        <span>&bull;</span>
+        <span>by the Fitclo manufacturing team</span>
+      </div>
+
+      <div class="fitclo-editorial-answer" data-aeo="answer">
+        <p><strong>Short version:</strong> {quickAnswerTitle}</p>
+        {quickTakeaways.length > 0 && (
+          <ul>
+            {quickTakeaways.map((item) => <li>{item}</li>)}
+          </ul>
+        )}
+      </div>
+
+      <div class="fitclo-editorial-body">
+        <slot />
+      </div>
+
+      {planningRows.length > 0 && (
+        <section class="fitclo-editorial-section">
+          <h2>{planningTableTitle}</h2>
+          <div class="fitclo-editorial-table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Decision area</th>
+                  <th>What to check</th>
+                  <th>Fitclo recommendation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {planningRows.map((row) => (
+                  <tr>
+                    <td><strong>{row[0]}</strong></td>
+                    <td>{row[1]}</td>
+                    <td>{row[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      <div class="fitclo-editorial-callout fitclo-editorial-cta-box">
+        <strong>Need a production recommendation for your activewear project?</strong>
+        <span>Send Fitclo your product category, target quantity, fabric preference and delivery market. We can help you compare the most practical fabric, MOQ and manufacturing route.</span>
+        <a class="fitclo-editorial-cta" href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Talk to Fitclo</a>
+      </div>
+
+      {faqs.length > 0 && (
+        <section class="fitclo-editorial-section">
+          <h2>Frequently asked questions</h2>
+          <div class="fitclo-editorial-faq-list">
+            {faqs.map((item) => (
+              <div class="fitclo-editorial-faq-item">
+                <div class="fitclo-editorial-faq-q">{item.question}</div>
+                <div class="fitclo-editorial-faq-a">{item.answer}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section class="fitclo-editorial-author" aria-label="About the author">
+        <span>Reviewed by</span>
+        <strong>Jason Chen, Founder of Fitclo</strong>
+        <p>Activewear manufacturing specialist with 8+ years of export experience across fabric development, sampling, private label production, quality control and international shipping.</p>
+      </section>
+
+      {relatedReading.length > 0 && (
+        <section class="fitclo-editorial-section">
+          <h2>Related reading</h2>
+          <ul class="fitclo-editorial-related">
+            {relatedReading.map((item) => (
+              <li>
+                <a href={item.link}>{item.title}</a>
+                {item.desc && <span>{item.desc}</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  body {
+    background: #0a0a0f;
+  }
+
+  .fitclo-editorial-article {
+    --editorial-bg: #0a0a0f;
+    --editorial-sec: #12121a;
+    --editorial-gold: #c9a84c;
+    --editorial-border: rgba(255, 255, 255, 0.08);
+    --editorial-gray: #9a9aa8;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, rgba(201, 168, 76, 0.08), transparent 34rem), linear-gradient(180deg, #0a0a0f 0%, #09090d 100%);
+    color: rgba(255, 255, 255, 0.82);
+    font-family: "Century Gothic", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .fitclo-editorial-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 112px 24px 92px;
+  }
+
+  .fitclo-editorial-tag {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 5px 14px;
+    border: 1px solid rgba(201, 168, 76, 0.32);
+    border-radius: 999px;
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--editorial-gold);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .fitclo-editorial-article h1 {
+    margin: 0 0 14px;
+    color: #fff;
+    font-size: clamp(1.85rem, 4vw, 2.7rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.15;
+  }
+
+  .fitclo-editorial-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 36px;
+    color: var(--editorial-gray);
+    font-size: 0.85rem;
+  }
+
+  .fitclo-editorial-calendar {
+    position: relative;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    flex: 0 0 13px;
+    border-radius: 2px;
+    background: #f3f0e8;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  }
+
+  .fitclo-editorial-calendar::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4px;
+    border-radius: 2px 2px 0 0;
+    background: #ef675c;
+  }
+
+  .fitclo-editorial-calendar::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: var(--editorial-gold);
+    box-shadow: 4px 0 0 var(--editorial-gold);
+  }
+
+  .fitclo-editorial-article h2 {
+    margin: 44px 0 14px;
+    color: #fff;
+    font-size: clamp(1.3rem, 2.4vw, 1.48rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+
+  .fitclo-editorial-article h3 {
+    margin: 28px 0 10px;
+    color: var(--editorial-gold);
+    font-size: 1.08rem;
+    font-weight: 850;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .fitclo-editorial-article p,
+  .fitclo-editorial-article li {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .fitclo-editorial-article p {
+    margin: 0 0 1.15rem;
+  }
+
+  .fitclo-editorial-article a {
+    color: var(--editorial-gold);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .fitclo-editorial-article a:hover {
+    opacity: 0.82;
+  }
+
+  .fitclo-editorial-article ul,
+  .fitclo-editorial-article ol {
+    margin: 16px 0 24px;
+    padding-left: 1.25rem;
+  }
+
+  .fitclo-editorial-article li {
+    margin: 8px 0;
+    padding-left: 0.1rem;
+  }
+
+  .fitclo-editorial-article strong {
+    color: #fff;
+    font-weight: 850;
+  }
+
+  .fitclo-editorial-answer,
+  .fitclo-editorial-callout {
+    margin: 24px 0;
+    padding: 18px 22px;
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    border-left: 4px solid var(--editorial-gold);
+    border-radius: 8px;
+    background: var(--editorial-sec);
+  }
+
+  .fitclo-editorial-answer p,
+  .fitclo-editorial-callout p {
+    margin-bottom: 0;
+  }
+
+  .fitclo-editorial-answer ul {
+    margin: 10px 0 0;
+  }
+
+  .fitclo-editorial-table-scroll table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    background: var(--editorial-sec);
+    font-size: 0.92rem;
+  }
+
+  .fitclo-editorial-body table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    border-collapse: collapse;
+    background: var(--editorial-sec);
+    font-size: 0.92rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fitclo-editorial-body .market-note {
+    display: none;
+  }
+
+  .fitclo-editorial-body table > thead,
+  .fitclo-editorial-body table > tbody,
+  .fitclo-editorial-body table > tfoot {
+    display: table;
+    width: 620px;
+    table-layout: fixed;
+  }
+
+  .fitclo-editorial-table-scroll {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fitclo-editorial-article th,
+  .fitclo-editorial-article td {
+    border: 1px solid var(--editorial-border);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .fitclo-editorial-article th {
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--editorial-gold);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.45;
+    text-transform: uppercase;
+  }
+
+  .fitclo-editorial-article td {
+    color: rgba(255, 255, 255, 0.76);
+    line-height: 1.65;
+  }
+
+  .fitclo-editorial-cta-box {
+    display: grid;
+    gap: 12px;
+    margin-top: 48px;
+  }
+
+  .fitclo-editorial-cta-box span {
+    display: block;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .fitclo-editorial-cta {
+    display: inline-block;
+    justify-self: start;
+    margin-top: 4px;
+    padding: 13px 28px;
+    border-radius: 6px;
+    background: var(--editorial-gold);
+    color: #060608 !important;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .fitclo-editorial-section {
+    margin-top: 48px;
+  }
+
+  .fitclo-editorial-section > h2 {
+    margin-top: 0;
+  }
+
+  .fitclo-editorial-faq-item {
+    border-bottom: 1px solid var(--editorial-border);
+    padding: 18px 0;
+  }
+
+  .fitclo-editorial-faq-q {
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 850;
+    line-height: 1.45;
+  }
+
+  .fitclo-editorial-faq-a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .fitclo-editorial-author {
+    margin-top: 48px;
+    padding-top: 22px;
+    border-top: 1px solid var(--editorial-border);
+  }
+
+  .fitclo-editorial-author > span,
+  .fitclo-editorial-author > strong {
+    display: block;
+  }
+
+  .fitclo-editorial-author > span {
+    margin-bottom: 5px;
+    color: var(--editorial-gold);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  .fitclo-editorial-author > strong {
+    margin-bottom: 6px;
+    font-size: 1rem;
+  }
+
+  .fitclo-editorial-author p {
+    margin: 0;
+    color: var(--editorial-gray);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .fitclo-editorial-related {
+    margin-bottom: 0;
+    padding-left: 0 !important;
+    list-style: none;
+  }
+
+  .fitclo-editorial-related li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--editorial-border);
+  }
+
+  .fitclo-editorial-related span {
+    display: block;
+    margin-top: 4px;
+    color: var(--editorial-gray);
+    font-size: 0.86rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 720px) {
+    .fitclo-editorial-wrap {
+      padding: 104px 18px 72px;
+    }
+
+    .fitclo-editorial-article h1 {
+      font-size: clamp(1.75rem, 9vw, 2.35rem);
+    }
+
+    .fitclo-editorial-meta {
+      font-size: 0.78rem;
+    }
+  }
+</style>

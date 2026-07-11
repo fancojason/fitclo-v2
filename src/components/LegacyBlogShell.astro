@@ -1,0 +1,413 @@
+---
+import { whatsappIntelligenceUrl } from '../data/intelligence';
+
+const { title, description } = Astro.props;
+const cleanTitle = title.replace(/\s\|\s.*$/, '');
+
+const faqs = [
+  {
+    question: `What is the main buyer decision in ${cleanTitle}?`,
+    answer: description,
+  },
+  {
+    question: 'Can Fitclo help turn this guidance into a production plan?',
+    answer: 'Yes. Fitclo can help compare fabric, MOQ, sampling, branding, quality control and shipping options for private label or OEM/ODM activewear projects.',
+  },
+  {
+    question: 'What should I send Fitclo before requesting a quotation?',
+    answer: 'Send the product category, reference design or tech pack, target quantity, fabric direction, size range, logo method, destination market and required delivery date.',
+  },
+];
+---
+
+<article class="fitclo-legacy-editorial">
+  <div class="fitclo-legacy-wrap">
+    <span class="fitclo-legacy-tag">Activewear Intelligence &bull; Buyer Guide</span>
+    <h1>{cleanTitle}</h1>
+    <div class="fitclo-legacy-meta">
+      <span class="fitclo-legacy-calendar" aria-hidden="true"></span>
+      <span>July 11, 2026</span>
+      <span>&bull;</span>
+      <span>8 min read</span>
+      <span>&bull;</span>
+      <span>by the Fitclo manufacturing team</span>
+    </div>
+
+    <div class="fitclo-legacy-answer" data-aeo="answer">
+      <p><strong>Short version:</strong> {description}</p>
+    </div>
+
+    <div class="fitclo-legacy-content">
+      <slot />
+    </div>
+
+    <div class="fitclo-legacy-callout fitclo-legacy-cta-box">
+      <strong>Need help applying this guide to your activewear project?</strong>
+      <span>Send Fitclo your product category, target quantity, fabric preference and delivery market for a practical manufacturing recommendation.</span>
+      <a class="fitclo-legacy-cta" href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Talk to Fitclo</a>
+    </div>
+
+    <section class="fitclo-legacy-section">
+      <h2>Frequently asked questions</h2>
+      {faqs.map((item) => (
+        <div class="fitclo-legacy-faq-item">
+          <div class="fitclo-legacy-faq-q">{item.question}</div>
+          <div class="fitclo-legacy-faq-a">{item.answer}</div>
+        </div>
+      ))}
+    </section>
+
+    <section class="fitclo-legacy-author">
+      <span>Reviewed by</span>
+      <strong>Jason Chen, Founder of Fitclo</strong>
+      <p>Activewear manufacturing specialist with 8+ years of export experience across fabric development, private label production, quality control and international shipping.</p>
+    </section>
+
+    <section class="fitclo-legacy-section">
+      <h2>Related reading</h2>
+      <ul class="fitclo-legacy-related">
+        <li><a href="/blogs/china-activewear-manufacturer-checklist">China Activewear Manufacturer Verification Checklist</a></li>
+        <li><a href="/blogs/fabrics">Activewear Fabric Guide</a></li>
+        <li><a href="/blogs/moq">MOQ Planning for Private Label Activewear</a></li>
+        <li><a href="/activewear-intelligence/">Activewear Intelligence Hub</a></li>
+      </ul>
+    </section>
+  </div>
+</article>
+
+<style is:global>
+  .fitclo-legacy-editorial {
+    --legacy-sec: #12121a;
+    --legacy-gold: #c9a84c;
+    --legacy-border: rgba(255, 255, 255, 0.08);
+    --legacy-gray: #9a9aa8;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, rgba(201, 168, 76, 0.08), transparent 34rem), linear-gradient(180deg, #0a0a0f 0%, #09090d 100%);
+    color: rgba(255, 255, 255, 0.82);
+    font-family: "Century Gothic", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .fitclo-legacy-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 112px 24px 92px;
+  }
+
+  .fitclo-legacy-tag {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 5px 14px;
+    border: 1px solid rgba(201, 168, 76, 0.32);
+    border-radius: 999px;
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--legacy-gold);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .fitclo-legacy-editorial > .fitclo-legacy-wrap > h1 {
+    margin: 0 0 14px;
+    color: #fff;
+    font-size: clamp(1.85rem, 4vw, 2.7rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.15;
+  }
+
+  .fitclo-legacy-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 36px;
+    color: var(--legacy-gray);
+    font-size: 0.85rem;
+  }
+
+  .fitclo-legacy-calendar {
+    position: relative;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    flex: 0 0 13px;
+    border-radius: 2px;
+    background: #f3f0e8;
+  }
+
+  .fitclo-legacy-calendar::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4px;
+    border-radius: 2px 2px 0 0;
+    background: #ef675c;
+  }
+
+  .fitclo-legacy-calendar::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: var(--legacy-gold);
+    box-shadow: 4px 0 0 var(--legacy-gold);
+  }
+
+  .fitclo-legacy-answer,
+  .fitclo-legacy-callout {
+    margin: 24px 0;
+    padding: 18px 22px;
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    border-left: 4px solid var(--legacy-gold);
+    border-radius: 8px;
+    background: var(--legacy-sec);
+  }
+
+  .fitclo-legacy-answer p,
+  .fitclo-legacy-callout p {
+    margin: 0;
+  }
+
+  .fitclo-legacy-content > article {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    color: inherit !important;
+  }
+
+  .fitclo-legacy-content > article > header,
+  .fitclo-legacy-content > article > footer {
+    display: none !important;
+  }
+
+  .fitclo-legacy-content > article > #inquiry,
+  .fitclo-legacy-content .answer-card,
+  .fitclo-legacy-content div:has(+ .article-body) {
+    display: none !important;
+  }
+
+  .fitclo-legacy-content > article > section {
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .fitclo-legacy-content > article > section > div,
+  .fitclo-legacy-content .article-body,
+  .fitclo-legacy-content .prose {
+    max-width: none !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .fitclo-legacy-content h1 {
+    display: none !important;
+  }
+
+  .fitclo-legacy-content h2,
+  .fitclo-legacy-section h2 {
+    margin: 44px 0 14px !important;
+    color: #fff !important;
+    font-family: inherit !important;
+    font-size: clamp(1.3rem, 2.4vw, 1.48rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: 0 !important;
+    line-height: 1.3 !important;
+    text-transform: none !important;
+  }
+
+  .fitclo-legacy-content h3,
+  .fitclo-legacy-content h4 {
+    margin: 28px 0 10px !important;
+    color: var(--legacy-gold) !important;
+    font-family: inherit !important;
+    font-size: 1.08rem !important;
+    letter-spacing: 0 !important;
+    line-height: 1.4 !important;
+    text-transform: none !important;
+  }
+
+  .fitclo-legacy-editorial p,
+  .fitclo-legacy-editorial li {
+    color: rgba(255, 255, 255, 0.78) !important;
+    font-size: 1rem !important;
+    line-height: 1.8 !important;
+  }
+
+  .fitclo-legacy-editorial p {
+    margin: 0 0 1.15rem;
+  }
+
+  .fitclo-legacy-editorial strong {
+    color: #fff !important;
+  }
+
+  .fitclo-legacy-editorial a {
+    color: var(--legacy-gold) !important;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .fitclo-legacy-content ul,
+  .fitclo-legacy-content ol {
+    margin: 16px 0 24px;
+    padding-left: 1.25rem;
+  }
+
+  .fitclo-legacy-content li {
+    margin: 8px 0;
+  }
+
+  .fitclo-legacy-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .fitclo-legacy-content table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    margin: 20px 0;
+    border-collapse: collapse;
+    border-radius: 8px;
+    background: var(--legacy-sec);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fitclo-legacy-content table > thead,
+  .fitclo-legacy-content table > tbody,
+  .fitclo-legacy-content table > tfoot {
+    display: table;
+    width: 620px;
+    table-layout: fixed;
+  }
+
+  .fitclo-legacy-content th,
+  .fitclo-legacy-content td {
+    border: 1px solid var(--legacy-border);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .fitclo-legacy-content th {
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--legacy-gold);
+  }
+
+  .fitclo-legacy-content [class*="bg-gray"],
+  .fitclo-legacy-content [class*="bg-white"] {
+    border: 1px solid var(--legacy-border) !important;
+    border-radius: 8px !important;
+    background: var(--legacy-sec) !important;
+  }
+
+  .fitclo-legacy-cta-box {
+    display: grid;
+    gap: 12px;
+    margin-top: 48px;
+  }
+
+  .fitclo-legacy-cta-box span {
+    color: rgba(255, 255, 255, 0.76);
+    line-height: 1.75;
+  }
+
+  .fitclo-legacy-cta {
+    justify-self: start;
+    margin-top: 4px;
+    padding: 13px 28px;
+    border-radius: 6px;
+    background: var(--legacy-gold);
+    color: #060608 !important;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .fitclo-legacy-section,
+  .fitclo-legacy-author {
+    margin-top: 48px;
+  }
+
+  .fitclo-legacy-section > h2 {
+    margin-top: 0 !important;
+  }
+
+  .fitclo-legacy-faq-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--legacy-border);
+  }
+
+  .fitclo-legacy-faq-q {
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 850;
+    line-height: 1.45;
+  }
+
+  .fitclo-legacy-faq-a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .fitclo-legacy-author {
+    padding-top: 22px;
+    border-top: 1px solid var(--legacy-border);
+  }
+
+  .fitclo-legacy-author > span,
+  .fitclo-legacy-author > strong {
+    display: block;
+  }
+
+  .fitclo-legacy-author > span {
+    color: var(--legacy-gold);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  .fitclo-legacy-author p {
+    margin-top: 6px;
+    color: var(--legacy-gray) !important;
+    font-size: 0.9rem !important;
+  }
+
+  .fitclo-legacy-related {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .fitclo-legacy-related li {
+    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--legacy-border);
+  }
+
+  @media (max-width: 720px) {
+    .fitclo-legacy-wrap {
+      padding: 104px 18px 72px;
+    }
+
+    .fitclo-legacy-editorial > .fitclo-legacy-wrap > h1 {
+      font-size: clamp(1.75rem, 9vw, 2.35rem);
+    }
+
+    .fitclo-legacy-meta {
+      font-size: 0.78rem;
+    }
+  }
+</style>

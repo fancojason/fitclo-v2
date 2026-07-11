@@ -1,298 +1,156 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import InquiryForm from '../components/InquiryForm.astro';
-import { whatsappIntelligenceUrl } from '../data/intelligence';
+import EditorialArticleLayout from './EditorialArticleLayout.astro';
 
 const {
   title,
   type = 'Activewear Manufacturing Guide',
   description: suppliedDescription,
   articleImage: suppliedArticleImage,
-  quickAnswerTitle = 'Use this guide as a buyer checklist before sampling, bulk production or supplier approval.',
+  quickAnswerTitle: suppliedQuickAnswerTitle,
   quickTakeaways: suppliedQuickTakeaways,
-  insightTitle = 'A strong article should help buyers make a sourcing decision, not just explain a topic.',
-  insightDescription = 'Fitclo guides connect product goals, fabric choices, MOQ planning, quality control and shipping so brand owners can compare options before placing an order.',
   planningTableTitle = 'What buyers should check before moving forward',
   planningRows: suppliedPlanningRows,
   faqs: suppliedFaqs,
   relatedReading: suppliedRelatedReading,
+  date = 'July 11, 2026',
+  readTime = '10 min read',
 } = Astro.props;
-const description =
-  suppliedDescription ??
-  `A Fitclo guide to ${title.toLowerCase()} for private label activewear brands, covering sourcing decisions, manufacturing planning, quality control and scalable production.`;
 
-const articleContext = `${title} ${type}`.toLowerCase();
-const inferredArticleImage = articleContext.includes('fabric') || articleContext.includes('nylon') || articleContext.includes('polyester') || articleContext.includes('gsm')
-  ? '/images/intelligence/cover-fabric-guide.png'
-  : articleContext.includes('trend') || articleContext.includes('sustainable') || articleContext.includes('eco')
-    ? '/images/intelligence/cover-trend-report.png'
-    : articleContext.includes('private') || articleContext.includes('label') || articleContext.includes('branding') || articleContext.includes('oem') || articleContext.includes('odm')
+const description = suppliedDescription ??
+  `A practical Fitclo guide to ${title.toLowerCase()} for activewear buyers, covering product decisions, manufacturing risk, quality control and scalable production.`;
+
+const context = `${title} ${type}`.toLowerCase();
+const isFabric = /(fabric|nylon|polyester|gsm|moisture|wicking|textile|dye|colorfast|recycled)/.test(context);
+const isBrand = /(private label|branding|logo|oem|odm|launch|business|scal|ecommerce|influencer|packaging)/.test(context);
+const isLogistics = /(shipping|logistics|freight|import|ddp|duty|lead time|supply chain)/.test(context);
+const isFactory = /(factory|manufacturer|manufacturing|quality|inspection|audit|production|sewing|construction)/.test(context);
+
+const articleImage = suppliedArticleImage ?? (
+  isFabric
+    ? '/images/intelligence/cover-fabric-guide.png'
+    : isBrand
       ? '/images/intelligence/cover-private-label.png'
-      : articleContext.includes('launch') || articleContext.includes('business') || articleContext.includes('moq') || articleContext.includes('scaling')
-        ? '/images/intelligence/cover-brand-planning.png'
-        : '/images/intelligence/cover-factory-guide.png';
-const articleImage = suppliedArticleImage ?? inferredArticleImage;
+      : /(trend|sustainable|eco)/.test(context)
+        ? '/images/intelligence/cover-trend-report.png'
+        : '/images/intelligence/cover-factory-guide.png'
+);
 
-const defaultQuickTakeaways = [
-  'Confirm the sourcing goal first: launch speed, product uniqueness, MOQ, margin or production control.',
-  'Ask for fabric, sample, quality control and shipping details before approving any bulk activewear order.',
-  'Use the table below to turn the article into a practical buyer checklist for your next production plan.',
-];
-const quickTakeaways = suppliedQuickTakeaways ?? defaultQuickTakeaways;
+const quickAnswerTitle = suppliedQuickAnswerTitle ?? (
+  isFabric
+    ? 'Choose activewear fabric by product use, knit structure, GSM, stretch recovery, opacity and wash performance. Approve swatches and a washed sample before bulk production.'
+    : isBrand
+      ? 'Choose the production route that matches your launch speed, MOQ, budget and need for product exclusivity. Approve every logo, label and packaging detail on one complete sample.'
+      : isLogistics
+        ? 'Plan shipping from the required delivery date backwards. Compare landed cost, transit time, customs responsibility and document requirements before confirming production.'
+        : isFactory
+          ? 'A reliable result depends on clear specifications, approved samples, controlled production and documented inspection. Verify each stage before paying for or shipping a bulk order.'
+          : 'Use this guide to define the product goal, compare realistic options and confirm the key quality checks before sampling or bulk production.'
+);
 
-const defaultPlanningRows = articleContext.includes('fabric') || articleContext.includes('nylon') || articleContext.includes('polyester') || articleContext.includes('gsm')
-  ? [
-      ['Fabric decision', 'Compare GSM, composition, stretch direction, opacity and hand feel.', 'Request fabric swatches and a washed sample before approving bulk fabric.'],
-      ['Performance test', 'Check squat-proof coverage, recovery, pilling, shrinkage and colorfastness.', 'Test darker and lighter colors separately because opacity can change by dye lot.'],
-      ['Buyer risk', 'A fabric can look premium but fail after washing or repeated stretching.', 'Approve performance standards in writing before production starts.'],
-    ]
-  : articleContext.includes('private') || articleContext.includes('label') || articleContext.includes('branding') || articleContext.includes('oem') || articleContext.includes('odm')
+const quickTakeaways = suppliedQuickTakeaways ?? (
+  isFabric
     ? [
-        ['Launch route', 'Choose ready-to-ship logo customization, private label stock or full OEM/ODM.', 'Start with the route that matches budget, timeline and design control.'],
-        ['Branding details', 'Confirm labels, logo method, packaging, size marks and care labels.', 'Approve one complete pre-production sample before bulk order.'],
-        ['Buyer risk', 'Unclear branding files or late packaging decisions can delay delivery.', 'Prepare vector logos, label specs and packaging copy early.'],
+        'Compare composition and GSM together; neither number proves performance by itself.',
+        'Test opacity, recovery, pilling, shrinkage and colorfastness in the intended color.',
+        'Approve fabric and garment fit together because stretch changes measurements and support.',
       ]
-    : articleContext.includes('shipping') || articleContext.includes('logistics')
+    : isBrand
       ? [
-          ['Shipping plan', 'Compare express, air freight, sea freight and DDP by deadline and budget.', 'Decide the shipping method before final packing so carton data is accurate.'],
-          ['Documents', 'Check invoice, packing list, HS code, destination rules and label requirements.', 'Confirm import documents before the cargo leaves the factory.'],
-          ['Buyer risk', 'A low product price can lose margin if freight, duty or delivery timing is misplanned.', 'Ask for landed-cost estimates, not only factory unit price.'],
+          'Define target customer, retail price, launch date and first-order quantity before sampling.',
+          'Keep the first collection focused so fit, quality and cash flow are easier to control.',
+          'Confirm logo files, labels, packaging and size information before bulk production begins.',
         ]
-      : [
-          ['Supplier decision', 'Verify whether the supplier controls sampling, fabric, production and inspection.', 'Ask for real factory proof, not only catalog images.'],
-          ['Production plan', 'Separate stock availability, sample timeline, bulk lead time and shipping schedule.', 'Approve a realistic timeline before sending deposit.'],
-          ['Buyer risk', 'Most activewear problems come from unclear specs, weak fabric testing or late QC.', 'Use a written checklist for fabric, fit, stitching, packing and final inspection.'],
-        ];
-const planningRows = suppliedPlanningRows ?? defaultPlanningRows;
+      : isLogistics
+        ? [
+            'Compare factory price and landed cost, including freight, duty and destination charges.',
+            'Confirm carton data, HS codes and commercial documents before cargo leaves the factory.',
+            'Allow time for final inspection, customs clearance and delivery instead of using transit time alone.',
+          ]
+        : [
+            'Turn product expectations into measurable fabric, fit, stitching and packing standards.',
+            'Approve a representative pre-production sample before bulk cutting starts.',
+            'Use in-line and final inspection evidence to catch problems before shipment.',
+          ]
+);
 
-const defaultVisibleFaqs = [
+const planningRows = suppliedPlanningRows ?? (
+  isFabric
+    ? [
+        ['Fabric specification', 'Composition, GSM, knit structure, stretch direction, opacity and hand feel.', 'Request swatches plus a washed garment sample in the intended color.'],
+        ['Performance testing', 'Recovery, pilling, shrinkage, colorfastness and squat-proof coverage.', 'Write acceptable results into the sample approval and QC checklist.'],
+        ['Bulk consistency', 'Dye-lot variation, width, weight and finishing consistency.', 'Ask the supplier how bulk fabric is inspected and matched to the approved sample.'],
+      ]
+    : isBrand
+      ? [
+          ['Launch route', 'Ready-to-ship branding, private label stock or full OEM/ODM development.', 'Match product control to budget, MOQ and launch deadline.'],
+          ['Brand assets', 'Logo method, labels, care content, packaging and size presentation.', 'Approve one complete branded sample before production.'],
+          ['Commercial risk', 'SKU count, reorder plan, retail margin and unsold inventory exposure.', 'Start with focused styles and expand after fit and demand are proven.'],
+        ]
+      : isLogistics
+        ? [
+            ['Delivery plan', 'Required arrival date, production finish date and shipping method.', 'Build a buffer for inspection, customs and local delivery.'],
+            ['Landed cost', 'Freight, duty, tax, brokerage and destination charges.', 'Compare quotations on the same Incoterm and carton assumptions.'],
+            ['Documents', 'Invoice, packing list, HS code, labels and import requirements.', 'Confirm document responsibility before shipment.'],
+          ]
+        : [
+            ['Supplier proof', 'Factory control, technical knowledge, capacity and relevant export experience.', 'Review real production evidence and ask process-specific questions.'],
+            ['Sample approval', 'Fabric, measurements, fit, stitching, branding and packaging.', 'Keep written comments and approve the final reference sample.'],
+            ['Quality control', 'In-line checks, final inspection, defect limits and corrective action.', 'Agree inspection standards before bulk production starts.'],
+          ]
+);
+
+const faqs = suppliedFaqs ?? [
   {
-    question: 'What is this Fitclo guide about?',
-    answer: description,
+    question: `What should buyers check first when researching ${title.toLowerCase()}?`,
+    answer: quickAnswerTitle,
   },
   {
-    question: 'Can Fitclo help with private label activewear manufacturing?',
-    answer:
-      'Yes. Fitclo helps global brands with private label activewear, OEM/ODM development, logo customization, fabric selection, sampling, bulk production and shipping.',
+    question: 'Can Fitclo support low-MOQ private label and full OEM/ODM activewear?',
+    answer: 'Yes. Fitclo supports ready-to-ship logo customization, private label programs and full OEM/ODM development for leggings, sports bras, yoga sets, gym wear and athleisure products.',
   },
   {
-    question: 'What products can Fitclo manufacture?',
-    answer:
-      'Fitclo manufactures leggings, sports bras, yoga sets, gym wear, athleisure apparel, seamless activewear and custom performance clothing for fitness brands.',
+    question: 'What information should I send to receive a useful production recommendation?',
+    answer: 'Share the product category, reference images or tech pack, target quantity, fabric preference, logo method, size range, delivery market and required launch date.',
   },
 ];
-const visibleFaqs = suppliedFaqs ?? defaultVisibleFaqs;
 
-const defaultRelatedReading = [
+const relatedReading = suppliedRelatedReading ?? [
   {
-    title: 'Activewear Intelligence Hub',
-    desc: 'Browse Fitclo sourcing guides, fabric explainers, manufacturing checklists and comparison articles.',
-    link: '/activewear-intelligence/',
-  },
-  {
-    title: 'Factory Verification Checklist',
-    desc: 'A practical buyer checklist for verifying a real China activewear manufacturer before ordering.',
+    title: 'China Activewear Manufacturer Verification Checklist',
+    desc: 'Verify factory capability, fabric knowledge, quality systems and delivery planning before ordering.',
     link: '/blogs/china-activewear-manufacturer-checklist',
   },
   {
-    title: 'Private Label Manufacturing',
-    desc: 'Explore logo customization, labels, packaging, ready-to-ship styles and OEM/ODM production routes.',
+    title: 'Activewear Fabric Guide',
+    desc: 'Compare nylon, polyester, GSM, stretch recovery and squat-proof testing.',
+    link: '/blogs/fabrics',
+  },
+  {
+    title: 'Private Label Activewear Manufacturing',
+    desc: 'Compare ready-to-ship branding, private label customization and OEM/ODM development.',
     link: '/private-label',
   },
+  {
+    title: 'Activewear Intelligence Hub',
+    desc: 'Browse more sourcing guides, comparisons and manufacturing checklists.',
+    link: '/activewear-intelligence/',
+  },
 ];
-const relatedReading = suppliedRelatedReading ?? defaultRelatedReading;
-
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description,
-  image: `https://www.fitcloo.com${articleImage}`,
-  author: {
-    '@type': 'Person',
-    name: 'Jason Chen',
-    jobTitle: 'Founder of Fitclo, Activewear Manufacturing Specialist',
-    description: 'Activewear manufacturing specialist with 8+ years of export experience.',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Fitclo',
-    url: 'https://www.fitcloo.com',
-  },
-  datePublished: '2026-07-07',
-  dateModified: '2026-07-07',
-  mainEntityOfPage: Astro.url.href,
-};
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Blogs', item: 'https://www.fitcloo.com/blogs/' },
-    { '@type': 'ListItem', position: 3, name: title, item: Astro.url.href },
-  ],
-};
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: visibleFaqs.map(({ question, answer }) => ({
-    '@type': 'Question',
-    name: question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: answer,
-    },
-  })),
-};
 ---
 
-<BaseLayout
-  title={`${title} | Fitclo Guides`}
+<EditorialArticleLayout
+  title={title}
   description={description}
-  structuredData={[articleSchema, faqSchema]}
-  autoArticleSchema={false}
+  type={type}
+  date={date}
+  readTime={readTime}
+  articleImage={articleImage}
+  quickAnswerTitle={quickAnswerTitle}
+  quickTakeaways={quickTakeaways}
+  planningTableTitle={planningTableTitle}
+  planningRows={planningRows}
+  faqs={faqs}
+  relatedReading={relatedReading}
 >
-  <section class="relative overflow-hidden bg-black py-32">
-    <img
-      src={articleImage}
-      alt={`Fitclo manufacturing guide visual for ${title}`}
-      class="absolute inset-0 h-full w-full object-cover opacity-20"
-      loading="eager"
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/82 to-black"></div>
-    <div class="relative z-10 mx-auto max-w-[1200px] px-6 text-center">
-      <p class="mb-6 font-['Century_Gothic',sans-serif] text-[11px] font-bold uppercase tracking-[0.3em] text-[#C9A84C]">
-        {type}
-      </p>
-      <h1 class="mb-8 font-['Century_Gothic',sans-serif] text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
-        {title}
-      </h1>
-      <p class="mx-auto max-w-3xl font-['Century_Gothic',sans-serif] text-lg leading-relaxed text-white/60 md:text-xl">
-        {description}
-      </p>
-    </div>
-  </section>
-
-  <section class="bg-white py-24">
-    <div class="mx-auto max-w-[980px] px-6">
-      <section class="mb-10 rounded-[8px] border border-[#C9A84C]/20 bg-[#C9A84C]/5 p-6 font-['Century_Gothic',sans-serif] md:p-8">
-        <p class="mb-3 text-[11px] font-black uppercase tracking-[0.22em] text-[#C9A84C]">Quick Answer</p>
-        <h2 class="mb-5 text-[22px] font-black leading-tight text-black md:text-[28px]">
-          {quickAnswerTitle}
-        </h2>
-        <div class="grid gap-4 md:grid-cols-3">
-          {quickTakeaways.map((item, index) => (
-            <div class="rounded-[8px] border border-black/5 bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.05)]">
-              <span class="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-black text-[12px] font-black text-[#C9A84C]">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <p class="m-0 text-[14px] leading-relaxed text-gray-700">{item}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section class="mb-10 grid overflow-hidden rounded-[8px] border border-gray-100 bg-[#0b0b0f] font-['Century_Gothic',sans-serif] shadow-[0_22px_70px_rgba(15,23,42,0.12)] md:grid-cols-[1.05fr_0.95fr]">
-        <div class="min-h-[280px]">
-          <img
-            src={articleImage}
-            alt={`Fitclo visual guide for ${title}`}
-            class="h-full min-h-[280px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div class="flex flex-col justify-center p-7 text-white md:p-10">
-          <p class="mb-3 text-[11px] font-black uppercase tracking-[0.22em] text-[#C9A84C]">Manufacturing Insight</p>
-          <h2 class="mb-4 text-[26px] font-black leading-tight md:text-[34px]">
-            {insightTitle}
-          </h2>
-          <p class="mb-0 text-[15px] leading-relaxed text-white/68">
-            {insightDescription}
-          </p>
-        </div>
-      </section>
-
-      <section class="mb-14 overflow-hidden rounded-[8px] border border-gray-200 bg-white font-['Century_Gothic',sans-serif] shadow-[0_18px_55px_rgba(15,23,42,0.06)]">
-        <div class="border-b border-gray-100 p-6 md:p-7">
-          <p class="mb-2 text-[11px] font-black uppercase tracking-[0.22em] text-[#C9A84C]">Planning Table</p>
-          <h2 class="m-0 text-[22px] font-black leading-tight text-black md:text-[28px]">{planningTableTitle}</h2>
-        </div>
-        <div class="overflow-x-auto">
-          <table class="w-full min-w-[720px] border-collapse text-left text-[14px]">
-            <thead>
-              <tr class="bg-[#0d0d12] text-[#C9A84C]">
-                <th class="px-5 py-4 font-black">Decision Area</th>
-                <th class="px-5 py-4 font-black">What To Check</th>
-                <th class="px-5 py-4 font-black">Fitclo Recommendation</th>
-              </tr>
-            </thead>
-            <tbody>
-              {planningRows.map((row) => (
-                <tr class="border-t border-gray-100">
-                  <td class="px-5 py-4 font-black text-black">{row[0]}</td>
-                  <td class="px-5 py-4 text-gray-600">{row[1]}</td>
-                  <td class="px-5 py-4 text-gray-600">{row[2]}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <div class="prose prose-lg mx-auto max-w-[820px] font-['Century_Gothic',sans-serif] leading-relaxed text-gray-700">
-        <slot />
-
-        <section class="not-prose mt-16 rounded-[8px] border border-gray-100 bg-[#f8f7f3] p-7 font-['Century_Gothic',sans-serif] md:p-9">
-          <p class="mb-2 text-[11px] font-black uppercase tracking-[0.22em] text-[#C9A84C]">Frequently Asked Questions</p>
-          <h3 class="mb-6 text-2xl font-black leading-tight text-black md:text-3xl">Common buyer questions about this topic</h3>
-          <div class="space-y-3">
-            {visibleFaqs.map((item) => (
-              <details class="group rounded-[8px] border border-gray-200 bg-white p-5">
-                <summary class="cursor-pointer list-none text-[15px] font-black leading-snug text-black">
-                  {item.question}
-                  <span class="float-right ml-4 text-[#C9A84C] transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p class="mb-0 mt-4 text-[14px] leading-relaxed text-gray-600">{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        <div class="not-prose mt-10 rounded-[8px] border border-gray-100 bg-white p-8 font-['Century_Gothic',sans-serif] shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
-          <p class="mb-2 text-[11px] font-black uppercase tracking-[0.18em] text-[#C9A84C]">Author Authority</p>
-          <h3 class="mb-3 text-2xl font-black text-black">Jason Chen, Founder of Fitclo</h3>
-          <p class="mb-0 text-[15px] leading-relaxed text-gray-600">Activewear Manufacturing Specialist with 8+ years of export experience helping global brands plan fabrics, MOQ, private label development, production control and shipping.</p>
-        </div>
-
-        <div class="not-prose mt-8 rounded-[8px] border border-gray-100 bg-gray-50 p-8 font-['Century_Gothic',sans-serif]">
-          <p class="mb-2 text-[11px] font-black uppercase tracking-[0.18em] text-[#C9A84C]">Related Reading</p>
-          <h3 class="mb-5 text-2xl font-black text-black">Continue researching activewear manufacturing</h3>
-          <div class="grid gap-4 md:grid-cols-3">
-            {relatedReading.map((item) => (
-              <a href={item.link} class="block rounded-[8px] border border-gray-100 bg-white p-5 text-black no-underline transition-all hover:-translate-y-0.5 hover:border-[#C9A84C]/60">
-                <span class="block text-[15px] font-black leading-snug">{item.title}</span>
-                <span class="mt-3 block text-[13px] font-normal leading-relaxed text-gray-500">{item.desc}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div class="not-prose mt-10 rounded-[8px] border border-gray-100 bg-gray-50 p-10">
-          <h3 class="mb-4 font-['Century_Gothic',sans-serif] text-2xl font-bold text-black">Need Help Choosing The Right Manufacturing Solution?</h3>
-          <p class="mb-8 text-gray-500">
-            Ask Fitclo to recommend fabric, MOQ and production method for your activewear project.
-          </p>
-          <a href={whatsappIntelligenceUrl} target="_blank" rel="noopener" class="inline-block rounded-lg bg-[#C9A84C] px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all hover:bg-black hover:text-[#C9A84C]">
-            Ask Fitclo
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div id="inquiry">
-    <InquiryForm />
-  </div>
-</BaseLayout>
+  <slot />
+</EditorialArticleLayout>

@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingButtons from '../components/FloatingButtons.astro';
+import LegacyBlogShell from '../components/LegacyBlogShell.astro';
 import '../styles/global.css';
 
 const {
@@ -175,7 +176,13 @@ const pageStructuredData = [
   <body class="bg-white selection:bg-accent selection:text-black">
     <Header />
     <main>
-      <slot />
+      {isBlogArticle ? (
+        <LegacyBlogShell title={title} description={description}>
+          <slot />
+        </LegacyBlogShell>
+      ) : (
+        <slot />
+      )}
     </main>
     <Footer />
     <FloatingButtons />

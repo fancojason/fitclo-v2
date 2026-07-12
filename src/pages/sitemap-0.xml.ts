@@ -35,6 +35,28 @@ const intelligenceCategoryPages = intelligenceCategories.map(
   (category) => `/activewear-intelligence/${category.slug}/`,
 );
 
+const lastModifiedByPath = new Map<string, string>([
+  ['/', '2026-07-04'],
+  ['/about/', '2026-07-10'],
+  ['/activewear-intelligence/', '2026-07-10'],
+  ['/blogs/', '2026-07-11'],
+  ['/capabilities/', '2026-06-18'],
+  ['/contact/', '2026-07-10'],
+  ['/guides/', '2026-07-10'],
+  ['/private-label/', '2026-07-10'],
+  ['/products/', '2026-07-10'],
+  ['/ready-to-ship/', '2026-07-10'],
+]);
+
+const getLastModified = (path: string) => {
+  const explicitDate = lastModifiedByPath.get(path);
+  if (explicitDate) return explicitDate;
+  if (path.startsWith('/blogs/')) return '2026-07-11';
+  if (path.startsWith('/activewear-intelligence/')) return '2026-07-10';
+  if (path.startsWith('/guides/')) return '2026-06-17';
+  return '2026-07-10';
+};
+
 const urls = Array.from(
   new Set([...staticPages, ...guidePages, ...intelligenceCategoryPages, ...blogPages]),
 ).sort();
@@ -50,7 +72,7 @@ const escapeXml = (value: string) =>
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
   .map(
     (path) =>
-      `  <url>\n    <loc>${escapeXml(`${site}${path}`)}</loc>\n    <changefreq>${path.startsWith('/blogs/') ? 'weekly' : 'monthly'}</changefreq>\n  </url>`,
+      `  <url>\n    <loc>${escapeXml(`${site}${path}`)}</loc>\n    <lastmod>${getLastModified(path)}</lastmod>\n    <changefreq>${path.startsWith('/blogs/') ? 'weekly' : 'monthly'}</changefreq>\n  </url>`,
   )
   .join('\n')}\n</urlset>\n`;
 

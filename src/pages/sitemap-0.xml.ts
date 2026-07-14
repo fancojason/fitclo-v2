@@ -46,6 +46,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/private-label/', '2026-07-10'],
   ['/products/', '2026-07-10'],
   ['/ready-to-ship/', '2026-07-10'],
+  ['/blogs/dfyne-style-activewear-manufacturing/', '2026-07-14'],
 ]);
 
 const getLastModified = (path: string) => {

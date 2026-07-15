@@ -31,20 +31,23 @@ const productSchema = {
 <BaseLayout
   title="Activewear Style Library | FITCLO"
   description="Browse Fitclo activewear styles by category, product type and style code. Explore leggings, sports bras, gym shorts, matching sets and more."
-  image="https://www.fitcloo.com/images/product-categories/matching-sets-hero.png"
+  image="https://www.fitcloo.com/images/product-categories/product-catalog-showroom-hero-v2.png"
   structuredData={productSchema}
   autoArticleSchema={false}
 >
-  <section class="relative min-h-[430px] overflow-hidden bg-[#0c0c0c] pt-[80px]">
-    <img src="/images/product-categories/matching-sets-hero.png" alt="Fitclo activewear style library" class="absolute inset-0 h-full w-full object-cover object-center opacity-70" fetchpriority="high" />
-    <div class="absolute inset-0 bg-black/55"></div>
-    <div class="relative mx-auto flex min-h-[430px] max-w-[1240px] items-end px-6 pb-14 pt-20 lg:px-10 lg:pb-16">
+  <section class="relative min-h-[520px] overflow-hidden bg-[#090909] pt-[80px]">
+    <img src="/images/product-categories/product-catalog-showroom-hero-v2.png" alt="Fitclo activewear showroom with sports bras, leggings, training tops and sets" class="absolute inset-0 h-full w-full object-cover object-center" fetchpriority="high" />
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.95)_0%,rgba(5,5,5,0.82)_36%,rgba(5,5,5,0.32)_68%,rgba(5,5,5,0.18)_100%)]"></div>
+    <div class="relative mx-auto flex min-h-[520px] max-w-[1240px] items-end px-6 pb-16 pt-24 lg:px-10 lg:pb-20">
       <div class="max-w-[700px]">
         <p class="text-[11px] font-bold tracking-[0.22em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO PRODUCT CATALOG</p>
-        <h1 class="mt-5 text-[42px] font-bold leading-[1.04] text-white sm:text-[56px] lg:text-[66px] font-['Century_Gothic',sans-serif]">Browse activewear styles for your next collection.</h1>
+        <h1 class="mt-5 text-[42px] font-bold leading-[1.04] text-white sm:text-[56px] lg:text-[64px] font-['Century_Gothic',sans-serif]">Browse activewear styles for your next collection.</h1>
         <p class="mt-6 max-w-[590px] text-[16px] leading-[1.75] text-white/85 md:text-[18px] font-['Century_Gothic',sans-serif]">Search by style name or code, or use the category navigation to compare silhouettes before requesting availability, branding and factory pricing.</p>
-        <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[12px] font-bold tracking-[0.1em] text-white/80 font-['Century_Gothic',sans-serif]">
-          <span>{productCatalog.length} CURRENT STYLES</span><span>{productCategories.length} CORE CATEGORIES</span><span>PRIVATE LABEL READY</span>
+        <p class="mt-8 text-[12px] font-bold tracking-[0.1em] text-[#d8b456] font-['Century_Gothic',sans-serif]">MOQ FROM 100 PCS <span class="px-1.5">•</span> WEEKLY NEW STYLES <span class="px-1.5">•</span> PRIVATE LABEL SUPPORT</p>
+        <div class="mt-5 flex flex-wrap gap-3 font-['Century_Gothic',sans-serif]">
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#151515]/90 px-4 py-2.5 text-[12px] font-bold text-white"><span class="grid h-5 w-5 place-items-center rounded-full bg-[#d8b456] text-[9px] text-black">01</span>1000+ Styles</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#151515]/90 px-4 py-2.5 text-[12px] font-bold text-white"><span class="grid h-5 w-5 place-items-center rounded-full bg-[#d8b456] text-[9px] text-black">02</span>Updated Weekly</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#151515]/90 px-4 py-2.5 text-[12px] font-bold text-white"><span class="grid h-5 w-5 place-items-center rounded-full bg-[#d8b456] text-[9px] text-black">03</span>Private Label Ready</span>
         </div>
       </div>
     </div>

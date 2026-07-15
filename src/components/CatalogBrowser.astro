@@ -1,23 +1,40 @@
 ---
-import { productCategories } from '../data/productCategories';
+import { productCategories, getProductCategory } from '../data/productCategories';
 import { productCatalog } from '../data/productCatalog';
 import CatalogProductCard from './CatalogProductCard.astro';
+
+interface Props {
+  categorySlug?: string;
+}
+
+const { categorySlug } = Astro.props;
+const activeCategory = categorySlug ? getProductCategory(categorySlug) : undefined;
+const catalogProducts = activeCategory
+  ? productCatalog.filter((product) => product.category === activeCategory.slug)
+  : productCatalog;
 ---
 
-<section id="catalog" class="bg-[#090909] py-14 text-white md:py-20" data-catalog-root>
+<section id="catalog" class="bg-[#090909] py-14 text-white md:py-20" data-catalog-root data-catalog-category={activeCategory?.slug ?? 'all'} data-catalog-category-label={activeCategory?.navLabel ?? ''}>
   <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
     <div class="grid gap-8 lg:grid-cols-[270px_minmax(0,1fr)] lg:gap-12">
       <aside class="lg:sticky lg:top-[106px] lg:max-h-[calc(100vh-132px)] lg:overflow-y-auto lg:pr-4">
         <div class="border-y border-white/15 py-5">
           <p class="text-[11px] font-bold tracking-[0.18em] text-white font-['Century_Gothic',sans-serif]">PRODUCT CATEGORIES</p>
-          <button type="button" class="catalog-filter mt-5 flex w-full items-center border-l-2 border-[#c9a84c] bg-[#1d1d1d] px-4 py-3 text-left text-[13px] font-bold text-white font-['Century_Gothic',sans-serif]" data-catalog-filter="all" aria-pressed="true">All styles</button>
+          <a href="/products/#catalog" class={`mt-5 flex w-full items-center border-l-2 px-4 py-3 text-left text-[13px] font-bold font-['Century_Gothic',sans-serif] ${activeCategory ? 'border-white/15 bg-[#141414] text-white/70 transition-colors hover:border-[#c9a84c] hover:text-white' : 'border-[#c9a84c] bg-[#1d1d1d] text-white'}`}>All styles</a>
           <div class="mt-4 space-y-4">
             {productCategories.map((category) => (
               <div class="border-b border-white/10 pb-4 last:border-b-0">
-                <a href={`/products/${category.slug}/`} class="block w-full text-left text-[14px] font-bold text-white transition-colors hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">{category.navLabel}</a>
+                <a href={`/products/${category.slug}/#catalog`} class={`block w-full text-left text-[14px] font-bold transition-colors hover:text-[#d8b456] font-['Century_Gothic',sans-serif] ${category.slug === activeCategory?.slug ? 'text-[#d8b456]' : 'text-white'}`}>{category.navLabel}</a>
                 <div class="mt-2 space-y-1 border-l border-white/15 pl-3">
                   {category.styles.map((style) => (
-                    <button type="button" class="catalog-filter block w-full py-0.5 text-left text-[12px] leading-[1.45] text-white/55 transition-colors hover:text-[#d8b456] font-['Century_Gothic',sans-serif]" data-catalog-filter={category.slug} data-catalog-subfilter={style.id} aria-pressed="false">{style.name}</button>
+                    <a
+                      href={`/products/${category.slug}/?style=${style.id}#catalog`}
+                      class="catalog-style-link block py-0.5 text-left text-[12px] leading-[1.45] text-white/55 transition-colors hover:text-[#d8b456] font-['Century_Gothic',sans-serif]"
+                      data-catalog-style-category={category.slug}
+                      data-catalog-style={style.id}
+                    >
+                      {style.name}
+                    </a>
                   ))}
                 </div>
               </div>
@@ -30,22 +47,42 @@ import CatalogProductCard from './CatalogProductCard.astro';
         <div class="border-b border-white/15 pb-7">
           <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO STYLE LIBRARY</p>
-              <h2 class="mt-3 text-[31px] font-bold leading-[1.12] text-white md:text-[43px] font-['Century_Gothic',sans-serif]">Browse activewear styles.</h2>
+              {activeCategory ? (
+                <>
+                  <h2 class="text-[31px] font-bold leading-[1.12] text-white md:text-[43px] font-['Century_Gothic',sans-serif]" data-catalog-heading>{activeCategory.navLabel}</h2>
+                  <nav class="mt-3 flex flex-wrap items-center gap-2 text-[13px] text-white/50 font-['Century_Gothic',sans-serif]" aria-label="Product category path">
+                    <a href="/products/#catalog" class="transition-colors hover:text-[#d8b456]">All products</a>
+                    <span aria-hidden="true">&rsaquo;</span>
+                    <a href={`/products/${activeCategory.slug}/#catalog`} class="hidden transition-colors hover:text-[#d8b456]" data-catalog-parent-link>{activeCategory.navLabel}</a>
+                    <span class="text-white/75" data-catalog-category-current>{activeCategory.navLabel}</span>
+                    <span class="hidden" aria-hidden="true" data-catalog-child-separator>&rsaquo;</span>
+                    <span class="hidden text-white/75" data-catalog-child-current></span>
+                  </nav>
+                </>
+              ) : (
+                <>
+                  <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO STYLE LIBRARY</p>
+                  <h2 class="mt-3 text-[31px] font-bold leading-[1.12] text-white md:text-[43px] font-['Century_Gothic',sans-serif]">Browse activewear styles.</h2>
+                </>
+              )}
             </div>
-            <p class="max-w-[400px] text-[14px] leading-[1.65] text-white/55 font-['Century_Gothic',sans-serif]">Choose a category to browse its dedicated style page, or search the complete catalog by style name, code or feature.</p>
+            <p class="max-w-[400px] text-[14px] leading-[1.65] text-white/55 font-['Century_Gothic',sans-serif]">{activeCategory ? activeCategory.shortDescription : 'Choose a category to browse its dedicated style page, or search the complete catalog by style name, code or feature.'}</p>
           </div>
-          <div class="mt-7 grid gap-3 md:grid-cols-[minmax(0,1fr)_180px]">
-            <label class="relative block">
+
+          <div class="mt-7 flex flex-col gap-3 md:flex-row">
+            <label class="relative block min-w-0 flex-1">
               <span class="sr-only">Search product styles</span>
               <input type="search" placeholder="Search styles, codes or product features" class="w-full border border-white/15 bg-[#171717] px-5 py-4 pr-12 text-[14px] text-white outline-none transition-colors placeholder:text-white/35 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-catalog-search-input />
               <span aria-hidden="true" class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[20px] text-[#d8b456]">&#8981;</span>
             </label>
-            <label class="sr-only" for="catalog-sort">Sort styles</label>
-            <select id="catalog-sort" class="border border-white/15 bg-[#171717] px-4 py-4 text-[13px] font-bold text-white outline-none focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-catalog-sort>
-              <option value="featured">Featured styles</option>
-              <option value="name">Style name A-Z</option>
-            </select>
+            <div class="inline-flex shrink-0 border border-white/15 bg-[#171717] p-1" role="group" aria-label="Product browsing layout">
+              <button type="button" class="catalog-view-button grid h-12 w-12 place-items-center text-white/65 transition-colors hover:text-white" data-catalog-view-button="list" aria-label="Browse products in a vertical list" title="Vertical list view" aria-pressed="false">
+                <span class="catalog-list-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+              </button>
+              <button type="button" class="catalog-view-button grid h-12 w-12 place-items-center text-white transition-colors hover:text-white" data-catalog-view-button="grid" aria-label="Browse products in a horizontal grid" title="Four-column grid view" aria-pressed="true">
+                <span class="catalog-grid-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -53,7 +90,7 @@ import CatalogProductCard from './CatalogProductCard.astro';
           <a href="/ready-to-ship" class="text-[12px] font-bold tracking-[0.1em] text-[#d8b456] transition-colors hover:text-white font-['Century_Gothic',sans-serif]">READY-TO-SHIP PROGRAM &#8594;</a>
         </div>
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" data-catalog-grid>
-          {productCatalog.map((product) => <CatalogProductCard product={product} searchable />)}
+          {catalogProducts.map((product) => <CatalogProductCard product={product} searchable />)}
         </div>
         <p class="hidden border-y border-white/15 py-10 text-center text-[15px] text-white/55 font-['Century_Gothic',sans-serif]" data-catalog-empty>No styles match that search. Try a broader term or contact Fitclo with your reference design.</p>
       </div>
@@ -66,19 +103,31 @@ import CatalogProductCard from './CatalogProductCard.astro';
 
   if (root) {
     const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-catalog-product]'));
-    const filters = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-catalog-filter]'));
     const searchInput = root.querySelector<HTMLInputElement>('[data-catalog-search-input]');
-    const sortSelect = root.querySelector<HTMLSelectElement>('[data-catalog-sort]');
     const empty = root.querySelector<HTMLElement>('[data-catalog-empty]');
     const grid = root.querySelector<HTMLElement>('[data-catalog-grid]');
+    const viewButtons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-catalog-view-button]'));
+    const styleLinks = Array.from(root.querySelectorAll<HTMLAnchorElement>('[data-catalog-style]'));
+    const categoryHeading = root.querySelector<HTMLElement>('[data-catalog-heading]');
+    const categoryParentLink = root.querySelector<HTMLAnchorElement>('[data-catalog-parent-link]');
+    const categoryCurrent = root.querySelector<HTMLElement>('[data-catalog-category-current]');
+    const categoryChildSeparator = root.querySelector<HTMLElement>('[data-catalog-child-separator]');
+    const categoryChildCurrent = root.querySelector<HTMLElement>('[data-catalog-child-current]');
     const params = new URLSearchParams(window.location.search);
-    let category = params.get('category') || 'all';
+    const fixedCategory = root.dataset.catalogCategory || 'all';
+    const fixedCategoryLabel = root.dataset.catalogCategoryLabel || '';
+    let category = fixedCategory === 'all' ? params.get('category') || 'all' : fixedCategory;
     let subcategory = params.get('style') || '';
     let search = '';
 
-    const hasInitialFilter = filters.some((filter) => filter.dataset.catalogFilter === category && (filter.dataset.catalogSubfilter || '') === subcategory);
+    const hasInitialFilter = cards.some((card) => {
+      const categoryMatches = category === 'all' || card.dataset.catalogCategory === category;
+      const subcategoryMatches = !subcategory || card.dataset.catalogSubcategory === subcategory;
+      return categoryMatches && subcategoryMatches;
+    });
+
     if (!hasInitialFilter) {
-      category = 'all';
+      category = fixedCategory === 'all' ? 'all' : fixedCategory;
       subcategory = '';
     }
 
@@ -92,29 +141,35 @@ import CatalogProductCard from './CatalogProductCard.astro';
         return isVisible;
       });
 
-      if (sortSelect?.value === 'name' && grid) {
-        visible.sort((a, b) => (a.dataset.catalogName || '').localeCompare(b.dataset.catalogName || '')).forEach((card) => grid.append(card));
-      }
-
-      filters.forEach((filter) => {
-        const isActive = filter.dataset.catalogFilter === category && (filter.dataset.catalogSubfilter || '') === subcategory;
-        filter.setAttribute('aria-pressed', String(isActive));
-        filter.classList.toggle('catalog-filter-active', isActive);
+      styleLinks.forEach((link) => {
+        const isActive = link.dataset.catalogStyleCategory === category && link.dataset.catalogStyle === subcategory;
+        link.classList.toggle('catalog-style-link-active', isActive);
       });
+
+      const activeStyleLink = styleLinks.find((link) => link.dataset.catalogStyleCategory === category && link.dataset.catalogStyle === subcategory);
+      const activeStyleName = activeStyleLink?.textContent?.trim();
+      const isSubcategory = Boolean(fixedCategory !== 'all' && activeStyleName);
+      if (categoryHeading) categoryHeading.textContent = isSubcategory ? activeStyleName || fixedCategoryLabel : fixedCategoryLabel;
+      categoryParentLink?.classList.toggle('hidden', !isSubcategory);
+      categoryCurrent?.classList.toggle('hidden', isSubcategory);
+      categoryChildSeparator?.classList.toggle('hidden', !isSubcategory);
+      categoryChildCurrent?.classList.toggle('hidden', !isSubcategory);
+      if (categoryChildCurrent && activeStyleName) categoryChildCurrent.textContent = activeStyleName;
 
       empty?.classList.toggle('hidden', visible.length !== 0);
     };
 
-    filters.forEach((filter) => {
-      filter.addEventListener('click', () => {
-        category = filter.dataset.catalogFilter || 'all';
-        subcategory = filter.dataset.catalogSubfilter || '';
-        const next = new URLSearchParams();
-        if (category !== 'all') next.set('category', category);
-        if (subcategory) next.set('style', subcategory);
-        const query = next.toString();
-        window.history.replaceState({}, '', `${window.location.pathname}${query ? `?${query}` : ''}#catalog`);
-        refresh();
+    const setView = (view: 'grid' | 'list') => {
+      grid?.classList.toggle('catalog-list-view', view === 'list');
+      viewButtons.forEach((button) => {
+        const isActive = button.dataset.catalogViewButton === view;
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+    };
+
+    viewButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        setView(button.dataset.catalogViewButton === 'list' ? 'list' : 'grid');
       });
     });
 
@@ -122,12 +177,23 @@ import CatalogProductCard from './CatalogProductCard.astro';
       search = searchInput.value.trim().toLowerCase();
       refresh();
     });
-    sortSelect?.addEventListener('change', refresh);
+
+    setView('grid');
     refresh();
   }
 </script>
 
 <style>
-  .catalog-filter[aria-pressed='true'] { color: #d8b456; }
-  .catalog-filter-active[data-catalog-filter='all'] { background: #1d1d1d; border-left-color: #d8b456; color: #ffffff; }
+  .catalog-style-link-active { color: #d8b456; }
+  .catalog-view-button[aria-pressed='true'] { background: #d8b456; color: #080808; }
+  .catalog-list-icon { display: grid; gap: 3px; width: 17px; }
+  .catalog-list-icon i { display: block; height: 3px; border: 1px solid currentColor; }
+  .catalog-grid-icon { display: grid; grid-template-columns: repeat(2, 6px); gap: 3px; }
+  .catalog-grid-icon i { display: block; height: 6px; border: 1px solid currentColor; }
+
+  @media (min-width: 640px) {
+    [data-catalog-grid].catalog-list-view { grid-template-columns: 1fr; }
+    [data-catalog-grid].catalog-list-view .catalog-product { display: grid; grid-template-columns: minmax(160px, 220px) minmax(0, 1fr); align-items: stretch; }
+    [data-catalog-grid].catalog-list-view .catalog-product > :first-child { align-self: stretch; aspect-ratio: auto; min-height: 160px; }
+  }
 </style>

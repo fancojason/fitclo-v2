@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import CategoryProductCollection from '../../components/CategoryProductCollection.astro';
+import CatalogBrowser from '../../components/CatalogBrowser.astro';
 import { productCategories, type ProductCategory } from '../../data/productCategories';
 
 export function getStaticPaths() {
@@ -78,7 +78,7 @@ const faqSchema = {
     </div>
   </section>
 
-  <CategoryProductCollection categorySlug={category.slug} />
+  <CatalogBrowser categorySlug={category.slug} />
 
   <section class="bg-[#090909] py-18 text-white md:py-24">
     <div class="mx-auto grid max-w-[1120px] gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">

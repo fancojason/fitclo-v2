@@ -1,6 +1,7 @@
 ---
+import { productCategories } from '../data/productCategories';
+
 const navItems = [
-  { name: 'Products', href: '/products' },
   { name: 'Ready to Ship', href: '/ready-to-ship' },
   { name: 'Private Label', href: '/private-label' },
   { name: 'Manufacturing', href: '/capabilities' },
@@ -27,6 +28,33 @@ const navItems = [
         </a>
       </div>
       <nav class="hidden md:flex space-x-10 items-center">
+        <div class="group/products relative flex h-[80px] items-center">
+          <a href="/products" class="relative flex items-center gap-2 text-[17px] font-normal text-white/90 transition-all duration-300 hover:-translate-y-[2px] hover:text-[#C9A84C] tracking-[0.5px] font-['Century_Gothic',sans-serif] pb-1.5">
+            Products
+            <span class="text-[12px] leading-none transition-transform duration-300 group-hover/products:rotate-180" aria-hidden="true">⌄</span>
+            <span class="absolute bottom-0 left-0 h-[1.5px] w-full origin-center scale-x-0 bg-[#C9A84C] transition-transform duration-300 group-hover/products:scale-x-100"></span>
+          </a>
+          <div class="pointer-events-none absolute left-1/2 top-[70px] w-[920px] -translate-x-1/2 translate-y-2 border border-white/10 bg-[#101010] p-6 opacity-0 shadow-2xl transition-all duration-200 group-hover/products:pointer-events-auto group-hover/products:translate-y-0 group-hover/products:opacity-100">
+            <div class="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
+              <p class="text-[10px] font-bold tracking-[0.2em] text-[#C9A84C] font-['Century_Gothic',sans-serif]">ACTIVEWEAR PRODUCT CATEGORIES</p>
+              <a href="/products" class="text-[11px] font-bold tracking-[0.1em] text-white/70 transition-colors hover:text-[#C9A84C] font-['Century_Gothic',sans-serif]">VIEW ALL PRODUCTS &#8594;</a>
+            </div>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-6">
+              {productCategories.map((category) => (
+                <div>
+                  <a href={`/products/${category.slug}/`} class="group/item -mx-2 block px-2 py-1.5 transition-colors hover:bg-white/5">
+                    <span class="block text-[14px] font-bold text-white transition-colors group-hover/item:text-[#C9A84C] font-['Century_Gothic',sans-serif]">{category.navLabel}</span>
+                  </a>
+                  <div class="mt-1 space-y-1 pl-2">
+                    {category.styles.map((style) => (
+                      <a href={`/products/${category.slug}/#${style.id}`} class="block text-[11px] leading-[1.45] text-white/50 transition-colors hover:text-[#C9A84C] font-['Century_Gothic',sans-serif]">{style.name}</a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         {navItems.map(item => (
           <a href={item.href} class="relative text-[17px] font-normal text-white/90 hover:text-[#C9A84C] hover:translate-y-[-2px] transition-all duration-300 tracking-[0.5px] font-['Century_Gothic',sans-serif] pb-1.5 group">
             {item.name}

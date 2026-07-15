@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { productCategories } from '../data/productCategories';
 
 const productSchema = {
   '@context': 'https://schema.org',
@@ -104,6 +105,32 @@ const serviceSchema = {
           Need Custom Branding? Explore Private Label Services
           <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Landing Pages -->
+  <section class="py-20 bg-[#f7f7f6] border-y border-black/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="text-[#b0882f] font-bold tracking-[0.2em] text-[11px] mb-3 uppercase font-['Century_Gothic',sans-serif]">SHOP BY CATEGORY</p>
+          <h2 class="text-[30px] md:text-[40px] font-bold text-black leading-tight font-['Century_Gothic',sans-serif]">Explore a product category <span class="text-[#b0882f] italic">in depth.</span></h2>
+        </div>
+        <p class="max-w-[430px] text-[15px] leading-[1.65] text-gray-600 font-['Century_Gothic',sans-serif]">Each category page covers the styles, development decisions and fabric directions buyers need before sampling.</p>
+      </div>
+      <div class="mt-11 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {productCategories.map((category) => (
+          <a href={`/products/${category.slug}/`} class="group relative min-h-[210px] overflow-hidden bg-black p-7 text-white">
+            <img src={category.heroImage} alt="" class="absolute inset-0 h-full w-full object-cover opacity-45 transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0 bg-black/45"></div>
+            <div class="relative flex h-full flex-col justify-end">
+              <p class="text-[10px] font-bold tracking-[0.18em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO PRODUCT RANGE</p>
+              <h3 class="mt-3 text-[25px] font-bold leading-[1.12] font-['Century_Gothic',sans-serif]">{category.navLabel}</h3>
+              <span class="mt-4 text-[12px] font-bold tracking-[0.1em] text-white/80 transition-colors group-hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">EXPLORE CATEGORY &#8594;</span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>

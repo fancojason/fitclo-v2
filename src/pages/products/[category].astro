@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CategoryProductCollection from '../../components/CategoryProductCollection.astro';
 import { productCategories, type ProductCategory } from '../../data/productCategories';
 
 export function getStaticPaths() {
@@ -48,7 +49,7 @@ const faqSchema = {
   structuredData={[productSchema, faqSchema]}
   autoArticleSchema={false}
 >
-  <section class="relative min-h-[560px] pt-[80px] overflow-hidden bg-[#0a0a0a] flex items-end">
+  <section class="relative min-h-[650px] pt-[80px] overflow-hidden bg-[#0a0a0a] flex items-end">
     <img
       src={category.heroImage}
       alt={category.heroAlt}
@@ -76,6 +77,8 @@ const faqSchema = {
       </div>
     </div>
   </section>
+
+  <CategoryProductCollection categorySlug={category.slug} />
 
   <section class="bg-white py-18 md:py-24">
     <div class="mx-auto grid max-w-[1120px] gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">

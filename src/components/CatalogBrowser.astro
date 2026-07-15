@@ -1,0 +1,148 @@
+---
+import { productCategories } from '../data/productCategories';
+import { productCatalog } from '../data/productCatalog';
+import CatalogProductCard from './CatalogProductCard.astro';
+
+const categoryCounts = new Map(
+  productCategories.map((category) => [
+    category.slug,
+    productCatalog.filter((product) => product.category === category.slug).length,
+  ]),
+);
+---
+
+<section id="catalog" class="bg-[#f6f6f4] py-14 md:py-20" data-catalog-root>
+  <div class="mx-auto max-w-[1440px] px-5 lg:px-10">
+    <div class="grid gap-8 lg:grid-cols-[270px_minmax(0,1fr)] lg:gap-12">
+      <aside class="lg:sticky lg:top-[106px] lg:max-h-[calc(100vh-132px)] lg:overflow-y-auto lg:pr-4">
+        <div class="border-y border-black/15 py-5">
+          <div class="flex items-center justify-between">
+            <p class="text-[11px] font-bold tracking-[0.18em] text-[#171717] font-['Century_Gothic',sans-serif]">PRODUCT CATEGORIES</p>
+            <span class="text-[11px] text-[#7b7b7b] font-['Century_Gothic',sans-serif]">{productCatalog.length} styles</span>
+          </div>
+          <button type="button" class="catalog-filter mt-5 flex w-full items-center justify-between border-l-2 border-[#c9a84c] bg-[#ebe7dc] px-4 py-3 text-left text-[13px] font-bold text-[#171717] font-['Century_Gothic',sans-serif]" data-catalog-filter="all" aria-pressed="true">All styles <span>{productCatalog.length}</span></button>
+          <div class="mt-4 space-y-4">
+            {productCategories.map((category) => (
+              <div class="border-b border-black/10 pb-4 last:border-b-0">
+                <button type="button" class="catalog-filter flex w-full items-center justify-between text-left text-[14px] font-bold text-[#202020] transition-colors hover:text-[#a77c1c] font-['Century_Gothic',sans-serif]" data-catalog-filter={category.slug} aria-pressed="false">
+                  <span>{category.navLabel}</span><span class="text-[11px] font-normal text-[#8a8a8a]">{categoryCounts.get(category.slug)}</span>
+                </button>
+                <div class="mt-2 space-y-1 border-l border-black/15 pl-3">
+                  {category.styles.map((style) => (
+                    <button type="button" class="catalog-filter block w-full py-0.5 text-left text-[12px] leading-[1.45] text-[#6c6c6c] transition-colors hover:text-[#a77c1c] font-['Century_Gothic',sans-serif]" data-catalog-filter={category.slug} data-catalog-subfilter={style.id} aria-pressed="false">{style.name}</button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </aside>
+
+      <div>
+        <div class="border-b border-black/15 pb-7">
+          <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p class="text-[11px] font-bold tracking-[0.2em] text-[#a77c1c] font-['Century_Gothic',sans-serif]">FITCLO STYLE LIBRARY</p>
+              <h2 class="mt-3 text-[31px] font-bold leading-[1.12] text-[#171717] md:text-[43px] font-['Century_Gothic',sans-serif]">Browse activewear styles.</h2>
+            </div>
+            <p class="max-w-[400px] text-[14px] leading-[1.65] text-[#616161] font-['Century_Gothic',sans-serif]">Filter by product type or search a style name, code or feature. Availability and branding options are confirmed with the Fitclo team.</p>
+          </div>
+          <div class="mt-7 grid gap-3 md:grid-cols-[minmax(0,1fr)_180px]">
+            <label class="relative block">
+              <span class="sr-only">Search product styles</span>
+              <input type="search" placeholder="Search styles, codes or product features" class="w-full border border-black/15 bg-white px-5 py-4 pr-12 text-[14px] text-[#191919] outline-none transition-colors placeholder:text-[#999] focus:border-[#c9a84c] font-['Century_Gothic',sans-serif]" data-catalog-search-input />
+              <span aria-hidden="true" class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[20px] text-[#a77c1c]">&#8981;</span>
+            </label>
+            <label class="sr-only" for="catalog-sort">Sort styles</label>
+            <select id="catalog-sort" class="border border-black/15 bg-white px-4 py-4 text-[13px] font-bold text-[#242424] outline-none focus:border-[#c9a84c] font-['Century_Gothic',sans-serif]" data-catalog-sort>
+              <option value="featured">Featured styles</option>
+              <option value="name">Style name A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between py-6">
+          <p class="text-[13px] text-[#616161] font-['Century_Gothic',sans-serif]" data-catalog-results>{productCatalog.length} styles shown</p>
+          <a href="/ready-to-ship" class="text-[12px] font-bold tracking-[0.1em] text-[#a77c1c] transition-colors hover:text-black font-['Century_Gothic',sans-serif]">READY-TO-SHIP PROGRAM &#8594;</a>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-catalog-grid>
+          {productCatalog.map((product) => <CatalogProductCard product={product} searchable />)}
+        </div>
+        <p class="hidden border-y border-black/15 py-10 text-center text-[15px] text-[#626262] font-['Century_Gothic',sans-serif]" data-catalog-empty>No styles match that search. Try a broader term or contact Fitclo with your reference design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-catalog-root]');
+
+  if (root) {
+    const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-catalog-product]'));
+    const filters = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-catalog-filter]'));
+    const searchInput = root.querySelector<HTMLInputElement>('[data-catalog-search-input]');
+    const sortSelect = root.querySelector<HTMLSelectElement>('[data-catalog-sort]');
+    const results = root.querySelector<HTMLElement>('[data-catalog-results]');
+    const empty = root.querySelector<HTMLElement>('[data-catalog-empty]');
+    const grid = root.querySelector<HTMLElement>('[data-catalog-grid]');
+    const params = new URLSearchParams(window.location.search);
+    let category = params.get('category') || 'all';
+    let subcategory = params.get('style') || '';
+    let search = '';
+
+    const hasInitialFilter = filters.some((filter) => filter.dataset.catalogFilter === category && (filter.dataset.catalogSubfilter || '') === subcategory);
+    if (!hasInitialFilter) {
+      category = 'all';
+      subcategory = '';
+    }
+
+    const refresh = () => {
+      const visible = cards.filter((card) => {
+        const categoryMatches = category === 'all' || card.dataset.catalogCategory === category;
+        const subcategoryMatches = !subcategory || card.dataset.catalogSubcategory === subcategory;
+        const searchMatches = !search || (card.dataset.catalogSearch || '').includes(search);
+        const isVisible = categoryMatches && subcategoryMatches && searchMatches;
+        card.hidden = !isVisible;
+        return isVisible;
+      });
+
+      if (sortSelect?.value === 'name' && grid) {
+        visible.sort((a, b) => (a.dataset.catalogName || '').localeCompare(b.dataset.catalogName || '')).forEach((card) => grid.append(card));
+      }
+
+      filters.forEach((filter) => {
+        const isActive = filter.dataset.catalogFilter === category && (filter.dataset.catalogSubfilter || '') === subcategory;
+        filter.setAttribute('aria-pressed', String(isActive));
+        filter.classList.toggle('catalog-filter-active', isActive);
+      });
+
+      if (results) results.textContent = `${visible.length} ${visible.length === 1 ? 'style' : 'styles'} shown`;
+      empty?.classList.toggle('hidden', visible.length !== 0);
+    };
+
+    filters.forEach((filter) => {
+      filter.addEventListener('click', () => {
+        category = filter.dataset.catalogFilter || 'all';
+        subcategory = filter.dataset.catalogSubfilter || '';
+        const next = new URLSearchParams();
+        if (category !== 'all') next.set('category', category);
+        if (subcategory) next.set('style', subcategory);
+        const query = next.toString();
+        window.history.replaceState({}, '', `${window.location.pathname}${query ? `?${query}` : ''}#catalog`);
+        refresh();
+      });
+    });
+
+    searchInput?.addEventListener('input', () => {
+      search = searchInput.value.trim().toLowerCase();
+      refresh();
+    });
+    sortSelect?.addEventListener('change', refresh);
+    refresh();
+  }
+</script>
+
+<style>
+  .catalog-filter[aria-pressed='true'] { color: #a77c1c; }
+  .catalog-filter-active[data-catalog-filter='all'] { background: #ebe7dc; border-left-color: #c9a84c; }
+</style>

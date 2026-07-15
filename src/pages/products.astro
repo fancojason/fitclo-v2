@@ -1,391 +1,74 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CatalogBrowser from '../components/CatalogBrowser.astro';
+import { productCatalog } from '../data/productCatalog';
 import { productCategories } from '../data/productCategories';
 
 const productSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: 'Private Label Activewear Manufacturing',
-  brand: {
-    '@type': 'Brand',
-    name: 'Fitclo',
-  },
-  manufacturer: {
-    '@id': 'https://www.fitcloo.com/#organization',
-  },
-  category: 'Activewear, Yoga Wear, Gym Wear, Sportswear',
-  description:
-    "Fitclo manufactures private label leggings, sports bras, yoga sets, gym wear and athleisure apparel for global fitness brands.",
-  image: 'https://www.fitcloo.com/images/intelligence/cover-private-label.png',
-  offers: {
-    '@type': 'AggregateOffer',
-    priceCurrency: 'USD',
-    availability: 'https://schema.org/InStock',
-    offerCount: 8,
-    seller: {
-      '@id': 'https://www.fitcloo.com/#organization',
-    },
-  },
-};
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  serviceType: 'Activewear Manufacturing',
-  provider: {
-    '@id': 'https://www.fitcloo.com/#organization',
-  },
-  areaServed: ['United States', 'United Kingdom', 'Australia', 'Canada', 'European Union'],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Fitclo Activewear Manufacturing Solutions',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Private Label Activewear',
-          description: 'Logo, label, packaging and stock style customization for activewear brands.',
-        },
+  '@type': 'CollectionPage',
+  name: 'Fitclo Activewear Style Library',
+  description: 'Browse Fitclo activewear styles by category, product type and style code. Confirm current availability, MOQ and private label options with the Fitclo team.',
+  url: 'https://www.fitcloo.com/products/',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: productCatalog.length,
+    itemListElement: productCatalog.map((product, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Product',
+        name: product.name,
+        image: product.image,
+        sku: product.styleCode,
+        category: product.category,
       },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'OEM/ODM Activewear Development',
-          description: 'Custom pattern, fabric, color, trim and technical activewear development.',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Ready-to-Ship Wholesale Activewear',
-          description: 'Low MOQ stock leggings, sports bras, yoga sets and gym wear with fast dispatch.',
-        },
-      },
-    ],
+    })),
   },
 };
 ---
 
 <BaseLayout
-  title="Premium Activewear & Fitness Apparel Manufacturing | FITCLO"
-  description="Explore Fitclo's comprehensive activewear manufacturing solutions. From performance leggings to supportive sports bras, we offer premium private label OEM/ODM services."
-  structuredData={[productSchema, serviceSchema]}
+  title="Activewear Style Library | FITCLO"
+  description="Browse Fitclo activewear styles by category, product type and style code. Explore leggings, sports bras, gym shorts, matching sets and more."
+  image="https://www.fitcloo.com/images/product-categories/matching-sets-hero.png"
+  structuredData={productSchema}
+  autoArticleSchema={false}
 >
-  <!-- Hero Section -->
-  <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="https://sc04.alicdn.com/kf/H7e7f7e2a9a9a4a7a8a8a8a8a8a8a8a8a8.jpg" 
-        alt="Manufacturing Solutions" 
-        class="w-full h-full object-cover opacity-40"
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
-    </div>
-    <div class="relative z-10 text-center px-4">
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] font-['Century_Gothic',sans-serif] tracking-tight">
-        Manufacturing <span class="text-[#C9A84C] italic">Solutions</span>
-      </h1>
-      <p class="text-[18px] md:text-[20px] text-white/80 max-w-2xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
-        Precision-engineered private label activewear for global performance brands.
-      </p>
-    </div>
-  </section>
-
-  <!-- Introduction / AI Context -->
-  <section class="py-24 bg-white border-b border-gray-100">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <p class="text-[16px] md:text-[18px] text-gray-600 leading-[1.8] font-['Century_Gothic',sans-serif]">
-        Fitclo is a leading vertically-integrated <strong class="text-black font-bold">activewear manufacturer</strong> specializing in high-end technical sportswear. We offer a comprehensive catalog of <strong class="text-black font-bold">OEM and ODM services</strong>, helping fitness startups and established brands scale with premium quality fabrics, innovative designs, and sustainable production processes.
-      </p>
-      <div class="mt-12">
-        <a href="/private-label" class="group inline-flex items-center text-[#C9A84C] font-bold font-['Century_Gothic',sans-serif] text-[14px] md:text-[15px] uppercase tracking-[0.2em]">
-          Need Custom Branding? Explore Private Label Services
-          <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Category Landing Pages -->
-  <section class="py-20 bg-[#f7f7f6] border-y border-black/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p class="text-[#b0882f] font-bold tracking-[0.2em] text-[11px] mb-3 uppercase font-['Century_Gothic',sans-serif]">SHOP BY CATEGORY</p>
-          <h2 class="text-[30px] md:text-[40px] font-bold text-black leading-tight font-['Century_Gothic',sans-serif]">Explore a product category <span class="text-[#b0882f] italic">in depth.</span></h2>
-        </div>
-        <p class="max-w-[430px] text-[15px] leading-[1.65] text-gray-600 font-['Century_Gothic',sans-serif]">Each category page covers the styles, development decisions and fabric directions buyers need before sampling.</p>
-      </div>
-      <div class="mt-11 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {productCategories.map((category) => (
-          <a href={`/products/${category.slug}/`} class="group relative min-h-[210px] overflow-hidden bg-black p-7 text-white">
-            <img src={category.heroImage} alt="" class="absolute inset-0 h-full w-full object-cover opacity-45 transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-            <div class="absolute inset-0 bg-black/45"></div>
-            <div class="relative flex h-full flex-col justify-end">
-              <p class="text-[10px] font-bold tracking-[0.18em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO PRODUCT RANGE</p>
-              <h3 class="mt-3 text-[25px] font-bold leading-[1.12] font-['Century_Gothic',sans-serif]">{category.navLabel}</h3>
-              <span class="mt-4 text-[12px] font-bold tracking-[0.1em] text-white/80 transition-colors group-hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">EXPLORE CATEGORY &#8594;</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Categories Grid -->
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
-          OUR PRODUCTS
-        </h3>
-        <h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold text-black leading-tight font-['Century_Gothic',sans-serif] tracking-tight">
-          Product <span class="text-[#C9A84C] italic">Categories</span>
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {[
-          {
-            title: "Women's Yoga Set",
-            desc: "Premium multi-color activewear set featuring high-waisted, squat-proof leggings and four-way stretch fabric.",
-            image: 'https://sc01.alicdn.com/kf/Ha73bf41967194aeeb3016945aacc9ba9R.jpg',
-            moq: '50 Sets'
-          },
-          {
-            title: "Seamless Sports Bra",
-            desc: "High-support seamless sports bra featuring moisture-wicking technology and premium removable cups.",
-            image: 'https://sc01.alicdn.com/kf/Hcd3a09975e5547b9baa61b4fb2cee8390.png',
-            moq: '50 Pcs'
-          },
-          {
-            title: "High-Waisted Leggings",
-            desc: "Buttery-soft crossover leggings with high-waisted compression support. 100% squat-proof coverage.",
-            image: 'https://sc01.alicdn.com/kf/H7d27da37e714412b9adb784a2f8645b1v.jpg',
-            moq: '50 Pcs'
-          },
-          {
-            title: "Athletic Flare Pants",
-            desc: "Elegant high-waisted flare pants designed with breathable, 4-way stretch fabric. Perfect for premium athleisure.",
-            image: 'https://sc01.alicdn.com/kf/H6dea2380db0944b0957904c8458265c8H.png',
-            moq: '50 Pcs'
-          },
-          {
-            title: "Off-Shoulder Yoga T-Shirt",
-            desc: "Elegant off-shoulder yoga t-shirt with breathable, moisture-wicking fabric. Perfect for outdoor sports.",
-            image: 'https://sc01.alicdn.com/kf/H520e3b633c474afc8114bb1185cd10cf7.jpg',
-            moq: '50 Pcs'
-          },
-          {
-            title: "Gym Workout Tank Top",
-            desc: "Premium compression workout tank top with built-in shelf bra. Breathable, moisture-wicking fabric.",
-            image: 'https://sc01.alicdn.com/kf/H562806e88b924244a95814d15769ed64P.png',
-            moq: '50 Pcs'
-          },
-          {
-            title: "Yoga Biker Shorts",
-            desc: "High-waist seamless yoga biker shorts with scrunch butt lifting effect. Four-way stretch and squat-proof.",
-            image: 'https://sc01.alicdn.com/kf/Ha39d99ef0dec44eb9b423d0b8860bfc6s.png',
-            moq: '50 Pcs'
-          },
-          {
-            title: "One-Piece Yoga Jumpsuit",
-            desc: "Elegant one-piece flared yoga jumpsuit featuring a deep V-neck and open back design.",
-            image: 'https://sc01.alicdn.com/kf/H18faaf7b76ce499fb29fd8a0f9c3a519Y.png',
-            moq: '50 Pcs'
-          },
-          {
-            title: "Full-Zip Training Jacket",
-            desc: "Slim-fit full-zip training jacket with thumbholes and high-neck protection. Lightweight and breathable.",
-            image: 'https://sc01.alicdn.com/kf/H58675b8fe22f4f079d84fb0103d941355.png',
-            moq: '50 Pcs'
-          },
-          {
-            title: "Quick-Dry Running Shorts",
-            desc: "Lightweight, double-layer running shorts with built-in liner and hidden zipper pocket.",
-            image: 'https://sc01.alicdn.com/kf/H984e3727f61e43989733e8edd3444063N.png',
-            moq: '50 Pcs'
-          },
-          {
-            title: "Men's Performance T-Shirt",
-            desc: "Premium men's athletic t-shirt with flatlock seams and anti-odor technology. High-durability fabric.",
-            image: 'https://sc01.alicdn.com/kf/Ha15c02eb9afa405a99b21e7b8bd2db7eD.png',
-            moq: '50 Pcs'
-          },
-          {
-            title: "Tennis & Golf Skirt Set",
-            desc: "Professional 2-piece tennis set including a supportive sports bra and high-waist pleated skirt.",
-            image: 'https://sc01.alicdn.com/kf/H03e3e2128b9c458aab0c23e1628b1c12S.png',
-            moq: '50 Sets'
-          },
-          {
-            title: "Halter Neck Flare Set",
-            desc: "Elegant halter neck crop top paired with high-waist flared yoga pants. Sleek and comfortable.",
-            image: 'https://sc01.alicdn.com/kf/H7fb855f4021c442282960feede735508U.png',
-            moq: '50 Sets'
-          },
-          {
-            title: "Cross-Waist Yoga Set",
-            desc: "Supportive sports bra and high-waisted crossover leggings. Squat-proof, moisture-wicking fabric.",
-            image: 'https://sc01.alicdn.com/kf/H88c276abc26c4684b0599dd337478291u.jpg',
-            moq: '50 Sets'
-          },
-          {
-            title: "Wide-Leg Workout Set",
-            desc: "Comfortable V-neck sports bra paired with flowy wide-leg active pants. Contrast side stripes.",
-            image: 'https://sc01.alicdn.com/kf/He9251d9f17744141b596b130f31eac71N.png',
-            moq: '50 Sets'
-          },
-          {
-            title: "Capri Yoga Set",
-            desc: "Classic racerback tank top and matching capri leggings. High-performance stretch fabric.",
-            image: 'https://sc01.alicdn.com/kf/H551e8c3c2b6c44928bc7be5acaf07853S.png',
-            moq: '50 Sets'
-          },
-          {
-            title: "350GSM Heavy Hoodie",
-            desc: "Ultra-soft 350GSM heavy cotton fleece hoodie. Features a structured fit and premium ribbed cuffs.",
-            image: 'https://sc01.alicdn.com/kf/H435e4c549528420c8262fa3599225f82K.png',
-            moq: '50 Pcs'
-          },
-          {
-            title: "Halter Back Flare Yoga Set",
-            desc: "Elegant halter-neck sports bra paired with high-waisted flared yoga pants. Features an open back.",
-            image: 'https://sc01.alicdn.com/kf/H143895ff824349cf957ba8de40f0b4eey.jpg',
-            moq: '50 Sets'
-          },
-          {
-            title: "Premium 3-Piece Yoga Set",
-            desc: "Complete 3-piece performance set including a jacket, sports bra, and high-waist leggings.",
-            image: 'https://sc01.alicdn.com/kf/H4fe3ea7f7db24b34b096003e21f5bf682.png',
-            moq: '50 Sets'
-          },
-          {
-            title: "Wide-Leg Studio Workout Set",
-            desc: "Versatile studio set featuring a cross-back sports bra and flowy wide-leg active pants.",
-            image: 'https://sc01.alicdn.com/kf/H252cad5ce91d487d9b7557fbb34a37feO.png',
-            moq: '50 Sets'
-          },
-          {
-            title: "Custom Zip Performance Set",
-            desc: "Bespoke zip-up performance set with contrast piping and open back design. Tailored with premium fabric.",
-            image: "https://sc01.alicdn.com/kf/H27c85f7b17c64339a2c34847e22f799ag.png",
-            moq: "150"
-          },
-          {
-            title: "Deep-V Open Back Jumpsuit",
-            desc: "Custom navy blue jumpsuits featuring a signature open-back cutout. High-performance compression fabric.",
-            image: "https://sc01.alicdn.com/kf/H584606c73e61433b8c2016ece79e7f9c1.png",
-            moq: "150"
-          },
-          {
-            title: "Zip-Bra & Cross-Waist Set",
-            desc: "Sophisticated 2-piece set with a functional zip-front bra and crossover leggings.",
-            image: "https://sc01.alicdn.com/kf/Hb0aca160c56742728d9ea91d985fb2aeQ.png",
-            moq: "150"
-          },
-          {
-            title: "Flared Compression Jumpsuit",
-            desc: "Grey flared studio jumpsuits with custom piping. Engineered for premium boutiques based on specs.",
-            image: "https://sc01.alicdn.com/kf/Hb8098d7ea10f494e9f70b5fb9a5a61a4E.png",
-            moq: "150"
-          },
-          {
-            title: "Premium Yoga Shorts Set",
-            desc: "High-waist sculpting shorts with supportive racerback bra. Professional 4-needle 6-thread stitching.",
-            image: "https://sc01.alicdn.com/kf/H772bb8cd8d0b43248173234fa5346f67P.png",
-            moq: "50"
-          },
-          {
-            title: "Essential Yoga Leggings Set",
-            desc: "Classic high-compression leggings paired with a versatile scoop-neck sports bra. 10+ colors available.",
-            image: "https://sc01.alicdn.com/kf/H699564deaff04b57ab05c9d1e6b95066a.png",
-            moq: "50"
-          },
-          {
-            title: "Luxury Criss-Cross Bra",
-            desc: "Elegant open-back design with supportive compression fabric. Ideal for luxury branding. High-elastic performance material.",
-            image: "https://sc01.alicdn.com/kf/Hde2258a46c8d40f6b3a38098a28a49cfJ.png",
-            moq: "50"
-          },
-          {
-            title: "Active Performance Tennis Dress",
-            desc: "Elegant all-in-one tennis dress with built-in shorts and supportive racerback. High-performance moisture-wicking fabric.",
-            image: "https://sc01.alicdn.com/kf/H9d1abad109d7478080461dad9271b7ecG.png",
-            moq: "50"
-          }
-        ].map((item) => (
-          <div class="group flex flex-col h-full bg-white border border-gray-100 rounded-[32px] p-6 hover:shadow-xl transition-all duration-300">
-            <div class="aspect-[3/4] bg-gray-50 rounded-[24px] overflow-hidden mb-6 relative">
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              
-              {item.moq && (
-                <div class="absolute top-4 left-4 z-20">
-                  <span class="bg-[#C9A84C] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
-                    MOQ: {item.moq}
-                  </span>
-                </div>
-              )}
-            </div>
-            <h3 class="text-[18px] md:text-[21px] font-bold uppercase tracking-tight mb-3 font-['Century_Gothic',sans-serif] group-hover:text-[#C9A84C] transition-colors">
-              {item.title}
-            </h3>
-            <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6] mb-8 flex-grow">
-              {item.desc}
-            </p>
-            <a 
-              href={`https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20am%20interested%20in%20your%20${encodeURIComponent(item.title)}.%20Can%20we%20discuss%20the%20details%3F`}
-              target="_blank"
-              data-product={item.title.includes('Set') ? 'Yoga Set' : (item.title.includes('Bra') ? 'Sport Bras' : (item.title.includes('Leggings') ? 'Leggings' : 'Multiple Types / others'))}
-              class="quote-product-btn w-full py-3.5 rounded-xl text-center text-[13px] font-bold text-black bg-[#C9A84C] hover:bg-black hover:text-[#C9A84C] transition-all duration-300 font-['Century_Gothic',sans-serif] tracking-widest uppercase"
-            >
-              → Get Wholesale Price
-            </a>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Technical Highlights (SEO/AI Focus) -->
-  <section class="py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-3 gap-12">
-        <div class="bg-white p-10 rounded-[40px] shadow-sm border border-gray-100">
-          <h3 class="text-[18px] md:text-[21px] font-bold mb-4 uppercase tracking-tight font-['Century_Gothic',sans-serif]">Advanced Fabrics</h3>
-          <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6]">We utilize recycled polyesters, GRS-certified materials, and antimicrobial treatments to ensure peak performance and comfort.</p>
-        </div>
-        <div class="bg-white p-10 rounded-[40px] shadow-sm border border-gray-100">
-          <h3 class="text-[18px] md:text-[21px] font-bold mb-4 uppercase tracking-tight font-['Century_Gothic',sans-serif]">Craftsmanship</h3>
-          <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6]">Specializing in Flat-lock stitching, Laser-cutting, and Heat-seal bonding for maximum durability and premium hand-feel.</p>
-        </div>
-        <div class="bg-white p-10 rounded-[40px] shadow-sm border border-gray-100">
-          <h3 class="text-[18px] md:text-[21px] font-bold mb-4 uppercase tracking-tight font-['Century_Gothic',sans-serif]">Sustainability</h3>
-          <p class="text-gray-600 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-[1.6]">Eco-friendly dyeing processes and reduced-waste cutting techniques focused on minimal environmental impact.</p>
+  <section class="relative min-h-[430px] overflow-hidden bg-[#0c0c0c] pt-[80px]">
+    <img src="/images/product-categories/matching-sets-hero.png" alt="Fitclo activewear style library" class="absolute inset-0 h-full w-full object-cover object-center opacity-70" fetchpriority="high" />
+    <div class="absolute inset-0 bg-black/55"></div>
+    <div class="relative mx-auto flex min-h-[430px] max-w-[1240px] items-end px-6 pb-14 pt-20 lg:px-10 lg:pb-16">
+      <div class="max-w-[700px]">
+        <p class="text-[11px] font-bold tracking-[0.22em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO PRODUCT CATALOG</p>
+        <h1 class="mt-5 text-[42px] font-bold leading-[1.04] text-white sm:text-[56px] lg:text-[66px] font-['Century_Gothic',sans-serif]">Browse activewear styles for your next collection.</h1>
+        <p class="mt-6 max-w-[590px] text-[16px] leading-[1.75] text-white/85 md:text-[18px] font-['Century_Gothic',sans-serif]">Search by style name or code, or use the category navigation to compare silhouettes before requesting availability, branding and factory pricing.</p>
+        <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[12px] font-bold tracking-[0.1em] text-white/80 font-['Century_Gothic',sans-serif]">
+          <span>{productCatalog.length} CURRENT STYLES</span><span>{productCategories.length} CORE CATEGORIES</span><span>PRIVATE LABEL READY</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-24 bg-[#0B0B0B] text-white text-center">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-[32px] md:text-[48px] lg:text-[56px] font-bold uppercase tracking-tight mb-12 font-['Century_Gothic',sans-serif] leading-tight">
-        Ready to Build Your <br/><span class="text-[#C9A84C] italic">Product Line?</span>
-      </h2>
-      <a href="/contact" class="group relative inline-flex items-center space-x-4 bg-[#C9A84C] text-[#0A0A0F] px-[40px] py-[18px] rounded-lg text-[16px] font-[900] transition-all hover:scale-[1.02] hover:bg-[#d4b55a] active:scale-95 shadow-[0_15px_30px_rgba(201,168,76,0.2)] font-['Century_Gothic',sans-serif] uppercase tracking-widest">
-        <span>Get Factory Pricing</span>
-        <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </a>
+  <CatalogBrowser />
+
+  <section class="bg-[#111111] py-16 text-white">
+    <div class="mx-auto grid max-w-[1240px] gap-8 px-6 md:grid-cols-3 lg:px-10">
+      <div class="border-t border-[#d8b456] pt-5">
+        <p class="text-[12px] font-bold tracking-[0.15em] text-[#d8b456] font-['Century_Gothic',sans-serif]">01</p>
+        <h2 class="mt-4 text-[21px] font-bold font-['Century_Gothic',sans-serif]">Find a reference style</h2>
+        <p class="mt-3 text-[14px] leading-[1.65] text-white/65 font-['Century_Gothic',sans-serif]">Use the sidebar and search to narrow down silhouettes, product families and details.</p>
+      </div>
+      <div class="border-t border-[#d8b456] pt-5">
+        <p class="text-[12px] font-bold tracking-[0.15em] text-[#d8b456] font-['Century_Gothic',sans-serif]">02</p>
+        <h2 class="mt-4 text-[21px] font-bold font-['Century_Gothic',sans-serif]">Confirm availability</h2>
+        <p class="mt-3 text-[14px] leading-[1.65] text-white/65 font-['Century_Gothic',sans-serif]">Ask Fitclo for the current stock, colour, sample and lead-time status of the selected style.</p>
+      </div>
+      <div class="border-t border-[#d8b456] pt-5">
+        <p class="text-[12px] font-bold tracking-[0.15em] text-[#d8b456] font-['Century_Gothic',sans-serif]">03</p>
+        <h2 class="mt-4 text-[21px] font-bold font-['Century_Gothic',sans-serif]">Add your brand</h2>
+        <p class="mt-3 text-[14px] leading-[1.65] text-white/65 font-['Century_Gothic',sans-serif]">Discuss logo, labels, packaging, colours and quantity for a ready-to-ship or custom production route.</p>
+      </div>
     </div>
   </section>
 </BaseLayout>

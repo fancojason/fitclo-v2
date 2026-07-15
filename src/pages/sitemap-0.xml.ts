@@ -39,15 +39,20 @@ const lastModifiedByPath = new Map<string, string>([
   ['/', '2026-07-04'],
   ['/about/', '2026-07-10'],
   ['/activewear-intelligence/', '2026-07-10'],
-  ['/blogs/', '2026-07-11'],
+  ['/blogs/', '2026-07-15'],
   ['/capabilities/', '2026-06-18'],
   ['/contact/', '2026-07-10'],
   ['/guides/', '2026-07-10'],
   ['/private-label/', '2026-07-10'],
   ['/products/', '2026-07-10'],
   ['/ready-to-ship/', '2026-07-10'],
+  ['/blogs/activewear-manufacturer-ecuador-import-planning/', '2026-07-15'],
+  ['/blogs/activewear-manufacturer-honduras/', '2026-07-15'],
   ['/blogs/custom-activewear-manufacturing-process/', '2026-07-14'],
   ['/blogs/dfyne-style-activewear-manufacturing/', '2026-07-14'],
+  ['/blogs/latin-america-activewear-sourcing-guide/', '2026-07-15'],
+  ['/blogs/private-label-activewear-manufacturer-costa-rica/', '2026-07-15'],
+  ['/blogs/private-label-activewear-nicaragua/', '2026-07-15'],
 ]);
 
 const getLastModified = (path: string) => {

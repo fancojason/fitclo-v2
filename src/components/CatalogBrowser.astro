@@ -2,31 +2,19 @@
 import { productCategories } from '../data/productCategories';
 import { productCatalog } from '../data/productCatalog';
 import CatalogProductCard from './CatalogProductCard.astro';
-
-const categoryCounts = new Map(
-  productCategories.map((category) => [
-    category.slug,
-    productCatalog.filter((product) => product.category === category.slug).length,
-  ]),
-);
 ---
 
 <section id="catalog" class="bg-[#090909] py-14 text-white md:py-20" data-catalog-root>
-  <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
     <div class="grid gap-8 lg:grid-cols-[270px_minmax(0,1fr)] lg:gap-12">
       <aside class="lg:sticky lg:top-[106px] lg:max-h-[calc(100vh-132px)] lg:overflow-y-auto lg:pr-4">
         <div class="border-y border-white/15 py-5">
-          <div class="flex items-center justify-between">
-            <p class="text-[11px] font-bold tracking-[0.18em] text-white font-['Century_Gothic',sans-serif]">PRODUCT CATEGORIES</p>
-            <span class="text-[11px] text-white/45 font-['Century_Gothic',sans-serif]">1000+ styles</span>
-          </div>
-          <button type="button" class="catalog-filter mt-5 flex w-full items-center justify-between border-l-2 border-[#c9a84c] bg-[#1d1d1d] px-4 py-3 text-left text-[13px] font-bold text-white font-['Century_Gothic',sans-serif]" data-catalog-filter="all" aria-pressed="true">All styles <span>{productCatalog.length}</span></button>
+          <p class="text-[11px] font-bold tracking-[0.18em] text-white font-['Century_Gothic',sans-serif]">PRODUCT CATEGORIES</p>
+          <button type="button" class="catalog-filter mt-5 flex w-full items-center border-l-2 border-[#c9a84c] bg-[#1d1d1d] px-4 py-3 text-left text-[13px] font-bold text-white font-['Century_Gothic',sans-serif]" data-catalog-filter="all" aria-pressed="true">All styles</button>
           <div class="mt-4 space-y-4">
             {productCategories.map((category) => (
               <div class="border-b border-white/10 pb-4 last:border-b-0">
-                <a href={`/products/${category.slug}/`} class="flex w-full items-center justify-between text-left text-[14px] font-bold text-white transition-colors hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">
-                  <span>{category.navLabel}</span><span class="text-[11px] font-normal text-[#8a8a8a]">{categoryCounts.get(category.slug)}</span>
-                </a>
+                <a href={`/products/${category.slug}/`} class="block w-full text-left text-[14px] font-bold text-white transition-colors hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">{category.navLabel}</a>
                 <div class="mt-2 space-y-1 border-l border-white/15 pl-3">
                   {category.styles.map((style) => (
                     <button type="button" class="catalog-filter block w-full py-0.5 text-left text-[12px] leading-[1.45] text-white/55 transition-colors hover:text-[#d8b456] font-['Century_Gothic',sans-serif]" data-catalog-filter={category.slug} data-catalog-subfilter={style.id} aria-pressed="false">{style.name}</button>
@@ -61,11 +49,10 @@ const categoryCounts = new Map(
           </div>
         </div>
 
-        <div class="flex items-center justify-between py-6">
-          <p class="text-[13px] text-white/55 font-['Century_Gothic',sans-serif]" data-catalog-results>{productCatalog.length} styles shown</p>
+        <div class="flex justify-end py-6">
           <a href="/ready-to-ship" class="text-[12px] font-bold tracking-[0.1em] text-[#d8b456] transition-colors hover:text-white font-['Century_Gothic',sans-serif]">READY-TO-SHIP PROGRAM &#8594;</a>
         </div>
-        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-catalog-grid>
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" data-catalog-grid>
           {productCatalog.map((product) => <CatalogProductCard product={product} searchable />)}
         </div>
         <p class="hidden border-y border-white/15 py-10 text-center text-[15px] text-white/55 font-['Century_Gothic',sans-serif]" data-catalog-empty>No styles match that search. Try a broader term or contact Fitclo with your reference design.</p>
@@ -82,7 +69,6 @@ const categoryCounts = new Map(
     const filters = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-catalog-filter]'));
     const searchInput = root.querySelector<HTMLInputElement>('[data-catalog-search-input]');
     const sortSelect = root.querySelector<HTMLSelectElement>('[data-catalog-sort]');
-    const results = root.querySelector<HTMLElement>('[data-catalog-results]');
     const empty = root.querySelector<HTMLElement>('[data-catalog-empty]');
     const grid = root.querySelector<HTMLElement>('[data-catalog-grid]');
     const params = new URLSearchParams(window.location.search);
@@ -116,7 +102,6 @@ const categoryCounts = new Map(
         filter.classList.toggle('catalog-filter-active', isActive);
       });
 
-      if (results) results.textContent = `${visible.length} ${visible.length === 1 ? 'style' : 'styles'} shown`;
       empty?.classList.toggle('hidden', visible.length !== 0);
     };
 

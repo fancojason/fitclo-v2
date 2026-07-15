@@ -10,15 +10,17 @@ const { product, searchable = false } = Astro.props;
 ---
 
 <article
-  class="catalog-product group flex h-full flex-col"
+  class="catalog-product group flex h-full flex-col overflow-hidden rounded-[12px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
   data-catalog-product={searchable ? '' : undefined}
   data-catalog-category={searchable ? product.category : undefined}
   data-catalog-subcategory={searchable ? product.subcategory : undefined}
   data-catalog-search={searchable ? `${product.name} ${product.styleCode} ${product.description} ${product.keywords.join(' ')}`.toLowerCase() : undefined}
   data-catalog-name={searchable ? product.name.toLowerCase() : undefined}
 >
-  <div class="relative aspect-square overflow-hidden bg-[#171717]">
+  <div class="relative m-2 aspect-square overflow-hidden rounded-[9px] bg-[#eeeeee]">
     <img src={product.image} alt={product.name} class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" loading="lazy" />
   </div>
-  <h3 class="pt-4 text-[16px] font-bold leading-[1.35] text-white transition-colors group-hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">{product.name}</h3>
+  <div class="flex min-h-[58px] items-center justify-center border-t border-black/5 bg-white px-3 py-3 text-center">
+    <h3 class="text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
+  </div>
 </article>

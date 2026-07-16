@@ -12,6 +12,7 @@ const staticPages = [
   '/guides/',
   '/private-label/',
   '/products/',
+  '/products/womens-yoga-set/',
   '/ready-to-ship/',
 ];
 
@@ -45,6 +46,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/guides/', '2026-07-10'],
   ['/private-label/', '2026-07-10'],
   ['/products/', '2026-07-10'],
+  ['/products/womens-yoga-set/', '2026-07-16'],
   ['/ready-to-ship/', '2026-07-10'],
   ['/blogs/activewear-manufacturer-ecuador-import-planning/', '2026-07-15'],
   ['/blogs/activewear-manufacturer-honduras/', '2026-07-15'],

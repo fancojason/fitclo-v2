@@ -17,10 +17,23 @@ const { product, searchable = false } = Astro.props;
   data-catalog-search={searchable ? `${product.name} ${product.styleCode} ${product.description} ${product.keywords.join(' ')}`.toLowerCase() : undefined}
   data-catalog-name={searchable ? product.name.toLowerCase() : undefined}
 >
-  <div class="relative m-2 aspect-square overflow-hidden rounded-[9px] bg-[#eeeeee]">
-    <img src={product.image} alt={product.name} class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" loading="lazy" />
-  </div>
-  <div class="flex min-h-[58px] items-center justify-center border-t border-black/5 bg-white px-3 py-3 text-center">
-    <h3 class="text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
-  </div>
+  {product.id === 'women-yoga-set' ? (
+    <a href="/products/womens-yoga-set/" class="flex h-full flex-col" aria-label={`View ${product.name} details`}>
+      <div class="relative m-2 aspect-square overflow-hidden rounded-[9px] bg-[#eeeeee]">
+        <img src={product.image} alt={product.name} class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" loading="lazy" />
+      </div>
+      <div class="flex min-h-[58px] items-center justify-center border-t border-black/5 bg-white px-3 py-3 text-center">
+        <h3 class="text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
+      </div>
+    </a>
+  ) : (
+    <>
+      <div class="relative m-2 aspect-square overflow-hidden rounded-[9px] bg-[#eeeeee]">
+        <img src={product.image} alt={product.name} class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" loading="lazy" />
+      </div>
+      <div class="flex min-h-[58px] items-center justify-center border-t border-black/5 bg-white px-3 py-3 text-center">
+        <h3 class="text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
+      </div>
+    </>
+  )}
 </article>

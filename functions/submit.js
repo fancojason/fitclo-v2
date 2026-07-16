@@ -5,7 +5,7 @@ export async function onRequestPost(context) {
     const data = await request.json();
 
     // Basic validation
-    if (!data.name || !data.email || !data.product_type) {
+    if (!data.name || (!data.email && !data.phone) || !data.product_type) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), {
         status: 400,
         headers: { "Content-Type": "application/json" },
@@ -27,7 +27,7 @@ export async function onRequestPost(context) {
             <h2 style="color: #C9A84C;">New Website Inquiry</h2>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
             <p><strong>Name:</strong> ${data.name}</p>
-            <p><strong>Email:</strong> ${data.email}</p>
+            <p><strong>Email:</strong> ${data.email || "Not provided"}</p>
             <p><strong>Company:</strong> ${data.company || "N/A"}</p>
             <p><strong>Phone/WhatsApp:</strong> ${data.phone || "N/A"}</p>
             <p><strong>Product Type:</strong> ${data.product_type}</p>
@@ -35,6 +35,13 @@ export async function onRequestPost(context) {
             <p><strong>Material:</strong> ${data.material || "N/A"}</p>
             <p><strong>Logo Placement:</strong> ${data.logo_placement || "N/A"}</p>
             <p><strong>Message:</strong> ${data.message || "No message"}</p>
+            ${data.product_name ? `<p><strong>Product Name:</strong> ${data.product_name}</p>` : ""}
+            ${data.product_code ? `<p><strong>Product Code:</strong> ${data.product_code}</p>` : ""}
+            ${data.country ? `<p><strong>Country / Region:</strong> ${data.country}</p>` : ""}
+            ${data.inquiry_type ? `<p><strong>Inquiry Type:</strong> ${data.inquiry_type}</p>` : ""}
+            ${data.colors_sizes ? `<p><strong>Colors & Sizes:</strong> ${data.colors_sizes}</p>` : ""}
+            ${data.branding_requirements ? `<p><strong>Branding Requirements:</strong> ${data.branding_requirements}</p>` : ""}
+            ${data.page_url ? `<p><strong>Page URL:</strong> ${data.page_url}</p>` : ""}
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
             <p style="font-size: 12px; color: #888;">This inquiry was sent from the contact form on fitcloo.com.</p>
           </div>

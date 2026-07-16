@@ -4,30 +4,54 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const productName = "Women's Yoga Set";
 const productCode = 'FC-YS001';
 const productUrl = 'https://www.fitcloo.com/products/womens-yoga-set/';
-const productImage = 'https://www.fitcloo.com/images/products/womens-yoga-set/womens-yoga-set-reference.png';
+const productImage = 'https://www.fitcloo.com/images/products/womens-yoga-set/womens-yoga-set-main.png';
 const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send the current colors, sizes, MOQ, sample cost and wholesale pricing.`;
 const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
+
+const galleryImages = [
+  {
+    src: '/images/products/womens-yoga-set/womens-yoga-set-main.png',
+    alt: "Women's Yoga Set shown in black, coffee brown and light blue colorways",
+    label: 'Colorway overview',
+  },
+  {
+    src: '/images/products/womens-yoga-set/womens-yoga-set-lilac.png',
+    alt: "Women's Yoga Set in a lilac colorway",
+    label: 'Lilac colorway',
+  },
+  {
+    src: '/images/products/womens-yoga-set/womens-yoga-set-matching-series.png',
+    alt: "Matching yoga set series showing a multi-strap back and coordinated silhouettes",
+    label: 'Matching series',
+  },
+  {
+    src: '/images/products/womens-yoga-set/womens-yoga-set-custom-branding.png',
+    alt: 'Private label logo, tag and packaging customization options',
+    label: 'Private label options',
+  },
+  {
+    src: '/images/products/womens-yoga-set/womens-yoga-set-stockroom.png',
+    alt: 'Fitclo ready-stock activewear storage and packing area',
+    label: 'Ready-stock program',
+  },
+];
 
 const quickFacts = [
   ['Set includes', 'Strappy sports bra + high-waist leggings'],
   ['Colors shown', 'Black / Coffee Brown / Light Blue'],
-  ['Samples', 'Available before bulk production'],
+  ['Fabric & GSM', '68% Nylon / 32% Spandex, 230gsm'],
+  ['Sizes', '4, 6, 8, 10 + customization'],
   ['Branding', 'Logo, labels, hang tags and packaging'],
-  ['Ready-stock timing', 'As fast as 7 days, subject to confirmation'],
-  ['Full OEM starting point', 'Typically 200 pcs per style/color within 4 sizes'],
+  ['Samples', 'Available before bulk production'],
 ];
 
 const specificationRows = [
-  ['Product name', productName],
-  ['Style code', productCode],
-  ['Category', 'Matching Sets / Yoga Sets / Gym Sets'],
-  ['Components', 'Strappy sports bra + high-waist full-length leggings'],
-  ['Design direction', 'Multi-strap open back with a clean coordinated silhouette'],
-  ['Colors shown', 'Black, Coffee Brown and Light Blue'],
-  ['Fabric & GSM', 'Request the current fabric composition, GSM and construction specifications.'],
-  ['Sizes', 'Request the current available sizes and size-mix options.'],
-  ['Sample', 'Available'],
-  ['Origin', 'China'],
+  ['Product Type', "2 Piece Women's Yoga Set", 'Sample', 'Available before bulk production'],
+  ['Fabric & GSM', '68% Nylon / 32% Spandex, 230gsm', 'Private Label', 'Logo, labels, hang tags and packaging'],
+  ['Design', 'Multi-strap open-back bra + high-waist leggings', 'Logo & Labels', 'Heat transfer, silicone, embroidery or woven label'],
+  ['Sizes', '4, 6, 8, 10 + customization', 'OEM / ODM', 'Custom fabric, color, fit, sizing, pattern and packaging'],
+  ['Colors', 'Black, Coffee Brown, Light Blue + custom color', 'Shipping', 'Express, air freight or sea freight'],
+  ['Applications', 'Yoga, Pilates, gym, studio and athleisure', 'Features', '230gsm nylon-spandex construction, high-waist fit and multi-strap back'],
 ];
 
 const faqs = [
@@ -81,8 +105,10 @@ const productSchema = {
   description:
     'A coordinated two-piece activewear set featuring a multi-strap sports bra and high-waist leggings. Available for wholesale, private label branding and full OEM development.',
   url: productUrl,
-  image: [productImage],
+  image: galleryImages.map((image) => `https://www.fitcloo.com${image.src}`),
   sku: productCode,
+  material: '68% Nylon / 32% Spandex',
+  size: '4, 6, 8, 10 or customization',
   brand: {
     '@type': 'Brand',
     name: 'Fitclo',
@@ -98,6 +124,8 @@ const productSchema = {
   additionalProperty: [
     { '@type': 'PropertyValue', name: 'Components', value: 'Strappy sports bra + high-waist full-length leggings' },
     { '@type': 'PropertyValue', name: 'Design', value: 'Multi-strap open back; coordinated silhouette' },
+    { '@type': 'PropertyValue', name: 'Fabric & GSM', value: '68% Nylon / 32% Spandex, 230gsm' },
+    { '@type': 'PropertyValue', name: 'Sizes', value: '4, 6, 8, 10 + customization' },
     { '@type': 'PropertyValue', name: 'Sample', value: 'Available' },
     { '@type': 'PropertyValue', name: 'Private label', value: 'Logo, labels, hang tags and packaging' },
     { '@type': 'PropertyValue', name: 'OEM development', value: 'Custom fabric, color, pattern, fit and grading available' },
@@ -135,6 +163,7 @@ const faqSchema = {
   autoArticleSchema={false}
   includeBreadcrumbSchema={false}
 >
+  <div class="product-detail-page bg-[#090a0c] text-white">
   <section class="bg-[#090a0c] pt-[112px] text-white">
     <div class="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10 lg:pb-20">
       <nav class="flex flex-wrap items-center gap-2 text-[12px] text-white/55 font-['Century_Gothic',sans-serif]" aria-label="Breadcrumb">
@@ -147,8 +176,35 @@ const faqSchema = {
         <span class="text-white/85" aria-current="page">{productName}</span>
       </nav>
 
-      <div class="mt-8 grid gap-10 border-t border-white/15 pt-9 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:gap-16">
-        <div>
+      <div class="mt-8 grid gap-10 border-t border-white/15 pt-9 lg:grid-cols-[minmax(400px,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-16" data-product-gallery>
+        <figure class="min-w-0">
+          <div class="relative aspect-square overflow-hidden border border-white/15 bg-[#111218]">
+            <img
+              src={galleryImages[0].src}
+              alt={galleryImages[0].alt}
+              width="800"
+              height="800"
+              class="h-full w-full object-contain"
+              fetchpriority="high"
+              data-gallery-main
+            />
+          </div>
+          <div class="mt-4 grid grid-cols-[32px_repeat(4,minmax(0,1fr))_32px] items-center gap-2 sm:grid-cols-[40px_repeat(4,minmax(0,1fr))_40px]">
+            <button type="button" class="grid aspect-square place-items-center border border-white/20 text-[25px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show previous product image" data-gallery-previous>‹</button>
+            {galleryImages.slice(1).map((image, index) => (
+              <button type="button" class="gallery-thumbnail relative aspect-square overflow-hidden border border-white/20 bg-[#111218] transition-colors hover:border-[#d8b456]" aria-label={`View ${image.label}`} aria-pressed="false" data-gallery-thumbnail={index + 1}>
+                <img src={image.src} alt="" width="180" height="180" loading="lazy" class="h-full w-full object-cover" />
+              </button>
+            ))}
+            <button type="button" class="grid aspect-square place-items-center border border-white/20 text-[25px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show next product image" data-gallery-next>›</button>
+          </div>
+          <figcaption class="mt-4 flex items-start justify-between gap-5 border-t border-white/15 pt-4 font-['Century_Gothic',sans-serif]">
+            <span class="text-[12px] font-bold text-white" data-gallery-label>{galleryImages[0].label}</span>
+            <span class="text-right text-[11px] text-white/45">Style code<br />{productCode}</span>
+          </figcaption>
+        </figure>
+
+        <div class="pt-1">
           <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">READY STOCK · PRIVATE LABEL · OEM</p>
           <h1 class="mt-5 max-w-[740px] text-[40px] font-bold leading-[1.06] text-white sm:text-[54px] font-['Century_Gothic',sans-serif]">Women's Yoga Set - Wholesale &amp; Private Label</h1>
           <p class="mt-6 max-w-[710px] text-[16px] leading-[1.75] text-white/75 md:text-[17px] font-['Century_Gothic',sans-serif]">A coordinated two-piece activewear set featuring a multi-strap sports bra and high-waist leggings. Source selected stock colors, add your private label, or develop a fully customized version around your fabric, color, fit and packaging requirements.</p>
@@ -169,16 +225,6 @@ const faqSchema = {
           </div>
           <p class="mt-4 text-[12px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">Current stock, exact MOQ and pricing are confirmed according to the selected color, size mix and branding requirements.</p>
         </div>
-
-        <figure class="border border-white/15 bg-[#f3f4f6] p-5 text-[#171717]">
-          <div class="flex min-h-[360px] items-center justify-center border border-black/10 bg-white p-5">
-            <img src="/images/products/womens-yoga-set/womens-yoga-set-reference.png" width="211" height="267" alt="Women's yoga set style reference showing black, coffee brown and light blue strappy bra and high-waist leggings colorways" class="h-auto max-w-full object-contain" fetchpriority="high" />
-          </div>
-          <figcaption class="mt-4 flex items-start justify-between gap-5 font-['Century_Gothic',sans-serif]">
-            <span class="text-[12px] font-bold">Women's Yoga Set</span>
-            <span class="text-right text-[11px] text-black/55">Style reference<br />FC-YS001</span>
-          </figcaption>
-        </figure>
       </div>
     </div>
   </section>
@@ -196,26 +242,48 @@ const faqSchema = {
     </div>
   </section>
 
-  <section class="border-y border-[#dfe1e4] bg-[#f5f6f7] py-16 text-[#171717] lg:py-20" aria-labelledby="specifications-heading">
+  <section class="border-y border-white/10 bg-[#090a0c] py-16 text-white lg:py-20" aria-labelledby="specifications-heading">
     <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <p class="text-[11px] font-bold tracking-[0.19em] text-[#a77e25] font-['Century_Gothic',sans-serif]">PRODUCT AT A GLANCE</p>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRODUCT SPECIFICATIONS</p>
           <h2 id="specifications-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Product specifications</h2>
         </div>
-        <p class="max-w-[420px] text-[14px] leading-[1.65] text-[#555a63] font-['Century_Gothic',sans-serif]">Only confirmed product information is listed here. Contact Fitclo for live fabric, GSM, size and availability details.</p>
+        <p class="max-w-[420px] text-[14px] leading-[1.65] text-white/60 font-['Century_Gothic',sans-serif]">Confirmed fabric, GSM, size range and customization information for style {productCode}.</p>
       </div>
-      <div class="mt-9 overflow-x-auto border border-[#d9dce0] bg-white">
-        <table class="min-w-[720px] w-full border-collapse text-left font-['Century_Gothic',sans-serif]">
+      <div class="mt-9 overflow-x-auto border border-white/25 bg-[#0d0f13]">
+        <table class="min-w-[920px] w-full border-collapse text-left font-['Century_Gothic',sans-serif]">
           <tbody>
-            {specificationRows.map(([label, value]) => (
-              <tr class="border-b border-[#e4e6e9] last:border-b-0">
-                <th scope="row" class="w-[32%] bg-[#fafbfc] px-5 py-4 text-[12px] font-bold tracking-[0.06em] text-[#26282d]">{label}</th>
-                <td class="px-5 py-4 text-[14px] leading-[1.6] text-[#555a63]">{value}</td>
+            {specificationRows.map(([leftLabel, leftValue, rightLabel, rightValue]) => (
+              <tr class="border-b border-white/15 last:border-b-0">
+                <th scope="row" class="w-[16%] border-r border-white/15 bg-[#15171c] px-4 py-4 text-center text-[12px] font-bold tracking-[0.04em] text-[#d8b456]">{leftLabel}</th>
+                <td class="w-[34%] border-r border-white/15 px-5 py-4 text-center text-[14px] leading-[1.65] text-white/75">{leftValue}</td>
+                <th scope="row" class="w-[16%] border-r border-white/15 bg-[#15171c] px-4 py-4 text-center text-[12px] font-bold tracking-[0.04em] text-[#d8b456]">{rightLabel}</th>
+                <td class="w-[34%] px-5 py-4 text-center text-[14px] leading-[1.65] text-white/75">{rightValue}</td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+      <div class="mt-12 border-t border-white/15 pt-8">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRODUCT DETAILS</p>
+            <h3 class="mt-3 text-[24px] font-bold text-white font-['Century_Gothic',sans-serif]">Colorway and construction views.</h3>
+          </div>
+          <p class="max-w-[380px] text-[13px] leading-[1.65] text-white/55 font-['Century_Gothic',sans-serif]">Reference images show the coordinated set silhouette, front/back construction and selected color directions.</p>
+        </div>
+        <div class="mt-7 grid gap-4 md:grid-cols-3">
+          {[
+            ['/images/products/womens-yoga-set/womens-yoga-set-detail-charcoal.png', 'Charcoal yoga set front view'],
+            ['/images/products/womens-yoga-set/womens-yoga-set-detail-blue.png', 'Light blue yoga set front and back construction detail'],
+            ['/images/products/womens-yoga-set/womens-yoga-set-detail-coffee.png', 'Coffee brown yoga set front view'],
+          ].map(([src, alt]) => (
+            <figure class="overflow-hidden border border-white/15 bg-[#111218]">
+              <img src={src} alt={alt} width="1320" height="1699" loading="lazy" class="aspect-[4/5] h-full w-full object-cover" />
+            </figure>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -284,7 +352,7 @@ const faqSchema = {
           ['Fabric development', 'Custom fabric, GSM and finish after review'],
           ['Fit development', 'Custom pattern, fit and size grading'],
         ].map(([label, value]) => (
-          <div class="bg-white p-5">
+          <div class="bg-[#111218] p-5">
             <h3 class="text-[15px] font-bold font-['Century_Gothic',sans-serif]">{label}</h3>
             <p class="mt-2 text-[13px] leading-[1.6] text-[#5b6068] font-['Century_Gothic',sans-serif]">{value}</p>
           </div>
@@ -479,7 +547,45 @@ const faqSchema = {
       <p class="text-[12px] text-white/45 font-['Century_Gothic',sans-serif]">Updated July 16, 2026 <span class="px-2" aria-hidden="true">·</span> Reviewed by Fitclo Activewear Team</p>
     </div>
   </section>
+  </div>
 </BaseLayout>
+
+<style>
+  .product-detail-page > section {
+    background-color: #090a0c !important;
+    color: #ffffff;
+  }
+
+  .product-detail-page [class*='text-[#171717]'],
+  .product-detail-page [class*='text-[#26282d]'] {
+    color: #ffffff !important;
+  }
+
+  .product-detail-page [class*='text-[#3f4248]'],
+  .product-detail-page [class*='text-[#555a63]'],
+  .product-detail-page [class*='text-[#5b6068]'] {
+    color: rgba(255, 255, 255, 0.66) !important;
+  }
+
+  .product-detail-page [class*='text-[#a77e25]'] {
+    color: #d8b456 !important;
+  }
+
+  .product-detail-page [class*='bg-[#fafbfc]'] {
+    background-color: #15171c !important;
+  }
+
+  .product-detail-page [class*='border-[#dfe1e4]'],
+  .product-detail-page [class*='border-[#d9dce0]'],
+  .product-detail-page [class*='border-[#e4e6e9]'] {
+    border-color: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .gallery-thumbnail[aria-pressed='true'] {
+    border-color: #d8b456;
+    box-shadow: inset 0 0 0 1px #d8b456;
+  }
+</style>
 
 <script>
   const form = document.querySelector<HTMLFormElement>('[data-product-inquiry-form]');
@@ -501,6 +607,51 @@ const faqSchema = {
     analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
     analyticsWindow.dataLayer.push({ event: eventName, ...parameters });
   };
+
+  const gallery = document.querySelector<HTMLElement>('[data-product-gallery]');
+  const galleryMain = gallery?.querySelector<HTMLImageElement>('[data-gallery-main]');
+  const galleryLabel = gallery?.querySelector<HTMLElement>('[data-gallery-label]');
+  const galleryPrevious = gallery?.querySelector<HTMLButtonElement>('[data-gallery-previous]');
+  const galleryNext = gallery?.querySelector<HTMLButtonElement>('[data-gallery-next]');
+  const galleryThumbnails = Array.from(gallery?.querySelectorAll<HTMLButtonElement>('[data-gallery-thumbnail]') || []);
+
+  if (gallery && galleryMain && galleryLabel) {
+    const galleryItems = [
+      { src: galleryMain.getAttribute('src') || '', alt: galleryMain.alt, label: galleryLabel.textContent?.trim() || '' },
+      ...galleryThumbnails.map((thumbnail) => {
+        const image = thumbnail.querySelector('img');
+        return {
+          src: image?.getAttribute('src') || '',
+          alt: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
+          label: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
+        };
+      }),
+    ];
+    let activeGalleryIndex = 0;
+
+    const selectGalleryImage = (nextIndex: number) => {
+      activeGalleryIndex = (nextIndex + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[activeGalleryIndex];
+      galleryMain.src = item.src;
+      galleryMain.alt = item.alt;
+      galleryLabel.textContent = item.label;
+      galleryThumbnails.forEach((thumbnail) => {
+        const isActive = Number(thumbnail.dataset.galleryThumbnail) === activeGalleryIndex;
+        thumbnail.setAttribute('aria-pressed', String(isActive));
+      });
+      track('select_product_image', {
+        product_name: "Women's Yoga Set",
+        product_code: 'FC-YS001',
+        image_position: String(activeGalleryIndex + 1),
+      });
+    };
+
+    galleryThumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener('click', () => selectGalleryImage(Number(thumbnail.dataset.galleryThumbnail || '0')));
+    });
+    galleryPrevious?.addEventListener('click', () => selectGalleryImage(activeGalleryIndex - 1));
+    galleryNext?.addEventListener('click', () => selectGalleryImage(activeGalleryIndex + 1));
+  }
 
   document.querySelectorAll<HTMLElement>('[data-product-track]').forEach((element) => {
     element.addEventListener('click', () => {

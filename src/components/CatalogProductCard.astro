@@ -7,6 +7,11 @@ interface Props {
 }
 
 const { product, searchable = false } = Astro.props;
+const productDetailLinks: Record<string, string> = {
+  'women-yoga-set': '/products/womens-yoga-set/',
+  'wide-leg-workout-set': '/products/wide-leg-workout-set/',
+};
+const productDetailHref = productDetailLinks[product.id];
 ---
 
 <article
@@ -17,8 +22,8 @@ const { product, searchable = false } = Astro.props;
   data-catalog-search={searchable ? `${product.name} ${product.styleCode} ${product.description} ${product.keywords.join(' ')}`.toLowerCase() : undefined}
   data-catalog-name={searchable ? product.name.toLowerCase() : undefined}
 >
-  {product.id === 'women-yoga-set' ? (
-    <a href="/products/womens-yoga-set/" class="flex h-full flex-col" aria-label={`View ${product.name} details`}>
+  {productDetailHref ? (
+    <a href={productDetailHref} class="flex h-full flex-col" aria-label={`View ${product.name} details`}>
       <div class="relative m-2 aspect-square overflow-hidden rounded-[9px] bg-[#eeeeee]">
         <img src={product.image} alt={product.name} class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" loading="lazy" />
       </div>

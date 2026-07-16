@@ -38,20 +38,21 @@ const galleryImages = [
 
 const quickFacts = [
   ['Set includes', 'Strappy sports bra + high-waist leggings'],
-  ['Colors shown', 'Black / Coffee Brown / Light Blue'],
+  ['Colors shown', 'Black / Coffee Brown / Light Blue + other colors, etc.'],
   ['Fabric & GSM', '68% Nylon / 32% Spandex, 230gsm'],
   ['Sizes', '4, 6, 8, 10 + or Customization'],
-  ['Branding', 'Logo, labels, hang tags and packaging'],
+  ['Branding', 'Logo, labels, hang tags, packaging, etc.'],
   ['Samples', 'Available before bulk production'],
 ];
 
 const specificationRows = [
   ['Product Type', "2 Piece Women's Yoga Set", 'Sample', 'Available before bulk production'],
-  ['Fabric & GSM', '68% Nylon / 32% Spandex, 230gsm', 'Private Label', 'Logo, labels, hang tags and packaging'],
+  ['Fabric & GSM', '68% Nylon / 32% Spandex, 230gsm', 'Private Label', 'Logo, labels, hang tags, packaging, etc.'],
   ['Design', 'Multi-strap open-back bra + high-waist leggings', 'Logo & Labels', 'Heat transfer, silicone, embroidery or woven label'],
-  ['Sizes', '4, 6, 8, 10 + or Customization', 'OEM / ODM', 'Custom fabric, color, fit, sizing, pattern and packaging'],
-  ['Colors', 'Black, Coffee Brown, Light Blue + custom color', 'Shipping', 'Express, air freight or sea freight'],
-  ['Applications', 'Yoga, Pilates, gym, studio and athleisure', 'Features', '230gsm nylon-spandex construction, high-waist fit and multi-strap back'],
+  ['Sizes', '4, 6, 8, 10 + or Customization', 'OEM / ODM', 'Custom fabric, colors, fit, sizing, pattern, packaging, etc.'],
+  ['Colors', 'Black, Coffee Brown, Light Blue + custom colors, etc.', 'Shipping', 'Express, air freight or sea freight'],
+  ['Applications', 'Yoga, Pilates, gym, studio and athleisure', 'Features', 'Second Skin, Breathable, Moisture Absorption Perspiration, Butter Soft, four-way stretch'],
+  ['Logo Position', 'Front, back, waist, legs, etc.', 'Payment', 'T/T, Credit Card, PayPal'],
 ];
 
 const faqs = [
@@ -127,7 +128,9 @@ const productSchema = {
     { '@type': 'PropertyValue', name: 'Fabric & GSM', value: '68% Nylon / 32% Spandex, 230gsm' },
     { '@type': 'PropertyValue', name: 'Sizes', value: '4, 6, 8, 10 + or Customization' },
     { '@type': 'PropertyValue', name: 'Sample', value: 'Available' },
-    { '@type': 'PropertyValue', name: 'Private label', value: 'Logo, labels, hang tags and packaging' },
+    { '@type': 'PropertyValue', name: 'Private label', value: 'Logo, labels, hang tags, packaging, etc.' },
+    { '@type': 'PropertyValue', name: 'Logo position', value: 'Front, back, waist, legs, etc.' },
+    { '@type': 'PropertyValue', name: 'Payment', value: 'T/T, Credit Card, PayPal' },
     { '@type': 'PropertyValue', name: 'OEM development', value: 'Custom fabric, color, pattern, fit and grading available' },
   ],
 };
@@ -189,10 +192,10 @@ const faqSchema = {
               data-gallery-main
             />
           </div>
-          <div class="mt-4 grid grid-cols-[32px_repeat(4,minmax(0,1fr))_32px] items-center gap-2 sm:grid-cols-[40px_repeat(4,minmax(0,1fr))_40px]">
+          <div class="mt-4 grid grid-cols-[32px_repeat(5,minmax(0,1fr))_32px] items-center gap-2 sm:grid-cols-[40px_repeat(5,minmax(0,1fr))_40px]">
             <button type="button" class="grid aspect-square place-items-center border border-white/20 text-[25px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show previous product image" data-gallery-previous>‹</button>
-            {galleryImages.slice(1).map((image, index) => (
-              <button type="button" class="gallery-thumbnail relative aspect-square overflow-hidden border border-white/20 bg-[#111218] transition-colors hover:border-[#d8b456]" aria-label={`View ${image.label}`} aria-pressed="false" data-gallery-thumbnail={index + 1}>
+            {galleryImages.map((image, index) => (
+              <button type="button" class="gallery-thumbnail relative aspect-square overflow-hidden border border-white/20 bg-[#111218] transition-colors hover:border-[#d8b456]" aria-label={`View ${image.label}`} aria-pressed={index === 0 ? 'true' : 'false'} data-gallery-thumbnail={index}>
                 <img src={image.src} alt="" width="180" height="180" loading="lazy" class="h-full w-full object-cover" />
               </button>
             ))}
@@ -206,7 +209,7 @@ const faqSchema = {
 
         <div class="pt-1">
           <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">READY STOCK · PRIVATE LABEL · OEM</p>
-          <h1 class="mt-5 max-w-[740px] text-[40px] font-bold leading-[1.06] text-white sm:text-[54px] font-['Century_Gothic',sans-serif]">Women's Yoga Set - Wholesale &amp; Private Label</h1>
+          <h1 class="mt-5 max-w-[740px] text-[38px] font-bold leading-[1.06] text-white sm:text-[50px] font-['Century_Gothic',sans-serif]">Women's Yoga Set - Wholesale &amp; Private Label</h1>
           <p class="mt-6 max-w-[710px] text-[16px] leading-[1.75] text-white/75 md:text-[17px] font-['Century_Gothic',sans-serif]">A coordinated two-piece activewear set featuring a multi-strap sports bra and high-waist leggings. Source selected stock colors, add your private label, or develop a fully customized version around your fabric, color, fit and packaging requirements.</p>
 
           <dl class="mt-8 grid gap-x-8 gap-y-5 border-y border-white/15 py-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -219,8 +222,8 @@ const faqSchema = {
           </dl>
 
           <div class="mt-8 flex flex-wrap items-center gap-3 font-['Century_Gothic',sans-serif]">
-            <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center bg-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#101010] transition-colors hover:bg-[#efd078]" data-product-track="click_quote_cta">Request Wholesale Quote</a>
-            <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center border border-white/35 px-5 py-3 text-[13px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" data-product-track="click_sample_cta">Order an FC-YS001 Sample</a>
+            <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#d8b456] px-6 py-3 text-[13px] font-bold text-[#101010] transition-colors hover:bg-[#efd078]" data-product-track="click_quote_cta">Request Wholesale Quote</a>
+            <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 py-3 text-[13px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" data-product-track="click_sample_cta">Order an FC-YS001 Sample</a>
             <a href="#customization" class="inline-flex min-h-12 items-center text-[13px] font-bold text-[#d8b456] transition-colors hover:text-white">View Customization Options <span class="ml-2" aria-hidden="true">→</span></a>
           </div>
           <p class="mt-4 text-[12px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">Current stock, exact MOQ and pricing are confirmed according to the selected color, size mix and branding requirements.</p>
@@ -616,18 +619,15 @@ const faqSchema = {
   const galleryThumbnails = Array.from(gallery?.querySelectorAll<HTMLButtonElement>('[data-gallery-thumbnail]') || []);
 
   if (gallery && galleryMain && galleryLabel) {
-    const galleryItems = [
-      { src: galleryMain.getAttribute('src') || '', alt: galleryMain.alt, label: galleryLabel.textContent?.trim() || '' },
-      ...galleryThumbnails.map((thumbnail) => {
-        const image = thumbnail.querySelector('img');
-        return {
-          src: image?.getAttribute('src') || '',
-          alt: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
-          label: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
-        };
-      }),
-    ];
-    let activeGalleryIndex = 0;
+    const galleryItems = galleryThumbnails.map((thumbnail) => {
+      const image = thumbnail.querySelector('img');
+      return {
+        src: image?.getAttribute('src') || '',
+        alt: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
+        label: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
+      };
+    });
+    let activeGalleryIndex = Math.max(0, galleryItems.findIndex((item) => item.src === galleryMain.getAttribute('src')));
 
     const selectGalleryImage = (nextIndex: number) => {
       activeGalleryIndex = (nextIndex + galleryItems.length) % galleryItems.length;

@@ -4,6 +4,7 @@ import { whatsappIntelligenceUrl } from '../data/intelligence';
 
 const {
   title,
+  seoTitle,
   description,
   type = 'Activewear Manufacturing Guide',
   articleKind = 'buyer-guide',
@@ -24,6 +25,8 @@ const {
   relatedReading = [],
   ctaTitle = 'Need a production recommendation for your activewear project?',
   ctaText = 'Send Fitclo your product category, target quantity, fabric preference and delivery market. We can help you compare the most practical fabric, MOQ and manufacturing route.',
+  ctaHref = whatsappIntelligenceUrl,
+  ctaLabel = 'Talk to Fitclo',
   publishedIso = '2026-07-11',
   modifiedIso = '2026-07-11',
 } = Astro.props;
@@ -85,10 +88,12 @@ const structuredData = faqSchema
 
 <BaseLayout
   title={`${title} | Fitclo Blog`}
+  seoTitle={seoTitle}
   description={description}
   image={articleImage.startsWith('http') ? articleImage : `https://www.fitcloo.com${articleImage}`}
   structuredData={structuredData}
   autoArticleSchema={false}
+  includeBreadcrumbSchema={false}
 >
   <article class={`fitclo-editorial-article article-kind-${articleKind}`}>
     <div class="fitclo-editorial-wrap">
@@ -182,7 +187,7 @@ const structuredData = faqSchema
       <div class="fitclo-editorial-callout fitclo-editorial-cta-box">
         <strong>{ctaTitle}</strong>
         <span>{ctaText}</span>
-        <a class="fitclo-editorial-cta" href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Talk to Fitclo</a>
+        <a class="fitclo-editorial-cta" href={ctaHref} target="_blank" rel="noopener">{ctaLabel}</a>
         <nav class="fitclo-editorial-commercial-links" aria-label="Fitclo manufacturing options">
           <a href="/private-label">Private Label</a>
           <a href="/capabilities">Factory Capabilities</a>

@@ -7,6 +7,7 @@ import '../styles/global.css';
 
 const {
   title = 'FITCLO - Professional Activewear Manufacturer',
+  seoTitle,
   description = 'Fitclo is a professional activewear manufacturer specializing in high-quality gym wear, yoga apparel, and sportswear for global brands.',
   canonicalURL,
   image = 'https://www.fitcloo.com/images/intelligence/hero-activewear-intelligence.png',
@@ -42,7 +43,7 @@ const normalizeMetaDescription = (value: string) => {
   }
   return result;
 };
-const documentTitle = isBlogDetail ? createSeoTitle(cleanArticleTitle) : title;
+const documentTitle = seoTitle ?? (isBlogDetail ? createSeoTitle(cleanArticleTitle) : title);
 const metaDescription = isBlogDetail ? normalizeMetaDescription(description) : description;
 const isBlogArticle = autoArticleSchema && isBlogDetail;
 const shouldUseLegacyShell = legacyShell ?? isBlogArticle;

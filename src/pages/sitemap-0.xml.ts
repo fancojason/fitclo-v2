@@ -1,4 +1,5 @@
 import { intelligenceCategories } from '../data/intelligence';
+import { productCategories } from '../data/productCategories';
 
 const site = 'https://www.fitcloo.com';
 
@@ -12,7 +13,6 @@ const staticPages = [
   '/guides/',
   '/private-label/',
   '/products/',
-  '/products/womens-yoga-set/',
   '/ready-to-ship/',
 ];
 
@@ -36,6 +36,16 @@ const intelligenceCategoryPages = intelligenceCategories.map(
   (category) => `/activewear-intelligence/${category.slug}/`,
 );
 
+const productCategoryPages = productCategories.map(
+  (category) => `/products/${category.slug}/`,
+);
+
+const productModules = import.meta.glob('./products/*.astro', { eager: true });
+const productDetailPages = Object.keys(productModules)
+  .map((path) => path.replace('./products/', '').replace(/\.astro$/, ''))
+  .filter((slug) => slug !== 'index' && !slug.startsWith('['))
+  .map((slug) => `/products/${slug}/`);
+
 const lastModifiedByPath = new Map<string, string>([
   ['/', '2026-07-04'],
   ['/about/', '2026-07-10'],
@@ -47,6 +57,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/private-label/', '2026-07-10'],
   ['/products/', '2026-07-10'],
   ['/products/womens-yoga-set/', '2026-07-16'],
+  ['/products/wide-leg-workout-set/', '2026-07-17'],
   ['/ready-to-ship/', '2026-07-10'],
   ['/blogs/activewear-manufacturer-ecuador-import-planning/', '2026-07-15'],
   ['/blogs/activewear-manufacturer-honduras/', '2026-07-15'],
@@ -63,11 +74,19 @@ const getLastModified = (path: string) => {
   if (path.startsWith('/blogs/')) return '2026-07-11';
   if (path.startsWith('/activewear-intelligence/')) return '2026-07-10';
   if (path.startsWith('/guides/')) return '2026-06-17';
+  if (path.startsWith('/products/')) return '2026-07-17';
   return '2026-07-10';
 };
 
 const urls = Array.from(
-  new Set([...staticPages, ...guidePages, ...intelligenceCategoryPages, ...blogPages]),
+  new Set([
+    ...staticPages,
+    ...guidePages,
+    ...intelligenceCategoryPages,
+    ...productCategoryPages,
+    ...productDetailPages,
+    ...blogPages,
+  ]),
 ).sort();
 
 const escapeXml = (value: string) =>

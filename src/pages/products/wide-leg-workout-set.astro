@@ -108,8 +108,9 @@ const productSchema = {
   url: productUrl,
   image: galleryImages.map((image) => `https://www.fitcloo.com${image.src}`),
   sku: productCode,
+  mpn: productCode,
   material: '78% Nylon / 22% Spandex',
-  size: 'S, M, L, XL or customization',
+  size: 'S, M, L, XL + or Customization',
   brand: {
     '@type': 'Brand',
     name: 'Fitclo',

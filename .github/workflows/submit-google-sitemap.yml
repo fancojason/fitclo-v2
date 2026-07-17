@@ -1,0 +1,47 @@
+name: Submit sitemap to Google Search Console
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'astro.config.mjs'
+      - 'package.json'
+      - 'scripts/submit-search-console-sitemap.mjs'
+      - '.github/workflows/submit-google-sitemap.yml'
+  schedule:
+    - cron: '27 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: submit-google-sitemap-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Cloudflare Pages deploys from main. This gives the new sitemap time to
+      # become available before Google is asked to fetch it.
+      - name: Wait for the production deployment
+        run: sleep 120
+
+      - name: Submit the live sitemap
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: https://www.fitcloo.com/
+          GSC_SITEMAP_URL: https://www.fitcloo.com/sitemap-index.xml
+        run: node scripts/submit-search-console-sitemap.mjs

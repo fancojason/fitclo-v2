@@ -1,0 +1,258 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+import { whatsappIntelligenceUrl } from '../../data/intelligence';
+
+const title = 'Starting an Activewear Brand in 2026: 12 Reddit Questions Answered';
+const seoTitle = 'How to Start an Activewear Brand in 2026 | FITCLO';
+const description =
+  'A practical answer to 12 questions activewear founders ask on Reddit about low MOQ, samples, tech packs, fabrics, factory vetting, first orders and landed cost.';
+const articleImage = '/images/product-categories/product-catalog-showroom-hero-v2.png';
+
+const startupWhatsappUrl = new URL(whatsappIntelligenceUrl);
+startupWhatsappUrl.searchParams.set(
+  'text',
+  'Hello FITCLO, I am planning an activewear brand. Please help me compare ready-stock private label and custom manufacturing. My target market is: ',
+);
+
+const quickTakeaways = [
+  'Start with one clear customer, one product promise and a focused capsule instead of a wide catalog.',
+  'Ready-stock private label is usually the lowest-risk route for testing demand; custom OEM creates more differentiation but requires clearer specifications and more development.',
+  'MOQ must be confirmed per style, color and size mix. A headline MOQ without this breakdown is incomplete.',
+  'Approve fabric, fit, branding and packaging through physical samples before authorizing bulk production.',
+  'Compare landed cost, repeatability and communication quality, not only the lowest unit price.',
+];
+
+const faqs = [
+  {
+    question: 'Can I start an activewear brand with a low MOQ?',
+    answer:
+      'Yes. Ready-stock private label programs can support smaller launch quantities than fully custom development. The practical minimum still depends on style, color, size mix, branding method and packaging.',
+  },
+  {
+    question: 'Do I need a tech pack for my first activewear collection?',
+    answer:
+      'A tech pack is strongly recommended for a custom product. A ready-stock private label project may begin from a selected factory style, but the buyer should still document logo size, label content, color, packaging and approved measurements.',
+  },
+  {
+    question: 'How many activewear styles should a new brand launch?',
+    answer:
+      'There is no universal number. A focused capsule of two to four coordinated products is often easier to sample, market and reorder than a broad collection with shallow inventory across many SKUs.',
+  },
+  {
+    question: 'How many sample rounds are normal?',
+    answer:
+      'Ready-stock logo samples may need one focused approval round. Custom activewear frequently needs more than one round because fit, stretch fabric behavior, support and grading must be checked together.',
+  },
+  {
+    question: 'How do I know whether an activewear manufacturer is reliable?',
+    answer:
+      'Ask for relevant product examples, fabric details, sample and bulk lead times, an explained QC process, business documentation and live factory evidence. Then verify the supplier through a paid sample and clear written specifications.',
+  },
+  {
+    question: 'Should a startup choose private label or custom manufacturing?',
+    answer:
+      'Choose private label when speed, lower inventory risk and market validation matter most. Choose custom manufacturing when the brand needs exclusive fit, fabric, construction or design details and can manage a longer development process.',
+  },
+  {
+    question: 'What should I send FITCLO to receive a useful recommendation?',
+    answer:
+      'Send your target market, product category, estimated quantity, preferred launch date, reference images, target retail positioning and required branding. A tech pack is helpful for custom products but not required for an initial consultation.',
+  },
+];
+
+const relatedReading = [
+  {
+    title: 'Custom Activewear Manufacturing Process',
+    link: '/blogs/custom-activewear-manufacturing-process',
+    desc: 'Follow the complete workflow from product requirements to sampling, bulk production and shipment.',
+  },
+  {
+    title: 'Low MOQ Wholesale Strategy',
+    link: '/blogs/low-moq-scaling-guide',
+    desc: 'Use smaller first orders to test products without spreading inventory too thin.',
+  },
+  {
+    title: 'China Activewear Manufacturer Checklist',
+    link: '/blogs/china-activewear-manufacturer-checklist',
+    desc: 'Questions and evidence to request before placing an order with a supplier.',
+  },
+  {
+    title: 'Ready-to-Ship vs Custom Activewear',
+    link: '/blogs/ready-to-ship-vs-custom-activewear-production',
+    desc: 'Compare speed, MOQ, exclusivity and development requirements.',
+  },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle={seoTitle}
+  description={description}
+  type="Startup Buyer Guide"
+  articleKind="buyer-guide"
+  date="July 18, 2026"
+  readTime="13 min read"
+  articleImage={articleImage}
+  quickAnswerTitle="To start an activewear brand in 2026, define a narrow customer and product promise, choose the right sourcing route, approve a physical sample, calculate landed cost and launch with enough focus to learn from the first order. Reddit founders repeatedly ask about low MOQ, reliable manufacturers, tech packs and sample quality. Those questions are connected: the safest first collection is the one whose product specifications, cost structure and reorder path are clear before bulk production begins."
+  quickTakeaways={quickTakeaways}
+  faqs={faqs}
+  relatedReading={relatedReading}
+  ctaTitle="Plan Your First Activewear Collection with FITCLO"
+  ctaText="Share your target market, preferred products, quantity and launch date. FITCLO can recommend a ready-stock private label, hybrid or custom development route and help you understand the next sample decision."
+  ctaHref={startupWhatsappUrl.toString()}
+  ctaLabel="Discuss My First Collection"
+  publishedIso="2026-07-18"
+  modifiedIso="2026-07-18"
+>
+  <figure class="fitclo-editorial-feature-image">
+    <img
+      src={articleImage}
+      alt="Activewear showroom illustrating product planning for a new fitness clothing brand"
+      width="1800"
+      height="1000"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <figcaption>A focused first collection is easier to sample, explain, sell and reorder than a catalog built around too many untested SKUs.</figcaption>
+  </figure>
+
+  <h2>What Activewear Founders Are Asking on Reddit</h2>
+  <p>
+    Recent discussions in
+    <a href="https://www.reddit.com/r/smallbusiness/comments/1ttd9md/starting_a_womens_activewear_brand_looking_for/" target="_blank" rel="nofollow noopener noreferrer">r/smallbusiness</a>
+    and
+    <a href="https://www.reddit.com/r/ClothingStartups/comments/1ruurq7/looking_for_activewear_manufacturers_for_a_new/" target="_blank" rel="nofollow noopener noreferrer">r/ClothingStartups</a>
+    show the same pattern. Founders are not only asking for a factory name. They want to know which minimums are realistic, whether a supplier understands performance fabrics, how many samples are needed and how to avoid an expensive first-order mistake.
+  </p>
+  <p>
+    Another
+    <a href="https://www.reddit.com/r/ClothingStartups/comments/1r5mdg0/gymwear_manufacture/" target="_blank" rel="nofollow noopener noreferrer">activewear manufacturing thread</a>
+    centers on high marketplace MOQs, while a
+    <a href="https://www.reddit.com/r/ClothingStartups/comments/1upro4i/looking_for_premium_custom_clothing_manufacturer/" target="_blank" rel="nofollow noopener noreferrer">recent European sourcing discussion</a>
+    asks for premium quality, low minimums and international shipping at the same time. These are real buying constraints, but no single supplier promise solves all of them. The founder needs a launch system.
+  </p>
+
+  <h2>The 12 Questions to Answer Before Contacting a Factory</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Founder question</th>
+        <th>Why it matters</th>
+        <th>Practical decision</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>1. Who is the customer?</strong></td><td>Fit, support, coverage and price expectations change by audience.</td><td>Define one primary customer and workout context.</td></tr>
+      <tr><td><strong>2. What is the hero product?</strong></td><td>A clear hero item gives the collection and campaign a center.</td><td>Choose one legging, set, bra, short or training top to lead.</td></tr>
+      <tr><td><strong>3. Ready stock or custom?</strong></td><td>The route controls speed, MOQ and exclusivity.</td><td>Use the comparison below before requesting quotes.</td></tr>
+      <tr><td><strong>4. What does the MOQ apply to?</strong></td><td>MOQ may be per style, color, fabric or total order.</td><td>Request a written style-color-size breakdown.</td></tr>
+      <tr><td><strong>5. Do I have product specifications?</strong></td><td>References alone leave fit and construction open to interpretation.</td><td>Prepare a tech pack or a documented private-label brief.</td></tr>
+      <tr><td><strong>6. Which fabric performance matters?</strong></td><td>"Premium" is not a measurable fabric requirement.</td><td>Define composition, GSM, stretch, recovery, opacity and hand feel.</td></tr>
+      <tr><td><strong>7. How will the sample be tested?</strong></td><td>A sample can look good while failing in movement or washing.</td><td>Create a wear, wash, measurement and appearance checklist.</td></tr>
+      <tr><td><strong>8. What is the size strategy?</strong></td><td>Poor grading can turn one approved sample into inconsistent bulk sizes.</td><td>Confirm measurements, tolerances and size-set approval.</td></tr>
+      <tr><td><strong>9. Where will the logo go?</strong></td><td>Stretch zones and seam positions affect logo durability.</td><td>Approve method, size, color and placement on the garment.</td></tr>
+      <tr><td><strong>10. What is the landed cost?</strong></td><td>Unit price excludes several costs required to reach inventory.</td><td>Add sampling, branding, packaging, freight, duty and local delivery.</td></tr>
+      <tr><td><strong>11. What is the launch date?</strong></td><td>Development, production and transit require separate time allowances.</td><td>Build backwards with revision and shipping buffers.</td></tr>
+      <tr><td><strong>12. How will a bestseller be reordered?</strong></td><td>A first sale has limited value if the product cannot be repeated.</td><td>Archive approved specifications and ask about material continuity.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>1. Choose the Manufacturing Route Before You Compare Prices</h2>
+  <p>
+    A quote is meaningful only when suppliers are quoting the same development model. Ready-stock products already exist and can often receive a logo, labels or packaging. Private label may refer to this route, but some factories also use the term for deeper color and detail changes. Custom OEM starts from the buyer's specifications and usually requires pattern, sample and material development.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Route</th>
+        <th>Best for</th>
+        <th>Main advantage</th>
+        <th>Main limitation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Ready-stock private label</strong></td><td>Fast testing and smaller launches</td><td>Lower development burden and faster sampling</td><td>Limited product exclusivity</td></tr>
+      <tr><td><strong>Hybrid development</strong></td><td>Brands improving a proven base style</td><td>Balances speed with selected changes</td><td>Not every component can be changed economically</td></tr>
+      <tr><td><strong>Custom OEM</strong></td><td>Distinct fit, function and brand identity</td><td>Highest control over the product</td><td>More specifications, sampling time and commitment</td></tr>
+    </tbody>
+  </table>
+
+  <h2>2. Understand What "Low MOQ" Actually Means</h2>
+  <p>
+    A low headline number can hide the part that creates inventory. Ask whether the minimum is per style, per color or across the order. Then confirm the minimum size allocation, whether colors use existing fabric stock and whether custom labels or packaging have separate minimums.
+  </p>
+  <p>
+    Ready-stock products can support lower quantities because the garment and material already exist. A custom color may trigger a fabric dyeing minimum even when the garment factory is willing to sew fewer pieces. Custom elastic, zippers, molded logos and printed packaging may each introduce another supplier minimum.
+  </p>
+
+  <h2>3. Give the Factory a Brief It Can Price Correctly</h2>
+  <p>
+    A useful request includes product category, target quantity, target market, launch date, reference images, target retail position and required customization. For a custom design, add a tech pack with flat drawings, measurements, construction details, fabric direction, color references, logo artwork and packaging instructions.
+  </p>
+  <p>
+    The goal is not paperwork for its own sake. It is to reduce assumptions. If two factories interpret a reference image differently, their prices and samples cannot be compared fairly.
+  </p>
+
+  <h2>4. Treat Sampling as Product Development, Not a Formality</h2>
+  <p>
+    Stretch garments behave differently on the body than they do on a table. Test the sample during squats, lunges, overhead movement and the intended workout. Check opacity under strong light, waistband stability, bra support, seam comfort, logo adhesion and recovery after extended wear.
+  </p>
+  <p>
+    Wash the garment according to the proposed care label and remeasure it. Record comments by location and measurement rather than saying only "make it tighter" or "improve quality." The approved sample, comments and measurement sheet should become the reference for bulk inspection.
+  </p>
+
+  <h2>5. Build a First Collection That Can Teach You Something</h2>
+  <p>
+    Too many colors and styles divide cash across more SKUs, complicate photography and make sales data harder to interpret. A stronger first capsule often uses two or three coordinated silhouettes, a disciplined size plan and a small color story. This creates multiple outfits without requiring a completely different supply chain for every item.
+  </p>
+  <ul>
+    <li>Choose one hero product with the clearest customer benefit.</li>
+    <li>Add one or two products that create a matching set or complete workout look.</li>
+    <li>Use core colors for inventory depth and one controlled seasonal color for interest.</li>
+    <li>Keep the same fabric family where the performance requirement allows it.</li>
+    <li>Plan the reorder before launching the first drop.</li>
+  </ul>
+
+  <h2>6. Compare Manufacturers with Evidence</h2>
+  <p>
+    A polished catalog is useful, but it does not prove production control. Ask the supplier to explain how fabric is approved, how measurements are checked, what happens before cutting, which inspections occur during sewing and how final random checks are recorded. A supplier that can describe the process clearly is easier to evaluate than one that answers every question with "no problem."
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Evidence to request</th>
+        <th>What it helps verify</th>
+        <th>Warning sign</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Relevant product examples</strong></td><td>Experience with similar stretch fabrics and construction</td><td>Only unrelated fashion products are shown</td></tr>
+      <tr><td><strong>Fabric specification</strong></td><td>Composition, GSM and expected performance</td><td>Only marketing names such as "luxury fabric"</td></tr>
+      <tr><td><strong>Sample timeline and revision policy</strong></td><td>Development discipline</td><td>No clear approval stages</td></tr>
+      <tr><td><strong>QC checklist or report format</strong></td><td>Measurement and workmanship control</td><td>Quality is described without a method</td></tr>
+      <tr><td><strong>Live factory evidence</strong></td><td>Whether production capability matches the claim</td><td>Only catalog images are available</td></tr>
+    </tbody>
+  </table>
+
+  <h2>7. Calculate Landed Cost Before You Set Retail Price</h2>
+  <p>
+    Landed cost includes more than the garment. Add sample and revision costs, labels, hang tags, packaging, inspection, freight, insurance where applicable, import duty, tax and delivery to your storage location. Also reserve for damaged units, exchanges and launch marketing.
+  </p>
+  <p>
+    Do not assume the lowest factory price produces the highest margin. An inconsistent product can create returns, customer service costs and unsellable inventory. The better commercial comparison is total cost at the quality and repeatability your brand requires.
+  </p>
+
+  <h2>A 30-Minute Factory Inquiry Checklist</h2>
+  <ol>
+    <li>State the product, quantity, market and target launch date.</li>
+    <li>Ask whether the route is ready stock, modified stock, ODM or custom OEM.</li>
+    <li>Confirm MOQ per style, color and size allocation.</li>
+    <li>Request fabric composition, GSM, stretch and available colors.</li>
+    <li>Ask for sample cost, sample lead time and revision terms.</li>
+    <li>Confirm logo, label, hang-tag and packaging options.</li>
+    <li>Ask how measurements and workmanship are inspected.</li>
+    <li>Request estimated bulk lead time after sample approval.</li>
+    <li>Ask for shipping options to your destination and clarify the trade term.</li>
+    <li>Confirm how approved specifications are stored for reorders.</li>
+  </ol>
+</EditorialArticleLayout>

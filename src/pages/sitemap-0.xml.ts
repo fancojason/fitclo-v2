@@ -50,7 +50,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/', '2026-07-04'],
   ['/about/', '2026-07-10'],
   ['/activewear-intelligence/', '2026-07-10'],
-  ['/blogs/', '2026-07-17'],
+  ['/blogs/', '2026-07-18'],
   ['/capabilities/', '2026-06-18'],
   ['/contact/', '2026-07-10'],
   ['/guides/', '2026-07-10'],
@@ -65,8 +65,11 @@ const lastModifiedByPath = new Map<string, string>([
   ['/blogs/custom-activewear-manufacturing-process/', '2026-07-14'],
   ['/blogs/dfyne-style-activewear-manufacturing/', '2026-07-14'],
   ['/blogs/latin-america-activewear-sourcing-guide/', '2026-07-15'],
+  ['/blogs/leggings-pilling-sheer-roll-down-quality-checklist/', '2026-07-18'],
   ['/blogs/private-label-activewear-manufacturer-costa-rica/', '2026-07-15'],
   ['/blogs/private-label-activewear-nicaragua/', '2026-07-15'],
+  ['/blogs/starting-activewear-brand-reddit-questions-2026/', '2026-07-18'],
+  ['/blogs/why-workout-clothes-smell-polyester-nylon-fabric-guide/', '2026-07-18'],
 ]);
 
 const getLastModified = (path: string) => {

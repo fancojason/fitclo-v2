@@ -1,0 +1,238 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+import { whatsappIntelligenceUrl } from '../../data/intelligence';
+
+const title = 'Why Leggings Pill, Go Sheer or Roll Down: A Quality Checklist for Activewear Buyers';
+const seoTitle = 'Leggings Quality Problems & Testing Checklist | FITCLO';
+const description =
+  'Learn why leggings pill, become see-through, roll down, sag or split at the seams, and use this buyer checklist to test samples before bulk production.';
+const articleImage = '/images/product-categories/leggings-hero.png';
+
+const leggingsWhatsappUrl = new URL(whatsappIntelligenceUrl);
+leggingsWhatsappUrl.searchParams.set(
+  'text',
+  'Hello FITCLO, I need help evaluating a leggings project. Please recommend fabric, construction and sample tests for opacity, pilling, stretch recovery and waistband stability.',
+);
+
+const quickTakeaways = [
+  'See-through leggings can result from insufficient fabric cover, excessive stretch, poor size selection, weak pattern balance or a light color that exposes more contrast.',
+  'Pilling is influenced by fiber, yarn, knit structure, surface finish and repeated abrasion. Price alone does not predict resistance.',
+  'Waistband roll-down is often a pattern and compression problem, not simply a request for a thicker waistband.',
+  'Stretch recovery, seam extension, opacity and wash stability should be tested on the same approved sample.',
+  'A buyer should define pass/fail criteria before bulk production instead of deciding quality only by hand feel.',
+];
+
+const faqs = [
+  {
+    question: 'Why are leggings see-through when squatting?',
+    answer:
+      'The fabric may not provide enough cover at the required stretch, the pattern may be forcing excessive extension, the garment may be too small or the color may reveal more contrast. Opacity should be evaluated on-body in the intended size and under controlled lighting.',
+  },
+  {
+    question: 'Does a higher GSM always make leggings squat-proof?',
+    answer:
+      'No. Higher GSM can improve cover, but yarn, knit density, color, stretch ratio, finishing and garment fit also affect opacity. GSM must be evaluated together with construction and on-body stretch.',
+  },
+  {
+    question: 'Why do leggings pill between the thighs?',
+    answer:
+      'The inner thigh is a high-abrasion zone. Loose surface fibers, brushed finishes, yarn choice, knit construction and repeated friction can all contribute to pilling.',
+  },
+  {
+    question: 'Why does a leggings waistband roll down?',
+    answer:
+      'Common causes include incorrect waistband height or angle, poor negative ease, insufficient recovery, an unstable top edge, an unsuitable rise or a mismatch between waist and hip grading.',
+  },
+  {
+    question: 'How should a buyer test leggings before bulk production?',
+    answer:
+      'Use movement, opacity, stretch recovery, wash, measurement, seam extension, pilling and colorfastness checks. Record the method and approval result so the same requirements can be used during bulk inspection.',
+  },
+  {
+    question: 'Which standard can be used to evaluate fabric pilling?',
+    answer:
+      'ISO 12945 includes methods for evaluating fabric propensity to pilling, fuzzing and matting. The appropriate method and acceptance level should be agreed with the testing laboratory for the intended fabric and end use.',
+  },
+  {
+    question: 'Can FITCLO develop leggings to a buyer-defined quality standard?',
+    answer:
+      'Yes. FITCLO can recommend fabric and construction options, develop samples and align measurement, appearance and performance checks with the buyer before bulk production.',
+  },
+];
+
+const relatedReading = [
+  {
+    title: 'Squat-Proof Testing Protocol',
+    link: '/blogs/squat-proof-testing-protocol',
+    desc: 'A dedicated opacity testing workflow for private-label leggings.',
+  },
+  {
+    title: 'Fabric Weight Selection Guide',
+    link: '/blogs/fabric-weight-selection-guide',
+    desc: 'How GSM interacts with compression, opacity, season and end use.',
+  },
+  {
+    title: 'Custom Leggings Manufacturing Guide',
+    link: '/blogs/leggings',
+    desc: 'Fabric, fit, construction and production decisions for custom leggings.',
+  },
+  {
+    title: 'Activewear Quality Control Checklist',
+    link: '/blogs/quality-control',
+    desc: 'Five control points for samples, production and final inspection.',
+  },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle={seoTitle}
+  description={description}
+  type="Quality Control Guide"
+  articleKind="manufacturing-guide"
+  date="July 18, 2026"
+  readTime="12 min read"
+  articleImage={articleImage}
+  quickAnswerTitle="Leggings pill, go sheer, roll down or lose shape when fabric performance, pattern engineering, sizing and construction do not work as one system. Buyers should not approve leggings from appearance and hand feel alone. The sample must be checked under movement and stretch, then washed, remeasured and compared against agreed criteria for opacity, recovery, pilling, seam security and waistband stability."
+  quickTakeaways={quickTakeaways}
+  faqs={faqs}
+  relatedReading={relatedReading}
+  ctaTitle="Build a Clear Leggings Quality Standard"
+  ctaText="Send FITCLO your target support level, fabric feel, GSM range, size market and design references. We can recommend a practical sample and testing route before bulk production."
+  ctaHref={leggingsWhatsappUrl.toString()}
+  ctaLabel="Discuss My Leggings Project"
+  publishedIso="2026-07-18"
+  modifiedIso="2026-07-18"
+>
+  <figure class="fitclo-editorial-feature-image">
+    <img
+      src={articleImage}
+      alt="Performance leggings and fabric swatches for activewear quality evaluation"
+      width="1800"
+      height="1000"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <figcaption>Leggings quality comes from the interaction of fabric, pattern, sizing, seams and finishing, not from one specification in isolation.</figcaption>
+  </figure>
+
+  <h2>The Problems Wearers Keep Reporting</h2>
+  <p>
+    A 2026
+    <a href="https://www.reddit.com/r/xxfitness/comments/1t0vwns/megathread_leggings_recommendations_reviews_2026/" target="_blank" rel="nofollow noopener noreferrer">leggings recommendation megathread</a>
+    repeatedly returns to the same evaluation points: pilling, stretch-out, roll-down, opacity, pockets and whether the garment stays in place during training. Separate discussions ask
+    <a href="https://www.reddit.com/r/Activewear/comments/1o08yeq/how_to_prevent_leggings_from_being_see_through/" target="_blank" rel="nofollow noopener noreferrer">how to identify see-through leggings</a>
+    and which construction helps
+    <a href="https://www.reddit.com/r/Midsizefashion/comments/1rjr5vq/workout_leggings_that_stay_up/" target="_blank" rel="nofollow noopener noreferrer">waistbands stay up</a>.
+  </p>
+  <p>
+    These comments are consumer experiences, not laboratory evidence. They are still valuable to a brand because they reveal the defects customers notice first. A buyer can translate each symptom into a sample test and a manufacturing control point.
+  </p>
+
+  <h2>Leggings Defect Diagnosis Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Customer symptom</th>
+        <th>Possible product causes</th>
+        <th>Buyer test</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>See-through during a squat</strong></td><td>Insufficient cover, excessive extension, light color, undersized fit or poor pattern balance</td><td>On-body opacity check in every color and representative sizes</td></tr>
+      <tr><td><strong>Pilling between thighs</strong></td><td>Loose fibers, yarn choice, brushed surface, knit structure or high abrasion</td><td>Laboratory pilling method plus repeated wear and wash trial</td></tr>
+      <tr><td><strong>Waistband rolls down</strong></td><td>Incorrect negative ease, weak recovery, unsuitable height or poor waist-to-hip balance</td><td>Movement circuit across multiple body shapes and sizes</td></tr>
+      <tr><td><strong>Knees or seat become baggy</strong></td><td>Insufficient elastic recovery, overextension or heat and wash damage</td><td>Stretch-and-recovery check before and after laundering</td></tr>
+      <tr><td><strong>Seams pop or feel restrictive</strong></td><td>Stitch has insufficient extension, seam allowance is unstable or thread is unsuitable</td><td>Seam extension, movement and visual inspection</td></tr>
+      <tr><td><strong>Color transfers or fades</strong></td><td>Dye or finishing performance is not suitable for sweat, rubbing or laundering</td><td>Colorfastness testing for the intended care and use conditions</td></tr>
+      <tr><td><strong>Leggings slide down</strong></td><td>Rise, waist shape, compression distribution, size or fabric recovery mismatch</td><td>Timed wear test with running, squats and floor movement</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why Leggings Become See-Through</h2>
+  <p>
+    Opacity is the amount of visual cover the fabric provides under actual garment stretch. A fabric that appears opaque while flat may open significantly across the seat and thighs. The risk rises when the pattern requires the material to stretch beyond the intended range or when a customer wears a size smaller than the product was designed for.
+  </p>
+  <p>
+    GSM is useful, but it is not a complete answer. Two fabrics at the same weight can differ in yarn size, knit density, surface finish and extension. Dark colors often hide more contrast than pale shades, so every color should be evaluated rather than approving black and assuming the lightest color will behave identically.
+  </p>
+  <h3>Opacity approval should include</h3>
+  <ul>
+    <li>Front, side and back observation under bright, consistent light.</li>
+    <li>Standing, deep squat, lunge and hip-hinge positions.</li>
+    <li>The intended underwear color or a controlled contrast layer.</li>
+    <li>Representative sizes, especially where grading changes extension.</li>
+    <li>Before-wash and after-wash checks.</li>
+  </ul>
+
+  <h2>Why Leggings Pill</h2>
+  <p>
+    Pilling begins when fibers work toward the surface, tangle and remain attached as small balls. The result depends on fiber properties, yarn construction, knit structure, finishing and abrasion. A very soft or brushed surface can create a desirable hand feel while also requiring careful evaluation in high-friction zones.
+  </p>
+  <p>
+    The
+    <a href="https://www.iso.org/standard/75376.html" target="_blank" rel="noopener noreferrer">ISO 12945 family</a>
+    describes methods for assessing a fabric's propensity to pilling, fuzzing and matting. The correct method, cycle count and acceptance grade should be selected with a qualified laboratory for the fabric and intended use. A laboratory result should be combined with wear and laundering because real garments experience body friction, seams, sweat and care conditions that a single test may not fully reproduce.
+  </p>
+
+  <h2>Why Waistbands Roll or Slide Down</h2>
+  <p>
+    A waistband is a curved compression system. Making it taller or tighter does not automatically improve stability. If the top edge is too tight, it can fold. If the entire band lacks recovery, it can expand and slide. If waist and hip grading do not reflect the target body, the garment may migrate even when the fabric feels compressive.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Design variable</th>
+        <th>What can go wrong</th>
+        <th>What to approve</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Waistband height</strong></td><td>Too high for the torso or too low for the support promise</td><td>Finished height on body in each key size</td></tr>
+      <tr><td><strong>Top-edge circumference</strong></td><td>Folds when too aggressive or gaps when too loose</td><td>Comfort and stability through breathing and movement</td></tr>
+      <tr><td><strong>Waistband angle</strong></td><td>Does not follow body shape</td><td>Front, side and back position after activity</td></tr>
+      <tr><td><strong>Fabric recovery</strong></td><td>Band grows during wear</td><td>Recovery after timed extension and wash</td></tr>
+      <tr><td><strong>Grading</strong></td><td>One size works while adjacent sizes roll or slide</td><td>Size-set fitting, not only one base-size sample</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Stretch Recovery: The Quality Customers Feel Later</h2>
+  <p>
+    Initial stretch tells the buyer whether the fabric can extend. Recovery tells the buyer whether it returns. Poor recovery may appear as baggy knees, a loose seat, rippling at the waistband or a garment that fits differently after several hours.
+  </p>
+  <p>
+    Ask the fabric supplier or testing laboratory to explain the selected stretch and recovery method, direction, extension level and conditioning. Record whether the test is performed on unwashed fabric, washed fabric or both. The garment trial should then confirm that the pattern is not demanding more extension than the fabric can repeatedly recover from.
+  </p>
+
+  <h2>Seams Must Stretch with the Fabric</h2>
+  <p>
+    Activewear seams should extend far enough for dressing and exercise without thread breakage, tunneling or uncomfortable bulk. Flat seams can reduce chafing in selected locations, but stitch type alone does not guarantee performance. Thread, stitch density, needle, seam allowance and operator control all matter.
+  </p>
+  <p>
+    During sample approval, turn the garment inside out. Stretch each critical seam gradually, inspect skipped stitches and check stress points at the crotch, waistband join and pocket corners. Repeat the inspection after washing and a full movement trial.
+  </p>
+
+  <h2>A Practical Pre-Bulk Leggings Test Plan</h2>
+  <ol>
+    <li><strong>Record baseline measurements:</strong> measure waist, hip, rise, inseam and key openings.</li>
+    <li><strong>Run an opacity check:</strong> evaluate every color under the same light and movement.</li>
+    <li><strong>Complete a movement circuit:</strong> squat, lunge, run, hinge and sit for at least 30 minutes.</li>
+    <li><strong>Assess support and migration:</strong> note rolling, sliding, gaping and pressure points.</li>
+    <li><strong>Inspect seams and branding:</strong> check extension, skipped stitches, edges and logo distortion.</li>
+    <li><strong>Wash to the proposed care instruction:</strong> dry as directed and inspect appearance.</li>
+    <li><strong>Remeasure and repeat movement:</strong> compare shrinkage, growth and recovery.</li>
+    <li><strong>Approve written criteria:</strong> attach photos, measurements and comments to the sample record.</li>
+  </ol>
+
+  <h2>What to Put in the Purchase Specification</h2>
+  <ul>
+    <li>Fabric composition, GSM, color reference and approved hand feel.</li>
+    <li>Stretch and recovery requirements in relevant directions.</li>
+    <li>Finished garment measurements and tolerances by size.</li>
+    <li>Opacity approval method and approved color samples.</li>
+    <li>Stitch types, seam locations and workmanship expectations.</li>
+    <li>Logo method, placement and stretch-zone restrictions.</li>
+    <li>Care instructions and required wash-performance check.</li>
+    <li>Pilling, colorfastness and other laboratory requirements where applicable.</li>
+  </ul>
+</EditorialArticleLayout>

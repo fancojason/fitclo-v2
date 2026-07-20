@@ -9,6 +9,7 @@ interface Props {
 const { product, searchable = false } = Astro.props;
 const productDetailLinks: Record<string, string> = {
   'women-yoga-set': '/products/womens-yoga-set/',
+  'capri-workout-set': '/products/capri-workout-set/',
   'wide-leg-workout-set': '/products/wide-leg-workout-set/',
 };
 const productDetailHref = productDetailLinks[product.id];

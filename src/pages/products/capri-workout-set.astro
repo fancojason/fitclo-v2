@@ -193,7 +193,7 @@ const faqSchema = {
               data-gallery-main
             />
           </div>
-          <div class="mt-4 grid grid-cols-[32px_repeat(4,minmax(0,1fr))_32px] items-center gap-2 sm:grid-cols-[40px_repeat(4,minmax(0,1fr))_40px]">
+          <div class="mt-4 grid grid-cols-[32px_repeat(5,minmax(0,1fr))_32px] items-center gap-2 sm:grid-cols-[40px_repeat(5,minmax(0,1fr))_40px]">
             <button type="button" class="grid aspect-square place-items-center border border-white/20 text-[25px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show previous product image" data-gallery-previous>‹</button>
             {galleryImages.map((image, index) => (
               <button type="button" class="gallery-thumbnail relative aspect-square overflow-hidden border border-white/20 bg-[#111218] transition-colors hover:border-[#d8b456]" aria-label={`View ${image.label}`} aria-pressed={index === 0 ? 'true' : 'false'} data-gallery-thumbnail={index}>

@@ -121,7 +121,7 @@ const catalogProducts = activeCategory
     let category = fixedCategory === 'all' ? params.get('category') || 'all' : fixedCategory;
     let subcategory = params.get('style') || '';
     let search = '';
-    let currentPage = 1;
+    let currentPage = Math.max(1, Number.parseInt(params.get('page') || '1', 10) || 1);
     const productsPerPage = 20;
 
     const hasInitialFilter = cards.some((card) => {
@@ -135,11 +135,23 @@ const catalogProducts = activeCategory
       subcategory = '';
     }
 
+    const updatePageUrl = (mode: 'push' | 'replace' = 'replace') => {
+      const next = new URL(window.location.href);
+      if (currentPage > 1) {
+        next.searchParams.set('page', String(currentPage));
+      } else {
+        next.searchParams.delete('page');
+      }
+      const target = `${next.pathname}${next.search}${next.hash}`;
+      if (target === `${window.location.pathname}${window.location.search}${window.location.hash}`) return;
+      window.history[mode === 'push' ? 'pushState' : 'replaceState']({}, '', target);
+    };
+
     const renderPagination = (visible: HTMLElement[]) => {
       if (!pagination) return;
       const pageSize = productsPerPage;
       const totalPages = Math.max(1, Math.ceil(visible.length / pageSize));
-      currentPage = Math.min(currentPage, totalPages);
+      currentPage = visible.length === 0 ? 1 : Math.min(currentPage, totalPages);
       pagination.innerHTML = '';
       pagination.classList.toggle('hidden', totalPages <= 1 || visible.length === 0);
       pagination.classList.toggle('flex', totalPages > 1 && visible.length > 0);
@@ -161,6 +173,7 @@ const catalogProducts = activeCategory
         button.addEventListener('click', () => {
           if (options.disabled || currentPage === page) return;
           currentPage = page;
+          updatePageUrl('push');
           refresh();
           root.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
@@ -197,12 +210,15 @@ const catalogProducts = activeCategory
 
       const pageSize = productsPerPage;
       const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
-      currentPage = Math.min(currentPage, totalPages);
+      currentPage = filtered.length === 0 ? 1 : Math.min(currentPage, totalPages);
       const pageStart = (currentPage - 1) * pageSize;
       const pageEnd = pageStart + pageSize;
       const paged = new Set(filtered.slice(pageStart, pageEnd));
       cards.forEach((card) => {
-        card.hidden = !paged.has(card);
+        const shouldShow = paged.has(card);
+        card.hidden = !shouldShow;
+        card.classList.toggle('catalog-product-hidden', !shouldShow);
+        card.style.display = shouldShow ? '' : 'none';
       });
 
       styleLinks.forEach((link) => {
@@ -224,13 +240,16 @@ const catalogProducts = activeCategory
       renderPagination(filtered);
     };
 
-    const setView = (view: 'grid' | 'list') => {
+    const setView = (view: 'grid' | 'list', resetPage = true) => {
       grid?.classList.toggle('catalog-list-view', view === 'list');
       viewButtons.forEach((button) => {
         const isActive = button.dataset.catalogViewButton === view;
         button.setAttribute('aria-pressed', String(isActive));
       });
-      currentPage = 1;
+      if (resetPage) {
+        currentPage = 1;
+        updatePageUrl('replace');
+      }
       refresh();
     };
 
@@ -243,10 +262,18 @@ const catalogProducts = activeCategory
     searchInput?.addEventListener('input', () => {
       search = searchInput.value.trim().toLowerCase();
       currentPage = 1;
+      updatePageUrl('replace');
       refresh();
     });
 
-    setView('grid');
+    window.addEventListener('popstate', () => {
+      const nextParams = new URLSearchParams(window.location.search);
+      const nextPage = Math.max(1, Number.parseInt(nextParams.get('page') || '1', 10) || 1);
+      currentPage = nextPage;
+      refresh();
+    });
+
+    setView('grid', false);
   }
 </script>
 
@@ -257,6 +284,7 @@ const catalogProducts = activeCategory
   .catalog-list-icon i { display: block; height: 3px; border: 1px solid currentColor; }
   .catalog-grid-icon { display: grid; grid-template-columns: repeat(2, 6px); gap: 3px; }
   .catalog-grid-icon i { display: block; height: 6px; border: 1px solid currentColor; }
+  :global(.catalog-product-hidden) { display: none !important; }
   :global(.catalog-page-button) {
     display: grid;
     min-width: 34px;

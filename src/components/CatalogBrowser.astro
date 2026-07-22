@@ -121,9 +121,8 @@ const catalogProducts = activeCategory
     let category = fixedCategory === 'all' ? params.get('category') || 'all' : fixedCategory;
     let subcategory = params.get('style') || '';
     let search = '';
-    let currentView: 'grid' | 'list' = 'grid';
     let currentPage = 1;
-    const rowsPerPage = 5;
+    const productsPerPage = 20;
 
     const hasInitialFilter = cards.some((card) => {
       const categoryMatches = category === 'all' || card.dataset.catalogCategory === category;
@@ -136,17 +135,9 @@ const catalogProducts = activeCategory
       subcategory = '';
     }
 
-    const getColumnsPerRow = () => {
-      if (!grid || currentView === 'list') return 1;
-      const columns = window.getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
-      return Math.max(1, columns);
-    };
-
-    const getPageSize = () => rowsPerPage * getColumnsPerRow();
-
     const renderPagination = (visible: HTMLElement[]) => {
       if (!pagination) return;
-      const pageSize = getPageSize();
+      const pageSize = productsPerPage;
       const totalPages = Math.max(1, Math.ceil(visible.length / pageSize));
       currentPage = Math.min(currentPage, totalPages);
       pagination.innerHTML = '';
@@ -181,7 +172,7 @@ const catalogProducts = activeCategory
       const end = Math.min(totalPages, start + maxNumbers - 1);
       start = Math.max(1, end - maxNumbers + 1);
 
-      pagination.appendChild(createButton('‹', currentPage - 1, {
+      pagination.appendChild(createButton('<', currentPage - 1, {
         disabled: currentPage === 1,
         aria: 'Go to previous product page',
       }));
@@ -190,7 +181,7 @@ const catalogProducts = activeCategory
         pagination.appendChild(createButton(String(page), page, { active: page === currentPage }));
       }
 
-      pagination.appendChild(createButton('›', currentPage + 1, {
+      pagination.appendChild(createButton('>', currentPage + 1, {
         disabled: currentPage === totalPages,
         aria: 'Go to next product page',
       }));
@@ -204,7 +195,7 @@ const catalogProducts = activeCategory
         return categoryMatches && subcategoryMatches && searchMatches;
       });
 
-      const pageSize = getPageSize();
+      const pageSize = productsPerPage;
       const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
       currentPage = Math.min(currentPage, totalPages);
       const pageStart = (currentPage - 1) * pageSize;
@@ -234,7 +225,6 @@ const catalogProducts = activeCategory
     };
 
     const setView = (view: 'grid' | 'list') => {
-      currentView = view;
       grid?.classList.toggle('catalog-list-view', view === 'list');
       viewButtons.forEach((button) => {
         const isActive = button.dataset.catalogViewButton === view;
@@ -257,9 +247,6 @@ const catalogProducts = activeCategory
     });
 
     setView('grid');
-    window.addEventListener('resize', () => {
-      refresh();
-    });
   }
 </script>
 
@@ -272,31 +259,37 @@ const catalogProducts = activeCategory
   .catalog-grid-icon i { display: block; height: 6px; border: 1px solid currentColor; }
   :global(.catalog-page-button) {
     display: grid;
-    min-width: 28px;
-    height: 28px;
+    min-width: 34px;
+    height: 34px;
     place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 3px;
-    background: #f8f8f8;
-    color: #222;
+    border: 1px solid rgba(216, 180, 86, 0.22);
+    border-radius: 8px;
+    background: #151515;
+    color: rgba(255, 255, 255, 0.76);
     font-family: 'Century Gothic', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 700;
     line-height: 1;
-    transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
   }
-  :global(.catalog-page-button:hover) { border-color: #d8b456; color: #9b7824; }
+  :global(.catalog-page-button:hover) { border-color: #d8b456; color: #fff; transform: translateY(-1px); }
   :global(.catalog-page-button-active),
   :global(.catalog-page-button-active:hover) {
-    border-color: #111;
-    background: #111;
-    color: #fff;
+    border-color: #d8b456;
+    background: #d8b456;
+    color: #080808;
+    box-shadow: 0 10px 24px rgba(216, 180, 86, 0.22);
+    transform: none;
   }
   :global(.catalog-page-button-disabled),
   :global(.catalog-page-button-disabled:hover) {
     cursor: not-allowed;
-    border-color: #ececec;
-    background: #ececec;
-    color: #c9c9c9;
+    border-color: rgba(255, 255, 255, 0.08);
+    background: #101010;
+    color: rgba(255, 255, 255, 0.22);
+    box-shadow: none;
+    transform: none;
   }
 
   @media (min-width: 640px) {

@@ -73,7 +73,7 @@ const catalogProducts = activeCategory
             <label class="relative block min-w-0 flex-1">
               <span class="sr-only">Search product styles</span>
               <input type="search" placeholder="Search styles, codes or product features" class="w-full border border-white/15 bg-[#171717] px-5 py-4 pr-12 text-[14px] text-white outline-none transition-colors placeholder:text-white/35 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-catalog-search-input />
-              <span aria-hidden="true" class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[20px] text-[#d8b456]">&#8981;</span>
+              <button type="button" class="absolute right-3 top-1/2 grid h-9 w-9 -translate-y-1/2 place-items-center text-[20px] text-[#d8b456] transition-colors hover:text-white" aria-label="Search product styles" data-catalog-search-submit>&#8981;</button>
             </label>
             <div class="inline-flex shrink-0 border border-white/15 bg-[#171717] p-1" role="group" aria-label="Product browsing layout">
               <button type="button" class="catalog-view-button grid h-12 w-12 place-items-center text-white/65 transition-colors hover:text-white" data-catalog-view-button="list" aria-label="Browse products in a vertical list" title="Vertical list view" aria-pressed="false">
@@ -100,11 +100,13 @@ const catalogProducts = activeCategory
 </section>
 
 <script>
-  const root = document.querySelector<HTMLElement>('[data-catalog-root]');
+  const initCatalogBrowser = (root: HTMLElement) => {
+    if (root.dataset.catalogReady === 'true') return;
+    root.dataset.catalogReady = 'true';
 
-  if (root) {
     const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-catalog-product]'));
     const searchInput = root.querySelector<HTMLInputElement>('[data-catalog-search-input]');
+    const searchSubmit = root.querySelector<HTMLButtonElement>('[data-catalog-search-submit]');
     const empty = root.querySelector<HTMLElement>('[data-catalog-empty]');
     const grid = root.querySelector<HTMLElement>('[data-catalog-grid]');
     const pagination = root.querySelector<HTMLElement>('[data-catalog-pagination]');
@@ -120,9 +122,14 @@ const catalogProducts = activeCategory
     const fixedCategoryLabel = root.dataset.catalogCategoryLabel || '';
     let category = fixedCategory === 'all' ? params.get('category') || 'all' : fixedCategory;
     let subcategory = params.get('style') || '';
-    let search = '';
+    const normalizeSearch = (value: string) => value.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
+    let search = normalizeSearch(params.get('q') || '');
     let currentPage = Math.max(1, Number.parseInt(params.get('page') || '1', 10) || 1);
-    const productsPerPage = 20;
+    const productsPerPage = 16;
+
+    if (searchInput && search) {
+      searchInput.value = search;
+    }
 
     const hasInitialFilter = cards.some((card) => {
       const categoryMatches = category === 'all' || card.dataset.catalogCategory === category;
@@ -141,6 +148,11 @@ const catalogProducts = activeCategory
         next.searchParams.set('page', String(currentPage));
       } else {
         next.searchParams.delete('page');
+      }
+      if (search) {
+        next.searchParams.set('q', search);
+      } else {
+        next.searchParams.delete('q');
       }
       const target = `${next.pathname}${next.search}${next.hash}`;
       if (target === `${window.location.pathname}${window.location.search}${window.location.hash}`) return;
@@ -204,7 +216,9 @@ const catalogProducts = activeCategory
       const filtered = cards.filter((card) => {
         const categoryMatches = category === 'all' || card.dataset.catalogCategory === category;
         const subcategoryMatches = !subcategory || card.dataset.catalogSubcategory === subcategory;
-        const searchMatches = !search || (card.dataset.catalogSearch || '').includes(search);
+        const haystack = normalizeSearch(`${card.dataset.catalogSearch || ''} ${card.textContent || ''}`);
+        const searchTerms = search.split(' ').filter(Boolean);
+        const searchMatches = searchTerms.length === 0 || searchTerms.every((term) => haystack.includes(term));
         return categoryMatches && subcategoryMatches && searchMatches;
       });
 
@@ -260,7 +274,22 @@ const catalogProducts = activeCategory
     });
 
     searchInput?.addEventListener('input', () => {
-      search = searchInput.value.trim().toLowerCase();
+      search = normalizeSearch(searchInput.value);
+      currentPage = 1;
+      updatePageUrl('replace');
+      refresh();
+    });
+
+    searchSubmit?.addEventListener('click', () => {
+      search = normalizeSearch(searchInput?.value || '');
+      currentPage = 1;
+      updatePageUrl('replace');
+      refresh();
+      searchInput?.focus();
+    });
+
+    searchInput?.addEventListener('search', () => {
+      search = normalizeSearch(searchInput.value);
       currentPage = 1;
       updatePageUrl('replace');
       refresh();
@@ -274,7 +303,9 @@ const catalogProducts = activeCategory
     });
 
     setView('grid', false);
-  }
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-catalog-root]').forEach(initCatalogBrowser);
 </script>
 
 <style>

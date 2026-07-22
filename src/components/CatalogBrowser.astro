@@ -92,6 +92,7 @@ const catalogProducts = activeCategory
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" data-catalog-grid>
           {catalogProducts.map((product) => <CatalogProductCard product={product} searchable />)}
         </div>
+        <nav class="mt-10 hidden items-center justify-center gap-2" aria-label="Product catalog pagination" data-catalog-pagination></nav>
         <p class="hidden border-y border-white/15 py-10 text-center text-[15px] text-white/55 font-['Century_Gothic',sans-serif]" data-catalog-empty>No styles match that search. Try a broader term or contact Fitclo with your reference design.</p>
       </div>
     </div>
@@ -106,6 +107,7 @@ const catalogProducts = activeCategory
     const searchInput = root.querySelector<HTMLInputElement>('[data-catalog-search-input]');
     const empty = root.querySelector<HTMLElement>('[data-catalog-empty]');
     const grid = root.querySelector<HTMLElement>('[data-catalog-grid]');
+    const pagination = root.querySelector<HTMLElement>('[data-catalog-pagination]');
     const viewButtons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-catalog-view-button]'));
     const styleLinks = Array.from(root.querySelectorAll<HTMLAnchorElement>('[data-catalog-style]'));
     const categoryHeading = root.querySelector<HTMLElement>('[data-catalog-heading]');
@@ -119,6 +121,9 @@ const catalogProducts = activeCategory
     let category = fixedCategory === 'all' ? params.get('category') || 'all' : fixedCategory;
     let subcategory = params.get('style') || '';
     let search = '';
+    let currentView: 'grid' | 'list' = 'grid';
+    let currentPage = 1;
+    const rowsPerPage = 5;
 
     const hasInitialFilter = cards.some((card) => {
       const categoryMatches = category === 'all' || card.dataset.catalogCategory === category;
@@ -131,14 +136,82 @@ const catalogProducts = activeCategory
       subcategory = '';
     }
 
+    const getColumnsPerRow = () => {
+      if (!grid || currentView === 'list') return 1;
+      const columns = window.getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
+      return Math.max(1, columns);
+    };
+
+    const getPageSize = () => rowsPerPage * getColumnsPerRow();
+
+    const renderPagination = (visible: HTMLElement[]) => {
+      if (!pagination) return;
+      const pageSize = getPageSize();
+      const totalPages = Math.max(1, Math.ceil(visible.length / pageSize));
+      currentPage = Math.min(currentPage, totalPages);
+      pagination.innerHTML = '';
+      pagination.classList.toggle('hidden', totalPages <= 1 || visible.length === 0);
+      pagination.classList.toggle('flex', totalPages > 1 && visible.length > 0);
+
+      if (totalPages <= 1 || visible.length === 0) return;
+
+      const createButton = (label: string, page: number, options: { active?: boolean; disabled?: boolean; aria?: string } = {}) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = label;
+        button.disabled = Boolean(options.disabled);
+        button.setAttribute('aria-label', options.aria || `Go to page ${page}`);
+        if (options.active) button.setAttribute('aria-current', 'page');
+        button.className = [
+          'catalog-page-button',
+          options.active ? 'catalog-page-button-active' : '',
+          options.disabled ? 'catalog-page-button-disabled' : '',
+        ].filter(Boolean).join(' ');
+        button.addEventListener('click', () => {
+          if (options.disabled || currentPage === page) return;
+          currentPage = page;
+          refresh();
+          root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        return button;
+      };
+
+      const maxNumbers = 5;
+      let start = Math.max(1, currentPage - Math.floor(maxNumbers / 2));
+      const end = Math.min(totalPages, start + maxNumbers - 1);
+      start = Math.max(1, end - maxNumbers + 1);
+
+      pagination.appendChild(createButton('‹', currentPage - 1, {
+        disabled: currentPage === 1,
+        aria: 'Go to previous product page',
+      }));
+
+      for (let page = start; page <= end; page += 1) {
+        pagination.appendChild(createButton(String(page), page, { active: page === currentPage }));
+      }
+
+      pagination.appendChild(createButton('›', currentPage + 1, {
+        disabled: currentPage === totalPages,
+        aria: 'Go to next product page',
+      }));
+    };
+
     const refresh = () => {
-      const visible = cards.filter((card) => {
+      const filtered = cards.filter((card) => {
         const categoryMatches = category === 'all' || card.dataset.catalogCategory === category;
         const subcategoryMatches = !subcategory || card.dataset.catalogSubcategory === subcategory;
         const searchMatches = !search || (card.dataset.catalogSearch || '').includes(search);
-        const isVisible = categoryMatches && subcategoryMatches && searchMatches;
-        card.hidden = !isVisible;
-        return isVisible;
+        return categoryMatches && subcategoryMatches && searchMatches;
+      });
+
+      const pageSize = getPageSize();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+      currentPage = Math.min(currentPage, totalPages);
+      const pageStart = (currentPage - 1) * pageSize;
+      const pageEnd = pageStart + pageSize;
+      const paged = new Set(filtered.slice(pageStart, pageEnd));
+      cards.forEach((card) => {
+        card.hidden = !paged.has(card);
       });
 
       styleLinks.forEach((link) => {
@@ -156,15 +229,19 @@ const catalogProducts = activeCategory
       categoryChildCurrent?.classList.toggle('hidden', !isSubcategory);
       if (categoryChildCurrent && activeStyleName) categoryChildCurrent.textContent = activeStyleName;
 
-      empty?.classList.toggle('hidden', visible.length !== 0);
+      empty?.classList.toggle('hidden', filtered.length !== 0);
+      renderPagination(filtered);
     };
 
     const setView = (view: 'grid' | 'list') => {
+      currentView = view;
       grid?.classList.toggle('catalog-list-view', view === 'list');
       viewButtons.forEach((button) => {
         const isActive = button.dataset.catalogViewButton === view;
         button.setAttribute('aria-pressed', String(isActive));
       });
+      currentPage = 1;
+      refresh();
     };
 
     viewButtons.forEach((button) => {
@@ -175,11 +252,14 @@ const catalogProducts = activeCategory
 
     searchInput?.addEventListener('input', () => {
       search = searchInput.value.trim().toLowerCase();
+      currentPage = 1;
       refresh();
     });
 
     setView('grid');
-    refresh();
+    window.addEventListener('resize', () => {
+      refresh();
+    });
   }
 </script>
 
@@ -190,6 +270,34 @@ const catalogProducts = activeCategory
   .catalog-list-icon i { display: block; height: 3px; border: 1px solid currentColor; }
   .catalog-grid-icon { display: grid; grid-template-columns: repeat(2, 6px); gap: 3px; }
   .catalog-grid-icon i { display: block; height: 6px; border: 1px solid currentColor; }
+  :global(.catalog-page-button) {
+    display: grid;
+    min-width: 28px;
+    height: 28px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 3px;
+    background: #f8f8f8;
+    color: #222;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 13px;
+    line-height: 1;
+    transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+  }
+  :global(.catalog-page-button:hover) { border-color: #d8b456; color: #9b7824; }
+  :global(.catalog-page-button-active),
+  :global(.catalog-page-button-active:hover) {
+    border-color: #111;
+    background: #111;
+    color: #fff;
+  }
+  :global(.catalog-page-button-disabled),
+  :global(.catalog-page-button-disabled:hover) {
+    cursor: not-allowed;
+    border-color: #ececec;
+    background: #ececec;
+    color: #c9c9c9;
+  }
 
   @media (min-width: 640px) {
     [data-catalog-grid].catalog-list-view { grid-template-columns: 1fr; }

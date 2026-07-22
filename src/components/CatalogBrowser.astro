@@ -21,11 +21,27 @@ const catalogProducts = activeCategory
         <div class="border-y border-white/15 py-5">
           <p class="text-[11px] font-bold tracking-[0.18em] text-white font-['Century_Gothic',sans-serif]">PRODUCT CATEGORIES</p>
           <a href="/products/#catalog" class={`mt-5 flex w-full items-center border-l-2 px-4 py-3 text-left text-[13px] font-bold font-['Century_Gothic',sans-serif] ${activeCategory ? 'border-white/15 bg-[#141414] text-white/70 transition-colors hover:border-[#c9a84c] hover:text-white' : 'border-[#c9a84c] bg-[#1d1d1d] text-white'}`}>All styles</a>
-          <div class="mt-4 space-y-4">
+          <div class="mt-4 divide-y divide-white/10 border-y border-white/10">
             {productCategories.map((category) => (
-              <div class="border-b border-white/10 pb-4 last:border-b-0">
-                <a href={`/products/${category.slug}/#catalog`} class={`block w-full text-left text-[14px] font-bold transition-colors hover:text-[#d8b456] font-['Century_Gothic',sans-serif] ${category.slug === activeCategory?.slug ? 'text-[#d8b456]' : 'text-white'}`}>{category.navLabel}</a>
-                <div class="mt-2 space-y-1 border-l border-white/15 pl-3">
+              <div class="catalog-category-group">
+                <div class={`flex items-center border-l-2 transition-colors ${category.slug === activeCategory?.slug ? 'border-[#c9a84c] bg-[#1d1d1d]' : 'border-transparent bg-[#141414] hover:border-[#c9a84c] hover:bg-[#1b1b1b]'}`}>
+                  <a href={`/products/${category.slug}/#catalog`} class={`min-w-0 flex-1 px-4 py-4 text-left text-[14px] font-bold transition-colors font-['Century_Gothic',sans-serif] ${category.slug === activeCategory?.slug ? 'text-white' : 'text-white/78 hover:text-white'}`}>{category.navLabel}</a>
+                  <button
+                    type="button"
+                    class="catalog-category-toggle grid h-[52px] w-11 shrink-0 place-items-center text-[22px] text-[#d8b456] transition-colors hover:text-white"
+                    aria-label={`Show ${category.navLabel} subcategories`}
+                    aria-controls={`catalog-category-panel-${category.slug}`}
+                    aria-expanded={category.slug === activeCategory?.slug ? 'true' : 'false'}
+                    data-catalog-category-toggle={category.slug}
+                  >
+                    <span class="catalog-category-arrow" aria-hidden="true">&rsaquo;</span>
+                  </button>
+                </div>
+                <div
+                  id={`catalog-category-panel-${category.slug}`}
+                  class={`catalog-category-panel space-y-1 border-l border-white/15 bg-[#101010] py-3 pl-4 pr-3 ${category.slug === activeCategory?.slug ? '' : 'hidden'}`}
+                  data-catalog-category-panel={category.slug}
+                >
                   {category.styles.map((style) => (
                     <a
                       href={`/products/${category.slug}/?style=${style.id}#catalog`}
@@ -112,6 +128,8 @@ const catalogProducts = activeCategory
     const pagination = root.querySelector<HTMLElement>('[data-catalog-pagination]');
     const viewButtons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-catalog-view-button]'));
     const styleLinks = Array.from(root.querySelectorAll<HTMLAnchorElement>('[data-catalog-style]'));
+    const categoryToggles = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-catalog-category-toggle]'));
+    const categoryPanels = Array.from(root.querySelectorAll<HTMLElement>('[data-catalog-category-panel]'));
     const categoryHeading = root.querySelector<HTMLElement>('[data-catalog-heading]');
     const categoryParentLink = root.querySelector<HTMLAnchorElement>('[data-catalog-parent-link]');
     const categoryCurrent = root.querySelector<HTMLElement>('[data-catalog-category-current]');
@@ -141,6 +159,32 @@ const catalogProducts = activeCategory
       category = fixedCategory === 'all' ? 'all' : fixedCategory;
       subcategory = '';
     }
+
+    const setOpenCategory = (categorySlug: string, shouldOpen: boolean, closeSiblings = true) => {
+      categoryToggles.forEach((button) => {
+        const isTarget = button.dataset.catalogCategoryToggle === categorySlug;
+        if (!isTarget && closeSiblings) {
+          button.setAttribute('aria-expanded', 'false');
+          button.classList.remove('catalog-category-toggle-open');
+          return;
+        }
+        if (isTarget) {
+          button.setAttribute('aria-expanded', String(shouldOpen));
+          button.classList.toggle('catalog-category-toggle-open', shouldOpen);
+        }
+      });
+
+      categoryPanels.forEach((panel) => {
+        const isTarget = panel.dataset.catalogCategoryPanel === categorySlug;
+        if (!isTarget && closeSiblings) {
+          panel.classList.add('hidden');
+          return;
+        }
+        if (isTarget) {
+          panel.classList.toggle('hidden', !shouldOpen);
+        }
+      });
+    };
 
     const updatePageUrl = (mode: 'push' | 'replace' = 'replace') => {
       const next = new URL(window.location.href);
@@ -273,6 +317,14 @@ const catalogProducts = activeCategory
       });
     });
 
+    categoryToggles.forEach((button) => {
+      button.addEventListener('click', () => {
+        const categorySlug = button.dataset.catalogCategoryToggle || '';
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        setOpenCategory(categorySlug, !isOpen);
+      });
+    });
+
     searchInput?.addEventListener('input', () => {
       search = normalizeSearch(searchInput.value);
       currentPage = 1;
@@ -315,6 +367,17 @@ const catalogProducts = activeCategory
   .catalog-list-icon i { display: block; height: 3px; border: 1px solid currentColor; }
   .catalog-grid-icon { display: grid; grid-template-columns: repeat(2, 6px); gap: 3px; }
   .catalog-grid-icon i { display: block; height: 6px; border: 1px solid currentColor; }
+  .catalog-category-arrow {
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: transform 180ms ease, color 180ms ease;
+  }
+  .catalog-category-toggle[aria-expanded='true'] .catalog-category-arrow {
+    transform: rotate(90deg);
+  }
+  .catalog-category-panel {
+    box-shadow: inset 2px 0 0 rgba(216, 180, 86, 0.16);
+  }
   :global(.catalog-product-hidden) { display: none !important; }
   :global(.catalog-page-button) {
     display: grid;

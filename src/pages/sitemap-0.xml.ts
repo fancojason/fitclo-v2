@@ -58,6 +58,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/products/', '2026-07-20'],
   ['/products/capri-workout-set/', '2026-07-21'],
   ['/products/matching-sets/', '2026-07-20'],
+  ['/products/racerback-tennis-skirt-set/', '2026-07-22'],
   ['/products/womens-yoga-set/', '2026-07-16'],
   ['/products/wide-leg-workout-set/', '2026-07-17'],
   ['/ready-to-ship/', '2026-07-10'],

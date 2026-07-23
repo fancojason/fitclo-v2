@@ -1,0 +1,621 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fixedProductGalleryImages } from '../../data/productGalleryDefaults';
+
+const productName = '3/4 Sleeve Capri Workout Set';
+const productCode = 'TZ8455-12';
+const productUrl = 'https://www.fitcloo.com/products/three-quarter-sleeve-capri-workout-set/';
+const productImage = 'https://www.fitcloo.com/images/products/new-arrivals/tz8455-12-three-quarter-sleeve-capri-set.png';
+const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send current colors, sizes, MOQ, sample cost and wholesale pricing.`;
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
+
+const galleryImages = [
+  {
+    src: '/images/products/new-arrivals/tz8455-12-three-quarter-sleeve-capri-set.png',
+    alt: '3/4 Sleeve Capri Workout Set TZ8455-12 cover image with front and back colorways',
+    label: 'Product cover',
+  },
+  {
+    src: '/images/products/three-quarter-sleeve-capri-workout-set/tz8455-12-black-front.png',
+    alt: 'Black 3/4 sleeve crop top and high waist butt lift capri leggings workout outfit',
+    label: 'Black front view',
+  },
+  {
+    src: '/images/products/three-quarter-sleeve-capri-workout-set/tz8455-12-matching-series.png',
+    alt: 'TZ8455-12 matching series with 3/4 sleeve crop top, shorts, wide leg pants and capri leggings',
+    label: 'Matching series',
+  },
+  ...fixedProductGalleryImages,
+];
+
+const detailImages = [
+  ['/images/products/three-quarter-sleeve-capri-workout-set/tz8455-12-blue-side.png', 'Dark blue 3/4 sleeve capri workout set side view with high waist capri leggings'],
+  ['/images/products/three-quarter-sleeve-capri-workout-set/tz8455-12-pink-front.png', 'Cherry blossom pink 3/4 sleeve crop top and capri leggings yoga set'],
+  ['/images/products/three-quarter-sleeve-capri-workout-set/tz8455-12-black-back.png', 'Black 3/4 sleeve capri workout set back view with butt lift seam'],
+  ['/images/products/three-quarter-sleeve-capri-workout-set/tz8455-12-color-chart.png', 'Color chart for TZ8455-12 3/4 sleeve capri workout set'],
+  ['/images/products/three-quarter-sleeve-capri-workout-set/tz8455-12-construction-details.png', 'Construction details for TZ8455-12 crop top neckline sleeves waistband and capri leggings seams'],
+];
+
+const quickFacts = [
+  ['Set includes', '3/4 sleeve crop top + high waist capri leggings'],
+  ['Fabric', 'Brushed 78% Nylon / 22% Spandex'],
+  ['Sizes', 'S, M, L, XL + or Customization'],
+  ['Applications', 'Yoga, gym, running, Pilates, studio, athleisure'],
+  ['Branding', 'Logo, labels, hang tags, packaging, etc.'],
+  ['Samples', 'Available before bulk production'],
+];
+
+const specificationRows = [
+  ['Product Type', 'Women 2 Piece 3/4 Sleeve Capri Workout Set', 'Style Code', productCode],
+  ['Fabric', 'Brushed 78% Nylon / 22% Spandex', 'Sample', 'Available before bulk production'],
+  ['Design', '3/4 sleeve crop top + high waist butt lift capri leggings', 'Private Label', 'Logo, labels, hang tags, packaging, etc.'],
+  ['Sizes', 'S, M, L, XL + or Customization', 'OEM / ODM', 'Custom fabric, colors, fit, pattern and packaging, etc.'],
+  ['Colors', 'Cherry Blossom, Cherry Red, Dark Blue, Chocolate Brown, Sauce Purple, Black + customization, etc.', 'Logo Position', 'Front, back, waist, sleeves, legs, etc.'],
+  ['Applications', 'Yoga, gym workout, running, Pilates, studio training and athleisure', 'Features', 'Second skin, breathable, moisture absorption perspiration, butter soft, four-way stretch'],
+  ['Construction', 'Crew neck crop top, 3/4 sleeves, high waist, butt lift back seam and capri length', 'Payment', 'T/T, Credit Card, PayPal'],
+];
+
+const faqs = [
+  {
+    question: 'What is the fabric for TZ8455-12?',
+    answer: 'TZ8455-12 uses a brushed 78% Nylon / 22% Spandex fabric. It is designed for a soft hand feel, four-way stretch, close body comfort and everyday studio-to-running use.',
+  },
+  {
+    question: 'Is this a capri leggings set or a two-piece yoga set?',
+    answer: 'It can be positioned as both. Buyers may list it as a 3/4 sleeve capri workout set, crop top leggings set, two-piece yoga set, capri leggings gym outfit or running activewear outfit depending on the sales channel.',
+  },
+  {
+    question: 'What sizes are available?',
+    answer: 'The listed ready-stock size range is S, M, L and XL. Custom sizing and grading can be reviewed for private label or OEM development.',
+  },
+  {
+    question: 'Can I add my logo to the top or leggings?',
+    answer: 'Yes. Logo placement can be reviewed for the front, back, sleeve, waistband, leg and packaging. The best method depends on artwork, color, quantity and fabric surface.',
+  },
+  {
+    question: 'Can Fitclo customize the color or fabric?',
+    answer: 'Yes. Existing colors support faster sourcing. Custom Pantone colors, GSM, fabric finish, fit, pattern and packaging can be developed through OEM production after requirements are reviewed.',
+  },
+  {
+    question: 'Can I order a sample before bulk production?',
+    answer: 'Yes. Samples help your team check fabric hand feel, opacity, stretch recovery, capri length, waist compression, crop top fit and branding placement before bulk production.',
+  },
+  {
+    question: 'What keywords describe this product for wholesale buyers?',
+    answer: 'Common buyer search terms include women 3/4 sleeve crop top workout set, high waist butt lift capri leggings, capri leggings gym outfit, two-piece yoga set, running activewear outfit and private label capri workout set.',
+  },
+  {
+    question: 'Can you ship worldwide?',
+    answer: 'Yes. Express, air and sea shipping can be arranged after destination, order quantity, packing method and delivery window are confirmed.',
+  },
+];
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  '@id': `${productUrl}#product`,
+  name: productName,
+  description:
+    '3/4 Sleeve Capri Workout Set TZ8455-12 is a women two-piece yoga and running activewear outfit with a 3/4 sleeve crop top, high waist butt lift capri leggings and brushed 78% nylon / 22% spandex fabric for wholesale, private label and OEM activewear brands.',
+  url: productUrl,
+  image: [...galleryImages.map((image) => `https://www.fitcloo.com${image.src}`), ...detailImages.map(([src]) => `https://www.fitcloo.com${src}`)],
+  sku: productCode,
+  mpn: productCode,
+  material: 'Brushed 78% Nylon / 22% Spandex',
+  size: 'S, M, L, XL + or Customization',
+  brand: {
+    '@type': 'Brand',
+    name: 'Fitclo',
+  },
+  manufacturer: {
+    '@id': 'https://www.fitcloo.com/#organization',
+  },
+  category: 'Matching Sets / Capri Workout Sets / Two Piece Yoga Sets',
+  countryOfOrigin: {
+    '@type': 'Country',
+    name: 'China',
+  },
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'Product type', value: 'Women 2 Piece 3/4 Sleeve Capri Workout Set' },
+    { '@type': 'PropertyValue', name: 'Fabric', value: 'Brushed 78% Nylon / 22% Spandex' },
+    { '@type': 'PropertyValue', name: 'Sizes', value: 'S, M, L, XL + or Customization' },
+    { '@type': 'PropertyValue', name: 'Applications', value: 'Yoga, gym workout, running, Pilates, studio training and athleisure' },
+    { '@type': 'PropertyValue', name: 'Features', value: 'Second skin, breathable, moisture absorption perspiration, butter soft, four-way stretch' },
+    { '@type': 'PropertyValue', name: 'Private label', value: 'Logo, labels, hang tags, packaging, etc.' },
+    { '@type': 'PropertyValue', name: 'Payment', value: 'T/T, Credit Card, PayPal' },
+  ],
+};
+
+const productBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://www.fitcloo.com/products/' },
+    { '@type': 'ListItem', position: 3, name: 'Matching Sets', item: 'https://www.fitcloo.com/products/matching-sets/' },
+    { '@type': 'ListItem', position: 4, name: productName, item: productUrl },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<BaseLayout
+  title="3/4 Sleeve Capri Workout Set TZ8455-12 | Wholesale Two-Piece Yoga Set"
+  description="Wholesale 3/4 Sleeve Capri Workout Set TZ8455-12 with brushed 78% nylon / 22% spandex fabric. Women crop top, high waist butt lift capri leggings and private label activewear options."
+  canonicalURL={productUrl}
+  image={productImage}
+  structuredData={[productSchema, productBreadcrumbSchema, faqSchema]}
+  autoArticleSchema={false}
+  includeBreadcrumbSchema={false}
+>
+  <div class="product-detail-page bg-[#090a0c] text-white">
+    <section class="pt-[112px]">
+      <div class="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10 lg:pb-20">
+        <nav class="flex flex-wrap items-center gap-2 text-[12px] text-white/55 font-['Century_Gothic',sans-serif]" aria-label="Breadcrumb">
+          <a href="/" class="transition-colors hover:text-[#d8b456]">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/" class="transition-colors hover:text-[#d8b456]">Products</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/matching-sets/" class="transition-colors hover:text-[#d8b456]">Matching Sets</a>
+          <span aria-hidden="true">/</span>
+          <span class="text-white/85" aria-current="page">{productName}</span>
+        </nav>
+
+        <div class="mt-8 grid gap-10 border-t border-white/15 pt-9 lg:grid-cols-[minmax(400px,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-16" data-product-gallery>
+          <figure class="min-w-0">
+            <div class="relative aspect-square overflow-hidden rounded-[12px] border border-white/15 bg-[#111218]">
+              <img
+                src={galleryImages[0].src}
+                alt={galleryImages[0].alt}
+                width="800"
+                height="800"
+                class="h-full w-full object-contain"
+                fetchpriority="high"
+                data-gallery-main
+              />
+            </div>
+            <div class="mt-4 grid grid-cols-[32px_repeat(5,minmax(0,1fr))_32px] items-center gap-2 sm:grid-cols-[40px_repeat(5,minmax(0,1fr))_40px]">
+              <button type="button" class="gallery-arrow grid aspect-square place-items-center rounded-full border border-white/20 text-[24px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show previous product image" data-gallery-previous>&lsaquo;</button>
+              {galleryImages.map((image, index) => (
+                <button type="button" class="gallery-thumbnail relative aspect-square overflow-hidden rounded-[10px] border border-white/20 bg-[#111218] transition-colors hover:border-[#d8b456]" aria-label={`View ${image.label}`} aria-pressed={index === 0 ? 'true' : 'false'} data-gallery-thumbnail={index}>
+                  <img src={image.src} alt="" width="180" height="180" loading="lazy" class="h-full w-full object-cover" />
+                </button>
+              ))}
+              <button type="button" class="gallery-arrow grid aspect-square place-items-center rounded-full border border-white/20 text-[24px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show next product image" data-gallery-next>&rsaquo;</button>
+            </div>
+            <figcaption class="mt-4 flex items-start justify-between gap-5 border-t border-white/15 pt-4 font-['Century_Gothic',sans-serif]">
+              <span class="text-[12px] font-bold text-white" data-gallery-label>{galleryImages[0].label}</span>
+              <span class="text-right text-[11px] text-white/45">Style code<br />{productCode}</span>
+            </figcaption>
+          </figure>
+
+          <div class="pt-1">
+            <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">READY STOCK - PRIVATE LABEL - OEM</p>
+            <h1 class="mt-5 max-w-[760px] text-[36px] font-bold leading-[1.06] text-white sm:text-[48px] font-['Century_Gothic',sans-serif]">{productName}</h1>
+            <p class="mt-6 max-w-[710px] text-[16px] leading-[1.75] text-white/75 md:text-[17px] font-['Century_Gothic',sans-serif]">
+              A brushed two-piece capri activewear outfit with a smooth 3/4 sleeve crop top and high waist butt lift capri leggings. Built for yoga, gym workouts, running, Pilates and athleisure brands that need a fitted, clean and easy-to-merchandise set.
+            </p>
+            <p class="mt-4 max-w-[720px] text-[13px] leading-[1.65] text-white/52 font-['Century_Gothic',sans-serif]">
+              Buyer search direction: Women 3/4 Sleeve Crop Top High Waist Butt Lift Capri Leggings Gym Workout Running Activewear Outfit 2 Piece Yoga Set.
+            </p>
+
+            <dl class="mt-8 grid gap-x-8 gap-y-5 border-y border-white/15 py-6 sm:grid-cols-2 lg:grid-cols-3">
+              {quickFacts.map(([label, value]) => (
+                <div>
+                  <dt class="text-[10px] font-bold tracking-[0.15em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{label}</dt>
+                  <dd class="mt-2 text-[13px] leading-[1.55] text-white/85 font-['Century_Gothic',sans-serif]">{value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div class="mt-8 flex flex-wrap items-center gap-3 font-['Century_Gothic',sans-serif]">
+              <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#d8b456] px-6 py-3 text-[13px] font-bold text-[#101010] transition-colors hover:bg-[#efd078]" data-product-track="click_quote_cta">Request Wholesale Quote</a>
+              <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 py-3 text-[13px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" data-product-track="click_sample_cta">Order a TZ8455-12 Sample</a>
+              <a href="#customization" class="inline-flex min-h-12 items-center text-[13px] font-bold text-[#d8b456] transition-colors hover:text-white">View Customization Options <span class="ml-2" aria-hidden="true">-&gt;</span></a>
+            </div>
+            <p class="mt-4 text-[12px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">Current stock, exact MOQ and pricing are confirmed according to selected color, size mix and branding requirements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 py-16 lg:py-20" aria-labelledby="buyer-summary-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">BUYER SUMMARY</p>
+          <h2 id="buyer-summary-heading" class="mt-4 max-w-[460px] text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">A capri-length workout set for activewear brands.</h2>
+        </div>
+        <div class="border-l-2 border-[#d8b456] pl-6">
+          <p class="text-[16px] leading-[1.8] text-white/68 font-['Century_Gothic',sans-serif]">TZ8455-12 gives buyers a clear product story: a fitted crew-neck crop top, practical 3/4 sleeves, high waist capri leggings and a sculpting back seam. It can sit in yoga capsules, running outfits, Pilates drops, gym sets and everyday athleisure collections.</p>
+          <p class="mt-4 text-[16px] leading-[1.8] text-white/68 font-['Century_Gothic',sans-serif]">Fitclo can support ready-stock sourcing, stock style private label branding or full OEM development when a brand needs custom colors, sizing, fabric, logo placement or packaging.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="specifications-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRODUCT SPECIFICATIONS</p>
+            <h2 id="specifications-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Product specifications</h2>
+          </div>
+          <p class="max-w-[430px] text-[14px] leading-[1.65] text-white/60 font-['Century_Gothic',sans-serif]">Key details for buyers comparing wholesale capri leggings sets, private label yoga sets and OEM activewear production.</p>
+        </div>
+        <div class="mt-9 overflow-x-auto border border-white/25 bg-[#0d0f13]">
+          <table class="min-w-[920px] w-full border-collapse text-left font-['Century_Gothic',sans-serif]">
+            <tbody>
+              {specificationRows.map(([leftLabel, leftValue, rightLabel, rightValue]) => (
+                <tr class="border-b border-white/15 last:border-b-0">
+                  <th scope="row" class="w-[16%] border-r border-white/15 bg-[#15171c] px-4 py-4 text-center text-[12px] font-bold tracking-[0.04em] text-[#d8b456]">{leftLabel}</th>
+                  <td class="w-[34%] border-r border-white/15 px-5 py-4 text-center text-[14px] leading-[1.65] text-white/75">{leftValue}</td>
+                  <th scope="row" class="w-[16%] border-r border-white/15 bg-[#15171c] px-4 py-4 text-center text-[12px] font-bold tracking-[0.04em] text-[#d8b456]">{rightLabel}</th>
+                  <td class="w-[34%] px-5 py-4 text-center text-[14px] leading-[1.65] text-white/75">{rightValue}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 py-16 lg:py-20" aria-labelledby="details-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRODUCT DETAILS</p>
+        <h2 id="details-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Color, fit, construction and fabric views.</h2>
+        <div class="mt-9 grid gap-4 md:grid-cols-3">
+          {detailImages.slice(0, 3).map(([src, alt]) => (
+            <figure class="overflow-hidden rounded-[10px] border border-white/15 bg-[#111218] p-2">
+              <img src={src} alt={alt} width="1320" height="1920" loading="lazy" class="h-auto w-full object-contain" />
+            </figure>
+          ))}
+        </div>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          {detailImages.slice(3).map(([src, alt]) => (
+            <figure class="overflow-hidden rounded-[10px] border border-white/15 bg-[#111218] p-2">
+              <img src={src} alt={alt} width="800" height="1000" loading="lazy" class="h-auto w-full object-contain" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="features-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">KEY DESIGN FEATURES</p>
+        <h2 id="features-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Built for capri leggings, gym outfits and studio-to-street wear.</h2>
+        <div class="mt-10 grid gap-7 md:grid-cols-3">
+          {[
+            ['01', '3/4 sleeve crop top', 'The smooth crew-neck top gives buyers a cleaner alternative to bra-only sets while keeping the cropped activewear silhouette.'],
+            ['02', 'High waist capri leggings', 'The capri length supports spring, summer, gym, Pilates and running capsules where full-length leggings feel too warm.'],
+            ['03', 'Butt lift back seam', 'The back seam shape adds a more sculpted visual line for brands targeting contour, shaping and body-flattering activewear.'],
+            ['04', 'Brushed nylon-spandex', 'The brushed finish creates a soft touch while nylon and spandex provide stretch, recovery and close-body comfort.'],
+            ['05', 'Private label ready', 'Logo, label, tag, bag and packaging options help buyers turn the stock silhouette into a branded product.'],
+            ['06', 'OEM adaptable', 'The same style direction can be adapted with custom color, GSM, sleeve length, waistband shape, inseam or grading.'],
+          ].map(([number, title, text]) => (
+            <div class="border-t-2 border-[#d8b456] pt-5">
+              <p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{number}</p>
+              <h3 class="mt-4 text-[19px] font-bold font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/62 font-['Century_Gothic',sans-serif]">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="customization" class="border-y border-white/10 py-16 lg:py-20" aria-labelledby="customization-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRIVATE LABEL &amp; CUSTOMIZATION</p>
+          <h2 id="customization-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Customize the set for your brand.</h2>
+          <p class="mt-5 text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Use the ready-stock style for a faster launch, or develop custom colors, logo placements, labels, hang tags, bags and packaging for a more exclusive collection.</p>
+        </div>
+        <div class="grid gap-px border border-white/15 bg-white/15 sm:grid-cols-2">
+          {[
+            ['Logo application', 'Heat transfer, silicone, embroidery or woven label'],
+            ['Labels', 'Inside brand label, care label, size label or woven label'],
+            ['Packaging', 'Hang tag, polybag, zipper bag or carton marks'],
+            ['Color direction', 'Stock colors or custom Pantone colors'],
+            ['Fabric development', 'Custom fabric, GSM and brushed finish after review'],
+            ['Fit development', 'Custom pattern, capri length and size grading'],
+          ].map(([label, value]) => (
+            <div class="bg-[#111218] p-5">
+              <h3 class="text-[15px] font-bold font-['Century_Gothic',sans-serif]">{label}</h3>
+              <p class="mt-2 text-[13px] leading-[1.6] text-white/62 font-['Century_Gothic',sans-serif]">{value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="faq-heading">
+      <div class="mx-auto max-w-[900px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">BUYER FAQ</p>
+        <h2 id="faq-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Questions buyers ask before ordering.</h2>
+        <div class="mt-9 border-y border-white/15">
+          {faqs.map((faq) => (
+            <details class="group border-b border-white/15 last:border-b-0">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 py-5 text-[16px] font-bold font-['Century_Gothic',sans-serif]">
+                <span>{faq.question}</span>
+                <span class="text-[#d8b456] transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p class="max-w-[780px] pb-6 text-[14px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 py-16 lg:py-20" aria-labelledby="related-guides-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">RELATED GUIDES</p>
+            <h2 id="related-guides-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Continue your sourcing research.</h2>
+          </div>
+          <a href="/blogs/" class="text-[13px] font-bold text-[#d8b456] transition-colors hover:text-white font-['Century_Gothic',sans-serif]">Explore all guides -&gt;</a>
+        </div>
+        <div class="mt-9 grid gap-5 md:grid-cols-3">
+          {[
+            ['/blogs/capri-leggings-workout-set-trend-2026/', 'Capri Leggings and Workout Sets Trend', 'Understand how shorter-length activewear is returning in 2026 collections.'],
+            ['/blogs/starting-activewear-brand-reddit-questions-2026/', 'Starting an Activewear Brand: Buyer Questions', 'Review practical sourcing questions before building a private label collection.'],
+            ['/blogs/custom-activewear-manufacturing-process/', 'Custom Activewear Manufacturing Process', 'See how design, fabric, sampling and bulk production move from brief to shipment.'],
+          ].map(([href, title, description]) => (
+            <a href={href} class="group border border-white/15 p-6 transition-colors hover:border-[#d8b456]" data-product-track="click_related_guide">
+              <p class="text-[10px] font-bold tracking-[0.16em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO INTELLIGENCE</p>
+              <h3 class="mt-4 text-[19px] font-bold leading-[1.3] group-hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[14px] leading-[1.65] text-white/62 font-['Century_Gothic',sans-serif]">{description}</p>
+              <span class="mt-6 inline-flex text-[13px] font-bold text-[#d8b456] font-['Century_Gothic',sans-serif]">Read guide -&gt;</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="product-inquiry" class="py-16 lg:py-20" aria-labelledby="inquiry-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">REQUEST CURRENT DETAILS</p>
+          <h2 id="inquiry-heading" class="mt-4 text-[32px] font-bold leading-[1.16] sm:text-[42px] font-['Century_Gothic',sans-serif]">Request current colors, MOQ and wholesale quote.</h2>
+          <p class="mt-5 max-w-[450px] text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Send your target market, quantity, color plan and branding needs. Fitclo will confirm the best sourcing route for {productName}, SKU {productCode}.</p>
+          <a href={whatsappUrl} target="_blank" rel="noopener" class="mt-7 inline-flex min-h-12 items-center rounded-full border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-[#101010] font-['Century_Gothic',sans-serif]" data-product-track="click_whatsapp">Ask about TZ8455-12 on WhatsApp</a>
+        </div>
+
+        <form class="grid gap-5 rounded-[10px] border border-white/15 bg-[#111218] p-6 sm:grid-cols-2 sm:p-8" data-product-inquiry-form novalidate>
+          <input type="hidden" name="product_name" value={productName} />
+          <input type="hidden" name="product_code" value={productCode} />
+          <input type="hidden" name="product_type" value={`${productName} (${productCode})`} />
+          <input type="hidden" name="page_url" value={productUrl} data-page-url />
+
+          <div>
+            <label for="product-name" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">NAME *</label>
+            <input id="product-name" name="name" type="text" autocomplete="name" required class="mt-2 w-full rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-company" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">COMPANY</label>
+            <input id="product-company" name="company" type="text" autocomplete="organization" class="mt-2 w-full rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-email" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">BUSINESS EMAIL OR WHATSAPP *</label>
+            <input id="product-email" name="email" type="email" autocomplete="email" class="mt-2 w-full rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-phone" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">WHATSAPP / PHONE</label>
+            <input id="product-phone" name="phone" type="tel" autocomplete="tel" class="mt-2 w-full rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-country" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">COUNTRY / REGION</label>
+            <input id="product-country" name="country" type="text" autocomplete="country-name" class="mt-2 w-full rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-inquiry-type" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">INQUIRY TYPE</label>
+            <select id="product-inquiry-type" name="inquiry_type" class="mt-2 w-full rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]">
+              <option value="Sample">Sample</option>
+              <option value="Ready Stock">Ready Stock</option>
+              <option value="Private Label">Private Label</option>
+              <option value="Full OEM">Full OEM</option>
+            </select>
+          </div>
+          <div>
+            <label for="product-quantity" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">ESTIMATED QUANTITY</label>
+            <input id="product-quantity" name="quantity" type="text" placeholder="For example: 200 sets" class="mt-2 w-full rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-colors-sizes" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">COLORS &amp; SIZES</label>
+            <input id="product-colors-sizes" name="colors_sizes" type="text" placeholder="Colors and size mix" class="mt-2 w-full rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="product-branding" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">BRANDING REQUIREMENTS</label>
+            <input id="product-branding" name="branding_requirements" type="text" placeholder="Logo, labels, hang tags or packaging" class="mt-2 w-full rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="product-message" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">MESSAGE</label>
+            <textarea id="product-message" name="message" rows="4" placeholder="Tell us your target launch date, reference requirements or questions." class="mt-2 w-full resize-y rounded-[8px] border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]"></textarea>
+          </div>
+          <div class="sm:col-span-2 flex flex-col gap-4 border-t border-white/15 pt-5 sm:flex-row sm:items-center sm:justify-between">
+            <p class="text-[12px] leading-[1.55] text-white/50 font-['Century_Gothic',sans-serif]">Your inquiry will include {productName}, {productCode} and this page URL.</p>
+            <button type="submit" class="min-h-12 rounded-full bg-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#101010] transition-colors hover:bg-[#efd078] font-['Century_Gothic',sans-serif]">Send Product Inquiry</button>
+          </div>
+          <p class="hidden text-[13px] sm:col-span-2 font-['Century_Gothic',sans-serif]" data-product-form-status aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="pb-28">
+      <div class="mx-auto max-w-[1240px] border-t border-white/15 px-6 pt-6 lg:px-10">
+        <p class="text-[12px] text-white/45 font-['Century_Gothic',sans-serif]">Updated July 23, 2026 <span class="px-2" aria-hidden="true">-</span> Reviewed by Fitclo Activewear Team</p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .gallery-thumbnail[aria-pressed='true'] {
+    border-color: #d8b456;
+    box-shadow: inset 0 0 0 1px #d8b456;
+  }
+
+  @media (max-width: 480px) {
+    :global(body:has(.product-detail-page) .floating-controls) {
+      left: auto;
+      right: 14px;
+      bottom: 14px;
+      justify-content: flex-end;
+    }
+
+    :global(body:has(.product-detail-page) .quote-float) {
+      display: none;
+    }
+
+    :global(body:has(.product-detail-page) .whatsapp-float) {
+      width: 50px;
+      height: 50px;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-product-inquiry-form]');
+  const status = document.querySelector<HTMLElement>('[data-product-form-status]');
+  const pageUrlInput = form?.querySelector<HTMLInputElement>('[data-page-url]');
+  let inquiryStarted = false;
+
+  const track = (eventName: string, parameters: Record<string, string> = {}) => {
+    const analyticsWindow = window as Window & {
+      gtag?: (command: string, event: string, params: Record<string, string>) => void;
+      dataLayer?: Array<Record<string, string>>;
+    };
+
+    if (typeof analyticsWindow.gtag === 'function') {
+      analyticsWindow.gtag('event', eventName, parameters);
+      return;
+    }
+
+    analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+    analyticsWindow.dataLayer.push({ event: eventName, ...parameters });
+  };
+
+  const gallery = document.querySelector<HTMLElement>('[data-product-gallery]');
+  const galleryMain = gallery?.querySelector<HTMLImageElement>('[data-gallery-main]');
+  const galleryLabel = gallery?.querySelector<HTMLElement>('[data-gallery-label]');
+  const galleryPrevious = gallery?.querySelector<HTMLButtonElement>('[data-gallery-previous]');
+  const galleryNext = gallery?.querySelector<HTMLButtonElement>('[data-gallery-next]');
+  const galleryThumbnails = Array.from(gallery?.querySelectorAll<HTMLButtonElement>('[data-gallery-thumbnail]') || []);
+
+  if (gallery && galleryMain && galleryLabel) {
+    const galleryItems = galleryThumbnails.map((thumbnail) => {
+      const image = thumbnail.querySelector('img');
+      return {
+        src: image?.getAttribute('src') || '',
+        alt: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
+        label: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
+      };
+    });
+    let activeGalleryIndex = Math.max(0, galleryItems.findIndex((item) => item.src === galleryMain.getAttribute('src')));
+
+    const selectGalleryImage = (nextIndex: number) => {
+      activeGalleryIndex = (nextIndex + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[activeGalleryIndex];
+      galleryMain.src = item.src;
+      galleryMain.alt = item.alt;
+      galleryLabel.textContent = item.label;
+      galleryThumbnails.forEach((thumbnail) => {
+        const isActive = Number(thumbnail.dataset.galleryThumbnail) === activeGalleryIndex;
+        thumbnail.setAttribute('aria-pressed', String(isActive));
+      });
+      track('select_product_image', {
+        product_name: '3/4 Sleeve Capri Workout Set',
+        product_code: 'TZ8455-12',
+        image_position: String(activeGalleryIndex + 1),
+      });
+    };
+
+    galleryThumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener('click', () => selectGalleryImage(Number(thumbnail.dataset.galleryThumbnail || '0')));
+    });
+    galleryPrevious?.addEventListener('click', () => selectGalleryImage(activeGalleryIndex - 1));
+    galleryNext?.addEventListener('click', () => selectGalleryImage(activeGalleryIndex + 1));
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-product-track]').forEach((element) => {
+    element.addEventListener('click', () => {
+      const eventName = element.dataset.productTrack;
+      if (eventName) track(eventName, { product_name: '3/4 Sleeve Capri Workout Set', product_code: 'TZ8455-12' });
+    });
+  });
+
+  if (form && pageUrlInput) {
+    pageUrlInput.value = window.location.href;
+    track('view_product', { product_name: '3/4 Sleeve Capri Workout Set', product_code: 'TZ8455-12' });
+
+    form.addEventListener('focusin', () => {
+      if (!inquiryStarted) {
+        inquiryStarted = true;
+        track('start_product_inquiry', { product_name: '3/4 Sleeve Capri Workout Set', product_code: 'TZ8455-12' });
+      }
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = form.elements.namedItem('email') as HTMLInputElement | null;
+      const phone = form.elements.namedItem('phone') as HTMLInputElement | null;
+      const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+      if (!email?.value.trim() && !phone?.value.trim()) {
+        if (status) {
+          status.textContent = 'Please enter a business email or WhatsApp number so our team can reply.';
+          status.className = 'text-[13px] text-[#f3b1a6] sm:col-span-2 font-[\'Century_Gothic\',sans-serif]';
+        }
+        email?.focus();
+        return;
+      }
+
+      if (!form.reportValidity()) return;
+      const originalLabel = submitButton?.textContent || 'Send Product Inquiry';
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending inquiry...';
+      }
+      if (status) {
+        status.textContent = 'Sending your product inquiry...';
+        status.className = 'text-[13px] text-white/60 sm:col-span-2 font-[\'Century_Gothic\',sans-serif]';
+      }
+
+      try {
+        const response = await fetch('/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
+        });
+        const result = await response.json();
+        if (!response.ok || !result.success) throw new Error(result.error || result.message || 'Unable to send inquiry.');
+
+        track('submit_product_inquiry', { product_name: '3/4 Sleeve Capri Workout Set', product_code: 'TZ8455-12' });
+        form.reset();
+        if (pageUrlInput) pageUrlInput.value = window.location.href;
+        if (status) {
+          status.textContent = 'Thank you. Your inquiry has been sent. The Fitclo team will reply with current details.';
+          status.className = 'text-[13px] text-[#c6e4ae] sm:col-span-2 font-[\'Century_Gothic\',sans-serif]';
+        }
+        if (submitButton) submitButton.textContent = 'Inquiry Sent';
+      } catch (error) {
+        if (status) {
+          status.textContent = error instanceof Error ? error.message : 'Unable to send inquiry. Please try WhatsApp instead.';
+          status.className = 'text-[13px] text-[#f3b1a6] sm:col-span-2 font-[\'Century_Gothic\',sans-serif]';
+        }
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalLabel;
+        }
+      }
+    });
+  }
+</script>

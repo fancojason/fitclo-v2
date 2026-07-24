@@ -64,7 +64,7 @@ export const intelligenceArticles = [
     title: 'Working With a China Activewear Manufacturer: MOQ, Samples, Fabrics, Customization and Shipping',
     desc: 'Answers to the practical questions activewear buyers ask before ordering from China: MOQ, samples, fabrics, private label, OEM, pricing, QC and shipping.',
     link: '/blogs/china-activewear-manufacturer-faq',
-    image: '/images/intelligence/cover-factory-guide.png',
+    image: '/images/blogs/china-activewear-manufacturer-faq-factory.jpg',
     readTime: '17 min read',
     updated: 'Updated July 24, 2026',
     featured: true,

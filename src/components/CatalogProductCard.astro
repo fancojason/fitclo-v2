@@ -15,6 +15,10 @@ const productDetailLinks: Record<string, string> = {
   'three-quarter-sleeve-capri-workout-set': '/products/three-quarter-sleeve-capri-workout-set/',
 };
 const productDetailHref = productDetailLinks[product.id];
+const whatsappMessage = encodeURIComponent(
+  `Hello Fitclo, I am interested in ${product.name} (${product.styleCode}). Can you share stock availability, MOQ and wholesale pricing?`
+);
+const whatsappHref = `https://api.whatsapp.com/send?phone=8617160837538&text=${whatsappMessage}`;
 ---
 
 <article
@@ -26,22 +30,53 @@ const productDetailHref = productDetailLinks[product.id];
   data-catalog-name={searchable ? product.name.toLowerCase() : undefined}
 >
   {productDetailHref ? (
-    <a href={productDetailHref} class="flex h-full flex-col" aria-label={`View ${product.name} details`}>
+    <>
+    <a href={productDetailHref} class="flex flex-col" aria-label={`View ${product.name} details`}>
       <div class="relative m-2 aspect-square overflow-hidden rounded-[9px] bg-[#eeeeee]">
         <img src={product.image} alt={product.name} class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" loading="lazy" />
       </div>
-      <div class="flex min-h-[58px] items-center justify-center border-t border-black/5 bg-white px-3 py-3 text-center">
-        <h3 class="text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
+      <div class="flex min-h-[56px] items-center justify-center border-t border-black/5 bg-white px-3 pt-3 text-center">
+        <h3 class="catalog-product-name text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
       </div>
     </a>
+    <div class="mt-auto bg-white px-3 pb-4 pt-2">
+      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="catalog-chat-button inline-flex items-center justify-center rounded-full border border-[#151515] bg-white px-5 py-2 text-[14px] font-bold leading-none text-[#151515] transition-colors hover:border-[#d8b456] hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]" aria-label={`Chat with Fitclo about ${product.name}`}>
+        Chat Now
+      </a>
+    </div>
+    </>
   ) : (
     <>
       <div class="relative m-2 aspect-square overflow-hidden rounded-[9px] bg-[#eeeeee]">
         <img src={product.image} alt={product.name} class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" loading="lazy" />
       </div>
-      <div class="flex min-h-[58px] items-center justify-center border-t border-black/5 bg-white px-3 py-3 text-center">
-        <h3 class="text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
+      <div class="flex min-h-[56px] items-center justify-center border-t border-black/5 bg-white px-3 pt-3 text-center">
+        <h3 class="catalog-product-name text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
+      </div>
+      <div class="mt-auto bg-white px-3 pb-4 pt-2">
+        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="catalog-chat-button inline-flex items-center justify-center rounded-full border border-[#151515] bg-white px-5 py-2 text-[14px] font-bold leading-none text-[#151515] transition-colors hover:border-[#d8b456] hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]" aria-label={`Chat with Fitclo about ${product.name}`}>
+          Chat Now
+        </a>
       </div>
     </>
   )}
 </article>
+
+<style>
+  .catalog-product-name {
+    display: -webkit-box;
+    min-height: calc(1.35em * 2);
+    max-height: calc(1.35em * 2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: normal;
+    word-break: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .catalog-chat-button {
+    min-width: 118px;
+    min-height: 36px;
+  }
+</style>

@@ -1,0 +1,435 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+import { whatsappIntelligenceUrl } from '../../data/intelligence';
+
+const title = 'Working With a China Activewear Manufacturer: MOQ, Samples, Fabrics, Customization and Shipping';
+const seoTitle = 'China Activewear Manufacturer FAQ: MOQ, Samples & OEM | FITCLO';
+const description =
+  'Answers to the questions activewear brands ask before ordering from China: products, MOQ, samples, fabrics, private label, OEM, pricing, QC and shipping.';
+const articleImage = '/images/intelligence/cover-factory-guide.png';
+
+const buyerFaqWhatsappUrl = new URL(whatsappIntelligenceUrl);
+buyerFaqWhatsappUrl.searchParams.set(
+  'text',
+  'Hello FITCLO, I read the China activewear manufacturer FAQ and would like help with MOQ, samples, fabrics, private label branding and shipping for my activewear project.',
+);
+
+const quickTakeaways = [
+  'Choose the manufacturing route first: ready-stock branding, private label customization, OEM or ODM. MOQ, cost and lead time change by route.',
+  'A useful quote needs product category, target quantity, fabric direction, size range, branding details, delivery country and sample expectations.',
+  'Samples are not only for photos. Use them to approve fit, fabric, color, logo placement, stitching, packing and performance before bulk production.',
+  'Fabric decisions should include composition, GSM, stretch recovery, opacity, hand feel, shrinkage and colorfastness, not composition alone.',
+  'Quality control should be agreed before deposit, then checked during fabric inspection, production, final inspection and packing.',
+];
+
+const planningRows = [
+  ['Ready-stock with logo', 'Fast launches, market testing and lower inventory risk.', 'Best when you need proven styles, lower MOQ and quicker delivery.'],
+  ['Private label customization', 'Logo, labels, hang tags, packaging and selected color or detail changes.', 'Best when you need a branded collection without building every style from zero.'],
+  ['OEM development', 'Your tech pack, pattern, fabric direction, trims and measurement spec.', 'Best when fit, construction and product ownership matter.'],
+  ['ODM collaboration', 'Factory-supported design development based on market, category and reference direction.', 'Best when you need design input plus manufacturing support.'],
+];
+
+const faqSections = [
+  {
+    title: 'Supplier, Products and Manufacturing Models',
+    items: [
+      {
+        question: 'What does a China activewear manufacturer usually produce?',
+        answer:
+          'A capable activewear manufacturer can produce leggings, sports bras, yoga sets, gym shorts, training pants, tank tops, T-shirts, jackets, jumpsuits, tennis skirts and matching workout sets. The important point is not only product range, but whether the supplier has proven experience with stretch fabrics, size grading, compression, stitching and activewear quality control.',
+      },
+      {
+        question: 'Is FITCLO a manufacturer or a trading company?',
+        answer:
+          'FITCLO works as an activewear manufacturing partner for brands that need ready-stock styles, private label customization and OEM/ODM development. Buyers should evaluate any supplier by asking about production control, sample-room capability, fabric sourcing, inspection workflow and shipment handling.',
+      },
+      {
+        question: 'What is the difference between ready-stock, private label, OEM and ODM activewear?',
+        answer:
+          'Ready-stock means existing styles are available for faster ordering. Private label usually adds your logo, labels and packaging to selected styles. OEM means production follows your own technical specification. ODM means the manufacturer helps develop the design direction and product solution with you.',
+      },
+      {
+        question: 'Should a new brand start with ready-stock or custom development?',
+        answer:
+          'Many new brands begin with ready-stock or private label styles to test sizing, demand and content before investing in custom development. Custom OEM or ODM is better when you already know your customer, fit direction, fabric requirement and price target.',
+      },
+      {
+        question: 'Can one supplier handle leggings, sports bras and matching sets together?',
+        answer:
+          'Yes, but the supplier must understand how each garment behaves. Leggings need opacity, recovery and waistband control. Sports bras need support, strap stability and cup shaping. Matching sets need fabric, color and fit consistency across both pieces.',
+      },
+      {
+        question: 'How do I know whether a China activewear supplier is suitable for my brand?',
+        answer:
+          'Check whether the supplier can explain your category, fabric requirement, MOQ route, sample process, quality standard, packaging needs and shipping options clearly. A reliable supplier should help you reduce risk, not only send product photos.',
+      },
+    ],
+  },
+  {
+    title: 'MOQ, Size Assortments and Product Selection',
+    items: [
+      {
+        question: 'What is the MOQ for activewear from China?',
+        answer:
+          'There is no single universal MOQ. Ready-stock activewear can often start lower than full custom production, while custom fabric, custom color, seamless knitting, new patterns and special packaging usually require higher quantities. Always confirm MOQ by style, color, size mix and production route.',
+      },
+      {
+        question: 'Why does MOQ change between leggings, sports bras and yoga sets?',
+        answer:
+          'MOQ changes because each product has different fabric usage, trims, pattern work, labor steps, color risk and inventory planning. A matching yoga set may need coordinated fabric and color across two pieces, while a single sports bra may have more complex support and construction details.',
+      },
+      {
+        question: 'Can I mix sizes within the MOQ?',
+        answer:
+          'Usually yes, but size distribution must be confirmed before production. Common size runs may be easier to support than unusual ratios. Buyers should share their target market and expected sales split so the supplier can recommend a practical size assortment.',
+      },
+      {
+        question: 'Can I mix colors within one order?',
+        answer:
+          'Sometimes. Ready-stock colors may allow flexible color mixing, while custom-dyed colors usually require minimum quantities per color. Color MOQ is often different from total order MOQ, so it should be quoted separately.',
+      },
+      {
+        question: 'How many styles should a new activewear brand launch with?',
+        answer:
+          'A focused first drop is often safer than too many SKUs. Many buyers start with one or two hero categories, such as leggings plus sports bras or matching sets, then expand after reviewing feedback, returns, sizing data and reorder speed.',
+      },
+      {
+        question: 'Where can I browse FITCLO styles before asking for a quote?',
+        answer:
+          'Start with the FITCLO product catalog and category pages. You can review current activewear styles, ready-stock options and core categories before sharing your preferred product direction with the team.',
+      },
+    ],
+  },
+  {
+    title: 'Samples and Product Development',
+    items: [
+      {
+        question: 'Do I need a sample before bulk activewear production?',
+        answer:
+          'Yes. A sample helps verify fit, fabric, stitching, color, logo method, label placement, packaging and overall product quality. It is the most practical way to reduce disagreement before bulk cutting starts.',
+      },
+      {
+        question: 'What types of samples are common in activewear manufacturing?',
+        answer:
+          'Common sample types include available stock samples, fit samples, custom logo samples, color samples, pre-production samples and size-set samples. The right sample type depends on whether you are buying stock, private label or full OEM development.',
+      },
+      {
+        question: 'How long does activewear sampling take?',
+        answer:
+          'Sampling time depends on product complexity, fabric availability, logo method, pattern changes and how quickly feedback is approved. Simple stock samples can be faster than custom pattern, custom color or complex sports bra development.',
+      },
+      {
+        question: 'What should I check on an activewear sample?',
+        answer:
+          'Check measurements, stretch comfort, squat-proof performance, waistband stability, bra support, seam comfort, logo placement, label accuracy, color, hand feel, washing response and packaging. Take photos and write clear comments for revisions.',
+      },
+      {
+        question: 'Can I revise a sample before bulk production?',
+        answer:
+          'Yes. Revisions are common, especially for fit, length, waistband height, strap placement, compression level and logo position. The goal is to approve one clear reference sample before bulk production.',
+      },
+      {
+        question: 'What information should I send before requesting samples?',
+        answer:
+          'Send product category, reference photos, target customer, fabric preference, size range, estimated order quantity, logo files, label or packaging ideas, delivery market and launch timeline. Better inputs create better sample recommendations.',
+      },
+    ],
+  },
+  {
+    title: 'Fabrics, Fit and Product Performance',
+    items: [
+      {
+        question: 'What fabrics are commonly used for leggings and yoga sets?',
+        answer:
+          'Common choices include nylon/spandex and polyester/spandex blends. Buyers often compare hand feel, compression, opacity, recovery, pilling resistance, breathability, moisture management and cost before selecting the best fabric for the product.',
+      },
+      {
+        question: 'Is nylon or polyester better for activewear?',
+        answer:
+          'Nylon is often chosen for a softer, smoother premium hand feel. Polyester can be strong, colorfast and cost-efficient. The best choice depends on product category, target price, stretch requirement, color direction and performance expectations.',
+      },
+      {
+        question: 'What GSM should I choose for activewear?',
+        answer:
+          'GSM should match the product function. Lightweight fabrics can feel breathable but may need careful opacity testing. Heavier fabrics can feel supportive but may be warmer. Buyers should approve GSM together with stretch, recovery and finished garment fit.',
+      },
+      {
+        question: 'How do I check whether leggings are squat-proof?',
+        answer:
+          'Test the finished garment under stretch in the actual color, size and fabric. Opacity should be checked in movement, not only on a flat table. Light colors, high stretch and low fabric density can increase transparency risk.',
+      },
+      {
+        question: 'What causes leggings to roll down?',
+        answer:
+          'Roll-down can come from waistband height, elastic structure, fabric recovery, pattern reduction, incorrect size grading or poor body-fit balance. The solution is usually a combination of fabric selection, waistband engineering and fit testing.',
+      },
+      {
+        question: 'Can FITCLO help choose fabric for my target market?',
+        answer:
+          'Yes. Share the product use case, retail positioning, climate, preferred hand feel, compression level and target price. FITCLO can recommend practical fabrics for leggings, sports bras, yoga sets, gym wear and private label activewear.',
+      },
+    ],
+  },
+  {
+    title: 'Logo, Labels, Colors and Packaging',
+    items: [
+      {
+        question: 'Can I add my own logo to activewear?',
+        answer:
+          'Yes. Logo methods can include heat transfer, silicone logo, screen printing, embroidery, woven labels or other techniques depending on the fabric, garment position, order quantity and durability requirement.',
+      },
+      {
+        question: 'Where can I place my logo on activewear?',
+        answer:
+          'Common logo positions include front waistband, back waistband, chest, strap, leg, sleeve, hem, inner label or packaging. Placement should be checked on a sample to avoid distortion, peeling or uncomfortable contact with the body.',
+      },
+      {
+        question: 'Can I customize labels and hang tags?',
+        answer:
+          'Yes. Private label projects often include neck labels, care labels, size labels, woven labels, hang tags, barcode stickers and poly bags. Label content must match your market requirements and product care instructions.',
+      },
+      {
+        question: 'Can I create custom colors?',
+        answer:
+          'Yes, but custom color usually requires lab dips, color approval and color MOQ. For lower-risk launches, many brands choose existing stock colors first, then develop custom colors after sales data confirms demand.',
+      },
+      {
+        question: 'Can I customize packaging?',
+        answer:
+          'Yes. Packaging can include printed poly bags, zip bags, tissue, stickers, barcode labels, hang tags and carton marks. Packaging should be planned early because it affects cost, lead time, shipping volume and receiving workflow.',
+      },
+      {
+        question: 'What files are needed for logo or packaging work?',
+        answer:
+          'Vector files such as AI, EPS, PDF or SVG are preferred for logos. For packaging, share dimensions, brand colors, placement references, barcode needs and any compliance or retailer requirements.',
+      },
+    ],
+  },
+  {
+    title: 'Pricing, Quotations and Payment',
+    items: [
+      {
+        question: 'Why do activewear prices vary between suppliers?',
+        answer:
+          'Prices vary because of fabric quality, GSM, construction, trims, logo method, packaging, order quantity, inspection standard, sample work and shipping terms. A cheaper quote may not include the same quality level or service scope.',
+      },
+      {
+        question: 'What details does a supplier need to quote accurately?',
+        answer:
+          'A supplier needs product category, quantity, fabric, sizes, colors, logo method, labels, packaging, delivery country, sample requirement and target production route. Vague requests usually create vague quotes.',
+      },
+      {
+        question: 'Should I compare quotes by unit price only?',
+        answer:
+          'No. Compare unit price together with MOQ, sample cost, fabric quality, defect control, lead time, packaging, export documentation, communication and reorder reliability. The lowest unit price can become expensive if quality fails.',
+      },
+      {
+        question: 'What payment terms are common for activewear orders?',
+        answer:
+          'Payment terms vary by supplier, order value and buyer history. Common methods include T/T, credit card or PayPal for smaller transactions. Bulk production often requires a deposit and balance before shipment, but terms should be confirmed case by case.',
+      },
+      {
+        question: 'Can I request pricing before sending a tech pack?',
+        answer:
+          'You can request a rough estimate with reference photos and quantity, but accurate OEM pricing usually needs a tech pack, size spec, fabric direction, logo details and packaging requirements.',
+      },
+      {
+        question: 'How can I reduce first-order cost without damaging quality?',
+        answer:
+          'Start with fewer styles, use available fabrics or stock colors, keep packaging simple, avoid unnecessary custom trims and focus on one or two proven categories. Reduce complexity before reducing quality.',
+      },
+    ],
+  },
+  {
+    title: 'Production, Quality Control and Shipping',
+    items: [
+      {
+        question: 'What happens after a sample is approved?',
+        answer:
+          'After approval, the supplier confirms bulk materials, purchase requirements, production schedule, logo and packaging details, pre-production reference and inspection plan. Bulk production should follow the approved sample and written specification.',
+      },
+      {
+        question: 'How long does bulk activewear production take?',
+        answer:
+          'Lead time depends on order quantity, fabric availability, custom color, pattern complexity, branding method, production capacity and seasonal workload. Ready-stock programs are usually faster than full custom production.',
+      },
+      {
+        question: 'What quality checks should activewear buyers request?',
+        answer:
+          'Request fabric inspection, color confirmation, measurement checks, stitching inspection, logo and label checks, packing checks, final AQL or agreed inspection standard, and photos or reports before shipment.',
+      },
+      {
+        question: 'How do I prevent bulk production from differing from the sample?',
+        answer:
+          'Keep an approved reference sample, written spec, fabric approval, color approval and measurement tolerance. Confirm which changes are allowed and which require buyer approval before production continues.',
+      },
+      {
+        question: 'Can FITCLO ship activewear internationally?',
+        answer:
+          'Yes. Shipping can be arranged by express, air freight, sea freight, railway or other available routes depending on delivery country, order size, urgency and budget. The best route should be confirmed before production planning.',
+      },
+      {
+        question: 'What documents are usually needed for shipment?',
+        answer:
+          'Common documents include commercial invoice, packing list, shipping label, carton marks and sometimes certificate of origin or additional market-specific documents. Requirements vary by destination and buyer importing method.',
+      },
+    ],
+  },
+  {
+    title: 'Factory Verification, Certifications and Buyer Preparation',
+    items: [
+      {
+        question: 'How can I verify a China activewear manufacturer before ordering?',
+        answer:
+          'Ask for production evidence, sample examples, fabric options, inspection workflow, communication history, company information and export experience. You can also request a video call or third-party inspection if the order value justifies it.',
+      },
+      {
+        question: 'Do I need certifications for activewear?',
+        answer:
+          'Certification needs depend on your market, retailer, sustainability claim and fabric requirement. Some buyers ask for OEKO-TEX, GRS, recycled-content documents or fabric test reports. Confirm document needs before fabric sourcing begins.',
+      },
+      {
+        question: 'What red flags should buyers watch for?',
+        answer:
+          'Red flags include unclear MOQ, copied product photos only, no sample process, no fabric explanation, unrealistic lead times, weak quality-control answers, vague payment terms and unwillingness to document product details.',
+      },
+      {
+        question: 'Can a manufacturer help with product strategy?',
+        answer:
+          'A good manufacturer can recommend practical product routes, fabric options, MOQ planning and construction details. However, the buyer should still define target customer, price point, launch plan and brand positioning.',
+      },
+      {
+        question: 'What should I prepare before contacting FITCLO?',
+        answer:
+          'Prepare your target product category, reference designs, estimated quantity, size range, fabric preference, logo and label plan, target market, budget range and launch timeline. If you are unsure, start with the product catalog and ask for recommendations.',
+      },
+      {
+        question: 'How does FITCLO support activewear buyers?',
+        answer:
+          'FITCLO supports buyers with product selection, ready-stock options, private label branding, OEM/ODM development, fabric recommendations, sampling, production coordination, quality checks and international shipment planning.',
+      },
+    ],
+  },
+];
+
+const selectedFaqs = [
+  faqSections[1].items[0],
+  faqSections[2].items[0],
+  faqSections[3].items[1],
+  faqSections[4].items[0],
+  faqSections[5].items[1],
+  faqSections[6].items[2],
+  faqSections[7].items[0],
+  faqSections[7].items[4],
+];
+
+const relatedReading = [
+  {
+    title: 'China Activewear Manufacturer Checklist',
+    link: '/blogs/china-activewear-manufacturer-checklist',
+    desc: 'A practical checklist for verifying whether a supplier can produce, control and ship activewear reliably.',
+  },
+  {
+    title: 'Custom Activewear Manufacturing Process',
+    link: '/blogs/custom-activewear-manufacturing-process',
+    desc: 'How activewear moves from product brief and fabric selection to samples, production, QC and shipment.',
+  },
+  {
+    title: 'OEM vs ODM vs Private Label Activewear',
+    link: '/blogs/oem-vs-odm-vs-private-label-activewear',
+    desc: 'Compare the main manufacturing routes before choosing your activewear production model.',
+  },
+  {
+    title: 'Low MOQ vs Bulk Production',
+    link: '/blogs/moq',
+    desc: 'How to plan activewear MOQ, inventory exposure and first-order risk.',
+  },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle={seoTitle}
+  description={description}
+  type="Buyer Guide"
+  articleKind="buyer-guide"
+  date="July 24, 2026"
+  readTime="17 min read"
+  articleImage={articleImage}
+  quickAnswerTitle="A China activewear manufacturer can help you produce leggings, sports bras, yoga sets, gym wear and private label collections, but the right process depends on your route: ready-stock branding, private label customization, OEM or ODM. Before ordering, confirm MOQ, samples, fabric performance, logo and label options, pricing, quality control, shipping documents and the exact responsibilities on both sides."
+  quickTakeaways={quickTakeaways}
+  planningTableTitle="Choose the Right Production Route Before Asking for MOQ"
+  planningRows={planningRows}
+  planningPlacement="before"
+  tableHeaders={['Production route', 'Typical use case', 'Buyer planning note']}
+  faqs={selectedFaqs}
+  relatedReading={relatedReading}
+  ctaTitle="Send FITCLO Your Activewear Sourcing Questions"
+  ctaText="If you are comparing MOQ, samples, fabrics, private label branding, OEM development or international shipping, send FITCLO your product category, target quantity and delivery country. The team can recommend a practical sourcing route before you commit to bulk production."
+  ctaHref={buyerFaqWhatsappUrl.toString()}
+  ctaLabel="Ask FITCLO on WhatsApp"
+  publishedIso="2026-07-24"
+  modifiedIso="2026-07-24"
+>
+  <figure>
+    <img
+      src={articleImage}
+      alt="China activewear manufacturer for private label leggings, sports bras and workout sets"
+      width="1200"
+      height="800"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <figcaption>Use this FAQ as a sourcing checklist before ordering private label activewear, OEM yoga wear, leggings, sports bras or workout sets from China.</figcaption>
+  </figure>
+
+  <h2>Quick Answer for Activewear Buyers</h2>
+  <p>
+    If you are searching for a China activewear manufacturer, the first question is not only "what is your MOQ?" The better question is:
+    which production route fits your launch stage, target market and product risk? You can start by browsing
+    <a href="/products/">current activewear styles</a>, reviewing <a href="/ready-to-ship/">ready-stock activewear</a>,
+    or planning a <a href="/private-label/">private label activewear</a> program before moving into deeper
+    <a href="/capabilities/">activewear manufacturing capabilities</a>.
+  </p>
+  <p>
+    For product-specific planning, review categories such as <a href="/products/leggings/">custom activewear leggings</a>,
+    <a href="/products/sports-bras/">custom sports bras</a> and <a href="/products/matching-sets/">private label matching sets</a>.
+    If you are still verifying suppliers, pair this article with the
+    <a href="/blogs/china-activewear-manufacturer-checklist/">China activewear manufacturer checklist</a>.
+  </p>
+
+  <h2>What to Send FITCLO Before Requesting a Quote</h2>
+  <ul>
+    <li>Product category: leggings, sports bra, yoga set, gym shorts, training top, tennis skirt, jumpsuit or matching set.</li>
+    <li>Production route: ready-stock, private label customization, OEM development or ODM collaboration.</li>
+    <li>Estimated quantity by style, color and size range.</li>
+    <li>Fabric direction, such as nylon/spandex, polyester/spandex, brushed fabric, seamless knit or compression fabric.</li>
+    <li>Logo, labels, hang tags and packaging requirements.</li>
+    <li>Delivery country, target launch date and sample expectation.</li>
+  </ul>
+
+  {faqSections.map((section) => (
+    <section>
+      <h2>{section.title}</h2>
+      {section.items.map((item) => (
+        <article>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </article>
+      ))}
+    </section>
+  ))}
+
+  <h2>Helpful Next Reads</h2>
+  <p>
+    If you are still deciding how much to order, read the <a href="/blogs/moq/">activewear MOQ planning guide</a>.
+    If you are comparing supplier models, use the <a href="/blogs/oem-vs-odm-vs-private-label-activewear/">OEM vs ODM vs private label guide</a>.
+    If you need a process map, review the <a href="/blogs/custom-activewear-manufacturing-process/">custom activewear manufacturing process</a>.
+    For fabric choice, start with <a href="/blogs/fabrics/">nylon vs polyester activewear fabrics</a>.
+  </p>
+  <p>
+    New founders may also find the <a href="/blogs/starting-activewear-brand-reddit-questions-2026/">activewear startup questions guide</a>
+    useful before choosing a first supplier. For the full knowledge library, visit the
+    <a href="/activewear-intelligence/">Activewear Intelligence hub</a>.
+  </p>
+</EditorialArticleLayout>

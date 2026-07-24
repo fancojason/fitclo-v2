@@ -3,7 +3,7 @@ export const intelligenceCategories = [
     slug: 'buyer-guide',
     title: 'Buyer Guide',
     desc: 'Factory vetting, MOQ planning, sourcing risks and supplier selection for private label activewear buyers.',
-    count: '9 Articles',
+    count: '10 Articles',
     tone: 'gold',
     icon: 'book',
   },
@@ -58,6 +58,17 @@ export const intelligenceCategories = [
 ];
 
 export const intelligenceArticles = [
+  {
+    category: 'Buyer Guide',
+    categorySlug: 'buyer-guide',
+    title: 'Working With a China Activewear Manufacturer: MOQ, Samples, Fabrics, Customization and Shipping',
+    desc: 'Answers to the practical questions activewear buyers ask before ordering from China: MOQ, samples, fabrics, private label, OEM, pricing, QC and shipping.',
+    link: '/blogs/china-activewear-manufacturer-faq',
+    image: '/images/intelligence/cover-factory-guide.png',
+    readTime: '17 min read',
+    updated: 'Updated July 24, 2026',
+    featured: true,
+  },
   {
     category: 'Buyer Guide',
     categorySlug: 'buyer-guide',

@@ -207,7 +207,7 @@ const faqSchema = {
               <button type="button" class="gallery-arrow grid aspect-square place-items-center rounded-full border border-white/20 text-[24px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show next product image" data-gallery-next>&rsaquo;</button>
             </div>
             <figcaption class="mt-4 flex items-start justify-between gap-5 border-t border-white/15 pt-4 font-['Century_Gothic',sans-serif]">
-              <span class="text-[12px] font-bold text-white" data-gallery-label>{galleryImages[0].label}</span>
+              <span class="text-[12px] font-bold text-white" data-gallery-current-label>{galleryImages[0].label}</span>
               <span class="text-right text-[11px] text-white/45">Style code<br />{productCode}</span>
             </figcaption>
           </figure>
@@ -588,7 +588,7 @@ const faqSchema = {
 
     document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
       const mainImage = gallery.querySelector('[data-gallery-main]');
-      const label = gallery.querySelector('[data-gallery-label]');
+      const label = gallery.querySelector('[data-gallery-current-label]');
       const thumbnails = Array.from(gallery.querySelectorAll('[data-gallery-thumbnail]'));
       const previous = gallery.querySelector('[data-gallery-previous]');
       const next = gallery.querySelector('[data-gallery-next]');

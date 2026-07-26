@@ -201,7 +201,7 @@ const faqSchema = {
                   data-gallery-alt={image.alt}
                   data-gallery-label={image.label}
                 >
-                  <img src={image.src} alt="" width="180" height="180" loading="lazy" class="h-full w-full object-cover" />
+                  <img src={image.src} alt="" width="180" height="180" loading="lazy" class="h-full w-full object-contain" />
                 </button>
               ))}
               <button type="button" class="gallery-arrow grid aspect-square place-items-center rounded-full border border-white/20 text-[24px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show next product image" data-gallery-next>&rsaquo;</button>
@@ -293,64 +293,299 @@ const faqSchema = {
             Use these images to evaluate silhouette, V-neck depth, racerback construction, seamless fabric texture, waistband height, invisible scrunch shaping and knee-length capri proportion.
           </p>
         </div>
-        <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
           {detailImages.map(([src, alt]) => (
-            <figure class="overflow-hidden rounded-[12px] border border-white/12 bg-white">
-              <img src={src} alt={alt} loading="lazy" class="h-full w-full object-contain" />
+            <figure class="overflow-hidden border border-white/12 bg-white p-2">
+              <img src={src} alt={alt} loading="lazy" class="h-auto w-full object-contain" />
             </figure>
           ))}
         </div>
       </div>
     </section>
 
+    <section class="py-16 lg:py-20" aria-labelledby="features-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">KEY DESIGN FEATURES</p>
+        <h2 id="features-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">A seamless capri set built for high-search summer activewear demand.</h2>
+        <div class="mt-10 grid gap-7 md:grid-cols-3">
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456] font-['Century_Gothic',sans-serif]">01</p>
+            <h3 class="mt-4 text-[19px] font-bold font-['Century_Gothic',sans-serif]">V-neck racerback tank</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">The seamless V-neck top gives the set a clear fitness silhouette while the racerback supports yoga, Pilates, studio training and summer gym outfits.</p>
+          </div>
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456] font-['Century_Gothic',sans-serif]">02</p>
+            <h3 class="mt-4 text-[19px] font-bold font-['Century_Gothic',sans-serif]">Knee-length capri leggings</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">The 3/4 workout leggings length helps brands cover capri workout set, knee-length leggings set and warm-weather activewear searches.</p>
+          </div>
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456] font-['Century_Gothic',sans-serif]">03</p>
+            <h3 class="mt-4 text-[19px] font-bold font-['Century_Gothic',sans-serif]">Seamless compression feel</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">90% nylon and 10% spandex creates a smooth knitted surface with stretch recovery, light compression and a clean private label finish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#111218] py-16 lg:py-20" aria-labelledby="order-options-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">SOURCING ROUTES</p>
+            <h2 id="order-options-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Choose the route that fits your launch.</h2>
+          </div>
+          <div class="grid gap-5 md:grid-cols-3">
+            <div class="border border-white/12 p-6">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">Ready stock</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/62 font-['Century_Gothic',sans-serif]">Use current color and size availability when you need fast sampling and low-MOQ wholesale activewear.</p>
+            </div>
+            <div class="border border-white/12 p-6">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">Private label</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/62 font-['Century_Gothic',sans-serif]">Add logo, labels, hang tags and packaging to make the capri set ready for your brand collection.</p>
+            </div>
+            <div class="border border-white/12 p-6">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">OEM development</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/62 font-['Century_Gothic',sans-serif]">Adjust fabric texture, color, compression, neckline, inseam, pattern and size grading for a custom program.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="customization" class="py-16 lg:py-20" aria-labelledby="customization-heading">
-      <div class="mx-auto grid max-w-[1240px] gap-8 px-6 lg:grid-cols-3 lg:px-10">
+      <div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-10">
         <div>
-          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">CUSTOMIZATION</p>
-          <h2 id="customization-heading" class="mt-4 text-[30px] font-bold leading-[1.15] sm:text-[38px] font-['Century_Gothic',sans-serif]">Private label ready.</h2>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRIVATE LABEL &amp; CUSTOMIZATION</p>
+          <h2 id="customization-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Make the set recognizably yours.</h2>
+          <p class="mt-5 text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Fitclo can support logo artwork review, label selection, packaging planning and OEM adjustments for brands building seamless capri workout set collections.</p>
         </div>
-        <div class="rounded-[12px] border border-white/12 bg-[#0d0f13] p-6">
-          <h3 class="text-[17px] font-bold text-white font-['Century_Gothic',sans-serif]">Branding options</h3>
-          <p class="mt-3 text-[14px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Heat transfer logo, woven label, silicone patch, hang tag, packaging bag, carton label and custom color card support can be reviewed before production.</p>
-        </div>
-        <div class="rounded-[12px] border border-white/12 bg-[#0d0f13] p-6">
-          <h3 class="text-[17px] font-bold text-white font-['Century_Gothic',sans-serif]">OEM development</h3>
-          <p class="mt-3 text-[14px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">For custom programs, Fitclo can adjust color, GSM, seamless texture, compression level, neckline, back design, capri length and size grading.</p>
+        <div class="grid gap-5 sm:grid-cols-2">
+          {[
+            ['Logo placement', 'Front chest, back, waistband, leg or packaging placements can be reviewed according to artwork and order route.'],
+            ['Label & tag options', 'Woven labels, heat-transfer labels, hang tags, wash labels, barcode labels and polybags are available.'],
+            ['Color development', 'Use ready colors for faster launch or request custom Pantone colors for OEM production.'],
+            ['Fit adjustments', 'Capri length, waistband height, neckline depth and racerback coverage can be reviewed for custom orders.'],
+          ].map(([title, description]) => (
+            <div class="border-t-2 border-[#d8b456] pt-5">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">{description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <section id="product-inquiry" class="border-y border-white/10 bg-[#0d0f13] py-16 lg:py-20" aria-labelledby="inquiry-heading">
-      <div class="mx-auto grid max-w-[1120px] gap-8 px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:px-10">
-        <div>
-          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">WHOLESALE INQUIRY</p>
-          <h2 id="inquiry-heading" class="mt-4 text-[30px] font-bold leading-[1.15] sm:text-[38px] font-['Century_Gothic',sans-serif]">Request colors, MOQ and sample details for TZ7655-7.</h2>
-          <p class="mt-4 max-w-[720px] text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Send your target market, color mix, size ratio, branding method and estimated order quantity. Fitclo will confirm current stock, sample options, production lead time and shipping route.</p>
+    <section class="border-y border-white/10 bg-[#111218] py-16 lg:py-20" aria-labelledby="fabric-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FABRIC &amp; PERFORMANCE</p>
+        <h2 id="fabric-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Seamless nylon-spandex for a smooth compression look.</h2>
+        <div class="mt-9 grid gap-6 md:grid-cols-3">
+          {[
+            ['90% Nylon / 10% Spandex', 'A seamless knitted base for stretch, compression and a smooth hand feel.'],
+            ['Moisture-wicking structure', 'Built for gym, yoga, Pilates and summer fitness scenes where breathability matters.'],
+            ['Wear-resistant finish', 'Suitable for repeated try-on, active use and athleisure merchandising.'],
+          ].map(([title, description]) => (
+            <div class="border border-white/12 bg-[#090a0c] p-6">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">{description}</p>
+            </div>
+          ))}
         </div>
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#d8b456] px-7 py-3 text-[14px] font-bold text-[#101010] transition-colors hover:bg-[#efd078] font-['Century_Gothic',sans-serif]">Chat on WhatsApp</a>
       </div>
     </section>
 
-    <section class="py-16 lg:py-20" aria-labelledby="faq-heading">
-      <div class="mx-auto max-w-[980px] px-6 lg:px-10">
-        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FAQ</p>
-        <h2 id="faq-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Frequently asked questions</h2>
-        <div class="mt-8 divide-y divide-white/12 border-y border-white/12">
+    <section class="py-16 lg:py-20" aria-labelledby="process-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">ORDER PROCESS</p>
+        <h2 id="process-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">From sample check to bulk shipment.</h2>
+        <div class="mt-9 grid gap-4 md:grid-cols-5">
+          {[
+            ['01', 'Confirm style', 'Send target quantity, colors and size ratio.'],
+            ['02', 'Review stock', 'Check current availability and sample route.'],
+            ['03', 'Approve branding', 'Confirm logo, label, tag and packaging files.'],
+            ['04', 'Prepare order', 'Arrange production, packing or ready-stock branding.'],
+            ['05', 'Inspect & ship', 'Check details, pack cartons and arrange delivery.'],
+          ].map(([step, title, description]) => (
+            <div class="border border-white/12 p-5">
+              <p class="text-[12px] font-bold tracking-[0.14em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{step}</p>
+              <h3 class="mt-4 text-[16px] font-bold font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[13px] leading-[1.65] text-white/60 font-['Century_Gothic',sans-serif]">{description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#111218] py-16 lg:py-20" aria-labelledby="quality-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">QUALITY CHECKPOINTS</p>
+          <h2 id="quality-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">What buyers should verify before bulk order.</h2>
+        </div>
+        <ul class="grid gap-4 text-[14px] leading-[1.75] text-white/68 font-['Century_Gothic',sans-serif]">
+          <li>Check V-neck depth, racerback coverage and chest support against your customer fit expectation.</li>
+          <li>Review capri length, waistband compression and invisible scrunch position on the selected size.</li>
+          <li>Confirm opacity, stretch recovery, color consistency and logo placement before bulk production.</li>
+          <li>Approve carton, label, hang tag and packaging details before shipment.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="shipping-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">SHIPPING &amp; PAYMENT</p>
+          <h2 id="shipping-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Plan the order around your destination.</h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">Worldwide logistics</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">Express, air and sea shipping can be arranged after the destination, quantity and delivery window are confirmed.</p>
+          </div>
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">Payment options</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">Payment can be arranged by T/T, Credit Card or PayPal according to order type and confirmation terms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-[#111218] py-16 lg:py-20" aria-labelledby="faq-heading">
+      <div class="mx-auto max-w-[900px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">BUYER FAQ</p>
+        <h2 id="faq-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Questions buyers ask before ordering.</h2>
+        <div class="mt-9 border-y border-white/12">
           {faqs.map((faq) => (
-            <details class="group py-5">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[16px] font-bold text-white font-['Century_Gothic',sans-serif]">
-                {faq.question}
+            <details class="group border-b border-white/12 last:border-b-0">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 py-5 text-[16px] font-bold font-['Century_Gothic',sans-serif]">
+                <span>{faq.question}</span>
                 <span class="text-[#d8b456] transition-transform group-open:rotate-45" aria-hidden="true">+</span>
               </summary>
-              <p class="mt-4 max-w-[820px] text-[14px] leading-[1.8] text-white/65 font-['Century_Gothic',sans-serif]">{faq.answer}</p>
+              <p class="max-w-[780px] pb-6 text-[14px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">{faq.answer}</p>
             </details>
           ))}
         </div>
       </div>
     </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="related-guides-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">RELATED GUIDES</p>
+            <h2 id="related-guides-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Continue your sourcing research.</h2>
+          </div>
+          <a href="/blogs/" class="text-[13px] font-bold text-[#d8b456] transition-colors hover:text-white font-['Century_Gothic',sans-serif]">Explore all guides -&gt;</a>
+        </div>
+        <div class="mt-9 grid gap-5 md:grid-cols-3">
+          {[
+            ['/blogs/capri-leggings-workout-set-trend-2026/', 'Why Capri Workout Sets Are Trending in 2026', 'Explore the return of capri leggings and how activewear buyers can position the silhouette.'],
+            ['/blogs/wholesale-yoga-sets-low-moq-guide/', 'Wholesale Yoga Sets: Low MOQ Guide', 'Compare the sourcing questions that shape a low-MOQ yoga set program.'],
+            ['/blogs/custom-activewear-manufacturing-process/', 'Custom Activewear Manufacturing Process', 'Understand the path from product brief to approved bulk production.'],
+          ].map(([href, title, description]) => (
+            <a href={href} class="group border border-white/12 p-6 transition-colors hover:border-[#d8b456]">
+              <p class="text-[10px] font-bold tracking-[0.16em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO INTELLIGENCE</p>
+              <h3 class="mt-4 text-[19px] font-bold leading-[1.3] group-hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[14px] leading-[1.65] text-white/62 font-['Century_Gothic',sans-serif]">{description}</p>
+              <span class="mt-6 inline-flex text-[13px] font-bold text-[#d8b456] font-['Century_Gothic',sans-serif]">Read guide -&gt;</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="product-inquiry" class="bg-[#090a0c] py-16 text-white lg:py-20" aria-labelledby="inquiry-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">REQUEST CURRENT DETAILS</p>
+          <h2 id="inquiry-heading" class="mt-4 text-[32px] font-bold leading-[1.16] sm:text-[42px] font-['Century_Gothic',sans-serif]">Request current colors, MOQ and wholesale quote.</h2>
+          <p class="mt-5 max-w-[450px] text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Send your quantity, color and size plan. Fitclo will confirm the most suitable sourcing route for {productName}, SKU {productCode}.</p>
+          <a href={whatsappUrl} target="_blank" rel="noopener" class="mt-7 inline-flex min-h-12 items-center border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-[#101010] font-['Century_Gothic',sans-serif]">Ask about {productCode} on WhatsApp</a>
+        </div>
+
+        <form class="grid gap-5 border border-white/15 bg-[#111218] p-6 sm:grid-cols-2 sm:p-8" data-product-inquiry-form novalidate>
+          <input type="hidden" name="product_name" value={productName} />
+          <input type="hidden" name="product_code" value={productCode} />
+          <input type="hidden" name="product_type" value={`${productName} (${productCode})`} />
+          <input type="hidden" name="page_url" value={productUrl} data-page-url />
+
+          <div>
+            <label for="product-name" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">NAME *</label>
+            <input id="product-name" name="name" type="text" autocomplete="name" required class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-company" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">COMPANY</label>
+            <input id="product-company" name="company" type="text" autocomplete="organization" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-email" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">BUSINESS EMAIL OR WHATSAPP *</label>
+            <input id="product-email" name="email" type="email" autocomplete="email" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-phone" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">WHATSAPP / PHONE</label>
+            <input id="product-phone" name="phone" type="tel" autocomplete="tel" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-country" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">COUNTRY / REGION</label>
+            <input id="product-country" name="country" type="text" autocomplete="country-name" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-inquiry-type" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">INQUIRY TYPE</label>
+            <select id="product-inquiry-type" name="inquiry_type" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]">
+              <option value="Sample">Sample</option>
+              <option value="Ready Stock">Ready Stock</option>
+              <option value="Private Label">Private Label</option>
+              <option value="Full OEM">Full OEM</option>
+            </select>
+          </div>
+          <div>
+            <label for="product-quantity" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">ESTIMATED QUANTITY</label>
+            <input id="product-quantity" name="quantity" type="text" placeholder="For example: 50 sets" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-colors-sizes" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">COLORS &amp; SIZES</label>
+            <input id="product-colors-sizes" name="colors_sizes" type="text" placeholder="Colors and size mix" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="product-branding" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">BRANDING REQUIREMENTS</label>
+            <input id="product-branding" name="branding_requirements" type="text" placeholder="Logo, labels, hang tags or packaging" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="product-message" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">MESSAGE</label>
+            <textarea id="product-message" name="message" rows="4" placeholder="Tell us your target launch date, reference requirements or questions." class="mt-2 w-full resize-y border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]"></textarea>
+          </div>
+          <div class="sm:col-span-2 flex flex-col gap-4 border-t border-white/15 pt-5 sm:flex-row sm:items-center sm:justify-between">
+            <p class="text-[12px] leading-[1.55] text-white/50 font-['Century_Gothic',sans-serif]">Your inquiry will include {productName}, {productCode} and this page URL.</p>
+            <button type="submit" class="min-h-12 bg-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#101010] transition-colors hover:bg-[#efd078] font-['Century_Gothic',sans-serif]">Send Product Inquiry</button>
+          </div>
+          <p class="hidden text-[13px] sm:col-span-2 font-['Century_Gothic',sans-serif]" data-product-form-status aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="bg-[#090a0c] pb-28 text-white">
+      <div class="mx-auto max-w-[1240px] border-t border-white/15 px-6 pt-6 lg:px-10">
+        <p class="text-[12px] text-white/45 font-['Century_Gothic',sans-serif]">Updated July 26, 2026 <span class="px-2" aria-hidden="true">-</span> Reviewed by Fitclo Activewear Team</p>
+      </div>
+    </section>
   </div>
 
   <script is:inline>
+    const productTrackingData = {
+      product_name: 'Knee-Length Capri Leggings Workout Set',
+      product_code: 'TZ7655-7',
+    };
+
+    const trackProductEvent = (eventName, parameters = {}) => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, { ...productTrackingData, ...parameters });
+        return;
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: eventName, ...productTrackingData, ...parameters });
+    };
+
     document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
       const mainImage = gallery.querySelector('[data-gallery-main]');
       const label = gallery.querySelector('[data-gallery-label]');
@@ -369,12 +604,85 @@ const faqSchema = {
         thumbnails.forEach((button, buttonIndex) => {
           button.setAttribute('aria-pressed', buttonIndex === activeIndex ? 'true' : 'false');
         });
+        trackProductEvent('select_product_image', { image_position: String(activeIndex + 1) });
       };
 
       thumbnails.forEach((button, index) => button.addEventListener('click', () => setActive(index)));
       previous?.addEventListener('click', () => setActive(activeIndex - 1));
       next?.addEventListener('click', () => setActive(activeIndex + 1));
     });
+
+    const form = document.querySelector('[data-product-inquiry-form]');
+    const status = document.querySelector('[data-product-form-status]');
+    const pageUrlInput = form?.querySelector('[data-page-url]');
+    let inquiryStarted = false;
+
+    if (form && pageUrlInput) {
+      pageUrlInput.value = window.location.href;
+      trackProductEvent('view_product');
+
+      form.addEventListener('focusin', () => {
+        if (!inquiryStarted) {
+          inquiryStarted = true;
+          trackProductEvent('start_product_inquiry');
+        }
+      });
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const email = form.elements.namedItem('email');
+        const phone = form.elements.namedItem('phone');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        if (!email?.value.trim() && !phone?.value.trim()) {
+          if (status) {
+            status.textContent = 'Please enter a business email or WhatsApp number so our team can reply.';
+            status.className = 'text-[13px] text-[#f3b1a6] sm:col-span-2 font-sans';
+          }
+          email?.focus();
+          return;
+        }
+
+        if (!form.reportValidity()) return;
+        const originalLabel = submitButton?.textContent || 'Send Product Inquiry';
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending inquiry...';
+        }
+        if (status) {
+          status.textContent = 'Sending your product inquiry...';
+          status.className = 'text-[13px] text-white/60 sm:col-span-2 font-sans';
+        }
+
+        try {
+          const response = await fetch('/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
+          });
+          const result = await response.json();
+          if (!response.ok || !result.success) throw new Error(result.error || result.message || 'Unable to send inquiry.');
+
+          trackProductEvent('submit_product_inquiry');
+          form.reset();
+          pageUrlInput.value = window.location.href;
+          if (status) {
+            status.textContent = 'Thank you. Your inquiry has been sent. The Fitclo team will reply with current details.';
+            status.className = 'text-[13px] text-[#c6e4ae] sm:col-span-2 font-sans';
+          }
+          if (submitButton) submitButton.textContent = 'Inquiry Sent';
+        } catch (error) {
+          if (status) {
+            status.textContent = error instanceof Error ? error.message : 'Unable to send inquiry. Please try WhatsApp instead.';
+            status.className = 'text-[13px] text-[#f3b1a6] sm:col-span-2 font-sans';
+          }
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalLabel;
+          }
+        }
+      });
+    }
   </script>
 
   <style>

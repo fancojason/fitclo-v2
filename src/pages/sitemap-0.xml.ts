@@ -12,6 +12,7 @@ const staticPages = [
   '/contact/',
   '/guides/',
   '/private-label/',
+  '/premium-womens-activewear-manufacturer-china/',
   '/products/',
   '/ready-to-ship/',
 ];
@@ -55,6 +56,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/contact/', '2026-07-10'],
   ['/guides/', '2026-07-10'],
   ['/private-label/', '2026-07-10'],
+  ['/premium-womens-activewear-manufacturer-china/', '2026-07-27'],
   ['/products/', '2026-07-23'],
   ['/products/capri-workout-set/', '2026-07-23'],
   ['/products/matching-sets/', '2026-07-23'],
@@ -66,6 +68,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/blogs/activewear-manufacturer-ecuador-import-planning/', '2026-07-15'],
   ['/blogs/activewear-manufacturer-honduras/', '2026-07-15'],
   ['/blogs/activewear-pockets-skorts-utility-design/', '2026-07-23'],
+  ['/blogs/best-activewear-manufacturers-in-china-2026/', '2026-07-27'],
   ['/blogs/capri-leggings-workout-set-trend-2026/', '2026-07-17'],
   ['/blogs/china-activewear-manufacturer-faq/', '2026-07-24'],
   ['/blogs/custom-activewear-manufacturing-process/', '2026-07-14'],

@@ -4,47 +4,47 @@ import { intelligenceArticles } from '../../data/intelligence';
 
 const guides = [
   {
-    type: "RUSSIA SOURCING GUIDE",
-    title: "Activewear Manufacturer for Russia: How Russian Brands Source Sportswear from China",
+    type: "ГИД ДЛЯ РОССИЙСКОГО РЫНКА",
+    title: "Производитель спортивной одежды для России: как брендам закупать activewear в Китае",
     date: "July 28, 2026",
     readTime: "9 min read",
-    desc: "A Russian buyer guide for sourcing private label activewear, yoga sets, leggings and gym wear from China with MOQ, samples, branding and shipment planning.",
+    desc: "Практический гид для российских покупателей: MOQ, образцы, ткани, private label, упаковка и экспортная подготовка при закупке activewear в Китае.",
     link: "/blogs/russia-activewear-sourcing-from-china",
     linkText: "Read Article"
   },
   {
-    type: "RUSSIA PRODUCT GUIDE",
-    title: "Wholesale Yoga Sets for Russian Fitness Brands: Fabric, Fit and MOQ Guide",
+    type: "ГИД ПО YOGA SETS",
+    title: "Оптовые yoga sets для российских фитнес-брендов: ткань, посадка и MOQ",
     date: "July 28, 2026",
     readTime: "8 min read",
-    desc: "A buyer-focused guide for Russian fitness brands sourcing wholesale yoga sets, private label activewear sets and capri workout sets from China.",
+    desc: "Как российским фитнес-брендам выбирать комплекты для йоги, capri workout sets и private label activewear sets у китайского производителя.",
     link: "/blogs/wholesale-yoga-sets-russia-fitness-brands",
     linkText: "Read Article"
   },
   {
-    type: "RUSSIA READY STOCK GUIDE",
-    title: "Ready Stock Activewear for Russian Boutiques: Lower-MOQ Launch Planning",
+    type: "READY STOCK ДЛЯ РОССИИ",
+    title: "Ready stock activewear для российских бутиков: запуск с меньшим MOQ",
     date: "July 28, 2026",
     readTime: "7 min read",
-    desc: "How Russian boutiques and online stores can use ready stock activewear, small MOQ styles and private label packaging to test product demand faster.",
+    desc: "Как российским бутикам и онлайн-магазинам быстрее тестировать спрос через готовые модели, small MOQ и private label упаковку.",
     link: "/blogs/ready-stock-activewear-russian-boutiques",
     linkText: "Read Article"
   },
   {
-    type: "RUSSIA LEGGINGS GUIDE",
-    title: "Private Label Leggings for Russian Online Stores: Fit, Fabric and Branding Checklist",
+    type: "ГИД ПО LEGGINGS",
+    title: "Private label leggings для российских онлайн-магазинов: посадка, ткань и брендинг",
     date: "July 28, 2026",
     readTime: "8 min read",
-    desc: "A practical guide for Russian online stores sourcing private label leggings, capri leggings and seamless workout sets from China.",
+    desc: "Практический чек-лист по закупке private label leggings, capri leggings и seamless workout sets для российского рынка.",
     link: "/blogs/private-label-leggings-russia-online-stores",
     linkText: "Read Article"
   },
   {
-    type: "RUSSIA SPORTS BRA GUIDE",
-    title: "Sports Bras and Gym Sets for Russia: Wholesale Support, Sizing and Private Label Tips",
+    type: "ГИД ПО SPORTS BRA",
+    title: "Sports bras и gym sets для России: оптовая закупка, поддержка и private label",
     date: "July 28, 2026",
     readTime: "8 min read",
-    desc: "A sourcing guide for Russian buyers comparing wholesale sports bras, gym sets, yoga tops and private label activewear from China.",
+    desc: "Гид для российских покупателей по wholesale sports bras, gym sets, yoga tops и private label activewear из Китая.",
     link: "/blogs/sports-bras-gym-sets-russia-wholesale",
     linkText: "Read Article"
   },
@@ -839,12 +839,34 @@ const allGuides = dedupedGuides.map((guide) => {
         <p class="text-xl text-white/50 max-w-2xl leading-relaxed">
           Technical manufacturing guides, supply chain strategies, and market trends curated for professional activewear brand directors.
         </p>
+        <div class="mt-10 max-w-3xl">
+          <label for="blog-search" class="sr-only">Search blog articles</label>
+          <div class="relative">
+            <input
+              id="blog-search"
+              type="search"
+              autocomplete="off"
+              placeholder="Search articles by topic, keyword or market..."
+              class="w-full rounded-full border border-[#C9A84C]/35 bg-[#0e0e12] px-6 py-4 pr-14 text-[15px] text-white outline-none transition placeholder:text-white/35 focus:border-[#C9A84C] focus:ring-2 focus:ring-[#C9A84C]/20"
+            />
+            <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-[#C9A84C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35m1.6-5.4a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+            </svg>
+          </div>
+          <p id="blog-search-count" class="mt-3 text-[12px] font-bold uppercase tracking-[0.18em] text-white/35">
+            Showing all articles
+          </p>
+        </div>
       </div>
 
       <!-- Article Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {allGuides.map((guide) => (
-          <div class="group relative bg-[#0e0e12] border border-white/5 rounded-2xl overflow-hidden hover:border-[#C9A84C]/30 transition-all duration-500">
+          <div
+            class="group relative bg-[#0e0e12] border border-white/5 rounded-2xl overflow-hidden hover:border-[#C9A84C]/30 transition-all duration-500"
+            data-blog-card
+            data-blog-search={`${guide.type} ${guide.title} ${guide.desc} ${guide.date} ${guide.readTime}`.toLowerCase()}
+          >
             <!-- Decorative Background Element -->
             <div class="absolute -right-20 -top-20 w-40 h-40 bg-[#C9A84C]/5 rounded-full blur-[80px] group-hover:bg-[#C9A84C]/10 transition-all duration-500"></div>
             
@@ -889,6 +911,38 @@ const allGuides = dedupedGuides.map((guide) => {
           </div>
         ))}
       </div>
+      <div id="blog-empty-state" class="mt-12 hidden rounded-2xl border border-white/10 bg-[#0e0e12] px-8 py-10 text-center">
+        <p class="text-lg font-bold text-white">No matching articles found.</p>
+        <p class="mt-2 text-sm text-white/45">Try another keyword such as fabric, leggings, Russia, MOQ, private label or sports bra.</p>
+      </div>
     </div>
   </div>
+
+  <script>
+    const blogSearchInput = document.getElementById('blog-search');
+    const blogCards = Array.from(document.querySelectorAll('[data-blog-card]'));
+    const blogEmptyState = document.getElementById('blog-empty-state');
+    const blogSearchCount = document.getElementById('blog-search-count');
+
+    const updateBlogSearch = () => {
+      const query = String(blogSearchInput?.value ?? '').trim().toLowerCase();
+      let visibleCount = 0;
+
+      blogCards.forEach((card) => {
+        const haystack = card.getAttribute('data-blog-search') ?? '';
+        const isVisible = query.length === 0 || haystack.includes(query);
+        card.toggleAttribute('hidden', !isVisible);
+        if (isVisible) visibleCount += 1;
+      });
+
+      blogEmptyState?.classList.toggle('hidden', visibleCount !== 0);
+      if (blogSearchCount) {
+        blogSearchCount.textContent = query
+          ? `${visibleCount} article${visibleCount === 1 ? '' : 's'} found`
+          : 'Showing all articles';
+      }
+    };
+
+    blogSearchInput?.addEventListener('input', updateBlogSearch);
+  </script>
 </BaseLayout>

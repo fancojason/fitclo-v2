@@ -29,6 +29,7 @@ const {
   ctaLabel = 'Talk to Fitclo',
   publishedIso = '2026-07-11',
   modifiedIso = '2026-07-11',
+  lang = 'en',
 } = Astro.props;
 
 const articleSchema = {
@@ -94,6 +95,7 @@ const structuredData = faqSchema
   structuredData={structuredData}
   autoArticleSchema={false}
   includeBreadcrumbSchema={false}
+  lang={lang}
 >
   <article class={`fitclo-editorial-article article-kind-${articleKind}`}>
     <div class="fitclo-editorial-wrap">

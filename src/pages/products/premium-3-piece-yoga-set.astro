@@ -1,0 +1,699 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fixedProductGalleryImages } from '../../data/productGalleryDefaults';
+
+const productName = 'Premium 3-Piece Yoga Set';
+const productCode = 'TZ3562-10';
+const productUrl = 'https://www.fitcloo.com/products/premium-3-piece-yoga-set/';
+const productImage = 'https://www.fitcloo.com/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-main.png';
+const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send current colors, sizes, MOQ, sample cost and wholesale pricing.`;
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
+
+const galleryImages = [
+  {
+    src: '/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-main.png',
+    alt: 'Premium 3-Piece Yoga Set TZ3562-10 cover with contrast trim crop jacket, tank top and high waist gym leggings',
+    label: 'Product cover',
+  },
+  {
+    src: '/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-feature-board.png',
+    alt: 'Premium 3-Piece Yoga Set feature board showing contrast high neck design, contrast stitching at hem and hip-lifting design',
+    label: 'Feature board',
+  },
+  {
+    src: '/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-matching-series.png',
+    alt: 'TZ3562-10 matching series showing crop jacket, high-neck tank top and high waist gym leggings options',
+    label: 'Matching series',
+  },
+  ...fixedProductGalleryImages,
+];
+
+const detailImages = [
+  ['/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-detail-blue.png', 'Abyss blue premium 3-piece yoga set with crop jacket, tank top and high waist leggings'],
+  ['/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-detail-coffee.png', 'Black coffee premium 3-piece fitness training sportswear front view'],
+  ['/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-red-back.png', 'Dark red three-piece yoga set back view with hip-lifting seam design'],
+  ['/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-color-chart.png', 'Color chart for TZ3562-10 premium three-piece yoga set'],
+  ['/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-construction-details.png', 'Construction detail board for contrast trim jacket, tank top and leggings'],
+  ['/images/products/premium-3-piece-yoga-set/premium-3-piece-yoga-set-nude-feeling-fabric.png', 'Nude-feeling nylon spandex fabric with firm yet soft four-way stretch'],
+];
+
+const quickFacts = [
+  ['Set includes', 'Crop jacket + high-neck tank top + high waist gym leggings'],
+  ['Fabric', 'Nude-Feeling 78% Nylon / 22% Spandex'],
+  ['Sizes', 'S, M, L, XL + or Customization'],
+  ['MOQ', '50 Sets'],
+  ['Branding', 'Logo, labels, hang tags, packaging, etc.'],
+  ['Samples', 'Available before bulk production'],
+];
+
+const specificationRows = [
+  ['Product Type', 'Women 3 Piece Fitness Training Sportswear Set', 'Style Code', productCode],
+  ['Fabric', 'Nude-Feeling 78% Nylon / 22% Spandex', 'Sample', 'Available before bulk production'],
+  ['Design', 'Crop jacket + high-neck tank top + high waist gym leggings', 'Private Label', 'Logo, labels, hang tags, packaging, etc.'],
+  ['Sizes', 'S, M, L, XL + or Customization', 'OEM / ODM', 'Custom fabric, colors, fit, pattern and packaging, etc.'],
+  ['Colors', 'Black, Abyss Blue, Black Coffee, Dark Red + customization, etc.', 'Logo Position', 'Front, back, waistband, legs, jacket, hang tags and packaging, etc.'],
+  ['Applications', 'Yoga, Pilates, gym workouts, fitness training, running warm-up, studio classes and athleisure', 'Features', 'Nude-feeling hand feel, four-way stretch, breathable, soft compression, squat-proof coverage and hip-lifting seam design'],
+  ['Construction', 'Contrast high neck, crop jacket layer, contrast stitching at hem, high waist leggings and side line details', 'Payment', 'T/T, Credit Card, PayPal'],
+];
+
+const faqs = [
+  {
+    question: 'What is the fabric for TZ3562-10?',
+    answer:
+      'TZ3562-10 uses Nude-Feeling 78% Nylon / 22% Spandex. The fabric is designed for soft touch, four-way stretch, stretch recovery, breathable comfort and smooth compression.',
+  },
+  {
+    question: 'Is this a 3-piece yoga set or a workout jacket set?',
+    answer:
+      'It can be positioned as both. Buyers can list it as a 3 piece yoga set, workout jacket set, fitness training sportswear set, high waist gym leggings outfit or private label athleisure set depending on the sales channel.',
+  },
+  {
+    question: 'What sizes are available?',
+    answer:
+      'Ready-stock sizing is S, M, L and XL. Custom sizing, grading and fit adjustments can be reviewed for private label or OEM production.',
+  },
+  {
+    question: 'Can the product use private label branding?',
+    answer:
+      'Yes. Fitclo can support logo placement, woven labels, heat transfer labels, hang tags, packaging bags and other brand assets based on your artwork and order requirements.',
+  },
+  {
+    question: 'What buyer search terms fit this product?',
+    answer:
+      'Relevant search terms include New Contrast Color 3 Piece Fitness Training Sportswear, High Waist Gym Leggings Women Tank Top Workout Jacket Yoga Sets, 3 piece yoga set, workout jacket set and private label fitness training set.',
+  },
+  {
+    question: 'Can I request sample approval before a bulk order?',
+    answer:
+      'Yes. Sample approval helps check fabric hand feel, opacity, jacket length, tank coverage, waistband compression, contrast trim alignment, hip-lifting seam shape and branding position before bulk production.',
+  },
+  {
+    question: 'Can Fitclo customize the color?',
+    answer:
+      'Yes. Existing colors are faster for ready-stock programs. Custom colors can be reviewed for OEM development after confirming target Pantone, MOQ, lead time and fabric requirements.',
+  },
+];
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  '@id': `${productUrl}#product`,
+  name: productName,
+  description:
+    'Premium 3-Piece Yoga Set TZ3562-10 is a women fitness training sportswear outfit with a contrast trim crop jacket, high-neck tank top, high waist gym leggings and nude-feeling 78% nylon / 22% spandex fabric for wholesale, private label and OEM activewear brands.',
+  url: productUrl,
+  image: [...galleryImages.map((image) => `https://www.fitcloo.com${image.src}`), ...detailImages.map(([src]) => `https://www.fitcloo.com${src}`)],
+  sku: productCode,
+  mpn: productCode,
+  material: 'Nude-Feeling 78% Nylon / 22% Spandex',
+  size: 'S, M, L, XL + or Customization',
+  brand: {
+    '@type': 'Brand',
+    name: 'Fitclo',
+  },
+  manufacturer: {
+    '@id': 'https://www.fitcloo.com/#organization',
+  },
+  category: 'Matching Sets / 3-Piece Yoga Sets / Fitness Training Sportswear',
+  countryOfOrigin: {
+    '@type': 'Country',
+    name: 'China',
+  },
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'Product type', value: 'Women 3 Piece Fitness Training Sportswear Set' },
+    { '@type': 'PropertyValue', name: 'Fabric', value: 'Nude-Feeling 78% Nylon / 22% Spandex' },
+    { '@type': 'PropertyValue', name: 'Sizes', value: 'S, M, L, XL + or Customization' },
+    { '@type': 'PropertyValue', name: 'MOQ', value: '50 Sets' },
+    { '@type': 'PropertyValue', name: 'Applications', value: 'Yoga, Pilates, gym workouts, fitness training, running warm-up, studio classes and athleisure' },
+    { '@type': 'PropertyValue', name: 'Features', value: 'Nude-feeling hand feel, four-way stretch, breathable, soft compression, squat-proof coverage and hip-lifting seam design' },
+    { '@type': 'PropertyValue', name: 'Private label', value: 'Logo, labels, hang tags, packaging, etc.' },
+    { '@type': 'PropertyValue', name: 'Payment', value: 'T/T, Credit Card, PayPal' },
+  ],
+};
+
+const productBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://www.fitcloo.com/products/' },
+    { '@type': 'ListItem', position: 3, name: 'Matching Sets', item: 'https://www.fitcloo.com/products/matching-sets/' },
+    { '@type': 'ListItem', position: 4, name: productName, item: productUrl },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<BaseLayout
+  title="Premium 3-Piece Yoga Set TZ3562-10 | Wholesale Fitness Training Sportswear"
+  description="Wholesale TZ3562-10 premium 3-piece yoga set with contrast trim crop jacket, tank top, high waist gym leggings, nude-feeling 78% nylon / 22% spandex fabric and private label options."
+  canonicalURL={productUrl}
+  image={productImage}
+  structuredData={[productSchema, productBreadcrumbSchema, faqSchema]}
+  autoArticleSchema={false}
+  includeBreadcrumbSchema={false}
+>
+  <div class="product-detail-page bg-[#090a0c] text-white">
+    <section class="pt-[112px]">
+      <div class="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10 lg:pb-20">
+        <nav class="flex flex-wrap items-center gap-2 text-[12px] text-white/55 font-['Century_Gothic',sans-serif]" aria-label="Breadcrumb">
+          <a href="/" class="transition-colors hover:text-[#d8b456]">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/" class="transition-colors hover:text-[#d8b456]">Products</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/matching-sets/" class="transition-colors hover:text-[#d8b456]">Matching Sets</a>
+          <span aria-hidden="true">/</span>
+          <span class="text-white/85" aria-current="page">{productName}</span>
+        </nav>
+
+        <div class="mt-8 grid gap-10 border-t border-white/15 pt-9 lg:grid-cols-[minmax(400px,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-16" data-product-gallery>
+          <figure class="min-w-0">
+            <div class="relative aspect-square overflow-hidden rounded-[12px] border border-white/15 bg-[#111218]">
+              <img
+                src={galleryImages[0].src}
+                alt={galleryImages[0].alt}
+                width="800"
+                height="800"
+                class="h-full w-full object-contain"
+                fetchpriority="high"
+                data-gallery-main
+              />
+            </div>
+            <div class="mt-4 grid grid-cols-[32px_repeat(5,minmax(0,1fr))_32px] items-center gap-2 sm:grid-cols-[40px_repeat(5,minmax(0,1fr))_40px]">
+              <button type="button" class="gallery-arrow grid aspect-square place-items-center rounded-full border border-white/20 text-[24px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show previous product image" data-gallery-previous>&lsaquo;</button>
+              {galleryImages.map((image, index) => (
+                <button
+                  type="button"
+                  class="gallery-thumbnail relative aspect-square overflow-hidden rounded-[10px] border border-white/20 bg-[#111218] transition-colors hover:border-[#d8b456]"
+                  aria-label={`View ${image.label}`}
+                  aria-pressed={index === 0 ? 'true' : 'false'}
+                  data-gallery-thumbnail={index}
+                  data-gallery-src={image.src}
+                  data-gallery-alt={image.alt}
+                  data-gallery-label={image.label}
+                >
+                  <img src={image.src} alt="" width="180" height="180" loading="lazy" class="h-full w-full object-contain" />
+                </button>
+              ))}
+              <button type="button" class="gallery-arrow grid aspect-square place-items-center rounded-full border border-white/20 text-[24px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show next product image" data-gallery-next>&rsaquo;</button>
+            </div>
+            <figcaption class="mt-4 flex items-start justify-between gap-5 border-t border-white/15 pt-4 font-['Century_Gothic',sans-serif]">
+              <span class="text-[12px] font-bold text-white" data-gallery-current-label>{galleryImages[0].label}</span>
+              <span class="text-right text-[11px] text-white/45">Style code<br />{productCode}</span>
+            </figcaption>
+          </figure>
+
+          <div class="pt-1">
+            <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">READY STOCK - PRIVATE LABEL - OEM</p>
+            <h1 class="mt-5 max-w-[760px] text-[36px] font-bold leading-[1.06] text-white sm:text-[48px] font-['Century_Gothic',sans-serif]">{productName}</h1>
+            <p class="mt-6 max-w-[710px] text-[16px] leading-[1.75] text-white/75 md:text-[17px] font-['Century_Gothic',sans-serif]">
+              A premium three-piece yoga set built around a contrast trim crop jacket, high-neck tank top and high waist gym leggings. It is designed for yoga, Pilates, fitness training, studio workouts, running warm-ups and private label activewear brands that need a coordinated jacket set story.
+            </p>
+            <p class="mt-4 max-w-[720px] text-[13px] leading-[1.65] text-white/52 font-['Century_Gothic',sans-serif]">
+              Buyer search direction: New Contrast Color 3 Piece Fitness Training Sportswear High Waist Gym Leggings Women Tank Top Workout Jacket Yoga Sets.
+            </p>
+
+            <dl class="mt-8 grid gap-x-8 gap-y-5 border-y border-white/15 py-6 sm:grid-cols-2 lg:grid-cols-3">
+              {quickFacts.map(([label, value]) => (
+                <div>
+                  <dt class="text-[10px] font-bold tracking-[0.15em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{label}</dt>
+                  <dd class="mt-2 text-[13px] leading-[1.55] text-white/85 font-['Century_Gothic',sans-serif]">{value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div class="mt-8 flex flex-wrap items-center gap-3 font-['Century_Gothic',sans-serif]">
+              <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#d8b456] px-6 py-3 text-[13px] font-bold text-[#101010] transition-colors hover:bg-[#efd078]">Request Wholesale Quote</a>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 py-3 text-[13px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]">Order a TZ3562-10 Sample</a>
+              <a href="#customization" class="inline-flex min-h-12 items-center text-[13px] font-bold text-[#d8b456] transition-colors hover:text-white">View Customization Options <span class="ml-2" aria-hidden="true">-&gt;</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 py-16 lg:py-20" aria-labelledby="buyer-summary-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">BUYER SUMMARY</p>
+          <h2 id="buyer-summary-heading" class="mt-4 max-w-[500px] text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">A premium jacket yoga set for complete activewear drops.</h2>
+        </div>
+        <div class="border-l-2 border-[#d8b456] pl-6">
+          <p class="text-[16px] leading-[1.8] text-white/68 font-['Century_Gothic',sans-serif]">
+            TZ3562-10 is useful when buyers want a ready-merchandised three-piece workout outfit instead of separate tops and leggings. The contrast trim jacket, high-neck tank and high waist leggings create a layered studio-to-street look for yoga, Pilates, gym training and athleisure merchandising.
+          </p>
+          <p class="mt-4 text-[16px] leading-[1.8] text-white/68 font-['Century_Gothic',sans-serif]">
+            For activewear brands, this product can be positioned as a 3 piece yoga set, workout jacket set, fitness training sportswear set, tank top leggings set, high waist gym leggings outfit or private label athleisure collection.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="specifications-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRODUCT SPECIFICATIONS</p>
+            <h2 id="specifications-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Product specifications</h2>
+          </div>
+          <p class="max-w-[430px] text-[14px] leading-[1.65] text-white/60 font-['Century_Gothic',sans-serif]">Key details for buyers comparing wholesale 3-piece yoga sets, workout jacket sets and private label fitness training sportswear.</p>
+        </div>
+        <div class="mt-9 overflow-x-auto border border-white/25 bg-[#0d0f13]">
+          <table class="min-w-[920px] w-full border-collapse text-left font-['Century_Gothic',sans-serif]">
+            <tbody>
+              {specificationRows.map(([leftLabel, leftValue, rightLabel, rightValue]) => (
+                <tr class="border-b border-white/15 last:border-b-0">
+                  <th scope="row" class="w-[16%] border-r border-white/15 bg-[#15171c] px-4 py-4 text-center text-[12px] font-bold tracking-[0.04em] text-[#d8b456]">{leftLabel}</th>
+                  <td class="w-[34%] border-r border-white/15 px-5 py-4 text-center text-[14px] leading-[1.65] text-white/75">{leftValue}</td>
+                  <th scope="row" class="w-[16%] border-r border-white/15 bg-[#15171c] px-4 py-4 text-center text-[12px] font-bold tracking-[0.04em] text-[#d8b456]">{rightLabel}</th>
+                  <td class="w-[34%] px-5 py-4 text-center text-[14px] leading-[1.65] text-white/75">{rightValue}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 py-16 lg:py-20" aria-labelledby="details-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <div class="max-w-[760px]">
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRODUCT DETAILS</p>
+          <h2 id="details-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Detail views and color options</h2>
+          <p class="mt-4 text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">
+            Use these images to evaluate the crop jacket layer, contrast trim, high-neck tank, high waist leggings, side line details, hip-lifting seam and nude-feeling fabric hand feel.
+          </p>
+        </div>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          {detailImages.map(([src, alt]) => (
+            <figure class="overflow-hidden border border-white/12 bg-white p-2">
+              <img src={src} alt={alt} loading="lazy" class="h-auto w-full object-contain" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="features-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">KEY DESIGN FEATURES</p>
+        <h2 id="features-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">A 3-piece set built for high-search activewear outfit demand.</h2>
+        <div class="mt-10 grid gap-7 md:grid-cols-3">
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456] font-['Century_Gothic',sans-serif]">01</p>
+            <h3 class="mt-4 text-[19px] font-bold font-['Century_Gothic',sans-serif]">Contrast crop jacket layer</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">The lightweight crop jacket creates a complete layered workout outfit and gives private label brands a higher-value merchandising story.</p>
+          </div>
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456] font-['Century_Gothic',sans-serif]">02</p>
+            <h3 class="mt-4 text-[19px] font-bold font-['Century_Gothic',sans-serif]">High-neck tank top</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">The tank top works alone or under the jacket, helping buyers position the set as a gym outfit, yoga set and athleisure travel look.</p>
+          </div>
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456] font-['Century_Gothic',sans-serif]">03</p>
+            <h3 class="mt-4 text-[19px] font-bold font-['Century_Gothic',sans-serif]">High waist gym leggings</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">The high waist leggings add coverage, smoothing compression and a hip-lifting seam detail for training and studio collections.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#111218] py-16 lg:py-20" aria-labelledby="order-options-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">SOURCING ROUTES</p>
+            <h2 id="order-options-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Choose the route that fits your launch.</h2>
+          </div>
+          <div class="grid gap-5 md:grid-cols-3">
+            <div class="border border-white/12 p-6">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">Ready stock</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/62 font-['Century_Gothic',sans-serif]">Use current color and size availability when you need fast sampling and low-MOQ wholesale activewear.</p>
+            </div>
+            <div class="border border-white/12 p-6">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">Private label</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/62 font-['Century_Gothic',sans-serif]">Add logo, labels, hang tags and packaging to make the three-piece set ready for your brand collection.</p>
+            </div>
+            <div class="border border-white/12 p-6">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">OEM development</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/62 font-['Century_Gothic',sans-serif]">Adjust fabric texture, color, compression, jacket length, neckline, waistband, pattern and size grading for a custom program.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="customization" class="py-16 lg:py-20" aria-labelledby="customization-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRIVATE LABEL &amp; CUSTOMIZATION</p>
+          <h2 id="customization-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Make the set recognizably yours.</h2>
+          <p class="mt-5 text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Fitclo can support logo artwork review, label selection, packaging planning and OEM adjustments for brands building premium 3-piece yoga set collections.</p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          {[
+            ['Logo placement', 'Front chest, back, waistband, leg or packaging placements can be reviewed according to artwork and order route.'],
+            ['Label & tag options', 'Woven labels, heat-transfer labels, hang tags, wash labels, barcode labels and polybags are available.'],
+            ['Color development', 'Use ready colors for faster launch or request custom Pantone colors for OEM production.'],
+            ['Fit adjustments', 'Jacket length, tank neckline, waistband height, side line placement and legging fit can be reviewed for custom orders.'],
+          ].map(([title, description]) => (
+            <div class="border-t-2 border-[#d8b456] pt-5">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">{description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-[#111218] py-16 lg:py-20" aria-labelledby="fabric-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FABRIC &amp; PERFORMANCE</p>
+        <h2 id="fabric-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Nude-feeling nylon-spandex for a soft premium hand feel.</h2>
+        <div class="mt-9 grid gap-6 md:grid-cols-3">
+          {[
+            ['78% Nylon / 22% Spandex', 'A nude-feeling brushed performance base for soft touch, stretch recovery and premium compression.'],
+            ['Moisture-wicking structure', 'Built for yoga, gym, Pilates and athleisure scenes where comfort, opacity and recovery matter.'],
+            ['Wear-resistant finish', 'Suitable for repeat wear, retail display, private label sampling and premium activewear merchandising.'],
+          ].map(([title, description]) => (
+            <div class="border border-white/12 bg-[#090a0c] p-6">
+              <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">{description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="process-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">ORDER PROCESS</p>
+        <h2 id="process-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">From sample check to bulk shipment.</h2>
+        <div class="mt-9 grid gap-4 md:grid-cols-5">
+          {[
+            ['01', 'Confirm style', 'Send target quantity, colors and size ratio.'],
+            ['02', 'Review stock', 'Check current availability and sample route.'],
+            ['03', 'Approve branding', 'Confirm logo, label, tag and packaging files.'],
+            ['04', 'Prepare order', 'Arrange production, packing or ready-stock branding.'],
+            ['05', 'Inspect & ship', 'Check details, pack cartons and arrange delivery.'],
+          ].map(([step, title, description]) => (
+            <div class="border border-white/12 p-5">
+              <p class="text-[12px] font-bold tracking-[0.14em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{step}</p>
+              <h3 class="mt-4 text-[16px] font-bold font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[13px] leading-[1.65] text-white/60 font-['Century_Gothic',sans-serif]">{description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#111218] py-16 lg:py-20" aria-labelledby="quality-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">QUALITY CHECKPOINTS</p>
+          <h2 id="quality-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">What buyers should verify before bulk order.</h2>
+        </div>
+        <ul class="grid gap-4 text-[14px] leading-[1.75] text-white/68 font-['Century_Gothic',sans-serif]">
+          <li>Check crop jacket length, high-neck tank coverage and contrast trim alignment against your customer fit expectation.</li>
+          <li>Review waistband compression, legging length, side line details and hip-lifting seam position on the selected size.</li>
+          <li>Confirm opacity, stretch recovery, color consistency and logo placement before bulk production.</li>
+          <li>Approve carton, label, hang tag and packaging details before shipment.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="shipping-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">SHIPPING &amp; PAYMENT</p>
+          <h2 id="shipping-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Plan the order around your destination.</h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">Worldwide logistics</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">Express, air and sea shipping can be arranged after the destination, quantity and delivery window are confirmed.</p>
+          </div>
+          <div class="border-t-2 border-[#d8b456] pt-5">
+            <h3 class="text-[18px] font-bold font-['Century_Gothic',sans-serif]">Payment options</h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">Payment can be arranged by T/T, Credit Card or PayPal according to order type and confirmation terms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-[#111218] py-16 lg:py-20" aria-labelledby="faq-heading">
+      <div class="mx-auto max-w-[900px] px-6 lg:px-10">
+        <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">BUYER FAQ</p>
+        <h2 id="faq-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Questions buyers ask before ordering.</h2>
+        <div class="mt-9 border-y border-white/12">
+          {faqs.map((faq) => (
+            <details class="group border-b border-white/12 last:border-b-0">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 py-5 text-[16px] font-bold font-['Century_Gothic',sans-serif]">
+                <span>{faq.question}</span>
+                <span class="text-[#d8b456] transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p class="max-w-[780px] pb-6 text-[14px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20" aria-labelledby="related-guides-heading">
+      <div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">RELATED GUIDES</p>
+            <h2 id="related-guides-heading" class="mt-4 text-[30px] font-bold sm:text-[38px] font-['Century_Gothic',sans-serif]">Continue your sourcing research.</h2>
+          </div>
+          <a href="/blogs/" class="text-[13px] font-bold text-[#d8b456] transition-colors hover:text-white font-['Century_Gothic',sans-serif]">Explore all guides -&gt;</a>
+        </div>
+        <div class="mt-9 grid gap-5 md:grid-cols-3">
+          {[
+            ['/blogs/capri-leggings-workout-set-trend-2026/', 'Why Capri Workout Sets Are Trending in 2026', 'Explore the return of capri leggings and how activewear buyers can position the silhouette.'],
+            ['/blogs/wholesale-yoga-sets-low-moq-guide/', 'Wholesale Yoga Sets: Low MOQ Guide', 'Compare the sourcing questions that shape a low-MOQ yoga set program.'],
+            ['/blogs/custom-activewear-manufacturing-process/', 'Custom Activewear Manufacturing Process', 'Understand the path from product brief to approved bulk production.'],
+          ].map(([href, title, description]) => (
+            <a href={href} class="group border border-white/12 p-6 transition-colors hover:border-[#d8b456]">
+              <p class="text-[10px] font-bold tracking-[0.16em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO INTELLIGENCE</p>
+              <h3 class="mt-4 text-[19px] font-bold leading-[1.3] group-hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">{title}</h3>
+              <p class="mt-3 text-[14px] leading-[1.65] text-white/62 font-['Century_Gothic',sans-serif]">{description}</p>
+              <span class="mt-6 inline-flex text-[13px] font-bold text-[#d8b456] font-['Century_Gothic',sans-serif]">Read guide -&gt;</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="product-inquiry" class="bg-[#090a0c] py-16 text-white lg:py-20" aria-labelledby="inquiry-heading">
+      <div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
+        <div>
+          <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">REQUEST CURRENT DETAILS</p>
+          <h2 id="inquiry-heading" class="mt-4 text-[32px] font-bold leading-[1.16] sm:text-[42px] font-['Century_Gothic',sans-serif]">Request current colors, MOQ and wholesale quote.</h2>
+          <p class="mt-5 max-w-[450px] text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Send your quantity, color and size plan. Fitclo will confirm the most suitable sourcing route for {productName}, SKU {productCode}.</p>
+          <a href={whatsappUrl} target="_blank" rel="noopener" class="mt-7 inline-flex min-h-12 items-center border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-[#101010] font-['Century_Gothic',sans-serif]">Ask about {productCode} on WhatsApp</a>
+        </div>
+
+        <form class="grid gap-5 border border-white/15 bg-[#111218] p-6 sm:grid-cols-2 sm:p-8" data-product-inquiry-form novalidate>
+          <input type="hidden" name="product_name" value={productName} />
+          <input type="hidden" name="product_code" value={productCode} />
+          <input type="hidden" name="product_type" value={`${productName} (${productCode})`} />
+          <input type="hidden" name="page_url" value={productUrl} data-page-url />
+
+          <div>
+            <label for="product-name" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">NAME *</label>
+            <input id="product-name" name="name" type="text" autocomplete="name" required class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-company" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">COMPANY</label>
+            <input id="product-company" name="company" type="text" autocomplete="organization" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-email" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">BUSINESS EMAIL OR WHATSAPP *</label>
+            <input id="product-email" name="email" type="email" autocomplete="email" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-phone" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">WHATSAPP / PHONE</label>
+            <input id="product-phone" name="phone" type="tel" autocomplete="tel" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-country" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">COUNTRY / REGION</label>
+            <input id="product-country" name="country" type="text" autocomplete="country-name" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-inquiry-type" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">INQUIRY TYPE</label>
+            <select id="product-inquiry-type" name="inquiry_type" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]">
+              <option value="Sample">Sample</option>
+              <option value="Ready Stock">Ready Stock</option>
+              <option value="Private Label">Private Label</option>
+              <option value="Full OEM">Full OEM</option>
+            </select>
+          </div>
+          <div>
+            <label for="product-quantity" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">ESTIMATED QUANTITY</label>
+            <input id="product-quantity" name="quantity" type="text" placeholder="For example: 50 sets" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div>
+            <label for="product-colors-sizes" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">COLORS &amp; SIZES</label>
+            <input id="product-colors-sizes" name="colors_sizes" type="text" placeholder="Colors and size mix" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="product-branding" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">BRANDING REQUIREMENTS</label>
+            <input id="product-branding" name="branding_requirements" type="text" placeholder="Logo, labels, hang tags or packaging" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="product-message" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">MESSAGE</label>
+            <textarea id="product-message" name="message" rows="4" placeholder="Tell us your target launch date, reference requirements or questions." class="mt-2 w-full resize-y border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]"></textarea>
+          </div>
+          <div class="sm:col-span-2 flex flex-col gap-4 border-t border-white/15 pt-5 sm:flex-row sm:items-center sm:justify-between">
+            <p class="text-[12px] leading-[1.55] text-white/50 font-['Century_Gothic',sans-serif]">Your inquiry will include {productName}, {productCode} and this page URL.</p>
+            <button type="submit" class="min-h-12 bg-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#101010] transition-colors hover:bg-[#efd078] font-['Century_Gothic',sans-serif]">Send Product Inquiry</button>
+          </div>
+          <p class="hidden text-[13px] sm:col-span-2 font-['Century_Gothic',sans-serif]" data-product-form-status aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="bg-[#090a0c] pb-28 text-white">
+      <div class="mx-auto max-w-[1240px] border-t border-white/15 px-6 pt-6 lg:px-10">
+        <p class="text-[12px] text-white/45 font-['Century_Gothic',sans-serif]">Updated July 28, 2026 <span class="px-2" aria-hidden="true">-</span> Reviewed by Fitclo Activewear Team</p>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    const productTrackingData = {
+      product_name: 'Premium 3-Piece Yoga Set',
+      product_code: 'TZ3562-10',
+    };
+
+    const trackProductEvent = (eventName, parameters = {}) => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, { ...productTrackingData, ...parameters });
+        return;
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: eventName, ...productTrackingData, ...parameters });
+    };
+
+    document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
+      const mainImage = gallery.querySelector('[data-gallery-main]');
+      const label = gallery.querySelector('[data-gallery-current-label]');
+      const thumbnails = Array.from(gallery.querySelectorAll('[data-gallery-thumbnail]'));
+      const previous = gallery.querySelector('[data-gallery-previous]');
+      const next = gallery.querySelector('[data-gallery-next]');
+      let activeIndex = 0;
+
+      const setActive = (index) => {
+        if (!mainImage || thumbnails.length === 0) return;
+        activeIndex = (index + thumbnails.length) % thumbnails.length;
+        const active = thumbnails[activeIndex];
+        mainImage.src = active.dataset.gallerySrc;
+        mainImage.alt = active.dataset.galleryAlt;
+        if (label) label.textContent = active.dataset.galleryLabel;
+        thumbnails.forEach((button, buttonIndex) => {
+          button.setAttribute('aria-pressed', buttonIndex === activeIndex ? 'true' : 'false');
+        });
+        trackProductEvent('select_product_image', { image_position: String(activeIndex + 1) });
+      };
+
+      thumbnails.forEach((button, index) => button.addEventListener('click', () => setActive(index)));
+      previous?.addEventListener('click', () => setActive(activeIndex - 1));
+      next?.addEventListener('click', () => setActive(activeIndex + 1));
+    });
+
+    const form = document.querySelector('[data-product-inquiry-form]');
+    const status = document.querySelector('[data-product-form-status]');
+    const pageUrlInput = form?.querySelector('[data-page-url]');
+    let inquiryStarted = false;
+
+    if (form && pageUrlInput) {
+      pageUrlInput.value = window.location.href;
+      trackProductEvent('view_product');
+
+      form.addEventListener('focusin', () => {
+        if (!inquiryStarted) {
+          inquiryStarted = true;
+          trackProductEvent('start_product_inquiry');
+        }
+      });
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const email = form.elements.namedItem('email');
+        const phone = form.elements.namedItem('phone');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        if (!email?.value.trim() && !phone?.value.trim()) {
+          if (status) {
+            status.textContent = 'Please enter a business email or WhatsApp number so our team can reply.';
+            status.className = 'text-[13px] text-[#f3b1a6] sm:col-span-2 font-sans';
+          }
+          email?.focus();
+          return;
+        }
+
+        if (!form.reportValidity()) return;
+        const originalLabel = submitButton?.textContent || 'Send Product Inquiry';
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending inquiry...';
+        }
+        if (status) {
+          status.textContent = 'Sending your product inquiry...';
+          status.className = 'text-[13px] text-white/60 sm:col-span-2 font-sans';
+        }
+
+        try {
+          const response = await fetch('/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
+          });
+          const result = await response.json();
+          if (!response.ok || !result.success) throw new Error(result.error || result.message || 'Unable to send inquiry.');
+
+          trackProductEvent('submit_product_inquiry');
+          form.reset();
+          pageUrlInput.value = window.location.href;
+          if (status) {
+            status.textContent = 'Thank you. Your inquiry has been sent. The Fitclo team will reply with current details.';
+            status.className = 'text-[13px] text-[#c6e4ae] sm:col-span-2 font-sans';
+          }
+          if (submitButton) submitButton.textContent = 'Inquiry Sent';
+        } catch (error) {
+          if (status) {
+            status.textContent = error instanceof Error ? error.message : 'Unable to send inquiry. Please try WhatsApp instead.';
+            status.className = 'text-[13px] text-[#f3b1a6] sm:col-span-2 font-sans';
+          }
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalLabel;
+          }
+        }
+      });
+    }
+  </script>
+
+  <style>
+    .gallery-thumbnail[aria-pressed='true'] {
+      border-color: #d8b456;
+      box-shadow: 0 0 0 1px #d8b456;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
+</BaseLayout>
+

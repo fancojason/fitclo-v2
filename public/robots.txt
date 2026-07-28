@@ -22,6 +22,12 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
+User-agent: YandexBot
+Allow: /
+
+User-agent: YandexImages
+Allow: /
+
 # Keep model-training crawlers blocked. Google Search and its AI features use
 # Googlebot; Google-Extended is a separate Gemini Apps/Vertex AI control and
 # cannot distinguish training from grounding at this level.

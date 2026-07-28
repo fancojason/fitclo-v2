@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { productCategories } from '../../data/productCategories';
+
+const pageUrl = 'https://www.fitcloo.com/ru/china-activewear-manufacturer-russia/';
+const englishUrl = 'https://www.fitcloo.com/premium-womens-activewear-manufacturer-china/';
+const whatsAppMessage = encodeURIComponent(
+  'Hello Fitclo, I am sourcing private label activewear for Russia. Please send MOQ, ready stock styles, samples and wholesale pricing.',
+);
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${whatsAppMessage}`;
+const telegramUrl = 'https://t.me/fitcloo';
+
+const categorySlugs = ['matching-sets', 'leggings', 'sports-bras', 'tank-tops', 'training-pants', 'jackets'];
+const russianCategories = productCategories
+  .filter((category) => categorySlugs.includes(category.slug))
+  .map((category) => ({
+    ...category,
+    ruTitle:
+      category.slug === 'matching-sets'
+        ? 'Комплекты для йоги и фитнеса'
+        : category.slug === 'leggings'
+          ? 'Леггинсы и капри'
+          : category.slug === 'sports-bras'
+            ? 'Спортивные бра'
+            : category.slug === 'tank-tops'
+              ? 'Топы и майки'
+              : category.slug === 'training-pants'
+                ? 'Тренировочные брюки'
+                : 'Куртки и слои для фитнеса',
+  }));
+
+const blogLinks = [
+  {
+    title: 'Activewear Manufacturer for Russia',
+    href: '/blogs/russia-activewear-sourcing-from-china/',
+    text: 'How Russian fitness brands compare China suppliers, MOQ, samples and logistics planning.',
+  },
+  {
+    title: 'Wholesale Yoga Sets for Russian Brands',
+    href: '/blogs/wholesale-yoga-sets-russia-fitness-brands/',
+    text: 'A buyer guide for yoga sets, capri workout sets and private label activewear collections.',
+  },
+  {
+    title: 'Ready Stock Activewear for Russia',
+    href: '/blogs/ready-stock-activewear-russian-boutiques/',
+    text: 'How boutiques test styles faster with ready-stock MOQ from 50 sets.',
+  },
+  {
+    title: 'Private Label Leggings for Russia',
+    href: '/blogs/private-label-leggings-russia-online-stores/',
+    text: 'Fabric, fit and branding decisions for online sellers and studio brands.',
+  },
+  {
+    title: 'Sports Bras and Gym Sets for Russia',
+    href: '/blogs/sports-bras-gym-sets-russia-wholesale/',
+    text: 'Support levels, sizing and collection planning for sports bra buyers.',
+  },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    name: 'Китайский производитель спортивной одежды для России | Fitclo',
+    inLanguage: ['ru', 'en'],
+    description:
+      'Fitclo помогает российским брендам, онлайн-магазинам и фитнес-студиям закупать private label activewear, yoga sets, leggings, sports bras and ready-stock gym wear from China.',
+    isPartOf: { '@id': 'https://www.fitcloo.com/#website' },
+    about: { '@id': 'https://www.fitcloo.com/#organization' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Can Fitclo supply activewear for Russian brands?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Fitclo supports Russian buyers with ready-stock activewear, private label branding, sample review, OEM/ODM development and export coordination based on the selected product route.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the MOQ for ready stock activewear?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'For many ready-stock styles, MOQ starts from 50 sets or pieces depending on the product type. Custom fabric, color and OEM development usually require higher MOQ.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Which products are popular for Russia?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Russian buyers often ask about yoga sets, capri workout sets, leggings, sports bras, gym tops, thermal-looking layers and private label capsule collections for online stores and studios.',
+        },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  lang="ru"
+  title="Китайский производитель спортивной одежды для России | Fitclo"
+  seoTitle="China Activewear Manufacturer for Russia | Private Label Fitclo"
+  description="Fitclo helps Russian brands source private label activewear, yoga sets, leggings, sports bras and ready-stock gym wear from China with MOQ planning and export support."
+  canonicalURL={pageUrl}
+  image="https://www.fitcloo.com/images/product-categories/product-catalog-showroom-hero-v2.png"
+  structuredData={structuredData}
+  alternateLinks={[
+    { hreflang: 'ru', href: pageUrl },
+    { hreflang: 'en', href: englishUrl },
+    { hreflang: 'x-default', href: englishUrl },
+  ]}
+>
+  <article class="bg-[#050505] text-white">
+    <section class="relative min-h-[680px] overflow-hidden border-b border-[#d8b456]/20">
+      <img
+        src="/images/product-categories/product-catalog-showroom-hero-v2.png"
+        alt="Fitclo activewear showroom with ready stock styles for Russian buyers"
+        class="absolute inset-0 h-full w-full object-cover opacity-55"
+      />
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,.86)_32%,rgba(5,5,5,.38)_68%,rgba(5,5,5,.72)_100%)]"></div>
+      <div class="relative mx-auto flex min-h-[680px] max-w-[1380px] items-center px-6 py-24 md:px-10 xl:px-4">
+        <div class="max-w-[760px]">
+          <p class="text-[12px] font-bold uppercase tracking-[0.34em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FITCLO ДЛЯ РОССИЙСКИХ БРЕНДОВ</p>
+          <h1 class="mt-7 text-[48px] font-black leading-[0.98] text-white md:text-[72px] font-['Century_Gothic',sans-serif]">
+            Производитель activewear в Китае для России
+          </h1>
+          <p class="mt-7 max-w-[680px] text-[18px] leading-[1.75] text-white/75 font-['Century_Gothic',sans-serif]">
+            Fitclo помогает российским брендам, онлайн-магазинам и фитнес-студиям закупать yoga sets, leggings, sports bras, capri workout sets and private label activewear with ready-stock MOQ and OEM/ODM support.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href={whatsappUrl} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#d8b456] px-7 py-3 text-[13px] font-bold text-black transition hover:bg-white font-['Century_Gothic',sans-serif]">Запросить оптовую цену</a>
+            <a href={telegramUrl} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-7 py-3 text-[13px] font-bold text-white transition hover:border-[#d8b456] hover:text-[#d8b456] font-['Century_Gothic',sans-serif]">Telegram для России</a>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white/78 font-['Century_Gothic',sans-serif]">
+            <span class="rounded-full border border-white/15 bg-white/8 px-4 py-3">MOQ from 50 sets</span>
+            <span class="rounded-full border border-white/15 bg-white/8 px-4 py-3">Private label ready</span>
+            <span class="rounded-full border border-white/15 bg-white/8 px-4 py-3">Samples before bulk</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-[1380px] px-6 py-20 md:px-10 xl:px-4">
+      <div class="grid gap-10 lg:grid-cols-[0.95fr_1.35fr]">
+        <div>
+          <p class="text-[12px] font-bold uppercase tracking-[0.28em] text-[#d8b456] font-['Century_Gothic',sans-serif]">PRODUCT CATEGORIES</p>
+          <h2 class="mt-4 text-[38px] font-black leading-tight md:text-[52px] font-['Century_Gothic',sans-serif]">Категории для российского рынка</h2>
+          <p class="mt-5 text-[16px] leading-[1.8] text-white/62 font-['Century_Gothic',sans-serif]">
+            Этот раздел является русским входом в продуктовые категории. Основные страницы сайта остаются без изменения, а российские покупатели получают быстрый маршрут к наиболее востребованным товарам.
+          </p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {russianCategories.map((category) => (
+            <a href={`/products/${category.slug}/`} class="group overflow-hidden rounded-[18px] border border-white/10 bg-[#111] transition hover:border-[#d8b456]/60">
+              <div class="aspect-square overflow-hidden bg-[#1a1a1a]">
+                <img src={category.heroImage} alt={category.title} class="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-5">
+                <p class="text-[15px] font-bold text-white font-['Century_Gothic',sans-serif]">{category.ruTitle}</p>
+                <p class="mt-2 text-[12px] font-bold uppercase tracking-[0.14em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{category.title}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-[#0b0b0b]">
+      <div class="mx-auto max-w-[1380px] px-6 py-18 md:px-10 xl:px-4">
+        <p class="text-[12px] font-bold uppercase tracking-[0.28em] text-[#d8b456] font-['Century_Gothic',sans-serif]">BUYER ROUTE</p>
+        <h2 class="mt-4 max-w-[850px] text-[36px] font-black leading-tight md:text-[50px] font-['Century_Gothic',sans-serif]">Как выбрать маршрут закупки: ready stock, private label или OEM</h2>
+        <div class="mt-10 overflow-hidden rounded-[18px] border border-white/10">
+          <table class="w-full min-w-[780px] border-collapse text-left font-['Century_Gothic',sans-serif]">
+            <thead class="bg-[#d8b456] text-black">
+              <tr>
+                <th class="px-5 py-4 text-[12px] uppercase tracking-[0.18em]">Buyer type</th>
+                <th class="px-5 py-4 text-[12px] uppercase tracking-[0.18em]">Main need</th>
+                <th class="px-5 py-4 text-[12px] uppercase tracking-[0.18em]">Fitclo route</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10 bg-[#101010] text-[14px] text-white/72">
+              <tr>
+                <td class="px-5 py-5 font-bold text-white">Новый онлайн-магазин</td>
+                <td class="px-5 py-5">Быстро проверить спрос и не держать большой склад</td>
+                <td class="px-5 py-5">Ready-stock activewear with logo, label and packaging</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-5 font-bold text-white">Фитнес-студия</td>
+                <td class="px-5 py-5">Капсульная коллекция для клиентов студии</td>
+                <td class="px-5 py-5">Yoga sets, leggings, sports bras and reorderable colors</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-5 font-bold text-white">Развивающийся бренд</td>
+                <td class="px-5 py-5">Стабильная посадка, брендирование и регулярные партии</td>
+                <td class="px-5 py-5">Private label plus selected customization</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-5 font-bold text-white">Бренд с техпаком</td>
+                <td class="px-5 py-5">Оригинальная модель, ткань, цвет и детали</td>
+                <td class="px-5 py-5">OEM/ODM development with sampling before bulk</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-[1380px] px-6 py-20 md:px-10 xl:px-4">
+      <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <p class="text-[12px] font-bold uppercase tracking-[0.28em] text-[#d8b456] font-['Century_Gothic',sans-serif]">RUSSIA SOURCING LIBRARY</p>
+          <h2 class="mt-4 text-[38px] font-black leading-tight md:text-[52px] font-['Century_Gothic',sans-serif]">Русско-английские статьи для покупателей</h2>
+        </div>
+        <p class="text-[16px] leading-[1.85] text-white/62 font-['Century_Gothic',sans-serif]">
+          Эти материалы помогают поисковым системам, YandexBot и AI search лучше понимать, что Fitclo обслуживает Russian activewear buyers, оптовиков, студии и private label бренды.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        {blogLinks.map((item) => (
+          <a href={item.href} class="rounded-[16px] border border-white/10 bg-[#111] p-5 transition hover:border-[#d8b456]/70">
+            <p class="text-[15px] font-bold leading-snug text-white font-['Century_Gothic',sans-serif]">{item.title}</p>
+            <p class="mt-3 text-[13px] leading-[1.65] text-white/55 font-['Century_Gothic',sans-serif]">{item.text}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 bg-[#0b0b0b]">
+      <div class="mx-auto grid max-w-[1380px] gap-8 px-6 py-20 md:px-10 lg:grid-cols-[0.9fr_1.1fr] xl:px-4">
+        <div>
+          <p class="text-[12px] font-bold uppercase tracking-[0.28em] text-[#d8b456] font-['Century_Gothic',sans-serif]">COMMON QUESTIONS</p>
+          <h2 class="mt-4 text-[36px] font-black leading-tight md:text-[48px] font-['Century_Gothic',sans-serif]">FAQ для российских покупателей</h2>
+        </div>
+        <div class="space-y-4">
+          {[
+            ['Можно ли начать с небольшой партии?', 'Да. Для многих ready-stock styles MOQ начинается от 50 sets/pcs. Это подходит для market testing и запуска новой коллекции.'],
+            ['Можно ли сделать private label?', 'Да. Fitclo поддерживает logo, woven label, care label, hang tag, packaging bag and selected trim customization.'],
+            ['Какие данные отправить для расчета?', 'Send product category, reference photos, quantity, size mix, color plan, destination country and branding requirement.'],
+            ['Можно ли сделать OEM модель?', 'Да, если у вас есть tech pack, reference sample или понятное описание посадки, ткани и деталей.'],
+          ].map(([question, answer]) => (
+            <div class="rounded-[16px] border border-white/10 bg-[#111] p-5">
+              <h3 class="text-[17px] font-bold text-white font-['Century_Gothic',sans-serif]">{question}</h3>
+              <p class="mt-3 text-[14px] leading-[1.75] text-white/62 font-['Century_Gothic',sans-serif]">{answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

@@ -10,6 +10,8 @@ const {
   seoTitle,
   description = 'Fitclo is a professional activewear manufacturer specializing in high-quality gym wear, yoga apparel, and sportswear for global brands.',
   canonicalURL,
+  lang = 'en',
+  alternateLinks = [],
   image = 'https://www.fitcloo.com/images/intelligence/hero-activewear-intelligence.png',
   structuredData = [],
   autoArticleSchema = true,
@@ -218,7 +220,7 @@ const pageStructuredData = [
 ];
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -229,6 +231,9 @@ const pageStructuredData = [
     <title>{documentTitle}</title>
     <meta name="description" content={metaDescription} />
     <link rel="canonical" href={pageUrl} />
+    {alternateLinks.map((link: { hreflang: string; href: string }) => (
+      <link rel="alternate" hreflang={link.hreflang} href={link.href} />
+    ))}
     <meta name="robots" content={robots} />
 
     <meta property="og:type" content={isBlogDetail ? 'article' : 'website'} />

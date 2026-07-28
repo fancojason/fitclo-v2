@@ -15,6 +15,7 @@ const staticPages = [
   '/premium-womens-activewear-manufacturer-china/',
   '/products/',
   '/ready-to-ship/',
+  '/ru/china-activewear-manufacturer-russia/',
 ];
 
 const guidePages = [
@@ -66,6 +67,12 @@ const lastModifiedByPath = new Map<string, string>([
   ['/products/womens-yoga-set/', '2026-07-16'],
   ['/products/wide-leg-workout-set/', '2026-07-17'],
   ['/ready-to-ship/', '2026-07-10'],
+  ['/ru/china-activewear-manufacturer-russia/', '2026-07-28'],
+  ['/blogs/russia-activewear-sourcing-from-china/', '2026-07-28'],
+  ['/blogs/wholesale-yoga-sets-russia-fitness-brands/', '2026-07-28'],
+  ['/blogs/ready-stock-activewear-russian-boutiques/', '2026-07-28'],
+  ['/blogs/private-label-leggings-russia-online-stores/', '2026-07-28'],
+  ['/blogs/sports-bras-gym-sets-russia-wholesale/', '2026-07-28'],
   ['/blogs/activewear-manufacturer-ecuador-import-planning/', '2026-07-15'],
   ['/blogs/activewear-manufacturer-honduras/', '2026-07-15'],
   ['/blogs/activewear-pockets-skorts-utility-design/', '2026-07-23'],

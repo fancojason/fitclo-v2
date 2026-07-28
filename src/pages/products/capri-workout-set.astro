@@ -7,6 +7,7 @@ const productUrl = 'https://www.fitcloo.com/products/capri-workout-set/';
 const productImage = 'https://www.fitcloo.com/images/products/capri-workout-set/capri-workout-set-main.webp';
 const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send the current colors, sizes, MOQ, sample cost and wholesale pricing.`;
 const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
+const telegramUrl = 'https://t.me/fitcloo';
 
 const galleryImages = [
   {
@@ -493,6 +494,7 @@ const faqSchema = {
         <h2 id="inquiry-heading" class="mt-4 text-[32px] font-bold leading-[1.16] sm:text-[42px] font-['Century_Gothic',sans-serif]">Request the current colors, MOQ and wholesale quote.</h2>
         <p class="mt-5 max-w-[450px] text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Send your quantity, color and size plan. Fitclo will confirm the most suitable sourcing route for the Capri Workout Set, SKU TZ4549-6.</p>
         <a href={whatsappUrl} target="_blank" rel="noopener" class="mt-7 inline-flex min-h-12 items-center border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-[#101010] font-['Century_Gothic',sans-serif]" data-product-track="click_whatsapp">Ask about TZ4549-6 on WhatsApp</a>
+          <a href={telegramUrl} target="_blank" rel="noopener" class="mt-3 inline-flex min-h-10 items-center rounded-full border border-white/18 px-5 py-2.5 text-[13px] font-bold text-white/72 transition-colors hover:border-[#d8b456] hover:text-[#d8b456] font-['Century_Gothic',sans-serif]" data-product-track="click_telegram">Telegram inquiry for Russia</a>
       </div>
 
       <form class="grid gap-5 border border-white/15 bg-[#111218] p-6 sm:grid-cols-2 sm:p-8" data-product-inquiry-form novalidate>

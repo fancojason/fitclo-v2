@@ -1,33 +1,33 @@
 ---
 const categories = [
-  { 
-    name: 'Sports Bra', 
-    image: 'https://sc01.alicdn.com/kf/Hcd3a09975e5547b9baa61b4fb2cee8390.png',
+  {
+    name: 'Sports Bra',
+    image: '/images/migrated/third-party/hcd3a09975e5547b9baa61b4fb2cee8390-88cbb37a8c.webp',
     link: '/capabilities#sports-bra'
   },
-  { 
-    name: 'Women Top', 
-    image: 'https://sc01.alicdn.com/kf/H61f072775f6642f3929f3a3c875b9eed4.jpg',
+  {
+    name: 'Women Top',
+    image: '/images/migrated/third-party/h61f072775f6642f3929f3a3c875b9eed4-4217e2971c.webp',
     link: '/capabilities#women-top'
   },
-  { 
-    name: 'Tank Top', 
-    image: 'https://sc01.alicdn.com/kf/H11309037b38f454bb0de2db1a3dba2fbk.png',
+  {
+    name: 'Tank Top',
+    image: '/images/migrated/third-party/h11309037b38f454bb0de2db1a3dba2fbk-a993f0a37a.webp',
     link: '/capabilities#tank-top'
   },
-  { 
-    name: 'Women Leggings', 
-    image: 'https://sc01.alicdn.com/kf/H4837d48e3e704fc8a3173a9ed39554feK.png',
+  {
+    name: 'Women Leggings',
+    image: '/images/migrated/third-party/h4837d48e3e704fc8a3173a9ed39554fek-fbc93f34e9.webp',
     link: '/capabilities#women-leggings'
   },
-  { 
-    name: 'Women Shorts', 
-    image: 'https://sc01.alicdn.com/kf/H8def62b2f66c4877be38f2eeba3f0b85L.png',
+  {
+    name: 'Women Shorts',
+    image: '/images/migrated/third-party/h8def62b2f66c4877be38f2eeba3f0b85l-d245740657.webp',
     link: '/capabilities#women-shorts'
   },
-  { 
-    name: 'Sports Pants', 
-    image: 'https://sc01.alicdn.com/kf/H6dea2380db0944b0957904c8458265c8H.png',
+  {
+    name: 'Sports Pants',
+    image: '/images/migrated/third-party/h6dea2380db0944b0957904c8458265c8h-6da950d081.webp',
     link: '/capabilities#sports-pants'
   },
 ];
@@ -60,15 +60,15 @@ const categories = [
       {categories.map(cat => (
         <a href={cat.link} class="group block bg-[#EEEEEE] p-4 rounded-[20px] border border-transparent hover:border-[#C9A84C]/30 hover:shadow-[0_10px_30px_rgba(201,168,76,0.12)] hover:-translate-y-1 transition-all duration-500">
           <div class="relative aspect-[4/5] overflow-hidden rounded-[15px] bg-white">
-            <img 
-              src={cat.image} 
-              alt={`Custom ${cat.name} Manufacturing - Fitclo Private Label Activewear`} 
-              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-[1.05]" 
+            <img
+              src={cat.image}
+              alt={`Custom ${cat.name} Manufacturing - Fitclo Private Label Activewear`}
+              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-[1.05]"
               loading="lazy"
             />
             <!-- Metallic Shimmer Sweep Light Effect on hover -->
              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1000ms] ease-out pointer-events-none z-10"></div>
-            
+
             {cat.moq && (
               <div class="absolute top-3 left-3 z-20">
                 <span class="bg-[#C9A84C] text-black text-[9px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter shadow-lg">

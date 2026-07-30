@@ -30,6 +30,7 @@ const {
   publishedIso = '2026-07-11',
   modifiedIso = '2026-07-11',
   lang = 'en',
+  additionalStructuredData = [],
 } = Astro.props;
 
 const articleSchema = {
@@ -82,9 +83,10 @@ const faqSchema = faqs.length > 0
     }
   : null;
 
-const structuredData = faqSchema
+const baseStructuredData = faqSchema
   ? [articleSchema, breadcrumbSchema, faqSchema]
   : [articleSchema, breadcrumbSchema];
+const structuredData = [...baseStructuredData, ...additionalStructuredData];
 ---
 
 <BaseLayout

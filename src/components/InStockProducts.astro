@@ -3,28 +3,28 @@ const inStockProducts = [
   {
     name: "Premium Yoga Shorts Set",
     description: "High-waist sculpting shorts with supportive racerback bra. Available in multiple high-trend colors.",
-    image: "https://sc01.alicdn.com/kf/H772bb8cd8d0b43248173234fa5346f67P.png",
+    image: "/images/migrated/third-party/h772bb8cd8d0b43248173234fa5346f67p-e38ed6b562.webp",
     moq: "50 Pieces",
     features: ["4-way Stretch", "Squat Proof", "Logo Ready"]
   },
   {
     name: "Essential Yoga Leggings Set",
     description: "Classic high-compression leggings paired with a versatile scoop-neck sports bra.",
-    image: "https://sc01.alicdn.com/kf/H699564deaff04b57ab05c9d1e6b95066a.png",
+    image: "/images/migrated/third-party/h699564deaff04b57ab05c9d1e6b95066a-4d072dd4d4.webp",
     moq: "50 Pieces",
     features: ["Buttery Soft", "Tummy Control", "Neutral Colors"]
   },
   {
     name: "Luxury Criss-Cross Bra",
     description: "Elegant open-back design with supportive compression fabric. Ideal for yoga and gym.",
-    image: "https://sc01.alicdn.com/kf/Hde2258a46c8d40f6b3a38098a28a49cfJ.png",
+    image: "/images/migrated/third-party/hde2258a46c8d40f6b3a38098a28a49cfj-3aa9822627.webp",
     moq: "50 Pieces",
     features: ["Breathable", "Padded", "MN Monogram Compatible"]
   },
   {
     name: "Active Performance Dress",
     description: "Flattering activewear dress with built-in shorts and supportive racerback straps.",
-    image: "https://sc01.alicdn.com/kf/H9d1abad109d7478080461dad9271b7ecG.png",
+    image: "/images/migrated/third-party/h9d1abad109d7478080461dad9271b7ecg-564616a33f.webp",
     moq: "50 Pieces",
     features: ["Quick Dry", "In-Stock", "10+ Colors Available"]
   }
@@ -49,9 +49,9 @@ const inStockProducts = [
       {inStockProducts.map(product => (
         <div class="group bg-[#111111] rounded-[24px] overflow-hidden border border-white/5 hover:border-[#C9A84C]/30 transition-all duration-500">
           <div class="aspect-[4/5] overflow-hidden relative">
-            <img 
-              src={product.image} 
-              alt={product.name} 
+            <img
+              src={product.image}
+              alt={product.name}
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
             <div class="absolute top-4 left-4">
@@ -60,7 +60,7 @@ const inStockProducts = [
               </span>
             </div>
           </div>
-          
+
           <div class="p-6">
             <h3 class="text-[18px] font-bold text-white mb-2 font-['Century_Gothic',sans-serif]">
               {product.name}
@@ -68,7 +68,7 @@ const inStockProducts = [
             <p class="text-white/40 text-[13px] leading-relaxed mb-4 line-clamp-2">
               {product.description}
             </p>
-            
+
             <div class="flex flex-wrap gap-2 mb-6">
               {product.features.map(feature => (
                 <span class="text-[9px] text-white/60 border border-white/10 px-2 py-0.5 rounded uppercase tracking-widest font-bold">
@@ -76,9 +76,9 @@ const inStockProducts = [
                 </span>
               ))}
             </div>
-            
-            <a 
-              href="#quote" 
+
+            <a
+              href="#quote"
               class="block w-full text-center border border-white/10 text-white py-3 rounded-lg text-[12px] font-bold uppercase tracking-widest hover:bg-[#C9A84C] hover:text-black hover:border-[#C9A84C] transition-all duration-300"
             >
               Get Free Quote

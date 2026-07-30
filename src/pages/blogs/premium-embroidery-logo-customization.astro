@@ -1,14 +1,26 @@
 ---
 import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Premium Embroidery Logo Customization for Activewear',
+  description: 'A close look at Fitclo multi-head embroidery production for premium hoodie and sweatpant logo customization.',
+  thumbnailUrl: 'https://www.fitcloo.com/images/video-placeholder.jpg',
+  uploadDate: '2026-07-29',
+  contentUrl: 'https://www.fitcloo.com/videos/embroidery-customization.mp4',
+  embedUrl: 'https://www.fitcloo.com/blogs/premium-embroidery-logo-customization/',
+};
 ---
-<GuideLayout 
+<GuideLayout
   title="Premium Embroidery Logo Customization for Hoodies & Sweatpants"
   type="CUSTOMIZATION"
   date="July 02, 2026"
   readTime="8 min read"
+  additionalStructuredData={[videoSchema]}
 >
   <p>In the competitive world of private label activewear, the quality of your branding is what separates a premium brand from a generic one. While heat transfer and screen printing have their place, nothing conveys <strong>luxury and durability</strong> quite like professional embroidery.</p>
-  
+
   <div class="my-10 rounded-2xl overflow-hidden shadow-xl bg-black aspect-video">
     <video controls class="w-full h-full object-cover">
       <source src="/videos/embroidery-customization.mp4" type="video/mp4">
@@ -19,7 +31,7 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
 
   <h2>Why Choose Embroidery for Your Lifestyle Collection?</h2>
   <p>Embroidery is more than just a logo; it's a statement of quality. For brands positioning themselves in the premium lifestyle segment, choosing embroidery over printing offers several key advantages:</p>
-  
+
   <ul>
     <li><strong>Superior Durability:</strong> Unlike prints that may crack or fade, embroidery threads are woven directly into the fabric, lasting for the entire lifespan of the garment.</li>
     <li><strong>Premium 3D Texture:</strong> Embroidery adds a tactile, elevated feel that customers associate with high-end luxury brands like Luxopack.</li>
@@ -28,7 +40,7 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
 
   <h2>Optimized for Heavyweight Hoodies & Sweatpants</h2>
   <p>Embroidery is particularly effective on heavier fabrics. For our <strong>300-400GSM cotton-blend fleece</strong> hoodies and joggers, embroidery provides the necessary weight and structure to prevent the fabric from puckering around the logo area.</p>
-  
+
   <ul>
     <li><strong>Intricate Details:</strong> Our multi-head machines handle complex designs with up to 12 thread colors.</li>
     <li><strong>Positioning:</strong> Left chest, sleeve cuffs, or the hip area of sweatpants are our most popular choices for high-conversion branding.</li>

@@ -16,6 +16,7 @@ const {
   relatedReading: suppliedRelatedReading,
   date: suppliedDate,
   readTime: suppliedReadTime,
+  additionalStructuredData = [],
 } = Astro.props;
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '');
@@ -455,6 +456,7 @@ const ctaText = `Send Fitclo your product category, target quantity, destination
   relatedReading={relatedReading}
   ctaTitle={ctaTitle}
   ctaText={ctaText}
+  additionalStructuredData={additionalStructuredData}
 >
   <slot />
 </EditorialArticleLayout>

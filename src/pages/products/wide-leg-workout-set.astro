@@ -4,34 +4,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const productName = 'Wide-Leg Workout Set';
 const productCode = 'TZ3588-3';
 const productUrl = 'https://www.fitcloo.com/products/wide-leg-workout-set/';
-const productImage = 'https://www.fitcloo.com/images/products/wide-leg-workout-set/wide-leg-workout-set-main.png';
+const productImage = 'https://www.fitcloo.com/images/products/wide-leg-workout-set/wide-leg-workout-set-main.webp';
 const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send the current colors, sizes, MOQ, sample cost and wholesale pricing.`;
 const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
 const telegramUrl = 'https://t.me/fitcloo';
 
 const galleryImages = [
   {
-    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-main.png',
+    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-main.webp',
     alt: 'Wide-Leg Workout Set shown in moss green and black coffee colorways',
     label: 'Colorway overview',
   },
   {
-    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-matching-series.png',
+    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-matching-series.webp',
     alt: 'Wide-Leg Workout Set matching series and coordinated silhouette options',
     label: 'Matching series',
   },
   {
-    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-contrast-detail.png',
+    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-contrast-detail.webp',
     alt: 'Black coffee Wide-Leg Workout Set with contrast binding and striped side seams',
     label: 'Contrast construction',
   },
   {
-    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-custom-branding.png',
+    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-custom-branding.webp',
     alt: 'Private label logo, tag and packaging customization options',
     label: 'Private label options',
   },
   {
-    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-stockroom.png',
+    src: '/images/products/wide-leg-workout-set/wide-leg-workout-set-stockroom.webp',
     alt: 'Fitclo ready-stock activewear storage and packing area',
     label: 'Ready-stock program',
   },
@@ -279,9 +279,9 @@ const faqSchema = {
         </div>
         <div class="mt-7 grid gap-4 md:grid-cols-3">
           {[
-            ['/images/products/wide-leg-workout-set/wide-leg-workout-set-detail-wide-leg.png', 'Black coffee Wide-Leg Workout Set full-length view'],
-            ['/images/products/wide-leg-workout-set/wide-leg-workout-set-detail-colors.png', 'Wide-Leg Workout Set color chart for TZ3588-3'],
-            ['/images/products/wide-leg-workout-set/wide-leg-workout-set-detail-construction.png', 'Contrast binding and wide-leg construction details'],
+            ['/images/products/wide-leg-workout-set/wide-leg-workout-set-detail-wide-leg.webp', 'Black coffee Wide-Leg Workout Set full-length view'],
+            ['/images/products/wide-leg-workout-set/wide-leg-workout-set-detail-colors.webp', 'Wide-Leg Workout Set color chart for TZ3588-3'],
+            ['/images/products/wide-leg-workout-set/wide-leg-workout-set-detail-construction.webp', 'Contrast binding and wide-leg construction details'],
           ].map(([src, alt]) => (
             <figure class="overflow-hidden border border-white/15 bg-[#111218] p-2">
               <img src={src} alt={alt} width="1320" height="1699" loading="lazy" class="h-auto w-full object-contain" />

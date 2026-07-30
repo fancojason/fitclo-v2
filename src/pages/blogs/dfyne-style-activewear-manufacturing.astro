@@ -64,13 +64,56 @@ const faqSchema = {
     },
   })),
 };
+
+const videoSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'Seamless Scrunch Leggings Sample',
+    description: 'Fitclo sample video of an original seamless scrunch leggings construction for private label activewear buyers.',
+    thumbnailUrl: 'https://www.fitcloo.com/images/dfyne-style-activewear/seamless-scrunch-leggings-color-range.jpg',
+    uploadDate: '2026-07-14',
+    contentUrl: 'https://www.fitcloo.com/videos/dfyne-style-activewear/seamless-scrunch-leggings-sample.mp4',
+    embedUrl: 'https://www.fitcloo.com/blogs/dfyne-style-activewear-manufacturing/',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'Seamless Sports Bra and Shorts Sample',
+    description: 'Fitclo sample video of a seamless sports bra and shorts set for original private label activewear development.',
+    thumbnailUrl: 'https://www.fitcloo.com/images/dfyne-style-activewear/seamless-scrunch-leggings-color-range.jpg',
+    uploadDate: '2026-07-14',
+    contentUrl: 'https://www.fitcloo.com/videos/dfyne-style-activewear/seamless-bra-shorts-sample.mp4',
+    embedUrl: 'https://www.fitcloo.com/blogs/dfyne-style-activewear-manufacturing/',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'Seamless Training Top Sample',
+    description: 'Fitclo sample video of an original seamless training top for activewear brand product development.',
+    thumbnailUrl: 'https://www.fitcloo.com/images/dfyne-style-activewear/seamless-scrunch-leggings-color-range.jpg',
+    uploadDate: '2026-07-14',
+    contentUrl: 'https://www.fitcloo.com/videos/dfyne-style-activewear/seamless-training-top-sample.mp4',
+    embedUrl: 'https://www.fitcloo.com/blogs/dfyne-style-activewear-manufacturing/',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'Seamless Activewear Set Sample',
+    description: 'Fitclo sample video of an original seamless activewear set for private label collection planning.',
+    thumbnailUrl: 'https://www.fitcloo.com/images/dfyne-style-activewear/seamless-scrunch-leggings-color-range.jpg',
+    uploadDate: '2026-07-14',
+    contentUrl: 'https://www.fitcloo.com/videos/dfyne-style-activewear/seamless-activewear-set-sample.mp4',
+    embedUrl: 'https://www.fitcloo.com/blogs/dfyne-style-activewear-manufacturing/',
+  },
+];
 ---
 
 <BaseLayout
   title={`${title} | Fitclo Blog`}
   description={description}
   image="https://www.fitcloo.com/images/dfyne-style-activewear/seamless-scrunch-leggings-color-range.jpg"
-  structuredData={[articleSchema, faqSchema]}
+  structuredData={[articleSchema, faqSchema, ...videoSchemas]}
   autoArticleSchema={false}
 >
   <article class="fitclo-lux-article">

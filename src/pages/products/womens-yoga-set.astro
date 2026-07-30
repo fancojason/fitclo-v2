@@ -4,34 +4,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const productName = "Women's Yoga Set";
 const productCode = 'FC-YS001';
 const productUrl = 'https://www.fitcloo.com/products/womens-yoga-set/';
-const productImage = 'https://www.fitcloo.com/images/products/womens-yoga-set/womens-yoga-set-main.png';
+const productImage = 'https://www.fitcloo.com/images/products/womens-yoga-set/womens-yoga-set-main.webp';
 const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send the current colors, sizes, MOQ, sample cost and wholesale pricing.`;
 const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
 const telegramUrl = 'https://t.me/fitcloo';
 
 const galleryImages = [
   {
-    src: '/images/products/womens-yoga-set/womens-yoga-set-main.png',
+    src: '/images/products/womens-yoga-set/womens-yoga-set-main.webp',
     alt: "Women's Yoga Set shown in black, coffee brown and light blue colorways",
     label: 'Colorway overview',
   },
   {
-    src: '/images/products/womens-yoga-set/womens-yoga-set-lilac.png',
+    src: '/images/products/womens-yoga-set/womens-yoga-set-lilac.webp',
     alt: "Women's Yoga Set in a lilac colorway",
     label: 'Lilac colorway',
   },
   {
-    src: '/images/products/womens-yoga-set/womens-yoga-set-matching-series.png',
+    src: '/images/products/womens-yoga-set/womens-yoga-set-matching-series.webp',
     alt: "Matching yoga set series showing a multi-strap back and coordinated silhouettes",
     label: 'Matching series',
   },
   {
-    src: '/images/products/womens-yoga-set/womens-yoga-set-custom-branding.png',
+    src: '/images/products/womens-yoga-set/womens-yoga-set-custom-branding.webp',
     alt: 'Private label logo, tag and packaging customization options',
     label: 'Private label options',
   },
   {
-    src: '/images/products/womens-yoga-set/womens-yoga-set-stockroom.png',
+    src: '/images/products/womens-yoga-set/womens-yoga-set-stockroom.webp',
     alt: 'Fitclo ready-stock activewear storage and packing area',
     label: 'Ready-stock program',
   },
@@ -279,9 +279,9 @@ const faqSchema = {
         </div>
         <div class="mt-7 grid gap-4 md:grid-cols-3">
           {[
-            ['/images/products/womens-yoga-set/womens-yoga-set-detail-charcoal.png', 'Charcoal yoga set front view'],
-            ['/images/products/womens-yoga-set/womens-yoga-set-detail-blue.png', 'Light blue yoga set front and back construction detail'],
-            ['/images/products/womens-yoga-set/womens-yoga-set-detail-coffee.png', 'Coffee brown yoga set front view'],
+            ['/images/products/womens-yoga-set/womens-yoga-set-detail-charcoal.webp', 'Charcoal yoga set front view'],
+            ['/images/products/womens-yoga-set/womens-yoga-set-detail-blue.webp', 'Light blue yoga set front and back construction detail'],
+            ['/images/products/womens-yoga-set/womens-yoga-set-detail-coffee.webp', 'Coffee brown yoga set front view'],
           ].map(([src, alt]) => (
             <figure class="overflow-hidden border border-white/15 bg-[#111218]">
               <img src={src} alt={alt} width="1320" height="1699" loading="lazy" class="aspect-[4/5] h-full w-full object-cover" />

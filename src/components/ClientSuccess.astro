@@ -6,7 +6,7 @@ const testimonials = [
     name: "Verified Yoga Brand Owner",
     role: "Founder, xxx Athletics",
     country: "US",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+    avatar: "/images/migrated/third-party/44-0f440b720f.webp"
   },
   {
     stars: "★★★★★",
@@ -14,7 +14,7 @@ const testimonials = [
     name: "Fitness Apparel Distributor",
     role: "Purchasing Manager, xxx Sport Europe",
     country: "UK",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+    avatar: "/images/migrated/third-party/32-5e8db9f5ac.webp"
   },
   {
     stars: "★★★★★",
@@ -22,7 +22,7 @@ const testimonials = [
     name: "Private Label Sportswear Brand",
     role: "Supply Chain Director, xxx Australia",
     country: "AU",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg"
+    avatar: "/images/migrated/third-party/68-156abb440b.webp"
   }
 ];
 
@@ -43,9 +43,9 @@ const countries = [
 ];
 ---
 
-<section id="client-success" class="py-32 bg-[#050505] text-white overflow-hidden font-['Century_Gothic',sans-serif]"> 
+<section id="client-success" class="py-32 bg-[#050505] text-white overflow-hidden font-['Century_Gothic',sans-serif]">
   <div class="container mx-auto px-6 max-w-7xl">
-    
+
     <!-- Section Header -->
     <div class="text-center mb-20">
       <span class="block text-[#C9A84C] text-[12px] font-bold tracking-[0.25em] uppercase mb-6">
@@ -66,14 +66,14 @@ const countries = [
         <div class="group relative bg-[#0B0B0B] border border-white/5 rounded-[24px] p-8 md:p-12 transition-all duration-500 hover:-translate-y-2 hover:border-[#C9A84C]/30 hover:shadow-[0_20px_40px_rgba(201,168,76,0.05)] flex flex-col justify-between min-h-[400px]">
           <!-- Top Gold Accent -->
           <div class="absolute top-0 left-0 w-0 h-[2px] bg-[#C9A84C] transition-all duration-500 group-hover:w-full"></div>
-          
+
           <div>
             <div class="text-[#D4AF37] text-[14px] mb-8 tracking-widest">{item.stars}</div>
             <blockquote class="text-[#A3A3A3] text-[16px] md:text-[18px] leading-[1.9] mb-8 italic">
               {item.review}
             </blockquote>
           </div>
-          
+
           <div class="flex items-center space-x-4 pt-8 border-t border-white/5">
             <div class="w-12 h-12 rounded-full overflow-hidden border border-[#C9A84C]/20">
               <img src={item.avatar} alt={item.name} class="w-full h-full object-cover" />
@@ -118,7 +118,7 @@ const countries = [
             ))}
           </div>
         </div>
-        
+
         <!-- Trust Badge / Visual -->
         <div class="hidden md:block relative w-[300px] h-[300px]">
            <div class="absolute inset-0 bg-[#C9A84C]/5 rounded-full blur-[80px]"></div>

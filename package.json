@@ -7,7 +7,11 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "media:product": "node scripts/prepare-product-image.mjs",
+    "media:convert-products": "node scripts/convert-referenced-product-images-to-webp.mjs",
+    "media:migrate-external": "node scripts/migrate-static-external-images.mjs",
+    "media:relocate-product-covers": "node scripts/relocate-migrated-product-covers.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

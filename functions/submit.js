@@ -1,7 +1,18 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
   try {
-    const RESEND_API_KEY = "re_DVMnvrEg_46XmM9TV8LdWT3i1k8W1GP7d";
+    const RESEND_API_KEY = env.RESEND_API_KEY;
+
+    if (!RESEND_API_KEY) {
+      console.error("Inquiry email is not configured: missing RESEND_API_KEY.");
+      return new Response(JSON.stringify({
+        error: "The inquiry service is temporarily unavailable. Please contact us on WhatsApp.",
+      }), {
+        status: 503,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const data = await request.json();
 
     // Basic validation
@@ -50,10 +61,12 @@ export async function onRequestPost(context) {
     });
 
     if (!res.ok) {
-      const errorData = await res.json();
-      console.error('Resend API Error:', errorData);
-      return new Response(JSON.stringify({ error: errorData.message || "Failed to send email" }), {
-        status: res.status,
+      const errorData = await res.json().catch(() => ({}));
+      console.error("Resend API Error:", res.status, errorData);
+      return new Response(JSON.stringify({
+        error: "We couldn't send your request right now. Please try again or contact us on WhatsApp.",
+      }), {
+        status: 502,
         headers: { "Content-Type": "application/json" },
       });
     }

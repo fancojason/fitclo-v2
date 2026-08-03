@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+import { fixedProductGalleryImages } from '../../data/productGalleryDefaults';
+
+const productName = "Women's 3 Piece Activewear Set Jacket Leggings Bra";
+const productCode = 'TZ4510-14';
+const productUrl = 'https://www.fitcloo.com/products/tz4510-14/';
+const coverImage = '/images/products/TZ4510-14/womens-three-piece-activewear-set-jacket-leggings-bra.webp';
+const whatsappMessage = `Hello Fitclo, I'm interested in ${productName} (${productCode}). Please send the current colors, MOQ, sample options and wholesale pricing.`;
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsappMessage)}`;
+
+const galleryImages = [
+  { src: coverImage, alt: 'TZ4510-14 women’s three piece activewear set with jacket, sports bra and leggings', label: 'Product cover' },
+  { src: '/images/products/TZ4510-14/tz4510-14-jacket-bra-leggings-feature-guide.webp', alt: 'TZ4510-14 aubergine zip yoga jacket, ruched sports bra and high-waist leggings features', label: 'Jacket, bra and legging features' },
+  { src: '/images/products/TZ4510-14/tz4510-14-matching-series.webp', alt: 'TZ4510-14 matching three piece yoga set series', label: 'Matching series' },
+  ...fixedProductGalleryImages,
+];
+
+const detailImages = [
+  { src: '/images/products/TZ4510-14/tz4510-14-aubergine-three-piece-set.webp', alt: 'Aubergine women’s three piece yoga set with fitted zip jacket, bra and leggings', caption: 'Aubergine set view' },
+  { src: '/images/products/TZ4510-14/tz4510-14-black-coffee-three-piece-set.webp', alt: 'Black coffee three piece women’s workout set with jacket, sports bra and high waist leggings', caption: 'Black coffee colorway' },
+  { src: '/images/products/TZ4510-14/tz4510-14-black-back-view.webp', alt: 'Back view of TZ4510-14 black fitted yoga jacket and leggings', caption: 'Back construction' },
+  { src: '/images/products/TZ4510-14/tz4510-14-zip-pocket-detail.webp', alt: 'Zip pocket detail on technical activewear jacket', caption: 'Zip pocket detail' },
+  { src: '/images/products/TZ4510-14/tz4510-14-color-chart.webp', alt: 'TZ4510-14 color chart with green sheen, raspberry red, black coffee, aubergine and black', caption: 'Available color chart' },
+  { src: '/images/products/TZ4510-14/tz4510-14-construction-details.webp', alt: 'TZ4510-14 jacket collar, zip pocket, thumbhole cuff and ruched sports bra construction details', caption: 'Construction details' },
+];
+
+const specificationRows = [
+  ['Set includes', 'Fitted zip jacket + sports bra + high-waist leggings'],
+  ['Fabric', 'Naked Feel 78% Nylon / 22% Spandex'],
+  ['Sizes', 'S, M, L, XL + or Customization'],
+  ['MOQ', '50 Sets'],
+  ['Colors', 'Green Sheen, Raspberry Red, Black Coffee, Aubergine, Black, etc.'],
+  ['Branding', 'Logo, labels, hang tags, packaging, etc.'],
+  ['Logo positions', 'Front, back, waist, legs, etc.'],
+  ['Payment', 'T/T, Credit Card, PayPal'],
+];
+
+const faqs = [
+  { question: 'What is included in TZ4510-14?', answer: 'This women’s three piece activewear set includes a fitted zip jacket, a ruched sports bra and high-waist leggings. The components can be reviewed together for color, size mix and branding requirements.' },
+  { question: 'What fabric is used for this three piece yoga set?', answer: 'TZ4510-14 uses Naked Feel 78% Nylon / 22% Spandex fabric. Confirm the required hand feel, color and testing needs with Fitclo before sampling or bulk production.' },
+  { question: 'What sizes are available?', answer: 'The stock size range is S, M, L and XL. Custom sizing and grading can be discussed for an OEM development program.' },
+  { question: 'Can I add a private label logo?', answer: 'Yes. Fitclo can discuss logo placement on the jacket, sports bra, waistband or leggings, together with labels, hang tags and packaging.' },
+  { question: 'Can I order a sample first?', answer: 'Yes. Contact Fitclo with the selected color, size and branding direction to confirm the suitable sample route before bulk production.' },
+  { question: 'Does the jacket have functional details?', answer: 'The supplied product images show a front zip, thumbhole cuffs and a zip pocket detail. Confirm final construction and pocket specification when placing an order.' },
+];
+
+const productSchema = {
+  '@context': 'https://schema.org', '@type': 'Product', '@id': `${productUrl}#product`, name: productName,
+  description: 'Women’s three piece activewear set TZ4510-14 with a fitted zip yoga jacket, ruched sports bra and high-waist leggings in 78% nylon and 22% spandex for private label and wholesale programs.',
+  url: productUrl, image: galleryImages.map((image) => `https://www.fitcloo.com${image.src}`), sku: productCode, mpn: productCode,
+  material: 'Naked Feel 78% Nylon / 22% Spandex', size: 'S, M, L, XL + or Customization',
+  brand: { '@type': 'Brand', name: 'Fitclo' }, manufacturer: { '@id': 'https://www.fitcloo.com/#organization' },
+  category: 'Matching Sets / Three Piece Activewear Sets / Yoga Sets', countryOfOrigin: { '@type': 'Country', name: 'China' },
+  additionalProperty: specificationRows.map(([name, value]) => ({ '@type': 'PropertyValue', name, value })),
+};
+const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+  { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://www.fitcloo.com/products/' },
+  { '@type': 'ListItem', position: 3, name: 'Matching Sets', item: 'https://www.fitcloo.com/products/matching-sets/' },
+  { '@type': 'ListItem', position: 4, name: productName, item: productUrl },
+] };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) };
+---
+
+<BaseLayout
+  title="Women’s 3 Piece Activewear Set Jacket Leggings Bra TZ4510-14 | Fitclo"
+  description="Wholesale women’s 3 piece activewear set TZ4510-14 with a fitted zip yoga jacket, ruched sports bra and high-waist leggings in 78% Nylon / 22% Spandex. Private label and OEM options."
+  canonicalURL={productUrl} image={`https://www.fitcloo.com${coverImage}`}
+  structuredData={[productSchema, breadcrumbSchema, faqSchema]} autoArticleSchema={false} includeBreadcrumbSchema={false}
+>
+  <main class="bg-[#090a0c] pt-[112px] text-white">
+    <section class="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10 lg:pb-20">
+      <nav class="flex flex-wrap gap-2 text-[12px] text-white/55 font-['Century_Gothic',sans-serif]" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#d8b456]">Home</a><span>›</span><a href="/products/" class="hover:text-[#d8b456]">Products</a><span>›</span><a href="/products/matching-sets/" class="hover:text-[#d8b456]">Matching Sets</a><span>›</span><span class="text-white/85">{productName}</span>
+      </nav>
+      <div class="mt-8 grid gap-10 border-t border-white/15 pt-9 lg:grid-cols-[minmax(400px,.92fr)_minmax(0,1.08fr)] lg:gap-16" data-product-gallery>
+        <figure class="min-w-0">
+          <div class="aspect-square overflow-hidden border border-white/15 bg-[#111218]"><img src={galleryImages[0].src} alt={galleryImages[0].alt} class="h-full w-full object-contain" width="800" height="800" fetchpriority="high" data-gallery-main /></div>
+          <div class="mt-4 grid grid-cols-5 gap-2">
+            {galleryImages.map((image, index) => <button type="button" class:list={['gallery-thumb aspect-square overflow-hidden border bg-[#111218]', index === 0 ? 'border-[#d8b456]' : 'border-white/15']} data-gallery-thumb data-src={image.src} data-alt={image.alt} data-label={image.label} aria-label={`Show ${image.label}`}><img src={image.src} alt="" class="h-full w-full object-cover" loading="lazy" /></button>)}
+          </div>
+          <figcaption class="mt-3 text-center text-[12px] text-white/55" data-gallery-label>{galleryImages[0].label}</figcaption>
+        </figure>
+        <div>
+          <p class="text-[11px] font-bold tracking-[.22em] text-[#d8b456]">STYLE {productCode}</p>
+          <h1 class="mt-3 max-w-3xl text-3xl font-bold leading-tight md:text-5xl font-['Century_Gothic',sans-serif]">Women’s 3 Piece Activewear Set: Jacket, Leggings &amp; Bra</h1>
+          <p class="mt-5 text-[15px] leading-7 text-white/70">New Comfort 3 Piece Set Yoga Sports Bra Slim Fit Breathable Gym Jacket High Waist Yoga Pants Women Leggings Sportswear — a coordinated wholesale set for yoga, Pilates, gym training and private label programs.</p>
+          <dl class="mt-7 grid overflow-hidden border border-white/15 sm:grid-cols-2">{specificationRows.slice(0, 6).map(([label, value]) => <div class="border-b border-white/15 p-4 sm:odd:border-r"><dt class="text-[10px] font-bold tracking-[.16em] text-[#d8b456] uppercase">{label}</dt><dd class="mt-2 text-[14px] leading-6 text-white/85">{value}</dd></div>)}</dl>
+          <div class="mt-7 flex flex-wrap gap-3"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="rounded-full bg-[#d8b456] px-6 py-3 text-[13px] font-bold text-[#101010] hover:bg-[#efd078]">Request MOQ &amp; Pricing</a><a href="#inquiry" class="rounded-full border border-[#d8b456] px-6 py-3 text-[13px] font-bold text-[#d8b456] hover:bg-[#d8b456] hover:text-[#101010]">Request a Sample</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-[#0d0f13]"><div class="mx-auto grid max-w-[1240px] gap-8 px-6 py-14 lg:grid-cols-[.8fr_1.2fr] lg:px-10"><div><p class="text-[11px] font-bold tracking-[.22em] text-[#d8b456]">BUYER-READY SET</p><h2 class="mt-3 text-3xl font-bold font-['Century_Gothic',sans-serif]">A three-piece yoga outfit that merchandises as one coordinated look.</h2></div><div class="space-y-4 text-[15px] leading-7 text-white/70"><p>TZ4510-14 combines a slim-fit zip yoga jacket, a ruched-front sports bra and high-waist yoga leggings. It gives activewear buyers a clear three-piece set for studio collections, gym wear assortments and private label launches.</p><p>The supplied images show practical garment details buyers often ask about: thumbhole cuffs, a zip pocket, matching color options and a high-rise legging waist. Discuss final color, logo placement, size mix and sample needs before confirming an order.</p></div></div></section>
+
+    <section class="mx-auto max-w-[1240px] px-6 py-16 lg:px-10"><div class="max-w-3xl"><p class="text-[11px] font-bold tracking-[.22em] text-[#d8b456]">PRODUCT SPECIFICATION</p><h2 class="mt-3 text-3xl font-bold font-['Century_Gothic',sans-serif]">TZ4510-14 wholesale &amp; private label details</h2></div><div class="mt-8 overflow-hidden border border-white/15"><table class="w-full text-left text-[14px]"><tbody>{specificationRows.map(([label, value]) => <tr class="border-b border-white/10 last:border-0"><th class="w-[35%] bg-white/[.03] px-4 py-4 font-semibold text-white/85 sm:px-6">{label}</th><td class="px-4 py-4 leading-6 text-white/65 sm:px-6">{value}</td></tr>)}</tbody></table></div></section>
+
+    <section class="bg-[#0d0f13]"><div class="mx-auto max-w-[1240px] px-6 py-16 lg:px-10"><div class="max-w-3xl"><p class="text-[11px] font-bold tracking-[.22em] text-[#d8b456]">COLOR &amp; CONSTRUCTION</p><h2 class="mt-3 text-3xl font-bold font-['Century_Gothic',sans-serif]">Color chart, fit views and functional details</h2></div><div class="mt-8 grid gap-4 md:grid-cols-3">{detailImages.map((image) => <figure class="overflow-hidden border border-white/10 bg-[#101216]"><img src={image.src} alt={image.alt} class="aspect-[4/5] w-full object-cover" loading="lazy" /><figcaption class="border-t border-white/10 px-4 py-3 text-[12px] text-white/60">{image.caption}</figcaption></figure>)}</div></div></section>
+
+    <section class="mx-auto max-w-[1240px] px-6 py-16 lg:px-10"><div class="grid gap-8 border border-[#d8b456]/35 bg-[#111218] p-6 md:grid-cols-2 md:p-10"><div><p class="text-[11px] font-bold tracking-[.22em] text-[#d8b456]">PRIVATE LABEL OPTIONS</p><h2 class="mt-3 text-3xl font-bold font-['Century_Gothic',sans-serif]">Make the set your own.</h2><p class="mt-4 leading-7 text-white/65">Discuss logo application, labels, hang tags and packaging for your selected three-piece yoga set program.</p><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex rounded-full border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456]">Discuss private label</a></div><div class="grid grid-cols-2 gap-3">{fixedProductGalleryImages.map((image) => <img src={image.src} alt={image.alt} class="aspect-square h-full w-full object-cover" loading="lazy" />)}</div></div></section>
+
+    <section class="border-t border-white/10 bg-[#0d0f13]"><div class="mx-auto max-w-[980px] px-6 py-16 lg:px-10"><p class="text-center text-[11px] font-bold tracking-[.22em] text-[#d8b456]">FAQ</p><h2 class="mt-3 text-center text-3xl font-bold font-['Century_Gothic',sans-serif]">Questions about this 3 piece activewear set</h2><div class="mt-8 divide-y divide-white/10 border-y border-white/10">{faqs.map((faq) => <details class="group py-5"><summary class="cursor-pointer list-none pr-8 text-[16px] font-semibold text-white">{faq.question}<span class="float-right text-[#d8b456] group-open:rotate-45">+</span></summary><p class="mt-3 max-w-3xl leading-7 text-white/65">{faq.answer}</p></details>)}</div><p class="mt-8 text-center text-[14px] text-white/55">Browse more <a href="/products/matching-sets/" class="text-[#d8b456] underline">matching activewear sets</a> or contact Fitclo for a sample review.</p></div></section>
+    <InquiryForm />
+  </main>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-product-gallery]').forEach((gallery) => {
+    const mainImage = gallery.querySelector<HTMLImageElement>('[data-gallery-main]');
+    const label = gallery.querySelector<HTMLElement>('[data-gallery-label]');
+    const thumbs = gallery.querySelectorAll<HTMLButtonElement>('[data-gallery-thumb]');
+    thumbs.forEach((thumb) => thumb.addEventListener('click', () => {
+      if (!mainImage) return;
+      mainImage.src = thumb.dataset.src || mainImage.src;
+      mainImage.alt = thumb.dataset.alt || mainImage.alt;
+      if (label) label.textContent = thumb.dataset.label || '';
+      thumbs.forEach((item) => item.classList.remove('border-[#d8b456]'));
+      thumbs.forEach((item) => item.classList.add('border-white/15'));
+      thumb.classList.remove('border-white/15'); thumb.classList.add('border-[#d8b456]');
+    }));
+  });
+</script>

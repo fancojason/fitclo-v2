@@ -28,17 +28,17 @@ Allow: /
 User-agent: YandexImages
 Allow: /
 
-# Keep model-training crawlers blocked. Google Search and its AI features use
-# Googlebot; Google-Extended is a separate Gemini Apps/Vertex AI control and
-# cannot distinguish training from grounding at this level.
+# Permit the additional public crawlers named in Fitclo's blog publishing
+# requirements. Search visibility still depends on each service's own index
+# and citation policies.
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: Amazonbot
 Disallow: /

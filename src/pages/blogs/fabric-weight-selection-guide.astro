@@ -1,25 +1,238 @@
 ---
-import GuideLayout from '../../layouts/GuideLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { whatsappIntelligenceUrl } from '../../data/intelligence';
+
+const title = 'How Fabric GSM Affects Comfort and Durability';
+const description =
+  'A practical activewear fabric GSM guide for buyers comparing yoga leggings, sports bras and training sets: comfort, coverage, recovery, durability and sample approval.';
+const publishedDate = 'August 4, 2026';
+const readTime = '11 min read';
+const articleImage = '/images/blogs/fabric-weight-selection-guide/how-fabric-gsm-affects-comfort-and-durability.webp';
+
+const faqs = [
+  {
+    question: 'What does GSM mean in fabric?',
+    answer:
+      'GSM means grams per square metre. It measures the mass of one square metre of fabric. It is a useful way to compare fabric weight, but it does not by itself describe thickness, softness, opacity, stretch recovery or overall quality.',
+  },
+  {
+    question: 'What GSM is best for yoga leggings?',
+    answer:
+      'There is no universal best GSM for yoga leggings. Many buyers begin their discussion in a midweight activewear range, then confirm the right choice through stretch-opacity, recovery, hand-feel and wash tests on the actual nylon-spandex knit, colour and legging pattern.',
+  },
+  {
+    question: 'Does a higher GSM fabric make leggings squat-proof?',
+    answer:
+      'Not automatically. Higher GSM can contribute to coverage, but squat opacity also depends on yarn coverage, knit construction, elastane content, colour, print, fit and how far the garment is stretched. Test the finished sample in the intended movement instead of approving GSM alone.',
+  },
+  {
+    question: 'Is GSM the same as fabric thickness?',
+    answer:
+      'No. GSM measures weight, while thickness is influenced by yarn bulk, knit structure, finishing and trapped air. Two fabrics with the same GSM can feel noticeably different on the body and perform differently in a garment.',
+  },
+  {
+    question: 'What should I request from an activewear fabric supplier besides GSM?',
+    answer:
+      'Ask for composition, knit construction, finished GSM and tolerance, usable width, stretch and recovery direction, hand feel, colour options, wash care guidance and a fabric or garment sample for movement, opacity and pilling checks.',
+  },
+  {
+    question: 'Can Fitclo help compare GSM options for a private label activewear project?',
+    answer:
+      'Yes. Fitclo can help global activewear buyers compare ready-stock and development routes, fabric direction, sampling, logo and packaging requirements, then confirm the production approach for yoga sets, leggings, sports bras and gym wear.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  image: `https://www.fitcloo.com${articleImage}`,
+  datePublished: '2026-08-04',
+  dateModified: '2026-08-04',
+  mainEntityOfPage: 'https://www.fitcloo.com/blogs/fabric-weight-selection-guide/',
+  author: { '@type': 'Organization', name: 'FITCLO Team', url: 'https://www.fitcloo.com/about/' },
+  publisher: { '@type': 'Organization', name: 'Fitclo', url: 'https://www.fitcloo.com' },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
 ---
 
-<GuideLayout
-  title="Fabric Weight Selection Guide for Leggings, Bras and Gym Wear"
-  type="FABRIC GUIDE"
-  description="How to choose activewear fabric weight by GSM, opacity, compression, season, product category and target retail positioning."
+<BaseLayout
+  title={`${title} | Fitclo Blog`}
+  description={description}
+  canonicalURL="https://www.fitcloo.com/blogs/fabric-weight-selection-guide/"
+  image={`https://www.fitcloo.com${articleImage}`}
+  structuredData={[articleSchema, faqSchema]}
+  autoArticleSchema={false}
 >
-  <p>Fabric weight is one of the fastest ways to change how activewear feels and performs. GSM affects coverage, compression, warmth, drape, cost and perceived quality. The right weight depends on product use, not a single universal number.</p>
+  <article class="fitclo-lux-article">
+    <div class="fitclo-lux-wrap">
+      <span class="fitclo-lux-tag">Fabric Science · Activewear Sourcing</span>
+      <h1>{title}</h1>
+      <div class="fitclo-lux-meta">
+        <span class="fitclo-calendar" aria-hidden="true"></span>
+        <span>{publishedDate}</span><span>·</span><span>{readTime}</span><span>·</span><span>By FITCLO Team</span>
+      </div>
 
-  <h2>Typical GSM Ranges</h2>
-  <ul>
-    <li>Lightweight tops: often selected for breathability and quick-dry comfort.</li>
-    <li>Medium leggings: useful for yoga, studio training and daily athleisure.</li>
-    <li>Heavy compression leggings: better for squat-proof coverage and shaping.</li>
-    <li>Hoodies and sweatpants: require higher GSM for structure and premium hand feel.</li>
-  </ul>
+      <figure class="fitclo-hero-image">
+        <img src={articleImage} alt="Infographic comparing lightweight, midweight and heavyweight activewear fabric GSM for comfort and durability" width="1254" height="1254" loading="eager" />
+        <figcaption>GSM is a useful fabric-weight reference. Final performance depends on the complete fabric and garment specification.</figcaption>
+      </figure>
 
-  <h2>Common Buyer Mistakes</h2>
-  <p>Choosing a heavier fabric does not automatically mean better quality. If the yarn, knit structure or spandex recovery is weak, the garment may still feel stiff, hot or unstable after washing.</p>
+      <p>
+        <strong>Fabric GSM</strong> is one of the first numbers an activewear buyer sees on a swatch card or supplier quote. It affects the perceived weight, warmth, coverage and structure of yoga leggings, sports bras and workout sets, but it is not a stand-alone quality score. The practical decision is to choose a GSM that matches the product, climate, support target and retail position, then verify it through a real garment sample.
+      </p>
 
-  <h2>How Fitclo Tests Fabric Weight</h2>
-  <p>Fitclo reviews GSM together with stretch recovery, opacity, hand feel, colorfastness, shrinkage and garment fit. This gives brands a more reliable decision than selecting fabric by weight alone.</p>
-</GuideLayout>
+      <div class="fitclo-answer" data-aeo="answer">
+        <p><strong>Short answer:</strong> GSM means grams per square metre, or fabric mass. Lower-GSM activewear can feel lighter and cooler; a balanced midweight fabric often suits everyday yoga and training; higher-GSM options can add structure and coverage. None of those outcomes is guaranteed by GSM alone—composition, knit construction, elastane recovery, colour and garment fit must be checked together.</p>
+      </div>
+
+      <nav class="fitclo-toc" aria-label="Table of contents">
+        <strong>In this guide</strong>
+        <ol>
+          <li><a href="#what-is-gsm">What fabric GSM means</a></li>
+          <li><a href="#comfort-durability">How GSM changes comfort and durability</a></li>
+          <li><a href="#yoga-gsm">GSM for yoga leggings, bras and sets</a></li>
+          <li><a href="#buyer-framework">A buyer framework beyond GSM</a></li>
+          <li><a href="#sampling">Sample approval questions and checks</a></li>
+          <li><a href="#faq">Buyer FAQ</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="what-is-gsm">What is fabric GSM?</h2>
+      <p>GSM stands for <strong>grams per square metre</strong>. It is the weight of a measured square metre of fabric after the fabric has been produced and finished. In sourcing conversations, it gives buyers a common starting point for comparing fabric weight across options.</p>
+      <p>GSM is often confused with thickness or quality. It is neither. A compact nylon-spandex interlock and a loftier polyester knit can have similar GSM values but very different thickness, drape, breathability and stretch. For yoga apparel, the same GSM can also behave differently once it is cut into a light-colour legging versus a lined sports bra.</p>
+      <div class="fitclo-table-scroll"><table>
+        <thead><tr><th>Measure</th><th>What it tells a buyer</th><th>What it does not prove</th></tr></thead>
+        <tbody>
+          <tr><td><strong>GSM</strong></td><td>Fabric mass per square metre</td><td>Exact thickness, opacity, recovery or durability</td></tr>
+          <tr><td><strong>Thickness</strong></td><td>Physical bulk and loft</td><td>Fabric mass or performance under stretch</td></tr>
+          <tr><td><strong>Composition</strong></td><td>Fibre blend, such as nylon / spandex</td><td>Knit density, finish or garment quality</td></tr>
+          <tr><td><strong>Knit construction</strong></td><td>Coverage, stretch direction and surface character</td><td>Final fit without pattern and sewing review</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="comfort-durability">How GSM affects comfort and durability</h2>
+      <p>Fabric weight influences a garment’s starting feel. Lighter fabrics may suit hot-weather layers and low-impact styles; denser fabrics can create more structure for sculpting leggings or cooler-weather tops. The trade-off is not simply light equals comfortable and heavy equals durable.</p>
+      <div class="fitclo-table-scroll"><table>
+        <thead><tr><th>Buyer concern</th><th>How GSM may contribute</th><th>Also verify</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Soft, breathable comfort</strong></td><td>Lower fabric mass can reduce the feeling of weight and heat.</td><td>Yarn type, knit openness, moisture handling and garment ventilation.</td></tr>
+          <tr><td><strong>Coverage under stretch</strong></td><td>A denser or heavier construction can support coverage.</td><td>Light colour, fit, yarn coverage, pattern size and squat or lunge testing.</td></tr>
+          <tr><td><strong>Support and shape</strong></td><td>More structure can help a garment feel more substantial.</td><td>Elastane recovery, waistband design, lining, straps and panel construction.</td></tr>
+          <tr><td><strong>Wash durability</strong></td><td>Weight may affect perceived robustness.</td><td>Pilling, shrinkage, seam quality, colourfastness and recovery after repeated wear.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="fitclo-callout"><strong>Buyer takeaway:</strong> a higher GSM fabric is not automatically better. An overly heavy fabric can feel hot or restrictive, while a well-engineered midweight fabric can offer a balanced hand feel, recovery and everyday durability. Compare like with like: same composition, knit, finish and intended use.</div>
+
+      <h2 id="yoga-gsm">What GSM should you consider for yoga apparel?</h2>
+      <p>Searches such as <em>best GSM for yoga pants</em>, <em>fabric GSM for leggings</em>, <em>GSM vs thickness</em> and <em>nylon spandex GSM</em> all point to the same sourcing question: what is enough for the customer’s use case? There is no universal pass/fail number. Use the following bands as an initial product-development conversation, not as a factory specification by themselves.</p>
+      <div class="fitclo-table-scroll"><table>
+        <thead><tr><th>Illustrative GSM band</th><th>Often considered for</th><th>Buyer focus</th></tr></thead>
+        <tbody>
+          <tr><td><strong>About 120–180 GSM</strong></td><td>Light layers, tops or hot-climate low-impact pieces</td><td>Softness, airflow, coverage in light colours and recovery.</td></tr>
+          <tr><td><strong>About 200–250 GSM</strong></td><td>Many yoga sets, training tops and everyday activewear options</td><td>Balanced hand feel, stretch comfort and stable fit.</td></tr>
+          <tr><td><strong>About 260 GSM and above</strong></td><td>More structured leggings, sculpting styles or cooler-weather pieces</td><td>Comfort in movement, heat build-up, recovery and finished-garment opacity.</td></tr>
+        </tbody>
+      </table></div>
+      <p>For a sports bra, fabric GSM is only one part of support: underband construction, lining, cup design and straps matter as much. For leggings, buyers should check fabric coverage in the target colour and the final graded pattern. A fabric that looks dense on a flat swatch can behave differently over a stretched hip or thigh panel.</p>
+
+      <h2 id="buyer-framework">A sourcing framework: choose beyond the GSM number</h2>
+      <p>When comparing supplier quotes, use GSM as one field in a complete fabric brief. This avoids approving a vague “250 GSM nylon spandex” description that later produces a different hand feel or fit than expected.</p>
+      <div class="fitclo-table-scroll"><table>
+        <thead><tr><th>Confirm in the brief</th><th>Why it matters for yoga wear</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Composition and knit</strong></td><td>Defines the base feel, stretch profile, coverage and surface appearance.</td></tr>
+          <tr><td><strong>Finished GSM and tolerance</strong></td><td>Helps control consistency across sample and approved bulk fabric.</td></tr>
+          <tr><td><strong>Stretch and recovery direction</strong></td><td>Impacts waist hold, movement comfort and long-term shape retention.</td></tr>
+          <tr><td><strong>Colour and lining requirement</strong></td><td>Light shades and unlined styles deserve their own coverage review.</td></tr>
+          <tr><td><strong>Product use and climate</strong></td><td>Aligns the hand feel with yoga, studio training, travel, layering or cooler weather.</td></tr>
+          <tr><td><strong>Garment test plan</strong></td><td>Turns a fabric choice into a measurable sample approval decision.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="sampling">Questions to ask before approving an activewear fabric</h2>
+      <p>International buyers often need a concise answer before they request a sample: “Will this GSM work for my yoga legging line?” The most reliable answer comes from a garment test, not a swatch alone. Send the supplier a clear target product and ask these questions.</p>
+      <ul>
+        <li>Is the quoted GSM the finished weight, and what tolerance is used for approved bulk fabric?</li>
+        <li>What are the exact composition, knit construction and usable width?</li>
+        <li>How does the fabric stretch and recover in both directions?</li>
+        <li>Can I review the target colour, especially cream, white or other light shades, in the final pattern?</li>
+        <li>What wash checks will be used for shrinkage, pilling, shape recovery and colour change?</li>
+        <li>Can the sample be tried in squat, lunge, bend and arm-raise movements appropriate to the product?</li>
+        <li>For private label orders, how will logo, labels, packaging and size grading be approved before bulk production?</li>
+      </ul>
+      <div class="fitclo-callout"><strong>Common mistake:</strong> comparing one supplier’s 230 GSM fabric to another supplier’s 230 GSM fabric as if they are equivalent. Ask for the full construction and a sample. Similar GSM values can produce different results because yarn, knit, finish, colour and stretch recovery are different.</div>
+
+      <h2>Where GSM fits in a private label activewear program</h2>
+      <p>For ready-stock activewear, buyers can begin by checking the actual fabric, colour availability, size mix and MOQ for the selected style. For private label or OEM/ODM development, GSM becomes part of the fabric specification alongside composition, colour, fit, branding and packaging. Fitclo has served global activewear buyers since 2010 and can help compare these routes for yoga sets, leggings, sports bras and gym wear.</p>
+      <p>Before bulk production, the practical goal is a signed-off garment standard: a sample that demonstrates the intended comfort, coverage, stretch recovery and construction—not a GSM number in isolation.</p>
+
+      <div class="fitclo-callout fitclo-cta-box">
+        <strong>Need a fabric recommendation for a yoga or gym wear project?</strong>
+        <span>Share your product category, target quantity, climate, reference fabric or design, colours and branding needs. Fitclo can help you choose a suitable ready-stock or development route.</span>
+        <a class="fitclo-cta" href={whatsappIntelligenceUrl} target="_blank" rel="noopener">Discuss Fabric GSM on WhatsApp</a>
+      </div>
+
+      <h2 id="faq">Buyer FAQ: activewear fabric GSM</h2>
+      <div class="fitclo-faq-list">
+        {faqs.map((item) => <div class="fitclo-faq-item"><div class="fitclo-faq-q">{item.question}</div><div class="fitclo-faq-a">{item.answer}</div></div>)}
+      </div>
+
+      <h2>Related reading</h2>
+      <ul class="fitclo-related">
+        <li><a href="/blogs/leggings-pilling-sheer-roll-down-quality-checklist/">Leggings Quality Checklist: Pilling, Sheerness and Roll-Down</a></li>
+        <li><a href="/blogs/supportive-sports-bras-large-bust-design-guide/">Supportive Sports Bra Design Guide for Buyers</a></li>
+        <li><a href="/blogs/why-workout-clothes-smell-polyester-nylon-fabric-guide/">Polyester vs Nylon: Workout Fabric Buying Guide</a></li>
+        <li><a href="/products/leggings/">Wholesale Yoga Leggings</a></li>
+        <li><a href="/private-label/">Private Label Activewear Manufacturing</a></li>
+      </ul>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  :global(body) { background: #0a0a0f; }
+  .fitclo-lux-article { --gold: #c9a84c; --panel: #12121a; --border: rgba(255,255,255,.1); background: radial-gradient(circle at top left,rgba(201,168,76,.08),transparent 34rem),linear-gradient(180deg,#0a0a0f,#09090d); color: rgba(255,255,255,.82); font-family: "Century Gothic","Segoe UI",Roboto,Arial,sans-serif; line-height: 1.8; }
+  .fitclo-lux-wrap { max-width: 880px; margin: 0 auto; padding: 72px 24px 92px; }
+  .fitclo-lux-tag { display:inline-block; margin-bottom:18px; padding:5px 14px; border:1px solid rgba(201,168,76,.32); border-radius:999px; background:rgba(201,168,76,.1); color:var(--gold); font-size:.72rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; }
+  .fitclo-lux-article h1 { margin:0 0 14px; color:#fff; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:900; line-height:1.15; }
+  .fitclo-lux-meta { display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-bottom:30px; color:#9393a1; font-size:.85rem; }
+  .fitclo-calendar { display:inline-block; width:13px; height:13px; border-radius:2px; background:#f3f0e8; box-shadow:inset 0 4px #ef675c; }
+  .fitclo-hero-image { margin:0 0 34px; padding:10px; border:1px solid var(--border); background:var(--panel); }
+  .fitclo-hero-image img { display:block; width:100%; height:auto; }
+  figcaption { padding:10px 4px 0; color:#9696a4; font-size:.8rem; line-height:1.55; }
+  .fitclo-lux-article h2 { margin:44px 0 14px; color:#fff; font-size:clamp(1.32rem,2.4vw,1.55rem); font-weight:900; line-height:1.3; scroll-margin-top:100px; }
+  .fitclo-lux-article p,.fitclo-lux-article li { color:rgba(255,255,255,.78); font-size:1rem; line-height:1.8; }
+  .fitclo-lux-article p { margin:0 0 1.15rem; }
+  .fitclo-lux-article strong { color:#fff; font-weight:850; }
+  .fitclo-lux-article a { color:var(--gold); font-weight:800; text-decoration:none; }
+  .fitclo-lux-article a:hover { opacity:.82; }
+  .fitclo-lux-article ul,.fitclo-lux-article ol { margin:16px 0 24px; padding-left:1.3rem; }
+  .fitclo-lux-article li { margin:8px 0; }
+  .fitclo-answer,.fitclo-callout,.fitclo-toc { margin:24px 0; padding:18px 22px; border:1px solid rgba(201,168,76,.25); border-left:4px solid var(--gold); border-radius:10px; background:var(--panel); }
+  .fitclo-answer p { margin:0; }
+  .fitclo-toc strong { color:var(--gold); font-size:.8rem; letter-spacing:1.2px; text-transform:uppercase; }
+  .fitclo-toc ol { margin:10px 0 0; }
+  .fitclo-table-scroll { overflow-x:auto; margin:20px 0; -webkit-overflow-scrolling:touch; }
+  table { width:100%; min-width:620px; border-collapse:collapse; background:var(--panel); font-size:.92rem; }
+  th,td { padding:12px 14px; border:1px solid var(--border); text-align:left; vertical-align:top; }
+  th { background:rgba(201,168,76,.1); color:var(--gold); font-size:.75rem; font-weight:900; letter-spacing:1px; line-height:1.45; text-transform:uppercase; }
+  td { color:rgba(255,255,255,.76); line-height:1.65; }
+  .fitclo-cta-box { display:grid; gap:12px; }
+  .fitclo-cta-box span { color:rgba(255,255,255,.76); line-height:1.75; }
+  .fitclo-cta { justify-self:start; margin-top:4px; padding:13px 25px; border-radius:6px; background:var(--gold); color:#09090d !important; font-size:.78rem; font-weight:900; letter-spacing:.7px; text-transform:uppercase; }
+  .fitclo-faq-item { padding:18px 0; border-bottom:1px solid var(--border); }
+  .fitclo-faq-q { margin-bottom:8px; color:#fff; font-size:1rem; font-weight:850; line-height:1.45; }
+  .fitclo-faq-a { color:rgba(255,255,255,.72); font-size:.95rem; line-height:1.75; }
+  @media (max-width:720px) { .fitclo-lux-wrap { padding:52px 18px 72px; } .fitclo-lux-article h1 { font-size:clamp(1.72rem,9vw,2.3rem); } .fitclo-hero-image { margin-left:-4px; margin-right:-4px; } }
+</style>

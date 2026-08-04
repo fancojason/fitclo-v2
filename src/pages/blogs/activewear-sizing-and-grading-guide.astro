@@ -1,0 +1,147 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+
+const title = 'Activewear Sizing and Grading: How to Build a Better Size Chart Before Bulk Production';
+const description =
+  'A buyer guide to activewear sizing and grading for yoga leggings, sports bras and matching sets: base size, measurement specs, fit samples and size-chart approval.';
+const whatsappUrl = new URL('https://wa.me/8617160837538');
+whatsappUrl.searchParams.set(
+  'text',
+  'Hello FITCLO, I need help reviewing an activewear size chart and grading plan for: ',
+);
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle="Activewear Sizing and Grading Guide | Yoga Wear Size Charts"
+  description={description}
+  type="Fit and Product Development Guide"
+  articleKind="manufacturing-guide"
+  date="August 4, 2026"
+  readTime="10 min read"
+  publishedIso="2026-08-04"
+  modifiedIso="2026-08-04"
+  articleImage="/images/products/TZ4510-14/tz4510-14-matching-series.webp"
+  quickAnswerTitle="An activewear size chart should start from an approved base-size garment, not a generic apparel table. Grading then applies measured changes across sizes while preserving the intended support, stretch comfort and silhouette. Buyers should approve body measurements, garment measurements, tolerances and fit feedback together before bulk cutting begins."
+  quickTakeaways={[
+    'Define the target wearer, intended activity and fit preference before setting measurements; a running bra, soft yoga set and sculpting legging cannot share one generic fit rule.',
+    'Approve an actual base-size sample, then confirm how key measurement points change across the full size range.',
+    'Use the size chart as a production document: include garment measurements, tolerance, stretch-sensitive notes and clear revision control.',
+  ]}
+  planningTableTitle="Activewear size-chart approval checklist"
+  tableHeaders={['Approval step', 'What the buyer defines', 'Why it matters']}
+  planningRows={[
+    ['Target fit', 'Activity, support level, body customer, ease preference and base size.', 'Prevents a soft yoga fit from being developed like a high-compression training product.'],
+    ['Measurement spec', 'Key body and garment points, how to measure and allowed tolerance.', 'Keeps the sample, quote, pattern and production inspection aligned.'],
+    ['Base-size sample', 'Fit comments during realistic movement and after wash review.', 'A grade cannot repair an unapproved base pattern.'],
+    ['Grading review', 'How each key point changes between sizes and where the silhouette must stay stable.', 'Protects waistband, rise, inseam, strap and support proportions across the range.'],
+  ]}
+  faqs={[
+    { question: 'What is activewear grading?', answer: 'Activewear grading is the controlled adjustment of an approved base pattern into additional sizes. The goal is to preserve the intended fit and movement comfort across the size range, not simply make every pattern piece proportionally larger or smaller.' },
+    { question: 'Should I use body measurements or garment measurements in an activewear size chart?', answer: 'Use both for different purposes. Body measurements help the customer choose a size; garment measurements, measuring methods and tolerances give the factory and inspection team a production standard. Keep the two tables clearly separated.' },
+    { question: 'Why is a base-size sample important before grading?', answer: 'The base-size sample establishes the pattern, fabric behavior and fit direction. If the base garment has the wrong waist tension, rise, bra support or seam placement, grading it into more sizes only repeats the problem.' },
+    { question: 'Can the same grade rules be used for leggings and sports bras?', answer: 'No. The key fit points are different. Leggings need attention to waist, hip, rise, inseam and stretch zones; sports bras need attention to underband, bust coverage, strap length, cup or lining construction and support level.' },
+    { question: 'What should I send a manufacturer to begin activewear sizing development?', answer: 'Send the target product category, size range, target customer or market, reference garment or images, desired fit, body-size chart if available, base-size preference, fabric direction and any special support or coverage requirements.' },
+  ]}
+  relatedReading={[
+    { title: 'Supportive Sports Bras for Larger Busts: Manufacturing Guide', link: '/blogs/supportive-sports-bras-large-bust-design-guide/' },
+    { title: 'Why Leggings Pill, Go Sheer or Roll Down: Quality Checklist', link: '/blogs/leggings-pilling-sheer-roll-down-quality-checklist/' },
+    { title: 'How Fabric GSM Affects Comfort and Durability', link: '/blogs/fabric-weight-selection-guide/' },
+    { title: 'Custom Activewear Manufacturing Process', link: '/blogs/custom-activewear-manufacturing-process/' },
+    { title: 'Matching Sets and Yoga Wear Products', link: '/products/matching-sets/' },
+  ]}
+  ctaTitle="Review your activewear size chart before the next sample"
+  ctaText="Send your product category, size range, target customer, reference fit and fabric direction. FITCLO can help identify the measurements, sample checks and grading questions needed for a clearer production brief."
+  ctaHref={whatsappUrl.toString()}
+  ctaLabel="Discuss My Size Chart"
+>
+  <figure class="article-image product-image">
+    <img src="/images/products/TZ4510-14/tz4510-14-matching-series.webp" alt="Matching activewear series showing a sports bra, fitted top and leggings for fit and size planning" width="790" height="889" loading="eager" />
+    <figcaption>For a matching set, each component needs its own fit review even when the collection shares a color and fabric direction.</figcaption>
+  </figure>
+
+  <p>
+    <strong>Activewear sizing and grading</strong> are where a promising yoga legging, sports bra or matching set becomes a product that customers can actually wear with confidence. A visual reference may show the intended silhouette, but it cannot define how the waistband holds, where a bra underband sits, how a rise feels in a squat or whether a size L keeps the same product promise as a size S.
+  </p>
+  <p>
+    The practical solution is a controlled fit process: define the wearer and activity, approve a base-size sample, document the garment measurement specification and then review grading across the full range. This produces a clearer factory brief and a more useful size chart for the final customer.
+  </p>
+
+  <nav class="article-toc" aria-label="Table of contents">
+    <strong>In this guide</strong>
+    <ol>
+      <li><a href="#sizing-vs-grading">Sizing vs grading</a></li>
+      <li><a href="#base-size">Start with the approved base size</a></li>
+      <li><a href="#measurement-points">Key measurement points by product</a></li>
+      <li><a href="#size-chart">Build a production-ready size chart</a></li>
+      <li><a href="#review">Fit and grading review before bulk</a></li>
+      <li><a href="#faq">Buyer FAQ</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="sizing-vs-grading">Sizing and grading are related—but they are not the same</h2>
+  <p><strong>Sizing</strong> defines who the garment is intended to fit and how the final customer reads the size offer. A customer-facing chart may use body measurements such as bust, waist and hip. <strong>Grading</strong> is the pattern-development work that creates the additional garment sizes from the approved base pattern.</p>
+  <p>For activewear, the relationship matters because stretch fabrics do not behave like rigid woven clothing. The pattern, fabric recovery, support construction and intended ease all shape the finished garment. A simple proportional scale-up can change a high-rise legging or a supportive bra more than the buyer expects.</p>
+
+  <h2 id="base-size">Start with an approved base-size sample</h2>
+  <p>The first sample should do more than look good on a mannequin. It should confirm the intended fit in realistic movement. For leggings, review bend, squat, lunge and waist position. For sports bras, review the underband, strap comfort, coverage and activity level. For jackets and tops, check shoulder movement, sleeve length and how the style layers over the intended base product.</p>
+  <div class="article-callout"><strong>Fit principle:</strong> grading can scale an approved pattern; it cannot correct the wrong base fit. Finalize the base-size garment and fabric behavior before asking the factory to grade the range.</div>
+
+  <h2 id="measurement-points">Key measurement points by activewear category</h2>
+  <div class="article-table-scroll"><table>
+    <thead><tr><th>Product</th><th>Key garment measurements</th><th>Movement and fit review</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Leggings</strong></td><td>Waist, hip, front rise, back rise, inseam, leg opening and waistband height.</td><td>Squat, lunge, bend, seated comfort and waistband stability.</td></tr>
+      <tr><td><strong>Sports bras</strong></td><td>Underband, bust width, body length, strap length, neckline and armhole.</td><td>Coverage, underband hold, strap pressure, support and ease of movement.</td></tr>
+      <tr><td><strong>Yoga tops</strong></td><td>Chest, hem, body length, armhole and strap or sleeve dimensions.</td><td>Reach, twist, forward bend and layering over the target bra.</td></tr>
+      <tr><td><strong>Matching sets</strong></td><td>Each top and bottom measurement specification, plus the visual proportion together.</td><td>Check whether the set remains balanced through the intended size range.</td></tr>
+    </tbody>
+  </table></div>
+
+  <figure class="article-image product-image">
+    <img src="/images/products/TZ4510-14/tz4510-14-color-chart.webp" alt="Color chart for a coordinated three-piece activewear set in five color options" width="750" height="915" loading="lazy" />
+    <figcaption>Color selection and size planning should be reviewed together so the initial order is based on a deliberate style-color-size mix.</figcaption>
+  </figure>
+
+  <h2 id="size-chart">What belongs in a production-ready activewear size chart?</h2>
+  <p>A useful size chart is not one line that says “S/M/L/XL.” It creates a shared reference for the brand, pattern team, sample room and inspection team. The exact format can vary, but the production document should make the following points clear.</p>
+  <ul>
+    <li><strong>Style identification:</strong> style name or code, product category and revision date.</li>
+    <li><strong>Size range and base size:</strong> state which sample size was approved before grading.</li>
+    <li><strong>Garment points of measure:</strong> use named points and a consistent method, not only a visual diagram.</li>
+    <li><strong>Target measurements and tolerances:</strong> record expected finished measurements and what variation is acceptable.</li>
+    <li><strong>Fabric and stretch notes:</strong> identify the approved fabric direction and any measurement method needed for stretch-sensitive parts.</li>
+    <li><strong>Fit comments:</strong> document decisions about waist hold, support, coverage, length and ease so they are not lost between sample rounds.</li>
+  </ul>
+
+  <h2 id="review">Review the grade before bulk production</h2>
+  <p>When a project includes several sizes, do not approve only the base size. Ask how the key points will change across the range and review at least the sizes most likely to expose a problem. For example, a high waistband may become too tall or too tight; a strap may not lengthen enough; a leg opening or armhole may shift the intended silhouette.</p>
+  <ol>
+    <li>Confirm the approved base sample and its full measurement record.</li>
+    <li>Review the proposed size chart and grade rules for the product category.</li>
+    <li>Check at least representative graded sizes where the product has high stretch, support or coverage sensitivity.</li>
+    <li>Record sample comments by measurement point, not only general feedback such as “fit better.”</li>
+    <li>Lock the approved specification, logo placement, label details and packaging instructions before bulk cutting.</li>
+  </ol>
+  <p>FITCLO serves global activewear buyers with ready-stock, private-label and OEM/ODM routes. For a stock style, confirm the available size range and sample fit before ordering. For custom development, use the measurement specification and sample feedback to keep the final graded production aligned with the approved product direction.</p>
+
+  <h2 id="faq">Buyer FAQ: activewear sizing and grading</h2>
+</EditorialArticleLayout>
+
+<style>
+  .article-image { margin: 0 0 30px; padding: 10px; border: 1px solid rgba(255,255,255,.1); background: #12121a; }
+  .article-image img { display: block; width: 100%; max-height: 700px; object-fit: contain; background: #09090d; }
+  .product-image { max-width: 760px; margin-left: auto; margin-right: auto; }
+  .article-image figcaption { padding: 9px 4px 0; color: rgba(255,255,255,.58); font-size: .8rem; line-height: 1.55; }
+  .article-toc { margin: 28px 0; padding: 18px 22px; border: 1px solid rgba(201,168,76,.25); border-left: 4px solid #c9a84c; border-radius: 10px; background: #12121a; }
+  .article-toc strong { color: #c9a84c; font-size: .8rem; letter-spacing: 1.2px; text-transform: uppercase; }
+  .article-toc ol { margin: 10px 0 0; padding-left: 1.3rem; }
+  .article-toc li { margin: 4px 0; }
+  .article-callout { margin: 24px 0; padding: 18px 22px; border: 1px solid rgba(201,168,76,.25); border-left: 4px solid #c9a84c; border-radius: 10px; background: #12121a; color: rgba(255,255,255,.78); line-height: 1.75; }
+  .article-table-scroll { overflow-x: auto; margin: 20px 0; -webkit-overflow-scrolling: touch; }
+  .article-table-scroll table { width: 100%; min-width: 650px; border-collapse: collapse; background: #12121a; font-size: .92rem; }
+  .article-table-scroll th, .article-table-scroll td { padding: 12px 14px; border: 1px solid rgba(255,255,255,.1); text-align: left; vertical-align: top; }
+  .article-table-scroll th { background: rgba(201,168,76,.1); color: #c9a84c; font-size: .76rem; letter-spacing: 1px; line-height: 1.45; text-transform: uppercase; }
+  .article-table-scroll td { color: rgba(255,255,255,.76); line-height: 1.65; }
+  @media (max-width:720px) { .article-image { margin-left: -4px; margin-right: -4px; } }
+</style>

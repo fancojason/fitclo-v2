@@ -1,0 +1,56 @@
+---
+import EditorialArticleLayout from '../layouts/EditorialArticleLayout.astro';
+import { whatsappIntelligenceUrl } from '../data/intelligence';
+
+const { guide } = Astro.props;
+const whatsappUrl = new URL(whatsappIntelligenceUrl);
+whatsappUrl.searchParams.set('text', `Hi Fitclo, I would like help with ${guide.title}.`);
+---
+
+<EditorialArticleLayout
+  title={guide.title}
+  seoTitle={guide.seoTitle}
+  description={guide.description}
+  type={guide.type}
+  articleKind="buyer-technical-guide"
+  date="August 6, 2026"
+  readTime={guide.readTime}
+  articleImage={guide.image}
+  publishedIso="2026-08-06"
+  modifiedIso="2026-08-06"
+  quickAnswerTitle={guide.quickAnswer}
+  quickTakeaways={guide.takeaways}
+  planningPlacement="before"
+  planningTableTitle={guide.tableTitle}
+  tableHeaders={guide.tableHeaders}
+  planningRows={guide.tableRows}
+  expertSectionTitle="Fitclo buyer support"
+  expertParagraphs={guide.expertParagraphs}
+  commonMistakesTitle="Common buyer mistakes to avoid"
+  commonMistakes={guide.mistakes}
+  faqs={guide.faqs}
+  relatedReading={guide.relatedReading}
+  ctaTitle={guide.ctaTitle}
+  ctaText={guide.ctaText}
+  ctaHref={whatsappUrl.toString()}
+  ctaLabel={guide.ctaLabel}
+>
+  <figure>
+    <img src={guide.image} alt={guide.imageAlt} loading="eager" />
+    <figcaption>{guide.caption}</figcaption>
+  </figure>
+  {guide.intro.map((paragraph) => <p set:html={paragraph} />)}
+  {guide.sections.map((section) => (
+    <section>
+      <h2>{section.heading}</h2>
+      {section.paragraphs?.map((paragraph) => <p set:html={paragraph} />)}
+      {section.bullets?.length > 0 && <ul>{section.bullets.map((item) => <li>{item}</li>)}</ul>}
+      {section.rows?.length > 0 && (
+        <table>
+          <thead><tr>{(section.headers ?? ['Area', 'What to inspect', 'Why it matters']).map((header) => <th>{header}</th>)}</tr></thead>
+          <tbody>{section.rows.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}</tbody>
+        </table>
+      )}
+    </section>
+  ))}
+</EditorialArticleLayout>

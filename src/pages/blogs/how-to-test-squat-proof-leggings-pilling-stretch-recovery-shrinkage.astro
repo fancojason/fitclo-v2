@@ -1,0 +1,6 @@
+---
+import BuyerGuideArticle from '../../components/BuyerGuideArticle.astro';
+import { buyerGuides } from '../../data/buyerGuideCollection';
+const guide = buyerGuides.find((item) => item.slug === 'how-to-test-squat-proof-leggings-pilling-stretch-recovery-shrinkage')!;
+---
+<BuyerGuideArticle {guide} />

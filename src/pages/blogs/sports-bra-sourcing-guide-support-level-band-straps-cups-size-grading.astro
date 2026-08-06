@@ -1,0 +1,6 @@
+---
+import BuyerGuideArticle from '../../components/BuyerGuideArticle.astro';
+import { buyerGuides } from '../../data/buyerGuideCollection';
+const guide = buyerGuides.find((item) => item.slug === 'sports-bra-sourcing-guide-support-level-band-straps-cups-size-grading')!;
+---
+<BuyerGuideArticle {guide} />

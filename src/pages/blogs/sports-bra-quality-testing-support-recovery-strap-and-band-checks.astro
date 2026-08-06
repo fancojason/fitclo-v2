@@ -1,0 +1,6 @@
+---
+import BuyerGuideArticle from '../../components/BuyerGuideArticle.astro';
+import { buyerGuides } from '../../data/buyerGuideCollection';
+const guide = buyerGuides.find((item) => item.slug === 'sports-bra-quality-testing-support-recovery-strap-and-band-checks')!;
+---
+<BuyerGuideArticle {guide} />

@@ -1,0 +1,6 @@
+---
+import BuyerGuideArticle from '../../components/BuyerGuideArticle.astro';
+import { buyerGuides } from '../../data/buyerGuideCollection';
+const guide = buyerGuides.find((item) => item.slug === 'seamless-knit-activewear-quality-testing-fit-stretch-and-recovery')!;
+---
+<BuyerGuideArticle {guide} />

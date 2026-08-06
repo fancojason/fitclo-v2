@@ -1,0 +1,6 @@
+---
+import CategorySourcingLanding from '../components/CategorySourcingLanding.astro';
+import { getCategorySourcingLandingPage } from '../data/categorySourcingLandingPages';
+const page = getCategorySourcingLandingPage('gym-shorts-manufacturer')!;
+---
+<CategorySourcingLanding {page} />

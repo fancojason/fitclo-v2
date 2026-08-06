@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InquiryForm from './InquiryForm.astro';
+import { getCatalogProductByStyleCode, type CatalogProduct } from '../data/productCatalog';
+
+const { page } = Astro.props;
+const products = page.productCodes
+  .map((styleCode: string) => getCatalogProductByStyleCode(styleCode))
+  .filter((product: CatalogProduct | undefined): product is CatalogProduct => Boolean(product));
+const pageUrl = `https://www.fitcloo.com/${page.slug}/`;
+const whatsappUrl = `https://wa.me/8617160837538?text=${encodeURIComponent(`Hi Fitclo, I am sourcing ${page.title}. Please share suitable styles, MOQ, sample and branding options.`)}`;
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: page.title,
+  serviceType: page.eyebrow,
+  url: pageUrl,
+  description: page.description,
+  provider: { '@id': 'https://www.fitcloo.com/#organization' },
+  areaServed: 'Worldwide',
+  audience: { '@type': 'BusinessAudience', audienceType: 'Activewear brands, buyers, retailers, fitness studios and apparel entrepreneurs' },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: `${page.title} product directions`,
+    itemListElement: products.map((product: CatalogProduct) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Product', name: product.name, sku: product.styleCode, image: `https://www.fitcloo.com${product.image}` },
+    })),
+  },
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: page.faqs.map((faq: { question: string; answer: string }) => ({
+    '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+---
+
+<BaseLayout title={page.seoTitle} description={page.description} canonicalURL={pageUrl} image={`https://www.fitcloo.com${products[0]?.image ?? '/images/products/shared/private-label-customization-options.webp'}`} structuredData={[serviceSchema, faqSchema]} autoArticleSchema={false}>
+  <section class="relative overflow-hidden bg-[#090909] pt-[82px] text-white">
+    {products[0] && <img src={products[0].image} alt={products[0].name} class="absolute inset-0 h-full w-full object-cover object-center opacity-35" fetchpriority="high" />}
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,.97)_0%,rgba(5,5,5,.88)_52%,rgba(5,5,5,.48)_100%)]"></div>
+    <div class="relative mx-auto grid min-h-[590px] max-w-[1320px] content-end gap-10 px-6 pb-16 pt-28 lg:grid-cols-[minmax(0,1fr)_360px] lg:px-10 lg:pb-20">
+      <div class="max-w-[820px] font-['Century_Gothic',sans-serif]">
+        <p class="text-[11px] font-bold tracking-[0.22em] text-[#d8b456]">{page.eyebrow}</p>
+        <h1 class="mt-5 text-[43px] font-bold leading-[1.04] sm:text-[58px] lg:text-[70px]">{page.heroTitle}</h1>
+        <p class="mt-6 max-w-[700px] text-[16px] leading-[1.75] text-white/85 md:text-[19px]">{page.heroText}</p>
+        <div class="mt-8 flex flex-wrap gap-3 text-[12px] font-bold">
+          <span class="rounded-full border border-white/20 bg-black/45 px-4 py-2.5"><span class="mr-2 text-[#d8b456]">01</span>MOQ logic</span>
+          <span class="rounded-full border border-white/20 bg-black/45 px-4 py-2.5"><span class="mr-2 text-[#d8b456]">02</span>Sample review</span>
+          <span class="rounded-full border border-white/20 bg-black/45 px-4 py-2.5"><span class="mr-2 text-[#d8b456]">03</span>Private label options</span>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#product-directions" class="inline-flex min-h-[54px] items-center justify-center rounded-full bg-[#d8b456] px-7 text-[13px] font-bold text-black transition-colors hover:bg-white">View Product Directions</a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-white/40 px-7 text-[13px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]">Discuss on WhatsApp</a>
+        </div>
+      </div>
+      <aside class="border border-white/15 bg-[#101010]/90 p-6 backdrop-blur-sm font-['Century_Gothic',sans-serif]">
+        <p class="text-[11px] font-bold tracking-[0.16em] text-[#d8b456]">BUYER STARTING POINT</p>
+        <ol class="mt-5 space-y-4 text-[14px] leading-[1.55] text-white/75">
+          <li><span class="mr-3 font-bold text-[#d8b456]">01</span>Select a product route and target quantity.</li>
+          <li><span class="mr-3 font-bold text-[#d8b456]">02</span>Share fabric, color and size direction.</li>
+          <li><span class="mr-3 font-bold text-[#d8b456]">03</span>Confirm sample, logo and packaging requirements.</li>
+          <li><span class="mr-3 font-bold text-[#d8b456]">04</span>Approve the product and quality reference before bulk.</li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-[#111111] py-10 text-white"><div class="mx-auto grid max-w-[1320px] gap-6 px-6 md:grid-cols-3 lg:px-10">
+    <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">MOQ</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Ready-stock qualifying sets start from 50 sets; individual garments start from 50 pcs. Custom routes are reviewed against the brief.</p></div>
+    <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">BRANDING</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Discuss logo, labels, hang tags and packaging with the selected product route.</p></div>
+    <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">SAMPLES</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Confirm the appropriate sample option before approving fit, color, construction and branding.</p></div>
+  </div></section>
+
+  <section id="product-directions" class="bg-[#090909] py-20 text-white md:py-24"><div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"><div><p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">RELATED PRODUCT DIRECTIONS</p><h2 class="mt-4 max-w-[720px] text-[34px] font-bold leading-[1.1] md:text-[47px] font-['Century_Gothic',sans-serif]">Start from relevant product references.</h2></div><a href={page.catalogPath} class="text-[13px] font-bold text-[#d8b456]">{page.catalogLabel} &rarr;</a></div>
+    <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{products.map((product: CatalogProduct) => <article class="overflow-hidden border border-white/15 bg-[#111218]"><img src={product.image} alt={product.name} class="aspect-square w-full object-cover" loading="lazy" /><div class="p-6"><p class="text-[10px] font-bold tracking-[.16em] text-[#d8b456]">{product.moq.toUpperCase()}</p><h3 class="mt-3 text-[21px] font-bold leading-[1.26] font-['Century_Gothic',sans-serif]">{product.name}</h3><p class="mt-3 min-h-[68px] text-[14px] leading-[1.6] text-white/65">{product.description}</p><a href={`${whatsappUrl}%0AStyle%20reference%3A%20${encodeURIComponent(product.styleCode)}`} target="_blank" rel="noreferrer" class="mt-5 inline-flex text-[13px] font-bold text-[#d8b456]">Ask about {product.styleCode} &rarr;</a></div></article>)}</div>
+  </div></section>
+
+  <section class="border-y border-white/10 bg-[#111218] py-20 text-white md:py-24"><div class="mx-auto grid max-w-[1320px] gap-12 px-6 lg:grid-cols-[.82fr_1.18fr] lg:px-10"><div><p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">BUYER DECISION FRAMEWORK</p><h2 class="mt-4 text-[34px] font-bold leading-[1.1] md:text-[47px] font-['Century_Gothic',sans-serif]">Turn an idea into a workable sourcing brief.</h2><p class="mt-5 text-[16px] leading-[1.75] text-white/65">A clear brief lets a buyer compare a selected ready-stock route with a more custom development route without treating them as the same offer.</p></div><div class="overflow-x-auto border border-white/15"><table class="min-w-[680px] w-full text-left font-['Century_Gothic',sans-serif]"><thead class="bg-black/30 text-[11px] tracking-[.13em] text-[#d8b456]"><tr><th class="p-5">DECISION</th><th class="p-5">BUYER QUESTION</th><th class="p-5">RECORD BEFORE SAMPLE</th></tr></thead><tbody>{page.decisionRows.map((row: [string, string, string]) => <tr class="border-t border-white/10 align-top text-[14px] leading-[1.6] text-white/72"><td class="p-5 font-bold text-white">{row[0]}</td><td class="p-5">{row[1]}</td><td class="p-5">{row[2]}</td></tr>)}</tbody></table></div></div></section>
+
+  <section class="bg-[#090909] py-20 text-white md:py-24"><div class="mx-auto grid max-w-[1320px] gap-14 px-6 lg:grid-cols-2 lg:px-10"><div><p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FABRIC & SIZE PLANNING</p><h2 class="mt-4 text-[34px] font-bold leading-[1.1] md:text-[44px] font-['Century_Gothic',sans-serif]">Choose the direction, then validate it on the right sample.</h2><ul class="mt-7 grid gap-4 text-[15px] leading-[1.65] text-white/72">{page.fabricNotes.map((item: string) => <li class="border-l-2 border-[#d8b456] pl-4">{item}</li>)}</ul></div><div class="border border-white/15 bg-[#111218] p-7 md:p-9"><p class="text-[11px] font-bold tracking-[.16em] text-[#d8b456] font-['Century_Gothic',sans-serif]">SIZE & FIT RECORD</p><ul class="mt-6 grid gap-4 text-[15px] leading-[1.65] text-white/72">{page.sizeNotes.map((item: string, index: number) => <li><span class="mr-3 font-bold text-[#d8b456]">0{index + 1}</span>{item}</li>)}</ul><a href="/blogs/activewear-sizing-and-grading-guide/" class="mt-8 inline-flex text-[13px] font-bold text-[#d8b456]">Read the sizing & grading guide &rarr;</a></div></div></section>
+
+  <section class="border-y border-white/10 bg-[#111218] py-20 text-white md:py-24"><div class="mx-auto grid max-w-[1320px] gap-12 px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-10"><div><p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">SAMPLING, PRODUCTION & QUALITY</p><h2 class="mt-4 text-[34px] font-bold leading-[1.1] md:text-[47px] font-['Century_Gothic',sans-serif]">Approve the reference before you approve the production route.</h2><p class="mt-5 text-[16px] leading-[1.75] text-white/65">The sequence is practical: agree the product and sample route, document changes, confirm the approval reference, then plan bulk, inspection, packing and shipment details. Production timing is confirmed against the actual order requirements rather than promised as a generic page number.</p><a href="/blogs/activewear-sample-approval-checklist/" class="mt-7 inline-flex text-[13px] font-bold text-[#d8b456]">Use the activewear sample approval checklist &rarr;</a></div><div class="divide-y divide-white/15 border-y border-white/15">{page.qualityChecks.map((check: string, index: number) => <div class="flex gap-5 py-5"><span class="font-bold text-[#d8b456]">0{index + 1}</span><p class="text-[15px] leading-[1.65] text-white/72">{check}</p></div>)}</div></div></section>
+
+  <section class="bg-[#090909] py-20 text-white md:py-24"><div class="mx-auto grid max-w-[1320px] gap-12 px-6 lg:grid-cols-[.82fr_1.18fr] lg:px-10"><div><p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">READY-STOCK ROUTE</p><h2 class="mt-4 text-[34px] font-bold leading-[1.1] md:text-[47px] font-['Century_Gothic',sans-serif]">Need to assess the current program first?</h2><p class="mt-5 text-[16px] leading-[1.75] text-white/65">Use the Ready-Stock Activewear Catalog to filter qualifying programme styles. Current colors and size mixes are confirmed before order, and logo, label, hang tag, packaging and sample options are discussed against the chosen style.</p><div class="mt-8 flex flex-wrap gap-4"><a href="/ready-to-ship/" class="inline-flex min-h-[52px] items-center rounded-full bg-[#d8b456] px-6 text-[13px] font-bold text-black hover:bg-white">Open Ready-Stock Catalog</a><a href={page.catalogPath} class="inline-flex min-h-[52px] items-center rounded-full border border-white/35 px-6 text-[13px] font-bold text-white hover:border-[#d8b456] hover:text-[#d8b456]">{page.catalogLabel}</a></div></div><div class="border border-white/15 bg-[#111218] p-7 md:p-9"><p class="text-[11px] font-bold tracking-[.16em] text-[#d8b456] font-['Century_Gothic',sans-serif]">WHAT TO SEND FOR A CURRENT CHECK</p><ul class="mt-6 grid gap-4 text-[15px] leading-[1.65] text-white/72"><li>Selected style or product direction, estimated quantity and destination.</li><li>Preferred colors, size mix and whether a sample is required.</li><li>Logo artwork, placement, labels, hang tags or packaging requirements.</li><li>Required launch or delivery planning context, without assuming a generic lead-time promise.</li></ul></div></div></section>
+
+  <section class="border-y border-white/10 bg-[#111218] py-20 text-white md:py-24"><div class="mx-auto grid max-w-[1320px] gap-12 px-6 lg:grid-cols-[.82fr_1.18fr] lg:px-10"><div><p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">BUYER FAQ</p><h2 class="mt-4 text-[34px] font-bold leading-[1.1] md:text-[47px] font-['Century_Gothic',sans-serif]">Questions to settle before the order moves forward.</h2></div><div class="divide-y divide-white/15 border-y border-white/15">{page.faqs.map((faq: { question: string; answer: string }, index: number) => <details class="group py-5" open={index === 0}><summary class="cursor-pointer list-none pr-8 text-[17px] font-bold leading-[1.4] text-white font-['Century_Gothic',sans-serif]">{faq.question}<span class="float-right text-[#d8b456] group-open:rotate-45">+</span></summary><p class="mt-3 text-[14px] leading-[1.72] text-white/68">{faq.answer}</p></details>)}</div></div></section>
+
+  <section class="bg-[#090909] py-20 text-white"><div class="mx-auto grid max-w-[1320px] gap-10 px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-10"><div><p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">REQUEST PRODUCT DIRECTION</p><h2 class="mt-4 max-w-[530px] text-[38px] font-bold leading-[1.08] md:text-[53px] font-['Century_Gothic',sans-serif]">Get a practical recommendation for your next collection.</h2><p class="mt-6 max-w-[500px] text-[16px] leading-[1.75] text-white/70">Send your product type, target quantity, fabric direction, size range, branding requirements and delivery context. Fitclo will help organize the next sourcing questions.</p><a href={whatsappUrl} target="_blank" rel="noreferrer" class="mt-8 inline-flex min-h-[52px] items-center rounded-full border border-[#d8b456] px-6 text-[13px] font-bold text-[#d8b456] hover:bg-[#d8b456] hover:text-black">Ask on WhatsApp</a></div><div class="border border-white/15 bg-[#111218] p-6"><p class="text-[11px] font-bold tracking-[.16em] text-[#d8b456] font-['Century_Gothic',sans-serif]">INQUIRY ROUTE</p><p class="mt-4 text-[16px] leading-[1.7] text-white/70">Use the form below to request selected styles, a sample discussion, logo options, packaging or a current ready-stock check.</p><a href="#inquiry" class="mt-6 inline-flex min-h-[52px] items-center rounded-full bg-[#d8b456] px-6 text-[13px] font-bold text-black hover:bg-white">Open Inquiry Form</a></div></div></section>
+  <InquiryForm />
+</BaseLayout>

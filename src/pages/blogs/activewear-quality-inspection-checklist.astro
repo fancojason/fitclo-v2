@@ -1,0 +1,153 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+import { whatsappIntelligenceUrl } from '../../data/intelligence';
+
+const title = 'Activewear Quality Inspection Checklist: AQL, Fit, Fabric and Packaging';
+const whatsappUrl = new URL(whatsappIntelligenceUrl);
+whatsappUrl.searchParams.set('text', 'Hi Fitclo, I would like the activewear quality inspection checklist and want to discuss quality checks for an upcoming order.');
+
+const faqs = [
+  {
+    question: 'What is AQL in an activewear inspection?',
+    answer: 'AQL is commonly used as part of an agreed sampling inspection plan. Before inspection, the buyer and supplier should define the lot, sampling method, inspection level and acceptable limits for critical, major and minor defects. It does not replace a clear product specification.',
+  },
+  {
+    question: 'What should be checked on leggings during quality inspection?',
+    answer: 'Check fabric appearance, color consistency, waistband and inseam measurements, seam construction, panel alignment, pocket execution if applicable, logo placement, opacity during stretch where relevant, cleanliness and packing against the approved reference.',
+  },
+  {
+    question: 'What should be checked on sports bras during quality inspection?',
+    answer: 'Check measurements, strap length and attachment, elastic tension, lining or pad placement, neckline and armhole finishing, support-related construction, label placement, stitching quality and the approved color and packaging details.',
+  },
+  {
+    question: 'When should activewear quality control happen?',
+    answer: 'Quality control is strongest when it is planned across the project: confirm the pre-production reference, review materials and early production, monitor important construction points during production, and compare finished goods and packing with the agreed specification before shipment.',
+  },
+  {
+    question: 'How do buyers classify garment defects?',
+    answer: 'The buyer and supplier should agree definitions before inspection. In general, critical defects are unacceptable safety or compliance issues, major defects materially affect use or saleability, and minor defects are visible deviations that do not materially affect basic use. The definitions and limits should match the product and market.',
+  },
+  {
+    question: 'Can final inspection fix an unclear specification?',
+    answer: 'No. Final inspection can compare finished goods with the agreed reference, but it cannot reliably solve an undefined fit target, unapproved color, missing logo placement rule or unclear packaging instruction. Quality starts with specification and sample approval.',
+  },
+];
+
+const relatedReading = [
+  { title: 'Activewear Sample Approval Checklist: What to Test Before Bulk Production', link: '/blogs/activewear-sample-approval-checklist/', desc: 'Build a clearer production reference before inspection begins.' },
+  { title: 'Leggings Pilling, Sheerness and Roll-Down: Quality Checklist', link: '/blogs/leggings-pilling-sheer-roll-down-quality-checklist/', desc: 'Focus on common leggings quality concerns.' },
+  { title: 'How Fabric GSM Affects Comfort and Durability', link: '/blogs/how-fabric-gsm-affects-comfort-and-durability/', desc: 'Understand one of the material decisions behind activewear performance.' },
+  { title: 'The Custom Activewear Manufacturing Process', link: '/blogs/custom-activewear-manufacturing-process/', desc: 'See where planning, sampling and bulk quality control connect.' },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle="Activewear Quality Inspection Checklist: AQL, Fit & Fabric | Fitclo"
+  description="A buyer-focused activewear quality inspection checklist covering AQL planning, fit, fabric, workmanship, branding and packaging for leggings and sports bras."
+  type="Quality Control Guide"
+  articleKind="quality-inspection-guide"
+  date="August 6, 2026"
+  readTime="12 min read"
+  articleImage="/images/blogs/activewear-quality-inspection-checklist/activewear-quality-inspection.webp"
+  publishedIso="2026-08-06"
+  modifiedIso="2026-08-06"
+  quickAnswerTitle="A useful activewear inspection compares finished goods with an approved product reference. Plan the checks for fabric, measurements, fit, workmanship, branding and packaging before production—not only at the end of the order."
+  quickTakeaways={[
+    'AQL is an agreed sampling framework, not a substitute for a tech pack or approved sample.',
+    'Check movement-sensitive areas such as waistbands, straps, seams, stretch panels and labels.',
+    'Keep inspection criteria, defect definitions and packing expectations in one shared reference.',
+  ]}
+  planningPlacement="before"
+  planningTableTitle="Activewear inspection plan: the checks to agree before bulk"
+  tableHeaders={['Inspection area', 'What to compare', 'Evidence to keep']}
+  planningRows={[
+    ['Product reference', 'Approved sample, style code, latest measurements, colors, construction and branding instructions.', 'Signed-off sample record, comment sheet and current tech pack.'],
+    ['Defect plan', 'Definitions of critical, major and minor issues plus the sampling method and acceptance plan.', 'Buyer-supplier agreed inspection brief before production is inspected.'],
+    ['Garment quality', 'Fabric appearance, measurements, sewing, fit, components, cleanliness and labels.', 'Inspection photos, measurements and issue log matched to the style code.'],
+    ['Packing quality', 'Folding, polybag, barcode, hang tag, assortment, carton and shipping-mark requirements.', 'Approved packing reference and carton or assortment check record.'],
+  ]}
+  expertSectionTitle="How Fitclo approaches a clearer buyer quality conversation"
+  expertParagraphs={[
+    'Fitclo supports global activewear buyers with ready-stock, private-label and OEM/ODM sourcing discussions. For any route, quality questions are easier to answer when the product reference is specific: style code, fabric target, sizes, colors, branding, packaging and the intended use of the garment.',
+    'Before you place a bulk order, share the checks that matter most to your brand. Fitclo can discuss practical expectations around logo, labels, hang tags, packaging, samples and product details so the sourcing conversation starts with a usable reference rather than a generic quality claim.',
+  ]}
+  commonMistakesTitle="Quality inspection mistakes to avoid"
+  commonMistakes={[
+    'Using an AQL label without first agreeing what counts as a defect for the specific garment and market.',
+    'Inspecting finished goods against an outdated sample or an informal photo instead of the final approved reference.',
+    'Checking visual appearance but skipping measurements, movement-sensitive construction and packing details.',
+    'Waiting until the final stage to discover unresolved fabric, color, logo or label questions.',
+  ]}
+  faqs={faqs}
+  relatedReading={relatedReading}
+  ctaTitle="Need a clearer quality checklist for your activewear order?"
+  ctaText="Send your product type, style reference, quantity and the quality points your team needs to control. Fitclo can help structure the questions to settle before production and shipment planning."
+  ctaHref={whatsappUrl.toString()}
+  ctaLabel="Discuss activewear quality checks"
+>
+  <figure>
+    <img src="/images/blogs/activewear-quality-inspection-checklist/activewear-quality-inspection.webp" alt="Quality inspector checking activewear legging seam and sports bra with measuring tools and packaging materials" loading="eager" />
+    <figcaption>Activewear quality control is more useful when it is planned around the approved garment, packaging and defect definitions.</figcaption>
+  </figure>
+
+  <p>An <strong>activewear quality inspection checklist</strong> should give buyers a simple answer to a difficult question: does this order match the product we approved? For leggings, sports bras and yoga sets, the answer involves more than visible sewing defects. Fabric appearance, stretch-sensitive fit, measurements, waistband behavior, labels, logos and packing all need a reference before a final inspection can be meaningful.</p>
+
+  <p>This guide explains how B2B buyers can plan quality checks for private-label, ready-stock or OEM/ODM activewear without relying on vague claims. It is a working framework for discussing AQL, fit, fabric and packing with a supplier or inspection partner.</p>
+
+  <h2>Start with the approved reference, not with AQL</h2>
+  <p>AQL is often mentioned in garment quality control, but it is only one part of an inspection plan. In practice, an AQL-based plan uses an agreed sampling method and acceptance limits to assess a production lot. The plan should be set before inspection, including the lot, inspection level, sample-size method and the agreed treatment of critical, major and minor defects.</p>
+
+  <p>It cannot tell an inspector whether the fabric feels right, whether a waistband was meant to be firm or soft, or where a logo should sit if those items were never defined. That is why the final approved sample, tech pack and comment sheet are the foundation. See our <a href="/blogs/activewear-sample-approval-checklist/">sample approval checklist</a> for how to create that reference before bulk production.</p>
+
+  <h2>Build quality control into four practical stages</h2>
+  <table>
+    <thead><tr><th>Stage</th><th>Buyer focus</th><th>Questions to answer</th></tr></thead>
+    <tbody>
+      <tr><td>Pre-production</td><td>Approved sample and specifications</td><td>Is the current style, fabric, color, size chart, branding and packing instruction complete?</td></tr>
+      <tr><td>Material and trim review</td><td>Fabric, color, elastic, labels and components</td><td>Do the materials match the agreed direction before they are built into finished garments?</td></tr>
+      <tr><td>In-line production review</td><td>Repeatable sewing and construction points</td><td>Are important seams, panels, straps, waistbands and finishing details being made consistently?</td></tr>
+      <tr><td>Finished-goods and packing review</td><td>Garment, assortment and carton readiness</td><td>Does the completed order match the approval reference and packing requirement before shipment?</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Activewear garment inspection checklist</h2>
+  <h3>Fabric and color</h3>
+  <ul>
+    <li>Compare fabric composition, hand feel, appearance and agreed color reference.</li>
+    <li>Look for stains, marks, holes, shading variation, uneven surface appearance or contamination.</li>
+    <li>For stretch garments, review areas where opacity, recovery and surface tension matter during normal use.</li>
+    <li>Confirm that contrasting fabric, binding, mesh or lining matches the approved product direction.</li>
+  </ul>
+
+  <h3>Measurements and fit</h3>
+  <ul>
+    <li>Measure the agreed points of measure for each selected size and compare them with the current specification and tolerance.</li>
+    <li>For leggings, prioritize waistband, hip, rise, inseam, leg opening and any pocket dimensions.</li>
+    <li>For sports bras and tanks, prioritize bust or underbust, body length, strap length, neckline, armhole and hem dimensions.</li>
+    <li>Where possible, check that the garment performs as intended during bending, reaching, squatting or other relevant movement.</li>
+  </ul>
+
+  <h3>Workmanship and construction</h3>
+  <ul>
+    <li>Inspect seam continuity, skipped stitches, loose threads, uneven seam allowance, puckering and raw edges.</li>
+    <li>Check waistband attachment, crotch and inseam construction, binding, hems, pockets, strap joins and hardware operation.</li>
+    <li>Compare panel alignment, stripe or print placement, and logo position with the approved reference.</li>
+    <li>Confirm that labels are readable, correctly located and appropriate for the product specification.</li>
+  </ul>
+
+  <h3>Packaging and shipment preparation</h3>
+  <ul>
+    <li>Check folding direction, garment protection, polybag size, barcode or sticker placement and hang-tag attachment.</li>
+    <li>Verify color-size assortment, carton count, carton marking and destination-market instructions against the order plan.</li>
+    <li>Keep sample photos of the approved packed presentation so final checks have a shared visual standard.</li>
+  </ul>
+
+  <h2>Agree defect definitions before inspecting</h2>
+  <p>Defect classifications should be agreed by the buyer and supplier for the product and destination market. Broadly, a critical defect is an unacceptable safety or compliance issue; a major defect materially affects use, fit or saleability; and a minor defect is a visible deviation that does not materially affect basic use. The exact definitions, sampling approach and acceptance limits should be written into the inspection brief rather than assumed after goods are finished.</p>
+
+  <h2>Connect quality checks with product development</h2>
+  <p>Quality becomes easier to manage when product development is specific. Define the fabric goal, choose a suitable size chart, review movement and fit on the sample, and lock logo and packaging instructions before bulk. If you are working on leggings in particular, our <a href="/blogs/leggings-pilling-sheer-roll-down-quality-checklist/">leggings quality checklist</a> covers common buyer concerns such as pilling, sheerness and roll-down.</p>
+
+  <p>For broader sourcing planning, review the <a href="/blogs/custom-activewear-manufacturing-process/">custom activewear manufacturing process</a> and prepare a single reference package that your product, sourcing and quality teams can all use.</p>
+</EditorialArticleLayout>

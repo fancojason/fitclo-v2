@@ -1,0 +1,138 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+import { whatsappIntelligenceUrl } from '../../data/intelligence';
+
+const title = 'Activewear Sample Approval Checklist: What to Test Before Bulk Production';
+const whatsappUrl = new URL(whatsappIntelligenceUrl);
+whatsappUrl.searchParams.set('text', 'Hi Fitclo, I would like the activewear sample approval checklist and help reviewing a sample before bulk production.');
+
+const faqs = [
+  {
+    question: 'What should be approved before activewear bulk production?',
+    answer: 'Approve the agreed fabric and color, garment measurements and tolerances, fit during movement, construction details, logo and label placement, care information, and the packaging reference. Keep the approved sample and the written comments together as the production reference.',
+  },
+  {
+    question: 'Can an activewear sample be approved from photos alone?',
+    answer: 'Photos are useful for reviewing colorway presentation and branding placement, but they cannot reliably confirm stretch recovery, opacity, hand feel, seam comfort, measurements or fit. For a new style, a physical approval sample is the safer reference before bulk production.',
+  },
+  {
+    question: 'What is the difference between a development sample and a pre-production sample?',
+    answer: 'A development sample is used to refine the product concept, fit and construction. A pre-production sample is the final agreed reference made after revisions, ready for the buyer and factory to use when checking bulk execution.',
+  },
+  {
+    question: 'How should buyers give sample feedback to an activewear manufacturer?',
+    answer: 'Use one consolidated comment sheet with annotated photos, measurement points, color references and a clear approve, revise or hold decision for each item. This avoids conflicting feedback from different reviewers and makes the next sample measurable.',
+  },
+  {
+    question: 'Should labels and packaging be sampled too?',
+    answer: 'Yes. Private-label buyers should review logo artwork, size labels, care labels, hang tags, barcode placement and the packing method before bulk production. These details affect retail readiness even when the garment itself is approved.',
+  },
+];
+
+const relatedReading = [
+  { title: 'Activewear Sizing and Grading: How to Build a Better Size Chart Before Bulk Production', link: '/blogs/activewear-sizing-and-grading-guide/', desc: 'Turn fit comments into a usable size specification.' },
+  { title: 'The Custom Activewear Manufacturing Process', link: '/blogs/custom-activewear-manufacturing-process/', desc: 'Understand the development path from idea to bulk order.' },
+  { title: 'How to Choose an Activewear Manufacturer', link: '/blogs/vetting-activewear-manufacturer/', desc: 'Questions to ask before choosing a production partner.' },
+  { title: 'MOQ Guide for Activewear Buyers', link: '/guides/moq/', desc: 'Plan quantities, colorways and size mixes more clearly.' },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle="Activewear Sample Approval Checklist for Bulk Production | Fitclo"
+  description="Use this activewear sample approval checklist to review fabric, measurements, movement, stitching, color, branding and packaging before bulk production."
+  type="Sample Approval Guide"
+  articleKind="product-development-guide"
+  date="August 6, 2026"
+  readTime="11 min read"
+  articleImage="/images/blogs/activewear-sample-approval-checklist/activewear-sample-approval-workstation.webp"
+  publishedIso="2026-08-06"
+  modifiedIso="2026-08-06"
+  quickAnswerTitle="An approved activewear sample is the physical reference for bulk production. Before signing it off, check the agreed fabric, measurements, fit in motion, construction, color, branding and packing—not only whether the garment looks good on a hanger."
+  quickTakeaways={[
+    'Approve against a written tech pack or comment sheet, not memory or a chat thread.',
+    'Test the garment in movement: squat, reach, bend, stretch and recover.',
+    'Record every revision with photos, measurements and one final production reference.',
+  ]}
+  planningPlacement="before"
+  planningTableTitle="Sample approval priorities before you release bulk production"
+  tableHeaders={['Approval area', 'What a buyer should check', 'What to record']}
+  planningRows={[
+    ['Fabric and color', 'Composition, weight or hand-feel target, color reference, show-through risk and stretch recovery.', 'Approved swatch or color reference, fabric notes and any wash or wear observations.'],
+    ['Fit and measurements', 'Key points of measure, tolerance, body balance and comfort through the intended activity.', 'Measured sample sheet, fit comments and a decision for each size.'],
+    ['Construction', 'Seam placement, stitch consistency, waistband tension, edge finishing and hardware operation.', 'Close-up photos and clear pass, revise or hold comments.'],
+    ['Branding and packing', 'Logo position, labels, hang tags, care content, folding method and outer packaging.', 'Approved artwork, placement dimensions and packing reference.'],
+  ]}
+  expertSectionTitle="How Fitclo can make sample feedback easier to action"
+  expertParagraphs={[
+    'For ready-stock or private-label activewear projects, start with a concise specification: style code, target customer, colors, sizes, fabric preference, logo method and quantity. That gives every reviewer the same point of reference when a sample arrives.',
+    'When revisions are needed, consolidate them before requesting the next round. Fitclo can discuss logo, labels, hang tags, packaging and size requirements with global activewear buyers, then help organize the practical next step for the selected style.',
+  ]}
+  commonMistakesTitle="Common sample approval mistakes"
+  commonMistakes={[
+    'Approving a garment because the color looks right while leaving fit, measurements or label details unconfirmed.',
+    'Giving scattered feedback through separate messages instead of one version-controlled comment sheet.',
+    'Testing only a static fit rather than the movement and recovery the yoga, gym or training garment is expected to handle.',
+    'Treating an early development sample as the final bulk reference without documenting the last revisions.',
+  ]}
+  faqs={faqs}
+  relatedReading={relatedReading}
+  ctaTitle="Need a clearer sample approval route for your activewear project?"
+  ctaText="Send your style reference, target quantity, fabric preference and branding plan. Fitclo can help you organize the questions to settle before you move from sample to bulk production."
+  ctaHref={whatsappUrl.toString()}
+  ctaLabel="Ask about activewear samples"
+>
+  <figure>
+    <img src="/images/blogs/activewear-sample-approval-checklist/activewear-sample-approval-workstation.webp" alt="Activewear sample approval workstation with leggings, sports bra, fabric swatches and measurement tools" loading="eager" />
+    <figcaption>A physical sample, measurement record and clear comments create a better bulk-production reference than informal approval alone.</figcaption>
+  </figure>
+
+  <p>For an activewear buyer, sample approval is where an attractive concept becomes a controlled production reference. A sports bra, legging or matching yoga set can look correct in a product photo and still create bulk-order problems if the fit, stretch, opacity, stitching, labeling or packaging were never checked in a repeatable way.</p>
+
+  <p>This <strong>activewear sample approval checklist</strong> is designed for brand owners, buying teams, gyms and e-commerce sellers preparing a private-label or OEM order. It helps turn subjective feedback—such as “the waistband feels tight” or “the logo looks too low”—into specific instructions a production team can verify.</p>
+
+  <h2>What an approved activewear sample must prove</h2>
+  <p>A sample should not only answer “Do we like this design?” It should prove that the chosen specification can be repeated. The final approval reference normally brings together the garment, the measurement sheet, the material decision, the color reference, the branding artwork and the packaging expectation.</p>
+  <ul>
+    <li><strong>Product intent:</strong> the silhouette, coverage and intended use match the collection plan.</li>
+    <li><strong>Wearability:</strong> the garment remains comfortable and stable during the movements it is designed for.</li>
+    <li><strong>Build consistency:</strong> seams, edges, inserts, hardware and trims are clear enough to reproduce.</li>
+    <li><strong>Retail readiness:</strong> labels, logo treatment and packing details are approved alongside the garment.</li>
+  </ul>
+
+  <h2>A practical activewear sample test sequence</h2>
+  <h3>1. Check the specification before trying the garment on</h3>
+  <p>Compare the sample with the latest tech pack, purchase notes or approved drawing. Confirm the style code, pieces included in the set, fabric composition, requested colorway and size. If the reference has changed, update the document before reviewing the garment; otherwise the review will be based on two different versions of the product.</p>
+
+  <h3>2. Measure key points and note tolerance questions</h3>
+  <p>Measure the points that drive fit: bust or underbust, waist, hip, rise, inseam, leg opening, garment length, strap length and waistband height as relevant to the style. A buyer does not need to invent a complicated grading system on the spot, but each important point needs a target and an agreed way to record deviations.</p>
+
+  <h3>3. Test fit during real movement</h3>
+  <p>For yoga leggings, test bending and squatting. For sports bras and tanks, test reaching, twisting and arm movement. For coordinated sets, check that the top and bottom stay balanced together. Record whether the waistband rolls, the neckline shifts, the inseam pulls, the fabric becomes too transparent or the recovery feels different after movement.</p>
+
+  <h3>4. Inspect fabric, color and surface appearance</h3>
+  <p>Review the fabric under normal retail lighting as well as the light likely to be used for product photography. Compare the agreed color reference, look for uneven dye appearance or marks, and discuss whether the hand feel matches the target product position. If you are selecting fabric weight, see our <a href="/blogs/fabric-weight-selection-guide/">fabric weight selection guide</a> for the questions to settle before bulk.</p>
+
+  <h3>5. Review construction and comfort details</h3>
+  <p>Look closely at seams, joining points, elastic attachment, coverstitch lines, pocket openings, hems, binding and hardware. Activewear construction needs to feel as considered as it looks: a seam that is neat on a table can still rub or restrict motion when worn.</p>
+
+  <h3>6. Approve the complete private-label presentation</h3>
+  <p>For a private-label activewear sample, inspect the garment and the commercial details together. Confirm logo location and size, care and size labels, hang tags, barcode requirements, folding, polybags and carton-marking expectations. A small detail missed here can delay a retail launch even if the garment is otherwise ready.</p>
+
+  <h2>How to write feedback a manufacturer can use</h2>
+  <p>Make every comment traceable. Use the same style code on the sample, file name and feedback sheet. Add photos with arrows or dimensions where possible, state the desired correction, and identify whether it is required for approval or a preference for a future colorway. Finish with one overall decision: approve, revise and resubmit, or hold pending more information.</p>
+
+  <table>
+    <thead><tr><th>Instead of saying</th><th>Use a production-ready comment</th></tr></thead>
+    <tbody>
+      <tr><td>“The leggings feel small.”</td><td>“Size M waistband feels restrictive during squat; review the approved waist specification and recovery target, then confirm the revision.”</td></tr>
+      <tr><td>“Move the logo a little.”</td><td>“Place logo 45 mm below the center front neckline, measured from the finished edge; confirm artwork scale before next sample.”</td></tr>
+      <tr><td>“Color is not quite right.”</td><td>“Compare against the attached color reference in daylight; submit the next lab dip or color reference for approval before bulk dyeing.”</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Keep one final bulk-production reference</h2>
+  <p>Once the sample is approved, archive it with the final comments, measurement sheet, fabric reference and branding files. The goal is not to create more paperwork; it is to give the buyer, factory and any inspection team the same answer when a question arises during bulk production. That is especially valuable when a collection has several colors, sizes or matching pieces.</p>
+
+  <p>If your team is still defining fit, start with our <a href="/blogs/activewear-sizing-and-grading-guide/">activewear sizing and grading guide</a>. If the product direction is set but you are choosing a supplier, our <a href="/blogs/vetting-activewear-manufacturer/">manufacturer vetting guide</a> outlines questions that are useful before samples are ordered.</p>
+</EditorialArticleLayout>

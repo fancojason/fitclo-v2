@@ -1,0 +1,141 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+import { whatsappIntelligenceUrl } from '../../data/intelligence';
+
+const title = 'How Much Does It Cost to Manufacture Leggings, Sports Bras and Yoga Sets?';
+const whatsappUrl = new URL(whatsappIntelligenceUrl);
+whatsappUrl.searchParams.set('text', 'Hi Fitclo, I would like to discuss a quote for leggings, sports bras or yoga sets and understand the main manufacturing cost drivers.');
+
+const faqs = [
+  {
+    question: 'Why is there no single fixed price for manufacturing activewear?',
+    answer: 'Leggings, sports bras and yoga sets can share a category name while using different fabrics, construction, colors, size ratios, trims, branding and packing. A useful quote needs the actual specification and commercial terms, not only a product photo.',
+  },
+  {
+    question: 'What information should I send for an activewear manufacturing quote?',
+    answer: 'Send a reference image or tech pack, style category, fabric preference or composition, colors, sizes and size ratio, quantity by color, logo and label requirements, packaging, target market and the Incoterm or delivery requirement if known.',
+  },
+  {
+    question: 'Does a lower MOQ always mean a lower total cost?',
+    answer: 'A lower MOQ can reduce the initial cash commitment, but it may not lower the cost per garment because material ordering, setup, sampling and packaging have fewer units to spread across. Compare total commitment, per-unit cost and launch risk together.',
+  },
+  {
+    question: 'Are leggings usually cheaper to manufacture than sports bras?',
+    answer: 'Not always. Leggings may use more fabric and have complex pockets, panels or seams. Sports bras can require more complex support construction, lining, elastic, padding, adjustable components or precise grading. The finished specification matters more than the category label.',
+  },
+  {
+    question: 'How can I compare two activewear supplier quotes fairly?',
+    answer: 'Make sure both suppliers quote the same fabric, construction, color count, quantity by size, branding, packaging and delivery basis. Ask each supplier to state what is included and which items remain to be confirmed, rather than comparing a single headline number.',
+  },
+];
+
+const relatedReading = [
+  { title: 'MOQ Guide for Activewear Buyers', link: '/guides/moq/', desc: 'Understand how quantity, colorways and size mixes change an order plan.' },
+  { title: 'How Fabric GSM Affects Comfort and Durability', link: '/blogs/how-fabric-gsm-affects-comfort-and-durability/', desc: 'Fabric weight is one of the inputs behind product performance and cost.' },
+  { title: 'The Custom Activewear Manufacturing Process', link: '/blogs/custom-activewear-manufacturing-process/', desc: 'See where development, sampling and bulk production decisions occur.' },
+  { title: 'Private Label Activewear', link: '/private-label/', desc: 'Explore logo, labels, hang tags and packaging options.' },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle="Activewear Manufacturing Cost Guide: Leggings, Sports Bras & Yoga Sets | Fitclo"
+  description="Learn the real cost drivers for manufacturing leggings, sports bras and yoga sets, and how buyers can request comparable activewear supplier quotes."
+  type="Activewear Cost Guide"
+  articleKind="sourcing-cost-guide"
+  date="August 6, 2026"
+  readTime="10 min read"
+  articleImage="/images/blogs/activewear-manufacturing-cost-guide/activewear-manufacturing-cost-planning.webp"
+  publishedIso="2026-08-06"
+  modifiedIso="2026-08-06"
+  quickAnswerTitle="The cost to manufacture leggings, sports bras or yoga sets is not one universal price. It is built from the actual fabric, construction, quantity, color and size mix, private-label details, packaging and delivery terms selected for your order."
+  quickTakeaways={[
+    'The most useful quote begins with a clear, like-for-like product specification.',
+    'Fabric and construction choices usually matter more than a generic product photo.',
+    'Compare what is included, the MOQ and the delivery basis before judging a price.',
+  ]}
+  planningPlacement="before"
+  planningTableTitle="The cost inputs buyers should define before requesting a quote"
+  tableHeaders={['Cost area', 'Why it changes the quote', 'Buyer input to prepare']}
+  planningRows={[
+    ['Fabric and components', 'Composition, knit or woven construction, weight, finish, lining, elastic, pads and hardware all affect material and build requirements.', 'Target fabric, hand feel, performance expectation and approved alternatives.'],
+    ['Garment construction', 'Panels, pockets, contrast binding, straps, seams and shaping details change cutting and sewing complexity.', 'Tech pack, clear photos or marked-up reference images.'],
+    ['Order mix', 'Quantity, colors, sizes and the number of separate SKUs determine how production inputs are spread across the order.', 'Units by style, color and size—not just a total quantity.'],
+    ['Private label and packing', 'Logo method, labels, hang tags, polybags, barcodes and carton requirements add materials and handling steps.', 'Artwork, placement, packaging requirement and destination-market needs.'],
+  ]}
+  expertSectionTitle="A practical way to request a useful Fitclo quote"
+  expertParagraphs={[
+    'Fitclo works with global activewear buyers on ready-stock, private-label and OEM/ODM projects. The fastest route to a meaningful quote is to state what is fixed and what can vary: for example, whether the silhouette is fixed but colors are open, or whether fabric feel matters more than a specific composition.',
+    'If you are still deciding between a ready-stock route and a developed style, share the launch objective, quantity, target market and branding needs. The quotation discussion can then focus on the practical sourcing route rather than an unhelpful generic price promise.',
+  ]}
+  commonMistakesTitle="Costing mistakes that make quotes hard to compare"
+  commonMistakes={[
+    'Asking for the price of a photo without confirming fabric, size range, quantity or branding.',
+    'Comparing a price quoted on one delivery basis with a price that includes different freight or destination responsibilities.',
+    'Ignoring color and size splits, then discovering they affect the practical MOQ or production plan.',
+    'Treating sampling, private-label trims and packaging as invisible details instead of quote inputs.',
+  ]}
+  faqs={faqs}
+  relatedReading={relatedReading}
+  ctaTitle="Need a quote that matches your actual activewear launch plan?"
+  ctaText="Share your leggings, sports bra or yoga-set reference, expected quantity, fabric direction, colors, sizes and branding needs. Fitclo can help identify the information needed for a comparable sourcing discussion."
+  ctaHref={whatsappUrl.toString()}
+  ctaLabel="Discuss an activewear quote"
+>
+  <figure>
+    <img src="/images/blogs/activewear-manufacturing-cost-guide/activewear-manufacturing-cost-planning.webp" alt="Activewear cost planning desk with leggings, sports bra, fabric swatches, calculator and product materials" loading="eager" />
+    <figcaption>Useful cost planning starts with the product specification, not a headline number copied from an unrelated style.</figcaption>
+  </figure>
+
+  <p><strong>How much does it cost to manufacture leggings, sports bras and yoga sets?</strong> The honest answer is: it depends on the product specification and order plan. A basic listing image does not tell a supplier the fabric quality, construction complexity, color count, size ratio, branding, packaging or delivery basis needed to make a comparable quote.</p>
+
+  <p>For B2B buyers, the goal is not to chase an unexplained low number. It is to understand which decisions move the cost, which details are included, and how to compare two activewear manufacturer quotes on the same commercial basis. This guide gives you a practical framework for leggings, sports bras and coordinated yoga sets.</p>
+
+  <h2>Why the same activewear category can cost very differently</h2>
+  <p>Two pairs of leggings can both look black and high-waisted, yet have different yarn composition, fabric weight, opacity target, panel count, pocket construction, waistband finish, printing, labels and packing. The same applies to sports bras: a simple pull-on style is not costed in the same way as a lined, adjustable or multi-panel support style.</p>
+
+  <table>
+    <thead><tr><th>Product category</th><th>Cost drivers that often change most</th><th>Questions to settle before quoting</th></tr></thead>
+    <tbody>
+      <tr><td>Leggings</td><td>Fabric consumption, opacity target, panels, pockets, waistband construction, seam placement and length.</td><td>Full length, 7/8 or capri? Pocket or no pocket? Fabric composition, colors, sizes and logo treatment?</td></tr>
+      <tr><td>Sports bras</td><td>Support construction, lining, elastic, pads, straps, adjusters, hardware and grading.</td><td>Low, medium or high-support intent? Removable pads? Adjustable straps? Required size range?</td></tr>
+      <tr><td>Yoga sets</td><td>Combined components, matching color consistency, fabric use across top and bottom, coordinated packaging and size mix.</td><td>Which pieces are included? One fabric or mixed fabrics? Will top and bottom be packed and sold together?</td></tr>
+    </tbody>
+  </table>
+
+  <h2>The seven building blocks of an activewear manufacturing cost</h2>
+  <h3>1. Fabric and material selection</h3>
+  <p>Fabric is more than a percentage printed on a label. Composition, knit structure, weight, hand feel, stretch, recovery, color and finish affect how much material is used and how the garment is built. A buyer selecting yoga leggings for cool-weather coverage may make a different material choice from a buyer launching lightweight summer training sets. Our <a href="/blogs/how-fabric-gsm-affects-comfort-and-durability/">fabric GSM guide</a> explains why fabric weight is a useful comparison point, but not the only performance measure.</p>
+
+  <h3>2. Pattern, cutting and sewing complexity</h3>
+  <p>Every added panel, curved seam, pocket, contrast insert, binding line, strap adjustment or hardware detail creates another operation to control. Construction choices should be judged by the value they add to the wearer and the brand—not only by how impressive they look in a reference image.</p>
+
+  <h3>3. Quantity, colors and size mix</h3>
+  <p>Manufacturing quantity is not just the total number of garments. A 500-piece order split across five colors and four sizes may operate differently from 500 pieces concentrated in one colorway. Send the expected units by style, color and size so the manufacturer can discuss a practical MOQ route. See the <a href="/guides/moq/">activewear MOQ guide</a> for a buyer-focused starting point.</p>
+
+  <h3>4. Branding, labels and packaging</h3>
+  <p>Private-label activewear cost planning should include logo execution, main labels, size labels, care labels, hang tags, barcodes, polybags and carton requirements. These are not afterthoughts: they affect sourcing, approval and packing. Decide early whether your goal is a clean ready-stock presentation or a fully branded retail launch.</p>
+
+  <h3>5. Sampling and development</h3>
+  <p>Development work may be needed to turn a concept into a repeatable garment. The more open decisions there are around fit, fabric, components or graphics, the more valuable a clear sample process becomes. Use our <a href="/blogs/activewear-sample-approval-checklist/">activewear sample approval checklist</a> to make feedback clearer before an order moves forward.</p>
+
+  <h3>6. Commercial and delivery basis</h3>
+  <p>A quote becomes meaningful only when the delivery basis is stated. Product cost, packing, inland handling, freight, duties and destination-side charges are different parts of an overall landed-cost discussion. Ask what is included, which currency is used, and what assumptions still need confirmation instead of comparing unlabeled totals.</p>
+
+  <h3>7. Risk allowance and change control</h3>
+  <p>Late changes to colors, fabrics, artwork, size splits or packaging can affect the original plan. Buyers reduce surprises by locking the key inputs before bulk production and documenting what must be approved before changes are made.</p>
+
+  <h2>How to request like-for-like supplier quotes</h2>
+  <p>Send the same brief to every supplier. That creates a far better comparison than asking each one to interpret a photo independently.</p>
+  <ol>
+    <li>Style reference or tech pack, including front, back and detail views.</li>
+    <li>Fabric composition, desired hand feel and performance priorities.</li>
+    <li>Size range and estimated quantity by size and color.</li>
+    <li>Logo, label, hang tag, barcode and packaging requirements.</li>
+    <li>Target market, requested delivery basis and any launch date constraints.</li>
+    <li>A request for the supplier to identify what is included and what remains to be confirmed.</li>
+  </ol>
+
+  <h2>Use cost as a design decision, not just a negotiation point</h2>
+  <p>The best sourcing decision often balances unit cost, sell-through potential, product comfort, quality risk, branding need and speed to launch. A buyer might choose a smaller ready-stock program for an early market test, then develop a more customized yoga set after validating demand. Another buyer might prioritize a signature fabric and label presentation from the beginning. Both approaches can be valid when the specification and commercial plan are clear.</p>
+</EditorialArticleLayout>

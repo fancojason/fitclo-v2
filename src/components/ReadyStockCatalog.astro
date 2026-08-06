@@ -1,0 +1,126 @@
+---
+import { productCategories } from '../data/productCategories';
+import { readyStockCatalog } from '../data/readyStockCatalog';
+
+const categoryLabels = new Map(productCategories.map((category) => [category.slug, category.navLabel]));
+const categories = Array.from(new Set(readyStockCatalog.map((product) => product.category))).map((category) => ({
+  value: category,
+  label: categoryLabels.get(category) ?? category.replace(/-/g, ' '),
+}));
+
+const whatsappBase = 'https://api.whatsapp.com/send?phone=8617160837538&text=';
+const catalogDownload = '/downloads/ready-stock-activewear-line-sheet.pdf';
+---
+
+<section id="ready-stock-catalog" class="bg-[#090909] py-16 text-white md:py-24" data-ready-stock-root>
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
+    <div class="grid gap-8 border-b border-white/15 pb-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+      <div>
+        <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">CURRENT READY-STOCK LINE SHEET</p>
+        <h2 class="mt-4 max-w-[800px] text-[34px] font-bold leading-[1.08] text-white md:text-[50px] font-['Century_Gothic',sans-serif]">Browse styles before you request the current colour and size mix.</h2>
+        <p class="mt-5 max-w-[760px] text-[15px] leading-[1.75] text-white/65 md:text-[17px] font-['Century_Gothic',sans-serif]">Use the filters to create a practical shortlist. These are ready-stock programme styles with MOQ from 50 pcs or 50 sets; live availability is confirmed against your selected colour, size breakdown and branding requirement.</p>
+      </div>
+      <a href={catalogDownload} download class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-[#d8b456] px-6 text-center text-[13px] font-bold tracking-[0.05em] text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">Download Ready-Stock Line Sheet</a>
+    </div>
+
+    <div class="mt-9 grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(180px,.6fr)_minmax(180px,.6fr)_auto]">
+      <label class="relative block">
+        <span class="sr-only">Search ready-stock styles</span>
+        <input type="search" placeholder="Search style name, category or feature" class="h-[52px] w-full border border-white/15 bg-[#141414] px-5 pr-12 text-[14px] text-white outline-none transition-colors placeholder:text-white/40 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-search />
+        <span class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[#d8b456]" aria-hidden="true">⌕</span>
+      </label>
+      <label>
+        <span class="sr-only">Filter by category</span>
+        <select class="h-[52px] w-full border border-white/15 bg-[#141414] px-4 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-category>
+          <option value="all">All categories</option>
+          {categories.map((category) => <option value={category.value}>{category.label}</option>)}
+        </select>
+      </label>
+      <label>
+        <span class="sr-only">Filter by MOQ</span>
+        <select class="h-[52px] w-full border border-white/15 bg-[#141414] px-4 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-moq>
+          <option value="all">All MOQ options</option>
+          <option value="sets">MOQ 50 sets</option>
+          <option value="pcs">MOQ 50 pcs</option>
+        </select>
+      </label>
+      <button type="button" class="h-[52px] border border-white/20 px-6 text-[12px] font-bold tracking-[0.08em] text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-clear>Clear filters</button>
+    </div>
+
+    <div class="mt-5 flex flex-wrap items-center justify-between gap-4 text-[12px] font-['Century_Gothic',sans-serif]">
+      <p class="text-white/55"><span class="font-bold text-white" data-ready-count>{readyStockCatalog.length}</span> ready-stock programme styles shown</p>
+      <div class="flex flex-wrap gap-x-5 gap-y-2 text-white/70">
+        <span><span class="mr-1.5 text-[#d8b456]">✓</span>Logo, labels and packaging options</span>
+        <span><span class="mr-1.5 text-[#d8b456]">✓</span>Sample request supported</span>
+        <span><span class="mr-1.5 text-[#d8b456]">✓</span>Availability checked before order</span>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4" data-ready-grid>
+      {readyStockCatalog.map((product) => {
+        const categoryLabel = categoryLabels.get(product.category) ?? product.category.replace(/-/g, ' ');
+        const message = encodeURIComponent(`Hello Fitclo, I am interested in the ready-stock programme for ${product.name} (${product.styleCode}). Please confirm available colours, size mix, sample options and logo requirements.`);
+        return (
+          <article class="ready-stock-card flex h-full flex-col border border-white/15 bg-[#121212]" data-ready-card data-category={product.category} data-moq={product.moq.includes('sets') ? 'sets' : 'pcs'} data-search={`${product.name} ${product.description} ${product.keywords.join(' ')}`.toLowerCase()}>
+            <div class="aspect-square overflow-hidden bg-[#efefef]">
+              <img src={product.image} alt={product.name} class="h-full w-full object-contain transition-transform duration-500 hover:scale-[1.025]" loading="lazy" />
+            </div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="text-[10px] font-bold tracking-[0.16em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{categoryLabel.toUpperCase()}</p>
+              <h3 class="mt-3 text-[18px] font-bold leading-[1.3] text-white font-['Century_Gothic',sans-serif]">{product.name}</h3>
+              <p class="mt-3 line-clamp-3 text-[13px] leading-[1.6] text-white/60 font-['Century_Gothic',sans-serif]">{product.description}</p>
+              <div class="mt-5 grid grid-cols-2 gap-x-3 gap-y-3 border-y border-white/10 py-4 text-[11px] font-['Century_Gothic',sans-serif]">
+                <div><p class="font-bold tracking-[0.1em] text-[#d8b456]">MOQ</p><p class="mt-1 text-white">{product.moq}</p></div>
+                <div><p class="font-bold tracking-[0.1em] text-[#d8b456]">SAMPLE</p><p class="mt-1 text-white">Request available</p></div>
+                <div class="col-span-2"><p class="font-bold tracking-[0.1em] text-[#d8b456]">BRANDING</p><p class="mt-1 text-white/80">Logo, labels, hang tags, packaging</p></div>
+              </div>
+              <p class="mt-4 text-[11px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">{product.availabilityNote}.</p>
+              <a href={`${whatsappBase}${message}`} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex min-h-[42px] items-center justify-center rounded-full border border-[#d8b456] px-4 text-center text-[12px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">Check availability</a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+    <p class="mt-10 hidden border-y border-white/15 py-10 text-center text-[15px] text-white/60 font-['Century_Gothic',sans-serif]" data-ready-empty>No ready-stock styles match this filter. Send us your required category, quantity and reference so we can check suitable options.</p>
+  </div>
+</section>
+
+<script>
+  const normalize = (value: string) => value.trim().toLowerCase().replace(/\s+/g, ' ');
+
+  document.querySelectorAll<HTMLElement>('[data-ready-stock-root]').forEach((root) => {
+    const search = root.querySelector<HTMLInputElement>('[data-ready-search]');
+    const category = root.querySelector<HTMLSelectElement>('[data-ready-category]');
+    const moq = root.querySelector<HTMLSelectElement>('[data-ready-moq]');
+    const clear = root.querySelector<HTMLButtonElement>('[data-ready-clear]');
+    const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-ready-card]'));
+    const count = root.querySelector<HTMLElement>('[data-ready-count]');
+    const empty = root.querySelector<HTMLElement>('[data-ready-empty]');
+
+    const update = () => {
+      const query = normalize(search?.value ?? '');
+      const selectedCategory = category?.value ?? 'all';
+      const selectedMoq = moq?.value ?? 'all';
+      let visible = 0;
+      cards.forEach((card) => {
+        const matches = (selectedCategory === 'all' || card.dataset.category === selectedCategory)
+          && (selectedMoq === 'all' || card.dataset.moq === selectedMoq)
+          && (!query || (card.dataset.search ?? '').includes(query));
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (count) count.textContent = String(visible);
+      empty?.classList.toggle('hidden', visible !== 0);
+    };
+
+    search?.addEventListener('input', update);
+    category?.addEventListener('change', update);
+    moq?.addEventListener('change', update);
+    clear?.addEventListener('click', () => {
+      if (search) search.value = '';
+      if (category) category.value = 'all';
+      if (moq) moq.value = 'all';
+      update();
+    });
+  });
+</script>

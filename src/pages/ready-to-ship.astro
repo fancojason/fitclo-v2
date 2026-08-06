@@ -1,169 +1,121 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+import ReadyStockCatalog from '../components/ReadyStockCatalog.astro';
+import { readyStockCatalog } from '../data/readyStockCatalog';
 
-const readyToShipSchema = {
+const pageUrl = 'https://www.fitcloo.com/ready-to-ship/';
+const readyStockSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Ready-to-Ship Activewear Wholesale',
-  serviceType: 'Ready-to-Ship Activewear Wholesale',
-  provider: {
-    '@id': 'https://www.fitcloo.com/#organization',
+  '@type': 'CollectionPage',
+  name: 'Ready-Stock Activewear Catalog',
+  description: 'Browse Fitclo ready-stock activewear programme styles by category and MOQ. Request current colours, size mixes, samples, logo options and a wholesale quote.',
+  url: pageUrl,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: readyStockCatalog.length,
+    itemListElement: readyStockCatalog.map((product, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Product',
+        name: product.name,
+        sku: product.styleCode,
+        image: `https://www.fitcloo.com${product.image}`,
+        category: product.category,
+      },
+    })),
   },
-  areaServed: ['United States', 'United Kingdom', 'Australia', 'Canada', 'European Union'],
-  description:
-    'Fitclo supplies ready-to-ship wholesale activewear, including yoga sets, leggings, sports bras and gym wear with low MOQ logo customization and fast global dispatch.',
-  offers: {
-    '@type': 'Offer',
-    availability: 'https://schema.org/InStock',
-    priceCurrency: 'USD',
-    seller: {
-      '@id': 'https://www.fitcloo.com/#organization',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the MOQ for Fitclo ready-stock activewear?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The ready-stock programme MOQ shown on this page is 50 sets for sets and 50 pcs for individual garments. The appropriate route is confirmed against the selected styles and requirements.' },
     },
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Ready-to-Ship Activewear Categories',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Product',
-          name: 'Ready-to-Ship Yoga Sets',
-          category: 'Yoga Wear',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Product',
-          name: 'Ready-to-Ship Leggings',
-          category: 'Activewear',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Product',
-          name: 'Ready-to-Ship Sports Bras',
-          category: 'Sportswear',
-        },
-      },
-    ],
-  },
+    {
+      '@type': 'Question',
+      name: 'Can I add my logo to ready-stock activewear?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Buyers can discuss logo application, labels, hang tags and packaging for selected ready-stock programme styles. Fitclo confirms the practical branding route before order.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I order a sample before a wholesale order?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Send the style reference, preferred colour and size so Fitclo can confirm the suitable sample option before a wholesale order.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are all colours and sizes shown online currently available?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Availability is confirmed before order because the current colour and size mix can change. Send your style, quantity, colour and size plan for a current check.' },
+    },
+  ],
 };
 ---
 
 <BaseLayout
-  title="Ready to Ship Activewear Wholesale | Fast Global Delivery"
-  description="Instant inventory solutions for your activewear brand. Explore Fitclo's ready-to-ship collection with low MOQs, high-quality gym wear, and 4,000,000+ units in stock."
-  structuredData={[readyToShipSchema]}
+  title="Ready-Stock Activewear Catalog | MOQ 50 | FITCLO"
+  description="Filter Fitclo ready-stock activewear by category and MOQ. Request current colours and size mixes, logo customization, samples, a wholesale quote or the ready-stock line sheet."
+  image="https://www.fitcloo.com/images/products/shared/ready-stock-warehouse.webp"
+  canonicalURL={pageUrl}
+  structuredData={[readyStockSchema, faqSchema]}
+  autoArticleSchema={false}
 >
-  <!-- Hero Section -->
-  <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img
-        src="/images/migrated/third-party/hcc2d5570d1a94d4ea98d26ce3312893dj-84fdbf0d26.webp"
-        alt="Ready to Ship Inventory"
-        class="w-full h-full object-cover opacity-40"
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
-    </div>
-    <div class="relative z-10 text-center px-4">
-      <span class="inline-block px-4 py-1 bg-[#C9A84C] text-black text-[12px] font-bold tracking-widest uppercase mb-6 rounded-full font-['Century_Gothic',sans-serif]">Fast-Track Inventory</span>
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight font-['Century_Gothic',sans-serif] tracking-tight">
-        Ready to <span class="text-[#C9A84C] italic">Ship</span>
-      </h1>
-      <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
-        Empowering your brand with high-quality activewear, ready for immediate global dispatch.
-      </p>
+  <section class="relative overflow-hidden bg-[#090909] pt-[82px] text-white">
+    <img src="/images/products/shared/ready-stock-warehouse.webp" alt="Fitclo ready-stock activewear warehouse and packaged apparel" class="absolute inset-0 h-full w-full object-cover object-center opacity-40" fetchpriority="high" />
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,.96)_0%,rgba(5,5,5,.86)_48%,rgba(5,5,5,.54)_100%)]"></div>
+    <div class="relative mx-auto grid min-h-[590px] max-w-[1320px] content-end gap-10 px-6 pb-16 pt-28 lg:grid-cols-[minmax(0,1fr)_360px] lg:px-10 lg:pb-20">
+      <div class="max-w-[790px]">
+        <p class="text-[11px] font-bold tracking-[0.22em] text-[#d8b456] font-['Century_Gothic',sans-serif]">READY-STOCK ACTIVEWEAR WHOLESALE</p>
+        <h1 class="mt-5 text-[43px] font-bold leading-[1.04] text-white sm:text-[57px] lg:text-[70px] font-['Century_Gothic',sans-serif]">A practical ready-stock catalog for your next activewear drop.</h1>
+        <p class="mt-6 max-w-[660px] text-[16px] leading-[1.75] text-white/85 md:text-[19px] font-['Century_Gothic',sans-serif]">Filter programme styles, plan a 50-piece or 50-set MOQ, then ask Fitclo to confirm the current colour and size mix before you order. Add logo, labels, hang tags and packaging where suitable.</p>
+        <div class="mt-8 flex flex-wrap gap-3 text-[12px] font-bold font-['Century_Gothic',sans-serif]">
+          <span class="rounded-full border border-white/20 bg-black/45 px-4 py-2.5 text-white"><span class="mr-2 text-[#d8b456]">01</span>MOQ from 50</span>
+          <span class="rounded-full border border-white/20 bg-black/45 px-4 py-2.5 text-white"><span class="mr-2 text-[#d8b456]">02</span>Logo options</span>
+          <span class="rounded-full border border-white/20 bg-black/45 px-4 py-2.5 text-white"><span class="mr-2 text-[#d8b456]">03</span>Sample request</span>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-4 font-['Century_Gothic',sans-serif]">
+          <a href="#ready-stock-catalog" class="inline-flex min-h-[54px] items-center justify-center rounded-full bg-[#d8b456] px-7 text-[13px] font-bold text-black transition-colors hover:bg-white">Browse Ready-Stock Styles</a>
+          <a href="#inquiry" class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-white/40 px-7 text-[13px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]">Request Current Availability</a>
+        </div>
+      </div>
+      <aside class="border border-white/15 bg-[#101010]/90 p-6 backdrop-blur-sm font-['Century_Gothic',sans-serif]">
+        <p class="text-[11px] font-bold tracking-[0.16em] text-[#d8b456]">BUYER CHECKLIST</p>
+        <ol class="mt-5 space-y-4 text-[14px] leading-[1.55] text-white/75">
+          <li><span class="mr-3 font-bold text-[#d8b456]">01</span>Choose styles and estimated quantity.</li>
+          <li><span class="mr-3 font-bold text-[#d8b456]">02</span>Send colour and size breakdown.</li>
+          <li><span class="mr-3 font-bold text-[#d8b456]">03</span>Confirm sample and branding route.</li>
+          <li><span class="mr-3 font-bold text-[#d8b456]">04</span>Receive the current availability check.</li>
+        </ol>
+      </aside>
     </div>
   </section>
 
-  <!-- Stock Highlights (SEO/AI Context) -->
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-3 gap-12">
-        <div class="text-center p-10 bg-gray-50 rounded-[40px] border border-transparent hover:border-[#C9A84C]/30 transition-all group">
-          <div class="text-[36px] md:text-[44px] font-bold text-black mb-4 font-['Century_Gothic',sans-serif] group-hover:text-[#C9A84C] transition-colors">4M+</div>
-          <h3 class="text-lg font-bold uppercase mb-3 font-['Century_Gothic',sans-serif] tracking-tight">Units in Stock</h3>
-          <p class="text-gray-600 text-[15px] md:text-[16px] font-['Century_Gothic',sans-serif] leading-relaxed">A massive inventory across multiple categories, ensuring you never run out of stock during peak seasons.</p>
-        </div>
-        <div class="text-center p-10 bg-gray-50 rounded-[40px] border border-transparent hover:border-[#C9A84C]/30 transition-all group">
-          <div class="text-[36px] md:text-[44px] font-bold text-black mb-4 font-['Century_Gothic',sans-serif] group-hover:text-[#C9A84C] transition-colors">48H</div>
-          <h3 class="text-lg font-bold uppercase mb-3 font-['Century_Gothic',sans-serif] tracking-tight">Order Processing</h3>
-          <p class="text-gray-600 text-[15px] md:text-[16px] font-['Century_Gothic',sans-serif] leading-relaxed">Efficient logistics systems allowing us to process and ship your wholesale orders within 48 hours.</p>
-        </div>
-        <div class="text-center p-10 bg-gray-50 rounded-[40px] border border-transparent hover:border-[#C9A84C]/30 transition-all group">
-          <div class="text-[36px] md:text-[44px] font-bold text-black mb-4 font-['Century_Gothic',sans-serif] group-hover:text-[#C9A84C] transition-colors">Low MOQ</div>
-          <h3 class="text-lg font-bold uppercase mb-3 font-['Century_Gothic',sans-serif] tracking-tight">Start with 10 Pcs</h3>
-          <p class="text-gray-600 text-[15px] md:text-[16px] font-['Century_Gothic',sans-serif] leading-relaxed">Lowering the entry barrier for emerging brands and influencers to test the market with premium products.</p>
-        </div>
-      </div>
+  <section class="bg-[#111111] py-10 text-white">
+    <div class="mx-auto grid max-w-[1320px] gap-6 px-6 md:grid-cols-3 lg:px-10">
+      <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">MOQ</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">50 sets for matching sets; 50 pcs for individual garments in the ready-stock programme.</p></div>
+      <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">BRANDING</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Discuss logo, labels, hang tags and packaging alongside the selected stock route.</p></div>
+      <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">AVAILABILITY</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Current colours and size mixes are checked before order, not assumed from a website image.</p></div>
     </div>
   </section>
 
-  <!-- Product Categories (SEO Keywords) -->
-  <section class="py-24 bg-white border-t border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-16">
-        <h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">
-          WHOLESALE READY
-        </h3>
-        <h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold text-black leading-tight font-['Century_Gothic',sans-serif] tracking-tight">
-          Available <span class="text-[#C9A84C] italic">Categories</span>
-        </h2>
-        <p class="text-gray-500 mt-4 font-['Century_Gothic',sans-serif] text-[15px] md:text-[16px] leading-relaxed">High-demand gym wear and yoga apparel items available for immediate wholesale.</p>
-      </div>
+  <ReadyStockCatalog />
 
-      <div class="grid md:grid-cols-2 gap-12">
-        <div class="group relative overflow-hidden rounded-[40px] bg-black aspect-[16/9] shadow-xl">
-          <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 to-transparent"></div>
-          <div class="absolute bottom-10 left-10 z-20">
-            <h3 class="text-[24px] md:text-[32px] font-bold text-white uppercase tracking-tight font-['Century_Gothic',sans-serif] mb-3">Yoga & Pilates</h3>
-            <p class="text-white/60 text-[14px] md:text-[15px] mb-8 max-w-xs font-['Century_Gothic',sans-serif] leading-relaxed">Naked-feel leggings, high-waist sets, and soft-touch tops available in 20+ colors.</p>
-            <a href="https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20want%20to%20check%20your%20Ready%20to%20Ship%20stock%20for%20Yoga%20and%20Pilates." target="_blank" class="inline-block px-8 py-4 bg-[#C9A84C] text-black font-bold text-[11px] uppercase tracking-widest rounded-full font-['Century_Gothic',sans-serif] hover:bg-white transition-colors">Check Available Stock</a>
-          </div>
-        </div>
-        <div class="group relative overflow-hidden rounded-[40px] bg-black aspect-[16/9] shadow-xl">
-          <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 to-transparent"></div>
-          <div class="absolute bottom-10 left-10 z-20">
-            <h3 class="text-[24px] md:text-[32px] font-bold text-white uppercase tracking-tight font-['Century_Gothic',sans-serif] mb-3">Training & Gym</h3>
-            <p class="text-white/60 text-[14px] md:text-[15px] mb-8 max-w-xs font-['Century_Gothic',sans-serif] leading-relaxed">Performance shorts, sweat-wicking tees, and compression layers for men and women.</p>
-            <a href="https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20want%20to%20check%20your%20Ready%20to%20Ship%20stock%20for%20Training%20and%20Gym." target="_blank" class="inline-block px-8 py-4 bg-[#C9A84C] text-black font-bold text-[11px] uppercase tracking-widest rounded-full font-['Century_Gothic',sans-serif] hover:bg-white transition-colors">Check Available Stock</a>
-          </div>
-        </div>
+  <section class="bg-[#111111] py-20 text-white md:py-24">
+    <div class="mx-auto grid max-w-[1320px] gap-12 px-6 lg:grid-cols-[.85fr_1.15fr] lg:px-10">
+      <div>
+        <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">READY-STOCK BUYER FAQ</p>
+        <h2 class="mt-4 text-[34px] font-bold leading-[1.1] text-white md:text-[47px] font-['Century_Gothic',sans-serif]">The details buyers usually confirm first.</h2>
+        <p class="mt-5 text-[16px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">A fast route still needs the right information. Send the style, quantity, colour and size plan so the recommendation is based on your actual order.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Why Wholesale with Fitclo? (B2B SEO) -->
-  <section class="py-24 bg-[#0B0B0B] text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold leading-tight font-['Century_Gothic',sans-serif] tracking-tight mb-8">
-          Why Scale with <span class="text-[#C9A84C] italic">Fitclo Wholesale?</span>
-        </h2>
-        <div class="space-y-8">
-          <div class="flex items-start space-x-6">
-            <div class="w-12 h-12 rounded-2xl bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-            <div>
-              <h4 class="text-[18px] md:text-[20px] font-bold mb-2 uppercase font-['Century_Gothic',sans-serif] tracking-tight">Consistent Quality</h4>
-              <p class="text-white/50 text-[14px] md:text-[15px] font-['Century_Gothic',sans-serif] leading-relaxed">Every batch is produced in our own vertically integrated factory, ensuring the same high quality for every order.</p>
-            </div>
-          </div>
-          <div class="flex items-start space-x-6">
-            <div class="w-12 h-12 rounded-2xl bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-            <div>
-              <h4 class="text-[18px] md:text-[20px] font-bold mb-2 uppercase font-['Century_Gothic',sans-serif] tracking-tight">Real-Time Inventory Management</h4>
-              <p class="text-white/50 text-[14px] md:text-[15px] font-['Century_Gothic',sans-serif] leading-relaxed">Access our real-time stock levels through our consultant team to plan your sales campaigns effectively.</p>
-            </div>
-          </div>
-        </div>
+      <div class="divide-y divide-white/15 border-y border-white/15">
+        <details class="group py-5" open><summary class="cursor-pointer list-none pr-8 text-[17px] font-bold text-white font-['Century_Gothic',sans-serif]">What is the ready-stock MOQ?<span class="float-right text-[#d8b456] group-open:rotate-45">+</span></summary><p class="mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">MOQ is 50 sets for sets and 50 pcs for individual garments in this programme. The team confirms the suitable order route once the selected styles are known.</p></details>
+        <details class="group py-5"><summary class="cursor-pointer list-none pr-8 text-[17px] font-bold text-white font-['Century_Gothic',sans-serif]">Can I add a logo or my own packaging?<span class="float-right text-[#d8b456] group-open:rotate-45">+</span></summary><p class="mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">Yes. Logo, labels, hang tags and packaging can be discussed for selected styles. Fitclo confirms the workable branding route before you proceed.</p></details>
+        <details class="group py-5"><summary class="cursor-pointer list-none pr-8 text-[17px] font-bold text-white font-['Century_Gothic',sans-serif]">Can I request a sample?<span class="float-right text-[#d8b456] group-open:rotate-45">+</span></summary><p class="mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">Yes. Share the style, preferred colour and size so Fitclo can advise on the appropriate sample option before a wholesale order.</p></details>
+        <details class="group py-5"><summary class="cursor-pointer list-none pr-8 text-[17px] font-bold text-white font-['Century_Gothic',sans-serif]">Why is availability checked before order?<span class="float-right text-[#d8b456] group-open:rotate-45">+</span></summary><p class="mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">Current colours and size mixes change. A live check prevents a buyer from planning around an image that does not match the required assortment.</p></details>
       </div>
     </div>
   </section>

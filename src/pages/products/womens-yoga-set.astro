@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const productName = "Women's Yoga Set";
-const productCode = 'FC-YS001';
+const productCode = '3335';
 const productUrl = 'https://www.fitcloo.com/products/womens-yoga-set/';
 const productImage = 'https://www.fitcloo.com/images/products/womens-yoga-set/womens-yoga-set-main.webp';
 const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send the current colors, sizes, MOQ, sample cost and wholesale pricing.`;
@@ -225,7 +225,7 @@ const faqSchema = {
 
           <div class="mt-8 flex flex-wrap items-center gap-3 font-['Century_Gothic',sans-serif]">
             <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#d8b456] px-6 py-3 text-[13px] font-bold text-[#101010] transition-colors hover:bg-[#efd078]" data-product-track="click_quote_cta">Request Wholesale Quote</a>
-            <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 py-3 text-[13px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" data-product-track="click_sample_cta">Order an FC-YS001 Sample</a>
+            <a href="#product-inquiry" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 py-3 text-[13px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" data-product-track="click_sample_cta">Order a 3335 Sample</a>
             <a href="#customization" class="inline-flex min-h-12 items-center text-[13px] font-bold text-[#d8b456] transition-colors hover:text-white">View Customization Options <span class="ml-2" aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -482,8 +482,8 @@ const faqSchema = {
       <div>
         <p class="text-[11px] font-bold tracking-[0.19em] text-[#d8b456] font-['Century_Gothic',sans-serif]">REQUEST CURRENT DETAILS</p>
         <h2 id="inquiry-heading" class="mt-4 text-[32px] font-bold leading-[1.16] sm:text-[42px] font-['Century_Gothic',sans-serif]">Request the current colors, MOQ and wholesale quote.</h2>
-        <p class="mt-5 max-w-[450px] text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Send your quantity, color and size plan. Fitclo will confirm the most suitable sourcing route for the Women's Yoga Set, SKU FC-YS001.</p>
-        <a href={whatsappUrl} target="_blank" rel="noopener" class="mt-7 inline-flex min-h-12 items-center border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-[#101010] font-['Century_Gothic',sans-serif]" data-product-track="click_whatsapp">Ask about FC-YS001 on WhatsApp</a>
+        <p class="mt-5 max-w-[450px] text-[15px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Send your quantity, color and size plan. Fitclo will confirm the most suitable sourcing route for the Women's Yoga Set, SKU 3335.</p>
+        <a href={whatsappUrl} target="_blank" rel="noopener" class="mt-7 inline-flex min-h-12 items-center border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-[#101010] font-['Century_Gothic',sans-serif]" data-product-track="click_whatsapp">Ask about 3335 on WhatsApp</a>
           <a href={telegramUrl} target="_blank" rel="noopener" class="mt-3 inline-flex min-h-10 items-center rounded-full border border-white/18 px-5 py-2.5 text-[13px] font-bold text-white/72 transition-colors hover:border-[#d8b456] hover:text-[#d8b456] font-['Century_Gothic',sans-serif]" data-product-track="click_telegram">Telegram inquiry for Russia</a>
       </div>
 
@@ -643,7 +643,7 @@ const faqSchema = {
       });
       track('select_product_image', {
         product_name: "Women's Yoga Set",
-        product_code: 'FC-YS001',
+        product_code: '3335',
         image_position: String(activeGalleryIndex + 1),
       });
     };
@@ -658,18 +658,18 @@ const faqSchema = {
   document.querySelectorAll<HTMLElement>('[data-product-track]').forEach((element) => {
     element.addEventListener('click', () => {
       const eventName = element.dataset.productTrack;
-      if (eventName) track(eventName, { product_name: "Women's Yoga Set", product_code: 'FC-YS001' });
+      if (eventName) track(eventName, { product_name: "Women's Yoga Set", product_code: '3335' });
     });
   });
 
   if (form && pageUrlInput) {
     pageUrlInput.value = window.location.href;
-    track('view_product', { product_name: "Women's Yoga Set", product_code: 'FC-YS001' });
+    track('view_product', { product_name: "Women's Yoga Set", product_code: '3335' });
 
     form.addEventListener('focusin', () => {
       if (!inquiryStarted) {
         inquiryStarted = true;
-        track('start_product_inquiry', { product_name: "Women's Yoga Set", product_code: 'FC-YS001' });
+        track('start_product_inquiry', { product_name: "Women's Yoga Set", product_code: '3335' });
       }
     });
 
@@ -708,7 +708,7 @@ const faqSchema = {
         const result = await response.json();
         if (!response.ok || !result.success) throw new Error(result.error || result.message || 'Unable to send inquiry.');
 
-        track('submit_product_inquiry', { product_name: "Women's Yoga Set", product_code: 'FC-YS001' });
+        track('submit_product_inquiry', { product_name: "Women's Yoga Set", product_code: '3335' });
         form.reset();
         if (pageUrlInput) pageUrlInput.value = window.location.href;
         if (status) {

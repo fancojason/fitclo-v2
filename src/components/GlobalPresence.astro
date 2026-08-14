@@ -1,25 +1,29 @@
 ---
+import { marketLandingPages } from '../data/marketLandingPages';
+
+const marketLinks = new Map(marketLandingPages.map((market) => [market.name, `/wholesale-to/${market.slug}/`]));
 const countries = [
-  { name: "USA", code: "us" },
-  { name: "Canada", code: "ca" },
-  { name: "UK", code: "gb" },
-  { name: "Australia", code: "au" },
-  { name: "Germany", code: "de" },
-  { name: "France", code: "fr" },
-  { name: "Spain", code: "es" },
-  { name: "Italy", code: "it" },
-  { name: "Netherlands", code: "nl" },
-  { name: "Russia", code: "ru" },
-  { name: "Mexico", code: "mx" },
+  { name: "USA", code: "us", href: marketLinks.get('United States') },
+  { name: "Canada", code: "ca", href: marketLinks.get('Canada') },
+  { name: "UK", code: "gb", href: marketLinks.get('United Kingdom') },
+  { name: "Australia", code: "au", href: marketLinks.get('Australia') },
+  { name: "Germany", code: "de", href: marketLinks.get('Germany') },
+  { name: "France", code: "fr", href: marketLinks.get('France') },
+  { name: "Spain", code: "es", href: marketLinks.get('Spain') },
+  { name: "Italy", code: "it", href: marketLinks.get('Italy') },
+  { name: "Netherlands", code: "nl", href: marketLinks.get('Netherlands') },
+  { name: "Russia", code: "ru", href: '/ru/china-activewear-manufacturer-russia/' },
+  { name: "Mexico", code: "mx", href: marketLinks.get('Mexico') },
   { name: "Costa Rica", code: "cr" },
   { name: "Honduras", code: "hn" },
-  { name: "Japan", code: "jp" },
-  { name: "South Korea", code: "kr" },
-  { name: "Singapore", code: "sg" },
-  { name: "UAE", code: "ae" },
-  { name: "Saudi Arabia", code: "sa" },
+  { name: "Japan", code: "jp", href: marketLinks.get('Japan') },
+  { name: "South Korea", code: "kr", href: marketLinks.get('South Korea') },
+  { name: "Singapore", code: "sg", href: marketLinks.get('Singapore') },
+  { name: "UAE", code: "ae", href: marketLinks.get('UAE') },
+  { name: "Saudi Arabia", code: "sa", href: marketLinks.get('Saudi Arabia') },
   { name: "Israel", code: "il" },
-  { name: "Brazil", code: "br" },
+  { name: "Brazil", code: "br", href: marketLinks.get('Brazil') },
+  { name: "Poland", code: "pl", href: marketLinks.get('Poland') },
   { name: "Norway", code: "no" },
   { name: "Sweden", code: "se" },
   { name: "New Zealand", code: "nz" }
@@ -49,8 +53,8 @@ const countries = [
             Fitclo partners with activewear brands, distributors and retailers across multiple continents, providing ready-to-ship and private label solutions.
           </p>
           <div class="flex flex-wrap gap-3">
-            {countries.map(c => (
-              <div class="group relative cursor-help">
+            {countries.map(c => c.href ? (
+              <a href={c.href} class="group relative" aria-label={`Wholesale activewear for ${c.name}`}>
                 <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-[#C9A84C]/30 group-hover:border-[#C9A84C] transition-all duration-300 shadow-[0_0_15px_rgba(201,168,76,0.1)]">
                   <img 
                     src={`https://flagcdn.com/w80/${c.code}.png`} 
@@ -58,10 +62,16 @@ const countries = [
                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <!-- Tooltip for Country Name -->
                 <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/90 text-white text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-[#C9A84C]/20 z-20">
-                  {c.name}
+                  Wholesale to {c.name}
                 </div>
+              </a>
+            ) : (
+              <div class="group relative cursor-help">
+                <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-[#C9A84C]/30 group-hover:border-[#C9A84C] transition-all duration-300 shadow-[0_0_15px_rgba(201,168,76,0.1)]">
+                  <img src={`https://flagcdn.com/w80/${c.code}.png`} alt={c.name} class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/90 text-white text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-[#C9A84C]/20 z-20">{c.name}</div>
               </div>
             ))}
           </div>

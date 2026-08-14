@@ -1,5 +1,6 @@
 import { intelligenceCategories } from '../data/intelligence';
 import { productCategories } from '../data/productCategories';
+import { marketLandingPaths } from '../data/marketLandingPages';
 
 const site = 'https://www.fitcloo.com';
 
@@ -10,23 +11,23 @@ const staticPages = [
   '/activewear-sampling-product-development/',
   '/activewear-quality-control-inspection/',
   '/activewear-tech-pack-pattern-development/',
-  '/custom-activewear-labels-packaging/',
-  '/oem-activewear-manufacturer/',
-  '/private-label-leggings/',
   '/blogs/',
   '/capabilities/',
   '/contact/',
+  '/custom-activewear-labels-packaging/',
   '/guides/',
   '/private-label/',
   '/private-label-yoga-sets/',
   '/private-label-sports-bras/',
+  '/premium-womens-activewear-manufacturer-china/',
+  '/private-label-leggings/',
+  '/products/',
+  '/oem-activewear-manufacturer/',
+  '/ready-to-ship/',
+  '/ru/china-activewear-manufacturer-russia/',
   '/seamless-activewear-manufacturer/',
   '/tennis-wear-manufacturer/',
   '/gym-shorts-manufacturer/',
-  '/premium-womens-activewear-manufacturer-china/',
-  '/products/',
-  '/ready-to-ship/',
-  '/ru/china-activewear-manufacturer-russia/',
 ];
 
 const guidePages = [
@@ -120,6 +121,7 @@ const urls = Array.from(
     ...productCategoryPages,
     ...productDetailPages,
     ...blogPages,
+    ...marketLandingPaths,
   ]),
 ).sort();
 

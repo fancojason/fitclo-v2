@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { marketLandingPages, type MarketLandingPage } from '../../data/marketLandingPages';
+
+export function getStaticPaths() {
+  return marketLandingPages.map((market) => ({
+    params: { country: market.slug },
+    props: { market },
+  }));
+}
+
+const { market } = Astro.props as { market: MarketLandingPage };
+const pageUrl = `https://www.fitcloo.com/wholesale-to/${market.slug}/`;
+const whatsappMessage = encodeURIComponent(
+  `Hello Fitclo, I am sourcing activewear for ${market.name}. Please share suitable ready-stock styles, MOQ, sample and private-label options.`,
+);
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${whatsappMessage}`;
+const faq = [
+  {
+    question: `Can Fitclo supply activewear for ${market.name}?`,
+    answer: `Yes. Fitclo supports ${market.faqFocus} with ready-stock activewear, private-label branding and OEM/ODM development. The suitable route depends on the selected styles, quantities, fabric, colours and customisation requirements.`,
+  },
+  {
+    question: 'What is the MOQ for a ready-stock activewear order?',
+    answer: 'For suitable ready-stock programmes, MOQ starts from 50 sets for coordinated sets or 50 pcs for individual garments. Current colour, size and style availability should be checked before an order is confirmed.',
+  },
+  {
+    question: 'Can I add my logo, labels and packaging?',
+    answer: 'Yes. Available private-label options can include logo application, woven or care labels, hang tags and packaging. The recommended method and MOQ depend on the chosen product and order brief.',
+  },
+  {
+    question: 'Can I review a sample before bulk production?',
+    answer: 'Yes. A sample route can be planned for new developments and selected custom projects. Send your reference, quantity, fabric direction, size range and branding requirement so the product team can advise the appropriate next step.',
+  },
+  {
+    question: `How should a ${market.name} buyer plan shipping and import?`,
+    answer: 'Before bulk dispatch, confirm the delivery route, consignee details and required destination documents with your appointed freight forwarder, customs broker or qualified local adviser. Requirements vary by product and shipment.',
+  },
+];
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    name: `Wholesale Activewear for ${market.name} | Fitclo`,
+    description: `Source ready-stock, private-label and OEM activewear for ${market.name} with Fitclo. Compare MOQ, samples, branding, fabrics and order planning.`,
+    isPartOf: { '@id': 'https://www.fitcloo.com/#website' },
+    about: { '@id': 'https://www.fitcloo.com/#organization' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Wholesale Activewear Supply for ${market.name}`,
+    serviceType: 'Wholesale and private label activewear manufacturing',
+    provider: { '@id': 'https://www.fitcloo.com/#organization' },
+    areaServed: { '@type': 'Country', name: market.name },
+    audience: { '@type': 'BusinessAudience', audienceType: 'Activewear brands, retailers, studios and distributors' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+const categoryLinks = [
+  ['Yoga Sets', '/private-label-yoga-sets/', 'Coordinated sports bras, tops and leggings for studio, gym and lifestyle collections.'],
+  ['Sports Bras', '/private-label-sports-bras/', 'Support, straps, coverage and fit decisions for private-label sports bra ranges.'],
+  ['Leggings', '/private-label-leggings/', 'Fabric, waistband, inseam and silhouette options for core legging programmes.'],
+  ['Seamless Activewear', '/seamless-activewear-manufacturer/', 'Seamless knit construction for selected activewear collections.'],
+  ['Tennis & Skorts', '/tennis-wear-manufacturer/', 'Tennis wear, skorts and coordinated performance pieces.'],
+  ['Ready-Stock Styles', '/ready-to-ship/', 'Browse a practical starting point for current programme styles and inquiry planning.'],
+];
+---
+
+<BaseLayout
+  title={`Wholesale Activewear for ${market.name} | Fitclo`}
+  seoTitle={`Wholesale Activewear for ${market.name} | Fitclo`}
+  description={`Source ready-stock, private-label and OEM activewear for ${market.name}. Compare MOQ, samples, branding, fabrics and order planning with Fitclo.`}
+  canonicalURL={pageUrl}
+  image="https://www.fitcloo.com/images/products/shared/ready-stock-warehouse.webp"
+  structuredData={structuredData}
+  autoArticleSchema={false}
+>
+  <article class="bg-[#070707] text-white font-['Century_Gothic',sans-serif]">
+    <section class="relative overflow-hidden border-b border-white/10">
+      <img src="/images/products/shared/ready-stock-warehouse.webp" alt="Ready-stock activewear warehouse and folded apparel for wholesale buyers" class="absolute inset-0 h-full w-full object-cover object-center opacity-45" fetchpriority="high" />
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,#070707_0%,rgba(7,7,7,.9)_42%,rgba(7,7,7,.52)_100%)]"></div>
+      <div class="relative mx-auto grid min-h-[680px] max-w-[1380px] gap-12 px-6 py-24 md:px-10 lg:grid-cols-[1.1fr_.75fr] lg:items-center xl:px-4">
+        <div class="max-w-[790px]">
+          <p class="text-[12px] font-bold uppercase tracking-[0.28em] text-[#d8b456]">GLOBAL ACTIVEWEAR SOURCING</p>
+          <h1 class="mt-6 text-[46px] font-black leading-[.98] text-white md:text-[68px]">Wholesale activewear for {market.name} buyers.</h1>
+          <p class="mt-7 max-w-[700px] text-[17px] leading-[1.78] text-white/75 md:text-[19px]">
+            Fitclo helps {market.buyerFocus} Compare ready-stock styles, private-label branding and OEM/ODM development with a clear route for MOQ, samples, fabric and quality review.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3 text-[12px] font-bold uppercase tracking-[.12em] text-white/80">
+            <span class="rounded-full border border-white/20 bg-black/35 px-4 py-3">MOQ from 50</span>
+            <span class="rounded-full border border-white/20 bg-black/35 px-4 py-3">Samples before bulk</span>
+            <span class="rounded-full border border-white/20 bg-black/35 px-4 py-3">Private label ready</span>
+          </div>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href={whatsappUrl} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#d8b456] px-7 py-3 text-[13px] font-bold text-black transition hover:bg-white">REQUEST CURRENT AVAILABILITY</a>
+            <a href="#buyer-route" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-7 py-3 text-[13px] font-bold text-white transition hover:border-[#d8b456] hover:text-[#d8b456]">PLAN YOUR ORDER</a>
+          </div>
+        </div>
+        <aside class="border border-white/15 bg-[#101014]/90 p-7 backdrop-blur-sm md:p-8">
+          <p class="text-[11px] font-bold uppercase tracking-[.2em] text-[#d8b456]">BUYER STARTING POINT</p>
+          <ol class="mt-6 space-y-5">
+            {['Choose the product categories and estimated quantity.', 'Send colour, size and branding requirements.', 'Review the recommended ready-stock, private-label or OEM route.', 'Confirm sample and shipment planning before bulk.'].map((step, index) => (
+              <li class="flex gap-4 text-[15px] leading-[1.55] text-white/78"><span class="font-bold text-[#d8b456]">0{index + 1}</span><span>{step}</span></li>
+            ))}
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section id="buyer-route" class="mx-auto max-w-[1380px] px-6 py-20 md:px-10 xl:px-4">
+      <div class="grid gap-9 lg:grid-cols-[.85fr_1.15fr]">
+        <div>
+          <p class="text-[12px] font-bold uppercase tracking-[.26em] text-[#d8b456]">BUYER SUMMARY</p>
+          <h2 class="mt-4 text-[38px] font-black leading-[1.05] md:text-[52px]">Choose the route that fits the order.</h2>
+          <p class="mt-6 max-w-[490px] text-[16px] leading-[1.8] text-white/64">{market.launchContext}</p>
+        </div>
+        <div class="overflow-x-auto border border-white/12">
+          <table class="min-w-[730px] w-full border-collapse text-left text-[14px]">
+            <thead class="bg-[#d8b456] text-black"><tr><th class="px-5 py-4 text-[11px] uppercase tracking-[.14em]">Route</th><th class="px-5 py-4 text-[11px] uppercase tracking-[.14em]">Start with</th><th class="px-5 py-4 text-[11px] uppercase tracking-[.14em]">Best for</th><th class="px-5 py-4 text-[11px] uppercase tracking-[.14em]">Order logic</th></tr></thead>
+            <tbody class="divide-y divide-white/10 bg-[#101010] text-white/72">
+              <tr><td class="px-5 py-5 font-bold text-white">Ready stock</td><td class="px-5 py-5">Existing programme styles</td><td class="px-5 py-5">Testing a concise assortment</td><td class="px-5 py-5">50 sets or 50 pcs for suitable styles</td></tr>
+              <tr><td class="px-5 py-5 font-bold text-white">Private label</td><td class="px-5 py-5">Selected styles with branding</td><td class="px-5 py-5">A branded collection with controlled complexity</td><td class="px-5 py-5">Logo, labels, hang tags and packaging are reviewed per brief</td></tr>
+              <tr><td class="px-5 py-5 font-bold text-white">OEM / ODM</td><td class="px-5 py-5">Tech pack or defined development brief</td><td class="px-5 py-5">New silhouettes, fabrics or construction details</td><td class="px-5 py-5">Sampling and MOQ depend on the development scope</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-[#0d0d0d]">
+      <div class="mx-auto max-w-[1380px] px-6 py-20 md:px-10 xl:px-4">
+        <p class="text-[12px] font-bold uppercase tracking-[.26em] text-[#d8b456]">PRODUCT STARTING POINTS</p>
+        <div class="mt-4 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"><h2 class="max-w-[780px] text-[36px] font-black leading-[1.08] md:text-[50px]">Relevant categories for a commercial activewear range.</h2><a href="/products/" class="text-[13px] font-bold text-[#d8b456] hover:text-white">VIEW PRODUCT CATALOG →</a></div>
+        <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {categoryLinks.map(([title, href, text]) => (<a href={href} class="group border border-white/10 bg-[#121212] p-6 transition hover:border-[#d8b456]/70"><p class="text-[18px] font-bold text-white">{title}</p><p class="mt-3 text-[14px] leading-[1.7] text-white/60">{text}</p><span class="mt-6 inline-block text-[12px] font-bold tracking-[.12em] text-[#d8b456]">EXPLORE →</span></a>))}
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-[1380px] px-6 py-20 md:px-10 xl:px-4">
+      <div class="grid gap-12 lg:grid-cols-[.9fr_1.1fr]">
+        <div><p class="text-[12px] font-bold uppercase tracking-[.26em] text-[#d8b456]">ORDER PLANNING FOR {market.name.toUpperCase()}</p><h2 class="mt-4 text-[38px] font-black leading-[1.08] md:text-[52px]">Turn a product idea into a clear buying brief.</h2><p class="mt-6 text-[16px] leading-[1.8] text-white/64">Fitclo was established in 2010 and supports global activewear buyers with product selection, sampling, private-label components and OEM/ODM development. Final product, quantity, production and shipment details are confirmed against the actual order brief.</p></div>
+        <div class="grid gap-4 sm:grid-cols-3">{market.planningPriorities.map((item, index) => (<div class="border-t border-[#d8b456] bg-[#111] p-6"><p class="text-[12px] font-bold text-[#d8b456]">0{index + 1}</p><p class="mt-8 text-[17px] font-bold leading-[1.45] text-white">{item}</p></div>))}</div>
+      </div>
+      <div class="mt-12 grid gap-4 md:grid-cols-4">{[['Fabric & fit','Confirm hand feel, stretch, coverage and measurement points.'],['Brand components','Set logo position, labels, hang tags and packaging requirements.'],['Sample review','Record fit and construction comments before a bulk decision.'],['Quality & dispatch','Align inspection points, pack-out and shipping documents for the order.']].map(([title,text]) => (<div class="border border-white/10 p-5"><h3 class="text-[16px] font-bold text-white">{title}</h3><p class="mt-3 text-[14px] leading-[1.65] text-white/60">{text}</p></div>))}</div>
+    </section>
+
+    <section class="border-y border-white/10 bg-[#0d0d0d]"><div class="mx-auto grid max-w-[1180px] gap-10 px-6 py-20 md:px-10 lg:grid-cols-[.75fr_1.25fr]"><div><p class="text-[12px] font-bold uppercase tracking-[.26em] text-[#d8b456]">BUYER FAQ</p><h2 class="mt-4 text-[37px] font-black leading-[1.08] md:text-[50px]">Questions before sourcing activewear.</h2></div><div class="space-y-3">{faq.map((item) => (<details class="group border border-white/10 bg-[#111] p-5"><summary class="flex cursor-pointer list-none items-center justify-between gap-7 text-[17px] font-bold leading-[1.45] text-white">{item.question}<span class="text-[#d8b456] transition group-open:rotate-45">+</span></summary><p class="pt-4 text-[14px] leading-[1.75] text-white/64">{item.answer}</p></details>))}</div></div></section>
+
+    <section class="mx-auto max-w-[1380px] px-6 py-20 md:px-10 xl:px-4"><div class="grid gap-10 border border-white/12 bg-[#111] p-8 md:p-12 lg:grid-cols-[1.1fr_.9fr] lg:items-center"><div><p class="text-[12px] font-bold uppercase tracking-[.26em] text-[#d8b456]">REQUEST A SOURCING PLAN</p><h2 class="mt-4 max-w-[680px] text-[38px] font-black leading-[1.06] md:text-[54px]">Request current styles, MOQ and a route for {market.name}.</h2><p class="mt-6 max-w-[690px] text-[16px] leading-[1.75] text-white/65">Send your category, estimated quantity, colour and size mix, branding requirement and target delivery plan. Fitclo will help identify the most suitable next step.</p></div><div class="flex flex-wrap gap-3 lg:justify-end"><a href={whatsappUrl} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#d8b456] px-7 py-3 text-[13px] font-bold text-black transition hover:bg-white">ASK ON WHATSAPP</a><a href="/contact/" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-7 py-3 text-[13px] font-bold text-white transition hover:border-[#d8b456] hover:text-[#d8b456]">SEND INQUIRY</a></div></div></section>
+  </article>
+</BaseLayout>

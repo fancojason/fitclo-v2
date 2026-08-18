@@ -1,0 +1,8 @@
+---
+import BuyerGuideArticle from '../../components/BuyerGuideArticle.astro';
+import { buyerGuides } from '../../data/buyerGuideCollection';
+
+const guide = buyerGuides.find((item) => item.slug === 'built-in-bra-tank-stay-put-leggings-development-guide')!;
+---
+
+<BuyerGuideArticle {guide} />

@@ -1,9 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'TeX Gyre Adventor';
+  src: url('/fonts/tex-gyre-adventor-regular.otf') format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Adventor';
+  src: url('/fonts/tex-gyre-adventor-bold.otf') format('opentype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700 900;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+
+  body,
+  body * {
+    font-family: 'TeX Gyre Adventor', Arial, sans-serif !important;
+  }
+
+  .quote-nav-button {
+    font-family: 'Manrope', 'TeX Gyre Adventor', Arial, sans-serif !important;
   }
 }

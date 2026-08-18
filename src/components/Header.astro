@@ -8,6 +8,9 @@ const navItems = [
   { name: 'About Us', href: '/about' },
 ];
 
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath === href || currentPath.startsWith(`${href}/`);
+
 ---
 
 <header class="fixed w-full top-0 left-0 z-50 bg-black/95 backdrop-blur-md">
@@ -15,39 +18,43 @@ const navItems = [
   <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent opacity-60"></div>
 
   <div class="max-w-[1600px] mx-auto px-6 lg:px-10">
-    <div class="flex justify-between items-center h-[80px]">
+    <div class="flex justify-between items-center h-[76px]">
       <div class="flex-shrink-0">
-        <a href="/" class="flex items-center space-x-2 group no-underline">
+        <a href="/" class="flex items-center gap-2 group no-underline">
           <div class="relative w-5 h-5 flex items-center justify-center select-none">
             <img src="/images/migrated/third-party/h8f27abddb40d4300874f693d698ed50dd-cadc7ea119.webp" alt="FITCLO Logo" class="w-full h-full object-contain brightness-110 transition-all group-hover:brightness-125" />
           </div>
           <div class="h-4 w-[1px] bg-white/30"></div>
-          <div class="text-[20px] font-bold tracking-[0.1em] text-white font-['Century_Gothic',sans-serif] uppercase select-none flex items-center transition-all group-hover:text-white/90">
+          <div class="flex h-5 items-center text-[20px] font-bold leading-none tracking-[0.1em] text-white uppercase select-none transition-all group-hover:text-white/90">
             Fit<span class="text-[#C9A84C] brightness-110">clo</span>
           </div>
         </a>
       </div>
-      <nav class="hidden md:flex space-x-10 items-center">
-        <div class="group/products relative flex h-[80px] items-center">
-          <a href="/products" class="relative flex items-center gap-2 text-[17px] font-normal text-white/90 transition-all duration-300 hover:-translate-y-[2px] hover:text-[#C9A84C] tracking-[0.5px] font-['Century_Gothic',sans-serif] pb-1.5">
+      <nav class="hidden md:flex items-center gap-7 lg:gap-9">
+        <a href="/" class={`relative pb-1 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors duration-200 group ${isActive('/') ? 'text-[#C9A84C]' : 'text-white/90 hover:text-[#C9A84C]'}`}>
+          Home
+          <span class={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-[#C9A84C] transition-transform duration-300 ${isActive('/') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+        </a>
+        <div class="group/products relative flex h-[76px] items-center">
+          <a href="/products" class={`relative flex items-center gap-2 pb-1 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors duration-200 ${isActive('/products') ? 'text-[#C9A84C]' : 'text-white/90 hover:text-[#C9A84C]'}`}>
             Products
             <span class="text-[12px] leading-none transition-transform duration-300 group-hover/products:rotate-180" aria-hidden="true">⌄</span>
-            <span class="absolute bottom-0 left-0 h-[1.5px] w-full origin-center scale-x-0 bg-[#C9A84C] transition-transform duration-300 group-hover/products:scale-x-100"></span>
+            <span class={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-[#C9A84C] transition-transform duration-300 ${isActive('/products') ? 'scale-x-100' : 'scale-x-0 group-hover/products:scale-x-100'}`}></span>
           </a>
           <div class="pointer-events-none absolute left-1/2 top-[70px] w-[920px] -translate-x-1/2 translate-y-2 border border-white/10 bg-[#101010] p-6 opacity-0 shadow-2xl transition-all duration-200 group-hover/products:pointer-events-auto group-hover/products:translate-y-0 group-hover/products:opacity-100">
             <div class="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
-              <p class="text-[10px] font-bold tracking-[0.2em] text-[#C9A84C] font-['Century_Gothic',sans-serif]">ACTIVEWEAR PRODUCT CATEGORIES</p>
-              <a href="/products" class="text-[11px] font-bold tracking-[0.1em] text-white/70 transition-colors hover:text-[#C9A84C] font-['Century_Gothic',sans-serif]">VIEW ALL PRODUCTS &#8594;</a>
+              <p class="text-[10px] font-bold tracking-[0.2em] text-[#C9A84C]">ACTIVEWEAR PRODUCT CATEGORIES</p>
+              <a href="/products" class="text-[11px] font-bold tracking-[0.1em] text-white/70 transition-colors hover:text-[#C9A84C]">VIEW ALL PRODUCTS &#8594;</a>
             </div>
             <div class="grid grid-cols-3 gap-x-8 gap-y-6">
               {productCategories.map((category) => (
                 <div>
                   <a href={`/products/${category.slug}/`} class="group/item -mx-2 block px-2 py-1.5 transition-colors hover:bg-white/5">
-                    <span class="block text-[14px] font-bold text-white transition-colors group-hover/item:text-[#C9A84C] font-['Century_Gothic',sans-serif]">{category.navLabel}</span>
+                    <span class="block text-[14px] font-bold text-white transition-colors group-hover/item:text-[#C9A84C]">{category.navLabel}</span>
                   </a>
                   <div class="mt-1 space-y-1 pl-2">
                     {category.styles.map((style) => (
-                      <a href={`/products/${category.slug}/#${style.id}`} class="block text-[11px] leading-[1.45] text-white/50 transition-colors hover:text-[#C9A84C] font-['Century_Gothic',sans-serif]">{style.name}</a>
+                      <a href={`/products/${category.slug}/#${style.id}`} class="block text-[11px] leading-[1.45] text-white/50 transition-colors hover:text-[#C9A84C]">{style.name}</a>
                     ))}
                   </div>
                 </div>
@@ -56,11 +63,12 @@ const navItems = [
           </div>
         </div>
         {navItems.map(item => (
-          <a href={item.href} class="relative text-[17px] font-normal text-white/90 hover:text-[#C9A84C] hover:translate-y-[-2px] transition-all duration-300 tracking-[0.5px] font-['Century_Gothic',sans-serif] pb-1.5 group">
+          <a href={item.href} class={`relative pb-1 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors duration-200 group ${isActive(item.href) ? 'text-[#C9A84C]' : 'text-white/90 hover:text-[#C9A84C]'}`}>
             {item.name}
-            <span class="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#C9A84C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+            <span class={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-[#C9A84C] transition-transform duration-300 ${isActive(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
           </a>
         ))}
+        <a href="/inquiry/" class="quote-nav-button ml-1 inline-flex h-[33px] -translate-y-[2.5px] self-center items-center justify-center bg-[#C9A84C] px-3 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0A0A0F] transition-colors duration-200 hover:bg-[#d4b55a]"><span class="-translate-y-px leading-none">Get a Quote</span></a>
       </nav>
       <div class="md:hidden"></div>
     </div>

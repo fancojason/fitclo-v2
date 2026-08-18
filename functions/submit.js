@@ -1,3 +1,14 @@
+const escapeHtml = (value) => String(value ?? "")
+  .slice(0, 5000)
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;")
+  .replaceAll("'", "&#039;");
+
+const detailRow = (label, value, fallback = "Not provided") =>
+  `<p><strong>${label}:</strong> ${escapeHtml(value || fallback)}</p>`;
+
 export async function onRequestPost(context) {
   const { request, env } = context;
   try {
@@ -14,6 +25,13 @@ export async function onRequestPost(context) {
     }
 
     const data = await request.json();
+
+    // Quietly accept bot submissions caught by the hidden website field.
+    if (data.website) {
+      return new Response(JSON.stringify({ success: true }), {
+        headers: { "Content-Type": "application/json" },
+      });
+    }
 
     // Basic validation
     if (!data.name || (!data.email && !data.phone) || !data.product_type) {
@@ -32,27 +50,30 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         from: "Fitclo Website <inquiry@fitcloo.com>",
         to: ["jason@dgfanco.com"],
-        subject: `New Inquiry from ${data.name}`,
+        subject: `New ${escapeHtml(data.inquiry_type || "Website")} Inquiry from ${escapeHtml(data.name)}`,
+        reply_to: data.email || undefined,
         html: `
           <div style="font-family: sans-serif; padding: 20px; color: #333; max-width: 600px; border: 1px solid #eee; border-radius: 10px;">
             <h2 style="color: #C9A84C;">New Website Inquiry</h2>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-            <p><strong>Name:</strong> ${data.name}</p>
-            <p><strong>Email:</strong> ${data.email || "Not provided"}</p>
-            <p><strong>Company:</strong> ${data.company || "N/A"}</p>
-            <p><strong>Phone/WhatsApp:</strong> ${data.phone || "N/A"}</p>
-            <p><strong>Product Type:</strong> ${data.product_type}</p>
-            <p><strong>Quantity:</strong> ${data.quantity}</p>
-            <p><strong>Material:</strong> ${data.material || "N/A"}</p>
-            <p><strong>Logo Placement:</strong> ${data.logo_placement || "N/A"}</p>
-            <p><strong>Message:</strong> ${data.message || "No message"}</p>
-            ${data.product_name ? `<p><strong>Product Name:</strong> ${data.product_name}</p>` : ""}
-            ${data.product_code ? `<p><strong>Product Code:</strong> ${data.product_code}</p>` : ""}
-            ${data.country ? `<p><strong>Country / Region:</strong> ${data.country}</p>` : ""}
-            ${data.inquiry_type ? `<p><strong>Inquiry Type:</strong> ${data.inquiry_type}</p>` : ""}
-            ${data.colors_sizes ? `<p><strong>Colors & Sizes:</strong> ${data.colors_sizes}</p>` : ""}
-            ${data.branding_requirements ? `<p><strong>Branding Requirements:</strong> ${data.branding_requirements}</p>` : ""}
-            ${data.page_url ? `<p><strong>Page URL:</strong> ${data.page_url}</p>` : ""}
+            ${detailRow("Name", data.name)}
+            ${detailRow("Email", data.email)}
+            ${detailRow("Company", data.company)}
+            ${detailRow("Phone / WhatsApp", data.phone)}
+            ${detailRow("Country / Region", data.country)}
+            ${detailRow("Inquiry Type", data.inquiry_type)}
+            ${detailRow("Product Type", data.product_type)}
+            ${detailRow("Quantity", data.quantity)}
+            ${detailRow("Colors & Sizes", data.colors_sizes)}
+            ${detailRow("Target Launch", data.target_launch)}
+            ${detailRow("Branding & Packaging", data.branding_requirements)}
+            ${detailRow("Reference / Tech Pack Link", data.reference_link)}
+            ${detailRow("Material", data.material)}
+            ${detailRow("Logo Placement", data.logo_placement)}
+            ${detailRow("Message", data.message, "No message")}
+            ${data.product_name ? detailRow("Product Name", data.product_name) : ""}
+            ${data.product_code ? detailRow("Product Code", data.product_code) : ""}
+            ${data.page_url ? detailRow("Page URL", data.page_url) : ""}
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
             <p style="font-size: 12px; color: #888;">This inquiry was sent from the contact form on fitcloo.com.</p>
           </div>

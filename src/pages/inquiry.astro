@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const inputClass = "mt-2 w-full border border-white/15 bg-[#171717] px-5 py-[14px] text-[14px] text-white outline-none placeholder:text-white/40 transition focus:border-white/45 font-['TeX_Gyre_Adventor',sans-serif]";
-const labelClass = "block text-[12px] font-bold text-white/75 font-['TeX_Gyre_Adventor',sans-serif]";
+const inputClass = 'mt-2 w-full rounded-[4px] border border-white/12 bg-[#141516] px-4 py-3 text-[13px] text-white outline-none placeholder:text-white/30 transition focus:border-[#cfad4b]/70';
+const labelClass = 'block text-[11px] font-bold text-white/78';
 const contactPageSchema = {
   '@context': 'https://schema.org', '@type': 'ContactPage', '@id': 'https://www.fitcloo.com/inquiry/#webpage',
   url: 'https://www.fitcloo.com/inquiry/', name: 'Activewear Wholesale Inquiry and Quote Request',
@@ -12,54 +12,75 @@ const contactPageSchema = {
 ---
 
 <BaseLayout title="Get in Touch | Activewear Wholesale Inquiry | Fitclo" description="Contact Fitclo about ready-stock activewear, private label branding, or OEM and ODM product development." canonicalURL="https://www.fitcloo.com/inquiry/" structuredData={[contactPageSchema]}>
-  <main class="inquiry-page min-h-screen bg-[#080808] text-white">
-    <section class="border-b border-white/10">
-      <div class="mx-auto grid max-w-[1400px] gap-10 px-6 py-20 lg:grid-cols-[1.1fr_.9fr] lg:gap-20 lg:px-10 lg:py-24">
-        <div>
-          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#d6b55a] font-['TeX_Gyre_Adventor',sans-serif]">Contact Fitclo</p>
-          <h1 class="mt-5 max-w-[920px] text-4xl font-bold leading-[0.98] tracking-[-0.025em] sm:text-5xl lg:text-[60px] font-['TeX_Gyre_Adventor',sans-serif]"><span class="block">Let’s plan your next</span><span class="block">activewear collection.</span></h1>
-        </div>
-        <div class="self-end border-l border-white/15 pl-6 lg:pb-1 lg:pl-8">
-          <p class="text-[15px] leading-7 text-white/62 font-['TeX_Gyre_Adventor',sans-serif]">Tell us whether you need ready-stock styles or a private-label collection. Share the product direction, quantity and timing, and our team will route your request to the right sourcing path.</p>
-          <div class="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-[12px] font-bold uppercase tracking-[0.08em] text-white/48 font-['TeX_Gyre_Adventor',sans-serif]"><span>Ready stock</span><span>Private label</span><span>OEM / ODM</span></div>
+  <div class="inquiry-page min-h-screen bg-[#080909] text-white">
+    <section class="relative overflow-hidden border-b border-white/10 pt-[76px]">
+      <img src="/images/intelligence/cover-fabric-guide.png" alt="Dark activewear fabric rolls for private label development" class="absolute inset-0 h-full w-full object-cover grayscale" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,.42),rgba(0,0,0,.92)_78%)]"></div>
+      <div class="absolute inset-0 bg-black/55"></div>
+
+      <div class="relative mx-auto max-w-[940px] px-6 py-11 text-center sm:py-12 lg:py-[50px]">
+        <p class="text-[10px] font-bold uppercase tracking-[0.24em] text-[#d4b24f]">Contact Fitclo</p>
+        <h1 class="mx-auto mt-5 max-w-[760px] text-[39px] font-bold leading-[0.96] tracking-[-0.035em] sm:text-[52px] lg:text-[58px]">
+          Let’s plan your next<br />activewear collection<span class="text-[#6bdd38]">.</span>
+        </h1>
+        <p class="mx-auto mt-5 max-w-[520px] text-[13px] leading-[1.7] text-white/62 sm:text-[14px]">
+          Tell us whether you need ready-stock styles or a private-label collection.<br class="hidden sm:block" /> Share the product direction, quantity and timing,<br class="hidden sm:block" /> and our team will route your request to the right sourcing path.
+        </p>
+
+        <div class="mx-auto mt-7 flex max-w-[590px] flex-wrap items-center justify-center gap-x-7 gap-y-4 text-[11px] font-bold uppercase tracking-[0.12em] text-white/90 sm:flex-nowrap">
+          <span class="flex items-center gap-3"><svg class="h-5 w-5 text-[#70df36]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m12 2 8 4.5v10L12 21l-8-4.5v-10L12 2Z"></path><path d="m4 6.5 8 4.5 8-4.5M12 11v10"></path></svg>Ready stock</span>
+          <span class="hidden h-6 w-px bg-white/28 sm:block"></span>
+          <span class="flex items-center gap-3"><svg class="h-5 w-5 text-[#70df36]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.6 13.1 11 22.7 1.3 13V2.3H12l8.6 8.6a1.6 1.6 0 0 1 0 2.2Z"></path><circle cx="6.4" cy="7.4" r="1.4"></circle></svg>Private label</span>
+          <span class="hidden h-6 w-px bg-white/28 sm:block"></span>
+          <span class="flex items-center gap-3"><svg class="h-5 w-5 text-[#70df36]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 22V9l5 3V7l5 3V2h3v10l5-3v13H3Z"></path><path d="M7 17h2m5 0h2"></path></svg>OEM / ODM</span>
         </div>
       </div>
     </section>
 
-    <section class="mx-auto max-w-[1400px] px-6 py-20 lg:px-10 lg:py-24">
-      <div class="grid gap-16 lg:grid-cols-2 lg:gap-20">
+    <section class="mx-auto max-w-[1120px] px-6 py-12 lg:px-8 lg:py-16">
+      <div class="grid items-start gap-12 lg:grid-cols-[.94fr_1.06fr] lg:gap-10">
         <div>
-          <h2 class="text-3xl font-bold leading-none tracking-[-0.025em] sm:text-[36px] font-['TeX_Gyre_Adventor',sans-serif]">Get in touch</h2>
-          <p class="mt-4 max-w-[610px] text-[15px] leading-[1.5] text-white/65 sm:text-[16px] font-['TeX_Gyre_Adventor',sans-serif]">The fastest way to reach us is WhatsApp. We typically reply within a few hours during business days.</p>
+          <h2 class="text-[28px] font-bold leading-none tracking-[-0.025em]">Get in touch</h2>
+          <p class="mt-3 max-w-[470px] text-[12px] leading-[1.7] text-white/60 sm:text-[13px]">The fastest way to reach us is WhatsApp.<br />We typically reply within a few hours during business days.</p>
 
-          <div class="mt-8 space-y-6">
-            <a href="https://api.whatsapp.com/send?phone=8617160837538&amp;text=Hello%20Fitclo%2C%20I%20would%20like%20to%20discuss%20an%20activewear%20project." target="_blank" rel="noopener noreferrer" class="group flex min-h-[104px] items-center border border-[#0e7040] bg-[#0a2615] px-6 transition hover:border-[#22c765] hover:bg-[#0b2e19] sm:px-7">
-              <span class="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#25d366] text-white"><svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.4ZM12.2 21.7a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.2c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.5-4.4 9.9-9.7 9.9Zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5H8c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.2 0-.4-.1-.7-.2h-1.3Z"></path></svg></span><span class="ml-6"><span class="block text-[16px] font-bold font-['TeX_Gyre_Adventor',sans-serif]">Chat on WhatsApp</span><span class="mt-1 block text-[13px] text-white/65 font-['TeX_Gyre_Adventor',sans-serif]">+86 171 6083 7538 · Fastest response</span></span><span class="ml-auto text-3xl font-light text-white/50 transition-transform group-hover:translate-x-1">›</span>
+          <div class="mt-6 space-y-3">
+            <a href="https://api.whatsapp.com/send?phone=8617160837538&amp;text=Hello%20Fitclo%2C%20I%20would%20like%20to%20discuss%20an%20activewear%20project." target="_blank" rel="noopener noreferrer" class="whatsapp-card group relative flex min-h-[128px] items-center overflow-hidden rounded-[9px] border border-[#499b2f] bg-[linear-gradient(115deg,#092c18,#102315)] px-6 transition hover:border-[#6bdd38] sm:px-8">
+              <span class="whatsapp-card-icon relative flex h-[58px] w-[58px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#25d366]"><img src="/images/whatsapp-icon.webp" alt="" class="h-full w-full object-contain" /></span>
+              <span class="relative ml-6"><span class="block text-[9px] font-bold uppercase tracking-[0.08em] text-[#d2b352]">Fastest response</span><span class="mt-1 block text-[20px] font-bold">Chat on WhatsApp</span><span class="mt-1 block text-[11px] text-[#75dc42]">+86 171 6083 7538&nbsp;&nbsp;·&nbsp;&nbsp;Typically replies in a few hours</span></span>
+              <span class="ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#65c23c] text-xl text-[#80e84c] transition-transform group-hover:translate-x-1">›</span>
             </a>
-            <a href="mailto:jason@dgfanco.com?subject=Activewear%20Sourcing%20Inquiry" class="group flex min-h-[104px] items-center border border-white/15 bg-[#121212] px-6 transition hover:border-white/35 sm:px-7"><span class="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-[#731b1f] bg-[#370b0e] text-[#ff595f]"><svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span><span class="ml-6"><span class="block text-[16px] font-bold font-['TeX_Gyre_Adventor',sans-serif]">Send an email</span><span class="mt-1 block text-[13px] text-white/65 font-['TeX_Gyre_Adventor',sans-serif]">jason@dgfanco.com</span></span><span class="ml-auto text-3xl font-light text-white/50 transition-transform group-hover:translate-x-1">›</span></a>
-            <div class="flex min-h-[104px] items-center border border-white/15 bg-[#121212] px-6 sm:px-7"><span class="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-white/15 bg-[#202020] text-white/55"><svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><span class="ml-6"><span class="block text-[16px] font-bold font-['TeX_Gyre_Adventor',sans-serif]">Global sourcing support</span><span class="mt-1 block text-[13px] text-white/65 font-['TeX_Gyre_Adventor',sans-serif]">Guangzhou, China · serving buyers worldwide</span></span></div>
+
+            <a href="mailto:jason@dgfanco.com?subject=Activewear%20Sourcing%20Inquiry" class="contact-card group"><span class="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border border-[#8c272b] bg-[#3a0c0f] text-[#ff565c]"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span><span class="ml-6"><span class="block text-[16px] font-bold">Send an email</span><span class="mt-1 block text-[12px] text-white/55">jason@dgfanco.com</span></span><span class="ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-xl text-white/55 transition-transform group-hover:translate-x-1">›</span></a>
+            <div class="contact-card"><span class="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border border-white/15 bg-[#202020] text-white/55"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3.3 3 14.7 0 18M12 3c-3 3.3-3 14.7 0 18"></path></svg></span><span class="ml-6"><span class="block text-[16px] font-bold">Global sourcing support</span><span class="mt-1 block text-[12px] text-white/55">Guangzhou, China&nbsp;&nbsp;·&nbsp;&nbsp;Serving buyers worldwide</span></span><span class="ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-xl text-white/55">›</span></div>
           </div>
 
-          <div class="mt-8 border-t border-white/15 pt-6"><p class="text-[11px] font-bold uppercase tracking-[0.12em] text-white/60 font-['TeX_Gyre_Adventor',sans-serif]">What happens next</p><ol class="mt-4 space-y-2 text-[12px] leading-5 text-white/52 font-['TeX_Gyre_Adventor',sans-serif]"><li><span class="mr-3 text-white">01</span>We review your product brief and sourcing route.</li><li><span class="mr-3 text-white">02</span>We confirm the suitable ready-stock or custom option.</li><li><span class="mr-3 text-white">03</span>You receive the next practical step: availability, sample or quote.</li></ol></div>
+          <div class="mt-6">
+            <div class="flex items-center gap-4"><p class="shrink-0 text-[9px] font-bold uppercase tracking-[0.18em] text-[#d5b34f]">What happens next</p><span class="h-px w-full bg-gradient-to-r from-[#6a5830] to-transparent"></span></div>
+            <ol class="mt-4 space-y-3">
+              <li class="timeline-step"><span class="step-number">01</span><span>We review your product brief and sourcing route.</span></li>
+              <li class="timeline-step"><span class="step-number">02</span><span>We confirm the suitable ready-stock or custom option.</span></li>
+              <li class="timeline-step"><span class="step-number">03</span><span>We share the sample, quotation and next-step plan.<small>Our team will reply within 24 hours.</small></span></li>
+            </ol>
+          </div>
         </div>
 
-        <div class="pt-1">
-          <h2 class="text-3xl font-bold leading-none tracking-[-0.025em] sm:text-[36px] font-['TeX_Gyre_Adventor',sans-serif]">Send a message</h2>
-          <p class="mt-4 text-[15px] leading-[1.5] text-white/65 sm:text-[16px] font-['TeX_Gyre_Adventor',sans-serif]">We’ll get back to you within 24 hours.</p>
-          <form id="inquiry-form" class="mt-8 font-['TeX_Gyre_Adventor',sans-serif]">
+        <div class="rounded-[14px] border border-white/10 bg-[linear-gradient(145deg,#141515,#101111)] p-6 shadow-[0_24px_80px_rgba(0,0,0,.35)] sm:p-8">
+          <h2 class="text-[27px] font-bold leading-none tracking-[-0.025em]">Send a message</h2>
+          <p class="mt-3 text-[12px] leading-[1.5] text-white/58">We’ll get back to you within 24 hours.</p>
+          <form id="inquiry-form" class="mt-7">
             <input type="text" name="website" tabindex="-1" autocomplete="off" class="absolute left-[-9999px]" aria-hidden="true" /><input type="hidden" name="page_url" value="https://www.fitcloo.com/inquiry/" />
-            <div class="grid gap-5 sm:grid-cols-2"><div><label for="name" class={labelClass}>Your Name *</label><input id="name" name="name" type="text" required autocomplete="name" placeholder="John Doe" class={inputClass} /></div><div><label for="company" class={labelClass}>Brand / Company *</label><input id="company" name="company" type="text" required autocomplete="organization" placeholder="Acme Studios" class={inputClass} /></div></div>
-            <div class="mt-5"><label for="email" class={labelClass}>Email Address *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="john@example.com" class={inputClass} /></div>
-            <fieldset class="mt-5"><legend class={labelClass}>I’m looking for *</legend><div class="mt-2 grid grid-cols-2 border border-white/15 bg-[#171717] p-1"><label class="cursor-pointer"><input type="radio" name="inquiry_type" value="Ready-stock wholesale" class="peer sr-only" required checked /><span class="block px-3 py-2.5 text-center text-[12px] font-bold text-white/45 transition peer-checked:bg-white peer-checked:text-black">Ready to ship (RTS)</span></label><label class="cursor-pointer"><input type="radio" name="inquiry_type" value="Custom / private label / OEM" class="peer sr-only" required /><span class="block px-3 py-2.5 text-center text-[12px] font-bold text-white/45 transition peer-checked:bg-white peer-checked:text-black">Custom activewear</span></label></div></fieldset>
-            <div class="mt-5"><label for="message" class={labelClass}>Tell us what you need *</label><textarea id="message" name="message" rows="4" required placeholder="E.g. 200 ready-stock yoga sets with private labels, or a custom sports bra and leggings range. Tell us your target quantity, sizes, colours, logo needs and timeline…" class={inputClass + ' resize-y'}></textarea></div>
+            <div class="grid gap-4 sm:grid-cols-2"><div><label for="name" class={labelClass}>Your Name *</label><input id="name" name="name" type="text" required autocomplete="name" placeholder="John Doe" class={inputClass} /></div><div><label for="company" class={labelClass}>Brand / Company *</label><input id="company" name="company" type="text" required autocomplete="organization" placeholder="Acme Studios" class={inputClass} /></div></div>
+            <div class="mt-4"><label for="email" class={labelClass}>Email Address *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="john@example.com" class={inputClass} /></div>
+            <fieldset class="mt-4"><legend class={labelClass}>I’m looking for *</legend><div class="mt-2 grid gap-2 sm:grid-cols-2"><label class="cursor-pointer"><input type="radio" name="inquiry_type" value="Ready-stock wholesale" class="choice-input sr-only" required checked /><span class="choice-control"><span>Ready to ship (RTS)</span><span class="choice-check">✓</span></span></label><label class="cursor-pointer"><input type="radio" name="inquiry_type" value="Custom / private label / OEM" class="choice-input sr-only" required /><span class="choice-control"><span>Custom activewear</span><span class="choice-check">✓</span></span></label></div></fieldset>
+            <div class="mt-4"><label for="message" class={labelClass}>Tell us what you need *</label><textarea id="message" name="message" rows="4" required placeholder="E.g. 200 ready-stock yoga sets with private labels, or a custom sports bra and leggings range. Tell us your target quantity, sizes, colours, logo needs and timeline…" class={inputClass + ' min-h-[120px] resize-y leading-[1.65]'}></textarea></div>
             <div class="hidden"><input name="country" value="Not specified" /><input name="product_type" value="See message" /><input name="quantity" value="Not specified" /></div>
-            <button type="submit" class="mt-6 min-h-[64px] w-full bg-[#f2090e] px-8 text-[13px] font-black uppercase tracking-[0.14em] text-white transition hover:bg-[#ff2a2e] disabled:cursor-wait disabled:opacity-70"><span data-submit-label>Send message</span></button>
-            <p id="form-status" class="mt-5 min-h-5 text-center text-[12px] leading-5 text-white/42 font-['TeX_Gyre_Adventor',sans-serif]" aria-live="polite">Or message us directly on <a href="https://api.whatsapp.com/send?phone=8617160837538" target="_blank" rel="noopener noreferrer" class="text-[#25d366]">WhatsApp</a> for the fastest reply.</p>
+            <button type="submit" class="mt-5 flex min-h-[54px] w-full items-center justify-center gap-4 rounded-[4px] bg-[linear-gradient(110deg,#ddb958,#edc979,#d9ad45)] px-8 text-[12px] font-black uppercase tracking-[0.18em] text-[#111] transition hover:brightness-110 disabled:cursor-wait disabled:opacity-70"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4 20-7Z"></path><path d="M22 2 11 13"></path></svg><span data-submit-label>Send message</span></button>
+            <p id="form-status" class="mt-4 flex min-h-5 items-center justify-center gap-2 text-center text-[10px] leading-5 text-white/38" aria-live="polite"><svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>Your information is safe with us. We never share your details.</p>
           </form>
         </div>
       </div>
     </section>
-  </main>
+  </div>
 </BaseLayout>
 
 <script>
@@ -70,18 +91,34 @@ const contactPageSchema = {
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!status || !submitButton || !submitLabel) return;
-    submitButton.disabled = true; submitLabel.textContent = 'Sending…'; status.textContent = 'Securely sending your request…'; status.className = 'mt-6 min-h-5 text-center text-[13px] leading-5 text-white/55 font-[TeX_Gyre_Adventor,sans-serif]';
+    submitButton.disabled = true; submitLabel.textContent = 'Sending…'; status.textContent = 'Securely sending your request…'; status.className = 'mt-4 min-h-5 text-center text-[11px] leading-5 text-white/55';
     try {
       const response = await fetch('/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(form).entries())) });
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error(result.error || 'Unable to send your inquiry.');
-      form.reset(); status.textContent = 'Thank you — your message has been sent. We will reply within 24 business hours.'; status.className = 'mt-6 min-h-5 text-center text-[13px] leading-5 text-[#25d366] font-[TeX_Gyre_Adventor,sans-serif]'; submitLabel.textContent = 'Message sent';
+      form.reset(); status.textContent = 'Thank you — your message has been sent. We will reply within 24 business hours.'; status.className = 'mt-4 min-h-5 text-center text-[11px] leading-5 text-[#70df36]'; submitLabel.textContent = 'Message sent';
     } catch (error) {
-      status.textContent = error instanceof Error ? error.message : 'Unable to send your inquiry. Please use WhatsApp or email.'; status.className = 'mt-6 min-h-5 text-center text-[13px] leading-5 text-red-400 font-[TeX_Gyre_Adventor,sans-serif]'; submitButton.disabled = false; submitLabel.textContent = 'Send message';
+      status.textContent = error instanceof Error ? error.message : 'Unable to send your inquiry. Please use WhatsApp or email.'; status.className = 'mt-4 min-h-5 text-center text-[11px] leading-5 text-red-400'; submitButton.disabled = false; submitLabel.textContent = 'Send message';
     }
   });
 </script>
 
 <style>
-  :global(body:has(.inquiry-page) .floating-controls) { display: none; }
+  .inquiry-page { font-family: 'TeX Gyre Adventor', Arial, sans-serif; }
+  .inquiry-page > section:first-child > img { filter: grayscale(1) brightness(.2) contrast(1.35); }
+  .contact-card { display:flex; min-height:92px; align-items:center; border:1px solid rgba(255,255,255,.12); border-radius:9px; background:linear-gradient(120deg,#121313,#101111); padding:0 24px; transition:border-color .2s; }
+  .contact-card:hover { border-color:rgba(255,255,255,.28); }
+  @keyframes inquiry-wa-pulse { 0% { box-shadow:0 0 0 0 rgba(37,211,102,.4); } 70% { box-shadow:0 0 0 15px rgba(37,211,102,0); } 100% { box-shadow:0 0 0 0 rgba(37,211,102,0); } }
+  @keyframes inquiry-wa-wiggle { 0%,100% { transform:rotate(0deg); } 25% { transform:rotate(-8deg); } 75% { transform:rotate(8deg); } }
+  .whatsapp-card-icon { animation:inquiry-wa-pulse 2s infinite; }
+  .whatsapp-card-icon img { animation:inquiry-wa-wiggle 3.5s ease-in-out infinite; }
+  .timeline-step { display:grid; grid-template-columns:46px 1fr; align-items:center; gap:14px; font-size:11px; line-height:1.5; color:rgba(255,255,255,.62); }
+  .timeline-step small { display:block; margin-top:3px; color:rgba(255,255,255,.38); }
+  .step-number { display:flex; height:40px; width:40px; align-items:center; justify-content:center; border:1px solid rgba(213,179,79,.5); border-radius:999px; color:#d5b34f; font-size:13px; }
+  .choice-control { display:flex; min-height:42px; align-items:center; justify-content:center; gap:10px; border:1px solid rgba(255,255,255,.12); border-radius:4px; background:#141516; padding:0 12px; font-size:11px; color:rgba(255,255,255,.5); transition:.2s; }
+  .choice-check { display:flex; height:18px; width:18px; align-items:center; justify-content:center; border:1px solid #70df36; border-radius:999px; color:#70df36; font-size:10px; opacity:0; }
+  .choice-input:checked + .choice-control { border-color:#5cac37; box-shadow:0 0 0 1px rgba(112,223,54,.16); color:rgba(255,255,255,.92); }
+  .choice-input:checked + .choice-control .choice-check { opacity:1; }
+  :global(body:has(.inquiry-page) .floating-controls) { display:none; }
+  @media (max-width: 639px) { .contact-card { padding:0 18px; } .whatsapp-card { padding-left:18px; padding-right:18px; } }
 </style>

@@ -108,13 +108,7 @@ const lastModifiedByPath = new Map<string, string>([
 ]);
 
 const getLastModified = (path: string) => {
-  const explicitDate = lastModifiedByPath.get(path);
-  if (explicitDate) return explicitDate;
-  if (path.startsWith('/blogs/')) return '2026-07-11';
-  if (path.startsWith('/activewear-intelligence/')) return '2026-07-10';
-  if (path.startsWith('/guides/')) return '2026-06-17';
-  if (path.startsWith('/products/')) return '2026-07-17';
-  return '2026-07-10';
+  return lastModifiedByPath.get(path);
 };
 
 const urls = Array.from(
@@ -139,8 +133,11 @@ const escapeXml = (value: string) =>
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
   .map(
-    (path) =>
-      `  <url>\n    <loc>${escapeXml(`${site}${path}`)}</loc>\n    <lastmod>${getLastModified(path)}</lastmod>\n    <changefreq>${path.startsWith('/blogs/') ? 'weekly' : 'monthly'}</changefreq>\n  </url>`,
+    (path) => {
+      const lastModified = getLastModified(path);
+      const lastModifiedXml = lastModified ? `\n    <lastmod>${lastModified}</lastmod>` : '';
+      return `  <url>\n    <loc>${escapeXml(`${site}${path}`)}</loc>${lastModifiedXml}\n  </url>`;
+    },
   )
   .join('\n')}\n</urlset>\n`;
 

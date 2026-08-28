@@ -9,6 +9,59 @@ const escapeHtml = (value) => String(value ?? "")
 const detailRow = (label, value, fallback = "Not provided") =>
   `<p><strong>${label}:</strong> ${escapeHtml(value || fallback)}</p>`;
 
+const syncCrmLead = async (data, env) => {
+  const webhookUrl = String(env.CRM_WEBHOOK_URL || "").trim();
+  const apiSecret = String(env.CRM_API_SECRET || "").trim();
+
+  if (!webhookUrl || !apiSecret) {
+    console.warn("CRM sync skipped: missing CRM_WEBHOOK_URL or CRM_API_SECRET.");
+    return;
+  }
+
+  try {
+    const endpoint = new URL("/api/crm/leads/website", webhookUrl);
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiSecret}`,
+      },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        phone: data.phone,
+        whatsapp: data.whatsapp || data.phone,
+        country: data.country,
+        inquiryType: data.inquiry_type,
+        productType: data.product_type,
+        quantity: data.quantity,
+        colorsSizes: data.colors_sizes,
+        targetLaunch: data.target_launch,
+        brandingPackaging: data.branding_requirements,
+        referenceLink: data.reference_link,
+        material: data.material,
+        logoPlacement: data.logo_placement,
+        message: data.message,
+        submittedAt: new Date().toISOString(),
+        pageUrl: data.page_url || "https://www.fitcloo.com/inquiry/",
+      }),
+      signal: AbortSignal.timeout(5000),
+    });
+
+    if (!response.ok) {
+      const responseText = await response.text().catch(() => "");
+      console.error(
+        "CRM sync failed and was ignored:",
+        response.status,
+        responseText.slice(0, 500),
+      );
+    }
+  } catch (error) {
+    console.error("CRM sync failed and was ignored:", error);
+  }
+};
+
 export async function onRequestPost(context) {
   const { request, env } = context;
   try {
@@ -93,6 +146,14 @@ export async function onRequestPost(context) {
     }
 
     const result = await res.json();
+    const crmTask = syncCrmLead(data, env);
+
+    try {
+      context.waitUntil?.(crmTask);
+    } catch (error) {
+      console.error("Unable to register CRM background sync; failure was ignored:", error);
+    }
+
     return new Response(JSON.stringify({ 
       success: true, 
       message: "Email sent successfully",

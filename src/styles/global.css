@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Zoho Puvi v4.0 webfonts, sourced from Zoho's official font CDN. */
+@font-face {
+  font-family: 'Zoho Puvi';
+  src: url('/fonts/zoho-puvi-regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zoho Puvi';
+  src: url('/fonts/zoho-puvi-medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zoho Puvi';
+  src: url('/fonts/zoho-puvi-semibold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zoho Puvi';
+  src: url('/fonts/zoho-puvi-bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
 @font-face {
   font-family: 'Manrope';
   src: url('/fonts/manrope-700-latin.woff2') format('woff2');
@@ -33,10 +66,10 @@
 
   body,
   body * {
-    font-family: 'TeX Gyre Adventor', Arial, sans-serif !important;
+    font-family: 'Zoho Puvi', Arial, sans-serif !important;
   }
 
   .quote-nav-button {
-    font-family: 'Manrope', 'TeX Gyre Adventor', Arial, sans-serif !important;
+    font-family: 'Zoho Puvi', Arial, sans-serif !important;
   }
 }

@@ -102,7 +102,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: "Fitclo Website <inquiry@fitcloo.com>",
-        to: ["jason@dgfanco.com"],
+        to: ["sales@fitcloo.com"],
         subject: `New ${escapeHtml(data.inquiry_type || "Website")} Inquiry from ${escapeHtml(data.name)}`,
         reply_to: data.email || undefined,
         html: `

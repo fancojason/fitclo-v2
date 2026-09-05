@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Fitclo"
+  description="The requested page could not be found. Browse Fitclo activewear products or contact our manufacturing team."
+  canonicalURL="https://www.fitcloo.com/404/"
+  robots="noindex, follow"
+  includeBreadcrumbSchema={false}
+>
+  <section class="flex min-h-[70vh] items-center bg-[#0a0a0f] px-6 pb-20 pt-36 text-white">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-bold tracking-[0.25em] text-[#C9A84C]">404</p>
+      <h1 class="mt-4 text-4xl font-bold md:text-6xl">Page not found</h1>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-7 text-white/65">The address may be incorrect or the page may have moved.</p>
+      <div class="mt-9 flex flex-wrap justify-center gap-4">
+        <a href="/" class="rounded-full bg-[#C9A84C] px-7 py-3 font-bold text-black">Return home</a>
+        <a href="/products/" class="rounded-full border border-white/30 px-7 py-3 font-bold text-white">Browse products</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

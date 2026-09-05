@@ -21,3 +21,17 @@ export const localizeMarkup = (html: string, translations: readonly TranslationP
       return localized.replace(textNode, (_match, before: string, after: string) => `${before}${spanish}${after}`);
     }, output);
   }, html);
+
+export const localizeEnglishWhatsAppLinks = (html: string, spanishMessage: string) =>
+  html.replace(
+    /((?:https:\/\/api\.whatsapp\.com\/send\?phone=8617160837538&(?:amp;)?text=|https:\/\/wa\.me\/8617160837538\?text=))([^"'<\s&]+)/g,
+    (match, prefix: string, encodedMessage: string) => {
+      try {
+        return /^(?:hello|hi)\b/i.test(decodeURIComponent(encodedMessage))
+          ? `${prefix}${encodeURIComponent(spanishMessage)}`
+          : match;
+      } catch {
+        return match;
+      }
+    },
+  );

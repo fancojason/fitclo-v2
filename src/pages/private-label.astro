@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+import { getAlternateLinks } from '../i18n/routes';
 
 const privateLabelSchema = {
   '@context': 'https://schema.org',
@@ -51,6 +52,7 @@ const privateLabelSchema = {
   title="Private Label Activewear Manufacturer | Custom Sportswear Solutions"
   description="Build your activewear brand with Fitclo's private label services. We offer end-to-end OEM/ODM manufacturing, low MOQs, custom branding, and premium quality yoga wear."
   structuredData={[privateLabelSchema]}
+  alternateLinks={getAlternateLinks('/private-label/', '/es/private-label-activewear/')}
 >
   <!-- Hero Section -->
   <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">

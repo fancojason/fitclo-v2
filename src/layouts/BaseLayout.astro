@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingButtons from '../components/FloatingButtons.astro';
 import LegacyBlogShell from '../components/LegacyBlogShell.astro';
+import { localizeMarkup, type TranslationPair } from '../i18n/localize';
 import '../styles/global.css';
 
 const {
@@ -12,6 +13,7 @@ const {
   canonicalURL,
   lang = 'en',
   alternateLinks = [],
+  translations = [] as TranslationPair[],
   image = 'https://www.fitcloo.com/images/intelligence/hero-activewear-intelligence.png',
   structuredData = [],
   autoArticleSchema = true,
@@ -51,6 +53,7 @@ const metaDescription = isBlogDetail ? normalizeMetaDescription(description) : d
 const isBlogArticle = autoArticleSchema && isBlogDetail;
 const shouldUseLegacyShell = legacyShell ?? isBlogArticle;
 const pathSegments = canonicalPath.split('/').filter(Boolean);
+const breadcrumbSegments = lang === 'es' && pathSegments[0] === 'es' ? pathSegments.slice(1) : pathSegments;
 const legacyContext = `${title} ${description}`.toLowerCase();
 const legacyKind = /( vs |compare|comparison|difference)/.test(legacyContext)
   ? 'comparison-guide'
@@ -94,15 +97,16 @@ const organizationSchema = {
   logo: 'https://www.fitcloo.com/favicon.webp?v=3',
   foundingDate: '2010',
   email: 'sales@fitcloo.com',
-  description:
-    'Fitclo is a China-based activewear manufacturer for private label yoga wear, leggings, sports bras, gym clothing and OEM/ODM sportswear production.',
+  description: lang === 'es'
+    ? 'Fitclo es un fabricante de ropa deportiva en China para marca privada, ropa de yoga, leggings, sujetadores deportivos y producción OEM/ODM.'
+    : 'Fitclo is a China-based activewear manufacturer for private label yoga wear, leggings, sports bras, gym clothing and OEM/ODM sportswear production.',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+86-171-6083-7538',
     email: 'sales@fitcloo.com',
     contactType: 'sales',
-    areaServed: 'Worldwide',
-    availableLanguage: ['English', 'Chinese'],
+    areaServed: lang === 'es' ? 'Internacional' : 'Worldwide',
+    availableLanguage: lang === 'es' ? ['Spanish', 'English', 'Chinese'] : ['English', 'Chinese'],
   },
   address: {
     '@type': 'PostalAddress',
@@ -119,18 +123,12 @@ const organizationSchema = {
     'Africa',
     'Asia-Pacific',
   ],
-  knowsAbout: [
-    'Private label activewear manufacturing',
-    'OEM and ODM sportswear production',
-    'Yoga leggings manufacturing',
-    'Sports bra manufacturing',
-    'Activewear fabric development',
-    'Low MOQ activewear sourcing',
-    'Seamless activewear production',
-  ],
+  knowsAbout: lang === 'es'
+    ? ['Fabricación de ropa deportiva de marca privada', 'Producción OEM y ODM de ropa deportiva', 'Fabricación de leggings de yoga', 'Fabricación de sujetadores deportivos', 'Desarrollo de tejidos deportivos', 'Abastecimiento de ropa deportiva con MOQ bajo', 'Producción de ropa deportiva sin costuras']
+    : ['Private label activewear manufacturing', 'OEM and ODM sportswear production', 'Yoga leggings manufacturing', 'Sports bra manufacturing', 'Activewear fabric development', 'Low MOQ activewear sourcing', 'Seamless activewear production'],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Fitclo Activewear Product Catalog',
+    name: lang === 'es' ? 'Catálogo de ropa deportiva Fitclo' : 'Fitclo Activewear Product Catalog',
     url: `${siteUrl}/products/`,
   },
 };
@@ -141,7 +139,7 @@ const websiteSchema = {
   '@id': `${siteUrl}/#website`,
   name: 'Fitclo',
   url: siteUrl,
-  inLanguage: 'en',
+  inLanguage: lang,
   publisher: {
     '@id': `${siteUrl}/#organization`,
   },
@@ -154,11 +152,13 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'Home',
-      item: `${siteUrl}/`,
+      name: lang === 'es' ? 'Inicio' : 'Home',
+      item: lang === 'es' ? `${siteUrl}/es/` : `${siteUrl}/`,
     },
-    ...pathSegments.map((segment, index) => {
-      const itemPath = `/${pathSegments.slice(0, index + 1).join('/')}/`;
+    ...breadcrumbSegments.map((segment, index) => {
+      const itemPath = lang === 'es'
+        ? `/es/${breadcrumbSegments.slice(0, index + 1).join('/')}/`
+        : `/${breadcrumbSegments.slice(0, index + 1).join('/')}/`;
       const label = segment
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -167,7 +167,7 @@ const breadcrumbSchema = {
       return {
         '@type': 'ListItem',
         position: index + 2,
-        name: index === pathSegments.length - 1 ? title.replace(/\s\|\s.*$/, '') : label,
+        name: index === breadcrumbSegments.length - 1 ? title.replace(/\s\|\s.*$/, '') : label,
         item: new URL(itemPath, siteUrl).href,
       };
     }),
@@ -222,6 +222,9 @@ const pageStructuredData = [
   ...(legacyFaqSchema ? [legacyFaqSchema] : []),
   ...schemaItems.filter(Boolean),
 ];
+const localizedContent = translations.length
+  ? localizeMarkup(await Astro.slots.render('default'), translations)
+  : null;
 ---
 
 <html lang={lang}>
@@ -243,7 +246,7 @@ const pageStructuredData = [
     <meta property="og:type" content={isBlogDetail ? 'article' : 'website'} />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:site_name" content="Fitclo" />
-    <meta property="og:locale" content={lang.toLowerCase().startsWith('ru') ? 'ru_RU' : 'en_US'} />
+    <meta property="og:locale" content={lang.toLowerCase().startsWith('ru') ? 'ru_RU' : lang.toLowerCase().startsWith('es') ? 'es_ES' : 'en_US'} />
     <meta property="og:title" content={isBlogDetail ? cleanArticleTitle : title} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:image" content={image} />
@@ -263,17 +266,17 @@ const pageStructuredData = [
   </head>
 
   <body class="bg-white selection:bg-accent selection:text-black">
-    <Header />
+    <Header lang={lang} />
     <main>
       {shouldUseLegacyShell ? (
         <LegacyBlogShell title={title} description={description} articleKind={legacyKind} type={legacyType} faqs={autoArticleSchema ? legacyFaqs : []}>
           <slot />
         </LegacyBlogShell>
       ) : (
-        <slot />
+        localizedContent !== null ? <Fragment set:html={localizedContent} /> : <slot />
       )}
     </main>
-    <Footer />
-    <FloatingButtons />
+    <Footer lang={lang} />
+    <FloatingButtons lang={lang} />
   </body>
 </html>

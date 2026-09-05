@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+import { getAlternateLinks } from '../../i18n/routes';
+---
+
+<BaseLayout
+  lang="es"
+  title="Contacto | Fabricante de Ropa Deportiva Fitclo"
+  description="Contacta con Fitclo para ropa deportiva de marca privada, producción OEM/ODM, stock mayorista, muestras, planificación de MOQ y envíos internacionales."
+  canonicalURL="https://www.fitcloo.com/es/contact/"
+  alternateLinks={getAlternateLinks('/contact/', '/es/contact/')}
+>
+  <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="/images/migrated/third-party/a04428d73312944d383b8fa9d917bc4b60-f1dcdf4db3.webp" alt="Contacta con Fitclo" class="w-full h-full object-cover opacity-50" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
+    </div>
+    <div class="relative z-10 text-center px-4">
+      <h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[12px] mb-4 uppercase font-['Century_Gothic',sans-serif]">CONTACTO</h3>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight font-['Century_Gothic',sans-serif] tracking-tight">Hablemos de <span class="text-[#C9A84C] italic">tu proyecto</span></h1>
+      <p class="text-lg md:text-xl text-white/50 font-['Century_Gothic',sans-serif] max-w-2xl mx-auto leading-relaxed">Sede internacional y centro de fabricación. Nuestros asesores están listos para apoyar el crecimiento de tu marca.</p>
+    </div>
+  </section>
+  <div class="py-24 bg-white"><InquiryForm /></div>
+</BaseLayout>

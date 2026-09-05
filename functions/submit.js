@@ -43,6 +43,8 @@ const syncCrmLead = async (data, env) => {
         material: data.material,
         logoPlacement: data.logo_placement,
         message: data.message,
+        language: data.language || "en",
+        pagePath: data.page_path,
         submittedAt: new Date().toISOString(),
         pageUrl: data.page_url || "https://www.fitcloo.com/inquiry/",
       }),
@@ -127,6 +129,8 @@ export async function onRequestPost(context) {
             ${data.product_name ? detailRow("Product Name", data.product_name) : ""}
             ${data.product_code ? detailRow("Product Code", data.product_code) : ""}
             ${data.page_url ? detailRow("Page URL", data.page_url) : ""}
+            ${detailRow("Language", data.language || "en")}
+            ${data.page_path ? detailRow("Page Path", data.page_path) : ""}
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
             <p style="font-size: 12px; color: #888;">This inquiry was sent from the contact form on fitcloo.com.</p>
           </div>

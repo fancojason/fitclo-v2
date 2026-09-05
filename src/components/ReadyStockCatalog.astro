@@ -2,7 +2,13 @@
 import { productCategories } from '../data/productCategories';
 import { readyStockCatalog } from '../data/readyStockCatalog';
 
-const categoryLabels = new Map(productCategories.map((category) => [category.slug, category.navLabel]));
+const isSpanish = Astro.url.pathname.startsWith('/es/');
+const spanishCategoryLabels: Record<string, string> = {
+  'sports-bras': 'Sujetadores deportivos', 'gym-shorts': 'Shorts deportivos', 'training-pants': 'Pantalones de entrenamiento',
+  leggings: 'Leggings', 't-shirts': 'Camisetas', 'tank-tops': 'Camisetas sin mangas', 'matching-sets': 'Conjuntos deportivos',
+  jumpsuits: 'Monos deportivos', jackets: 'Chaquetas',
+};
+const categoryLabels = new Map(productCategories.map((category) => [category.slug, isSpanish ? spanishCategoryLabels[category.slug] ?? category.navLabel : category.navLabel]));
 const categories = Array.from(new Set(readyStockCatalog.map((product) => product.category))).map((category) => ({
   value: category,
   label: categoryLabels.get(category) ?? category.replace(/-/g, ' '),
@@ -10,78 +16,103 @@ const categories = Array.from(new Set(readyStockCatalog.map((product) => product
 
 const whatsappBase = 'https://api.whatsapp.com/send?phone=8617160837538&text=';
 const catalogDownload = '/downloads/ready-stock-activewear-line-sheet.pdf';
+const copy = isSpanish ? {
+  eyebrow: 'LISTA ACTUAL DE STOCK DISPONIBLE', title: 'Explora modelos antes de solicitar la combinación actual de colores y tallas.',
+  intro: 'Usa los filtros para crear una selección práctica. Son modelos del programa de stock disponible con MOQ desde 50 unidades o 50 sets; la disponibilidad se confirma según color, tallas y requisitos de marca.',
+  download: 'Descargar lista de stock disponible', search: 'Buscar modelos en stock', searchPlaceholder: 'Buscar por modelo, categoría o característica',
+  categoryFilter: 'Filtrar por categoría', allCategories: 'Todas las categorías', moqFilter: 'Filtrar por MOQ', allMoq: 'Todas las opciones de MOQ',
+  sets: 'MOQ 50 sets', pcs: 'MOQ 50 unidades', clear: 'Limpiar filtros', shown: 'modelos del programa de stock disponible',
+  brandOptions: 'Opciones de logo, etiquetas y embalaje', sample: 'Solicitud de muestra disponible', availability: 'Disponibilidad verificada antes del pedido',
+  sampleLabel: 'MUESTRA', sampleValue: 'Disponible bajo solicitud', branding: 'MARCA', brandingValue: 'Logo, etiquetas y embalaje',
+  check: 'Consultar disponibilidad', noMatch: 'Ningún modelo coincide con estos filtros. Envíanos la categoría, cantidad y referencia para comprobar opciones adecuadas.',
+  availabilityNote: 'Confirmar colores y combinación de tallas actuales',
+} : {
+  eyebrow: 'CURRENT READY-STOCK LINE SHEET', title: 'Browse styles before you request the current colour and size mix.',
+  intro: 'Use the filters to create a practical shortlist. These are ready-stock programme styles with MOQ from 50 pcs or 50 sets; live availability is confirmed against your selected colour, size breakdown and branding requirement.',
+  download: 'Download Ready-Stock Line Sheet', search: 'Search ready-stock styles', searchPlaceholder: 'Search style name, category or feature',
+  categoryFilter: 'Filter by category', allCategories: 'All categories', moqFilter: 'Filter by MOQ', allMoq: 'All MOQ options',
+  sets: 'MOQ 50 sets', pcs: 'MOQ 50 pcs', clear: 'Clear filters', shown: 'ready-stock programme styles shown',
+  brandOptions: 'Logo, labels and packaging options', sample: 'Sample request supported', availability: 'Availability checked before order',
+  sampleLabel: 'SAMPLE', sampleValue: 'Request available', branding: 'BRANDING', brandingValue: 'Logo, labels, hang tags, packaging',
+  check: 'Check availability', noMatch: 'No ready-stock styles match this filter. Send us your required category, quantity and reference so we can check suitable options.',
+  availabilityNote: 'Confirm current colours and size mix',
+};
 ---
 
 <section id="ready-stock-catalog" class="bg-[#090909] py-16 text-white md:py-24" data-ready-stock-root>
   <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
     <div class="grid gap-8 border-b border-white/15 pb-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
       <div>
-        <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">CURRENT READY-STOCK LINE SHEET</p>
-        <h2 class="mt-4 max-w-[800px] text-[34px] font-bold leading-[1.08] text-white md:text-[50px] font-['Century_Gothic',sans-serif]">Browse styles before you request the current colour and size mix.</h2>
-        <p class="mt-5 max-w-[760px] text-[15px] leading-[1.75] text-white/65 md:text-[17px] font-['Century_Gothic',sans-serif]">Use the filters to create a practical shortlist. These are ready-stock programme styles with MOQ from 50 pcs or 50 sets; live availability is confirmed against your selected colour, size breakdown and branding requirement.</p>
+        <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{copy.eyebrow}</p>
+        <h2 class="mt-4 max-w-[800px] text-[34px] font-bold leading-[1.08] text-white md:text-[50px] font-['Century_Gothic',sans-serif]">{copy.title}</h2>
+        <p class="mt-5 max-w-[760px] text-[15px] leading-[1.75] text-white/65 md:text-[17px] font-['Century_Gothic',sans-serif]">{copy.intro}</p>
       </div>
-      <a href={catalogDownload} download class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-[#d8b456] px-6 text-center text-[13px] font-bold tracking-[0.05em] text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">Download Ready-Stock Line Sheet</a>
+      <a href={catalogDownload} download class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-[#d8b456] px-6 text-center text-[13px] font-bold tracking-[0.05em] text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">{copy.download}</a>
     </div>
 
     <div class="mt-9 grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(180px,.6fr)_minmax(180px,.6fr)_auto]">
       <label class="relative block">
-        <span class="sr-only">Search ready-stock styles</span>
-        <input type="search" placeholder="Search style name, category or feature" class="h-[52px] w-full border border-white/15 bg-[#141414] px-5 pr-12 text-[14px] text-white outline-none transition-colors placeholder:text-white/40 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-search />
+        <span class="sr-only">{copy.search}</span>
+        <input type="search" placeholder={copy.searchPlaceholder} class="h-[52px] w-full border border-white/15 bg-[#141414] px-5 pr-12 text-[14px] text-white outline-none transition-colors placeholder:text-white/40 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-search />
         <span class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[#d8b456]" aria-hidden="true">⌕</span>
       </label>
       <label>
-        <span class="sr-only">Filter by category</span>
+        <span class="sr-only">{copy.categoryFilter}</span>
         <select class="h-[52px] w-full border border-white/15 bg-[#141414] px-4 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-category>
-          <option value="all">All categories</option>
+          <option value="all">{copy.allCategories}</option>
           {categories.map((category) => <option value={category.value}>{category.label}</option>)}
         </select>
       </label>
       <label>
-        <span class="sr-only">Filter by MOQ</span>
+        <span class="sr-only">{copy.moqFilter}</span>
         <select class="h-[52px] w-full border border-white/15 bg-[#141414] px-4 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-moq>
-          <option value="all">All MOQ options</option>
-          <option value="sets">MOQ 50 sets</option>
-          <option value="pcs">MOQ 50 pcs</option>
+          <option value="all">{copy.allMoq}</option>
+          <option value="sets">{copy.sets}</option>
+          <option value="pcs">{copy.pcs}</option>
         </select>
       </label>
-      <button type="button" class="h-[52px] border border-white/20 px-6 text-[12px] font-bold tracking-[0.08em] text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-clear>Clear filters</button>
+      <button type="button" class="h-[52px] border border-white/20 px-6 text-[12px] font-bold tracking-[0.08em] text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-clear>{copy.clear}</button>
     </div>
 
     <div class="mt-5 flex flex-wrap items-center justify-between gap-4 text-[12px] font-['Century_Gothic',sans-serif]">
-      <p class="text-white/55"><span class="font-bold text-white" data-ready-count>{readyStockCatalog.length}</span> ready-stock programme styles shown</p>
+      <p class="text-white/55"><span class="font-bold text-white" data-ready-count>{readyStockCatalog.length}</span> {copy.shown}</p>
       <div class="flex flex-wrap gap-x-5 gap-y-2 text-white/70">
-        <span><span class="mr-1.5 text-[#d8b456]">✓</span>Logo, labels and packaging options</span>
-        <span><span class="mr-1.5 text-[#d8b456]">✓</span>Sample request supported</span>
-        <span><span class="mr-1.5 text-[#d8b456]">✓</span>Availability checked before order</span>
+        <span><span class="mr-1.5 text-[#d8b456]">✓</span>{copy.brandOptions}</span>
+        <span><span class="mr-1.5 text-[#d8b456]">✓</span>{copy.sample}</span>
+        <span><span class="mr-1.5 text-[#d8b456]">✓</span>{copy.availability}</span>
       </div>
     </div>
 
     <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4" data-ready-grid>
       {readyStockCatalog.map((product) => {
         const categoryLabel = categoryLabels.get(product.category) ?? product.category.replace(/-/g, ' ');
-        const message = encodeURIComponent(`Hello Fitclo, I am interested in the ready-stock programme for ${product.name} (${product.styleCode}). Please confirm available colours, size mix, sample options and logo requirements.`);
+        const displayName = isSpanish ? `${categoryLabel} · ${product.styleCode}` : product.name;
+        const displayDescription = isSpanish ? `Modelo de ${categoryLabel.toLowerCase()} del programa de stock disponible. Consulta colores, tallas, muestras y opciones de personalización.` : product.description;
+        const message = encodeURIComponent(isSpanish
+          ? `Hola Fitclo, me interesa el modelo ${product.styleCode} del programa de stock disponible. Confirmen colores, tallas, muestras y opciones de logo.`
+          : `Hello Fitclo, I am interested in the ready-stock programme for ${product.name} (${product.styleCode}). Please confirm available colours, size mix, sample options and logo requirements.`);
         return (
-          <article class="ready-stock-card flex h-full flex-col border border-white/15 bg-[#121212]" data-ready-card data-category={product.category} data-moq={product.moq.includes('sets') ? 'sets' : 'pcs'} data-search={`${product.name} ${product.description} ${product.keywords.join(' ')}`.toLowerCase()}>
+          <article class="ready-stock-card min-w-0 flex h-full flex-col border border-white/15 bg-[#121212]" data-ready-card data-category={product.category} data-moq={product.moq.includes('sets') ? 'sets' : 'pcs'} data-search={`${product.name} ${product.description} ${product.keywords.join(' ')} ${displayName} ${displayDescription} ${categoryLabel} ${product.styleCode}`.toLowerCase()}>
             <div class="aspect-square overflow-hidden bg-[#efefef]">
-              <img src={product.image} alt={product.name} class="h-full w-full object-contain transition-transform duration-500 hover:scale-[1.025]" loading="lazy" />
+              <img src={product.image} alt={displayName} class="h-full w-full object-contain transition-transform duration-500 hover:scale-[1.025]" loading="lazy" />
             </div>
             <div class="flex flex-1 flex-col p-5">
               <p class="text-[10px] font-bold tracking-[0.16em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{categoryLabel.toUpperCase()}</p>
-              <h3 class="mt-3 text-[18px] font-bold leading-[1.3] text-white font-['Century_Gothic',sans-serif]">{product.name}</h3>
-              <p class="mt-3 line-clamp-3 text-[13px] leading-[1.6] text-white/60 font-['Century_Gothic',sans-serif]">{product.description}</p>
+              <h3 class="mt-3 break-words [overflow-wrap:anywhere] text-[18px] font-bold leading-[1.3] text-white font-['Century_Gothic',sans-serif]">{displayName}</h3>
+              <p class="mt-3 line-clamp-3 text-[13px] leading-[1.6] text-white/60 font-['Century_Gothic',sans-serif]">{displayDescription}</p>
               <div class="mt-5 grid grid-cols-2 gap-x-3 gap-y-3 border-y border-white/10 py-4 text-[11px] font-['Century_Gothic',sans-serif]">
                 <div><p class="font-bold tracking-[0.1em] text-[#d8b456]">MOQ</p><p class="mt-1 text-white">{product.moq}</p></div>
-                <div><p class="font-bold tracking-[0.1em] text-[#d8b456]">SAMPLE</p><p class="mt-1 text-white">Request available</p></div>
-                <div class="col-span-2"><p class="font-bold tracking-[0.1em] text-[#d8b456]">BRANDING</p><p class="mt-1 text-white/80">Logo, labels, hang tags, packaging</p></div>
+                <div><p class="font-bold tracking-[0.1em] text-[#d8b456]">{copy.sampleLabel}</p><p class="mt-1 text-white">{copy.sampleValue}</p></div>
+                <div class="col-span-2"><p class="font-bold tracking-[0.1em] text-[#d8b456]">{copy.branding}</p><p class="mt-1 text-white/80">{copy.brandingValue}</p></div>
               </div>
-              <p class="mt-4 text-[11px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">{product.availabilityNote}.</p>
-              <a href={`${whatsappBase}${message}`} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex min-h-[42px] items-center justify-center rounded-full border border-[#d8b456] px-4 text-center text-[12px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">Check availability</a>
+              <p class="mt-4 text-[11px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">{isSpanish ? copy.availabilityNote : product.availabilityNote}.</p>
+              <a href={`${whatsappBase}${message}`} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex min-h-[42px] items-center justify-center rounded-full border border-[#d8b456] px-4 text-center text-[12px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">{copy.check}</a>
             </div>
           </article>
         );
       })}
     </div>
-    <p class="mt-10 hidden border-y border-white/15 py-10 text-center text-[15px] text-white/60 font-['Century_Gothic',sans-serif]" data-ready-empty>No ready-stock styles match this filter. Send us your required category, quantity and reference so we can check suitable options.</p>
+    <p class="mt-10 hidden border-y border-white/15 py-10 text-center text-[15px] text-white/60 font-['Century_Gothic',sans-serif]" data-ready-empty>{copy.noMatch}</p>
   </div>
 </section>
 

@@ -2,15 +2,25 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from './InquiryForm.astro';
 import { getCatalogProductByStyleCode, type CatalogProduct } from '../data/productCatalog';
+import { getAlternateLinks, type SiteLanguage } from '../i18n/routes';
 
-const { page } = Astro.props;
+const { page, lang = 'en', canonicalPath, englishPath, translations = [] } = Astro.props;
+const language: SiteLanguage = lang === 'es' ? 'es' : 'en';
+const isSpanish = language === 'es';
 const products = page.productCodes
   .map((styleCode: string) => getCatalogProductByStyleCode(styleCode))
   .filter((product: CatalogProduct | undefined): product is CatalogProduct => Boolean(product));
 const heroImage = page.heroImage ?? products[0]?.image ?? '/images/products/shared/private-label-customization-options.webp';
 const heroImageAlt = page.heroImageAlt ?? products[0]?.name ?? 'Private label activewear customization options';
-const pageUrl = `https://www.fitcloo.com/${page.slug}/`;
-const whatsappUrl = `https://wa.me/8617160837538?text=${encodeURIComponent(`Hi Fitclo, I am sourcing ${page.title}. Please share suitable styles, MOQ, sample and branding options.`)}`;
+const currentPath = canonicalPath ?? `/${page.slug}/`;
+const pageUrl = `https://www.fitcloo.com${currentPath}`;
+const englishEquivalent = englishPath ?? (page.slug === 'oem-activewear-manufacturer' ? '/oem-activewear-manufacturer/' : undefined);
+const spanishEquivalent = page.slug === 'oem-activewear-manufacturer' ? '/es/oem-activewear-manufacturer/' : undefined;
+const alternateLinks = englishEquivalent && spanishEquivalent ? getAlternateLinks(englishEquivalent, spanishEquivalent) : [];
+const whatsappMessage = isSpanish
+  ? `Hola Fitclo, estoy buscando ${page.title}. Compartan modelos adecuados, MOQ y opciones de muestra y marca privada.`
+  : `Hi Fitclo, I am sourcing ${page.title}. Please share suitable styles, MOQ, sample and branding options.`;
+const whatsappUrl = `https://wa.me/8617160837538?text=${encodeURIComponent(whatsappMessage)}`;
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -20,13 +30,13 @@ const serviceSchema = {
   description: page.description,
   provider: { '@id': 'https://www.fitcloo.com/#organization' },
   areaServed: 'Worldwide',
-  audience: { '@type': 'BusinessAudience', audienceType: 'Activewear brands, buyers, retailers, fitness studios and apparel entrepreneurs' },
+  audience: { '@type': 'BusinessAudience', audienceType: isSpanish ? 'Marcas de ropa deportiva, compradores, minoristas, estudios fitness y emprendedores de moda' : 'Activewear brands, buyers, retailers, fitness studios and apparel entrepreneurs' },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: `${page.title} product directions`,
     itemListElement: products.map((product: CatalogProduct) => ({
       '@type': 'Offer',
-      itemOffered: { '@type': 'Product', name: product.name, sku: product.styleCode, image: `https://www.fitcloo.com${product.image}` },
+      itemOffered: { '@type': 'Product', name: isSpanish ? `${page.productTranslations?.[product.styleCode]?.name ?? 'Modelo de ropa deportiva'} ${product.styleCode}` : product.name, sku: product.styleCode, image: `https://www.fitcloo.com${product.image}` },
     })),
   },
 };
@@ -39,7 +49,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout title={page.seoTitle} description={page.description} canonicalURL={pageUrl} image={`https://www.fitcloo.com${heroImage}`} structuredData={[serviceSchema, faqSchema]} autoArticleSchema={false}>
+<BaseLayout title={page.seoTitle} description={page.description} canonicalURL={pageUrl} lang={language} alternateLinks={alternateLinks} translations={isSpanish ? translations : []} image={`https://www.fitcloo.com${heroImage}`} structuredData={[serviceSchema, faqSchema]} autoArticleSchema={false}>
   <section class="relative overflow-hidden bg-[#090909] pt-[82px] text-white">
     <img src={heroImage} alt={heroImageAlt} class="absolute inset-0 h-full w-full object-cover object-center opacity-35" fetchpriority="high" />
     <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,.97)_0%,rgba(5,5,5,.88)_52%,rgba(5,5,5,.48)_100%)]"></div>
@@ -78,7 +88,12 @@ const faqSchema = {
 
   <section id="product-directions" class="bg-[#090909] py-20 text-white md:py-24"><div class="mx-auto max-w-[1320px] px-6 lg:px-10">
     <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"><div><p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">RELATED PRODUCT DIRECTIONS</p><h2 class="mt-4 max-w-[720px] text-[34px] font-bold leading-[1.1] md:text-[47px] font-['Century_Gothic',sans-serif]">Start from relevant product references.</h2></div><a href={page.catalogPath} class="text-[13px] font-bold text-[#d8b456]">{page.catalogLabel} &rarr;</a></div>
-    <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{products.map((product: CatalogProduct) => <article class="overflow-hidden border border-white/15 bg-[#111218]"><img src={product.image} alt={product.name} class="aspect-square w-full object-cover" loading="lazy" /><div class="p-6"><p class="text-[10px] font-bold tracking-[.16em] text-[#d8b456]">{product.moq.toUpperCase()}</p><h3 class="mt-3 text-[21px] font-bold leading-[1.26] font-['Century_Gothic',sans-serif]">{product.name}</h3><p class="mt-3 min-h-[68px] text-[14px] leading-[1.6] text-white/65">{product.description}</p><a href={`${whatsappUrl}%0AStyle%20reference%3A%20${encodeURIComponent(product.styleCode)}`} target="_blank" rel="noreferrer" class="mt-5 inline-flex text-[13px] font-bold text-[#d8b456]">Ask about {product.styleCode} &rarr;</a></div></article>)}</div>
+    <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{products.map((product: CatalogProduct) => {
+      const localizedProduct = isSpanish ? page.productTranslations?.[product.styleCode] : undefined;
+      const productName = localizedProduct?.name ?? product.name;
+      const productDescription = localizedProduct?.description ?? product.description;
+      return <article class="overflow-hidden border border-white/15 bg-[#111218]"><img src={product.image} alt={productName} class="aspect-square w-full object-cover" loading="lazy" /><div class="p-6"><p class="text-[10px] font-bold tracking-[.16em] text-[#d8b456]">{product.moq.toUpperCase()}</p><h3 class="mt-3 text-[21px] font-bold leading-[1.26] font-['Century_Gothic',sans-serif]">{productName}</h3><p class="mt-3 min-h-[68px] text-[14px] leading-[1.6] text-white/65">{productDescription}</p><a href={`${whatsappUrl}%0A${encodeURIComponent(isSpanish ? 'Referencia de modelo' : 'Style reference')}%3A%20${encodeURIComponent(product.styleCode)}`} target="_blank" rel="noreferrer" class="mt-5 inline-flex text-[13px] font-bold text-[#d8b456]">{isSpanish ? 'Consultar' : 'Ask about'} {product.styleCode} &rarr;</a></div></article>;
+    })}</div>
   </div></section>
 
   <section class="border-y border-white/10 bg-[#111218] py-20 text-white md:py-24"><div class="mx-auto grid max-w-[1320px] gap-12 px-6 lg:grid-cols-[.82fr_1.18fr] lg:px-10"><div><p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">BUYER DECISION FRAMEWORK</p><h2 class="mt-4 text-[34px] font-bold leading-[1.1] md:text-[47px] font-['Century_Gothic',sans-serif]">Turn an idea into a workable sourcing brief.</h2><p class="mt-5 text-[16px] leading-[1.75] text-white/65">A clear brief lets a buyer compare a selected ready-stock route with a more custom development route without treating them as the same offer.</p></div><div class="overflow-x-auto border border-white/15"><table class="min-w-[680px] w-full text-left font-['Century_Gothic',sans-serif]"><thead class="bg-black/30 text-[11px] tracking-[.13em] text-[#d8b456]"><tr><th class="p-5">DECISION</th><th class="p-5">BUYER QUESTION</th><th class="p-5">RECORD BEFORE SAMPLE</th></tr></thead><tbody>{page.decisionRows.map((row: [string, string, string]) => <tr class="border-t border-white/10 align-top text-[14px] leading-[1.6] text-white/72"><td class="p-5 font-bold text-white">{row[0]}</td><td class="p-5">{row[1]}</td><td class="p-5">{row[2]}</td></tr>)}</tbody></table></div></div></section>

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
 import ReadyStockCatalog from '../components/ReadyStockCatalog.astro';
 import { readyStockCatalog } from '../data/readyStockCatalog';
+import { getAlternateLinks } from '../i18n/routes';
 
 const pageUrl = 'https://www.fitcloo.com/ready-to-ship/';
 const readyStockSchema = {
@@ -61,6 +62,7 @@ const faqSchema = {
   description="Filter Fitclo ready-stock activewear by category and MOQ. Request current colours and size mixes, logo customization, samples, a wholesale quote or the ready-stock line sheet."
   image="https://www.fitcloo.com/images/ready-stock/ready-stock-activewear-open-carton-warehouse-hero.webp"
   canonicalURL={pageUrl}
+  alternateLinks={getAlternateLinks('/ready-to-ship/', '/es/ready-stock-activewear/')}
   structuredData={[readyStockSchema, faqSchema]}
   autoArticleSchema={false}
 >

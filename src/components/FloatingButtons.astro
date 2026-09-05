@@ -1,4 +1,10 @@
 ---
+import { getUi } from '../i18n/ui';
+import type { SiteLanguage } from '../i18n/routes';
+
+const language: SiteLanguage = Astro.props.lang === 'es' ? 'es' : 'en';
+const ui = getUi(language);
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(ui.whatsappMessage)}`;
 ---
 
 <!-- Floating Controls (WhatsApp Left, Quote Right) -->
@@ -8,26 +14,31 @@
     <button 
       id="wa-trigger"
       class="whatsapp-float"
-      aria-label="Contact on WhatsApp"
+      aria-label={ui.floating.aria}
+      data-wa-url={whatsappUrl}
+      data-language={language}
     >
       <img src="/images/whatsapp-icon.webp" class="wa-img" alt="WhatsApp" />
     </button>
-    <span class="wa-tooltip font-['Century_Gothic',sans-serif]">Contact Us</span>
+    <span class="wa-tooltip font-['Century_Gothic',sans-serif]">{ui.floating.tooltip}</span>
   </div>
 
 <script>
   const waTrigger = document.getElementById('wa-trigger');
   if (waTrigger) {
     waTrigger.addEventListener('click', () => {
-      const waUrl = "https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20premium%20activewear%20collection%20and%20would%20like%20to%20discuss%20a%20custom%20project.%20Can%20we%20chat%3F";
+      const waUrl = waTrigger.dataset.waUrl;
+      if (!waUrl) return;
+      const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, string>> };
+      analyticsWindow.dataLayer?.push({ event: 'whatsapp_click', language: waTrigger.dataset.language || 'en', page_path: window.location.pathname });
       window.open(waUrl, '_blank');
     });
   }
 </script>
 
   <!-- Quote Right -->
-  <a href="https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20just%20viewed%20your%20premium%20activewear%20collection%20and%20would%20like%20to%20discuss%20a%20custom%20project.%20Can%20we%20chat%3F" target="_blank" class="quote-float">
-    <span>Get a Free Quote</span>
+  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="quote-float" data-wa-quote data-language={language}>
+    <span>{ui.floating.quote}</span>
   </a>
 </div>
 
@@ -156,7 +167,9 @@
     .floating-controls {
       bottom: 20px;
       left: 15px;
-      right: 15px;
+      right: auto;
+      width: calc(100vw - 30px);
+      max-width: calc(100vw - 30px);
     }
     .whatsapp-float {
       width: 56px;
@@ -174,3 +187,12 @@
     }
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('[data-wa-quote]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, string>> };
+      analyticsWindow.dataLayer?.push({ event: 'whatsapp_click', language: link.dataset.language || 'en', page_path: window.location.pathname });
+    });
+  });
+</script>

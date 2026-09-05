@@ -22,12 +22,14 @@ import TrustStats from '../components/TrustStats.astro';
 import ClientLogos from '../components/ClientLogos.astro';
 import InquiryForm from '../components/InquiryForm.astro';
 import ActivewearGuides from '../components/ActivewearGuides.astro';
+import { getAlternateLinks } from '../i18n/routes';
 ---
 
 <BaseLayout 
   title="Factory Direct Activewear Manufacturer | Private Label Yoga Wear Wholesale | FITCLO"
   description="Fitclo is a premier China-based activewear manufacturer with a 16,000㎡ factory in Guangzhou and additional facilities in Dongguan and Yiwu. We offer factory-direct wholesale, private label OEM/ODM, and low MOQ for yoga sets, leggings, and gym clothing. 500+ staff."
   preloadImage="/images/migrated/third-party/h884ba8683a5149558bb5623a0bc673b8t-d84325027a.webp"
+  alternateLinks={getAlternateLinks('/', '/es/')}
 >
   <!-- VideoObject Schema (AIO/SEO Optimization) -->
   <script type="application/ld+json">

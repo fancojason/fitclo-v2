@@ -1,15 +1,46 @@
 ---
 import { productCategories } from '../data/productCategories';
+import { getLocalizedRoute, type SiteLanguage } from '../i18n/routes';
+import { getUi } from '../i18n/ui';
 
+const language: SiteLanguage = Astro.props.lang === 'es' ? 'es' : 'en';
+const ui = getUi(language);
+const isSpanish = language === 'es';
 const navItems = [
-  { name: 'Ready to Ship', href: '/ready-to-ship' },
-  { name: 'Private Label', href: '/private-label' },
-  { name: 'Manufacturing', href: '/capabilities' },
-  { name: 'About Us', href: '/about' },
+  { name: ui.nav.ready, href: isSpanish ? '/es/ready-stock-activewear/' : '/ready-to-ship' },
+  { name: ui.nav.privateLabel, href: isSpanish ? '/es/private-label-activewear/' : '/private-label' },
+  { name: ui.nav.manufacturing, href: isSpanish ? '/es/oem-activewear-manufacturer/' : '/capabilities' },
+  { name: ui.nav.about, href: '/about' },
 ];
+
+const categoryNames: Record<string, string> = {
+  'sports-bras': 'Sujetadores deportivos', 'gym-shorts': 'Shorts deportivos',
+  'training-pants': 'Pantalones de entrenamiento', leggings: 'Leggings',
+  't-shirts': 'Camisetas', 'tank-tops': 'Camisetas sin mangas',
+  'matching-sets': 'Conjuntos deportivos', jumpsuits: 'Monos deportivos', jackets: 'Chaquetas',
+};
+const styleNames: Record<string, string> = {
+  'Seamless Sports Bras': 'Sujetadores deportivos sin costuras', 'Longline & Crop Bras': 'Sujetadores longline y crop',
+  'High-Support Sports Bras': 'Sujetadores de alta sujeción', 'Women’s Gym Shorts': 'Shorts deportivos para mujer',
+  'Men’s Gym Shorts': 'Shorts deportivos para hombre', 'Biker & Compression Shorts': 'Shorts ciclistas y de compresión',
+  'Women’s Training Pants': 'Pantalones de entrenamiento para mujer', 'Men’s Training Pants': 'Pantalones de entrenamiento para hombre',
+  'Performance Joggers': 'Joggers de alto rendimiento', 'Seamless Leggings': 'Leggings sin costuras',
+  'Cut-and-Sew Leggings': 'Leggings de corte y confección', 'Flare & Studio Leggings': 'Leggings flare y de estudio',
+  'Unisex Cotton T-Shirts': 'Camisetas unisex de algodón', 'Men’s Performance T-Shirts': 'Camisetas técnicas para hombre',
+  'Women’s Training T-Shirts': 'Camisetas de entrenamiento para mujer', 'Women’s Tank Tops': 'Camisetas sin mangas para mujer',
+  'Men’s Tank Tops & Stringers': 'Tank tops y stringers para hombre', 'Racerback Training Tops': 'Tops deportivos de espalda nadadora',
+  'Women’s Yoga Sets': 'Conjuntos de yoga para mujer', 'Men’s Training Sets': 'Conjuntos de entrenamiento para hombre',
+  'Three-Piece Performance Sets': 'Conjuntos deportivos de tres piezas', 'Full-Length Yoga Jumpsuits': 'Monos largos de yoga',
+  'Short Jumpsuits': 'Monos cortos', 'Studio Bodysuits': 'Bodies de estudio',
+  'Women’s Activewear Jackets': 'Chaquetas deportivas para mujer', 'Men’s Training Jackets': 'Chaquetas de entrenamiento para hombre',
+  'Technical Outer Layers': 'Capas exteriores técnicas',
+};
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath === href || currentPath.startsWith(`${href}/`);
+const homePath = isSpanish ? '/es/' : '/';
+const englishPath = getLocalizedRoute(Astro.url.pathname, 'en');
+const spanishPath = getLocalizedRoute(Astro.url.pathname, 'es');
 
 ---
 
@@ -20,7 +51,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
   <div class="max-w-[1600px] mx-auto px-6 lg:px-10">
     <div class="flex justify-between items-center h-[76px]">
       <div class="flex-shrink-0">
-        <a href="/" class="flex items-center gap-2 group no-underline">
+        <a href={homePath} class="flex items-center gap-2 group no-underline">
           <div class="relative flex h-5 w-5 -translate-y-0.5 items-center justify-center select-none">
             <img src="/images/migrated/third-party/h8f27abddb40d4300874f693d698ed50dd-cadc7ea119.webp" alt="FITCLO Logo" class="w-full h-full object-contain brightness-110 transition-all group-hover:brightness-125" />
           </div>
@@ -31,30 +62,30 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
         </a>
       </div>
       <nav class="hidden md:flex items-center gap-7 lg:gap-9">
-        <a href="/" class={`relative pb-1 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors duration-200 group ${isActive('/') ? 'text-[#C9A84C]' : 'text-white/90 hover:text-[#C9A84C]'}`}>
-          Home
-          <span class={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-[#C9A84C] transition-transform duration-300 ${isActive('/') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+        <a href={homePath} class={`relative pb-1 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors duration-200 group ${isActive(homePath) ? 'text-[#C9A84C]' : 'text-white/90 hover:text-[#C9A84C]'}`}>
+          {ui.nav.home}
+          <span class={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-[#C9A84C] transition-transform duration-300 ${isActive(homePath) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
         </a>
         <div class="group/products relative flex h-[76px] items-center">
           <a href="/products" class={`relative flex items-center gap-2 pb-1 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors duration-200 ${isActive('/products') ? 'text-[#C9A84C]' : 'text-white/90 hover:text-[#C9A84C]'}`}>
-            Products
+            {ui.nav.products}
             <span class="text-[12px] leading-none transition-transform duration-300 group-hover/products:rotate-180" aria-hidden="true">⌄</span>
             <span class={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-[#C9A84C] transition-transform duration-300 ${isActive('/products') ? 'scale-x-100' : 'scale-x-0 group-hover/products:scale-x-100'}`}></span>
           </a>
           <div class="pointer-events-none absolute left-1/2 top-[70px] w-[920px] -translate-x-1/2 translate-y-2 border border-white/10 bg-[#101010] p-6 opacity-0 shadow-2xl transition-all duration-200 group-hover/products:pointer-events-auto group-hover/products:translate-y-0 group-hover/products:opacity-100">
             <div class="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
-              <p class="text-[10px] font-bold tracking-[0.2em] text-[#C9A84C]">ACTIVEWEAR PRODUCT CATEGORIES</p>
-              <a href="/products" class="text-[11px] font-bold tracking-[0.1em] text-white/70 transition-colors hover:text-[#C9A84C]">VIEW ALL PRODUCTS &#8594;</a>
+              <p class="text-[10px] font-bold tracking-[0.2em] text-[#C9A84C]">{ui.nav.categories}</p>
+              <a href="/products" class="text-[11px] font-bold tracking-[0.1em] text-white/70 transition-colors hover:text-[#C9A84C]">{ui.nav.viewAll}</a>
             </div>
             <div class="grid grid-cols-3 gap-x-8 gap-y-6">
               {productCategories.map((category) => (
                 <div>
                   <a href={`/products/${category.slug}/`} class="group/item -mx-2 block px-2 py-1.5 transition-colors hover:bg-white/5">
-                    <span class="block text-[14px] font-bold text-white transition-colors group-hover/item:text-[#C9A84C]">{category.navLabel}</span>
+                    <span class="block text-[14px] font-bold text-white transition-colors group-hover/item:text-[#C9A84C]">{isSpanish ? categoryNames[category.slug] ?? category.navLabel : category.navLabel}</span>
                   </a>
                   <div class="mt-1 space-y-1 pl-2">
                     {category.styles.map((style) => (
-                      <a href={`/products/${category.slug}/#${style.id}`} class="block text-[11px] leading-[1.45] text-white/50 transition-colors hover:text-[#C9A84C]">{style.name}</a>
+                      <a href={`/products/${category.slug}/#${style.id}`} class="block text-[11px] leading-[1.45] text-white/50 transition-colors hover:text-[#C9A84C]">{isSpanish ? styleNames[style.name] ?? style.name : style.name}</a>
                     ))}
                   </div>
                 </div>
@@ -68,9 +99,43 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
             <span class={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-[#C9A84C] transition-transform duration-300 ${isActive(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
           </a>
         ))}
-        <a href="/inquiry/" class="quote-nav-button ml-1 inline-flex h-[33px] -translate-y-[2.5px] self-center items-center justify-center bg-[#C9A84C] px-3 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0A0A0F] transition-colors duration-200 hover:bg-[#d4b55a]"><span class="-translate-y-px leading-none">Get a Quote</span></a>
+        <a href={isSpanish ? '/es/contact/#inquiry' : '/inquiry/'} class="quote-nav-button ml-1 inline-flex h-[33px] -translate-y-[2.5px] self-center items-center justify-center bg-[#C9A84C] px-3 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0A0A0F] transition-colors duration-200 hover:bg-[#d4b55a]"><span class="-translate-y-px leading-none">{ui.nav.quote}</span></a>
+        <label class="relative -translate-y-[2.5px] self-center text-white/80">
+          <span class="sr-only">{ui.language.label}</span>
+          <select
+            class="h-[33px] min-w-[58px] cursor-pointer border border-white/20 bg-black px-2 text-[11px] font-bold uppercase tracking-[0.08em] text-white outline-none transition-colors hover:border-[#C9A84C] focus:border-[#C9A84C]"
+            aria-label={ui.language.label}
+            data-language-selector
+          >
+            <option value={englishPath} selected={!isSpanish}>EN</option>
+            <option value={spanishPath} selected={isSpanish}>ES</option>
+          </select>
+        </label>
       </nav>
-      <div class="md:hidden"></div>
+      <label class="relative md:hidden text-white/80">
+        <span class="sr-only">{ui.language.label}</span>
+        <select class="h-[34px] min-w-[60px] border border-white/25 bg-black px-2 text-[12px] font-bold text-white outline-none focus:border-[#C9A84C]" aria-label={ui.language.label} data-language-selector>
+          <option value={englishPath} selected={!isSpanish}>EN</option>
+          <option value={spanishPath} selected={isSpanish}>ES</option>
+        </select>
+      </label>
     </div>
   </div>
 </header>
+
+<script>
+  document.querySelectorAll<HTMLSelectElement>('[data-language-selector]').forEach((selector) => {
+    selector.addEventListener('change', () => {
+      const fromLanguage = document.documentElement.lang || 'en';
+      const toLanguage = selector.selectedOptions[0]?.textContent?.toLowerCase() || 'en';
+      const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, string>> };
+      analyticsWindow.dataLayer?.push({
+        event: 'language_switch',
+        from_language: fromLanguage,
+        to_language: toLanguage,
+        page_path: window.location.pathname,
+      });
+      window.location.assign(selector.value);
+    });
+  });
+</script>

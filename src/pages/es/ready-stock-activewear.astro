@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+import ReadyStockCatalog from '../../components/ReadyStockCatalog.astro';
+import { readyStockCatalog } from '../../data/readyStockCatalog';
+import { getAlternateLinks } from '../../i18n/routes';
+
+const pageUrl = 'https://www.fitcloo.com/es/ready-stock-activewear/';
+const spanishCategoryLabels: Record<string, string> = {
+  'sports-bras': 'Sujetadores deportivos', 'gym-shorts': 'Shorts deportivos', 'training-pants': 'Pantalones de entrenamiento',
+  leggings: 'Leggings', 't-shirts': 'Camisetas', 'tank-tops': 'Camisetas sin mangas', 'matching-sets': 'Conjuntos deportivos',
+  jumpsuits: 'Monos deportivos', jackets: 'Chaquetas',
+};
+const readyStockSchema = {
+  '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Catálogo de Ropa Deportiva con Stock Disponible',
+  description: 'Explora modelos de ropa deportiva con stock disponible por categoría y MOQ. Solicita colores, tallas, muestras, logo personalizado y cotización mayorista.',
+  url: pageUrl,
+  mainEntity: { '@type': 'ItemList', numberOfItems: readyStockCatalog.length, itemListElement: readyStockCatalog.map((product, index) => ({
+    '@type': 'ListItem', position: index + 1, item: { '@type': 'Product', name: `${spanishCategoryLabels[product.category] ?? 'Ropa deportiva'} ${product.styleCode}`, sku: product.styleCode, image: `https://www.fitcloo.com${product.image}`, category: spanishCategoryLabels[product.category] ?? 'Ropa deportiva' },
+  })) },
+};
+const faqs = [
+  { question: '¿Cuál es el MOQ de la ropa deportiva con stock disponible?', answer: 'El MOQ del programa es de 50 sets para conjuntos y 50 unidades para prendas individuales. La modalidad adecuada se confirma según los modelos y requisitos seleccionados.' },
+  { question: '¿Puedo añadir mi logo a la ropa deportiva en stock?', answer: 'Sí. Puedes consultar aplicación de logo, etiquetas, etiquetas colgantes y embalaje para modelos seleccionados. Fitclo confirma la opción viable antes del pedido.' },
+  { question: '¿Puedo pedir una muestra antes del pedido mayorista?', answer: 'Sí. Envía la referencia del modelo, color y talla para que Fitclo confirme la opción de muestra adecuada.' },
+  { question: '¿Todos los colores y tallas mostrados están disponibles?', answer: 'La disponibilidad se confirma antes del pedido porque la combinación actual de colores y tallas puede cambiar. Envíanos tu modelo, cantidad, colores y tallas para comprobarla.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) };
+---
+
+<BaseLayout
+  lang="es"
+  title="Catálogo de Ropa Deportiva con Stock | MOQ 50 | Fitclo"
+  description="Filtra ropa deportiva con stock disponible de Fitclo por categoría y MOQ. Consulta colores, tallas, personalización de logo, muestras y precios al por mayor."
+  image="https://www.fitcloo.com/images/ready-stock/ready-stock-activewear-open-carton-warehouse-hero.webp"
+  canonicalURL={pageUrl}
+  alternateLinks={getAlternateLinks('/ready-to-ship/', '/es/ready-stock-activewear/')}
+  structuredData={[readyStockSchema, faqSchema]}
+  autoArticleSchema={false}
+>
+  <section class="relative overflow-hidden bg-[#090909] pt-[82px] text-white">
+    <img src="/images/ready-stock/ready-stock-activewear-open-carton-warehouse-hero.webp" alt="Almacén de ropa deportiva con cajas organizadas de prendas de yoga" class="absolute inset-0 h-full w-full object-cover object-[60%_center] opacity-75" fetchpriority="high" />
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,.98)_0%,rgba(5,5,5,.9)_42%,rgba(5,5,5,.36)_100%)]"></div>
+    <div class="relative mx-auto grid min-h-[590px] max-w-[1320px] content-end gap-10 px-6 pb-16 pt-28 lg:grid-cols-[minmax(0,1fr)_360px] lg:px-10 lg:pb-20">
+      <div class="max-w-[790px]">
+        <p class="text-[11px] font-bold tracking-[0.22em] text-[#d8b456] font-['Century_Gothic',sans-serif]">ROPA DEPORTIVA AL POR MAYOR CON STOCK</p>
+        <h1 class="mt-5 text-[43px] font-bold leading-[1.04] text-white sm:text-[57px] lg:text-[70px] font-['Century_Gothic',sans-serif]">Un catálogo práctico de stock disponible para tu próxima colección.</h1>
+        <p class="mt-6 max-w-[660px] text-[16px] leading-[1.75] text-white/85 md:text-[19px] font-['Century_Gothic',sans-serif]">Filtra los modelos del programa, planifica un MOQ de 50 unidades o 50 sets y solicita a Fitclo la combinación actual de colores y tallas. Añade logo, etiquetas y embalaje cuando sea viable.</p>
+        <div class="mt-8 flex flex-wrap gap-3 text-[12px] font-bold font-['Century_Gothic',sans-serif]"><span class="rounded-full border border-white/20 bg-black/45 px-4 py-2.5 text-white"><span class="mr-2 text-[#d8b456]">01</span>MOQ desde 50</span><span class="rounded-full border border-white/20 bg-black/45 px-4 py-2.5 text-white"><span class="mr-2 text-[#d8b456]">02</span>Opciones de logo</span><span class="rounded-full border border-white/20 bg-black/45 px-4 py-2.5 text-white"><span class="mr-2 text-[#d8b456]">03</span>Solicitud de muestra</span></div>
+        <div class="mt-8 flex flex-wrap gap-4 font-['Century_Gothic',sans-serif]"><a href="#ready-stock-catalog" class="inline-flex min-h-[54px] items-center justify-center rounded-full bg-[#d8b456] px-7 text-[13px] font-bold text-black transition-colors hover:bg-white">Ver modelos disponibles</a><a href="#inquiry" class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-white/40 px-7 text-[13px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]">Consultar disponibilidad actual</a></div>
+      </div>
+      <aside class="border border-white/15 bg-[#101010]/90 p-6 backdrop-blur-sm font-['Century_Gothic',sans-serif]"><p class="text-[11px] font-bold tracking-[0.16em] text-[#d8b456]">LISTA DEL COMPRADOR</p><ol class="mt-5 space-y-4 text-[14px] leading-[1.55] text-white/75"><li><span class="mr-3 font-bold text-[#d8b456]">01</span>Elige modelos y cantidad estimada.</li><li><span class="mr-3 font-bold text-[#d8b456]">02</span>Envía colores y distribución de tallas.</li><li><span class="mr-3 font-bold text-[#d8b456]">03</span>Confirma la muestra y opción de marca.</li><li><span class="mr-3 font-bold text-[#d8b456]">04</span>Recibe la comprobación de disponibilidad.</li></ol></aside>
+    </div>
+  </section>
+
+  <section class="bg-[#111111] py-10 text-white"><div class="mx-auto grid max-w-[1320px] gap-6 px-6 md:grid-cols-3 lg:px-10"><div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">MOQ</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">50 sets para conjuntos y 50 unidades para prendas individuales del programa.</p></div><div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">MARCA</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Consulta logo, etiquetas, etiquetas colgantes y embalaje según el modelo seleccionado.</p></div><div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">DISPONIBILIDAD</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Los colores y combinaciones de tallas se comprueban antes del pedido.</p></div></div></section>
+
+  <ReadyStockCatalog />
+
+  <section class="bg-[#111111] py-20 text-white md:py-24">
+    <div class="mx-auto grid max-w-[1320px] gap-12 px-6 lg:grid-cols-[.85fr_1.15fr] lg:px-10">
+      <div><p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">FAQ PARA COMPRADORES DE STOCK</p><h2 class="mt-4 text-[34px] font-bold leading-[1.1] text-white md:text-[47px] font-['Century_Gothic',sans-serif]">Los detalles que los compradores suelen confirmar primero.</h2><p class="mt-5 text-[16px] leading-[1.75] text-white/65 font-['Century_Gothic',sans-serif]">Una modalidad rápida también necesita información correcta. Envía modelo, cantidad, colores y tallas para recibir una recomendación basada en tu pedido.</p></div>
+      <div class="divide-y divide-white/15 border-y border-white/15">{faqs.map((faq, index) => <details class="group py-5" open={index === 0}><summary class="cursor-pointer list-none pr-8 text-[17px] font-bold text-white font-['Century_Gothic',sans-serif]">{faq.question}<span class="float-right text-[#d8b456] group-open:rotate-45">+</span></summary><p class="mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/65 font-['Century_Gothic',sans-serif]">{faq.answer}</p></details>)}</div>
+    </div>
+  </section>
+
+  <InquiryForm id="inquiry" />
+</BaseLayout>

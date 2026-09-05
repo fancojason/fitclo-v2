@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import LiveProduction from '../../components/LiveProduction.astro';
+import Stats from '../../components/Stats.astro';
+import ProductGrid from '../../components/ProductGrid.astro';
+import WholesaleSolutions from '../../components/WholesaleSolutions.astro';
+import SampleCTA from '../../components/SampleCTA.astro';
+import BrandingOptions from '../../components/BrandingOptions.astro';
+import FactoryAdvantage from '../../components/FactoryAdvantage.astro';
+import WhyFitclo from '../../components/WhyFitclo.astro';
+import Certifications from '../../components/Certifications.astro';
+import HowItWorks from '../../components/HowItWorks.astro';
+import CaseStudies from '../../components/CaseStudies.astro';
+import ActivewearIntelligenceV2 from '../../components/ActivewearIntelligenceV2.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import WholesaleFAQ from '../../components/WholesaleFAQ.astro';
+import Intelligence from '../../components/Intelligence.astro';
+import BlogIntelligence from '../../components/BlogIntelligence.astro';
+import GlobalPresence from '../../components/GlobalPresence.astro';
+import TrustStats from '../../components/TrustStats.astro';
+import ClientLogos from '../../components/ClientLogos.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+import ActivewearGuides from '../../components/ActivewearGuides.astro';
+import { homeSpanishTranslations } from '../../content/es/home';
+import { getAlternateLinks } from '../../i18n/routes';
+
+const videoSchemas = [
+  {
+    '@context': 'https://schema.org', '@type': 'VideoObject',
+    name: 'Visita al departamento de confección de Fitclo',
+    description: 'Una mirada al departamento profesional de confección de la fábrica de Fitclo en Guangzhou y su tecnología de costura plana de 4 agujas y 6 hilos.',
+    thumbnailUrl: 'https://www.fitcloo.com/images/blogs/china-activewear-manufacturer-faq-factory.jpg',
+    uploadDate: '2024-01-15', contentUrl: 'https://www.fitcloo.com/videos/sewing-1.mp4',
+    embedUrl: 'https://www.fitcloo.com/es/', duration: 'PT0M30S', inLanguage: 'es',
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'VideoObject',
+    name: 'Proceso de corte de tejido de precisión',
+    description: 'Máquinas de corte de precisión en la fábrica de Fitclo para lograr patrones exactos en ropa de yoga y prendas deportivas.',
+    thumbnailUrl: 'https://www.fitcloo.com/images/intelligence/cover-factory-guide.png',
+    uploadDate: '2024-01-15', contentUrl: 'https://www.fitcloo.com/videos/cutting-1.mp4',
+    embedUrl: 'https://www.fitcloo.com/es/', duration: 'PT0M30S', inLanguage: 'es',
+  },
+];
+---
+
+<BaseLayout
+  lang="es"
+  title="Fabricante de Ropa Deportiva y Marca Privada en China | Fitclo"
+  description="Fitclo fabrica ropa deportiva, conjuntos de yoga, leggings y prendas de gimnasio para marcas internacionales. Servicios de marca privada, OEM/ODM, MOQ bajo y venta mayorista directa de fábrica."
+  canonicalURL="https://www.fitcloo.com/es/"
+  alternateLinks={getAlternateLinks('/', '/es/')}
+  translations={homeSpanishTranslations}
+  structuredData={videoSchemas}
+  autoArticleSchema={false}
+  preloadImage="/images/migrated/third-party/h884ba8683a5149558bb5623a0bc673b8t-d84325027a.webp"
+>
+  <Hero />
+  <ClientLogos />
+  <LiveProduction />
+  <Stats />
+  <ProductGrid />
+  <WholesaleSolutions />
+  <SampleCTA />
+  <BrandingOptions />
+  <FactoryAdvantage />
+  <WhyFitclo />
+  <Certifications />
+
+  <section id="factory-tour" class="py-24 bg-black text-white">
+    <div class="max-w-[1700px] mx-auto px-6 lg:px-16">
+      <div class="flex flex-col mb-10">
+        <h3 class="text-[#C9A84C] font-bold tracking-[0.1em] text-[11px] md:text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">VISITA A LA FÁBRICA</h3>
+        <h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold text-white leading-tight font-['Century_Gothic',sans-serif] tracking-tight">Visita a la fábrica</h2>
+        <p class="text-white/60 mt-4 max-w-xl text-[15px] md:text-[16px] leading-relaxed font-['Century_Gothic',sans-serif]">Conoce nuestro compromiso con la excelencia: instalaciones modernas y control de calidad riguroso en cada etapa.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="space-y-6"><div class="rounded-2xl overflow-hidden aspect-video bg-gray-900 shadow-xl"><video autoplay muted loop playsinline preload="none" poster="https://www.fitcloo.com/images/video-thumb-1.jpg" class="w-full h-full object-cover"><source src="/videos/sewing-1.mp4" type="video/mp4" /></video></div><p class="text-[11px] font-bold tracking-widest text-[#C9A84C] uppercase font-['Century_Gothic',sans-serif]">Departamento de confección</p></div>
+        <div class="space-y-6"><div class="rounded-2xl overflow-hidden aspect-video bg-gray-900 shadow-xl"><video autoplay muted loop playsinline preload="none" poster="https://www.fitcloo.com/images/video-thumb-2.jpg" class="w-full h-full object-cover"><source src="/videos/cutting-1.mp4" type="video/mp4" /></video></div><p class="text-[11px] font-bold tracking-widest text-[#C9A84C] uppercase font-['Century_Gothic',sans-serif]">Corte de precisión</p></div>
+        <div class="space-y-6 lg:row-span-2"><div class="rounded-2xl overflow-hidden h-full bg-gray-900 shadow-xl min-h-[400px]"><video autoplay muted loop playsinline preload="none" class="w-full h-full object-cover"><source src="/videos/warehouse.mp4" type="video/mp4" /></video></div><p class="text-[11px] font-bold tracking-widest text-[#C9A84C] uppercase font-['Century_Gothic',sans-serif]">Centro logístico internacional</p></div>
+        <div class="space-y-6"><div class="rounded-2xl overflow-hidden aspect-video bg-gray-900 shadow-xl"><video autoplay muted loop playsinline preload="none" class="w-full h-full object-cover"><source src="/videos/sewing-2.mp4" type="video/mp4" /></video></div><p class="text-[11px] font-bold tracking-widest text-[#C9A84C] uppercase font-['Century_Gothic',sans-serif]">Inspección de calidad</p></div>
+        <div class="space-y-6"><div class="rounded-2xl overflow-hidden aspect-video bg-gray-900 shadow-xl"><video autoplay muted loop playsinline preload="none" class="w-full h-full object-cover"><source src="/videos/cutting-2.mp4" type="video/mp4" /></video></div><p class="text-[11px] font-bold tracking-widest text-[#C9A84C] uppercase font-['Century_Gothic',sans-serif]">Preparación del tejido</p></div>
+      </div>
+    </div>
+  </section>
+
+  <HowItWorks />
+  <CaseStudies />
+  <ActivewearIntelligenceV2 />
+  <Testimonials />
+  <TrustStats />
+  <GlobalPresence />
+  <Intelligence />
+  <BlogIntelligence />
+  <WholesaleFAQ />
+  <InquiryForm />
+  <ActivewearGuides />
+</BaseLayout>

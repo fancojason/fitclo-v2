@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+import { getAlternateLinks } from '../i18n/routes';
 ---
 <BaseLayout
   title="Contact Us | FITCLO"
   description="Contact Fitclo for private label activewear manufacturing, OEM/ODM sportswear production, ready-to-ship wholesale stock, sampling, MOQ planning and global shipping support."
+  alternateLinks={getAlternateLinks('/contact/', '/es/contact/')}
 >
   <!-- Hero Section -->
   <section class="relative h-[45vh] bg-black flex items-center justify-center overflow-hidden">

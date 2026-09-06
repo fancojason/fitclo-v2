@@ -5,15 +5,17 @@ import FloatingButtons from '../components/FloatingButtons.astro';
 import LegacyBlogShell from '../components/LegacyBlogShell.astro';
 import { localizeEnglishWhatsAppLinks, localizeMarkup, type TranslationPair } from '../i18n/localize';
 import { getUi } from '../i18n/ui';
+import { localizedRoutePairs, getAlternateLinks } from '../i18n/routes';
 import '../styles/global.css';
 
+const routePair = localizedRoutePairs.find((pair) => pair.en === Astro.url.pathname || pair.es === Astro.url.pathname);
 const {
   title = 'FITCLO - Professional Activewear Manufacturer',
   seoTitle,
   description = 'Fitclo is a professional activewear manufacturer specializing in high-quality gym wear, yoga apparel, and sportswear for global brands.',
   canonicalURL,
   lang = 'en',
-  alternateLinks = [],
+  alternateLinks = routePair ? getAlternateLinks(routePair.en, routePair.es) : [],
   translations = [] as TranslationPair[],
   image = 'https://www.fitcloo.com/images/intelligence/hero-activewear-intelligence.png',
   structuredData = [],

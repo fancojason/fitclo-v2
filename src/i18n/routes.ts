@@ -8,6 +8,11 @@ export const localizedRoutePairs = [
   { en: '/oem-activewear-manufacturer/', es: '/es/oem-activewear-manufacturer/' },
   { en: '/ready-to-ship/', es: '/es/ready-stock-activewear/' },
   { en: '/contact/', es: '/es/contact/' },
+  { en: '/private-label-leggings/', es: '/es/fabricante-de-leggings/' },
+  { en: '/private-label-sports-bras/', es: '/es/fabricante-de-sujetadores-deportivos/' },
+  { en: '/private-label-yoga-sets/', es: '/es/fabricante-de-conjuntos-de-yoga/' },
+  { en: '/gym-shorts-manufacturer/', es: '/es/fabricante-de-shorts-deportivos/' },
+  { en: '/products/tank-tops/', es: '/es/fabricante-de-tops-deportivos/' },
 ] as const;
 
 const normalizePath = (path: string) => {

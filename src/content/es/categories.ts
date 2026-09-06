@@ -1,0 +1,208 @@
+import type { CategorySourcingLandingPage } from '../../data/categorySourcingLandingPages';
+import { oemSpanishTranslations } from './oem';
+
+type SpanishCategory = CategorySourcingLandingPage & {
+  navLabel: string;
+  englishPath?: string;
+  productTranslations: Record<string, { name: string; description: string }>;
+  productLinks?: Record<string, string>;
+  sourcingText: string;
+  sources: string[];
+};
+
+// Factual baseline: published catalog and sourcing pages at commit 49626cf.
+// Program MOQ is not a promise of current stock or a custom-production MOQ.
+export const spanishCategoryPages: SpanishCategory[] = [
+  {
+    slug: 'fabricante-de-leggings', navLabel: 'Leggings', englishPath: '/private-label-leggings/',
+    eyebrow: 'LEGGINGS PARA MARCAS Y COMPRADORES PROFESIONALES',
+    title: 'leggings para marca privada',
+    seoTitle: 'Fabricante de Leggings para Marca Privada | Fitclo',
+    description: 'Desarrolla leggings con Fitclo: compara confección y seamless, tejidos, cintura, tallas, muestras y personalización para tu marca de ropa deportiva.',
+    heroTitle: 'Fabricante de leggings: define ajuste, cobertura y marca antes de producir.',
+    heroText: 'Una colección de leggings necesita más que una silueta atractiva. Define la actividad, el tiro, la cintura y el largo para evaluar referencias con el mismo criterio. Fitclo ofrece opciones de marca privada y desarrollo OEM/ODM; la muestra permite comprobar cómo responde la prenda en movimiento antes de acordar el pedido.',
+    productCodes: ['FC-LEG-103', 'TZ4506-4', 'TZ2557-6'],
+    productTranslations: {
+      'FC-LEG-103': { name: 'Leggings de cintura alta', description: 'Referencia de leggings de cintura alta del catálogo. Comprueba la cobertura, la sujeción de la cintura y el tacto en la talla y el color seleccionados.' },
+      'TZ4506-4': { name: 'Conjunto halter con leggings capri 7/8', description: 'Top halter y leggings de cintura media en nylon-spandex, con ribetes y franjas de contraste. Se presenta como conjunto, no como una oferta de leggings sueltos.' },
+      'TZ2557-6': { name: 'Conjunto seamless con leggings flare', description: 'Top halter de punto sin costuras y leggings flare de cintura alta. Una referencia para comparar el corte acampanado con las siluetas capri y ajustadas.' },
+    },
+    productLinks: { 'TZ4506-4': '/products/tz4506-4/', 'TZ2557-6': '/products/tz2557-6/' },
+    sourcingText: 'Para una selección del catálogo, envía el código del modelo y confirma si se suministra como prenda individual o conjunto. La marca privada permite estudiar logo y presentación sobre una referencia existente. Si necesitas cambiar el patrón, la cintura, los bolsillos o la construcción, prepara un brief OEM/ODM con medidas y prioridades; esa modificación requiere una evaluación propia de materiales, muestra y MOQ.',
+    fabricNotes: [
+      'Las páginas de leggings y conjuntos incluyen direcciones nylon-spandex y punto seamless de poliamida-elastano. La composición final corresponde al modelo aprobado, no a toda la categoría.',
+      'TZ4506-4 aporta una referencia publicada de nylon-spandex con ribetes de contraste. Compara el tejido principal y los ribetes para evitar aprobar solo el color del cuerpo.',
+      'Indica colores objetivo y una referencia física. Comprueba cobertura y recuperación en cada color relevante; una foto de un modelo oscuro no valida por sí sola una versión clara.',
+    ],
+    sizeNotes: [
+      'Documenta cintura, cadera, tiro, entrepierna y altura de cinturilla. Diferencia largo capri, largo completo y flare en la ficha de medidas.',
+      'Para stock, solicita la combinación actual de tallas por modelo. Para desarrollo, define talla base, escalado y tolerancias antes de aprobar la muestra.',
+      'Prueba flexión, sentadilla y movilidad con la talla seleccionada. Anota si la cintura se desplaza o si la cobertura cambia con la tensión del tejido.',
+    ],
+    decisionRows: [
+      ['Silueta', '¿Leggings ajustados, capri o flare?', 'Largo, tiro, cintura y referencias de frente y espalda.'],
+      ['Construcción', '¿Confección por paneles o tejido seamless?', 'Función, zonas de ajuste y detalles que requieren desarrollo.'],
+      ['Marca', '¿Logo en cintura, cadera o pierna?', 'Archivo, dimensiones, ubicación y revisión de elasticidad del acabado.'],
+      ['Pedido', '¿Prenda suelta o parte de un conjunto?', 'SKU, unidad de compra, colores, tallas y cantidad por referencia.'],
+    ],
+    qualityChecks: ['Compara medidas y largo con la ficha aprobada, no solo con la etiqueta de talla.', 'Revisa cobertura, costuras y recuperación en los movimientos previstos.', 'Aprueba la ubicación del logo, las etiquetas de marca y cuidado, las etiquetas colgantes y el embalaje.', 'Conserva una referencia de color y una muestra aprobada para la revisión del pedido.'],
+    faqs: [
+      { question: '¿Cuál es el MOQ de los leggings?', answer: 'El programa de stock publica 50 unidades para prendas individuales elegibles y 50 conjuntos para referencias vendidas como conjunto. No significa que puedan mezclarse libremente modelos, colores o tallas. Confirma el reparto; el MOQ OEM/ODM se evalúa según diseño y materiales.' },
+      { question: '¿Puedo pedir leggings sin el top de un conjunto?', answer: 'No debe suponerse a partir de una ficha de conjunto. Indica el código, la prenda que necesitas y la cantidad para confirmar si existe una opción individual o si requiere otra modalidad de pedido.' },
+      { question: '¿Qué cambia entre leggings seamless y confeccionados?', answer: 'La construcción modifica cómo se definen paneles, zonas de ajuste y elasticidad. La elección debe responder a la silueta y al uso. Compara muestras físicas y documenta cobertura, cintura y recuperación antes de elegir.' },
+      { question: '¿Se pueden personalizar logo y etiquetas?', answer: 'Sí, se pueden estudiar logo, etiquetas, etiquetas colgantes y embalaje. Envía el archivo y la ubicación; comprueba el acabado sobre la prenda seleccionada antes de aprobar la producción.' },
+      { question: '¿Qué envío para solicitar una muestra?', answer: 'Comparte el código o referencia, talla, color, largo, tejido previsto y objetivos de revisión. Fitclo confirma la modalidad de muestra y los requisitos del proyecto antes de avanzar.' },
+    ],
+    catalogPath: '/products/leggings/', catalogLabel: 'Ver catálogo de leggings (inglés)',
+    sources: ['src/data/categorySourcingLandingPages.ts: private-label-leggings', 'src/data/productCatalog.ts: FC-LEG-103, TZ4506-4, TZ2557-6', 'src/data/readyStockCatalog.ts'],
+  },
+  {
+    slug: 'fabricante-de-sujetadores-deportivos', navLabel: 'Sujetadores deportivos', englishPath: '/private-label-sports-bras/',
+    eyebrow: 'SUJETADORES DEPORTIVOS DE MARCA PRIVADA', title: 'sujetadores deportivos para marca privada',
+    seoTitle: 'Fabricante de Sujetadores Deportivos | Marca Privada | Fitclo',
+    description: 'Planifica sujetadores deportivos con Fitclo: sujeción, banda, tirantes, copas, tallas y muestras para programas de marca privada y desarrollo OEM/ODM.',
+    heroTitle: 'Fabricante de sujetadores deportivos: empieza por la sujeción y el ajuste.',
+    heroText: 'El escote y la espalda ayudan a definir el estilo, pero una decisión de compra también necesita actividad prevista, cobertura y estabilidad. Compara las referencias de Fitclo por banda inferior, tirantes y construcción de las copas. Usa esos criterios para seleccionar modelos o preparar un desarrollo OEM/ODM para tu marca.',
+    productCodes: ['FC-BRA-127', 'FC-BRA-102', 'TZ4510-14'],
+    productTranslations: {
+      'FC-BRA-127': { name: 'Sujetador con tirantes cruzados', description: 'Modelo de espalda abierta y tirantes cruzados. Una referencia para revisar cobertura y estabilidad sin atribuirle un nivel de impacto no confirmado.' },
+      'FC-BRA-102': { name: 'Sujetador de punto seamless', description: 'Referencia de punto sin costuras con zonas de ventilación y opciones de copas extraíbles descritas en el catálogo. Confirma la construcción del modelo solicitado.' },
+      'TZ4510-14': { name: 'Conjunto de chaqueta, sujetador y leggings', description: 'Referencia de tres piezas para estudiar la coordinación del sujetador con el resto de la colección. El MOQ mostrado corresponde al conjunto.' },
+    },
+    productLinks: { 'TZ4510-14': '/products/tz4510-14/' },
+    sourcingText: 'Parte de un sujetador existente si la banda, los tirantes y la cobertura encajan con tu colección, y revisa las opciones de marca privada. Para un desarrollo OEM/ODM, detalla los cambios de soporte, forro, copas o ajuste. Una apariencia deportiva no equivale a una clasificación de alto impacto: acuerda la actividad de uso y los criterios de evaluación con la muestra.',
+    fabricNotes: ['La página de fabricación contempla nylon-spandex para referencias de confección y poliamida-elastano para determinadas opciones seamless. Confirma la composición de cada modelo.', 'Especifica por separado tejido exterior, forro, elástico de banda y copas. Una elección de tejido exterior no define automáticamente la estructura interior.', 'Revisa color exterior, forro y elásticos juntos. Si el sujetador forma un conjunto, aprueba su coordinación con leggings o shorts.'],
+    sizeNotes: ['Registra contorno de pecho y bajo pecho, largo de tirantes, ancho de banda y largo de prenda.', 'Define las tallas objetivo antes del muestreo y revisa tallas representativas cuando cambie la necesidad de sujeción.', 'Para referencias de stock, confirma las tallas disponibles. Para desarrollo, documenta los cambios de ajuste y escalado por talla.'],
+    decisionRows: [['Uso', '¿Yoga, estudio, entrenamiento u otra actividad?', 'Cobertura y estabilidad que se evaluarán en movimiento.'], ['Banda y tirantes', '¿Qué estructura debe sostener y permitir el movimiento?', 'Anchos, largos, ajustes y avíos requeridos.'], ['Copas', '¿Extraíbles, fijas, moldeadas o sin relleno?', 'Construcción, posición, forro y requisitos de cuidado.'], ['Acabados', '¿Dónde deben ir logo, etiquetas y marca?', 'Zonas de contacto, archivo y referencia de acabado.']],
+    qualityChecks: ['Comprueba desplazamiento de la banda y estabilidad de tirantes durante el movimiento acordado.', 'Revisa la posición de copas o almohadillas, su acceso cuando sean extraíbles y el acabado interior.', 'Comprueba medidas, costuras en contacto con la piel y recuperación del elástico.', 'Valida logo, etiquetas, etiquetas colgantes y presentación final con la muestra aprobada.'],
+    faqs: [
+      { question: '¿Qué MOQ se aplica a un sujetador deportivo?', answer: 'Las prendas individuales elegibles del programa de stock parten de 50 unidades. Las referencias de conjunto se cotizan como conjuntos. El MOQ personalizado depende de la construcción, los materiales y el reparto de colores y tallas.' },
+      { question: '¿Todos los sujetadores son de alto impacto?', answer: 'No debe asumirse. Define la actividad y la necesidad de sujeción; evalúa banda, tirantes, cobertura y copas sobre una muestra. La página no atribuye una clasificación de impacto a modelos que no la tienen confirmada.' },
+      { question: '¿Puedo solicitar copas extraíbles?', answer: 'Depende del modelo o del desarrollo. El catálogo incluye opciones con copas extraíbles; confirma la referencia, la abertura del bolsillo, la posición y las instrucciones de cuidado antes del pedido.' },
+      { question: '¿Puede coordinarse con leggings o shorts?', answer: 'Sí. Se puede estudiar la dirección de color, tejido y marca de las prendas. Confirma si el suministro será por conjuntos o por SKU separados y revisa el MOQ de cada modalidad.' },
+      { question: '¿Cómo preparo una muestra de marca privada?', answer: 'Envía modelo, talla, color, actividad, construcción interior y ubicación del logo. Incluye etiquetas, etiquetas colgantes y embalaje; aprueba los detalles que correspondan antes de autorizar el pedido.' },
+    ],
+    catalogPath: '/products/sports-bras/', catalogLabel: 'Ver sujetadores del catálogo (inglés)',
+    sources: ['src/data/categorySourcingLandingPages.ts: private-label-sports-bras', 'src/data/productCatalog.ts: FC-BRA-127, FC-BRA-102, TZ4510-14', 'src/data/readyStockCatalog.ts'],
+  },
+  {
+    slug: 'fabricante-de-conjuntos-de-yoga', navLabel: 'Conjuntos de yoga', englishPath: '/private-label-yoga-sets/',
+    eyebrow: 'CONJUNTOS DE YOGA PARA MARCAS', title: 'conjuntos de yoga de marca privada',
+    seoTitle: 'Fabricante de Conjuntos de Yoga | Marca Privada | Fitclo',
+    description: 'Crea conjuntos de yoga con Fitclo: coordina tops, sujetadores y pantalones, tejidos, colores, tallas, muestras y presentación de marca privada.',
+    heroTitle: 'Fabricante de conjuntos de yoga: coordina las prendas como una colección.',
+    heroText: 'Un conjunto exige revisar las piezas juntas: proporciones, tacto, color y ajuste deben responder al mismo uso. Compara referencias de dos y tres piezas para yoga, Pilates y estudio. Fitclo permite estudiar una selección de catálogo con marca privada o un desarrollo OEM/ODM con una ficha de producto específica.',
+    productCodes: ['TZ4510-14', 'TZ5555-4', 'TZ4506-4'],
+    productTranslations: {
+      'TZ4510-14': { name: 'Conjunto deportivo de tres piezas', description: 'Chaqueta, sujetador y leggings para una propuesta coordinada de yoga, Pilates y gimnasio. Revisa ajuste y color de las tres piezas en conjunto.' },
+      'TZ5555-4': { name: 'Conjunto con pantalón ancho de largo 3/4', description: 'Silueta de estudio con pantalón ancho de largo 3/4. Una alternativa a los leggings ajustados para colecciones de yoga, Pilates y uso casual.' },
+      'TZ4506-4': { name: 'Conjunto halter y capri con contraste', description: 'Top halter y leggings capri 7/8 de cintura media en nylon-spandex, con ribetes y detalles laterales de contraste.' },
+    },
+    productLinks: { 'TZ4510-14': '/products/tz4510-14/', 'TZ5555-4': '/products/tz5555-4/', 'TZ4506-4': '/products/tz4506-4/' },
+    sourcingText: 'Para un lanzamiento con referencias existentes, define qué piezas forman cada conjunto y solicita colores y tallas actuales. Si necesitas desarrollar una combinación propia mediante OEM/ODM, documenta cada pieza y su relación con las demás. El logo, las etiquetas y el embalaje pueden planificarse a nivel de colección, pero las medidas y aprobaciones deben identificar cada prenda.',
+    fabricNotes: ['Las referencias publicadas incluyen nylon-spandex, opciones de tacto cepillado y conjuntos de punto seamless. Selecciona la dirección que corresponda a la referencia; no todas comparten composición.', 'Compara el tacto, la cobertura y la recuperación del top y del pantalón. La coincidencia visual de color no implica que los tejidos sean iguales.', 'Aprueba color principal, ribetes y otras piezas del conjunto juntos. Conserva las referencias aprobadas para la revisión de materiales.'],
+    sizeNotes: ['Define cómo se combinan las tallas de la parte superior e inferior antes de preparar SKU o embalajes.', 'Registra pecho, bajo pecho, cintura, cadera, tiro y entrepierna según las piezas que integren el conjunto.', 'Prueba el conjunto completo durante el movimiento previsto y documenta las correcciones por prenda. Confirma el surtido disponible para modelos de stock.'],
+    decisionRows: [['Composición', '¿Dos piezas o chaqueta, sujetador y pantalón?', 'Códigos y contenido exacto de cada conjunto.'], ['Silueta', '¿Leggings, capri, flare o pantalón ancho?', 'Uso, proporciones y largo de cada pieza.'], ['Color', '¿Tejidos iguales o combinación de materiales?', 'Referencias de color y ribetes aprobadas en conjunto.'], ['Venta y embalaje', '¿Conjunto cerrado o piezas con SKU separados?', 'Combinación de tallas, etiquetas y contenido del paquete.']],
+    qualityChecks: ['Revisa las prendas juntas para comprobar proporciones y libertad de movimiento.', 'Comprueba coherencia de color, costuras y detalles de contraste entre piezas.', 'Documenta la talla y las medidas aprobadas de cada prenda del conjunto.', 'Verifica que logo, etiquetas, etiquetas colgantes y contenido del embalaje coincidan con la referencia de colección.'],
+    faqs: [
+      { question: '¿Cuál es el MOQ para conjuntos de yoga?', answer: 'Los conjuntos elegibles del programa de stock parten de 50 conjuntos. Confirma el reparto por modelo, color y talla. Los proyectos OEM/ODM tienen una evaluación propia según diseño, materiales y personalización.' },
+      { question: '¿Puedo mezclar tallas de top y pantalón?', answer: 'Debe confirmarse para el programa elegido. Los SKU separados pueden ayudar a planificar tallas distintas, pero no debe asumirse una mezcla libre dentro del MOQ de un conjunto existente.' },
+      { question: '¿Cómo se evalúa la consistencia del color?', answer: 'Revisa las piezas juntas con sus tejidos y ribetes. Define una referencia de color y registra la aprobación de los materiales antes de avanzar; una imagen de catálogo no sustituye esa revisión.' },
+      { question: '¿Pueden llevar mi marca y un embalaje de conjunto?', answer: 'Sí. Se pueden estudiar aplicación de logo, etiquetas, etiquetas colgantes, insertos y embalaje a nivel de colección. Confirma el contenido por paquete y los requisitos de cada pieza.' },
+      { question: '¿Qué debo revisar en la muestra?', answer: 'Comprueba ajuste superior e inferior, cobertura, recuperación, color y marca. Documenta las correcciones por pieza y conserva la muestra y especificaciones aprobadas antes de planificar el pedido.' },
+    ],
+    catalogPath: '/products/matching-sets/', catalogLabel: 'Ver conjuntos del catálogo (inglés)',
+    sources: ['src/data/categorySourcingLandingPages.ts: private-label-yoga-sets', 'src/data/productCategories.ts: matching-sets', 'src/data/productCatalog.ts: TZ4510-14, TZ5555-4, TZ4506-4', 'src/data/readyStockCatalog.ts'],
+  },
+  {
+    slug: 'fabricante-de-shorts-deportivos', navLabel: 'Shorts deportivos', englishPath: '/gym-shorts-manufacturer/',
+    eyebrow: 'SHORTS PARA YOGA, RUNNING Y ENTRENAMIENTO', title: 'shorts deportivos de marca privada',
+    seoTitle: 'Fabricante de Shorts Deportivos | Muestras y MOQ | Fitclo',
+    description: 'Compara shorts biker, running y entrenamiento con Fitclo. Define largo, cintura, bolsillos, forro, muestras y marca privada antes del pedido.',
+    heroTitle: 'Fabricante de shorts deportivos: diseña el pedido según el movimiento.',
+    heroText: 'Un short biker y uno de running resuelven necesidades distintas. Define largo, tiro, abertura de pierna, cintura, forro y uso de bolsillos para comparar referencias de forma útil. Fitclo ofrece opciones de catálogo y desarrollo OEM/ODM; el punto de partida es una especificación clara de la prenda y su marca.',
+    productCodes: ['FC-SHORT-107', 'FC-SHORT-110', 'TZ5529-15'],
+    productTranslations: {
+      'FC-SHORT-107': { name: 'Shorts biker de cintura alta', description: 'Referencia ajustada para yoga con detalles de contorno. Comprueba cintura, cobertura y recuperación en la muestra de la talla y el color elegidos.' },
+      'FC-SHORT-110': { name: 'Shorts de running con forro', description: 'Modelo ligero con forro interior y bolsillo oculto con cremallera, según la ficha de catálogo. Revisa el uso del bolsillo y el ajuste del forro.' },
+      'TZ5529-15': { name: 'Conjunto de top alto y shorts', description: 'Top corto de cuello alto con espalda abierta y shorts con cintura plegada. El catálogo lo presenta como conjunto.' },
+    },
+    sourcingText: 'Selecciona una referencia si su construcción encaja con el uso y estudia la personalización de marca. Si el proyecto requiere otra entrepierna, un bolsillo distinto o cambios de forro, describe esos puntos en el brief OEM/ODM. No atribuyas las funciones de un short de running a toda la categoría: comprueba cada código y registra los detalles solicitados.',
+    fabricNotes: ['La página de fabricación contempla nylon-spandex para direcciones ajustadas y materiales ligeros de rendimiento para running o entrenamiento. Confirma el tejido del modelo seleccionado.', 'Separa en la ficha tejido exterior, forro, malla, elásticos y material de bolsillo cuando existan. Su función y contacto con el cuerpo son diferentes.', 'Revisa cobertura en colores claros, contraste entre exterior y forro y recuperación de cintura. La decisión debe basarse en una muestra, no solo en fotografías.'],
+    sizeNotes: ['Registra tiro, entrepierna, abertura de pierna y altura de cintura para la talla base.', 'En shorts de running, revisa el forro y acceso al bolsillo; en biker, comprueba que la pernera y la cintura permanezcan en la posición prevista.', 'Confirma el surtido actual para stock o el escalado acordado para desarrollo personalizado. Documenta cambios por medida.'],
+    decisionRows: [['Tipo de short', '¿Biker, running o entrenamiento?', 'Actividad, largo y ajuste de referencia.'], ['Bolsillos', '¿Qué deben guardar y cómo deben cerrar?', 'Ubicación, dimensiones y cierre cuando se solicite.'], ['Interior', '¿Forro, short interior o sin forro?', 'Construcción y ajuste de las capas internas.'], ['Personalización', '¿Dónde se coloca la marca?', 'Archivo, ubicación, etiquetas y embalaje.']],
+    qualityChecks: ['Comprueba la estabilidad de cintura y comodidad de la abertura de pierna.', 'Prueba acceso y cierre de los bolsillos que incluya el modelo.', 'Revisa cobertura, forro, costuras y medidas frente a la referencia aprobada.', 'Confirma el acabado del logo, etiquetas, etiquetas colgantes y embalaje antes de preparar el pedido.'],
+    faqs: [
+      { question: '¿Qué MOQ tienen los shorts deportivos?', answer: 'Las prendas individuales elegibles del programa de stock parten de 50 unidades; los modelos comercializados como conjunto parten de 50 conjuntos. El reparto y el MOQ personalizado se confirman tras revisar la referencia y los materiales.' },
+      { question: '¿Puedo añadir bolsillos o cambiar el forro?', answer: 'Depende de la referencia o del desarrollo OEM/ODM. Indica ubicación, función y construcción esperada. Un cambio de bolsillo o forro debe revisarse en muestra y puede requerir una modalidad distinta al stock.' },
+      { question: '¿Qué diferencia conviene revisar entre biker y running?', answer: 'En biker, céntrate en cobertura, cintura y recuperación. En running, revisa libertad de movimiento, abertura, forro y almacenamiento cuando el diseño los incluya. Usa los movimientos del público objetivo para evaluar la muestra.' },
+      { question: '¿Puede un short formar parte de una colección?', answer: 'Sí. Se puede estudiar junto con tops o sujetadores, coordinando color y marca. Confirma la unidad de compra y las tallas por pieza o conjunto antes de definir el surtido.' },
+      { question: '¿Cómo solicito una muestra con mi logo?', answer: 'Envía el modelo, talla, color, largo previsto y archivo de logo con ubicación. Añade los requisitos de etiquetas, etiquetas colgantes y embalaje para confirmar qué se incluirá en la muestra.' },
+    ],
+    catalogPath: '/products/gym-shorts/', catalogLabel: 'Ver shorts del catálogo (inglés)',
+    sources: ['src/data/categorySourcingLandingPages.ts: gym-shorts-manufacturer', 'src/data/productCatalog.ts: FC-SHORT-107, FC-SHORT-110, TZ5529-15', 'src/data/readyStockCatalog.ts'],
+  },
+  {
+    slug: 'ropa-deportiva-al-por-mayor', navLabel: 'Ropa deportiva al por mayor',
+    eyebrow: 'PLANIFICACIÓN DE SURTIDO PARA COMPRADORES B2B', title: 'ropa deportiva al por mayor',
+    seoTitle: 'Ropa Deportiva al por Mayor | Surtido y Marca Privada | Fitclo',
+    description: 'Planifica un surtido mayorista con Fitclo: compara prendas y conjuntos, SKU, MOQ verificado, tallas, muestras y personalización antes de comprar.',
+    heroTitle: 'Ropa deportiva al por mayor: organiza el surtido antes de confirmar cantidades.',
+    heroText: 'Para una tienda, estudio o marca, comprar varias referencias exige decidir qué función cumple cada una en la colección. Esta guía comercial ayuda a comparar prendas individuales y conjuntos, organizar SKU y preparar una solicitud de cotización. El catálogo de stock disponible permite después filtrar modelos y consultar sus colores y tallas actuales.',
+    productCodes: ['FC-LEG-103', 'FC-BRA-127', 'TZ4510-14'],
+    productTranslations: {
+      'FC-LEG-103': { name: 'Leggings de cintura alta', description: 'Una referencia de prenda individual para organizar el surtido por categoría. Confirma talla, color y condiciones para el código elegido.' },
+      'FC-BRA-127': { name: 'Sujetador con espalda cruzada', description: 'Prenda individual de espalda abierta y tirantes cruzados. Estudia cómo se integra con otras categorías sin asumir que constituye un conjunto suministrado.' },
+      'TZ4510-14': { name: 'Conjunto de tres piezas', description: 'Chaqueta, sujetador y leggings vendidos como referencia de conjunto. Diferencia conjuntos y unidades individuales al preparar cantidades y embalajes.' },
+    },
+    productLinks: { 'TZ4510-14': '/products/tz4510-14/' },
+    sourcingText: 'Separa tres decisiones en la solicitud: selección mayorista de modelos existentes, personalización de marca privada y desarrollo OEM/ODM. Las dos primeras parten de referencias que deben confirmarse; la tercera exige revisar diseño y materiales. Un surtido puede incluir varias categorías, pero el total agregado del pedido no sustituye el MOQ ni las condiciones de cada referencia.',
+    fabricNotes: ['No asignes una composición única a todo el surtido. Registra el material confirmado por SKU y revisa por separado cada prenda o conjunto.', 'El catálogo y las páginas de fabricación incluyen opciones nylon-spandex, tejidos de tacto cepillado y construcciones seamless para determinadas referencias. Confirma cuál corresponde a cada selección.', 'Agrupa colores y referencias físicas por modelo. Para prendas destinadas a combinarse, compara muestras juntas y documenta la aprobación del color.'],
+    sizeNotes: ['Prepara una tabla de SKU con modelo, unidad de compra, color, talla y cantidad solicitada.', 'Solicita el surtido actual de tallas por referencia de stock; no presupongas disponibilidad uniforme en todo el catálogo.', 'Si vendes piezas por separado, confirma su suministro y etiquetado. Si vendes conjuntos, documenta el contenido y la combinación de tallas por paquete.'],
+    decisionRows: [['Categorías', '¿Qué prendas necesita el surtido?', 'Leggings, sujetadores, shorts, tops y conjuntos seleccionados.'], ['Cantidades', '¿El MOQ está expresado en prendas o conjuntos?', 'Cantidad y unidad por modelo; reparto sujeto a confirmación.'], ['Identidad', '¿Qué acabados de marca se requieren?', 'Logo, etiquetas, etiquetas colgantes, insertos y embalaje por SKU.'], ['Destino', '¿Dónde se recibirá y cómo se organizará el pedido?', 'Destino, contenido por paquete y requisitos de entrega a revisar.']],
+    qualityChecks: ['Evalúa muestras representativas de cada construcción seleccionada.', 'Comprueba que código, color, talla y unidad de compra estén alineados en la solicitud.', 'Aprueba logo, etiquetas, etiquetas colgantes y contenido de los paquetes antes de cerrar las instrucciones.', 'Compara cantidades, medidas y embalaje con la referencia y documentación aprobadas.'],
+    faqs: [
+      { question: '¿Puedo combinar categorías dentro de un pedido mayorista?', answer: 'Puedes enviar una selección de varias categorías para evaluación. Confirma MOQ, colores, tallas y condiciones por referencia; no debe asumirse que 50 prendas repartidas entre modelos cumplen automáticamente el programa.' },
+      { question: '¿Qué diferencia hay entre 50 prendas y 50 conjuntos?', answer: 'El catálogo expresa el MOQ según la unidad del producto. Una referencia de conjunto cuenta como conjunto, mientras que una prenda individual se cuenta por unidad. Identifica el contenido exacto de cada SKU antes de cotizar.' },
+      { question: '¿El catálogo garantiza disponibilidad inmediata?', answer: 'No. Los modelos del programa son referencias para consulta. Colores, tallas y disponibilidad actual deben confirmarse antes de aceptar el pedido; una ficha no constituye una reserva de inventario.' },
+      { question: '¿Puedo incorporar mi marca a los productos mayoristas?', answer: 'Las opciones de logo, etiquetas, etiquetas colgantes y embalaje se revisan sobre los modelos elegidos. Envía archivos y ubicaciones para definir la modalidad de marca privada y la muestra correspondiente.' },
+      { question: '¿Qué información facilita una cotización útil?', answer: 'Envía códigos, cantidades por SKU, colores, tallas, muestras necesarias, requisitos de marca y destino. Separa cualquier cambio de diseño OEM/ODM de la selección de stock para que las condiciones puedan revisarse correctamente.' },
+    ],
+    catalogPath: '/es/ready-stock-activewear/', catalogLabel: 'Filtrar modelos del programa de stock',
+    sources: ['src/data/productCatalog.ts: FC-LEG-103, FC-BRA-127, TZ4510-14', 'src/data/readyStockCatalog.ts', 'src/data/categorySourcingLandingPages.ts: sample and branding process', 'src/components/ReadyStockCatalog.astro'],
+  },
+  {
+    slug: 'fabricante-de-tops-deportivos', navLabel: 'Tops deportivos', englishPath: '/products/tank-tops/',
+    eyebrow: 'TOPS Y CAMISETAS SIN MANGAS PARA ENTRENAMIENTO', title: 'tops deportivos de marca privada',
+    seoTitle: 'Fabricante de Tops Deportivos | Marca Privada y OEM | Fitclo',
+    description: 'Desarrolla tops deportivos con Fitclo: corte, sisas, espalda, tejidos y tallas. Compara muestras y opciones de marca privada para tu colección.',
+    heroTitle: 'Fabricante de tops deportivos: ajusta proporciones, sisas y capas.',
+    heroText: 'Un top corto, una camiseta de espalda nadadora y un stringer necesitan proporciones diferentes. La página de fabricación de Fitclo contempla tops ajustados, relajados y opciones de entrenamiento para mujer y hombre. Define cobertura, largo y compatibilidad con otras prendas antes de seleccionar referencias o preparar un desarrollo OEM/ODM.',
+    productCodes: ['EBX6116', 'FC-TANK-106', 'TZ2557-6'],
+    productTranslations: {
+      'EBX6116': { name: 'Top corto de escote cuadrado y espalda cruzada', description: 'Top ajustado con tirantes de contraste en capas y silueta de espalda cruzada. Confirma la combinación de color y talla solicitada.' },
+      'FC-TANK-106': { name: 'Top de entrenamiento con soporte interior', description: 'Referencia ajustada con sujetador interior integrado y tejido de gestión de humedad descritos en el catálogo. Revisa cobertura, sisas y ajuste en la muestra.' },
+      'TZ2557-6': { name: 'Conjunto de top halter seamless y pantalón flare', description: 'Top de punto sin costuras dentro de un conjunto con leggings flare. Sirve como referencia de coordinación; confirma cualquier solicitud de suministro del top por separado.' },
+    },
+    productLinks: { 'TZ2557-6': '/products/tz2557-6/' },
+    sourcingText: 'Para una selección existente, indica el código y los requisitos de marca privada. Para desarrollar un top OEM/ODM, documenta escote, profundidad de sisa, largo y forma de espalda. La página de fabricación incluye bordes ribeteados, detalles de contraste y opciones de ventilación; su aplicación debe confirmarse para el modelo y el material elegidos.',
+    fabricNotes: ['La categoría de tank tops contempla jersey ligero para entrenamiento, canalé fino para estudio y malla o tejidos perforados para zonas de ventilación.', 'Estas son direcciones de desarrollo, no una composición garantizada para todos los modelos. Confirma tejido exterior y soporte o forro interior cuando corresponda.', 'Revisa cuerpo, ribetes y tirantes en conjunto. Para tops coordinados con pantalones o sujetadores, aprueba las referencias de color y el comportamiento de las capas.'],
+    sizeNotes: ['Define largo total, contorno de pecho, escote, profundidad de sisa y largo de tirantes cuando existan.', 'Prueba el top solo y con la prenda interior prevista; revisa cobertura al elevar brazos y mover hombros.', 'Confirma tallas actuales para stock o talla base y escalado para desarrollo. No asumas que el tallaje de un top es idéntico al de un sujetador de la colección.'],
+    decisionRows: [['Corte', '¿Ajustado, relajado, crop o largo?', 'Uso, cobertura y proporciones de frente y espalda.'], ['Sisas y escote', '¿Cuánta movilidad y cobertura se necesita?', 'Medidas, tirantes, bordes y referencias de ajuste.'], ['Capas', '¿Se usa solo, sobre sujetador o con soporte interior?', 'Construcción interior y combinación de prendas prevista.'], ['Marca', '¿Logo sobre cuerpo, espalda o ribete?', 'Archivo, ubicación, etiquetas, etiquetas colgantes y embalaje.']],
+    qualityChecks: ['Comprueba movilidad de hombros, profundidad de sisa y cobertura al elevar los brazos.', 'Revisa recuperación de ribetes, escote y tirantes, además de costuras en contacto con la piel.', 'Si incluye soporte interior, prueba su posición junto con el cuerpo del top.', 'Valida medidas, logo, etiquetas, etiquetas colgantes y embalaje frente a la referencia aprobada.'],
+    faqs: [
+      { question: '¿Qué tipos de tops puedo desarrollar?', answer: 'La categoría publicada incluye tops ajustados y cortos, espaldas abiertas, modelos de espalda nadadora y camisetas de entrenamiento o stringers. Comparte el corte y uso previstos para confirmar una referencia o un desarrollo.' },
+      { question: '¿Los tops llevan sujetador integrado?', answer: 'Depende del modelo. FC-TANK-106 lo incluye en la descripción publicada; no debe extrapolarse a otros tops. Confirma construcción interior, cobertura y ajuste sobre la muestra elegida.' },
+      { question: '¿Cuál es el MOQ de los tops deportivos?', answer: 'Los tops individuales elegibles del programa de stock parten de 50 unidades. Una referencia presentada como conjunto conserva su MOQ de conjunto. Cantidades, surtido y condiciones OEM/ODM se revisan por proyecto.' },
+      { question: '¿Puedo coordinar tops y shorts para mi marca?', answer: 'Sí, se puede estudiar la dirección de color, tejido y personalización junto con otras categorías. Confirma si el pedido se organiza por piezas o conjuntos y prepara SKU y tallas en consecuencia.' },
+      { question: '¿Cómo preparo una muestra y los acabados de marca?', answer: 'Envía el código o referencias, talla, color, medidas de largo y sisa, archivo de logo y ubicación. Añade etiquetas, etiquetas colgantes y embalaje para acordar las aprobaciones necesarias.' },
+    ],
+    catalogPath: '/products/tank-tops/', catalogLabel: 'Ver tops del catálogo (inglés)',
+    sources: ['src/data/productCategories.ts: tank-tops', 'src/data/productCatalog.ts: EBX6116, FC-TANK-106, TZ2557-6', 'src/data/readyStockCatalog.ts'],
+  },
+];
+
+export const categorySpanishTranslations = [
+  ['Ready-stock qualifying sets start from 50 sets; individual garments start from 50 pcs. Custom routes are reviewed against the brief.', 'El programa contempla modelos elegibles desde 50 conjuntos o 50 prendas individuales. El surtido, la disponibilidad actual y las condiciones de personalización se confirman por referencia.'],
+  ...oemSpanishTranslations,
+] as const;

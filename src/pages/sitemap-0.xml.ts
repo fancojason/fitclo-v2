@@ -1,10 +1,12 @@
 import { intelligenceCategories } from '../data/intelligence';
 import { productCategories } from '../data/productCategories';
 import { marketLandingPaths } from '../data/marketLandingPages';
+import { spanishCategoryPages } from '../content/es/categories';
 
 const site = 'https://www.fitcloo.com';
 
 const staticPages = [
+  ...spanishCategoryPages.map((page) => `/es/${page.slug}/`),
   '/',
   '/about/',
   '/activewear-intelligence/',
@@ -67,6 +69,7 @@ const productDetailPages = Object.keys(productModules)
   .map((slug) => `/products/${slug}/`);
 
 const lastModifiedByPath = new Map<string, string>([
+  ...spanishCategoryPages.map((page): [string, string] => [`/es/${page.slug}/`, '2026-09-06']),
   ['/', '2026-07-04'],
   ['/about/', '2026-07-10'],
   ['/activewear-intelligence/', '2026-07-10'],

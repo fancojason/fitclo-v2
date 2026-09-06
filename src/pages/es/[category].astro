@@ -1,0 +1,11 @@
+---
+import CategorySourcingLanding from '../../components/CategorySourcingLanding.astro';
+import { spanishCategoryPages, categorySpanishTranslations } from '../../content/es/categories';
+
+export function getStaticPaths() {
+  return spanishCategoryPages.map((page) => ({ params: { category: page.slug }, props: { page } }));
+}
+const { page } = Astro.props;
+---
+
+<CategorySourcingLanding page={page} lang="es" canonicalPath={`/es/${page.slug}/`} englishPath={page.englishPath} translations={categorySpanishTranslations} />

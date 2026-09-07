@@ -13,6 +13,23 @@ const buyerGuideLinks = isSpanish ? {
   'fabricante-de-leggings': { href: '/es/guias/precio-fabricar-ropa-deportiva-personalizada/', label: 'Guía: preparar una cotización de fabricación' },
   'fabricante-de-conjuntos-de-yoga': { href: '/es/guias/desarrollar-coleccion-ropa-deportiva/', label: 'Guía: desarrollar una colección y aprobar muestras' },
 }[page.slug] : undefined;
+const relatedSpanishProducts = isSpanish ? ({
+  'fabricante-de-conjuntos-de-yoga': [
+    ['tz4535-12', 'Conjunto seamless de manga corta TZ4535-12'],
+    ['tz5560-2', 'Conjunto cruzado con leggings scrunch TZ5560-2'],
+  ],
+  'fabricante-de-leggings': [
+    ['tz5560-2', 'Conjunto cruzado con leggings scrunch TZ5560-2'],
+    ['0636', 'Conjunto con leggings de cintura en V 0636'],
+  ],
+  'fabricante-de-tops-deportivos': [
+    ['tz4535-12', 'Conjunto seamless de manga corta TZ4535-12'],
+    ['tz5555-4', 'Conjunto de yoga de pierna ancha TZ5555-4'],
+  ],
+  'fabricante-de-shorts-deportivos': [
+    ['3708', 'Conjunto de top y shorts de running 3708'],
+  ],
+}[page.slug] ?? []) : [];
 const products = page.productCodes
   .map((styleCode: string) => getCatalogProductByStyleCode(styleCode))
   .filter((product: CatalogProduct | undefined): product is CatalogProduct => Boolean(product));
@@ -126,6 +143,7 @@ const { hasOfferCatalog, ...sourcingServiceSchema } = serviceSchema;
       <a href="/es/ready-stock-activewear/">Consultar el programa de stock</a>
       <a href="/es/contact/">Solicitar una cotización</a>
       {buyerGuideLinks && <a data-buyer-guide-link href={buyerGuideLinks.href}>{buyerGuideLinks.label}</a>}
+      {relatedSpanishProducts.map(([sku, label]) => <a data-related-spanish-product href={`/es/products/${sku}/`}>{label}</a>)}
     </nav>
   </div></section>}
   <InquiryForm />

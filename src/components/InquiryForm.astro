@@ -95,6 +95,7 @@ if (guide && isSpanish) Object.assign(copy, {
 
       <!-- Inquiry Form -->
       <form id="inquiry-form" class="space-y-6 font-['Century_Gothic',sans-serif]" data-language={language} data-page-path={Astro.url.pathname} data-sending={copy.sending} data-success={copy.success} data-error={copy.error} data-no-file={copy.noFile}>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="absolute left-[-9999px]" aria-hidden="true" />
         <input type="hidden" name="language" value={language} />
         <input type="hidden" name="page_path" value={Astro.url.pathname} />
         <input type="hidden" name="page_url" value={Astro.url.href} />
@@ -227,7 +228,7 @@ if (guide && isSpanish) Object.assign(copy, {
         <div class="space-y-2">
           <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.upload}</label>
           <div class="relative group cursor-pointer">
-            <input type="file" name="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
+            <input type="file" name="file" accept=".png,.ai,.pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
             <div class="w-full border border-dashed border-[#C9A84C]/40 bg-[#15151a] rounded-lg py-8 flex flex-col items-center justify-center transition-all group-hover:border-[#C9A84C] group-hover:bg-[#1a1a21]">
               <div class="mb-3 text-[#C9A84C]/60 group-hover:text-[#C9A84C] transition-colors">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,10 +246,6 @@ if (guide && isSpanish) Object.assign(copy, {
             <span>🚀</span>
             <span>{copy.send}</span>
           </button>
-          <a href="#" class="flex-1 border border-[#C9A84C] text-[#C9A84C] py-4 rounded-lg font-black text-[14px] md:text-[16px] uppercase tracking-[0.1em] hover:bg-[#C9A84C] hover:text-[#0A0A0F] transition-all flex items-center justify-center space-x-3 font-['Century_Gothic',sans-serif]">
-            <span>📄</span>
-            <span>{copy.profile}</span>
-          </a>
         </div>
 
         <!-- Trust Badges -->
@@ -278,6 +275,7 @@ if (guide && isSpanish) Object.assign(copy, {
 </section>
 
 <script>
+  import { submitInquiry } from '../lib/inquiry-client';
   const form = document.getElementById('inquiry-form') as HTMLFormElement;
   const status = document.getElementById('form-status');
   const fileInput = form?.querySelector('input[type="file"]') as HTMLInputElement;
@@ -311,18 +309,9 @@ if (guide && isSpanish) Object.assign(copy, {
     const formData = new FormData(form);
     const data: any = Object.fromEntries(formData.entries());
     
-    // Remove file object from JSON payload
-    delete data.file;
 
     try {
-      const res = await fetch('/submit', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(data),
-      });
+      const res = await submitInquiry(data);
 
       const result = await res.json();
 
@@ -338,7 +327,7 @@ if (guide && isSpanish) Object.assign(copy, {
       }
     } catch (err: any) {
       console.error('Submission Error:', err);
-      status.textContent = errorMessage;
+      status.textContent = err instanceof Error && /10 MB|file could|archivo/.test(err.message) ? err.message : errorMessage;
       status.classList.replace('text-white/40', 'text-red-500');
       status.classList.remove('hidden');
       submitBtn.disabled = false;

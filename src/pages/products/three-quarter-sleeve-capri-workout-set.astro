@@ -484,6 +484,7 @@ const faqSchema = {
 </style>
 
 <script>
+  import { submitInquiry } from '../../lib/inquiry-client';
   const form = document.querySelector<HTMLFormElement>('[data-product-inquiry-form]');
   const status = document.querySelector<HTMLElement>('[data-product-form-status]');
   const pageUrlInput = form?.querySelector<HTMLInputElement>('[data-page-url]');
@@ -591,11 +592,7 @@ const faqSchema = {
       }
 
       try {
-        const response = await fetch('/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
-        });
+        const response = await submitInquiry(Object.fromEntries(new FormData(form).entries()));
         const result = await response.json();
         if (!response.ok || !result.success) throw new Error(result.error || result.message || 'Unable to send inquiry.');
 

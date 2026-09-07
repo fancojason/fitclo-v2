@@ -84,6 +84,7 @@ const contactPageSchema = {
 </BaseLayout>
 
 <script>
+  import { submitInquiry } from '../lib/inquiry-client';
   const form = document.getElementById('inquiry-form') as HTMLFormElement | null;
   const status = document.getElementById('form-status');
   const submitButton = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
@@ -93,7 +94,7 @@ const contactPageSchema = {
     if (!status || !submitButton || !submitLabel) return;
     submitButton.disabled = true; submitLabel.textContent = 'Sending…'; status.textContent = 'Securely sending your request…'; status.className = 'mt-4 min-h-5 text-center text-[11px] leading-5 text-white/55';
     try {
-      const response = await fetch('/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(form).entries())) });
+      const response = await submitInquiry(Object.fromEntries(new FormData(form).entries()));
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error(result.error || 'Unable to send your inquiry.');
       form.reset(); status.textContent = 'Thank you — your message has been sent. We will reply within 24 business hours.'; status.className = 'mt-4 min-h-5 text-center text-[11px] leading-5 text-[#70df36]'; submitLabel.textContent = 'Message sent';

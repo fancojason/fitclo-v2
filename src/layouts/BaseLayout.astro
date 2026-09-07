@@ -285,5 +285,9 @@ const localizedContent = translations.length
     </main>
     <Footer lang={lang} />
     <FloatingButtons lang={lang} message={whatsappMessage} />
+    <script>
+      import { initInquiryAttribution } from '../lib/inquiry-client';
+      initInquiryAttribution();
+    </script>
   </body>
 </html>

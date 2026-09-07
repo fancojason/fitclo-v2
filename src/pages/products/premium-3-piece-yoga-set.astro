@@ -572,7 +572,8 @@ const faqSchema = {
     </section>
   </div>
 
-  <script is:inline>
+  <script>
+    import { submitInquiry } from '../../lib/inquiry-client';
     const productTrackingData = {
       product_name: 'Premium 3-Piece Yoga Set',
       product_code: 'TZ3562-10',
@@ -657,11 +658,7 @@ const faqSchema = {
         }
 
         try {
-          const response = await fetch('/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-            body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
-          });
+          const response = await submitInquiry(Object.fromEntries(new FormData(form).entries()));
           const result = await response.json();
           if (!response.ok || !result.success) throw new Error(result.error || result.message || 'Unable to send inquiry.');
 

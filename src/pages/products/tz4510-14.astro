@@ -90,6 +90,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
 </BaseLayout>
 
 <script>
+  import { submitInquiry } from '../../lib/inquiry-client';
   document.querySelectorAll<HTMLElement>('[data-product-gallery]').forEach((gallery) => {
     const main = gallery.querySelector<HTMLImageElement>('[data-gallery-main]');
     const label = gallery.querySelector<HTMLElement>('[data-gallery-label]');
@@ -121,7 +122,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
       if (button) { button.disabled = true; button.textContent = 'Sending inquiry...'; }
       if (inquiryStatus) { inquiryStatus.textContent = 'Sending your product inquiry...'; inquiryStatus.className = 'text-[13px] text-white/60 sm:col-span-2'; }
       try {
-        const response = await fetch('/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(inquiryForm).entries())) });
+        const response = await submitInquiry(Object.fromEntries(new FormData(inquiryForm).entries()));
         const result = await response.json();
         if (!response.ok || !result.success) throw new Error(result.error || result.message || 'Unable to send inquiry.');
         inquiryForm.reset();

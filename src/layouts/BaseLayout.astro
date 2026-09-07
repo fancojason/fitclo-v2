@@ -26,6 +26,7 @@ const {
   preloadImage,
   publishedDate,
   modifiedDate,
+  whatsappMessage,
 } = Astro.props;
 
 const siteUrl = 'https://www.fitcloo.com';
@@ -283,6 +284,6 @@ const localizedContent = translations.length
       )}
     </main>
     <Footer lang={lang} />
-    <FloatingButtons lang={lang} />
+    <FloatingButtons lang={lang} message={whatsappMessage} />
   </body>
 </html>

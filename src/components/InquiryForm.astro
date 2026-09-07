@@ -1,6 +1,7 @@
 ---
 const language = Astro.url.pathname.startsWith('/es/') ? 'es' : 'en';
 const isSpanish = language === 'es';
+const { product } = Astro.props;
 const copy = isSpanish ? {
   eyebrow: 'SOLICITA UNA COTIZACIÓN GRATUITA', title: 'Cotización gratuita +', mockup: 'Diseño de logo', timing: 'en 24 horas',
   intro: 'Sin compromiso y sin spam. Nuestro asesor de ropa deportiva se pondrá en contacto contigo con una propuesta de diseño gratuita y precio directo de fábrica.',
@@ -88,6 +89,7 @@ const copy = isSpanish ? {
         <input type="hidden" name="language" value={language} />
         <input type="hidden" name="page_path" value={Astro.url.pathname} />
         <input type="hidden" name="page_url" value={Astro.url.href} />
+        {product && <><input type="hidden" name="product_code" value={product.sku} /><input type="hidden" name="product_name" value={product.name} /><p class="text-[14px] leading-relaxed text-[#C9A84C]">{product.name} · SKU {product.sku}</p></>}
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Row 1 -->
           <div class="space-y-2">
@@ -136,7 +138,8 @@ const copy = isSpanish ? {
             <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.productType}</label>
             <div class="relative">
               <select name="product_type" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
-                <option value="" disabled selected class="bg-[#0A0A0F]">{copy.selectProduct}</option>
+                <option value="" disabled selected={!product} class="bg-[#0A0A0F]">{copy.selectProduct}</option>
+                {product && <option value={`${product.name} (${product.sku})`} selected>{product.name} · {product.sku}</option>}
                 <option value="Yoga Set" class="bg-[#0A0A0F]">{copy.yogaSet}</option>
                 <option value="Sport Bras" class="bg-[#0A0A0F]">{copy.sportsBras}</option>
                 <option value="Leggings" class="bg-[#0A0A0F]">{copy.leggings}</option>
@@ -153,7 +156,7 @@ const copy = isSpanish ? {
           <div class="space-y-2">
             <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.quantity}</label>
             <div class="relative">
-              <select name="quantity" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
+              {product ? <input name="quantity" required type="text" aria-label="Cantidad estimada en conjuntos" placeholder="Ej.: 50 conjuntos" class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]" /> : <><select name="quantity" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
                 <option value="" disabled selected class="bg-[#0A0A0F]">{copy.selectQuantity}</option>
                 <option value="100-300 PCS" class="bg-[#0A0A0F]">{copy.lowMoq}</option>
                 <option value="300-1000 PCS" class="bg-[#0A0A0F]">{copy.midMoq}</option>
@@ -163,6 +166,7 @@ const copy = isSpanish ? {
               <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
               </div>
+              </>}
             </div>
           </div>
 
@@ -171,9 +175,10 @@ const copy = isSpanish ? {
             <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.fabric}</label>
             <div class="relative">
               <select name="material" class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
-                <option value="Nylon/Spandex (Standard)" class="bg-[#0A0A0F]">{copy.standard}</option>
+                {product ? <option value={product.fabric}>{product.fabric}</option> : <><option value="Nylon/Spandex (Standard)" class="bg-[#0A0A0F]">{copy.standard}</option>
                 <option value="Recycled Polyester" class="bg-[#0A0A0F]">{copy.recycled}</option>
                 <option value="Cotton Blend" class="bg-[#0A0A0F]">{copy.cotton}</option>
+                </>}
                 <option value="Custom Fabric Request" class="bg-[#0A0A0F]">{copy.customFabric}</option>
               </select>
               <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">

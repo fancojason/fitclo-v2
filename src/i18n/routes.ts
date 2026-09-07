@@ -13,6 +13,7 @@ export const localizedRoutePairs = [
   { en: '/private-label-yoga-sets/', es: '/es/fabricante-de-conjuntos-de-yoga/' },
   { en: '/gym-shorts-manufacturer/', es: '/es/fabricante-de-shorts-deportivos/' },
   { en: '/products/tank-tops/', es: '/es/fabricante-de-tops-deportivos/' },
+  ...['0636', '3708', 'tz4510-14', 'tz2557-6', 'tz5560-2', 'tz5555-4', 'tz4506-4', 'tz4535-12'].map((sku) => ({ en: `/products/${sku}/`, es: `/es/products/${sku}/` })),
 ] as const;
 
 const normalizePath = (path: string) => {

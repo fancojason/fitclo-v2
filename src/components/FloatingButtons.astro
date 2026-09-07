@@ -4,7 +4,7 @@ import type { SiteLanguage } from '../i18n/routes';
 
 const language: SiteLanguage = Astro.props.lang === 'es' ? 'es' : 'en';
 const ui = getUi(language);
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(ui.whatsappMessage)}`;
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(Astro.props.message ?? ui.whatsappMessage)}`;
 ---
 
 <!-- Floating Controls (WhatsApp Left, Quote Right) -->

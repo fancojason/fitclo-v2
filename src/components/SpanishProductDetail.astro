@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InquiryForm from './InquiryForm.astro';
+import { spanishProducts, spanishProductReferences } from '../content/es/products';
+
+interface Props { product: typeof spanishProducts[number] }
+const { product } = Astro.props;
+const reference = spanishProductReferences[product.sku];
+const pageUrl = `https://www.fitcloo.com/es/products/${product.slug}/`;
+const whatsappMessage = `Hola Fitclo, me interesa ${product.name} (SKU ${product.sku}). Quisiera consultar colores y tallas actuales, MOQ, opciones de muestra y personalización de marca.`;
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsappMessage)}`;
+const gallery = [
+  ...reference.images.slice(0, 3),
+  { src: '/images/products/shared/private-label-customization-options.webp', alt: 'Opciones de logo, etiquetas, etiquetas colgantes y embalaje de marca privada', label: 'Opciones de marca privada' },
+  { src: '/images/products/shared/ready-stock-warehouse.webp', alt: 'Zona de almacén y preparación de pedidos Fitclo', label: 'Programa de stock' },
+];
+const facts = [['Contenido', product.includes], ['Tejido', product.fabric], ['Tallas publicadas', reference.sizes], ['MOQ', reference.moq], ['Personalización', 'Logo, etiquetas, etiquetas colgantes y embalaje']];
+const faqs = [
+  ...product.faqs,
+  ['¿Cuál es el MOQ del conjunto?', `El MOQ publicado para ${product.sku} es ${reference.moq}. Se refiere al conjunto completo. Consulta con Fitclo la modalidad de pedido y el reparto de colores y tallas.`],
+  ['¿Cómo solicito una muestra?', 'Comparte el modelo, color, talla y requisitos de marca. La revisión de la muestra permite comprobar ajuste, confección y personalización antes de confirmar la producción. Consulta las opciones correspondientes a tu solicitud.'],
+  ['¿Puede llevar mi marca privada?', 'Sí. Se pueden revisar ubicación del logo, etiquetas de marca y cuidado, etiquetas colgantes y embalaje. Para un desarrollo OEM, comparte los cambios de color, ajuste, tallas y construcción que necesitas.'],
+  ['¿Cómo se organizan pago y envío?', 'Las opciones publicadas son T/T, tarjeta de crédito y PayPal. El envío por mensajería, transporte aéreo o marítimo se organiza después de confirmar destino, cantidad y requisitos de entrega.'],
+];
+const productSchema = {
+  '@context': 'https://schema.org', '@type': 'Product', '@id': `${pageUrl}#product`,
+  name: product.name, description: product.description, sku: product.sku, mpn: product.sku,
+  url: pageUrl, image: reference.images.map(image => `https://www.fitcloo.com${image.src}`),
+  brand: { '@type': 'Brand', name: 'FITCLO' }, manufacturer: { '@id': 'https://www.fitcloo.com/#organization' },
+  category: 'Conjuntos de ropa deportiva', material: product.fabric, size: reference.sizes,
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'MOQ del conjunto', value: reference.moq },
+    { '@type': 'PropertyValue', name: 'Contenido', value: product.includes },
+    { '@type': 'PropertyValue', name: 'Colores publicados', value: reference.colors },
+    { '@type': 'PropertyValue', name: 'Marca privada', value: 'Logo, etiquetas, etiquetas colgantes y embalaje' },
+  ],
+};
+const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.fitcloo.com/es/' },
+  { '@type': 'ListItem', position: 2, name: 'Conjuntos de yoga', item: 'https://www.fitcloo.com/es/fabricante-de-conjuntos-de-yoga/' },
+  { '@type': 'ListItem', position: 3, name: product.name, item: pageUrl },
+] };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) };
+const related = product.sku === '3708'
+  ? [['/es/fabricante-de-shorts-deportivos/', 'Shorts deportivos'], ['/es/fabricante-de-tops-deportivos/', 'Tops deportivos']]
+  : ['0636', 'TZ4510-14', 'TZ5560-2'].includes(product.sku)
+    ? [['/es/fabricante-de-sujetadores-deportivos/', 'Sujetadores deportivos'], ['/es/fabricante-de-leggings/', 'Leggings']]
+    : product.sku === 'TZ5555-4'
+      ? [['/es/fabricante-de-tops-deportivos/', 'Tops deportivos']]
+      : [['/es/fabricante-de-leggings/', 'Leggings'], ['/es/fabricante-de-tops-deportivos/', 'Tops deportivos']];
+---
+
+<BaseLayout title={product.title} description={product.description} canonicalURL={pageUrl} lang="es" image={`https://www.fitcloo.com${gallery[0].src}`} whatsappMessage={whatsappMessage} structuredData={[productSchema, breadcrumbSchema, faqSchema]} autoArticleSchema={false} includeBreadcrumbSchema={false}>
+  <div class="spanish-product bg-[#090909] text-white font-['Century_Gothic',sans-serif]">
+    <section class="pt-[112px]"><div class="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10 lg:pb-20">
+      <nav class="flex flex-wrap gap-2 text-[12px] text-white/55" aria-label="Ruta de navegación">
+        <a href="/es/" class="hover:text-[#d8b456]">Inicio</a><span>/</span>
+        <a href="/es/fabricante-de-conjuntos-de-yoga/" class="hover:text-[#d8b456]">Conjuntos de yoga</a><span>/</span>
+        <span aria-current="page">{product.name} · {product.sku}</span>
+      </nav>
+      <div class="mt-8 grid gap-10 border-t border-white/15 pt-9 lg:grid-cols-[minmax(400px,.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-16" data-product-gallery>
+        <figure class="min-w-0">
+          <div class="aspect-square overflow-hidden border border-white/15 bg-[#111218]"><img src={gallery[0].src} alt={gallery[0].alt} class="h-full w-full object-contain" width="800" height="800" fetchpriority="high" data-gallery-main /></div>
+          <div class="mt-4 grid grid-cols-[32px_repeat(5,minmax(0,1fr))_32px] items-center gap-2 sm:grid-cols-[40px_repeat(5,minmax(0,1fr))_40px]">
+            <button type="button" aria-label="Imagen anterior" class="grid aspect-square place-items-center border border-white/20 text-[25px] hover:border-[#d8b456]" data-gallery-previous>&lsaquo;</button>
+            {gallery.map((image, index) => <button type="button" class:list={['gallery-thumbnail aspect-square overflow-hidden border bg-[#111218] hover:border-[#d8b456]', index === 0 ? 'border-[#d8b456]' : 'border-white/20']} data-gallery-thumb data-src={image.src} data-alt={image.alt} data-label={image.label} aria-label={`Mostrar: ${image.label}`} aria-pressed={index === 0}><img src={image.src} alt="" class="h-full w-full object-cover" loading="lazy" /></button>)}
+            <button type="button" aria-label="Imagen siguiente" class="grid aspect-square place-items-center border border-white/20 text-[25px] hover:border-[#d8b456]" data-gallery-next>&rsaquo;</button>
+          </div>
+          <figcaption class="mt-4 flex justify-between gap-5 border-t border-white/15 pt-4"><span class="text-[12px] font-bold" data-gallery-label>{gallery[0].label}</span><span class="text-right text-[11px] text-white/45">SKU<br />{product.sku}</span></figcaption>
+        </figure>
+        <div class="min-w-0 pt-1">
+          <p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456]">PROGRAMA DE STOCK · MARCA PRIVADA · OEM</p>
+          <h1 class="mt-5 text-[38px] font-bold leading-[1.06] sm:text-[50px]">{product.name}</h1>
+          <p class="mt-6 max-w-[710px] text-[16px] leading-[1.75] text-white/75">{product.intro}</p>
+          <dl class="mt-8 grid gap-x-8 gap-y-5 border-y border-white/15 py-6 sm:grid-cols-2 lg:grid-cols-3">{facts.map(([label, value]) => <div><dt class="text-[10px] font-bold tracking-[.15em] text-[#d8b456]">{label}</dt><dd class="mt-2 text-[13px] leading-[1.55] text-white/85">{value}</dd></div>)}</dl>
+          <div class="mt-8 flex flex-wrap gap-3"><a href="#inquiry" class="inline-flex min-h-12 items-center bg-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#101010]">Solicitar cotización</a><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456]">Consultar {product.sku} por WhatsApp</a></div>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="border-y border-white/10 py-16 lg:py-20"><div class="mx-auto max-w-[1240px] px-6 lg:px-10">
+      <p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">INFORMACIÓN DEL PRODUCTO</p><h2 class="mt-4 text-[30px] font-bold sm:text-[38px]">Especificaciones de {product.sku}</h2>
+      <div class="mt-9 border border-white/25 bg-[#0d0f13]"><table class="w-full table-fixed border-collapse text-left"><caption class="sr-only">Especificaciones publicadas del modelo {product.sku}</caption><tbody>{[
+        ['SKU', product.sku], ...facts, ['Colores publicados', reference.colors], ['Pago', 'T/T, tarjeta de crédito, PayPal'], ['Envío', 'Mensajería, transporte aéreo o marítimo; requisitos según destino y pedido'],
+      ].map(([label, value]) => <tr class="border-b border-white/15 last:border-b-0"><th scope="row" class="w-[32%] border-r border-white/15 bg-[#15171c] px-3 py-4 text-[12px] font-bold text-[#d8b456] sm:px-5">{label}</th><td class="px-3 py-4 text-[14px] leading-[1.65] text-white/75 sm:px-5">{value}</td></tr>)}</tbody></table></div>
+      <p class="mt-5 text-[13px] leading-[1.7] text-white/60">El MOQ se refiere al conjunto completo. Consulta la combinación actual de colores y tallas y las condiciones de personalización para tu pedido.</p>
+      <div class="mt-12 border-t border-white/15 pt-8"><h3 class="text-[24px] font-bold">Vistas del producto, color y construcción</h3><div class="mt-7 grid gap-4 md:grid-cols-3">{reference.images.slice(3).map(image => <figure class="overflow-hidden border border-white/15 bg-[#111218] p-2"><img src={image.src} alt={image.alt} class="h-auto w-full object-contain" loading="lazy" /></figure>)}</div></div>
+    </div></section>
+
+    <section class="py-16 lg:py-20"><div class="mx-auto max-w-[1240px] px-6 lg:px-10"><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">DETALLES DE DISEÑO</p><h2 class="mt-4 text-[30px] font-bold sm:text-[38px]">Características del modelo</h2><div class="mt-10 grid gap-7 md:grid-cols-3">{product.features.map(([title, text], index) => <article class="border-t-2 border-[#d8b456] pt-5"><p class="text-[12px] font-bold text-[#d8b456]">0{index + 1}</p><h3 class="mt-4 text-[19px] font-bold">{title}</h3><p class="mt-3 text-[14px] leading-[1.7] text-white/65">{text}</p></article>)}</div></div></section>
+
+    <section class="border-y border-white/10 bg-[#111218] py-16 lg:py-20"><div class="mx-auto max-w-[1240px] px-6 lg:px-10"><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">MODALIDADES DE PEDIDO</p><h2 class="mt-4 text-[30px] font-bold sm:text-[38px]">Elige la modalidad para tu proyecto</h2><div class="mt-10 grid gap-px overflow-hidden border border-white/15 bg-white/15 lg:grid-cols-3">{[
+      ['/es/ready-stock-activewear/', '01 · Programa de stock', 'Consulta los colores, las tallas actuales y los requisitos de entrega del modelo.'],
+      ['/es/private-label-activewear/', '02 · Modelo existente con tu marca', 'Revisa logo, etiquetas, etiquetas colgantes y embalaje sobre la referencia seleccionada.'],
+      ['/es/oem-activewear-manufacturer/', '03 · Desarrollo OEM', 'Comparte los cambios de color, ajuste, tallas, construcción y embalaje para evaluar tu proyecto.'],
+    ].map(([href, title, text]) => <article class="bg-[#111218] p-7"><h3 class="text-[20px] font-bold"><a href={href} class="text-[#d8b456] hover:text-white">{title} &rarr;</a></h3><p class="mt-4 text-[14px] leading-[1.7] text-white/65">{text}</p></article>)}</div></div></section>
+
+    <section id="customization" class="py-16 lg:py-20"><div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[.85fr_1.15fr] lg:px-10"><div><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">MARCA PRIVADA Y PERSONALIZACIÓN</p><h2 class="mt-4 text-[30px] font-bold sm:text-[38px]">Define los acabados de tu marca</h2><p class="mt-5 text-[15px] leading-[1.75] text-white/65">Comparte tu archivo de logo, ubicación y requisitos de presentación. Fitclo puede revisar la personalización del conjunto y el desarrollo solicitado.</p></div><div class="grid gap-px border border-white/15 bg-white/15 sm:grid-cols-2">{[
+      ['Logo', 'Ubicación en delantero, espalda, cintura o piernas, según la prenda y el proyecto.'],
+      ['Etiquetas', 'Etiqueta de marca, de cuidado o tejida.'],
+      ['Presentación', 'Etiquetas colgantes y opciones de embalaje.'],
+      ['Color y ajuste', 'Revisión de color, ajuste y desarrollo de tallas solicitado.'],
+    ].map(([label, value]) => <div class="bg-[#111218] p-5"><h3 class="text-[15px] font-bold">{label}</h3><p class="mt-3 text-[13px] leading-[1.6] text-white/65">{value}</p></div>)}</div></div></section>
+
+    <section class="border-y border-white/10 bg-[#111218] py-16 lg:py-20"><div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-2 lg:px-10"><div><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">MUESTRA Y REVISIÓN</p><h2 class="mt-4 text-[30px] font-bold sm:text-[38px]">Revisa el producto antes de confirmar</h2><p class="mt-5 text-[15px] leading-[1.75] text-white/65">La muestra permite valorar ajuste, confección y marca frente a los requisitos del proyecto. Confirma las opciones de muestra para el modelo {product.sku}.</p></div><ul class="grid gap-5 border-l-2 border-[#d8b456] pl-6 text-[15px] leading-[1.75] text-white/75">{product.checks.map(check => <li>{check}</li>)}</ul></div></section>
+    <section class="py-16 lg:py-20"><div class="mx-auto max-w-[1240px] px-6 lg:px-10"><h2 class="text-[30px] font-bold sm:text-[38px]">De la consulta al envío</h2><ol class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-5">{[
+      ['Revisión del proyecto', 'Confirma cantidades, colores, tallas, marca y destino.'],
+      ['Planificación de la muestra', 'Revisa el modelo y los detalles de desarrollo solicitados.'],
+      ['Aprobación de la muestra', 'Comprueba ajuste, confección y personalización.'],
+      ['Producción', 'Continúa con el plan de producción aprobado.'],
+      ['Inspección y envío', 'Prepara el pedido confirmado y acuerda el transporte.'],
+    ].map(([title, text], index) => <li class="border-t border-[#d8b456] pt-5"><span class="text-[12px] font-bold text-[#d8b456]">0{index + 1}</span><h3 class="mt-4 text-[18px] font-bold">{title}</h3><p class="mt-3 text-[13px] leading-[1.65] text-white/65">{text}</p></li>)}</ol></div></section>
+
+    <section class="border-y border-white/10 py-16 lg:py-20"><div class="mx-auto max-w-[900px] px-6 lg:px-10"><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">PREGUNTAS FRECUENTES</p><h2 class="mt-4 text-[30px] font-bold sm:text-[38px]">Antes de preparar tu pedido</h2><div class="mt-9 border-y border-white/15">{faqs.map(([question, answer]) => <details class="group border-b border-white/15 last:border-b-0"><summary class="flex cursor-pointer list-none items-center justify-between gap-5 py-5 text-[16px] font-bold"><span>{question}</span><span class="text-[#d8b456] group-open:rotate-45">+</span></summary><p class="max-w-[780px] pb-6 text-[14px] leading-[1.75] text-white/65">{answer}</p></details>)}</div></div></section>
+
+    <section class="border-b border-white/10 py-16 lg:py-20"><div class="mx-auto max-w-[1240px] px-6 lg:px-10"><h2 class="text-[30px] font-bold sm:text-[38px]">Explora las categorías relacionadas</h2><div class="mt-7 flex flex-wrap gap-x-8 gap-y-4 text-[15px] font-bold text-[#d8b456]"><a href="/es/fabricante-de-conjuntos-de-yoga/">Conjuntos de yoga &rarr;</a>{related.map(([href, title]) => <a href={href}>{title} &rarr;</a>)}</div></div></section>
+    <section class="py-16 lg:py-20"><div class="mx-auto max-w-[1240px] px-6 lg:px-10"><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">CONSULTA SOBRE {product.sku}</p><h2 class="mt-4 max-w-[800px] text-[32px] font-bold leading-[1.16] sm:text-[42px]">Solicita colores, condiciones y cotización</h2><p class="mt-5 max-w-[800px] text-[15px] leading-[1.75] text-white/65">Envía la cantidad, los colores y las tallas que necesitas para {product.name}. Tu consulta incluirá el SKU {product.sku} y la URL de esta página.</p><div class="mt-7 flex flex-wrap gap-4"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456]">Consultar por WhatsApp</a><a href="/es/contact/" class="inline-flex min-h-12 items-center px-5 py-3 text-[13px] font-bold text-[#d8b456]">Contactar con Fitclo &rarr;</a></div></div></section>
+    <InquiryForm product={product} />
+  </div>
+</BaseLayout>
+
+<style>
+  .spanish-product { overflow-wrap: anywhere; }
+</style>
+<script>
+  // Same gallery interaction as the published product pages; Spanish labels come from data attributes.
+  document.querySelectorAll<HTMLElement>('[data-product-gallery]').forEach((gallery) => {
+    const main = gallery.querySelector<HTMLImageElement>('[data-gallery-main]');
+    const label = gallery.querySelector<HTMLElement>('[data-gallery-label]');
+    const thumbs = Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-gallery-thumb]'));
+    let active = 0;
+    const show = (index: number) => {
+      active = (index + thumbs.length) % thumbs.length;
+      const thumb = thumbs[active];
+      if (!main) return;
+      main.src = thumb.dataset.src || main.src;
+      main.alt = thumb.dataset.alt || main.alt;
+      if (label) label.textContent = thumb.dataset.label || '';
+      thumbs.forEach((item, itemIndex) => {
+        item.classList.toggle('border-[#d8b456]', itemIndex === active);
+        item.classList.toggle('border-white/20', itemIndex !== active);
+        item.setAttribute('aria-pressed', String(itemIndex === active));
+      });
+    };
+    thumbs.forEach((thumb, index) => thumb.addEventListener('click', () => show(index)));
+    gallery.querySelector('[data-gallery-previous]')?.addEventListener('click', () => show(active - 1));
+    gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => show(active + 1));
+  });
+</script>

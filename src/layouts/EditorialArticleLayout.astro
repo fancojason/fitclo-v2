@@ -30,8 +30,12 @@ const {
   publishedIso = '2026-07-11',
   modifiedIso = '2026-07-11',
   lang = 'en',
+  whatsappMessage,
   additionalStructuredData = [],
 } = Astro.props;
+
+const isSpanish = lang === 'es';
+const spanishPageUrl = `https://www.fitcloo.com${Astro.url.pathname}`;
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -48,10 +52,11 @@ const articleSchema = {
   image: articleImage.startsWith('http') ? articleImage : `https://www.fitcloo.com${articleImage}`,
   datePublished: publishedIso,
   dateModified: modifiedIso,
-  mainEntityOfPage: Astro.url.href,
+  mainEntityOfPage: isSpanish ? spanishPageUrl : Astro.url.href,
+  ...(isSpanish ? { inLanguage: 'es', keywords: [type] } : {}),
   author: {
     '@type': 'Organization',
-    name: 'FITCLO Team',
+    name: isSpanish ? 'Equipo Fitclo' : 'FITCLO Team',
     url: 'https://www.fitcloo.com/about/',
   },
   publisher: {
@@ -64,7 +69,10 @@ const articleSchema = {
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
-  itemListElement: [
+  itemListElement: isSpanish ? [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.fitcloo.com/es/' },
+    { '@type': 'ListItem', position: 2, name: title, item: spanishPageUrl },
+  ] : [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
     { '@type': 'ListItem', position: 2, name: 'Blogs', item: 'https://www.fitcloo.com/blogs/' },
     { '@type': 'ListItem', position: 3, name: title, item: Astro.url.href },
@@ -90,7 +98,7 @@ const structuredData = [...baseStructuredData, ...additionalStructuredData];
 ---
 
 <BaseLayout
-  title={`${title} | Fitclo Blog`}
+  title={isSpanish ? seoTitle ?? title : `${title} | Fitclo Blog`}
   seoTitle={seoTitle}
   description={description}
   image={articleImage.startsWith('http') ? articleImage : `https://www.fitcloo.com${articleImage}`}
@@ -98,10 +106,12 @@ const structuredData = [...baseStructuredData, ...additionalStructuredData];
   autoArticleSchema={false}
   includeBreadcrumbSchema={false}
   lang={lang}
+  whatsappMessage={whatsappMessage}
 >
   <article class={`fitclo-editorial-article article-kind-${articleKind}`}>
     <div class="fitclo-editorial-wrap">
-      <span class="fitclo-editorial-tag">{type} &bull; Activewear Intelligence</span>
+      {isSpanish && <nav aria-label="Ruta de navegación" class="mb-6 text-sm"><a href="/es/">Inicio</a><span aria-hidden="true"> / </span><span>Guía de compra</span></nav>}
+      <span class="fitclo-editorial-tag">{type} &bull; {isSpanish ? 'Guías de compra' : 'Activewear Intelligence'}</span>
       <h1>{title}</h1>
       <div class="fitclo-editorial-meta">
         <span class="fitclo-editorial-calendar" aria-hidden="true"></span>
@@ -109,11 +119,11 @@ const structuredData = [...baseStructuredData, ...additionalStructuredData];
         <span>&bull;</span>
         <span>{readTime}</span>
         <span>&bull;</span>
-        <span>By FITCLO Team</span>
+        <span>{isSpanish ? 'Por el equipo Fitclo' : 'By FITCLO Team'}</span>
       </div>
 
       <div class="fitclo-editorial-answer" data-aeo="answer">
-        <p><strong>Short version:</strong> {quickAnswerTitle}</p>
+        <p><strong>{isSpanish ? 'Punto de partida:' : 'Short version:'}</strong> {quickAnswerTitle}</p>
         {quickTakeaways.length > 0 && (
           <ul>
             {quickTakeaways.map((item) => <li>{item}</li>)}
@@ -188,7 +198,7 @@ const structuredData = [...baseStructuredData, ...additionalStructuredData];
         </section>
       )}
 
-      <div class="fitclo-editorial-callout fitclo-editorial-cta-box">
+      {!isSpanish && <div class="fitclo-editorial-callout fitclo-editorial-cta-box">
         <strong>{ctaTitle}</strong>
         <span>{ctaText}</span>
         <a class="fitclo-editorial-cta" href={ctaHref} target="_blank" rel="noopener">{ctaLabel}</a>
@@ -198,11 +208,11 @@ const structuredData = [...baseStructuredData, ...additionalStructuredData];
           <a href="/ready-to-ship">Ready to Ship</a>
           <a href="/products">Products</a>
         </nav>
-      </div>
+      </div>}
 
       {faqs.length > 0 && (
         <section class="fitclo-editorial-section">
-          <h2>Frequently asked questions</h2>
+          <h2>{isSpanish ? 'Preguntas frecuentes' : 'Frequently asked questions'}</h2>
           <div class="fitclo-editorial-faq-list">
             {faqs.map((item) => (
               <div class="fitclo-editorial-faq-item">
@@ -216,7 +226,7 @@ const structuredData = [...baseStructuredData, ...additionalStructuredData];
 
       {relatedReading.length > 0 && (
         <section class="fitclo-editorial-section">
-          <h2>Related reading</h2>
+          <h2>{isSpanish ? 'Siguiente paso' : 'Related reading'}</h2>
           <ul class="fitclo-editorial-related">
             {relatedReading.map((item) => (
               <li>
@@ -227,8 +237,15 @@ const structuredData = [...baseStructuredData, ...additionalStructuredData];
           </ul>
         </section>
       )}
+      {isSpanish && <div class="fitclo-editorial-callout fitclo-editorial-cta-box">
+        <strong>{ctaTitle}</strong><span>{ctaText}</span>
+        <a class="fitclo-editorial-cta" href="#inquiry">{ctaLabel}</a>
+        <a href={ctaHref} target="_blank" rel="noopener">Consultar por WhatsApp →</a>
+        <a href="/es/contact/">Contactar con Fitclo</a>
+      </div>}
     </div>
   </article>
+  <slot name="inquiry" />
 </BaseLayout>
 
 <style is:global>

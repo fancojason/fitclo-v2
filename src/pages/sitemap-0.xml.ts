@@ -3,10 +3,12 @@ import { productCategories } from '../data/productCategories';
 import { marketLandingPaths } from '../data/marketLandingPages';
 import { spanishCategoryPages } from '../content/es/categories';
 import { spanishProducts } from '../content/es/products';
+import { spanishGuides } from '../content/es/guides';
 
 const site = 'https://www.fitcloo.com';
 
 const staticPages = [
+  ...spanishGuides.map((guide) => `/es/guias/${guide.slug}/`),
   ...spanishProducts.map((product) => `/es/products/${product.slug}/`),
   ...spanishCategoryPages.map((page) => `/es/${page.slug}/`),
   '/',
@@ -71,6 +73,7 @@ const productDetailPages = Object.keys(productModules)
   .map((slug) => `/products/${slug}/`);
 
 const lastModifiedByPath = new Map<string, string>([
+  ...spanishGuides.map((guide): [string, string] => [`/es/guias/${guide.slug}/`, '2026-09-07']),
   ...spanishProducts.map((product): [string, string] => [`/es/products/${product.slug}/`, '2026-09-07']),
   ...spanishCategoryPages.map((page): [string, string] => [`/es/${page.slug}/`, '2026-09-06']),
   ['/', '2026-07-04'],

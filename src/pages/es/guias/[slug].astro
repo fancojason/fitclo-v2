@@ -1,0 +1,44 @@
+---
+import EditorialArticleLayout from '../../../layouts/EditorialArticleLayout.astro';
+import InquiryForm from '../../../components/InquiryForm.astro';
+import { spanishGuides } from '../../../content/es/guides';
+
+export function getStaticPaths() {
+  return spanishGuides.map((guide) => ({ params: { slug: guide.slug }, props: { guide } }));
+}
+const { guide } = Astro.props;
+const whatsappMessage = `Hola Fitclo, he leído la guía «${guide.title}». Quisiera consultar mi proyecto de ropa deportiva.`;
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsappMessage)}`;
+---
+
+<EditorialArticleLayout
+  lang="es" title={guide.title} seoTitle={guide.seoTitle} description={guide.description}
+  type={guide.theme.split(' · ')[0]} articleKind="spanish-buyer-guide"
+  date="7 de septiembre de 2026" readTime="Guía para compradores B2B"
+  publishedIso="2026-09-07" modifiedIso="2026-09-07" articleImage={guide.image}
+  quickAnswerTitle={guide.quickAnswer} faqs={guide.faqs} relatedReading={guide.related}
+  ctaTitle={guide.ctaTitle} ctaText={guide.ctaText} ctaLabel={guide.ctaLabel}
+  ctaHref={whatsappUrl} whatsappMessage={whatsappMessage}
+>
+  <figure class="fitclo-editorial-feature-image">
+    <img src={guide.image} alt={guide.imageAlt} loading="eager" width="1280" height="720" />
+  </figure>
+  <p>{guide.intro}</p>
+  <nav aria-label="Contenido de la guía">
+    <p><strong>En esta guía</strong></p>
+    <ol>{guide.sections.map((section, index) => <li><a href={`#paso-${index + 1}`}>{section.heading}</a></li>)}</ol>
+  </nav>
+  {guide.sections.map((section, index) => <section id={`paso-${index + 1}`}>
+    <h2>{section.heading}</h2>
+    {section.paragraphs?.map((paragraph) => <p set:html={paragraph} />)}
+    {section.bullets && <ul>{section.bullets.map((item) => <li>{item}</li>)}</ul>}
+  </section>)}
+  <InquiryForm slot="inquiry" guide={guide} />
+</EditorialArticleLayout>
+
+<style is:global>
+  .article-kind-spanish-buyer-guide { overflow-wrap: anywhere; }
+  .article-kind-spanish-buyer-guide section[id] { scroll-margin-top: 100px; }
+  .article-kind-spanish-buyer-guide .fitclo-editorial-body ol { list-style: decimal; }
+  .article-kind-spanish-buyer-guide .fitclo-editorial-body ul { list-style: disc; }
+</style>

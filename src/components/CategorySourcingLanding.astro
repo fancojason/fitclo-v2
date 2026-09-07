@@ -7,6 +7,12 @@ import { getAlternateLinks, localizedRoutePairs, type SiteLanguage } from '../i1
 const { page, lang = 'en', canonicalPath, englishPath, translations = [] } = Astro.props;
 const language: SiteLanguage = lang === 'es' ? 'es' : 'en';
 const isSpanish = language === 'es';
+const buyerGuideLinks = isSpanish ? {
+  'ropa-deportiva-al-por-mayor': { href: '/es/guias/moq-ropa-deportiva/', label: 'Guía: planificar el MOQ del primer pedido' },
+  'fabricante-de-tops-deportivos': { href: '/es/guias/marca-privada-vs-oem-odm/', label: 'Guía: elegir marca privada, OEM u ODM' },
+  'fabricante-de-leggings': { href: '/es/guias/precio-fabricar-ropa-deportiva-personalizada/', label: 'Guía: preparar una cotización de fabricación' },
+  'fabricante-de-conjuntos-de-yoga': { href: '/es/guias/desarrollar-coleccion-ropa-deportiva/', label: 'Guía: desarrollar una colección y aprobar muestras' },
+}[page.slug] : undefined;
 const products = page.productCodes
   .map((styleCode: string) => getCatalogProductByStyleCode(styleCode))
   .filter((product: CatalogProduct | undefined): product is CatalogProduct => Boolean(product));
@@ -119,6 +125,7 @@ const { hasOfferCatalog, ...sourcingServiceSchema } = serviceSchema;
       <a href="/es/oem-activewear-manufacturer/">Desarrollo OEM/ODM</a>
       <a href="/es/ready-stock-activewear/">Consultar el programa de stock</a>
       <a href="/es/contact/">Solicitar una cotización</a>
+      {buyerGuideLinks && <a data-buyer-guide-link href={buyerGuideLinks.href}>{buyerGuideLinks.label}</a>}
     </nav>
   </div></section>}
   <InquiryForm />

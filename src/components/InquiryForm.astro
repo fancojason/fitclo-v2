@@ -1,7 +1,7 @@
 ---
 const language = Astro.url.pathname.startsWith('/es/') ? 'es' : 'en';
 const isSpanish = language === 'es';
-const { product } = Astro.props;
+const { product, guide } = Astro.props;
 const copy = isSpanish ? {
   eyebrow: 'SOLICITA UNA COTIZACIÓN GRATUITA', title: 'Cotización gratuita +', mockup: 'Diseño de logo', timing: 'en 24 horas',
   intro: 'Sin compromiso y sin spam. Nuestro asesor de ropa deportiva se pondrá en contacto contigo con una propuesta de diseño gratuita y precio directo de fábrica.',
@@ -34,6 +34,15 @@ const copy = isSpanish ? {
   badges: ['Free Design Mockup', 'No Hidden Fees', 'Sample Before Bulk', 'Reply in 24 Hours'],
   sending: 'SENDING...', success: 'SENT! JASON WILL REPLY WITHIN 24 HOURS.', error: "We couldn't send your request right now. Please try again or contact us on WhatsApp.",
 };
+// Guide-only wording: retain the form and submission flow without implying a universal MOQ or timeline.
+if (guide && isSpanish) Object.assign(copy, {
+  title: 'Consulta sobre', mockup: 'tu proyecto', timing: 'de ropa deportiva',
+  intro: 'Comparte referencias, cantidades y requisitos de marca para preparar la consulta de tu pedido.',
+  consultantText: 'Completa el formulario con los detalles que ya tienes definidos.',
+  online: 'Asesor de ropa deportiva', privacy: 'Usaremos los datos de tu consulta para responder sobre tu proyecto.',
+  badges: ['Referencias de producto', 'Revisión del brief', 'Opciones de muestra', 'Marca y embalaje'],
+  success: '¡SOLICITUD ENVIADA! GRACIAS POR COMPARTIR TU PROYECTO.',
+});
 ---
 <section id="inquiry" class="py-24 bg-[#0e0e12] text-white overflow-hidden">
   <div class="max-w-[1000px] mx-auto px-6 lg:px-10">
@@ -156,7 +165,7 @@ const copy = isSpanish ? {
           <div class="space-y-2">
             <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.quantity}</label>
             <div class="relative">
-              {product ? <input name="quantity" required type="text" aria-label="Cantidad estimada en conjuntos" placeholder="Ej.: 50 conjuntos" class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]" /> : <><select name="quantity" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
+              {product || guide ? <input name="quantity" required type="text" aria-label={guide ? 'Cantidad estimada y unidad de compra' : 'Cantidad estimada en conjuntos'} placeholder={guide ? 'Indica cantidad y si son prendas o conjuntos' : 'Ej.: 50 conjuntos'} class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]" /> : <><select name="quantity" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
                 <option value="" disabled selected class="bg-[#0A0A0F]">{copy.selectQuantity}</option>
                 <option value="100-300 PCS" class="bg-[#0A0A0F]">{copy.lowMoq}</option>
                 <option value="300-1000 PCS" class="bg-[#0A0A0F]">{copy.midMoq}</option>

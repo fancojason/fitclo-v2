@@ -16,6 +16,15 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 User-agent: Googlebot
 Allow: /
 
@@ -28,17 +37,17 @@ Allow: /
 User-agent: YandexImages
 Allow: /
 
-# Permit the additional public crawlers named in Fitclo's blog publishing
-# requirements. Search visibility still depends on each service's own index
-# and citation policies.
+# Keep training and mixed training/grounding controls consistent with
+# the no-training signal and Cloudflare managed robots.txt. Google Search
+# is controlled separately by Googlebot above.
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
 
 User-agent: Google-Extended
-Allow: /
+Disallow: /
 
 User-agent: Amazonbot
 Disallow: /

@@ -90,7 +90,7 @@ const privateLabelSchema = {
               Private labeling allows you to sell high-quality activewear manufactured by Fitclo under your own brand name. We provide the infrastructure, technology, and craftsmanship, while you focus on marketing and growth.
             </p>
             <p>
-              Whether you need <strong class="text-black">custom logo application</strong>, specialized <strong class="text-black">hang tags</strong>, or fully bespoke <strong class="text-black">OEM designs</strong>, our team ensures your brand identity is reflected in every stitch.
+              Whether you need <strong class="text-black">custom logo application</strong>, specialized <strong class="text-black">hang tags</strong>, or fully bespoke <a href="/oem-activewear-manufacturer/" class="text-black underline underline-offset-4"><strong>OEM designs</strong></a>, our team ensures your brand identity is reflected in every stitch.
             </p>
             <div class="pt-4">
               <a href="/products" class="text-[#C9A84C] font-bold hover:underline font-['Century_Gothic',sans-serif] text-[14px] md:text-[15px] uppercase tracking-widest">View our product catalog for inspiration →</a>
@@ -114,7 +114,7 @@ const privateLabelSchema = {
             alt="Custom Labeling Process"
             class="rounded-[40px] shadow-2xl relative z-10"
           />
-          <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#C9A84C]/10 rounded-full blur-3xl"></div>
+          <div class="absolute -top-10 right-0 xl:-right-10 w-40 h-40 bg-[#C9A84C]/10 rounded-full blur-3xl"></div>
         </div>
       </div>
     </div>
@@ -135,14 +135,14 @@ const privateLabelSchema = {
       <div class="grid md:grid-cols-5 gap-4">
         {[
           { step: '01', title: 'Consult', desc: 'Discussing your design concepts and fabric requirements.' },
-          { step: '02', title: 'Design', desc: 'Creating tech packs and CAD drawings for your approval.' },
-          { step: '03', title: 'Sample', desc: 'Producing a physical prototype for fit and quality testing.' },
-          { step: '04', title: 'Bulk', desc: 'Mass production with 100% rigorous quality control.' },
+          { step: '02', title: 'Design', href: '/activewear-tech-pack-pattern-development/', desc: 'Creating tech packs and CAD drawings for your approval.' },
+          { step: '03', title: 'Sample', href: '/activewear-sampling-product-development/', desc: 'Producing a physical prototype for fit and quality testing.' },
+          { step: '04', title: 'Bulk', href: '/activewear-quality-control-inspection/', desc: 'Mass production with 100% rigorous quality control.' },
           { step: '05', title: 'Ship', desc: 'Global logistics and secure door-to-door delivery.' }
         ].map((item) => (
           <div class="bg-white p-8 rounded-3xl hover:bg-[#C9A84C] group transition-all duration-300 shadow-sm hover:shadow-xl">
             <span class="block text-4xl font-bold text-[#C9A84C] group-hover:text-black mb-4 font-['Century_Gothic',sans-serif]">{item.step}</span>
-            <h3 class="text-[18px] font-bold mb-2 uppercase group-hover:text-black font-['Century_Gothic',sans-serif] tracking-tight">{item.title}</h3>
+            <h3 class="text-[18px] font-bold mb-2 uppercase group-hover:text-black font-['Century_Gothic',sans-serif] tracking-tight">{item.href ? <a href={item.href} class="underline underline-offset-4">{item.title}</a> : item.title}</h3>
             <p class="text-gray-500 group-hover:text-black/80 text-[13px] font-['Century_Gothic',sans-serif] leading-relaxed">{item.desc}</p>
           </div>
         ))}
@@ -166,7 +166,7 @@ const privateLabelSchema = {
           <div class="w-20 h-20 bg-[#C9A84C]/10 rounded-full flex items-center justify-center mx-auto mb-6 text-[#C9A84C] group-hover:bg-[#C9A84C] group-hover:text-black transition-all">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
           </div>
-          <h3 class="text-[20px] font-bold mb-4 font-['Century_Gothic',sans-serif] uppercase tracking-tight">Custom Labels & Tags</h3>
+          <h3 class="text-[20px] font-bold mb-4 font-['Century_Gothic',sans-serif] uppercase tracking-tight"><a href="/custom-activewear-labels-packaging/" class="underline underline-offset-4">Custom Labels & Tags</a></h3>
           <p class="text-gray-500 font-['Century_Gothic',sans-serif] text-[15px] leading-relaxed">Woven labels, heat-transfer neck labels, and premium hang tags to elevate your brand presence.</p>
         </div>
         <div class="text-center group">

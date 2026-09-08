@@ -11,6 +11,13 @@ export function getStaticPaths() {
 }
 
 const { category } = Astro.props as { category: ProductCategory };
+const sourcingLinks = ({
+  leggings: [
+    ['/private-label-leggings/', 'Private label leggings sourcing'],
+    ['/guides/leggings/', 'Leggings manufacturing guide'],
+  ],
+  'sports-bras': [['/guides/sport-bras/', 'Sports bra development guide']],
+}[category.slug] ?? []) as string[][];
 const whatsappMessage = encodeURIComponent(
   `Hello Fitclo, I am interested in developing ${category.title.toLowerCase()} for my brand. Can we discuss MOQ, sampling and fabric options?`,
 );
@@ -86,6 +93,9 @@ const faqSchema = {
         <p class="text-[11px] font-bold tracking-[0.2em] text-[#b0882f] font-['Century_Gothic',sans-serif]">PRODUCT DEVELOPMENT</p>
         <h2 class="mt-4 text-[31px] font-bold leading-[1.15] text-white md:text-[40px] font-['Century_Gothic',sans-serif]">Designed around your brand’s performance brief.</h2>
         <p class="mt-6 text-[16px] leading-[1.8] text-white/60 font-['Century_Gothic',sans-serif]">{category.description}</p>
+        {sourcingLinks.length > 0 && <div class="mt-6 flex flex-wrap gap-4 text-[14px] font-bold text-[#d8b456]">
+          {sourcingLinks.map(([href, label]) => <a href={href} class="underline underline-offset-4">{label}</a>)}
+        </div>}
       </div>
       <aside class="border-l-2 border-[#d8b456] bg-[#171717] px-7 py-8 md:px-9">
         <p class="text-[11px] font-bold tracking-[0.18em] text-[#d8b456] font-['Century_Gothic',sans-serif]">WHAT WE PRIORITIZE</p>

@@ -270,6 +270,19 @@ const localizedContent = translations.length
     <meta name="geo.placename" content="Guangzhou" />
     <meta name="geo.position" content="23.1291;113.2644" />
     <meta name="ICBM" content="23.1291, 113.2644" />
+    <script is:inline>
+      // Keep local builds and deployment previews out of the production property.
+      if (['www.fitcloo.com', 'fitcloo.com'].includes(window.location.hostname)) {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-VT6KCKVKPD', { language: document.documentElement.lang });
+        const googleTag = document.createElement('script');
+        googleTag.async = true;
+        googleTag.src = 'https://www.googletagmanager.com/gtag/js?id=G-VT6KCKVKPD';
+        document.head.appendChild(googleTag);
+      }
+    </script>
   </head>
 
   <body class="bg-white selection:bg-accent selection:text-black">

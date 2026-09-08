@@ -128,13 +128,14 @@ const spanishPath = getLocalizedRoute(Astro.url.pathname, 'es');
     selector.addEventListener('change', () => {
       const fromLanguage = document.documentElement.lang || 'en';
       const toLanguage = selector.selectedOptions[0]?.textContent?.toLowerCase() || 'en';
-      const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, string>> };
-      analyticsWindow.dataLayer?.push({
-        event: 'language_switch',
+      const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, string>>; gtag?: (...args: unknown[]) => void };
+      const parameters = {
         from_language: fromLanguage,
         to_language: toLanguage,
         page_path: window.location.pathname,
-      });
+      };
+      if (analyticsWindow.gtag) analyticsWindow.gtag('event', 'language_switch', parameters);
+      else analyticsWindow.dataLayer?.push({ event: 'language_switch', ...parameters });
       window.location.assign(selector.value);
     });
   });

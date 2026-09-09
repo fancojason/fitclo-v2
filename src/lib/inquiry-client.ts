@@ -47,7 +47,7 @@ export async function submitInquiry(fields: Record<string, FormDataEntryValue>) 
   const result = await response.clone().json().catch(() => null);
   if (response.ok && result?.success && result.id) {
     const analytics = window as Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void };
-    const parameters = { language, page_path: window.location.pathname, product_code: String(fields.product_code || ''), inquiry_id: result.id };
+    const parameters = { language, site_language: language, page_path: window.location.pathname, product_code: String(fields.product_code || ''), inquiry_id: result.id };
     try {
       if (typeof analytics.gtag === 'function') analytics.gtag('event', 'generate_lead', parameters);
       else (analytics.dataLayer ||= []).push({ event: 'generate_lead', ...parameters });

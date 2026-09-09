@@ -55,14 +55,6 @@ const serviceSchema = {
   provider: { '@id': 'https://www.fitcloo.com/#organization' },
   areaServed: 'Worldwide',
   audience: { '@type': 'BusinessAudience', audienceType: isSpanish ? 'Marcas de ropa deportiva, compradores, minoristas, estudios fitness y emprendedores de moda' : 'Activewear brands, buyers, retailers, fitness studios and apparel entrepreneurs' },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: `${page.title} product directions`,
-    itemListElement: products.map((product: CatalogProduct) => ({
-      '@type': 'Offer',
-      itemOffered: { '@type': 'Product', name: isSpanish ? `${page.productTranslations?.[product.styleCode]?.name ?? 'Modelo de ropa deportiva'} ${product.styleCode}` : product.name, sku: product.styleCode, image: `https://www.fitcloo.com${product.image}` },
-    })),
-  },
 };
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -71,11 +63,9 @@ const faqSchema = {
     '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer },
   })),
 };
-// New sourcing pages describe a service; catalog references are not stock offers.
-const { hasOfferCatalog, ...sourcingServiceSchema } = serviceSchema;
 ---
 
-<BaseLayout title={page.seoTitle} description={page.description} canonicalURL={pageUrl} lang={language} alternateLinks={alternateLinks} translations={isSpanish ? translations : []} image={`https://www.fitcloo.com${heroImage}`} structuredData={[page.sourcingText ? sourcingServiceSchema : serviceSchema, faqSchema]} autoArticleSchema={false}>
+<BaseLayout title={page.seoTitle} description={page.description} canonicalURL={pageUrl} lang={language} alternateLinks={alternateLinks} translations={isSpanish ? translations : []} image={`https://www.fitcloo.com${heroImage}`} structuredData={[serviceSchema, faqSchema]} autoArticleSchema={false}>
   <section class="relative overflow-hidden bg-[#090909] pt-[82px] text-white">
     <img src={heroImage} alt={heroImageAlt} class="absolute inset-0 h-full w-full object-cover object-center opacity-35" fetchpriority="high" />
     <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,.97)_0%,rgba(5,5,5,.88)_52%,rgba(5,5,5,.48)_100%)]"></div>

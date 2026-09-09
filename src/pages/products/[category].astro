@@ -23,20 +23,12 @@ const whatsappMessage = encodeURIComponent(
 );
 const productSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Product',
+  '@type': 'CollectionPage',
   name: `${category.title} Manufacturing`,
   description: category.description,
   image: `https://www.fitcloo.com${category.heroImage}`,
-  brand: { '@type': 'Brand', name: 'Fitclo' },
-  manufacturer: { '@id': 'https://www.fitcloo.com/#organization' },
-  category: category.title,
-  offers: {
-    '@type': 'AggregateOffer',
-    priceCurrency: 'USD',
-    availability: 'https://schema.org/InStock',
-    offerCount: category.styles.length,
-    seller: { '@id': 'https://www.fitcloo.com/#organization' },
-  },
+  url: `https://www.fitcloo.com/products/${category.slug}/`,
+  publisher: { '@id': 'https://www.fitcloo.com/#organization' },
 };
 const faqSchema = {
   '@context': 'https://schema.org',

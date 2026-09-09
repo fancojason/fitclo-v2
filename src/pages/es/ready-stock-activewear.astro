@@ -16,7 +16,7 @@ const readyStockSchema = {
   description: 'Explora modelos de ropa deportiva con stock disponible por categoría y MOQ. Solicita colores, tallas, muestras, logo personalizado y cotización mayorista.',
   url: pageUrl,
   mainEntity: { '@type': 'ItemList', numberOfItems: readyStockCatalog.length, itemListElement: readyStockCatalog.map((product, index) => ({
-    '@type': 'ListItem', position: index + 1, item: { '@type': 'Product', name: `${spanishCategoryLabels[product.category] ?? 'Ropa deportiva'} ${product.styleCode}`, sku: product.styleCode, image: `https://www.fitcloo.com${product.image}`, category: spanishCategoryLabels[product.category] ?? 'Ropa deportiva' },
+    '@type': 'ListItem', position: index + 1, item: { '@type': 'Thing', name: `${spanishCategoryLabels[product.category] ?? 'Ropa deportiva'} ${product.styleCode}`, identifier: product.styleCode, image: `https://www.fitcloo.com${product.image}` },
   })) },
 };
 const faqs = [

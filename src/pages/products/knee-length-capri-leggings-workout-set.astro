@@ -1,4 +1,5 @@
 ---
+import { productThumbnail } from '../../lib/product-thumbnail';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { fixedProductGalleryImages } from '../../data/productGalleryDefaults';
 
@@ -202,7 +203,7 @@ const faqSchema = {
                   data-gallery-alt={image.alt}
                   data-gallery-label={image.label}
                 >
-                  <img src={image.src} alt="" width="180" height="180" loading="lazy" class="h-full w-full object-contain" />
+                  <img src={image.src} {...(index === 0 ? {} : productThumbnail(image.src))} alt="" width="180" height="180" loading="lazy" class="h-full w-full object-contain" />
                 </button>
               ))}
               <button type="button" class="gallery-arrow grid aspect-square place-items-center rounded-full border border-white/20 text-[24px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show next product image" data-gallery-next>&rsaquo;</button>

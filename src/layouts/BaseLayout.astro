@@ -300,7 +300,9 @@ const localizedContent = translations.length
     <FloatingButtons lang={lang} message={whatsappMessage} />
     <script>
       import { initInquiryAttribution } from '../lib/inquiry-client';
+      import { initWebVitals } from '../lib/web-vitals';
       initInquiryAttribution();
+      initWebVitals();
     </script>
   </body>
 </html>

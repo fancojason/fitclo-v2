@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+import { spanishProducts, spanishProductReferences } from '../../content/es/products';
+
+const pageUrl = 'https://www.fitcloo.com/es/fabricante-ropa-deportiva-espana/';
+const title = 'Fabricante de ropa deportiva para marcas en España | Fitclo';
+const description = 'Ropa deportiva desde China para marcas y tiendas en España. Compara stock, marca privada y OEM/ODM; consulta modelos, MOQ, muestras, etiquetado y envío.';
+const whatsappMessage = 'Hola Fitclo, quiero preparar un pedido de ropa deportiva para España. Me gustaría consultar modelos, cantidades, tallas, personalización y envío.';
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsappMessage)}`;
+const products = ['0636', '3708', 'TZ2557-6', 'TZ4510-14'].map(sku => spanishProducts.find(product => product.sku === sku)!);
+const faqs = [
+  ['¿Fitclo fabrica en España o en China?', 'Fitclo es un fabricante en Guangzhou, China, que atiende a compradores de España. Esta página permite preparar un pedido para ese destino; no presenta una fábrica ni un almacén local en España.'],
+  ['¿Cuál es el pedido mínimo para comprar ropa deportiva al por mayor?', 'El programa de stock publica un MOQ desde 50 conjuntos o 50 prendas individuales, según el modelo. No significa que se puedan combinar libremente referencias, colores y tallas. Confirma el reparto del pedido; la personalización y el desarrollo OEM/ODM se valoran por separado.'],
+  ['¿Puedo lanzar una colección con mi logo?', 'Sí. Puedes consultar logo, etiquetas de marca y cuidado, etiquetas colgantes y embalaje para modelos adecuados. Envía el archivo del logo, las posiciones y el acabado deseado. La técnica, el coste y el MOQ se confirman con el producto y el proyecto.'],
+  ['¿Cómo compruebo que las tallas sirven para mis clientes en España?', 'Solicita medidas de la prenda y tolerancias, y compáralas con una referencia de ajuste de tu marca. Las tallas publicadas no se convierten automáticamente a tallas españolas. Revisa la muestra y la distribución de tallas antes de aprobar el pedido.'],
+  ['¿Se puede solicitar una muestra antes del pedido?', 'Envía el SKU o diseño, color, talla y requisitos de marca. Fitclo revisará la opción de muestra y confirmará su coste, plazo y envío. Usa la muestra para aprobar tejido, medidas, confección y acabados antes de la producción.'],
+  ['¿El precio incluye transporte, aduana e impuestos en España?', 'Depende del alcance de la oferta. Solicita un desglose de producto, personalización, transporte y responsabilidades de importación, con el Incoterm y lugar de entrega definidos. El precio de la prenda por sí solo no representa el coste total de recepción.'],
+  ['¿Qué necesito indicar para recibir una propuesta?', 'Comparte los modelos o referencias, cantidad por modelo, colores, tallas, logo, destino con código postal y fecha objetivo de recepción en España. Si aún no tienes un diseño técnico, explica el uso de las prendas y los cambios que necesitas.'],
+];
+const schemas = [
+  { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${pageUrl}#webpage`, url: pageUrl, name: title, description, inLanguage: 'es', about: { '@type': 'Service', name: 'Suministro de ropa deportiva para marcas en España', serviceType: 'Ropa deportiva al por mayor, marca privada y OEM/ODM', provider: { '@id': 'https://www.fitcloo.com/#organization' }, areaServed: { '@type': 'Country', name: 'España' } } },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.fitcloo.com/es/' }, { '@type': 'ListItem', position: 2, name: 'Compradores en España', item: pageUrl }] },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) },
+];
+---
+
+<BaseLayout lang="es" title={title} description={description} canonicalURL={pageUrl} autoArticleSchema={false} includeBreadcrumbSchema={false} structuredData={schemas} whatsappMessage={whatsappMessage} image="https://www.fitcloo.com/images/products/shared/private-label-customization-options.webp">
+  <div class="spain-landing">
+    <section class="hero section">
+      <div class="wrap">
+        <nav aria-label="Ruta de navegación"><a href="/es/">Inicio</a><span aria-hidden="true"> / </span><span aria-current="page">Compradores en España</span></nav>
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">DE GUANGZHOU A TU MARCA · MERCADO ESPAÑOL</p>
+            <h1>Fabricante de ropa deportiva para marcas en España</h1>
+            <p class="lead">Tu colección empieza con decisiones claras: producto, ajuste, marca y entrega.</p>
+            <p>Fitclo fabrica en China y atiende a marcas, tiendas y estudios de España con modelos del programa de stock, personalización de marca privada y desarrollo OEM/ODM. Define la ruta que encaja con tu proyecto y solicita una propuesta para tu destino.</p>
+            <div class="actions"><a class="button" href="#inquiry">Solicitar propuesta para España</a><a class="button secondary" href="#modelos">Ver modelos y especificaciones</a></div>
+            <p class="note">Fabricación en China · MOQ según modelo y personalización · Envío sujeto a oferta</p>
+          </div>
+          <aside class="brief">
+            <p class="eyebrow">TU PEDIDO, EN CINCO DECISIONES</p>
+            <ol><li><strong>Producto</strong><span>Modelos, actividad y público de tu marca.</span></li><li><strong>Cantidad</strong><span>Unidades o conjuntos por referencia.</span></li><li><strong>Ajuste</strong><span>Medidas, tallas, tejido y colores.</span></li><li><strong>Identidad</strong><span>Logo, etiquetas y presentación.</span></li><li><strong>Entrega</strong><span>Código postal en España y fecha objetivo.</span></li></ol>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Comentar mi proyecto por WhatsApp →</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <nav class="section-nav" aria-label="Contenido de la página"><div class="wrap"><a href="#rutas">Stock o fabricación</a><a href="#modelos">Modelos</a><a href="#muestras">Muestras y tallas</a><a href="#espana">Preparar la entrega</a><a href="#preguntas">Preguntas frecuentes</a></div></nav>
+
+    <section id="rutas" class="section"><div class="wrap">
+      <p class="eyebrow">PRIMERO, ELIGE LA RUTA DE COMPRA</p><h2>¿Stock, marca privada o un desarrollo propio?</h2>
+      <p class="intro">La opción adecuada depende de cuánto quieras cambiar el producto. Compara propuestas con el mismo alcance para entender qué incluye cada presupuesto.</p>
+      <div class="three-grid">
+        <article class="panel"><span class="number">01 / STOCK</span><h3>Partir de modelos existentes</h3><p>Para seleccionar referencias del catálogo y comprobar su combinación actual de colores y tallas.</p><dl><dt>Punto de partida</dt><dd>MOQ publicado desde 50 conjuntos o 50 prendas, según el modelo.</dd><dt>Antes de confirmar</dt><dd>Disponibilidad, reparto por SKU y condiciones de envío. El catálogo no equivale a inventario reservado.</dd></dl><a href="/es/ready-stock-activewear/">Consultar el programa de stock →</a></article>
+        <article class="panel"><span class="number">02 / MARCA PRIVADA</span><h3>Añadir tu identidad de marca</h3><p>Para personalizar modelos adecuados con logo, etiquetas de marca y cuidado, etiquetas colgantes y embalaje.</p><dl><dt>Punto de partida</dt><dd>Un producto definido y archivos de marca.</dd><dt>Antes de confirmar</dt><dd>Técnica del logo, posiciones, materiales de etiquetas, coste y MOQ de cada acabado.</dd></dl><a href="/es/private-label-activewear/">Ver opciones de marca privada →</a></article>
+        <article class="panel"><span class="number">03 / OEM · ODM</span><h3>Desarrollar una prenda a medida</h3><p>Para revisar tejido, patronaje, medidas, construcción o detalles que no resuelve una referencia existente.</p><dl><dt>Punto de partida</dt><dd>Ficha técnica, muestra de referencia o un brief con cambios definidos.</dd><dt>Antes de confirmar</dt><dd>Viabilidad, proceso de muestras, MOQ y calendario del desarrollo concreto.</dd></dl><a href="/es/oem-activewear-manufacturer/">Preparar un proyecto OEM/ODM →</a></article>
+      </div>
+      <p class="note">Si todavía estás comparando opciones, consulta la <a href="/es/guias/marca-privada-vs-oem-odm/">guía de marca privada, OEM y ODM</a> o la <a href="/es/guias/moq-ropa-deportiva/">guía de MOQ</a>.</p>
+    </div></section>
+
+    <section id="modelos" class="section soft"><div class="wrap">
+      <p class="eyebrow">REFERENCIAS PARA CONSTRUIR TU COLECCIÓN</p><h2>Modelos con SKU y especificaciones publicadas</h2>
+      <p class="intro">Estas referencias permiten comparar construcciones y tejidos. Los datos proceden de las fichas de producto; confirma disponibilidad, colores y reparto de tallas para tu pedido.</p>
+      <div class="product-grid">{products.map(product => {
+        const reference = spanishProductReferences[product.sku];
+        return <article class="product"><a href={`/es/products/${product.slug}/`}><img src={reference.images[0].src} alt={`${product.name}, SKU ${product.sku}`} loading="lazy" decoding="async" width="600" height="600" /><div class="product-heading"><span class="number">SKU {product.sku}</span><h3>{product.name}</h3></div></a><div class="product-body"><dl><dt>Tejido publicado</dt><dd>{product.fabric}</dd><dt>Tallas publicadas</dt><dd>{reference.sizes}</dd><dt>MOQ publicado</dt><dd>{reference.moq} · conjuntos completos</dd></dl><a href={`/es/products/${product.slug}/`}>Ver ficha, colores y detalles →</a></div></article>;
+      })}</div>
+      <div class="category-links"><span>Explora por categoría:</span><a href="/es/fabricante-de-leggings/">Leggings</a><a href="/es/fabricante-de-sujetadores-deportivos/">Sujetadores deportivos</a><a href="/es/fabricante-de-conjuntos-de-yoga/">Conjuntos de yoga</a><a href="/es/fabricante-de-shorts-deportivos/">Shorts</a><a href="/es/fabricante-de-tops-deportivos/">Tops</a></div>
+    </div></section>
+
+    <section id="muestras" class="section"><div class="wrap two-grid">
+      <div><p class="eyebrow">DEL CATÁLOGO A UNA MUESTRA APROBADA</p><h2>Valida el ajuste para tus clientes en España</h2><p>Una talla S o una numeración 4, 6, 8 y 10 no garantiza equivalencia con el tallaje que utiliza tu marca. Pide medidas de prenda, tolerancias y la referencia de ajuste antes de definir el reparto.</p><p>Para leggings, revisa cintura, entrepierna, cobertura y recuperación del tejido. Para sujetadores, comprueba contorno, tirantes, copas y comportamiento durante el movimiento. No atribuyas un nivel de sujeción o una prestación a una prenda sin comprobarlo.</p><p>Compara los colores publicados con una muestra física. Si necesitas un color concreto, aporta una referencia Pantone y consulta viabilidad y condiciones; no des por hecho que forma parte del programa de stock.</p><a href="/es/guias/desarrollar-coleccion-ropa-deportiva/">Cómo preparar el desarrollo de una colección →</a></div>
+      <div class="panel"><h3>Qué aprobar antes de pasar a producción</h3><ol class="checklist"><li><strong>Referencia y alcance.</strong> SKU, prendas incluidas y modificaciones solicitadas.</li><li><strong>Tejido y ajuste.</strong> Composición, tacto, medidas y observaciones de la prueba.</li><li><strong>Acabados de marca.</strong> Logo, posición, tamaño, etiquetas y embalaje.</li><li><strong>Muestra y cambios.</strong> Versión aprobada y correcciones registradas por escrito.</li><li><strong>Pedido y entrega.</strong> Cantidad por color y talla, comprobaciones de calidad, embalaje y condiciones de envío.</li></ol><p class="note">El coste, la disponibilidad y el plazo de la muestra se confirman para cada solicitud.</p></div>
+    </div></section>
+
+    <section class="section soft"><div class="wrap two-grid">
+      <img class="brand-image" src="/images/products/shared/private-label-customization-options.webp" alt="Opciones de personalización Fitclo: logo, etiquetas y embalaje" width="800" height="800" loading="lazy" decoding="async" />
+      <div><p class="eyebrow">UNA COLECCIÓN, UNA IDENTIDAD COHERENTE</p><h2>Prepara el logo y las etiquetas junto con la prenda</h2><p>Envía tu logotipo y las posiciones deseadas: pecho, cintura, pierna u otra zona. La técnica debe revisarse con el tejido y la elasticidad de la prenda; conviene comprobar el resultado en la muestra.</p><p>Define también etiquetas de marca, composición y cuidado, etiquetas colgantes y embalaje. Un archivo con el texto aprobado y las dimensiones evita corregir la presentación cuando el pedido ya está avanzado.</p><p>Si necesitas un certificado o ensayo concreto, indica el nombre y el alcance requerido. Solicita el documento aplicable al tejido o producto seleccionado antes de utilizar esa afirmación en tu propia tienda.</p><a href="#inquiry" class="button">Consultar producto y personalización</a></div>
+    </div></section>
+
+    <section id="espana" class="section"><div class="wrap">
+      <p class="eyebrow">PREPARAR LA RECEPCIÓN EN ESPAÑA</p><h2>Compara el coste del pedido completo, no solo el precio de la prenda</h2>
+      <p class="intro">Para una marca que compra desde España, el presupuesto debe permitir entender qué recibe, dónde lo recibe y qué gestiones asume. Envía la dirección y el código postal, e indica si el destino es península, Baleares, Canarias, Ceuta o Melilla para que la propuesta se revise para la ruta concreta.</p>
+      <div class="three-grid">
+        <article class="panel"><h3>Producto y preparación</h3><p>Separa prendas, muestras, personalización, etiquetas, embalaje y comprobaciones solicitadas. Indica la moneda de la oferta y qué cantidades sirven de base al precio.</p></article>
+        <article class="panel"><h3>Transporte y responsabilidades</h3><p>Pide modo de transporte, Incoterm y lugar convenido. Confirma quién organiza el despacho de importación, los documentos y la entrega final. Revisa qué gastos están incluidos y cuáles quedan fuera.</p></article>
+        <article class="panel"><h3>Información para vender</h3><p>Revisa composición, etiquetado y documentación del producto con el responsable de importación de tu empresa. El texto de las etiquetas debe corresponder a la prenda que finalmente se suministra.</p></article>
+      </div>
+      <div class="source-note"><h3>Fuentes oficiales para revisar tu importación</h3><p>La Comisión Europea indica que los productos textiles comercializados en la UE deben mostrar su composición en fibras. Utiliza su información de <a href="https://trade.ec.europa.eu/access-to-markets/es/content/etiquetado-y-envasado">etiquetado y envasado</a> como punto de partida y confirma los requisitos aplicables a tu producto y destino con tu agente de aduanas.</p><p>Para preparar la comparación económica, consulta también nuestra <a href="/es/guias/precio-fabricar-ropa-deportiva-personalizada/">guía de costes de fabricación</a>. No se publica una tarifa de impuestos, aduanas o entrega universal para todos los pedidos.</p></div>
+    </div></section>
+
+    <section id="preguntas" class="section soft"><div class="wrap narrow"><p class="eyebrow">ANTES DE PEDIR</p><h2>Preguntas de compradores en España</h2>{faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+
+    <section class="section"><div class="wrap narrow"><p class="eyebrow">PREPARA UNA CONSULTA QUE PODAMOS VALORAR</p><h2>Cuéntanos qué quieres vender y dónde debe llegar</h2><p>Incluye estos datos en el mensaje del formulario. Si aún no tienes todos, envía los que ya conoces para empezar a definir el pedido.</p><div class="panel brief-template"><p><strong>Destino:</strong> España, ciudad y código postal.</p><p><strong>Modelos:</strong> SKU o referencias de diseño.</p><p><strong>Cantidad:</strong> prendas o conjuntos por modelo.</p><p><strong>Colores y tallas:</strong> reparto previsto o dudas de ajuste.</p><p><strong>Marca:</strong> logo, etiquetas y embalaje que necesitas.</p><p><strong>Fecha objetivo:</strong> cuándo necesitas recibir el pedido.</p></div><p>Con esta información se pueden revisar la ruta de compra, los datos pendientes, las opciones de muestra y el alcance de la oferta.</p><div class="actions"><a class="button" href="#inquiry">Completar mi solicitud</a><a class="button secondary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a></div></div></section>
+  </div>
+  <InquiryForm guide={true} />
+</BaseLayout>
+
+<style>
+  .spain-landing{background:#090909;color:#fff;font-family:'Century Gothic',sans-serif;overflow-wrap:anywhere}
+  .wrap{max-width:1240px;margin:auto;padding:0 24px}.narrow{max-width:900px}.section{padding:72px 0;scroll-margin-top:100px}.hero{padding-top:116px;background:radial-gradient(ellipse at 85% 10%,#302916 0,transparent 55%),#090909}.soft{background:#111113}
+  .hero nav{font-size:12px;color:#b4b4b4;margin-bottom:42px}.hero-grid,.two-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;align-items:start}.hero-grid{align-items:center}
+  h1{font-size:clamp(34px,4.4vw,62px);line-height:1.09;font-weight:700;letter-spacing:-.035em;max-width:760px}h2{font-size:clamp(27px,3vw,40px);line-height:1.2;font-weight:700;letter-spacing:-.025em;margin-bottom:22px}h3{font-size:20px;font-weight:700;line-height:1.35;margin-bottom:16px}p{font-size:15px;line-height:1.85;color:#c3c3c7;margin:16px 0}.lead{font-size:21px;color:#eee;line-height:1.5}.eyebrow,.number{font-size:11px;font-weight:700;letter-spacing:.12em;color:#d8b456}.eyebrow{margin-top:0;margin-bottom:18px}.intro{max-width:820px;margin-bottom:32px}.note{font-size:13px;color:#aaa}
+  a{color:#d8b456;text-underline-offset:4px}a:hover{text-decoration:underline}a:focus-visible,summary:focus-visible{outline:2px solid #d8b456;outline-offset:5px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;padding:15px 22px;min-height:50px;border:1px solid #d8b456;background:#d8b456;color:#090909;border-radius:28px;font-weight:700;font-size:13px;text-align:center}.secondary{background:transparent;color:#fff;border-color:#666}
+  .brief,.panel{border:1px solid #343437;padding:26px;background:#151517;border-radius:12px}.brief ol{list-style:none;padding:0;margin:18px 0 26px}.brief li{padding:14px 0;border-bottom:1px solid #333;display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;font-size:14px}.brief li span{color:#bbb}.brief>a{font-size:14px}.section-nav{border-top:1px solid #333;border-bottom:1px solid #333;padding:18px 0}.section-nav .wrap{display:flex;flex-wrap:wrap;gap:16px 26px;font-size:13px}.three-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.panel .number{display:block;margin-bottom:18px}dt{font-weight:700;font-size:12px;color:#e1e1e1;margin-top:18px}dd{font-size:14px;color:#bdbdc3;line-height:1.65;margin:5px 0 18px}.panel>a,.product-body>a{font-size:13px}
+  .product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.product{border:1px solid #333;border-radius:12px;overflow:hidden;background:#18181a}.product img{width:100%;aspect-ratio:1;object-fit:contain;background:#ececec}.product-heading,.product-body{padding:20px}.product-heading{padding-bottom:0}.product h3{color:#fff;font-size:17px;margin-top:12px;margin-bottom:0}.product dl{margin:0}.category-links{display:flex;flex-wrap:wrap;gap:14px 22px;margin-top:32px;font-size:14px}.category-links span{color:#bbb}.checklist{padding-left:20px;list-style:decimal}.checklist li{font-size:15px;color:#c3c3c7;line-height:1.8;margin:18px 0}.checklist strong{color:white}.brand-image{width:100%;height:auto;border-radius:12px;max-height:480px;object-fit:contain;background:#151517}.source-note{margin-top:30px;border-left:2px solid #d8b456;padding:8px 24px}.source-note h3{font-size:17px}.source-note p{font-size:14px}details{border-bottom:1px solid #38383b;padding:22px 0}summary{font-size:16px;font-weight:700;cursor:pointer;line-height:1.6}details p{padding-right:12px}.brief-template p{margin:8px 0}
+  @media(max-width:1023px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{gap:28px}.three-grid{grid-template-columns:1fr}}
+  @media(max-width:767px){.hero-grid,.two-grid{grid-template-columns:1fr;gap:30px}.section{padding:48px 0}.hero{padding-top:108px}.hero nav{margin-bottom:28px}.wrap{padding:0 20px}.brief,.panel{padding:22px}.lead{font-size:19px}}
+  @media(max-width:429px){.product-grid{grid-template-columns:1fr}.actions .button{width:100%}}
+</style>

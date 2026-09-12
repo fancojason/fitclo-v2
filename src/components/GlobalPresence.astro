@@ -9,7 +9,7 @@ const countries = [
   { name: "Australia", code: "au", href: marketLinks.get('Australia') },
   { name: "Germany", code: "de", href: marketLinks.get('Germany') },
   { name: "France", code: "fr", href: marketLinks.get('France') },
-  { name: "Spain", code: "es", href: marketLinks.get('Spain') },
+  { name: "Spain", code: "es", href: Astro.url.pathname.startsWith('/es/') ? '/es/fabricante-ropa-deportiva-espana/' : marketLinks.get('Spain') },
   { name: "Italy", code: "it", href: marketLinks.get('Italy') },
   { name: "Netherlands", code: "nl", href: marketLinks.get('Netherlands') },
   { name: "Russia", code: "ru", href: '/ru/china-activewear-manufacturer-russia/' },

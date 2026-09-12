@@ -8,6 +8,7 @@ import { spanishGuides } from '../content/es/guides';
 const site = 'https://www.fitcloo.com';
 
 const staticPages = [
+  '/es/fabricante-ropa-deportiva-espana/',
   ...spanishGuides.map((guide) => `/es/guias/${guide.slug}/`),
   ...spanishProducts.map((product) => `/es/products/${product.slug}/`),
   ...spanishCategoryPages.map((page) => `/es/${page.slug}/`),
@@ -73,6 +74,7 @@ const productDetailPages = Object.keys(productModules)
   .map((slug) => `/products/${slug}/`);
 
 const lastModifiedByPath = new Map<string, string>([
+  ['/es/fabricante-ropa-deportiva-espana/', '2026-09-13'],
   ...spanishGuides.map((guide): [string, string] => [`/es/guias/${guide.slug}/`, '2026-09-07']),
   ...spanishProducts.map((product): [string, string] => [`/es/products/${product.slug}/`, '2026-09-07']),
   ...spanishCategoryPages.map((page): [string, string] => [`/es/${page.slug}/`, '2026-09-06']),

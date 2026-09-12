@@ -3,6 +3,7 @@ export type SiteLanguage = 'en' | 'es';
 const siteUrl = 'https://www.fitcloo.com';
 
 export const localizedRoutePairs = [
+  { en: '/wholesale-to/spain/', es: '/es/fabricante-ropa-deportiva-espana/' },
   { en: '/', es: '/es/' },
   { en: '/private-label/', es: '/es/private-label-activewear/' },
   { en: '/oem-activewear-manufacturer/', es: '/es/oem-activewear-manufacturer/' },

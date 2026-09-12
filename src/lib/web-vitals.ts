@@ -25,6 +25,7 @@ const categoryPaths = new Set([
 ]);
 
 const commercialPaths = new Set([
+  '/es/fabricante-ropa-deportiva-espana/',
   '/private-label/',
   '/oem-activewear-manufacturer/',
   '/ready-to-ship/',

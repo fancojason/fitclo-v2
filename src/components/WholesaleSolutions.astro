@@ -6,6 +6,7 @@ const wholesaleProducts = [
     title: "Women's Yoga Set",
     description: "Premium multi-color activewear set featuring high-waisted, squat-proof leggings and four-way stretch fabric. Engineered for yoga, gym, and everyday athleisure.",
     image: '/images/migrated/third-party/ha73bf41967194aeeb3016945aacc9ba9r-9c31f29b7a.webp',
+    detailUrl: '/products/womens-yoga-set/',
     moq: '50 Sets',
     leadTime: '7-10 days',
     customization: 'Logo / Label / Packing',
@@ -16,6 +17,7 @@ const wholesaleProducts = [
     title: "Capri Workout Set",
     description: "Ready-stock tank-and-capri set with 3/4 leggings and optional striped or polka-dot contrast waist details. Built for studio, travel, and retro activewear capsules.",
     image: '/images/home/capri-workout-set.webp',
+    detailUrl: '/products/capri-workout-set/',
     moq: '50 Sets',
     leadTime: '7-10 days',
     customization: 'Logo / Color / Trim',
@@ -36,6 +38,7 @@ const wholesaleProducts = [
     title: "Women's Seamless Halter Tank & Flare Leggings Set",
     description: "Seamless knitted halter tank and high-waist flare leggings set in 90% Polyamide / 10% Elastane for Pilates, yoga and private label activewear programs.",
     image: '/images/products/desktop-stock/tz2557-6-seamless-flare-leggings-set.webp',
+    detailUrl: '/products/tz2557-6/',
     moq: '50 Sets',
     leadTime: 'Confirm with Fitclo',
     customization: 'Logo / Label / Pkg',
@@ -146,6 +149,7 @@ const wholesaleProducts = [
     title: "Wide-Leg Workout Set",
     description: "Comfortable V-neck sports bra paired with flowy wide-leg active pants. Contrast side stripes for a sporty, retro-inspired aesthetic.",
     image: '/images/migrated/third-party/he9251d9f17744141b596b130f31eac71n-9f4154ff16.webp',
+    detailUrl: '/products/wide-leg-workout-set/',
     moq: '50 Sets',
     leadTime: '12-15 days',
     customization: 'Logo / Color / Tag',
@@ -186,6 +190,7 @@ const wholesaleProducts = [
     title: "Premium 3-Piece Yoga Set",
     description: "Complete 3-piece performance set including a jacket, sports bra, and high-waist leggings. Seamless construction with contrast piping for a sleek look.",
     image: '/images/migrated/third-party/h4fe3ea7f7db24b34b096003e21f5bf682-8f872cec65.webp',
+    detailUrl: '/products/premium-3-piece-yoga-set/',
     moq: '50 Sets',
     leadTime: '15-20 days',
     customization: 'Logo / Label / Pkg / Tags',
@@ -323,13 +328,25 @@ const wholesaleProducts = [
           <!-- Card Image Container -->
           <div class="p-3">
             <div class="relative aspect-square overflow-hidden bg-[#18181B] rounded-xl flex items-center justify-center">
-              <img
-                src={product.image}
-                {...homeImage(product.image)}
-                sizes="(min-width: 1700px) 365px, (min-width: 1024px) calc((100vw - 176px) / 4), (min-width: 768px) calc((100vw - 124px) / 2), calc(100vw - 74px)"
-                alt={product.title}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
+              {'detailUrl' in product ? (
+                <a href={product.detailUrl} class="block h-full w-full" aria-label={`View ${product.title} details`}>
+                  <img
+                    src={product.image}
+                    {...homeImage(product.image)}
+                    sizes="(min-width: 1700px) 365px, (min-width: 1024px) calc((100vw - 176px) / 4), (min-width: 768px) calc((100vw - 124px) / 2), calc(100vw - 74px)"
+                    alt={product.title}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </a>
+              ) : (
+                <img
+                  src={product.image}
+                  {...homeImage(product.image)}
+                  sizes="(min-width: 1700px) 365px, (min-width: 1024px) calc((100vw - 176px) / 4), (min-width: 768px) calc((100vw - 124px) / 2), calc(100vw - 74px)"
+                  alt={product.title}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              )}
             </div>
           </div>
 
@@ -344,7 +361,7 @@ const wholesaleProducts = [
 
             <!-- Title -->
             <h4 class="text-[17px] md:text-[18px] font-bold text-white mb-2 font-['Century_Gothic',sans-serif] tracking-tight">
-              {product.title}
+              {'detailUrl' in product ? <a href={product.detailUrl} class="transition-colors hover:text-[#C9A84C]">{product.title}</a> : product.title}
             </h4>
 
             <!-- Description -->

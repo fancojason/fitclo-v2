@@ -1,7 +1,7 @@
-type Size = 'XS' | 'S' | 'M' | 'L' | 'XL';
+type Size = 'XXS' | 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
 type Style = { id: number; styleNo: string; mainImage: string; availableSizes: Size[]; colorCharts: Array<{ id: number; url: string }> };
 type Selection = { styleNo: string; color: string; availableSizes: Size[]; quantities: Record<Size, number>; total: number };
-const sizes: Size[] = ['XS', 'S', 'M', 'L', 'XL'];
+const sizes: Size[] = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const selectionKey = 'fitclo-product-selection-v1';
 const customerKey = 'fitclo-product-selection-customer-v1';
 const byId = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -39,7 +39,7 @@ const track = (name: string, data: Record<string, string | number> = {}) => {
 };
 
 const safeInteger = (value: unknown) => Math.max(0, Math.min(1_000_000, Math.floor(Number(value) || 0)));
-const emptyQuantities = (): Record<Size, number> => ({ XS: 0, S: 0, M: 0, L: 0, XL: 0 });
+const emptyQuantities = (): Record<Size, number> => ({ XXS: 0, XS: 0, S: 0, M: 0, L: 0, XL: 0, XXL: 0 });
 const persistSelections = () => localStorage.setItem(selectionKey, JSON.stringify(selections));
 
 function loadSelections() {

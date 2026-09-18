@@ -41,7 +41,7 @@ import '../../styles/product-selection-admin.css';
                 <input name="id" type="hidden" />
                 <label>Style No. *<input name="styleNo" required maxlength="60" placeholder="e.g. TZ3562-8" /></label>
                 <fieldset><legend>Available Sizes *</legend><div class="size-checks">
-                  {['XS', 'S', 'M', 'L', 'XL'].map((size) => <label><input name="sizes" type="checkbox" value={size} /> {size}</label>)}
+                  {['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'].map((size) => <label><input name="sizes" type="checkbox" value={size} checked={['S', 'M', 'L'].includes(size)} /> {size}</label>)}
                 </div></fieldset>
                 <label>Main Image *<input name="mainImage" type="file" accept="image/jpeg,image/png,image/webp" /><small>Required when adding. Optional when editing.</small></label>
                 <label>Color Charts *<input name="colorCharts" type="file" accept="image/jpeg,image/png,image/webp" multiple /><small>1–3 images. Uploading during edit replaces all current charts.</small></label>

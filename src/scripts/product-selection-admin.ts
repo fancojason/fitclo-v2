@@ -1,6 +1,6 @@
-type Size = 'XS' | 'S' | 'M' | 'L' | 'XL';
+type Size = 'XXS' | 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
 type Style = { id: number; styleNo: string; mainImage: string; availableSizes: Size[]; active: boolean; colorCharts: Array<{ url: string }> };
-const sizes: Size[] = ['XS', 'S', 'M', 'L', 'XL'];
+const sizes: Size[] = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const api = '/api/product-selection/admin';
 const byId = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const loginPanel = byId<HTMLElement>('login-panel');

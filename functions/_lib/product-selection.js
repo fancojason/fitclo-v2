@@ -1,6 +1,6 @@
 import { strToU8, zipSync } from 'fflate';
 
-export const SIZE_KEYS = ['XS', 'S', 'M', 'L', 'XL'];
+export const SIZE_KEYS = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
 export const json = (data, status = 200, headers = {}) => new Response(JSON.stringify(data), {
   status,
   headers: { 'Content-Type': 'application/json; charset=utf-8', ...headers },
@@ -120,12 +120,13 @@ function worksheet(rows, widths, mergeCells = []) {
 }
 
 export function createSelectionWorkbook(submission, items) {
-  const headers = ['Style No.', 'Selected Color', 'XS', 'S', 'M', 'L', 'XL', 'Total'];
+  const headers = ['Style No.', 'Selected Color', ...SIZE_KEYS, 'Total'];
+  const lastColumn = columnName(headers.length - 1);
   const selectionRows = [
-    ['Fitclo Activewear - Ready Stock Selection Sheet', '', '', '', '', '', '', ''],
-    ['Please select your required quantity:', '', '', '', '', '', '', ''],
+    ['Fitclo Activewear - Ready Stock Selection Sheet', ...Array(headers.length - 1).fill('')],
+    ['Please select your required quantity:', ...Array(headers.length - 1).fill('')],
     headers,
-    ...items.map((item) => [item.style_no_snapshot, item.color_snapshot, ...['xs', 's', 'm', 'l', 'xl'].map((size) => item[size] === null ? '—' : item[size]), item.total]),
+    ...items.map((item) => [item.style_no_snapshot, item.color_snapshot, ...SIZE_KEYS.map((size) => item[size.toLowerCase()] === null ? '—' : item[size.toLowerCase()]), item.total]),
   ];
   const customerRows = [
     ['Fitclo Customer Information', ''],
@@ -148,7 +149,7 @@ export function createSelectionWorkbook(submission, items) {
     'xl/workbook.xml': strToU8('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Ready Stock Selection" sheetId="1" r:id="rId1"/><sheet name="Customer Info" sheetId="2" r:id="rId2"/></sheets></workbook>'),
     'xl/_rels/workbook.xml.rels': strToU8('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'),
     'xl/styles.xml': strToU8('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="3"><font><sz val="11"/><name val="Arial"/></font><font><b/><color rgb="FFFFFFFF"/><sz val="16"/><name val="Arial"/></font><font><b/><color rgb="FFFFFFFF"/><name val="Arial"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF17365D"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="2"><border/><border><left style="thin"><color rgb="FFB7C9E2"/></left><right style="thin"><color rgb="FFB7C9E2"/></right><top style="thin"><color rgb="FFB7C9E2"/></top><bottom style="thin"><color rgb="FFB7C9E2"/></bottom></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="4"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/><xf numFmtId="0" fontId="2" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>'),
-    'xl/worksheets/sheet1.xml': strToU8(worksheet(selectionRows, [18, 24, 10, 10, 10, 10, 10, 12], ['A1:H1', 'A2:H2'])),
+    'xl/worksheets/sheet1.xml': strToU8(worksheet(selectionRows, [18, 24, ...SIZE_KEYS.map(() => 10), 12], [`A1:${lastColumn}1`, `A2:${lastColumn}2`])),
     'xl/worksheets/sheet2.xml': strToU8(worksheet(customerRows, [24, 70], ['A1:B1'])),
   };
   return {

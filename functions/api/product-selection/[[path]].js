@@ -81,7 +81,7 @@ async function submitSelection(context) {
   const selectionId = `FS-${date}-${String(counter.last_value).padStart(4, '0')}`;
   const submission = await db.prepare('INSERT INTO product_selection_submissions (selection_id, idempotency_key, customer_name, company, whatsapp, email, country, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, submitted_at')
     .bind(selectionId, idempotencyKey, name, company, whatsapp, email, country, notes).first();
-  await db.batch(validated.map((item) => db.prepare('INSERT INTO product_selection_items (submission_id, style_no_snapshot, color_snapshot, xs, s, m, l, xl, total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
+  await db.batch(validated.map((item) => db.prepare('INSERT INTO product_selection_items (submission_id, style_no_snapshot, color_snapshot, xxs, xs, s, m, l, xl, xxl, total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
     .bind(submission.id, item.styleNo, item.color, ...SIZE_KEYS.map((size) => item.quantities[size]), item.total)));
 
   const notification = sendNotification(context.env, { selectionId, name, company, whatsapp, email, country, notes }, validated).catch((error) => console.error('Product selection email failed:', error));

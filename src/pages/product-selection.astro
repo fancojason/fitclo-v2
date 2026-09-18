@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/product-selection.css';
+---
+
+<BaseLayout
+  title="Fitclo Product Selection"
+  description="Private Fitclo product selection tool for invited wholesale buyers."
+  canonicalURL="https://www.fitcloo.com/product-selection/"
+  robots="noindex, nofollow"
+  autoArticleSchema={false}
+  includeBreadcrumbSchema={false}
+>
+  <div class="selection-page min-h-screen bg-[#071522] pb-20 pt-[108px] text-white">
+    <div class="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10">
+      <header class="mb-6">
+        <p class="text-[11px] font-bold uppercase tracking-[.2em] text-[#ef3340]">Fitclo Product Selection</p>
+        <h1 class="mt-3 text-[30px] font-bold leading-tight sm:text-[38px]">Select Styles for Your Quotation</h1>
+        <p class="mt-2 max-w-4xl text-[14px] leading-6 text-white/65 sm:text-[15px]">Search by style number, review the color chart, enter your desired colors and quantities, and submit your selection for quotation.</p>
+      </header>
+
+      <form id="style-search-form" class="grid gap-3 sm:grid-cols-[1fr_140px]" role="search">
+        <label class="sr-only" for="style-search">Style number</label>
+        <input id="style-search" name="style" type="search" autocomplete="off" placeholder="Enter style number (e.g. TZ3562-8)" class="selection-input" />
+        <button class="selection-primary" type="submit">Search</button>
+      </form>
+      <p id="search-status" class="mt-3 min-h-5 text-[13px] text-white/65" aria-live="polite"></p>
+
+      <section id="style-workspace" class="mt-4 hidden gap-4 lg:grid-cols-[1.15fr_.85fr]" aria-live="polite">
+        <article class="selection-panel">
+          <h2>Style Preview</h2>
+          <div class="mt-4 grid gap-5 md:grid-cols-[minmax(220px,42%)_1fr] md:items-center">
+            <div class="selection-image-frame"><img id="style-main-image" alt="" /></div>
+            <div>
+              <p id="style-number" class="text-[30px] font-bold"></p>
+              <p class="mt-2 text-[13px] leading-6 text-white/55">Review the product image and color chart, then enter the exact color name and size quantities.</p>
+            </div>
+          </div>
+          <div class="mt-5 border-t border-white/10 pt-5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-[17px] font-bold">Color Chart</h3>
+              <span class="text-[12px] text-white/55">Click any image to enlarge</span>
+            </div>
+            <div id="color-charts" class="mt-4 grid gap-3"></div>
+          </div>
+        </article>
+
+        <article class="selection-panel">
+          <h2>Add This Style to Your Selection</h2>
+          <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-white/10 bg-white/[.035] px-4 py-3">
+            <span class="text-[12px] text-white/55">Selected Style</span>
+            <strong id="selected-style-number" class="text-[18px]"></strong>
+          </div>
+          <form id="add-selection-form" class="mt-5">
+            <label class="selection-label" for="selected-color">Selected Color <span>*</span></label>
+            <input id="selected-color" class="selection-input mt-2" required maxlength="120" placeholder="Enter color name (e.g. Black, Pink, Navy)" />
+            <p class="mt-2 text-[12px] leading-5 text-white/50">Please check the color chart and enter the exact color name shown above.</p>
+            <fieldset class="mt-6">
+              <legend class="selection-label">Quantity by Size <span>*</span></legend>
+              <div id="size-quantities" class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-5"></div>
+            </fieldset>
+            <p id="selection-error" class="mt-3 min-h-5 text-[13px] text-[#ff8c93]" aria-live="polite"></p>
+            <button id="add-selection-button" class="selection-primary mt-4 w-full" type="submit">Add This Selection</button>
+            <p class="mt-3 text-center text-[12px] text-white/50">You can add multiple styles and colors before submitting for quotation.</p>
+          </form>
+        </article>
+      </section>
+
+      <section class="selection-panel mt-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2>My Selection <span id="selection-count" class="font-normal text-white/55">(0 items)</span></h2>
+          <button id="clear-selection" type="button" class="selection-secondary hidden">Clear All</button>
+        </div>
+        <div class="mt-4 overflow-x-auto">
+          <table class="w-full min-w-[850px] border-collapse text-left text-[13px]">
+            <thead><tr><th>Style No.</th><th>Selected Color</th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>Total</th><th>Action</th></tr></thead>
+            <tbody id="selection-table-body"></tbody>
+          </table>
+          <p id="empty-selection" class="py-10 text-center text-[14px] text-white/45">No styles added yet.</p>
+        </div>
+      </section>
+
+      <section id="customer-section" class="selection-panel mt-4">
+        <div class="flex flex-wrap items-baseline gap-4">
+          <h2>Your Information</h2>
+          <p class="text-[12px] text-white/50">Please provide your details so we can send you the quotation.</p>
+        </div>
+        <form id="submission-form" class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <label class="selection-field">Name <span>*</span><input name="name" required maxlength="120" autocomplete="name" class="selection-input" /></label>
+          <label class="selection-field">Company / Brand<input name="company" maxlength="160" autocomplete="organization" class="selection-input" /></label>
+          <label class="selection-field">Email <span>*</span><input name="email" type="email" required maxlength="254" autocomplete="email" class="selection-input" /></label>
+          <label class="selection-field">WhatsApp <span>*</span><input name="whatsapp" type="tel" required maxlength="80" autocomplete="tel" class="selection-input" /></label>
+          <label class="selection-field">Country / Region <span>*</span><input name="country" required maxlength="120" autocomplete="country-name" class="selection-input" /></label>
+          <label class="selection-field md:col-span-1 xl:col-span-2">Notes<textarea name="notes" maxlength="2000" rows="3" class="selection-input resize-y"></textarea></label>
+          <div class="flex flex-col justify-end">
+            <button id="submit-selection" class="selection-primary min-h-[50px]" type="submit">Submit Selection</button>
+            <p class="mt-2 text-center text-[11px] text-white/45">Your information is used only for this quotation.</p>
+          </div>
+          <p id="submission-status" class="min-h-5 text-[13px] text-[#ff8c93] md:col-span-2 xl:col-span-4" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="success-panel" class="selection-panel mt-4 hidden py-12 text-center" aria-live="polite">
+        <p class="text-[12px] font-bold uppercase tracking-[.2em] text-[#ef3340]">Submission received</p>
+        <h2 class="mt-4 text-[32px]">Thank You!</h2>
+        <p class="mt-3 text-white/65">Your product selection has been submitted successfully.</p>
+        <p class="mt-7 text-[13px] text-white/50">Selection ID</p>
+        <strong id="success-selection-id" class="mt-2 block text-[27px]"></strong>
+        <p class="mt-7 text-[14px] text-white/65">Our Fitclo team will review your selection and contact you shortly.</p>
+      </section>
+    </div>
+  </div>
+
+  <dialog id="chart-lightbox" class="m-auto max-h-[92vh] w-[min(94vw,1200px)] bg-[#06131f] p-3 text-white backdrop:bg-black/85">
+    <button id="close-lightbox" type="button" class="absolute right-5 top-5 z-10 grid h-10 w-10 place-items-center rounded-full bg-black/80 text-2xl" aria-label="Close image">&times;</button>
+    <img id="lightbox-image" class="max-h-[86vh] w-full object-contain" alt="Enlarged color chart" />
+  </dialog>
+  <script src="../scripts/product-selection.ts"></script>
+</BaseLayout>

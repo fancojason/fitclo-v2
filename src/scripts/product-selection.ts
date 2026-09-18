@@ -40,11 +40,11 @@ const track = (name: string, data: Record<string, string | number> = {}) => {
 
 const safeInteger = (value: unknown) => Math.max(0, Math.min(1_000_000, Math.floor(Number(value) || 0)));
 const emptyQuantities = (): Record<Size, number> => ({ XXS: 0, XS: 0, S: 0, M: 0, L: 0, XL: 0, XXL: 0 });
-const persistSelections = () => localStorage.setItem(selectionKey, JSON.stringify(selections));
+const persistSelections = () => sessionStorage.setItem(selectionKey, JSON.stringify(selections));
 
 function loadSelections() {
   try {
-    const stored = JSON.parse(localStorage.getItem(selectionKey) || '[]');
+    const stored = JSON.parse(sessionStorage.getItem(selectionKey) || '[]');
     if (!Array.isArray(stored)) return;
     selections = stored.slice(0, 100).map((item): Selection | null => {
       if (!item || typeof item.styleNo !== 'string' || typeof item.color !== 'string' || !Array.isArray(item.availableSizes)) return null;
@@ -218,11 +218,11 @@ clearButton.addEventListener('click', () => {
 
 function saveCustomer() {
   const values = Object.fromEntries(new FormData(submissionForm).entries());
-  localStorage.setItem(customerKey, JSON.stringify(values));
+  sessionStorage.setItem(customerKey, JSON.stringify(values));
 }
 function loadCustomer() {
   try {
-    const values = JSON.parse(localStorage.getItem(customerKey) || '{}');
+    const values = JSON.parse(sessionStorage.getItem(customerKey) || '{}');
     Object.entries(values).forEach(([name, value]) => {
       const field = submissionForm.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement | null;
       if (field && typeof value === 'string') field.value = value;
@@ -252,8 +252,8 @@ submissionForm.addEventListener('submit', async (event) => {
     byId('customer-section').classList.add('hidden');
     byId('success-panel').classList.remove('hidden');
     selections = [];
-    localStorage.removeItem(selectionKey);
-    localStorage.removeItem(customerKey);
+    sessionStorage.removeItem(selectionKey);
+    sessionStorage.removeItem(customerKey);
     sessionStorage.removeItem('fitclo-selection-submit-key');
     renderSelections();
     track('generate_lead', { inquiry_type: 'product_selection', selection_id: result.selectionId });
@@ -265,6 +265,7 @@ submissionForm.addEventListener('submit', async (event) => {
   }
 });
 
+try { localStorage.removeItem(selectionKey); localStorage.removeItem(customerKey); } catch { /* Storage may be unavailable. */ }
 byId('close-lightbox').addEventListener('click', () => lightbox.close());
 lightbox.addEventListener('click', (event) => { if (event.target === lightbox) lightbox.close(); });
 byId('close-inline-chart').addEventListener('click', () => closeInlinePreview());

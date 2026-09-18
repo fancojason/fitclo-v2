@@ -26,5 +26,5 @@ Scope: catalog cards only. No product detail routes will be created. New cards w
 - The compound style code `YW610+KW473-YW612+KW473` is preserved exactly from the source filename. It is treated as one catalog card because only one combined source image was supplied; no unsupported sub-style records are created.
 - Product names and descriptions use only garment features visible in the supplied images.
 - No fabric composition, GSM, certification, support level, moisture-wicking, compression, stock level, delivery time, or other unverified performance claim is added.
-- MOQ is recorded as `Request current availability`, so these cards do not enter the verified 50-piece/50-set ready-stock feed.
+- The buyer confirmed that all four styles are ready stock with an MOQ of 50. The shorts, leggings and romper use `50 pcs`; the coordinated set uses `50 sets`. All four therefore enter the verified ready-stock feed.
 - Images will be converted to local WebP delivery files without AI generation, content replacement, or visual redesign. The supplied desktop files remain unchanged.

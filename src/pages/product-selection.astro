@@ -21,7 +21,7 @@ import '../styles/product-selection.css';
 
       <form id="style-search-form" class="grid gap-3 sm:grid-cols-[1fr_140px]" role="search">
         <label class="sr-only" for="style-search">Style number</label>
-        <input id="style-search" name="style" type="search" autocomplete="off" placeholder="Enter style number (e.g. TZ3562-8)" class="selection-input" />
+        <input id="style-search" name="style" type="search" autocomplete="off" placeholder="Enter style number (e.g. TZ2557-6)" class="selection-input" />
         <button class="selection-primary" type="submit">Search</button>
       </form>
       <p id="search-status" class="mt-3 min-h-5 text-[13px] text-white/65" aria-live="polite"></p>
@@ -81,7 +81,7 @@ import '../styles/product-selection.css';
           <button id="clear-selection" type="button" class="selection-secondary hidden">Clear All</button>
         </div>
         <div class="mt-4 overflow-x-auto">
-          <table class="w-full min-w-[850px] border-collapse text-left text-[13px]">
+          <table class="w-full min-w-[850px] border-collapse text-left text-[15px]">
             <thead><tr><th>Style No.</th><th>Selected Color</th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>Total</th><th>Action</th></tr></thead>
             <tbody id="selection-table-body"></tbody>
           </table>

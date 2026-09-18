@@ -74,7 +74,7 @@ async function saveStyle(context, id = null) {
   const sizes = parseSizes(form.getAll('sizes'));
   const mainFile = form.get('mainImage');
   const chartFiles = form.getAll('colorCharts').filter((value) => value instanceof File && value.size);
-  if (!/^[A-Z0-9][A-Z0-9+._-]{0,59}$/.test(styleNo) || !sizes.length || chartFiles.length > 3) return json({ error: 'Enter a valid style number, select sizes and upload 1–3 color charts.' }, 400);
+  if (!/^[A-Z0-9][A-Z0-9+._-]{0,59}$/.test(styleNo) || !sizes.length) return json({ error: 'Enter a valid style number, select sizes and upload at least one color chart.' }, 400);
   const db = context.env.PRODUCT_SELECTION_DB;
   const existing = id ? await db.prepare('SELECT * FROM product_styles WHERE id = ?').bind(id).first() : null;
   if (id && !existing) return json({ error: 'Style not found.' }, 404);

@@ -72,8 +72,8 @@ styleForm.addEventListener('submit', async (event) => {
   const charts = styleForm.elements.namedItem('colorCharts') as HTMLInputElement;
   const checked = styleForm.querySelectorAll<HTMLInputElement>('input[name="sizes"]:checked');
   const status = byId('style-status');
-  if (!checked.length || (!id && !main.files?.length) || (!id && !charts.files?.length) || (charts.files?.length || 0) > 3) {
-    status.textContent = 'Select sizes, add a main image and upload 1–3 color charts.'; return;
+  if (!checked.length || (!id && !main.files?.length) || (!id && !charts.files?.length)) {
+    status.textContent = 'Select sizes, add a main image and upload at least one color chart.'; return;
   }
   const button = byId<HTMLButtonElement>('save-style');
   button.disabled = true; button.textContent = 'Saving...'; status.textContent = '';

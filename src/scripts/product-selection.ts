@@ -22,6 +22,11 @@ const submissionStatus = byId<HTMLParagraphElement>('submission-status');
 const submitButton = byId<HTMLButtonElement>('submit-selection');
 const lightbox = byId<HTMLDialogElement>('chart-lightbox');
 const lightboxImage = byId<HTMLImageElement>('lightbox-image');
+const previewPanel = byId<HTMLElement>('style-preview-panel');
+const inlinePreview = byId<HTMLElement>('inline-chart-preview');
+const inlineImage = byId<HTMLImageElement>('inline-chart-image');
+const openLightboxButton = byId<HTMLButtonElement>('open-chart-lightbox');
+let inlinePreviewTrigger: HTMLButtonElement | null = null;
 let currentStyle: Style | null = null;
 let editIndex: number | null = null;
 let selections: Selection[] = [];
@@ -71,11 +76,36 @@ function escapeHtml(value: string) {
 }
 
 function renderQuantities(style: Style, values = emptyQuantities()) {
-  sizeContainer.innerHTML = style.availableSizes.map((size) => `<label class="block"><span class="mb-2 block text-center text-[12px] font-bold">${size}</span><span class="quantity-control"><button type="button" data-step="-1" data-size="${size}" aria-label="Decrease ${size}">-</button><input name="qty-${size}" type="number" inputmode="numeric" min="0" step="1" max="1000000" value="${safeInteger(values[size])}" aria-label="${size} quantity"><button type="button" data-step="1" data-size="${size}" aria-label="Increase ${size}">+</button></span></label>`).join('');
+  sizeContainer.innerHTML = style.availableSizes.map((size) => `<label class="size-quantity-row"><span>${size}</span><span class="quantity-control"><button type="button" data-step="-1" data-size="${size}" aria-label="Decrease ${size}">-</button><input name="qty-${size}" type="number" inputmode="numeric" min="0" step="1" max="1000000" value="${safeInteger(values[size])}" aria-label="${size} quantity"><button type="button" data-step="1" data-size="${size}" aria-label="Increase ${size}">+</button></span></label>`).join('');
+}
+
+function closeInlinePreview(restoreFocus = true) {
+  previewPanel.classList.remove('is-chart-previewing');
+  inlinePreview.classList.add('hidden');
+  inlinePreview.setAttribute('aria-hidden', 'true');
+  if (restoreFocus) inlinePreviewTrigger?.focus();
+}
+
+function openInlinePreview(chart: Style['colorCharts'][number], trigger: HTMLButtonElement) {
+  inlinePreviewTrigger = trigger;
+  inlineImage.src = chart.url;
+  inlineImage.alt = `${currentStyle?.styleNo || ''} enlarged color chart`;
+  previewPanel.classList.add('is-chart-previewing');
+  inlinePreview.classList.remove('hidden');
+  inlinePreview.setAttribute('aria-hidden', 'false');
+  byId<HTMLButtonElement>('close-inline-chart').focus();
+}
+
+function openLightbox() {
+  if (!inlineImage.src) return;
+  lightboxImage.src = inlineImage.src;
+  lightboxImage.alt = inlineImage.alt;
+  lightbox.showModal();
 }
 
 function showStyle(style: Style, values?: Selection) {
   currentStyle = style;
+  closeInlinePreview(false);
   byId<HTMLImageElement>('style-main-image').src = style.mainImage;
   byId<HTMLImageElement>('style-main-image').alt = `${style.styleNo} main product image`;
   byId('style-number').textContent = style.styleNo;
@@ -91,9 +121,7 @@ function showStyle(style: Style, values?: Selection) {
   selectionError.textContent = '';
   charts.querySelectorAll<HTMLButtonElement>('[data-chart]').forEach((button) => button.addEventListener('click', () => {
     const chart = style.colorCharts[Number(button.dataset.chart)];
-    lightboxImage.src = chart.url;
-    lightboxImage.alt = `${style.styleNo} enlarged color chart`;
-    lightbox.showModal();
+    openInlinePreview(chart, button);
   }));
 }
 
@@ -239,6 +267,11 @@ submissionForm.addEventListener('submit', async (event) => {
 
 byId('close-lightbox').addEventListener('click', () => lightbox.close());
 lightbox.addEventListener('click', (event) => { if (event.target === lightbox) lightbox.close(); });
+byId('close-inline-chart').addEventListener('click', () => closeInlinePreview());
+openLightboxButton.addEventListener('click', openLightbox);
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && previewPanel.classList.contains('is-chart-previewing') && !lightbox.open) closeInlinePreview();
+});
 loadSelections();
 loadCustomer();
 renderSelections();

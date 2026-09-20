@@ -5,6 +5,16 @@ export type MarketLandingPage = {
   launchContext: string;
   planningPriorities: [string, string, string];
   faqFocus: string;
+  seoTitle?: string;
+  metaDescription?: string;
+  headline?: string;
+  quickAnswer?: string;
+  inquiryMessage?: string;
+  localPlanningTitle?: string;
+  localPlanningIntro?: string;
+  localPlanningCards?: [string, string][];
+  resourceLinks?: [string, string, string][];
+  additionalFaqs?: { question: string; answer: string }[];
 };
 
 export const marketLandingPages: MarketLandingPage[] = [
@@ -23,6 +33,33 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Start with styles and fabrics that match the intended training, yoga or everyday-athleisure use, then confirm the size and colour plan.',
     planningPriorities: ['Build a concise launch assortment before requesting a quotation.', 'Review a physical sample for fit and fabric hand feel.', 'Confirm import and delivery paperwork with your own logistics partner.'],
     faqFocus: 'UK activewear buyers',
+    seoTitle: 'UK Activewear Manufacturer & Wholesale Supplier | Fitclo',
+    metaDescription: 'Source ready-stock, private-label and OEM activewear for UK brands. Compare MOQ, samples, sizing, branding, quality checks and delivery scope with Fitclo.',
+    headline: 'Private-label and wholesale activewear for UK brands.',
+    quickAnswer: 'Fitclo supplies UK activewear brands through ready-stock, private-label and OEM/ODM routes. Ready-stock MOQ starts from 50 sets for coordinated sets or 50 pcs for individual garments. Send the product category, expected quantity, size and colour mix, branding needs and UK delivery destination so suitable styles, samples and shipment scope can be matched to the actual brief.',
+    inquiryMessage: 'Hello Fitclo, I am sourcing activewear for the UK. My product category is [category], estimated quantity is [quantity], and I need [ready stock / private label / OEM]. Please advise suitable styles, MOQ, sample and delivery options.',
+    localPlanningTitle: 'Turn a UK buying brief into a quote the supplier can act on.',
+    localPlanningIntro: 'A useful request identifies the customer, assortment and delivery scope before price comparison. These inputs help reduce unclear assumptions during sampling and quotation.',
+    localPlanningCards: [
+      ['Assortment and sizing', 'Plan the launch around a focused category mix, intended customer and size breakdown. Confirm the actual size chart and sample fit before bulk approval.'],
+      ['Brand presentation', 'Confirm the logo method, main and care labels, hang tags, packaging artwork and placement as part of the product brief.'],
+      ['Import handoff', 'Compare quotes against the same Incoterm and named place, then confirm importer details, document scope, duties, taxes and final-delivery responsibility with your appointed UK adviser.'],
+    ],
+    resourceLinks: [
+      ['UK wholesale gym wear sourcing guide', 'Compare buying routes, product selection and the information to prepare before requesting a quote.', '/blogs/wholesale-gym-wear-uk-sourcing-guide/'],
+      ['UK private-label activewear guide', 'Review the decisions behind product selection, samples, branding components and bulk approval.', '/blogs/private-label-activewear-manufacturer-uk/'],
+      ['FOB, DAP and DDP explained', 'Use the same named place and service scope when comparing international shipment quotations.', '/blogs/fob-vs-ddp-vs-dap-activewear-imports/'],
+    ],
+    additionalFaqs: [
+      {
+        question: 'What should a UK buyer include in an activewear quotation request?',
+        answer: 'Include the product category or style references, estimated quantity, size and colour mix, branding requirements, target delivery location and preferred sourcing route. A UK postcode and the required shipment scope also help the supplier compare the correct delivery options.',
+      },
+      {
+        question: 'Can a UK buyer start with ready stock and move to OEM later?',
+        answer: 'Yes. A buyer can use suitable ready-stock products to test a focused assortment, add private-label components where available, and prepare a separate OEM/ODM brief when new fabrics, measurements or construction details are required.',
+      },
+    ],
   },
   {
     slug: 'germany',
@@ -55,6 +92,33 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Define the collection use case first—studio, gym, lifestyle or seasonal drop—then select fabric, size range and branding route.',
     planningPriorities: ['Match product construction to low-, medium- or high-movement use.', 'Review fit and coverage during the sample stage.', 'Ask for current ready-stock availability before confirming an order.'],
     faqFocus: 'Australian activewear buyers',
+    seoTitle: 'Australian Activewear Manufacturer & Wholesale Supplier | Fitclo',
+    metaDescription: 'Source ready-stock, private-label and OEM activewear for Australian brands. Compare MOQ, samples, fabrics, branding, quality checks and delivery scope.',
+    headline: 'Private-label and wholesale activewear for Australian brands.',
+    quickAnswer: 'Fitclo supplies Australian activewear brands through ready-stock, private-label and OEM/ODM routes. Ready-stock MOQ starts from 50 sets for coordinated sets or 50 pcs for individual garments. Share the intended activity, product category, quantity, size and colour mix, branding needs and Australian destination so suitable styles, samples and shipment scope can be matched to the brief.',
+    inquiryMessage: 'Hello Fitclo, I am sourcing activewear for Australia. My product category is [category], estimated quantity is [quantity], and I need [ready stock / private label / OEM]. Please advise suitable styles, MOQ, sample and delivery options.',
+    localPlanningTitle: 'Build an Australian activewear brief around use, fit and delivery scope.',
+    localPlanningIntro: 'A clear quotation request connects the intended activity and customer to the size, colour, branding and shipment decisions the supplier needs to confirm.',
+    localPlanningCards: [
+      ['Climate and use case', 'Define whether the styles are for Pilates, gym training, running, lifestyle or layering, then review fabric hand feel, coverage and recovery against that use.'],
+      ['Size and colour plan', 'Confirm the intended size mix and launch colours before ordering. Request current colour and size availability for ready-stock styles.'],
+      ['Import handoff', 'Confirm the Incoterm, named place, consignee or importer details, document scope, duties, taxes and final-delivery responsibility with your appointed Australian adviser.'],
+    ],
+    resourceLinks: [
+      ['Australia wholesale gym wear sourcing guide', 'Compare activewear buying routes, product categories and the information needed for a useful quotation.', '/blogs/wholesale-gym-wear-australia-sourcing-guide/'],
+      ['Australian private-label activewear guide', 'Review samples, branding choices, specifications and bulk-production checkpoints.', '/blogs/private-label-activewear-manufacturer-australia/'],
+      ['Sustainable activewear sourcing in Australia', 'Prepare evidence-based material and supplier questions without relying on vague sustainability claims.', '/blogs/sustainable-activewear-manufacturer-australia/'],
+    ],
+    additionalFaqs: [
+      {
+        question: 'What should an Australian buyer include in an activewear quotation request?',
+        answer: 'Include the intended activity, product category or style references, estimated quantity, size and colour mix, branding requirements, delivery destination and preferred sourcing route. The destination postcode and shipment scope help the supplier compare the correct delivery options.',
+      },
+      {
+        question: 'Can an Australian buyer combine ready stock and custom development?',
+        answer: 'Yes. Suitable ready-stock products can support an initial or replenishment assortment, while a separate private-label or OEM/ODM brief can cover branding, new fabrics, measurements or construction details. Each route should be quoted against its own confirmed scope.',
+      },
+    ],
   },
   {
     slug: 'canada',

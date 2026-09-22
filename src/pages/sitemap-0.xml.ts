@@ -74,6 +74,7 @@ const productDetailPages = Object.keys(productModules)
   .map((slug) => `/products/${slug}/`);
 
 const lastModifiedByPath = new Map<string, string>([
+  ['/products/tz2570-4/', '2026-09-22'],
   ['/blogs/polka-dot-contrast-trim-activewear-wholesale/', '2026-09-22'],
   ['/es/fabricante-ropa-deportiva-espana/', '2026-09-13'],
   ...spanishGuides.map((guide): [string, string] => [`/es/guias/${guide.slug}/`, '2026-09-07']),

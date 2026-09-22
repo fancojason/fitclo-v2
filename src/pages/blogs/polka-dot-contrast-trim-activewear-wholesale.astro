@@ -1,0 +1,101 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+import { whatsappIntelligenceUrl } from '../../data/intelligence';
+
+const title = 'Polka-Dot, Contrast-Trim & Printed Activewear: A Wholesale Buyer’s Guide';
+const description = 'Explore polka-dot waistbands, contrast-trim workout sets and patterned activewear with real FITCLO styles, ready-stock MOQs and a buyer sampling checklist.';
+const selections = [
+  ['CX6049+CK6181', 'Polka-dot waist detail', 'An off-shoulder crop top balances a dotted waistband on wide-leg pants. Consider this direction for an athleisure capsule with a small, clearly visible pattern accent.'],
+  ['YT1356+CK6181', 'Polka-dot waist detail', 'A long-sleeve crew-neck crop top offers an alternative neckline with the dotted waistband. Compare the two top shapes before choosing your assortment.'],
+  ['NY6188+CK6187', 'Contrast bands', 'Contrasting bands on the bra and pants connect the pieces visually. Review the actual colour chart before selecting the combination for your brand.'],
+  ['DWC516148+DWP516147', 'Contrast-trim fitted set', 'Contrast edging gives a bra-and-leggings silhouette a defined outline. This provides a fitted alternative to the wide-leg styles in this selection.'],
+  ['CK6228', 'Contrast piping', 'Piping follows the relaxed pants silhouette. A separate bottom gives buyers a way to pair a design detail with their existing tops.'],
+  ['TZ4556-6', 'Stripes and coordinated layers', 'The striped zip jacket, top and wide-leg pants create a coordinated outfit. Confirm the fabric and stripe construction rather than assuming that every stripe is printed.'],
+  ['D26014', 'All-over pattern', 'Patterned wide-leg pants give the print a larger surface area. Ask for close-up fabric images and a sample to judge pattern scale, colour and appearance in movement.'],
+].map(([sku, theme, note]) => {
+  const product = getCatalogProductByStyleCode(sku);
+  if (!product) throw new Error(`Missing editorial product: ${sku}`);
+  const url = new URL(whatsappIntelligenceUrl);
+  url.searchParams.set('text', `Hello FITCLO, I am interested in ${sku} from your polka-dot and contrast-trim activewear guide. Please confirm current colours, sizes, MOQ, sample options and branding for my order.`);
+  return { product, theme, note, href: url.toString() };
+});
+const faqs = [
+  { question: 'Are polka-dot workout sets trending in 2026?', answer: 'There is visible fashion and retail evidence: ELLE covered polka dots in spring 2026, and Primark included gym sets in its April 2026 polka-dot feature. These signals support testing the direction; they do not establish sales growth for every market.' },
+  { question: 'Does contrast-trim activewear count as printed activewear?', answer: 'Not necessarily. Contrast can come from edging, piping or panels. A visible pattern also does not identify the manufacturing method. Confirm the fabric and decoration process for the specific style.' },
+  { question: 'What is the MOQ for the FITCLO styles in this article?', answer: 'The featured matching sets are listed at 50 sets, and CK6228 and D26014 pants at 50 pieces. Confirm how the minimum applies to each style, colour and size mix. Custom development and branding need a separate quotation.' },
+  { question: 'Are these styles ready stock?', answer: 'The featured styles are listed in FITCLO’s ready-stock catalog. Ask for current colour and size availability before ordering; a ready-stock listing is not a guarantee that every variant is immediately available.' },
+  { question: 'Can I request private-label or custom patterned activewear?', answer: 'Send FITCLO the selected SKU or your own design brief, desired quantities, destination and branding requirements. The team can confirm the suitable private-label or OEM route, sample process and quotation for that project.' },
+];
+---
+
+<EditorialArticleLayout title={title} seoTitle="Polka-Dot & Contrast-Trim Activewear Wholesale | FITCLO" description={description}
+  type="Trend & Sourcing Guide" articleKind="buyer-guide" date="September 22, 2026" readTime="8 min read"
+  publishedIso="2026-09-22" modifiedIso="2026-09-22" articleImage={selections[0].product.image}
+  quickAnswerTitle="Polka-dot waistbands, contrast edging and patterned separates give activewear buyers several ways to add visual detail to a collection. FITCLO’s selection below includes ready-stock matching sets with a listed MOQ of 50 sets and separate pants at 50 pieces. Start with the design direction that fits your customers, then confirm variant availability and sample performance."
+  faqs={faqs}
+  relatedReading={[
+    { title: 'Browse matching sets', link: '/products/matching-sets/', desc: 'Compare coordinated tops and bottoms in the current catalog.' },
+    { title: 'Ready-stock activewear', link: '/ready-to-ship/', desc: 'Review stock styles and confirm colour and size availability.' },
+    { title: 'Private label activewear', link: '/private-label/', desc: 'Discuss branding for your selected styles.' },
+    { title: 'Tech pack to final sample', link: '/blogs/from-tech-pack-to-final-sample-activewear-development-process/', desc: 'Prepare the development brief for an original collection.' },
+  ]}
+  ctaTitle="Build your patterned activewear shortlist"
+  ctaText="Send the SKUs you like, your destination, quantities and preferred colours. Ask for the latest colour charts, size information, sample options and a quotation for your branding requirements."
+  ctaHref="/inquiry/" ctaLabel="Request a quotation">
+
+  <nav aria-label="Article contents"><p><strong>In this guide:</strong> <a href="#trend-evidence">Trend evidence</a> · <a href="#design-directions">Design directions</a> · <a href="#fitclo-styles">FITCLO styles</a> · <a href="#sampling">Sample checklist</a> · <a href="#ordering">Ordering</a></p></nav>
+  <h2 id="trend-evidence">What supports the polka-dot activewear direction?</h2>
+  <p>Polka dots have a visible place in current fashion coverage. <a href="https://www.elle.com/fashion/trend-reports/a71110647/polka-dot-print-trend-spring-2026/" rel="noopener noreferrer" target="_blank">ELLE’s spring 2026 report</a> documents the motif across runway looks and accessories. That is evidence of fashion visibility, rather than a measurement of workout-clothing demand.</p>
+  <p>There is also a direct activewear example. In its April 14, 2026 feature, <a href="https://www.primark.com/en-us/a/inspiration/style-trends/how-to-style-polka-dots" rel="noopener noreferrer" target="_blank">Primark includes gym sets in its polka-dot assortment</a> and describes a new activewear drop. This shows the motif appearing in retail workout dressing, beyond dresses and accessories.</p>
+  <p><strong>Our buying interpretation:</strong> these signals make a focused pattern capsule worth evaluating alongside your established basics. They do not show that plain activewear has stopped selling, or prove a particular country’s demand. We have not used sales-volume or search-volume estimates to rank the products below. Sources and catalog reviewed September 22, 2026.</p>
+
+  <h2 id="design-directions">Four design directions to compare before ordering</h2>
+  <h3>1. Polka-dot accents on otherwise simple shapes</h3>
+  <p>A dotted waistband introduces pattern without covering the entire outfit. For a buyer exploring polka-dot yoga sets or studio-inspired athleisure, this offers a clear detail to show in close-up photography. Check whether the waistband remains visible when the intended top is worn and how the dots look when the garment stretches.</p>
+  <h3>2. Contrast trim, piping and colour-block panels</h3>
+  <p>These details can frame a neckline, underband, waist or leg. They are different design choices: a fine piped line has a different visual effect from a broad contrasting waistband. Specify the location, width and colour combination you want. Do not assume that contrast detailing uses an ink-print process.</p>
+  <h3>3. Striped coordinated outfits</h3>
+  <p>Stripes make alignment between garments and at seams especially visible. When buying a jacket, top and pants combination, review all pieces together. Ask how the stripe is made and check whether its direction and spacing match the approved sample.</p>
+  <h3>4. All-over patterned separates</h3>
+  <p>A patterned bottom can be styled with an existing plain top, making it useful for building outfit options around an established range. Check the repeat at the front, back and seams. A print photographed flat can look different when worn; approve it in the actual garment and size.</p>
+
+  <h2 id="fitclo-styles">Seven FITCLO styles to shortlist</h2>
+  <p>These are current catalog examples selected for their visible design details, not a best-seller ranking. Photographs show styling and appearance; they do not establish fabric composition, support level or sports-performance claims. The polka-dot examples feature dotted waist details, rather than all-over polka-dot garments.</p>
+  <div class="pattern-products">
+    {selections.map(({ product, theme, note, href }, index) => (
+      <section class="pattern-product" id={`style-${index + 1}`}>
+        <img src={product.image} alt={product.imageAlt ?? product.name} width="1254" height="1254" loading="lazy" decoding="async" />
+        <div><p><strong>{theme}</strong></p><h3>{product.name}</h3><p class="pattern-sku">Style: <strong>{product.styleCode}</strong></p><p>{note}</p><p><strong>Listed MOQ: {product.moq}.</strong> Ready-stock catalog style; confirm current variants.</p><a href={href} target="_blank" rel="noopener noreferrer">Ask about {product.styleCode} on WhatsApp →</a></div>
+      </section>
+    ))}
+  </div>
+  <p>For additional silhouettes, browse <a href="/products/matching-sets/">matching activewear sets</a> and <a href="/products/training-pants/">training pants</a>. To request several styles together, copy their full SKUs into the <a href="/inquiry/">inquiry form</a>.</p>
+
+  <h2 id="sampling">What should buyers check on a sample?</h2>
+  <p>Visual appeal is only one part of a sourcing decision. Use the sample review to establish the facts you will need for your own product page and customer promises.</p>
+  <ul>
+    <li><strong>Fabric and intended use:</strong> request the composition, available size chart and construction details. Decide whether the garment suits your intended activity after assessing fit and movement.</li>
+    <li><strong>Pattern under stretch:</strong> inspect changes in dot shape, colour coverage and opacity when worn. Test against your own acceptance criteria.</li>
+    <li><strong>Colour transfer:</strong> ask how dark and light sections are evaluated for rubbing and washing. Check a contrasting waistband or trim against the adjoining fabric.</li>
+    <li><strong>Placement and consistency:</strong> compare the print or stripe at seams, across sizes and between matching pieces. Record acceptable variation before approving an order.</li>
+    <li><strong>Fit and recovery:</strong> review waist stability, strap placement, seam comfort and shape after movement and washing. A fashion-led design is not evidence of high-impact support.</li>
+    <li><strong>Branding placement:</strong> review your logo against the pattern. A quiet area may be easier to read than a densely patterned section; approve the actual placement and application method.</li>
+  </ul>
+  <p>Keep the approved sample, photographs and written specifications together. For a fuller review process, use our <a href="/blogs/how-to-test-squat-proof-leggings-pilling-stretch-recovery-shrinkage/">leggings quality-testing guide</a>.</p>
+
+  <h2 id="ordering">Ready stock, private label or a custom design?</h2>
+  <p><strong>Ready stock:</strong> use an existing SKU when its shape and design suit your range. The featured sets list 50 sets as their MOQ; the two separate pants styles list 50 pieces. Confirm the minimum by style and colour, the permitted size mix, current availability and the delivery schedule with FITCLO. Do not assume different SKUs can be pooled into one minimum.</p>
+  <p><strong>Private label:</strong> send your logo and requirements for labels, hang tags and packaging through our <a href="/private-label/">private-label service</a>. Ask which options apply to your selected stock style and what quantities, costs and timing they require.</p>
+  <p><strong>OEM / ODM:</strong> if you need your own artwork, a different panel arrangement or a new silhouette, discuss the brief through <a href="/oem-activewear-manufacturer/">custom activewear manufacturing</a>. Provide artwork you have the right to use, placement dimensions, colour references and target quantities. The team must confirm feasibility and quote the project; stock MOQs do not automatically apply to custom development.</p>
+  <p><strong>A useful first inquiry includes:</strong> full SKU, destination country, quantity per style, preferred colours and sizes, intended use, branding requirements and target delivery date. Include any missing fabric or testing information you need confirmed. This helps move the conversation from a trend image to a practical sourcing decision.</p>
+</EditorialArticleLayout>
+
+<style>
+  .pattern-products { display: grid; gap: 2rem; }
+  .pattern-product { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: center; padding-bottom: 2rem; border-bottom: 1px solid #ddd; }
+  .pattern-product img { width: 100%; height: auto; object-fit: contain; border-radius: 12px; }
+  .pattern-product h3 { margin-top: 0; }
+  .pattern-sku { overflow-wrap: anywhere; }
+  @media (max-width: 640px) { .pattern-product { grid-template-columns: minmax(0, 1fr); } }
+</style>

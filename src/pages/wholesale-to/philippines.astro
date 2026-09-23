@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+
+const pageUrl = 'https://www.fitcloo.com/wholesale-to/philippines/';
+const title = 'Wholesale Activewear for the Philippines | FITCLO';
+const description = 'Source activewear from China for your Philippine brand: ready-stock yoga sets, leggings and gym wear, MOQ from 50 sets or pcs, private label and OEM options.';
+const whatsappMessage = 'Hello Fitclo, I am sourcing activewear for the Philippines. Please help me compare ready stock, private label and OEM options. My preferred styles are [SKUs], quantity is [sets/pieces], and delivery city/postcode is [destination].';
+const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsappMessage)}`;
+const products = [
+  ['TZ2570-4', '/products/tz2570-4/', 'Color-block studio collection', 'Double-strap crop tank and fold-over flare pants. Confirmed 78% nylon / 22% spandex; S, M, L and XL.'],
+  ['3708', '/products/3708/', 'Tank and shorts assortment', 'Square-neck tank with layered running shorts. Review a sample for length, coverage and the intended activity.'],
+  ['0636', '/products/0636/', 'Bra and leggings collection', 'Cross-back sports bra with full-length leggings. Compare fit, strap placement and the available size mix.'],
+  ['TZ4506-4', '/products/tz4506-4/', 'Cropped-length alternative', 'Contrast-trim halter and cropped leggings set. Request actual garment measurements before choosing lengths.'],
+].map(([sku, href, use, note]) => {
+  const product = getCatalogProductByStyleCode(sku);
+  if (!product) throw new Error(`Missing Philippines selection: ${sku}`);
+  return { ...product, href, use, note };
+});
+const faqs = [
+  ['Is Fitclo a local activewear manufacturer in the Philippines?', 'Fitclo is a China-based activewear supplier. This page helps Philippine buyers source from China; it does not represent a Philippine factory, local warehouse or retail store.'],
+  ['What is the minimum order for Philippine buyers?', 'Selected ready-stock matching sets start at 50 sets, and suitable individual garments at 50 pieces. Check the MOQ for each SKU and confirm the color and size allocation. Private-label additions and OEM development have their own quoted requirements.'],
+  ['Can I buy wholesale yoga sets and leggings for an online store?', 'Yes. Share your selected SKUs, planned quantities and intended customer. Confirm garment measurements, color charts and stock variants before ordering, then use approved product information for your own listings.'],
+  ['Can you add my brand logo, labels and packaging?', 'Fitclo offers private-label options including logos, labels, hang tags and packaging. Send artwork and placement requirements so the team can confirm what is feasible for the selected style and order quantity.'],
+  ['Can I request a sample before a bulk order?', 'Ask Fitclo to confirm sample availability, size, cost and shipping for the selected style. For custom development, agree the sample brief and approval stages before bulk production.'],
+  ['Can you quote delivery to Metro Manila, Cebu or Davao?', 'Provide the full delivery city, province and postcode, plus quantities and the required shipping scope. Fitclo can review shipment options for the destination. Delivery time, freight and any onward domestic leg must be confirmed in the quotation.'],
+  ['Are Philippine import duties and taxes included in the product price?', 'Do not assume they are included. Confirm the Incoterm, named destination, importer responsibility and charges covered by the quotation. Check applicable customs requirements with the Philippine Bureau of Customs and your appointed broker.'],
+  ['Can I mix colors and sizes within 50 sets?', 'Send the exact SKU, color choices and quantities by size for confirmation. The listed MOQ does not automatically mean unrestricted mixing across colors or different styles.'],
+];
+const structuredData = [
+  {'@context':'https://schema.org','@type':'WebPage','@id':pageUrl,url:pageUrl,name:title,description,inLanguage:'en',dateModified:'2026-09-23',about:{'@id':'https://www.fitcloo.com/#organization'}},
+  {'@context':'https://schema.org','@type':'Service',name:'Activewear sourcing for Philippine brands',serviceType:'Wholesale, private-label and OEM/ODM activewear sourcing',provider:{'@type':'Organization',name:'Fitclo',url:'https://www.fitcloo.com/'},areaServed:{'@type':'Country',name:'Philippines'},url:pageUrl},
+  {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:'https://www.fitcloo.com/'},{'@type':'ListItem',position:2,name:'Philippines',item:pageUrl}]},
+  {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))},
+];
+---
+<BaseLayout title={title} seoTitle={title} description={description} canonicalURL={pageUrl} lang="en" image={`https://www.fitcloo.com${products[0].image}`} structuredData={structuredData} autoArticleSchema={false} includeBreadcrumbSchema={false} whatsappMessage={whatsappMessage}>
+  <main class="ph-market">
+    <section class="ph-wrap ph-hero">
+      <div>
+        <nav aria-label="Breadcrumb"><a href="/">Home</a> / Philippines</nav>
+        <p class="ph-eyebrow">CHINA-BASED SUPPLY · PHILIPPINE BUYERS</p>
+        <h1>Wholesale &amp; private-label activewear for Philippine brands</h1>
+        <p class="ph-lead">Build your next yoga, Pilates or gym-wear collection around real styles, clear specifications and a practical order plan.</p>
+        <div class="ph-answer"><strong>Can you source from Fitclo for the Philippines?</strong><p>Yes. Choose selected ready-stock styles from 50 sets or 50 pieces, discuss branding for an existing product, or develop an OEM/ODM brief. Fitclo is based in China. Confirm the exact SKU, color and size mix, sample requirements and Philippine delivery destination before placing an order.</p></div>
+        <div class="ph-actions"><a class="ph-button" href="#quote">Request a Philippines quote</a><a class="ph-button ph-outline" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Discuss styles on WhatsApp</a></div>
+        <p class="ph-small">For independent labels, online sellers, studios, retailers and distributors. Current stock variants and order terms are confirmed by quotation.</p>
+      </div>
+      <figure><img src={products[0].image} alt="FITCLO TZ2570-4 color-block tank and flare pants set for wholesale sourcing" width="1254" height="1254" fetchpriority="high" /><figcaption>Featured style TZ2570-4 · 50 sets MOQ · <a href={products[0].href}>View specifications →</a></figcaption></figure>
+    </section>
+    <nav class="ph-wrap ph-jump" aria-label="Page sections"><a href="#routes">Buying routes</a><a href="#products">Products</a><a href="#philippines-planning">Philippine order planning</a><a href="#quality">Samples &amp; branding</a><a href="#faq">FAQs</a><a href="#quote">Get a quote</a></nav>
+
+    <section id="routes" class="ph-wrap ph-section">
+      <p class="ph-eyebrow">START WITH THE RIGHT ORDER TYPE</p><h2>Three buying routes, with different requirements</h2>
+      <div class="ph-grid ph-three">
+        <article class="ph-panel"><h3>Ready-stock wholesale</h3><p>Choose existing styles for a focused first order or a replenishment plan. Review the available colors and size mix before committing.</p><p><strong>MOQ:</strong> selected sets from 50 sets; suitable separates from 50 pieces. Different SKUs are not automatically combined into one minimum.</p><a href="/ready-to-ship/">Explore ready-stock activewear →</a></article>
+        <article class="ph-panel"><h3>Existing style + your brand</h3><p>Keep a suitable garment design and discuss logo application, brand and care labels, hang tags and packaging.</p><p><strong>Quote inputs:</strong> SKU, artwork, logo position, packaging scope and quantities. Confirm extra costs and timing before approval.</p><a href="/private-label/">Review private-label options →</a></article>
+        <article class="ph-panel"><h3>OEM / ODM development</h3><p>Use a tech pack or a defined brief when you need a new silhouette, measurement specification, fabric direction or construction detail.</p><p><strong>Quote inputs:</strong> drawings, material requirements, sizes, quantity and sample checkpoints. Stock MOQs do not automatically apply.</p><a href="/oem-activewear-manufacturer/">Plan custom manufacturing →</a></article>
+      </div>
+    </section>
+
+    <section id="products" class="ph-wrap ph-section">
+      <p class="ph-eyebrow">REAL PRODUCTS, TRACEABLE SPECIFICATIONS</p><h2>Build a shortlist for your intended customer</h2>
+      <p>Compare a tank-and-shorts outfit, a bra-and-leggings set and a fashion-led flare silhouette. These are sourcing starting points, not a ranking of Philippine best sellers. Each link opens an existing product page with images and inquiry options.</p>
+      <div class="ph-grid ph-products">{products.map(product=><article class="ph-panel ph-product"><a href={product.href}><img src={product.image} alt={product.imageAlt ?? product.name} width="1254" height="1254" loading="lazy" decoding="async" /><p class="ph-eyebrow">{product.use}</p><h3>{product.name}</h3></a><p><strong>{product.styleCode} · {product.moq}</strong></p><p>{product.note}</p><a href={product.href}>View this style →</a></article>)}</div>
+      <p>Need individual pieces? Browse <a href="/products/leggings/">leggings</a>, <a href="/products/sports-bras/">sports bras</a>, <a href="/products/gym-shorts/">gym shorts</a> and <a href="/products/matching-sets/">matching sets</a>. Select for the intended activity and sample fit rather than assuming every garment has the same support or coverage.</p>
+    </section>
+
+    <section id="philippines-planning" class="ph-wrap ph-section">
+      <p class="ph-eyebrow">A QUOTE THAT MATCHES THE ACTUAL DESTINATION</p><h2>Plan the Philippine order beyond the product price</h2>
+      <div class="ph-grid ph-two"><div class="ph-panel"><h3>Send a city, province and postcode</h3><p>“Philippines” alone is not enough to define a delivery quote. State the final destination—such as Metro Manila, Cebu or Davao—and whether you need delivery to an address or another agreed handoff point. Identify any onward domestic transport that must be included.</p><p>Separate your required arrival date from the supplier’s dispatch date. Stock confirmation, branding, sampling, international carriage and destination handling should be discussed as distinct steps. No fixed transit time is promised on this page.</p></div>
+      <div class="ph-panel"><h3>Compare the same landed-cost scope</h3><p>Ask each supplier to separate garment cost, branding, sample charges, packing and freight. Record the Incoterm and named place, and identify who handles import clearance, duties, taxes and final delivery.</p><p>Before confirming an order, check the shipment’s tariff classification and applicable requirements with your broker. The <a href="https://customs.gov.ph/guidelines-on-importation/" target="_blank" rel="noopener noreferrer">Philippine Bureau of Customs importation guide</a> explains importer accreditation and common documents, including the commercial invoice, packing list and transport document. A certificate of origin or other documents may apply. Official guidance checked September 23, 2026.</p><a href="/blogs/fob-vs-ddp-vs-dap-activewear-imports/">Compare FOB, DAP and DDP responsibilities →</a></div></div>
+    </section>
+
+    <section id="quality" class="ph-wrap ph-section"><p class="ph-eyebrow">MAKE PRODUCT CLAIMS YOU CAN SUPPORT</p><h2>Approve the sample, size information and brand details together</h2>
+      <div class="ph-grid ph-three">
+        <article class="ph-panel"><h3>Fabric and use</h3><p>Tell us whether the collection is for indoor studio classes, gym training, outdoor activity or everyday athleisure. Request the composition and evaluate fabric feel, coverage, stretch recovery and drying behavior for the intended use. A lightweight appearance does not establish tested performance.</p></article>
+        <article class="ph-panel"><h3>Fit and size mix</h3><p>Use actual garment measurements, not a presumed universal “Asian fit.” Review waist and hip measurements, rise, inseam, top length and strap position where relevant. Confirm which sizes and colors can be supplied, then write the quantity against each variant.</p></article>
+        <article class="ph-panel"><h3>Retail presentation</h3><p>Approve the logo position, label wording, care information, hang tags and packaging before the order is finalized. For online listings, use accurate images and the confirmed specifications for that SKU. Discuss required product or testing documents before making performance or certification claims.</p></article>
+      </div><p>For a new design, follow the <a href="/blogs/from-tech-pack-to-final-sample-activewear-development-process/">tech-pack-to-sample process</a>. For existing styles, record your sample comments and agreed specifications before bulk confirmation.</p>
+    </section>
+
+    <section class="ph-wrap ph-section"><h2>Your first message can be this simple</h2><div class="ph-answer"><p>“We are sourcing activewear for a Philippine [brand / store / studio]. Our selected SKUs are […], with […] sets or pieces per style. Preferred sizes and colors: […]. Branding needed: […]. Delivery city, province and postcode: […]. Please confirm current availability, sample options, MOQ allocation and a quote showing the shipping scope.”</p></div><p>A clear brief helps the team recommend a suitable route and identify missing specifications before you spend time comparing prices.</p></section>
+
+    <section id="faq" class="ph-wrap ph-section"><p class="ph-eyebrow">BUYER QUESTIONS</p><h2>Wholesale activewear for the Philippines: FAQs</h2><div>{faqs.map(([q,a])=><details class="ph-faq"><summary>{q}</summary><p>{a}</p></details>)}</div></section>
+    <section id="quote" class="ph-wrap ph-section"><h2>Get a quote for your Philippine activewear order</h2><p>Include your destination city and postcode in the message, plus the SKUs, quantities and branding you need. The form preserves this Philippines page as the inquiry source.</p><InquiryForm marketCountry="Philippines" /></section>
+  </main>
+</BaseLayout>
+<style>
+  .ph-market{background:#090a0c;color:#fff;font-family:'Century Gothic',sans-serif;overflow-wrap:break-word}.ph-wrap{max-width:1280px;margin:auto;padding-left:24px;padding-right:24px}.ph-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:44px;padding-top:48px;padding-bottom:56px;align-items:center}.ph-market h1{font-size:clamp(34px,4.2vw,60px);font-weight:800;line-height:1.08;margin:20px 0}.ph-market h2{font-size:clamp(28px,3vw,40px);font-weight:700;line-height:1.2;margin:12px 0 24px}.ph-market h3{font-size:21px;font-weight:700;line-height:1.35;margin:12px 0}.ph-market p{font-size:15px;line-height:1.8;color:#c5c7cc;margin:14px 0}.ph-market .ph-lead{font-size:19px}.ph-market a{color:#d8b456}.ph-eyebrow{color:#d8b456!important;font-size:11px!important;font-weight:700;letter-spacing:.13em;text-transform:uppercase}.ph-answer{padding:22px;background:#141619;border-left:3px solid #d8b456}.ph-answer p:last-child{margin-bottom:0}.ph-actions{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}.ph-market .ph-button{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:12px 22px;border-radius:26px;background:#d8b456;color:#111;font-weight:700;font-size:14px}.ph-market .ph-outline{background:transparent;border:1px solid #d8b456;color:#d8b456}.ph-market .ph-small{font-size:13px}.ph-hero img{width:100%;height:auto;border-radius:16px}.ph-hero figcaption{padding:16px 0;font-size:13px;line-height:1.7;color:#ccc}.ph-jump{display:flex;gap:18px;flex-wrap:wrap;padding-top:20px;padding-bottom:20px;border-top:1px solid #333;border-bottom:1px solid #333;font-size:13px}.ph-section{padding-top:64px;padding-bottom:48px;scroll-margin-top:100px}.ph-grid{display:grid;gap:22px;margin:28px 0}.ph-three{grid-template-columns:repeat(3,minmax(0,1fr))}.ph-two{grid-template-columns:repeat(2,minmax(0,1fr))}.ph-panel{padding:24px;border:1px solid #303238;border-radius:14px;background:#111318}.ph-products{grid-template-columns:repeat(4,minmax(0,1fr))}.ph-product{padding:14px}.ph-product img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#eee;border-radius:8px}.ph-product h3{font-size:18px}.ph-faq{padding:20px 0;border-bottom:1px solid #333}.ph-faq summary{cursor:pointer;font-weight:700;line-height:1.5}.ph-market a:focus-visible,.ph-market summary:focus-visible{outline:2px solid #d8b456;outline-offset:4px}@media(max-width:1000px){.ph-hero{grid-template-columns:1fr}.ph-hero figure{max-width:620px;margin:auto}.ph-products{grid-template-columns:repeat(2,minmax(0,1fr))}.ph-three{grid-template-columns:1fr}}@media(max-width:600px){.ph-two,.ph-products{grid-template-columns:1fr}.ph-section{padding-top:44px;padding-bottom:28px}.ph-hero{gap:20px}.ph-panel{padding:18px}}
+</style>

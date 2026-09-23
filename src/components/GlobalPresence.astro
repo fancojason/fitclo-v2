@@ -3,6 +3,7 @@ import { marketLandingPages } from '../data/marketLandingPages';
 
 const marketLinks = new Map(marketLandingPages.map((market) => [market.name, `/wholesale-to/${market.slug}/`]));
 const countries = [
+  { name: "Philippines", code: "ph", href: "/wholesale-to/philippines/" },
   { name: "USA", code: "us", href: marketLinks.get('United States') },
   { name: "Canada", code: "ca", href: marketLinks.get('Canada') },
   { name: "UK", code: "gb", href: marketLinks.get('United Kingdom') },

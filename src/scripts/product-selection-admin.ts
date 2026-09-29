@@ -1,5 +1,6 @@
 type Size = 'XXS' | 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
-type Style = { id: number; styleNo: string; mainImage: string; availableSizes: Size[]; active: boolean; colorCharts: Array<{ url: string }> };
+type Style = { id: number; styleNo: string; mainImage: string; availableSizes: Size[]; active: boolean; colorCharts: Array<{ url: string }>; supplierName: string; supplierUrl: string };
+type Supplier = { name: string; shopUrl: string };
 const sizes: Size[] = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const api = '/api/product-selection/admin';
 const byId = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -8,6 +9,7 @@ const app = byId<HTMLElement>('admin-app');
 const styleForm = byId<HTMLFormElement>('style-form');
 const dialog = byId<HTMLDialogElement>('submission-dialog');
 let styles: Style[] = [];
+let suppliers: Supplier[] = [];
 
 const escapeHtml = (value: unknown) => {
   const element = document.createElement('span');
@@ -32,7 +34,7 @@ byId<HTMLFormElement>('login-form').addEventListener('submit', async (event) => 
   button.disabled = true; status.textContent = '';
   try {
     await request('login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(form).entries())) });
-    form.reset(); showApp(); await Promise.all([loadStyles(), loadSubmissions()]);
+    form.reset(); showApp(); await Promise.all([loadStyles(), loadSuppliers(), loadSubmissions()]);
   } catch (error) { status.textContent = error instanceof Error ? error.message : 'Unable to sign in.'; }
   finally { button.disabled = false; }
 });
@@ -55,6 +57,22 @@ async function loadStyles() {
     <td><div class="actions"><button type="button" class="secondary" data-edit="${style.id}">Edit</button><button type="button" class="secondary" data-toggle="${style.id}">${style.active ? 'Disable' : 'Enable'}</button><button type="button" class="secondary danger" data-delete="${style.id}">Delete</button></div></td>
   </tr>`).join('');
 }
+
+async function loadSuppliers() {
+  suppliers = (await request('suppliers')).suppliers;
+  byId<HTMLDataListElement>('supplier-history').replaceChildren(...suppliers.map((supplier) => {
+    const option = document.createElement('option');
+    option.value = supplier.name;
+    return option;
+  }));
+}
+
+const supplierNameInput = byId<HTMLInputElement>('supplier-name');
+supplierNameInput.addEventListener('input', () => {
+  const match = suppliers.find((supplier) => supplier.name.toLowerCase() === supplierNameInput.value.trim().toLowerCase());
+  if (match) byId<HTMLInputElement>('supplier-url').value = match.shopUrl;
+});
+supplierNameInput.addEventListener('click', () => { try { supplierNameInput.showPicker(); } catch { /* Native suggestions still work. */ } });
 
 function resetStyleForm() {
   styleForm.reset();
@@ -79,7 +97,7 @@ styleForm.addEventListener('submit', async (event) => {
   button.disabled = true; button.textContent = 'Saving...'; status.textContent = '';
   try {
     await request(id ? `styles/${id}` : 'styles', { method: 'POST', body: new FormData(styleForm) });
-    resetStyleForm(); await loadStyles();
+    resetStyleForm(); await Promise.all([loadStyles(), loadSuppliers()]);
   } catch (error) { status.textContent = error instanceof Error ? error.message : 'Unable to save style.'; }
   finally { button.disabled = false; button.textContent = 'Save Style'; }
 });
@@ -93,6 +111,8 @@ byId('styles-body').addEventListener('click', async (event) => {
     resetStyleForm();
     (styleForm.elements.namedItem('id') as HTMLInputElement).value = String(style.id);
     (styleForm.elements.namedItem('styleNo') as HTMLInputElement).value = style.styleNo;
+    byId<HTMLInputElement>('supplier-name').value = style.supplierName;
+    byId<HTMLInputElement>('supplier-url').value = style.supplierUrl;
     styleForm.querySelectorAll<HTMLInputElement>('input[name="sizes"]').forEach((input) => { input.checked = style.availableSizes.includes(input.value as Size); });
     byId('style-form-title').textContent = `Edit ${style.styleNo}`;
     byId('cancel-edit').classList.remove('hidden');
@@ -140,4 +160,4 @@ byId('close-dialog').addEventListener('click', () => dialog.close());
 byId('refresh-styles').addEventListener('click', () => loadStyles().catch((error) => alert(error.message)));
 byId('refresh-submissions').addEventListener('click', () => loadSubmissions().catch((error) => alert(error.message)));
 
-request('session').then(async () => { showApp(); await Promise.all([loadStyles(), loadSubmissions()]); }).catch(showLogin);
+request('session').then(async () => { showApp(); await Promise.all([loadStyles(), loadSuppliers(), loadSubmissions()]); }).catch(showLogin);

@@ -72,7 +72,7 @@ async function submitSelection(context) {
       total += value;
     }
     if (total <= 0) return json({ error: `Enter a quantity for ${style.style_no}.` }, 400);
-    validated.push({ styleNo: style.style_no, color, quantities, total });
+    validated.push({ styleNo: style.style_no, color, quantities, total, supplierName: style.supplier_name || null, supplierUrl: style.supplier_url || null });
   }
 
   const date = new Date().toISOString().slice(0, 10).replaceAll('-', '');
@@ -81,8 +81,8 @@ async function submitSelection(context) {
   const selectionId = `FS-${date}-${String(counter.last_value).padStart(4, '0')}`;
   const submission = await db.prepare('INSERT INTO product_selection_submissions (selection_id, idempotency_key, customer_name, company, whatsapp, email, country, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, submitted_at')
     .bind(selectionId, idempotencyKey, name, company, whatsapp, email, country, notes).first();
-  await db.batch(validated.map((item) => db.prepare('INSERT INTO product_selection_items (submission_id, style_no_snapshot, color_snapshot, xxs, xs, s, m, l, xl, xxl, total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
-    .bind(submission.id, item.styleNo, item.color, ...SIZE_KEYS.map((size) => item.quantities[size]), item.total)));
+  await db.batch(validated.map((item) => db.prepare('INSERT INTO product_selection_items (submission_id, style_no_snapshot, color_snapshot, xxs, xs, s, m, l, xl, xxl, total, supplier_name_snapshot, supplier_url_snapshot) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+    .bind(submission.id, item.styleNo, item.color, ...SIZE_KEYS.map((size) => item.quantities[size]), item.total, item.supplierName, item.supplierUrl)));
 
   const notification = sendNotification(context.env, { selectionId, name, company, whatsapp, email, country, notes }, validated).catch((error) => console.error('Product selection email failed:', error));
   context.waitUntil?.(notification);

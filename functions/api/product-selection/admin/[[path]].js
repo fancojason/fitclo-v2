@@ -4,6 +4,7 @@ import {
   createAdminCookie,
   createSelectionWorkbook,
   isAdmin,
+  isShopUrl,
   json,
   listStyles,
   parseSizes,
@@ -71,10 +72,14 @@ async function saveStyle(context, id = null) {
   let form;
   try { form = await context.request.formData(); } catch { return json({ error: 'Invalid form data.' }, 400); }
   const styleNo = clean(form.get('styleNo'), 60).toUpperCase();
+  const supplierName = clean(form.get('supplierName'), 120);
+  const supplierUrl = clean(form.get('supplierUrl'), 1000);
   const sizes = parseSizes(form.getAll('sizes'));
   const mainFile = form.get('mainImage');
   const chartFiles = form.getAll('colorCharts').filter((value) => value instanceof File && value.size);
   if (!/^[A-Z0-9][A-Z0-9+._-]{0,59}$/.test(styleNo) || !sizes.length) return json({ error: 'Enter a valid style number, select sizes and upload at least one color chart.' }, 400);
+  if (Boolean(supplierName) !== Boolean(supplierUrl)) return json({ error: 'Enter both the supplier name and shop link, or leave both blank.' }, 400);
+  if (supplierUrl && !isShopUrl(supplierUrl)) return json({ error: 'Enter a valid http or https supplier shop link.' }, 400);
   const db = context.env.PRODUCT_SELECTION_DB;
   const existing = id ? await db.prepare('SELECT * FROM product_styles WHERE id = ?').bind(id).first() : null;
   if (id && !existing) return json({ error: 'Style not found.' }, 404);
@@ -91,10 +96,11 @@ async function saveStyle(context, id = null) {
       uploaded.push(key);
     }
     let styleId = id;
+    const supplier = supplierName ? await db.prepare('INSERT INTO product_selection_suppliers (name, shop_url) VALUES (?, ?) ON CONFLICT(name) DO UPDATE SET shop_url = excluded.shop_url, updated_at = CURRENT_TIMESTAMP RETURNING id').bind(supplierName, supplierUrl).first() : null;
     if (id) {
-      await db.prepare('UPDATE product_styles SET style_no = ?, main_image_key = ?, available_sizes = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?').bind(styleNo, mainKey, JSON.stringify(sizes), id).run();
+      await db.prepare('UPDATE product_styles SET style_no = ?, main_image_key = ?, available_sizes = ?, supplier_id = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?').bind(styleNo, mainKey, JSON.stringify(sizes), supplier?.id || null, id).run();
     } else {
-      const inserted = await db.prepare('INSERT INTO product_styles (style_no, main_image_key, available_sizes) VALUES (?, ?, ?) RETURNING id').bind(styleNo, mainKey, JSON.stringify(sizes)).first();
+      const inserted = await db.prepare('INSERT INTO product_styles (style_no, main_image_key, available_sizes, supplier_id) VALUES (?, ?, ?, ?) RETURNING id').bind(styleNo, mainKey, JSON.stringify(sizes), supplier?.id || null).first();
       styleId = inserted.id;
     }
     if (chartKeys.length) {
@@ -135,7 +141,7 @@ async function submissionDetail(context, selectionId) {
   const db = context.env.PRODUCT_SELECTION_DB;
   const submission = await db.prepare('SELECT * FROM product_selection_submissions WHERE selection_id = ?').bind(selectionId).first();
   if (!submission) return null;
-  const items = (await db.prepare('SELECT * FROM product_selection_items WHERE submission_id = ? ORDER BY id').bind(submission.id).all()).results;
+  const items = (await db.prepare(`SELECT item.*, COALESCE(item.supplier_name_snapshot, supplier.name, '') AS supplier_name, COALESCE(item.supplier_url_snapshot, supplier.shop_url, '') AS supplier_url FROM product_selection_items item LEFT JOIN product_styles style ON style.style_no = item.style_no_snapshot COLLATE NOCASE LEFT JOIN product_selection_suppliers supplier ON supplier.id = style.supplier_id WHERE item.submission_id = ? ORDER BY item.id`).bind(submission.id).all()).results;
   return { submission, items };
 }
 
@@ -149,7 +155,11 @@ export async function onRequest(context) {
   if (!context.env.PRODUCT_SELECTION_MEDIA) return json({ error: 'Product Selection media storage is not configured.' }, 503);
 
   if (method === 'GET' && path === 'session') return json({ authenticated: true }, 200, { 'Cache-Control': 'no-store' });
-  if (method === 'GET' && path === 'styles') return json({ styles: await listStyles(context.env.PRODUCT_SELECTION_DB) });
+  if (method === 'GET' && path === 'styles') return json({ styles: await listStyles(context.env.PRODUCT_SELECTION_DB) }, 200, { 'Cache-Control': 'no-store' });
+  if (method === 'GET' && path === 'suppliers') {
+    const suppliers = (await context.env.PRODUCT_SELECTION_DB.prepare('SELECT name, shop_url AS shopUrl FROM product_selection_suppliers ORDER BY name COLLATE NOCASE').all()).results;
+    return json({ suppliers }, 200, { 'Cache-Control': 'no-store' });
+  }
   if (method === 'POST' && path === 'styles') return saveStyle(context);
   const styleMatch = path.match(/^styles\/(\d+)(?:\/(toggle))?$/);
   if (styleMatch && method === 'POST' && styleMatch[2] === 'toggle') return toggleStyle(context, Number(styleMatch[1]));

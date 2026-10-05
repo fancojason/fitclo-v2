@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import { productThumbnail } from '../../lib/product-thumbnail';
 
 const sku = 'TZ2557-3';
@@ -59,10 +60,10 @@ const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'Breadcrum
   { '@type': 'ListItem', position: 3, name: productName, item: url },
 ] };
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) };
-const whatsappUrl = 'https://api.whatsapp.com/send?phone=8617160837538&text=' + encodeURIComponent('Hello Fitclo, I am interested in TZ2557-3, the backless halter sports bra and flare pants set. Please confirm current colors, sizes, MOQ, sample options and wholesale pricing.');
+const whatsappUrl = getWhatsAppUrl({ productCode: sku, productName });
 ---
 
-<BaseLayout
+<BaseLayout whatsappProductCode={sku} whatsappProductName={productName}
   title="Backless Halter Bra & Flare Pants Set TZ2557-3 | Wholesale Fitclo"
   description="TZ2557-3 seamless knitted halter sports bra and high-waist flare pants set. 90% polyamide/10% elastane, S–XL, ready stock, MOQ 50 sets. Request a wholesale quote."
   canonicalURL={url}

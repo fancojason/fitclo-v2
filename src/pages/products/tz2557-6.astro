@@ -1,13 +1,14 @@
 ---
 import { productThumbnail } from '../../lib/product-thumbnail';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import { fixedProductGalleryImages } from '../../data/productGalleryDefaults';
 
 const productName = "Women's Seamless Halter Tank & High-Waist Flare Leggings Set";
 const productCode = 'TZ2557-6';
 const productUrl = 'https://www.fitcloo.com/products/tz2557-6/';
 const coverImage = '/images/products/desktop-stock/tz2557-6-seamless-flare-leggings-set.webp';
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(`Hello Fitclo, I'm interested in ${productName} (${productCode}). Please send the current colors, MOQ, sample options and wholesale pricing.`)}`;
+const whatsappUrl = getWhatsAppUrl({ productCode: productCode, productName });
 const galleryImages = [
   { src: coverImage, alt: 'TZ2557-6 seamless halter tank and high-waist flare leggings set', label: 'Product cover' },
   { src: '/images/products/TZ2557-6/tz2557-6-halter-flare-leggings-feature-guide.webp', alt: 'TZ2557-6 halter tank and flare leggings feature guide', label: 'Halter and flare features' },
@@ -33,7 +34,7 @@ const sections = [
 ];
 ---
 
-<BaseLayout title="Women's Seamless Halter Tank & Flare Leggings Set TZ2557-6 | Fitclo" description="Wholesale TZ2557-6 seamless knitted halter tank and high-waist flare leggings set in 90% Polyamide / 10% Elastane for yoga, Pilates and private label activewear programs." canonicalURL={productUrl} image={`https://www.fitcloo.com${coverImage}`} structuredData={[productSchema, breadcrumbSchema, faqSchema]} autoArticleSchema={false} includeBreadcrumbSchema={false}>
+<BaseLayout whatsappProductCode={productCode} whatsappProductName={productName} title="Women's Seamless Halter Tank & Flare Leggings Set TZ2557-6 | Fitclo" description="Wholesale TZ2557-6 seamless knitted halter tank and high-waist flare leggings set in 90% Polyamide / 10% Elastane for yoga, Pilates and private label activewear programs." canonicalURL={productUrl} image={`https://www.fitcloo.com${coverImage}`} structuredData={[productSchema, breadcrumbSchema, faqSchema]} autoArticleSchema={false} includeBreadcrumbSchema={false}>
   <main class="bg-[#090a0c] text-white">
     <section class="pt-[112px]"><div class="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10 lg:pb-20">
       <nav class="flex flex-wrap gap-2 text-[12px] text-white/55" aria-label="Breadcrumb"><a href="/" class="hover:text-[#d8b456]">Home</a><span>/</span><a href="/products/" class="hover:text-[#d8b456]">Products</a><span>/</span><a href="/products/matching-sets/" class="hover:text-[#d8b456]">Matching Sets</a><span>/</span><span>{productName}</span></nav>

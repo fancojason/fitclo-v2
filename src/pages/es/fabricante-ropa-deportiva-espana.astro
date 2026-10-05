@@ -1,4 +1,5 @@
 ---
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
 import { spanishProducts, spanishProductReferences } from '../../content/es/products';
@@ -7,7 +8,7 @@ const pageUrl = 'https://www.fitcloo.com/es/fabricante-ropa-deportiva-espana/';
 const title = 'Fabricante de ropa deportiva para marcas en España | Fitclo';
 const description = 'Ropa deportiva desde China para marcas y tiendas en España. Compara stock, marca privada y OEM/ODM; consulta modelos, MOQ, muestras, etiquetado y envío.';
 const whatsappMessage = 'Hola Fitclo, quiero preparar un pedido de ropa deportiva para España. Me gustaría consultar modelos, cantidades, tallas, personalización y envío.';
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ customMessage: whatsappMessage });
 const products = ['0636', '3708', 'TZ2557-6', 'TZ4510-14'].map(sku => spanishProducts.find(product => product.sku === sku)!);
 const faqs = [
   ['¿Fitclo fabrica en España o en China?', 'Fitclo es un fabricante en Guangzhou, China, que atiende a compradores de España. Esta página permite preparar un pedido para ese destino; no presenta una fábrica ni un almacén local en España.'],

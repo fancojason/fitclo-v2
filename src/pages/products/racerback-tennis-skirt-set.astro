@@ -1,6 +1,7 @@
 ---
 import { productThumbnail } from '../../lib/product-thumbnail';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import { fixedProductGalleryImages } from '../../data/productGalleryDefaults';
 
 const productName = 'Racerback Tennis Skirt Set';
@@ -8,7 +9,7 @@ const productCode = 'TZ2134-2';
 const productUrl = 'https://www.fitcloo.com/products/racerback-tennis-skirt-set/';
 const productImage = 'https://www.fitcloo.com/images/products/racerback-tennis-skirt-set/racerback-tennis-skirt-set-main.webp';
 const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send current colors, sizes, MOQ, sample cost and wholesale pricing.`;
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ productCode: productCode, productName });
 const telegramUrl = 'https://t.me/fitcloo';
 
 const galleryImages = [
@@ -151,7 +152,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout
+<BaseLayout whatsappProductCode={productCode} whatsappProductName={productName}
   title="Racerback Tennis Skirt Set TZ2134-2 | Wholesale 2-Piece Tennis Skort Set"
   description="Wholesale Racerback Tennis Skirt Set TZ2134-2 with nude-feel 78% nylon / 22% spandex fabric. 2-piece tennis, golf, pickleball, yoga and running skort set for private label activewear brands."
   canonicalURL={productUrl}

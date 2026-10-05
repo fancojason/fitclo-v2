@@ -1,4 +1,5 @@
 ---
+import { getWhatsAppUrl } from '../lib/whatsapp';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from './InquiryForm.astro';
 import { getCatalogProductByStyleCode, type CatalogProduct } from '../data/productCatalog';
@@ -44,7 +45,7 @@ const alternateLinks = englishEquivalent && spanishEquivalent ? getAlternateLink
 const whatsappMessage = isSpanish
   ? `Hola Fitclo, estoy buscando ${page.title}. Compartan modelos adecuados, MOQ y opciones de muestra y marca privada.`
   : `Hi Fitclo, I am sourcing ${page.title}. Please share suitable styles, MOQ, sample and branding options.`;
-const whatsappUrl = `https://wa.me/8617160837538?text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ customMessage: whatsappMessage });
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',

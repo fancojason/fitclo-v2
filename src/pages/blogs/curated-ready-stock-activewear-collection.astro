@@ -1,10 +1,11 @@
 ---
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
 
 const title = 'Curated Ready-Stock Activewear Collection: Performance, Comfort and Trend-Led Design';
 const description =
   'How global activewear buyers can curate ready-stock yoga wear, sports bras, leggings and matching sets around performance, comfort, trend-led design and practical catalog selection.';
-const catalogWhatsappUrl = new URL('https://wa.me/8617160837538');
+const catalogWhatsappUrl = new URL(getWhatsAppUrl({ path: '/blogs/' }));
 catalogWhatsappUrl.searchParams.set(
   'text',
   'Hello FITCLO, please send me the latest ready-stock activewear catalog. I am interested in high-performance, comfortable and trend-led styles for: ',

@@ -1,6 +1,7 @@
 ---
 import { productThumbnail } from '../../lib/product-thumbnail';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import { fixedProductGalleryImages } from '../../data/productGalleryDefaults';
 
 const productName = 'Knee-Length Capri Leggings Workout Set';
@@ -8,7 +9,7 @@ const productCode = 'TZ7655-7';
 const productUrl = 'https://www.fitcloo.com/products/knee-length-capri-leggings-workout-set/';
 const productImage = 'https://www.fitcloo.com/images/products/desktop-stock/tz7655-7-knee-length-capri-workout-set.webp';
 const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send current colors, sizes, MOQ, sample cost and wholesale pricing.`;
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ productCode: productCode, productName });
 const telegramUrl = 'https://t.me/fitcloo';
 
 const galleryImages = [
@@ -155,7 +156,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout
+<BaseLayout whatsappProductCode={productCode} whatsappProductName={productName}
   title="Knee-Length Capri Leggings Workout Set TZ7655-7 | Seamless 3/4 Yoga Outfit"
   description="Wholesale TZ7655-7 seamless capri workout set with V-neck racerback tank top, high waist knee-length 3/4 leggings, 90% nylon / 10% spandex fabric and private label options."
   canonicalURL={productUrl}

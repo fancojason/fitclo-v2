@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CatalogBrowser from '../../components/CatalogBrowser.astro';
 import { productCategories, type ProductCategory } from '../../data/productCategories';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 
 export function getStaticPaths() {
   return productCategories.map((category) => ({
@@ -18,9 +19,7 @@ const sourcingLinks = ({
   ],
   'sports-bras': [['/guides/sport-bras/', 'Sports bra development guide']],
 }[category.slug] ?? []) as string[][];
-const whatsappMessage = encodeURIComponent(
-  `Hello Fitclo, I am interested in developing ${category.title.toLowerCase()} for my brand. Can we discuss MOQ, sampling and fabric options?`,
-);
+const whatsappUrl = getWhatsAppUrl({ path: Astro.url.pathname, category: category.slug });
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -66,7 +65,7 @@ const faqSchema = {
           {category.shortDescription}
         </p>
         <a
-          href={`https://api.whatsapp.com/send?phone=8617160837538&text=${whatsappMessage}`}
+          href={whatsappUrl}
           target="_blank"
           rel="noreferrer"
           class="mt-9 inline-flex items-center gap-3 border border-[#d8b456] bg-[#d8b456] px-6 py-3.5 text-[12px] font-bold tracking-[0.12em] text-black transition-colors hover:bg-white hover:border-white font-['Century_Gothic',sans-serif]"
@@ -165,7 +164,7 @@ const faqSchema = {
         <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456] font-['Century_Gothic',sans-serif]">START A PRODUCT BRIEF</p>
         <h2 class="mt-3 text-[30px] font-bold leading-[1.12] text-white md:text-[40px] font-['Century_Gothic',sans-serif]">Let’s develop your {category.navLabel.toLowerCase()} collection.</h2>
       </div>
-      <a href={`https://api.whatsapp.com/send?phone=8617160837538&text=${whatsappMessage}`} target="_blank" rel="noreferrer" class="inline-flex shrink-0 items-center justify-center bg-[#d8b456] px-6 py-4 text-[12px] font-bold tracking-[0.12em] text-black transition-colors hover:bg-white font-['Century_Gothic',sans-serif]">TALK TO FITCLO &#8594;</a>
+      <a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex shrink-0 items-center justify-center bg-[#d8b456] px-6 py-4 text-[12px] font-bold tracking-[0.12em] text-black transition-colors hover:bg-white font-['Century_Gothic',sans-serif]">TALK TO FITCLO &#8594;</a>
     </div>
   </section>
 </BaseLayout>

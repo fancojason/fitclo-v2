@@ -1,10 +1,11 @@
 ---
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
 
 const title = 'Activewear Sizing and Grading: How to Build a Better Size Chart Before Bulk Production';
 const description =
   'A buyer guide to activewear sizing and grading for yoga leggings, sports bras and matching sets: base size, measurement specs, fit samples and size-chart approval.';
-const whatsappUrl = new URL('https://wa.me/8617160837538');
+const whatsappUrl = new URL(getWhatsAppUrl({ path: '/blogs/' }));
 whatsappUrl.searchParams.set(
   'text',
   'Hello FITCLO, I need help reviewing an activewear size chart and grading plan for: ',

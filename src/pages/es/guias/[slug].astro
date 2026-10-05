@@ -1,4 +1,5 @@
 ---
+import { getWhatsAppUrl } from '../../../lib/whatsapp';
 import EditorialArticleLayout from '../../../layouts/EditorialArticleLayout.astro';
 import InquiryForm from '../../../components/InquiryForm.astro';
 import { spanishGuides } from '../../../content/es/guides';
@@ -8,7 +9,7 @@ export function getStaticPaths() {
 }
 const { guide } = Astro.props;
 const whatsappMessage = `Hola Fitclo, he leído la guía «${guide.title}». Quisiera consultar mi proyecto de ropa deportiva.`;
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ customMessage: whatsappMessage });
 ---
 
 <EditorialArticleLayout

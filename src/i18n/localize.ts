@@ -1,3 +1,4 @@
+import { WHATSAPP_PHONE } from '../lib/whatsapp';
 export type TranslationPair = readonly [english: string, spanish: string];
 
 const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -24,7 +25,7 @@ export const localizeMarkup = (html: string, translations: readonly TranslationP
 
 export const localizeEnglishWhatsAppLinks = (html: string, spanishMessage: string) =>
   html.replace(
-    /((?:https:\/\/api\.whatsapp\.com\/send\?phone=8617160837538&(?:amp;)?text=|https:\/\/wa\.me\/8617160837538\?text=))([^"'<\s&]+)/g,
+    new RegExp(`((?:https:\\/\\/api\\.whatsapp\\.com\\/send\\?phone=${WHATSAPP_PHONE}&(?:amp;)?text=|https:\\/\\/wa\\.me\\/${WHATSAPP_PHONE}\\?text=))([^"'<\\s&]+)`, 'g'),
     (match, prefix: string, encodedMessage: string) => {
       try {
         return /^(?:hello|hi)\b/i.test(decodeURIComponent(encodedMessage))

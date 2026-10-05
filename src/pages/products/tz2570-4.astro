@@ -1,12 +1,13 @@
 ---
 import { productThumbnail } from '../../lib/product-thumbnail';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import { fixedProductGalleryImages } from '../../data/productGalleryDefaults';
 const productName = 'Color Block Workout Set: Double-Strap Crop Tank & Fold-Over Flare Pants';
 const productCode = 'TZ2570-4';
 const productUrl = 'https://www.fitcloo.com/products/tz2570-4/';
 const coverImage = "/images/products/TZ2570-4/contrast-trim-tank-flare-pants-set-tz2570-4.webp";
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(`Hello Fitclo, I am interested in ${productCode}, the color-block crop tank and fold-over flare pants set. Please confirm colors, sizes, MOQ, sample options and wholesale pricing.`)}`;
+const whatsappUrl = getWhatsAppUrl({ productCode: productCode, productName });
 const galleryImages = [...[{"src": "/images/products/TZ2570-4/contrast-trim-tank-flare-pants-set-tz2570-4.webp", "alt": "TZ2570-4 color-block double-strap tank and fold-over flare pants set", "label": "Product cover"}, {"src": "/images/products/TZ2570-4/tz2570-4-feature-guide.webp", "alt": "Double-strap crop tank and fold-over waistband design guide", "label": "Design features"}, {"src": "/images/products/TZ2570-4/tz2570-4-matching-series.webp", "alt": "Matching series reference; additional separates are not included", "label": "Matching series reference"}], ...fixedProductGalleryImages];
 const detailImages = [["/images/products/TZ2570-4/tz2570-4-black-front.webp", "Black color-block tank and flare pants set, front view"], ["/images/products/TZ2570-4/tz2570-4-black-coffee-front.webp", "Black Coffee crop tank and fold-over flare pants, front view"], ["/images/products/TZ2570-4/tz2570-4-blue-ribbon-back.webp", "Blue Ribbon double-strap crop tank and flare pants, back view"], ["/images/products/TZ2570-4/tz2570-4-construction-details.webp", "TZ2570-4 neckline, fold-over waist, lining and flared hem details"], ["/images/products/TZ2570-4/tz2570-4-color-chart.webp", "TZ2570-4 Black, Pencil Gray, Blue Ribbon and Black Coffee color chart"], ["/images/products/TZ2570-4/tz2570-4-nylon-spandex-fabric.webp", "Nylon-spandex bare-skin fabric with soft four-way stretch"]];
 const quickFacts = [["Set includes", "Double-strap crop tank top + fold-over waist flare pants"], ["Colors", "Black / Pencil Gray / Blue Ribbon / Black Coffee"], ["Fabric", "78% Nylon / 22% Spandex, bare-skin fabric"], ["Sizes", "S / M / L / XL"], ["Stock & MOQ", "Ready stock; 50 sets"], ["Branding", "Discuss logo, labels, hang tags and packaging"]];
@@ -20,7 +21,7 @@ const sections = [['SAMPLING & ORDER PROCESS','From your shortlist to a confirme
 ---
 
 
-<BaseLayout title="Color Block Flare Yoga Set TZ2570-4 | Wholesale FITCLO" description="TZ2570-4 color-block workout set: double-strap crop tank and fold-over flare pants. 78% nylon/22% spandex, S–XL, ready stock, MOQ 50 sets. Request a quote." canonicalURL={productUrl} image={`https://www.fitcloo.com${coverImage}`} structuredData={[productSchema, breadcrumbSchema, faqSchema]} autoArticleSchema={false} includeBreadcrumbSchema={false}>
+<BaseLayout whatsappProductCode={productCode} whatsappProductName={productName} title="Color Block Flare Yoga Set TZ2570-4 | Wholesale FITCLO" description="TZ2570-4 color-block workout set: double-strap crop tank and fold-over flare pants. 78% nylon/22% spandex, S–XL, ready stock, MOQ 50 sets. Request a quote." canonicalURL={productUrl} image={`https://www.fitcloo.com${coverImage}`} structuredData={[productSchema, breadcrumbSchema, faqSchema]} autoArticleSchema={false} includeBreadcrumbSchema={false}>
   <main class="bg-[#090a0c] text-white">
     <section class="pt-[112px]"><div class="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10 lg:pb-20">
       <nav class="flex flex-wrap gap-2 text-[12px] text-white/55" aria-label="Breadcrumb"><a href="/" class="hover:text-[#d8b456]">Home</a><span>/</span><a href="/products/" class="hover:text-[#d8b456]">Products</a><span>/</span><a href="/products/matching-sets/" class="hover:text-[#d8b456]">Matching Sets</a><span>/</span><span>{productName}</span></nav>

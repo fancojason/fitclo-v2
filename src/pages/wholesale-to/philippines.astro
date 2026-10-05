@@ -1,4 +1,5 @@
 ---
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
 import { getCatalogProductByStyleCode } from '../../data/productCatalog';
@@ -7,7 +8,7 @@ const pageUrl = 'https://www.fitcloo.com/wholesale-to/philippines/';
 const title = 'Wholesale Activewear for the Philippines | FITCLO';
 const description = 'Source activewear from China for your Philippine brand: ready-stock yoga sets, leggings and gym wear, MOQ from 50 sets or pcs, private label and OEM options.';
 const whatsappMessage = 'Hello Fitclo, I am sourcing activewear for the Philippines. Please help me compare ready stock, private label and OEM options. My preferred styles are [SKUs], quantity is [sets/pieces], and delivery city/postcode is [destination].';
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ customMessage: whatsappMessage });
 const products = [
   ['TZ2570-4', '/products/tz2570-4/', 'Color-block studio collection', 'Double-strap crop tank and fold-over flare pants. Confirmed 78% nylon / 22% spandex; S, M, L and XL.'],
   ['3708', '/products/3708/', 'Tank and shorts assortment', 'Square-neck tank with layered running shorts. Review a sample for length, coverage and the intended activity.'],

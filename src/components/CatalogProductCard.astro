@@ -1,5 +1,6 @@
 ---
 import type { CatalogProduct } from '../data/productCatalog';
+import { getWhatsAppUrl } from '../lib/whatsapp';
 
 interface Props {
   product: CatalogProduct;
@@ -28,14 +29,14 @@ const productDetailLinks: Record<string, string> = {
   'cross-back-sports-bra-leggings-set-0636': '/products/0636/',
 };
 const productDetailHref = productDetailLinks[product.id];
-const whatsappMessage = encodeURIComponent(
-  `Hello Fitclo, I am interested in ${product.name} (${product.styleCode}). Can you share stock availability, MOQ and wholesale pricing?`
-);
-const whatsappHref = `https://api.whatsapp.com/send?phone=8617160837538&text=${whatsappMessage}`;
+const whatsappHref = getWhatsAppUrl({ productCode: product.styleCode, productName: product.name, category: product.category });
 ---
 
 <article
   class="catalog-product group flex h-full flex-col overflow-hidden rounded-[12px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+  data-wa-product-code={product.styleCode}
+  data-wa-product-name={product.name}
+  data-wa-category={product.category}
   data-catalog-product={searchable ? '' : undefined}
   data-catalog-category={searchable ? product.category : undefined}
   data-catalog-subcategory={searchable ? product.subcategory : undefined}

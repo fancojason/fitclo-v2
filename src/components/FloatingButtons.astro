@@ -1,10 +1,11 @@
 ---
 import { getUi } from '../i18n/ui';
 import type { SiteLanguage } from '../i18n/routes';
+import { getWhatsAppUrl } from '../lib/whatsapp';
 
 const language: SiteLanguage = Astro.props.lang === 'es' ? 'es' : 'en';
 const ui = getUi(language);
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(Astro.props.message ?? ui.whatsappMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ path: Astro.props.path, language, productCode: Astro.props.productCode, productName: Astro.props.productName, customMessage: Astro.props.message });
 ---
 
 <!-- Floating Controls (WhatsApp Left, Quote Right) -->
@@ -29,10 +30,6 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${en
     waTrigger.addEventListener('click', () => {
       const waUrl = waTrigger.dataset.waUrl;
       if (!waUrl) return;
-      const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, string>>; gtag?: (...args: unknown[]) => void };
-      const parameters = { language: waTrigger.dataset.language || 'en', page_path: window.location.pathname };
-      if (analyticsWindow.gtag) analyticsWindow.gtag('event', 'whatsapp_click', parameters);
-      else analyticsWindow.dataLayer?.push({ event: 'whatsapp_click', ...parameters });
       window.open(waUrl, '_blank');
     });
   }
@@ -189,14 +186,3 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${en
     }
   }
 </style>
-
-<script>
-  document.querySelectorAll<HTMLAnchorElement>('[data-wa-quote]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, string>>; gtag?: (...args: unknown[]) => void };
-      const parameters = { language: link.dataset.language || 'en', page_path: window.location.pathname };
-      if (analyticsWindow.gtag) analyticsWindow.gtag('event', 'whatsapp_click', parameters);
-      else analyticsWindow.dataLayer?.push({ event: 'whatsapp_click', ...parameters });
-    });
-  });
-</script>

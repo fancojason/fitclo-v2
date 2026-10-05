@@ -16,7 +16,7 @@ const english = {
     support: 'Global Support: 24/7 Available',
   },
   floating: { aria: 'Contact on WhatsApp', tooltip: 'Contact Us', quote: 'Get a Free Quote' },
-  whatsappMessage: 'Hello Fitclo, I just viewed your premium activewear collection and would like to discuss a custom project. Can we chat?',
+  whatsappMessage: "Hello Fitclo, I'm interested in your ready-stock/private label activewear. Could you send me your latest styles, MOQ and pricing?",
 } as const;
 
 const spanish = {
@@ -35,7 +35,7 @@ const spanish = {
     support: 'Atención internacional disponible 24/7',
   },
   floating: { aria: 'Contactar por WhatsApp', tooltip: 'Contáctanos', quote: 'Solicitar cotización' },
-  whatsappMessage: 'Hola Fitclo, acabo de ver su colección de ropa deportiva premium y quisiera conversar sobre un proyecto personalizado. ¿Podemos hablar?',
+  whatsappMessage: 'Hola Fitclo, me interesa su ropa deportiva en stock y de marca privada. ¿Pueden enviarme sus últimos modelos, MOQ y precios?',
 } as const;
 
 export const getUi = (language: SiteLanguage) => language === 'es' ? spanish : english;

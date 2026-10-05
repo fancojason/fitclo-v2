@@ -1,4 +1,5 @@
 ---
+import { getWhatsAppUrl } from '../lib/whatsapp';
 import { productThumbnail } from '../lib/product-thumbnail';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from './InquiryForm.astro';
@@ -9,7 +10,7 @@ const { product } = Astro.props;
 const reference = spanishProductReferences[product.sku];
 const pageUrl = `https://www.fitcloo.com/es/products/${product.slug}/`;
 const whatsappMessage = `Hola Fitclo, me interesa ${product.name} (SKU ${product.sku}). Quisiera consultar colores y tallas actuales, MOQ, opciones de muestra y personalización de marca.`;
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ customMessage: whatsappMessage });
 const gallery = [
   ...reference.images.slice(0, 3),
   { src: '/images/products/shared/private-label-customization-options.webp', alt: 'Opciones de logo, etiquetas, etiquetas colgantes y embalaje de marca privada', label: 'Opciones de marca privada' },

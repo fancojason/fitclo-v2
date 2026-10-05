@@ -1,10 +1,11 @@
 ---
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
 
 const title = 'White Label vs Private Label Activewear: Which Model Fits Your Brand?';
 const description =
   'Compare white label and private label activewear for launch speed, branding, product control, MOQ, sampling and long-term collection planning.';
-const whatsappUrl = new URL('https://wa.me/8617160837538');
+const whatsappUrl = new URL(getWhatsAppUrl({ path: '/blogs/' }));
 whatsappUrl.searchParams.set(
   'text',
   'Hello FITCLO, please help me compare white label, private label and custom activewear for my brand. My product categories and estimated quantity are: ',

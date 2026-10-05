@@ -3,12 +3,13 @@ import { productCategories } from '../data/productCategories';
 import { getUi } from '../i18n/ui';
 import type { SiteLanguage } from '../i18n/routes';
 import { spanishCategoryPages } from '../content/es/categories';
+import { getWhatsAppUrl } from '../lib/whatsapp';
 
 const year = new Date().getFullYear();
 const language: SiteLanguage = Astro.props.lang === 'es' ? 'es' : 'en';
 const isSpanish = language === 'es';
 const ui = getUi(language);
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(ui.whatsappMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ path: Astro.url.pathname, customMessage: isSpanish ? ui.whatsappMessage : undefined });
 const categoryNames: Record<string, string> = {
   'matching-sets': 'Conjuntos deportivos', 'sports-bras': 'Sujetadores deportivos',
   leggings: 'Leggings', 'gym-shorts': 'Shorts deportivos',

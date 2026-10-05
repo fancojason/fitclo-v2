@@ -1,4 +1,5 @@
 ---
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { productCategories } from '../../data/productCategories';
 
@@ -7,7 +8,7 @@ const englishUrl = 'https://www.fitcloo.com/premium-womens-activewear-manufactur
 const whatsAppMessage = encodeURIComponent(
   'Hello Fitclo, I am sourcing private label activewear for Russia. Please send MOQ, ready stock styles, samples and wholesale pricing.',
 );
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${whatsAppMessage}`;
+const whatsappUrl = getWhatsAppUrl({ customMessage: decodeURIComponent(whatsAppMessage) });
 const telegramUrl = 'https://t.me/fitcloo';
 
 const categorySlugs = ['matching-sets', 'leggings', 'sports-bras', 'tank-tops', 'training-pants', 'jackets'];

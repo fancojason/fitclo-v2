@@ -1,3 +1,4 @@
+import { getWhatsAppUrl } from '../lib/whatsapp';
 export const intelligenceCategories = [
   {
     slug: 'buyer-guide',
@@ -818,4 +819,4 @@ export const comparisonTopics = [
 ];
 
 export const whatsappIntelligenceUrl =
-  'https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%20need%20help%20choosing%20the%20right%20fabric%2C%20MOQ%20and%20manufacturing%20solution%20for%20my%20activewear%20brand.%20Can%20we%20chat%3F';
+  getWhatsAppUrl({ path: '/activewear-intelligence/' });

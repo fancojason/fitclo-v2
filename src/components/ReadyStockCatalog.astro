@@ -1,6 +1,7 @@
 ---
 import { productCategories } from '../data/productCategories';
 import { readyStockCatalog } from '../data/readyStockCatalog';
+import { getWhatsAppUrl } from '../lib/whatsapp';
 
 const isSpanish = Astro.url.pathname.startsWith('/es/');
 const spanishCategoryLabels: Record<string, string> = {
@@ -14,7 +15,6 @@ const categories = Array.from(new Set(readyStockCatalog.map((product) => product
   label: categoryLabels.get(category) ?? category.replace(/-/g, ' '),
 }));
 
-const whatsappBase = 'https://api.whatsapp.com/send?phone=8617160837538&text=';
 const catalogDownload = '/downloads/ready-stock-activewear-line-sheet.pdf';
 const copy = isSpanish ? {
   eyebrow: 'LISTA ACTUAL DE STOCK DISPONIBLE', title: 'Explora modelos antes de solicitar la combinación actual de colores y tallas.',
@@ -88,11 +88,12 @@ const copy = isSpanish ? {
         const categoryLabel = categoryLabels.get(product.category) ?? product.category.replace(/-/g, ' ');
         const displayName = isSpanish ? `${categoryLabel} · ${product.styleCode}` : product.name;
         const displayDescription = isSpanish ? `Modelo de ${categoryLabel.toLowerCase()} del programa de stock disponible. Consulta colores, tallas, muestras y opciones de personalización.` : product.description;
-        const message = encodeURIComponent(isSpanish
+        const message = isSpanish
           ? `Hola Fitclo, me interesa el modelo ${product.styleCode} del programa de stock disponible. Confirmen colores, tallas, muestras y opciones de logo.`
-          : `Hello Fitclo, I am interested in the ready-stock programme for ${product.name} (${product.styleCode}). Please confirm available colours, size mix, sample options and logo requirements.`);
+          : undefined;
+        const whatsappUrl = getWhatsAppUrl({ productCode: product.styleCode, productName: product.name, category: product.category, customMessage: message });
         return (
-          <article class="ready-stock-card min-w-0 flex h-full flex-col border border-white/15 bg-[#121212]" data-ready-card data-category={product.category} data-moq={product.moq.includes('sets') ? 'sets' : 'pcs'} data-search={`${product.name} ${product.description} ${product.keywords.join(' ')} ${displayName} ${displayDescription} ${categoryLabel} ${product.styleCode}`.toLowerCase()}>
+          <article class="ready-stock-card min-w-0 flex h-full flex-col border border-white/15 bg-[#121212]" data-ready-card data-wa-product-code={product.styleCode} data-wa-product-name={product.name} data-wa-category={product.category} data-category={product.category} data-moq={product.moq.includes('sets') ? 'sets' : 'pcs'} data-search={`${product.name} ${product.description} ${product.keywords.join(' ')} ${displayName} ${displayDescription} ${categoryLabel} ${product.styleCode}`.toLowerCase()}>
             <div class="aspect-square overflow-hidden bg-[#efefef]">
               <img src={product.image} alt={displayName} class="h-full w-full object-contain transition-transform duration-500 hover:scale-[1.025]" loading="lazy" />
             </div>
@@ -106,7 +107,7 @@ const copy = isSpanish ? {
                 <div class="col-span-2"><p class="font-bold tracking-[0.1em] text-[#d8b456]">{copy.branding}</p><p class="mt-1 text-white/80">{copy.brandingValue}</p></div>
               </div>
               <p class="mt-4 text-[11px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">{isSpanish ? copy.availabilityNote : product.availabilityNote}.</p>
-              <a href={`${whatsappBase}${message}`} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex min-h-[42px] items-center justify-center rounded-full border border-[#d8b456] px-4 text-center text-[12px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">{copy.check}</a>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex min-h-[42px] items-center justify-center rounded-full border border-[#d8b456] px-4 text-center text-[12px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">{copy.check}</a>
             </div>
           </article>
         );

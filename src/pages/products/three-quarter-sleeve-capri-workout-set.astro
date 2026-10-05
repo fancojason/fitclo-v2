@@ -1,6 +1,7 @@
 ---
 import { productThumbnail } from '../../lib/product-thumbnail';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import { fixedProductGalleryImages } from '../../data/productGalleryDefaults';
 
 const productName = '3/4 Sleeve Capri Workout Set';
@@ -8,7 +9,7 @@ const productCode = 'TZ8455-12';
 const productUrl = 'https://www.fitcloo.com/products/three-quarter-sleeve-capri-workout-set/';
 const productImage = 'https://www.fitcloo.com/images/products/new-arrivals/tz8455-12-three-quarter-sleeve-capri-set.webp';
 const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send current colors, sizes, MOQ, sample cost and wholesale pricing.`;
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ productCode: productCode, productName });
 const telegramUrl = 'https://t.me/fitcloo';
 
 const galleryImages = [
@@ -150,7 +151,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout
+<BaseLayout whatsappProductCode={productCode} whatsappProductName={productName}
   title="3/4 Sleeve Capri Workout Set TZ8455-12 | Wholesale Two-Piece Yoga Set"
   description="Wholesale 3/4 Sleeve Capri Workout Set TZ8455-12 with brushed 78% nylon / 22% spandex fabric. Women crop top, high waist butt lift capri leggings and private label activewear options."
   canonicalURL={productUrl}

@@ -1,13 +1,14 @@
 ---
 import { productThumbnail } from '../../lib/product-thumbnail';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 
 const productName = 'Capri Workout Set';
 const productCode = 'TZ4549-6';
 const productUrl = 'https://www.fitcloo.com/products/capri-workout-set/';
 const productImage = 'https://www.fitcloo.com/images/products/capri-workout-set/capri-workout-set-main.webp';
 const whatsAppMessage = `Hello Fitclo, I'm interested in the ${productName} (${productCode}). Please send the current colors, sizes, MOQ, sample cost and wholesale pricing.`;
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${encodeURIComponent(whatsAppMessage)}`;
+const whatsappUrl = getWhatsAppUrl({ productCode: productCode, productName });
 const telegramUrl = 'https://t.me/fitcloo';
 
 const galleryImages = [
@@ -160,7 +161,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout
+<BaseLayout whatsappProductCode={productCode} whatsappProductName={productName}
   title="Capri Workout Set TZ4549-6 | Wholesale & Private Label"
   description="Wholesale brushed nylon-spandex Capri Workout Set TZ4549-6 with layered top and mid-calf leggings. Samples, custom logos, labels and OEM options available."
   canonicalURL={productUrl}

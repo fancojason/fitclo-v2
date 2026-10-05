@@ -1,4 +1,5 @@
 ---
+import { getWhatsAppUrl } from '../../lib/whatsapp';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { marketLandingPages, type MarketLandingPage } from '../../data/marketLandingPages';
 import { getCatalogProductByStyleCode, type CatalogProduct } from '../../data/productCatalog';
@@ -17,7 +18,7 @@ const pageDescription = market.metaDescription ?? `Source ready-stock, private-l
 const whatsappMessage = encodeURIComponent(
   market.inquiryMessage ?? `Hello Fitclo, I am sourcing activewear for ${market.name}. Please share suitable ready-stock styles, MOQ, sample and private-label options.`,
 );
-const whatsappUrl = `https://api.whatsapp.com/send?phone=8617160837538&text=${whatsappMessage}`;
+const whatsappUrl = getWhatsAppUrl({ customMessage: decodeURIComponent(whatsappMessage) });
 const hasMarketEnhancements = Boolean(market.localPlanningCards?.length);
 
 const productSelections = [

@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
+
+const sku = 'TZ2557-8';
+const name = 'Halter V-Neck Tank & High-Waist Leggings Set';
+const url = 'https://www.fitcloo.com/products/tz2557-8/';
+const root = '/images/products/TZ2557-8/';
+const images = [
+  { src: root + 'halter-neck-tank-leggings-set.webp', alt: 'TZ2557-8 Graish Blue halter tank and leggings front with Black back view', label: 'Product cover' },
+  { src: root + 'tz2557-8-feature-guide.webp', alt: 'Delicate Red TZ2557-8 halter V-neck tank, high-waist leggings and design details', label: 'Design details' },
+  { src: root + 'tz2557-8-black-front.webp', alt: 'Black TZ2557-8 halter tank and high-waist leggings, front view', label: 'Black' },
+  { src: root + 'tz2557-8-date-brown-front.webp', alt: 'Date Brown TZ2557-8 halter tank and leggings, front view', label: 'Date Brown' },
+  { src: root + 'tz2557-8-pink-drink-front.webp', alt: 'Pink Drink TZ2557-8 halter tank and leggings, front view', label: 'Pink Drink' },
+  { src: root + 'tz2557-8-graish-blue-front.webp', alt: 'Graish Blue TZ2557-8 halter tank and leggings, front view', label: 'Graish Blue' },
+  { src: root + 'tz2557-8-delicate-red-front.webp', alt: 'Delicate Red TZ2557-8 halter tank and leggings, front view', label: 'Delicate Red' },
+];
+const colors = ['Black', 'Date Brown', 'Pink Drink', 'Graish Blue', 'Delicate Red'];
+const specs = [
+  ['Style number', sku, 'Set', 'Two-piece halter tank and leggings'],
+  ['Material', '90% Nylon / 10% Spandex', 'Feature', 'Breathable, Quick Dry, Lightweight'],
+  ['Sizes', 'S / M / L / XL', 'MOQ', '50 sets'],
+  ['Tank', 'Sleeveless halter neckline, overlapping V-neck front, open-back styling', 'Leggings', 'Full-length fitted leg, high elastic waistband, center-back shaping seam'],
+  ['Colors shown', colors.join(', '), 'Stock', 'Ready-stock style; confirm current color and size mix'],
+];
+const faqs = [
+  ['What is included in the TZ2557-8 two-piece set?', 'One longline halter V-neck tank and one pair of fitted high-waist, full-length leggings.'],
+  ['Is the top a cropped sports bra?', 'No. The pictured top is a longline halter tank reaching toward the waist, with an overlapping V-neck front. It should not be confused with the separate TZ2557-3 halter bra and flare-pants set.'],
+  ['Are the leggings flared?', 'No. TZ2557-8 has fitted full-length leggings. The pants do not flare at the hem.'],
+  ['Which sizes, colors and material are listed?', 'The source listing offers S, M, L and XL and shows Black, Date Brown, Pink Drink, Graish Blue and Delicate Red. Its stated material is 90% Nylon / 10% Spandex. Confirm current stock by color and size before ordering.'],
+  ['What are the listed features and minimum order?', 'The source lists Breathable, Quick Dry and Lightweight. The ready-stock MOQ is 50 sets; request a quote for your preferred size and color breakdown.'],
+  ['Can this be used for a private-label yoga or gym collection?', 'Ask Fitclo about logo, care-label, main-label, hang-tag and packaging options for your specific order. Share your quantities and artwork so feasibility and any separate customization cost can be confirmed.'],
+];
+const productSchema = {
+  '@context': 'https://schema.org', '@type': 'Product', '@id': url + '#product',
+  name, sku, mpn: sku, url,
+  description: 'TZ2557-8 two-piece halter V-neck tank and high-waist fitted leggings set. 90% Nylon / 10% Spandex, sizes S/M/L/XL, five pictured colors, ready-stock MOQ 50 sets.',
+  image: images.slice(0, 3).map(({ src }) => 'https://www.fitcloo.com' + src),
+  brand: { '@type': 'Brand', name: 'Fitclo' }, category: 'Matching Sets / Yoga Sets',
+  material: '90% Nylon / 10% Spandex', size: ['S', 'M', 'L', 'XL'], color: colors,
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'Feature', value: 'Breathable, Quick Dry, Lightweight' },
+    { '@type': 'PropertyValue', name: 'MOQ', value: '50 sets' },
+  ],
+};
+const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
+  { '@type': 'ListItem', position: 2, name: 'Matching Sets', item: 'https://www.fitcloo.com/products/matching-sets/' },
+  { '@type': 'ListItem', position: 3, name, item: url },
+] };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) };
+const whatsappUrl = getWhatsAppUrl({ productCode: sku, productName: name, category: 'matching-sets' });
+---
+
+<BaseLayout
+  title="Halter Tank & High-Waist Leggings Set TZ2557-8 | Wholesale Fitclo"
+  description="Explore TZ2557-8: a halter V-neck tank and fitted high-waist leggings set in 90% nylon/10% spandex. S–XL, five colors, MOQ 50 sets. Request a wholesale quote."
+  canonicalURL={url}
+  image={'https://www.fitcloo.com' + images[0].src}
+  structuredData={[productSchema, breadcrumbSchema, faqSchema]}
+  autoArticleSchema={false}
+  includeBreadcrumbSchema={false}
+>
+  <main class="bg-[#090a0c] text-white">
+    <section class="pt-[112px]">
+      <div class="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10">
+        <nav class="flex flex-wrap gap-2 text-[12px] text-white/55" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/products/matching-sets/">Matching Sets</a><span>/</span><span>{sku}</span></nav>
+        <div class="mt-8 grid gap-10 border-t border-white/15 pt-9 lg:grid-cols-[minmax(0,.92fr)_minmax(0,1.08fr)] lg:gap-16">
+          <div class="min-w-0" data-product-gallery>
+            <div class="aspect-square overflow-hidden border border-white/15 bg-[#111218]"><img src={images[0].src} alt={images[0].alt} width="800" height="800" fetchpriority="high" class="h-full w-full object-contain" data-gallery-main /></div>
+            <div class="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-7">{images.map((image, index) => <button type="button" class:list={['aspect-square overflow-hidden border bg-[#111218] hover:border-[#d8b456]', index === 0 ? 'border-[#d8b456]' : 'border-white/20']} data-gallery-thumb data-src={image.src} data-alt={image.alt} data-label={image.label} aria-label={`Show ${image.label}`}><img src={image.src} alt="" class="h-full w-full object-contain" loading="lazy" /></button>)}</div>
+            <p class="mt-3 text-[12px] text-white/55" data-gallery-label>{images[0].label}</p>
+          </div>
+          <div>
+            <p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456]">READY STOCK · WHOLESALE YOGA SET</p>
+            <h1 class="mt-5 text-[38px] font-bold leading-[1.08] sm:text-[50px]">{name}</h1>
+            <p class="mt-3 text-[15px] font-semibold text-[#d8b456]">Style {sku}</p>
+            <p class="mt-6 text-[16px] leading-[1.75] text-white/75">A matching women's workout set with a longline, overlapping V-neck halter tank and fitted full-length leggings. The open-back halter detail, elastic high waistband and center-back shaping seam give this two-piece outfit its distinctive profile for yoga, Pilates, gym and athleisure assortments.</p>
+            <dl class="mt-8 grid gap-x-8 gap-y-5 border-y border-white/15 py-6 sm:grid-cols-2">
+              {[
+                ['Set includes', 'Halter tank + fitted leggings'], ['Material', '90% Nylon / 10% Spandex'],
+                ['Sizes', 'S / M / L / XL'], ['Colors', colors.join(' / ')],
+                ['Features', 'Breathable, Quick Dry, Lightweight'], ['Stock & MOQ', 'Ready stock; 50 sets'],
+              ].map(([label, value]) => <div><dt class="text-[11px] font-bold tracking-[.12em] text-[#d8b456]">{label}</dt><dd class="mt-2 text-[14px] leading-[1.55] text-white/85">{value}</dd></div>)}
+            </dl>
+            <div class="mt-8 flex flex-wrap gap-3"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center rounded-full bg-[#d8b456] px-6 text-[13px] font-bold text-[#101010]">Request Wholesale Quote</a><a href="#product-inquiry" class="inline-flex min-h-12 items-center rounded-full border border-white/35 px-6 text-[13px] font-bold">Send Product Inquiry</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 py-16 lg:py-20"><div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[.85fr_1.15fr] lg:px-10">
+      <div><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">BUYER SUMMARY</p><h2 class="mt-4 text-[30px] font-bold leading-[1.15] sm:text-[38px]">A halter tank and leggings set, not a bra-and-flare set.</h2></div>
+      <div class="border-l-2 border-[#d8b456] pl-6 text-[16px] leading-[1.8] text-white/75"><p>TZ2557-8 is a two-piece activewear style with an extended halter tank and close-fitting leggings. The overlapping V-neck and longline body distinguish its top from a short sports bra; the fitted ankle-length leg distinguishes its bottoms from flare pants.</p><p class="mt-4">For a private-label range, send your planned color and S–XL quantity mix. Review a physical sample for fit, opacity, coverage and support before deciding which training activities suit your customers; no impact-support rating is specified.</p></div>
+    </div></section>
+
+    <section class="py-16 lg:py-20"><div class="mx-auto max-w-[1240px] px-6 lg:px-10"><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">PRODUCT SPECIFICATIONS</p><h2 class="mt-4 text-[30px] font-bold sm:text-[38px]">TZ2557-8 specifications</h2>
+      <div class="mt-8 overflow-x-auto border border-white/20"><table class="min-w-[760px] w-full border-collapse text-left"><tbody>{specs.map(([a,b,c,d]) => <tr class="border-b border-white/15 last:border-0"><th class="w-[17%] bg-[#15171c] px-4 py-4 text-[12px] font-bold text-[#d8b456]">{a}</th><td class="w-[33%] px-4 py-4 text-[14px] leading-[1.6] text-white/75">{b}</td><th class="w-[17%] bg-[#15171c] px-4 py-4 text-[12px] font-bold text-[#d8b456]">{c}</th><td class="w-[33%] px-4 py-4 text-[14px] leading-[1.6] text-white/75">{d}</td></tr>)}</tbody></table></div>
+      <h3 class="mt-12 text-[24px] font-bold">Compare all five pictured colors</h3><p class="mt-3 max-w-[740px] text-[14px] leading-[1.7] text-white/60">The images below are product-specific color views. Actual stock and size allocation can change; please confirm before ordering.</p>
+      <div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{images.slice(2).map((image) => <figure class="border border-white/15 bg-[#111218] p-2"><img src={image.src} alt={image.alt} class="h-auto w-full object-contain" loading="lazy" /><figcaption class="px-2 py-3 text-[12px] text-white/60">{image.label}</figcaption></figure>)}</div>
+    </div></section>
+
+    <section class="border-y border-white/10 bg-[#111218] py-16 lg:py-20"><div class="mx-auto max-w-[1240px] px-6 lg:px-10"><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">DESIGN DETAILS</p><h2 class="mt-4 text-[30px] font-bold sm:text-[38px]">Details buyers can check in the images</h2><div class="mt-9 grid gap-5 md:grid-cols-3">
+      {[
+        ['01', 'Halter V-neck tank', 'The overlapping V-neck front leads into a longline tank body. The back view shows open-back halter styling.'],
+        ['02', 'Fitted high-waist leggings', 'A broad elastic waistband and full-length fitted legs create a close-to-body silhouette, with no flared hem.'],
+        ['03', 'Center-back contour seam', 'The supplied product guide shows the rear shaping seam. Assess its fit and appearance on a sample for your target size range.'],
+      ].map(([n, title, copy]) => <article class="border-t-2 border-[#d8b456] pt-5"><span class="text-[12px] font-bold text-[#d8b456]">{n}</span><h3 class="mt-4 text-[19px] font-bold">{title}</h3><p class="mt-3 text-[14px] leading-[1.7] text-white/65">{copy}</p></article>)}
+    </div></div></section>
+
+    <section class="py-16 lg:py-20"><div class="mx-auto max-w-[900px] px-6 lg:px-10"><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">BUYER FAQ</p><h2 class="mt-4 text-[30px] font-bold sm:text-[38px]">Questions about TZ2557-8</h2><div class="mt-8 divide-y divide-white/15 border-y border-white/15">{faqs.map(([question, answer]) => <div class="py-6"><h3 class="text-[17px] font-bold">{question}</h3><p class="mt-3 text-[14px] leading-[1.75] text-white/65">{answer}</p></div>)}</div></div></section>
+
+    <section id="product-inquiry" class="border-t border-white/10 bg-[#111218] py-16 lg:py-20"><div class="mx-auto grid max-w-[1240px] gap-10 px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-10"><div><p class="text-[11px] font-bold tracking-[.19em] text-[#d8b456]">REQUEST A QUOTE</p><h2 class="mt-4 text-[32px] font-bold leading-[1.16] sm:text-[42px]">Confirm colors, sizes and wholesale pricing.</h2><p class="mt-5 text-[15px] leading-[1.75] text-white/65">Tell us your destination and quantity. Your inquiry will include style {sku}.</p><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex min-h-12 items-center border border-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#d8b456]">Ask on WhatsApp</a></div>
+      <form class="grid gap-5 border border-white/15 bg-[#0d0f13] p-6 sm:grid-cols-2 sm:p-8" data-product-inquiry-form>
+        <input type="hidden" name="product_name" value={name} /><input type="hidden" name="product_code" value={sku} /><input type="hidden" name="product_type" value={`${name} (${sku})`} /><input type="hidden" name="page_url" value={url} data-page-url />
+        <label class="text-[12px] font-bold">NAME *<input name="name" required class="mt-2 w-full border border-white/20 bg-[#090a0c] px-4 py-3 text-white" /></label>
+        <label class="text-[12px] font-bold">COMPANY<input name="company" class="mt-2 w-full border border-white/20 bg-[#090a0c] px-4 py-3 text-white" /></label>
+        <label class="text-[12px] font-bold">BUSINESS EMAIL<input name="email" type="email" class="mt-2 w-full border border-white/20 bg-[#090a0c] px-4 py-3 text-white" /></label>
+        <label class="text-[12px] font-bold">WHATSAPP / PHONE<input name="phone" type="tel" class="mt-2 w-full border border-white/20 bg-[#090a0c] px-4 py-3 text-white" /></label>
+        <label class="text-[12px] font-bold">COUNTRY / REGION<input name="country" class="mt-2 w-full border border-white/20 bg-[#090a0c] px-4 py-3 text-white" /></label>
+        <label class="text-[12px] font-bold">ESTIMATED QUANTITY<input name="quantity" placeholder="For example: 50 sets" class="mt-2 w-full border border-white/20 bg-[#090a0c] px-4 py-3 text-white" /></label>
+        <label class="text-[12px] font-bold sm:col-span-2">COLORS & SIZES<input name="colors_sizes" placeholder="Preferred colors and size mix" class="mt-2 w-full border border-white/20 bg-[#090a0c] px-4 py-3 text-white" /></label>
+        <label class="text-[12px] font-bold sm:col-span-2">MESSAGE<textarea name="message" rows="4" class="mt-2 w-full border border-white/20 bg-[#090a0c] px-4 py-3 text-white"></textarea></label>
+        <button type="submit" class="min-h-12 bg-[#d8b456] px-5 py-3 text-[13px] font-bold text-[#101010] sm:col-span-2">Send Product Inquiry</button>
+        <p class="hidden text-[13px] sm:col-span-2" data-product-form-status aria-live="polite"></p>
+      </form>
+    </div></section>
+  </main>
+</BaseLayout>
+
+<script>
+  import { submitInquiry } from '../../lib/inquiry-client';
+  const gallery = document.querySelector<HTMLElement>('[data-product-gallery]');
+  if (gallery) {
+    const main = gallery.querySelector<HTMLImageElement>('[data-gallery-main]');
+    const label = gallery.querySelector<HTMLElement>('[data-gallery-label]');
+    gallery.querySelectorAll<HTMLButtonElement>('[data-gallery-thumb]').forEach((button) => button.addEventListener('click', () => {
+      if (main) { main.src = button.dataset.src || main.src; main.alt = button.dataset.alt || main.alt; }
+      if (label) label.textContent = button.dataset.label || '';
+      gallery.querySelectorAll('[data-gallery-thumb]').forEach((item) => item.classList.toggle('border-[#d8b456]', item === button));
+    }));
+  }
+  const form = document.querySelector<HTMLFormElement>('[data-product-inquiry-form]');
+  const status = form?.querySelector<HTMLElement>('[data-product-form-status]');
+  const pageUrl = form?.querySelector<HTMLInputElement>('[data-page-url]');
+  if (form && pageUrl) {
+    pageUrl.value = location.href;
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = form.elements.namedItem('email') as HTMLInputElement;
+      const phone = form.elements.namedItem('phone') as HTMLInputElement;
+      if (!email.value.trim() && !phone.value.trim()) { if (status) { status.textContent = 'Enter a business email or WhatsApp number so we can reply.'; status.className = 'text-[13px] text-red-300 sm:col-span-2'; } email.focus(); return; }
+      if (!form.reportValidity()) return;
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (button) { button.disabled = true; button.textContent = 'Sending inquiry...'; }
+      try {
+        const response = await submitInquiry(Object.fromEntries(new FormData(form).entries()));
+        const result = await response.json();
+        if (!response.ok || !result.success) throw new Error(result.error || result.message || 'Unable to send inquiry.');
+        form.reset(); pageUrl.value = location.href;
+        if (status) { status.textContent = 'Thank you. Your inquiry has been sent.'; status.className = 'text-[13px] text-green-300 sm:col-span-2'; }
+        if (button) button.textContent = 'Inquiry Sent';
+      } catch (error) {
+        if (status) { status.textContent = error instanceof Error ? error.message : 'Unable to send inquiry. Please try WhatsApp.'; status.className = 'text-[13px] text-red-300 sm:col-span-2'; }
+        if (button) { button.disabled = false; button.textContent = 'Send Product Inquiry'; }
+      }
+    });
+  }
+</script>

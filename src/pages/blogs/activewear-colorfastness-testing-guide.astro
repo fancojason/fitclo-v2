@@ -1,0 +1,76 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+
+const title = 'Activewear Colorfastness Testing: Prevent Dye Transfer, Fading and Contrast-Trim Staining';
+const description = 'A buyer guide to activewear colorfastness testing for sweat, rubbing and washing. Learn what to specify for dark leggings, printed sets and contrast trims before bulk production.';
+const image = '/images/blogs/activewear-quality-inspection-checklist/activewear-quality-inspection.webp';
+const faqs = [
+  { question: 'What is colorfastness in activewear?', answer: 'Colorfastness describes how well a colored textile resists unwanted color change or transfer under a specified exposure, such as washing, perspiration or rubbing. A pass needs a stated test method and acceptance grade.' },
+  { question: 'Does a dark legging that looks good in a photo pass a colorfastness test?', answer: 'No. A photo cannot establish resistance to sweat, washing or wet rubbing. Request a physical sample and, when required, a laboratory report using the agreed method.' },
+  { question: 'Which colorfastness checks matter for a color-block workout set?', answer: 'Review color transfer where dark and light fabrics touch, plus laundering, perspiration and wet or dry rubbing for the actual fabric and color combination. Agree test methods and targets before production.' },
+  { question: 'Can one test result cover every color of the same style?', answer: 'Do not assume so. Dye, print and trim combinations may differ. Specify which colors and material combinations require testing and how production lots will be controlled.' },
+];
+const relatedReading = [
+  { title: 'Activewear Quality Inspection Checklist', link: '/blogs/activewear-quality-inspection-checklist/', desc: 'Plan fabric, fit, construction and packing inspection.' },
+  { title: 'Leggings Pilling, Sheerness and Roll-Down Checklist', link: '/blogs/leggings-pilling-sheer-roll-down-quality-checklist/', desc: 'Translate common wear complaints into tests.' },
+  { title: 'Polka-Dot, Contrast-Trim and Printed Activewear', link: '/blogs/polka-dot-contrast-trim-activewear-wholesale/', desc: 'Compare patterned styles and sample checks.' },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle="Activewear Colorfastness Testing Guide | Sweat, Wash & Rubbing | Fitclo"
+  description={description}
+  type="Activewear Quality Testing"
+  date="October 7, 2026"
+  readTime="7 min read"
+  articleImage={image}
+  publishedIso="2026-10-07"
+  modifiedIso="2026-10-07"
+  quickAnswerTitle="An activewear colorfastness brief should name the exposure, test method, sample or production color, and acceptance grade. For leggings and workout sets, buyers commonly consider washing, perspiration and rubbing; color-block garments also need attention where dark and pale panels touch. A photo, fabric composition or one unlabelled 'pass' result cannot replace a defined test report."
+  quickTakeaways={[
+    'Specify the colorfastness test and pass grade before bulk production.',
+    'Wet rubbing and sweat exposure matter for garments worn close to the body.',
+    'Test the relevant colors and material combinations, especially dark-on-light designs.',
+  ]}
+  faqs={faqs}
+  relatedReading={relatedReading}
+  ctaTitle="Add color performance to your sample brief"
+  ctaText="Share the style, colors, target market and the quality requirements your buyer needs. Fitclo can discuss which sample and test evidence to request for your project."
+  ctaHref="/inquiry/"
+  ctaLabel="Discuss Quality Requirements"
+>
+  <figure>
+    <img src={image} alt="Activewear quality inspection table illustrating garment sample review before bulk production" width="1200" height="800" loading="eager" fetchpriority="high" />
+    <figcaption>A visual inspection is a starting point; colorfastness requires defined exposure and evaluation methods.</figcaption>
+  </figure>
+
+  <h2>Why “the color looks fine” is not an approval criterion</h2>
+  <p>Activewear is stretched, rubbed, washed and worn during exercise. A dark legging may look even on a product photo yet transfer color to a light top or change shade after laundering. A contrasting pale waistband can show staining even when the main fabric looks acceptable. The buyer needs a written color approval standard and a test plan that matches the product's intended use.</p>
+  <p>Colorfastness is a family of checks, not one universal property. The <a href="https://www.aatcc.org/testing/standards" target="_blank" rel="noopener noreferrer">AATCC test-method directory</a> lists separate methods for laundering, perspiration and crocking (rubbing). Each answers a different question. This article helps buyers define the request; your testing laboratory should confirm the current method version, specimen preparation and target grade for the product.</p>
+
+  <h2>Which test answers which buyer question?</h2>
+  <table>
+    <thead><tr><th>Exposure</th><th>Buyer question</th><th>Example AATCC method</th></tr></thead>
+    <tbody>
+      <tr><td>Laundering</td><td>Does the shade change or stain an adjacent material after washing?</td><td>TM61, accelerated laundering</td></tr>
+      <tr><td>Perspiration</td><td>Could sweat exposure change color or transfer dye to another textile?</td><td>TM15, colorfastness to perspiration</td></tr>
+      <tr><td>Dry and wet rubbing</td><td>Can contact with another surface lift color from the garment?</td><td>TM8, crocking with a Crockmeter</td></tr>
+    </tbody>
+  </table>
+  <p><a href="https://members.aatcc.org/store/tm15/482/messages" target="_blank" rel="noopener noreferrer">AATCC's description of TM15</a> explains that the method assesses color change and transfer after simulated perspiration exposure. Its <a href="https://members.aatcc.org/store/tm8/481/" target="_blank" rel="noopener noreferrer">TM8 description</a> covers dry and wet rubbing, while <a href="https://members.aatcc.org/store/tm61/495/" target="_blank" rel="noopener noreferrer">TM61</a> addresses accelerated laundering. Do not write “AATCC tested” on a product page unless you have the actual report for the claimed material and color.</p>
+
+  <h2>Where risk increases in leggings and matching sets</h2>
+  <p>Dark leggings worn against light garments, a color-block waistband, printed details and contrasting binding deserve particular attention. The issue is not that these designs are automatically poor quality. It is that neighboring colors make transfer easier to see, while stretch and contact during wear create different conditions from a flat fabric swatch. Test the combination you intend to sell, including trims and panels, not just an unrelated plain fabric.</p>
+  <p>For example, a <a href="/products/tz4506-3/">contrast-trim flare set</a> raises a practical question about the main fabric and lighter binding after washing and perspiration. A <a href="/products/tz4506-4/">contrast-trim capri set</a> presents another dark/light contact point. These links illustrate where a buyer would ask for evidence; they do not claim that either product has passed or failed a specific lab test.</p>
+
+  <h2>Put the requirement in the purchase brief</h2>
+  <ol>
+    <li>List the style codes, colorways and any contrasting panels or trims to be assessed.</li>
+    <li>Name the intended market and care instructions, then agree the appropriate methods with a qualified laboratory.</li>
+    <li>Write down the required grade for color change and staining; “good colorfastness” is too vague.</li>
+    <li>Keep the approved sample, color standard and report connected to the order and production lot.</li>
+    <li>Recheck when fabric, dye, print process or supplier changes rather than assuming an old result still applies.</li>
+  </ol>
+  <p>Colorfastness is only one part of approval. Add opacity under stretch, pilling, shrinkage, seam integrity, measurements and logo durability to the review where relevant. The <a href="/blogs/activewear-sample-approval-checklist/">sample approval checklist</a> and <a href="/blogs/activewear-quality-inspection-checklist/">quality inspection guide</a> help organize those other checks.</p>
+</EditorialArticleLayout>

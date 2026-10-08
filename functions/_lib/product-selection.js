@@ -92,7 +92,7 @@ export async function listStyles(db) {
   const charts = (await db.prepare('SELECT id, style_id, object_key, sort_order FROM product_style_color_charts ORDER BY sort_order, id').all()).results;
   const grouped = new Map();
   charts.forEach((chart) => grouped.set(chart.style_id, [...(grouped.get(chart.style_id) || []), chart]));
-  return rows.map((row) => ({ ...toPublicStyle({ ...row, color_charts: grouped.get(row.id) || [] }), supplierName: row.supplier_name || '', supplierUrl: row.supplier_url || '' }));
+  return rows.map((row) => ({ ...toPublicStyle({ ...row, color_charts: grouped.get(row.id) || [] }), supplierName: row.supplier_name || '', supplierUrl: row.supplier_url || '', productUrl: row.product_url || '' }));
 }
 
 const xml = (value) => String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&apos;');
@@ -128,14 +128,18 @@ function worksheet(rows, widths, mergeCells = [], hyperlinks = []) {
 }
 
 export function createSelectionWorkbook(submission, items) {
-  const headers = ['Style No.', 'Selected Color', ...SIZE_KEYS, 'Total', 'Supplier'];
+  const headers = ['Style No.', 'Selected Color', ...SIZE_KEYS, 'Total', 'Supplier', 'Product Link'];
   const lastColumn = columnName(headers.length - 1);
-  const supplierLinks = items.flatMap((item, index) => item.supplier_name && isShopUrl(item.supplier_url) ? [{ ref: `${lastColumn}${index + 4}`, url: item.supplier_url }] : []);
+  const supplierColumn = columnName(headers.length - 2);
+  const links = items.flatMap((item, index) => [
+    ...(item.supplier_name && isShopUrl(item.supplier_url) ? [{ ref: `${supplierColumn}${index + 4}`, url: item.supplier_url }] : []),
+    ...(isShopUrl(item.product_url) ? [{ ref: `${lastColumn}${index + 4}`, url: item.product_url }] : []),
+  ]);
   const selectionRows = [
     ['Fitclo Activewear - Ready Stock Selection Sheet', ...Array(headers.length - 1).fill('')],
     ['Please select your required quantity:', ...Array(headers.length - 1).fill('')],
     headers,
-    ...items.map((item) => [item.style_no_snapshot, item.color_snapshot, ...SIZE_KEYS.map((size) => item[size.toLowerCase()] === null ? '—' : item[size.toLowerCase()]), item.total, item.supplier_name || '']),
+    ...items.map((item) => [item.style_no_snapshot, item.color_snapshot, ...SIZE_KEYS.map((size) => item[size.toLowerCase()] === null ? '—' : item[size.toLowerCase()]), item.total, item.supplier_name || '', item.product_url || '']),
   ];
   const customerRows = [
     ['Fitclo Customer Information', ''],
@@ -158,8 +162,8 @@ export function createSelectionWorkbook(submission, items) {
     'xl/workbook.xml': strToU8('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Ready Stock Selection" sheetId="1" r:id="rId1"/><sheet name="Customer Info" sheetId="2" r:id="rId2"/></sheets></workbook>'),
     'xl/_rels/workbook.xml.rels': strToU8('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'),
     'xl/styles.xml': strToU8('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="4"><font><sz val="11"/><name val="Arial"/></font><font><b/><color rgb="FFFFFFFF"/><sz val="16"/><name val="Arial"/></font><font><b/><color rgb="FFFFFFFF"/><name val="Arial"/></font><font><u/><color rgb="FF0563C1"/><sz val="11"/><name val="Arial"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF17365D"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="2"><border/><border><left style="thin"><color rgb="FFB7C9E2"/></left><right style="thin"><color rgb="FFB7C9E2"/></right><top style="thin"><color rgb="FFB7C9E2"/></top><bottom style="thin"><color rgb="FFB7C9E2"/></bottom></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="5"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/><xf numFmtId="0" fontId="2" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1"/><xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>'),
-    'xl/worksheets/sheet1.xml': strToU8(worksheet(selectionRows, [18, 24, ...SIZE_KEYS.map(() => 10), 12, 28], [`A1:${lastColumn}1`, `A2:${lastColumn}2`], supplierLinks)),
-    'xl/worksheets/_rels/sheet1.xml.rels': strToU8(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${supplierLinks.map((link, index) => `<Relationship Id="rId${index + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${xml(link.url)}" TargetMode="External"/>`).join('')}</Relationships>`),
+    'xl/worksheets/sheet1.xml': strToU8(worksheet(selectionRows, [18, 24, ...SIZE_KEYS.map(() => 10), 12, 28, 55], [`A1:${lastColumn}1`, `A2:${lastColumn}2`], links)),
+    'xl/worksheets/_rels/sheet1.xml.rels': strToU8(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${links.map((link, index) => `<Relationship Id="rId${index + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${xml(link.url)}" TargetMode="External"/>`).join('')}</Relationships>`),
     'xl/worksheets/sheet2.xml': strToU8(worksheet(customerRows, [24, 70], ['A1:B1'])),
   };
   return {

@@ -47,6 +47,7 @@ import '../../styles/product-selection-admin.css';
                 <label>Color Charts *<input name="colorCharts" type="file" accept="image/jpeg,image/png,image/webp" multiple /><small>Uploading during edit replaces all current charts.</small></label>
                 <label>Supplier Name<input name="supplierName" id="supplier-name" list="supplier-history" maxlength="120" autocomplete="off" placeholder="Select a saved supplier or enter a new name" /><datalist id="supplier-history"></datalist><small>Internal only. Saved suppliers are available when you add another style.</small></label>
                 <label>Supplier Shop Link<input name="supplierUrl" id="supplier-url" type="url" maxlength="1000" placeholder="https://supplier.example.com/shop" /></label>
+                <label>Product Link<input name="productUrl" id="product-url" type="url" maxlength="2000" placeholder="https://supplier.example.com/product" /><small>Internal only. Included as a clickable link in downloaded selection sheets.</small></label>
                 <button id="save-style" type="submit">Save Style</button>
                 <p id="style-status" class="status" aria-live="polite"></p>
               </form>

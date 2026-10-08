@@ -1,5 +1,5 @@
 type Size = 'XXS' | 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
-type Style = { id: number; styleNo: string; mainImage: string; availableSizes: Size[]; active: boolean; colorCharts: Array<{ url: string }>; supplierName: string; supplierUrl: string };
+type Style = { id: number; styleNo: string; mainImage: string; availableSizes: Size[]; active: boolean; colorCharts: Array<{ url: string }>; supplierName: string; supplierUrl: string; productUrl: string };
 type Supplier = { name: string; shopUrl: string };
 const sizes: Size[] = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const api = '/api/product-selection/admin';
@@ -113,6 +113,7 @@ byId('styles-body').addEventListener('click', async (event) => {
     (styleForm.elements.namedItem('styleNo') as HTMLInputElement).value = style.styleNo;
     byId<HTMLInputElement>('supplier-name').value = style.supplierName;
     byId<HTMLInputElement>('supplier-url').value = style.supplierUrl;
+    byId<HTMLInputElement>('product-url').value = style.productUrl;
     styleForm.querySelectorAll<HTMLInputElement>('input[name="sizes"]').forEach((input) => { input.checked = style.availableSizes.includes(input.value as Size); });
     byId('style-form-title').textContent = `Edit ${style.styleNo}`;
     byId('cancel-edit').classList.remove('hidden');

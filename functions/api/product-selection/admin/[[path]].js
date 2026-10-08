@@ -74,12 +74,14 @@ async function saveStyle(context, id = null) {
   const styleNo = clean(form.get('styleNo'), 60).toUpperCase();
   const supplierName = clean(form.get('supplierName'), 120);
   const supplierUrl = clean(form.get('supplierUrl'), 1000);
+  const productUrl = clean(form.get('productUrl'), 2000);
   const sizes = parseSizes(form.getAll('sizes'));
   const mainFile = form.get('mainImage');
   const chartFiles = form.getAll('colorCharts').filter((value) => value instanceof File && value.size);
   if (!/^[A-Z0-9][A-Z0-9+._-]{0,59}$/.test(styleNo) || !sizes.length) return json({ error: 'Enter a valid style number, select sizes and upload at least one color chart.' }, 400);
   if (Boolean(supplierName) !== Boolean(supplierUrl)) return json({ error: 'Enter both the supplier name and shop link, or leave both blank.' }, 400);
   if (supplierUrl && !isShopUrl(supplierUrl)) return json({ error: 'Enter a valid http or https supplier shop link.' }, 400);
+  if (productUrl && !isShopUrl(productUrl)) return json({ error: 'Enter a valid http or https product link.' }, 400);
   const db = context.env.PRODUCT_SELECTION_DB;
   const existing = id ? await db.prepare('SELECT * FROM product_styles WHERE id = ?').bind(id).first() : null;
   if (id && !existing) return json({ error: 'Style not found.' }, 404);
@@ -98,9 +100,9 @@ async function saveStyle(context, id = null) {
     let styleId = id;
     const supplier = supplierName ? await db.prepare('INSERT INTO product_selection_suppliers (name, shop_url) VALUES (?, ?) ON CONFLICT(name) DO UPDATE SET shop_url = excluded.shop_url, updated_at = CURRENT_TIMESTAMP RETURNING id').bind(supplierName, supplierUrl).first() : null;
     if (id) {
-      await db.prepare('UPDATE product_styles SET style_no = ?, main_image_key = ?, available_sizes = ?, supplier_id = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?').bind(styleNo, mainKey, JSON.stringify(sizes), supplier?.id || null, id).run();
+      await db.prepare('UPDATE product_styles SET style_no = ?, main_image_key = ?, available_sizes = ?, supplier_id = ?, product_url = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?').bind(styleNo, mainKey, JSON.stringify(sizes), supplier?.id || null, productUrl || null, id).run();
     } else {
-      const inserted = await db.prepare('INSERT INTO product_styles (style_no, main_image_key, available_sizes, supplier_id) VALUES (?, ?, ?, ?) RETURNING id').bind(styleNo, mainKey, JSON.stringify(sizes), supplier?.id || null).first();
+      const inserted = await db.prepare('INSERT INTO product_styles (style_no, main_image_key, available_sizes, supplier_id, product_url) VALUES (?, ?, ?, ?, ?) RETURNING id').bind(styleNo, mainKey, JSON.stringify(sizes), supplier?.id || null, productUrl || null).first();
       styleId = inserted.id;
     }
     if (chartKeys.length) {
@@ -141,7 +143,7 @@ async function submissionDetail(context, selectionId) {
   const db = context.env.PRODUCT_SELECTION_DB;
   const submission = await db.prepare('SELECT * FROM product_selection_submissions WHERE selection_id = ?').bind(selectionId).first();
   if (!submission) return null;
-  const items = (await db.prepare(`SELECT item.*, COALESCE(item.supplier_name_snapshot, supplier.name, '') AS supplier_name, COALESCE(item.supplier_url_snapshot, supplier.shop_url, '') AS supplier_url FROM product_selection_items item LEFT JOIN product_styles style ON style.style_no = item.style_no_snapshot COLLATE NOCASE LEFT JOIN product_selection_suppliers supplier ON supplier.id = style.supplier_id WHERE item.submission_id = ? ORDER BY item.id`).bind(submission.id).all()).results;
+  const items = (await db.prepare(`SELECT item.*, COALESCE(item.supplier_name_snapshot, supplier.name, '') AS supplier_name, COALESCE(item.supplier_url_snapshot, supplier.shop_url, '') AS supplier_url, COALESCE(item.product_url_snapshot, style.product_url, '') AS product_url FROM product_selection_items item LEFT JOIN product_styles style ON style.style_no = item.style_no_snapshot COLLATE NOCASE LEFT JOIN product_selection_suppliers supplier ON supplier.id = style.supplier_id WHERE item.submission_id = ? ORDER BY item.id`).bind(submission.id).all()).results;
   return { submission, items };
 }
 

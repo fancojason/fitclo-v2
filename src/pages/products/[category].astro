@@ -12,12 +12,16 @@ export function getStaticPaths() {
 }
 
 const { category } = Astro.props as { category: ProductCategory };
+const isSportsBras = category.slug === 'sports-bras';
 const sourcingLinks = ({
   leggings: [
     ['/private-label-leggings/', 'Private label leggings sourcing'],
     ['/guides/leggings/', 'Leggings manufacturing guide'],
   ],
-  'sports-bras': [['/guides/sport-bras/', 'Sports bra development guide']],
+  'sports-bras': [
+    ['/private-label-sports-bras/', 'Private label sports bra sourcing'],
+    ['/guides/sport-bras/', 'Sports bra development guide'],
+  ],
 }[category.slug] ?? []) as string[][];
 const whatsappUrl = getWhatsAppUrl({ path: Astro.url.pathname, category: category.slug });
 const productSchema = {
@@ -41,7 +45,7 @@ const faqSchema = {
 ---
 
 <BaseLayout
-  title={`${category.title} Manufacturer | FITCLO`}
+  title={isSportsBras ? 'Sports Bra Manufacturer | Ready-Stock, Private Label & OEM | FITCLO' : `${category.title} Manufacturer | FITCLO`}
   description={category.shortDescription}
   image={`https://www.fitcloo.com${category.heroImage}`}
   structuredData={[productSchema, faqSchema]}
@@ -59,7 +63,7 @@ const faqSchema = {
       <div class="mx-auto max-w-[1240px] px-6 pb-16 pt-24 lg:px-10 lg:pb-20">
         <p class="mb-5 text-[11px] font-bold tracking-[0.22em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{category.eyebrow}</p>
         <h1 class="max-w-[760px] text-[42px] font-bold leading-[1.04] text-white sm:text-[56px] lg:text-[68px] font-['Century_Gothic',sans-serif]">
-          {category.title}
+          {isSportsBras ? 'Sports Bra Manufacturer for Activewear Brands' : category.title}
         </h1>
         <p class="mt-7 max-w-[650px] text-[16px] leading-[1.75] text-white/85 md:text-[18px] font-['Century_Gothic',sans-serif]">
           {category.shortDescription}
@@ -77,6 +81,19 @@ const faqSchema = {
   </section>
 
   <CatalogBrowser categorySlug={category.slug} />
+
+  {isSportsBras && <section class="bg-[#111111] py-16 text-white md:py-20">
+    <div class="mx-auto max-w-[1120px] px-6 lg:px-10">
+      <p class="text-[11px] font-bold tracking-[0.2em] text-[#d8b456]">SPORTS BRA SOURCING ROUTES</p>
+      <h2 class="mt-4 max-w-[760px] text-[30px] font-bold leading-[1.2] md:text-[40px]">Choose the right route before requesting a quote.</h2>
+      <p class="mt-5 max-w-[850px] text-[16px] leading-[1.8] text-white/70">The styles above are product references. For an existing style, confirm current colours, sizes and availability. For a custom bra, share the intended activity, support brief, fabric, size range and branding requirements so the sample can be reviewed against them.</p>
+      <div class="mt-9 grid gap-4 md:grid-cols-3">
+        <div class="border border-white/15 p-6"><h3 class="text-xl font-bold">Ready-stock styles</h3><p class="mt-3 text-sm leading-7 text-white/70">Start with a listed bra and ask which colour, size and branding options are currently feasible.</p><a href="/ready-to-ship/" class="mt-5 inline-block font-bold text-[#d8b456] underline underline-offset-4">Browse the ready-stock programme</a></div>
+        <div class="border border-white/15 p-6"><h3 class="text-xl font-bold">Private label</h3><p class="mt-3 text-sm leading-7 text-white/70">Plan logo placement, labels and packaging around a chosen construction and an approved sample.</p><a href="/private-label-sports-bras/" class="mt-5 inline-block font-bold text-[#d8b456] underline underline-offset-4">Review the sports bra buyer brief</a></div>
+        <div class="border border-white/15 p-6"><h3 class="text-xl font-bold">OEM development</h3><p class="mt-3 text-sm leading-7 text-white/70">Bring a tech pack or reference brief and review underband, straps, cups, fit and movement before bulk production.</p><a href="/oem-activewear-manufacturer/" class="mt-5 inline-block font-bold text-[#d8b456] underline underline-offset-4">See the OEM development route</a></div>
+      </div>
+    </div>
+  </section>}
 
   <section class="bg-[#090909] py-18 text-white md:py-24">
     <div class="mx-auto grid max-w-[1120px] gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">

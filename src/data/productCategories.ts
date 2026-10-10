@@ -226,6 +226,44 @@ export const productCategories: ProductCategory[] = [
       { question: 'What is the best jacket fabric for a gym collection?', answer: 'It depends on whether the jacket is for warm-up, outdoor protection or lifestyle layering. We select fabric based on the desired stretch, warmth, weight and surface finish.' },
     ],
   },
+  {
+    slug: 'dresses',
+    navLabel: 'Sports Dresses',
+    title: 'Activewear Dresses',
+    eyebrow: 'ACTIVEWEAR DRESSES',
+    description: 'Explore sleeveless activewear dresses with scoop, racerback and mock-neck designs for tennis and studio collections.',
+    shortDescription: 'Sleeveless tennis and activewear dresses for sportswear collections.',
+    heroImage: '/images/products/4160/scoop-neck-racerback-tennis-dress.webp',
+    heroAlt: 'Front and back views of a sleeveless activewear dress',
+    focus: 'Neckline, hem length and fit for an activewear dress assortment.',
+    styles: [
+      { id: 'tennis', name: 'Tennis Dresses', description: 'Short sleeveless dresses with sport-ready silhouettes.' },
+    ],
+    capabilities: ['Neckline and back-shape options', 'Length and colour planning', 'Brand label placement'],
+    fabricNotes: ['Confirm fabric composition and stretch before ordering', 'Request a physical sample to assess coverage and movement'],
+    faq: [
+      { question: 'Can I request details about a dress style?', answer: 'Yes. Share the style number and target quantity so our team can confirm the available specification.' },
+    ],
+  },
+  {
+    slug: 'skirts',
+    navLabel: 'Sports Skirts',
+    title: 'Activewear Skirts',
+    eyebrow: 'ACTIVEWEAR SKIRTS',
+    description: 'Browse short activewear skirts, including side-slit tennis styling, for sport and athleisure collections.',
+    shortDescription: 'Short tennis and activewear skirts for sportswear assortments.',
+    heroImage: '/images/products/4163/side-slit-tennis-skirt.webp',
+    heroAlt: 'Short activewear skirt with a visible side slit',
+    focus: 'Skirt length, side details and coordinated sportswear styling.',
+    styles: [
+      { id: 'tennis', name: 'Tennis Skirts', description: 'Short activewear skirts for tennis-inspired collections.' },
+    ],
+    capabilities: ['Length and colour planning', 'Coordinated top styling', 'Brand label placement'],
+    fabricNotes: ['Confirm fabric and lining details for each selected style', 'Request a sample to assess fit and movement'],
+    faq: [
+      { question: 'Can I pair a skirt with a matching top?', answer: 'Yes. Share the skirt style number and the top you are considering so our team can confirm the combination.' },
+    ],
+  },
 ];
 
 export const getProductCategory = (slug: string) =>

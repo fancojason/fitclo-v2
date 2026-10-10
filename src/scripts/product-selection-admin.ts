@@ -112,7 +112,7 @@ styleForm.addEventListener('submit', async (event) => {
   button.disabled = true; button.textContent = 'Saving...'; status.textContent = '';
   try {
     await request(id ? `styles/${id}` : 'styles', { method: 'POST', body: new FormData(styleForm) });
-    resetStyleForm(); await Promise.all([loadStyles(), loadSuppliers()]);
+    resetStyleForm(); stylesPage = 1; await Promise.all([loadStyles(), loadSuppliers()]);
   } catch (error) { status.textContent = error instanceof Error ? error.message : 'Unable to save style.'; }
   finally { button.disabled = false; button.textContent = 'Save Style'; }
 });
@@ -137,7 +137,7 @@ byId('styles-body').addEventListener('click', async (event) => {
   }
   if (button.dataset.toggle) {
     button.disabled = true;
-    await request(`styles/${button.dataset.toggle}/toggle`, { method: 'POST' }).then(loadStyles).catch((error) => alert(error.message));
+    await request(`styles/${button.dataset.toggle}/toggle`, { method: 'POST' }).then(() => { stylesPage = 1; return loadStyles(); }).catch((error) => alert(error.message));
     return;
   }
   if (button.dataset.delete) {

@@ -71,14 +71,14 @@ async function saveImage(file, env, styleNo, kind, index = 0) {
 async function saveStyle(context, id = null) {
   let form;
   try { form = await context.request.formData(); } catch { return json({ error: 'Invalid form data.' }, 400); }
-  const styleNo = clean(form.get('styleNo'), 60).toUpperCase();
+  const styleNo = clean(form.get('styleNo'), 60);
   const supplierName = clean(form.get('supplierName'), 120);
   const supplierUrl = clean(form.get('supplierUrl'), 1000);
   const productUrl = clean(form.get('productUrl'), 2000);
   const sizes = parseSizes(form.getAll('sizes'));
   const mainFile = form.get('mainImage');
   const chartFiles = form.getAll('colorCharts').filter((value) => value instanceof File && value.size);
-  if (!/^[A-Z0-9][A-Z0-9+._-]{0,59}$/.test(styleNo) || !sizes.length) return json({ error: 'Enter a valid style number, select sizes and upload at least one color chart.' }, 400);
+  if (!styleNo || !sizes.length) return json({ error: 'Enter a style number, select sizes and upload at least one color chart.' }, 400);
   if (Boolean(supplierName) !== Boolean(supplierUrl)) return json({ error: 'Enter both the supplier name and shop link, or leave both blank.' }, 400);
   if (supplierUrl && !isShopUrl(supplierUrl)) return json({ error: 'Enter a valid http or https supplier shop link.' }, 400);
   if (productUrl && !isShopUrl(productUrl)) return json({ error: 'Enter a valid http or https product link.' }, 400);

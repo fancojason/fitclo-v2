@@ -39,6 +39,10 @@ td img { width: 64px; height: 64px; border-radius: 5px; background: white; objec
 .badge { display: inline-block; border-radius: 999px; background: rgba(45,190,116,.15); padding: 4px 8px; color: #75dca5; }
 .badge.disabled { background: rgba(255,255,255,.08); color: rgba(255,255,255,.48); }
 .empty { margin: 30px 0 10px; text-align: center; color: rgba(255,255,255,.42); }
+.pagination { display: flex; align-items: end; justify-content: flex-end; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.pagination label { margin-right: auto; }
+.pagination select { display: block; min-height: 40px; margin-top: 6px; border: 1px solid rgba(255,255,255,.2); border-radius: 6px; background: #102331; padding: 8px 12px; color: white; }
+.pagination span { align-self: center; color: rgba(255,255,255,.7); font-size: 12px; }
 dialog { width: min(1050px, calc(100% - 28px)); max-height: 90vh; border: 1px solid rgba(255,255,255,.15); border-radius: 12px; background: #071824; padding: 22px; color: white; }
 dialog::backdrop { background: rgba(0,0,0,.78); }
 .dialog-heading { display: flex; justify-content: space-between; align-items: center; }

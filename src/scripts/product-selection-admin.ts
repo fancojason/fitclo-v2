@@ -10,6 +10,7 @@ const styleForm = byId<HTMLFormElement>('style-form');
 const dialog = byId<HTMLDialogElement>('submission-dialog');
 let styles: Style[] = [];
 let suppliers: Supplier[] = [];
+let stylesPage = 1;
 
 const escapeHtml = (value: unknown) => {
   const element = document.createElement('span');
@@ -46,17 +47,31 @@ document.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach((button) => b
   byId('submissions-panel').classList.toggle('hidden', button.dataset.tab !== 'submissions');
 }));
 
-async function loadStyles() {
-  const result = await request('styles');
-  styles = result.styles;
+function renderStyles() {
+  const pageSize = Number(byId<HTMLSelectElement>('styles-per-page').value);
+  const totalPages = Math.max(1, Math.ceil(styles.length / pageSize));
+  stylesPage = Math.min(stylesPage, totalPages);
   const body = byId<HTMLTableSectionElement>('styles-body');
   byId('styles-empty').classList.toggle('hidden', styles.length > 0);
-  body.innerHTML = styles.map((style) => `<tr>
+  byId('styles-pagination').classList.toggle('hidden', styles.length === 0);
+  byId('styles-page-info').textContent = `Page ${stylesPage} of ${totalPages} · ${styles.length} styles`;
+  byId<HTMLButtonElement>('styles-prev').disabled = stylesPage === 1;
+  byId<HTMLButtonElement>('styles-next').disabled = stylesPage === totalPages;
+  body.innerHTML = styles.slice((stylesPage - 1) * pageSize, stylesPage * pageSize).map((style) => `<tr>
     <td><strong>${escapeHtml(style.styleNo)}</strong></td><td><img src="${style.mainImage}" alt=""></td><td>${style.availableSizes.join(', ')}</td><td>${style.colorCharts.length}</td>
     <td><span class="badge ${style.active ? '' : 'disabled'}">${style.active ? 'Active' : 'Disabled'}</span></td>
     <td><div class="actions"><button type="button" class="secondary" data-edit="${style.id}">Edit</button><button type="button" class="secondary" data-toggle="${style.id}">${style.active ? 'Disable' : 'Enable'}</button><button type="button" class="secondary danger" data-delete="${style.id}">Delete</button></div></td>
   </tr>`).join('');
 }
+
+async function loadStyles() {
+  styles = (await request('styles')).styles;
+  renderStyles();
+}
+
+byId('styles-per-page').addEventListener('change', () => { stylesPage = 1; renderStyles(); });
+byId('styles-prev').addEventListener('click', () => { stylesPage -= 1; renderStyles(); });
+byId('styles-next').addEventListener('click', () => { stylesPage += 1; renderStyles(); });
 
 async function loadSuppliers() {
   suppliers = (await request('suppliers')).suppliers;

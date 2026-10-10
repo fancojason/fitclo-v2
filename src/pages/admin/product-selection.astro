@@ -39,7 +39,7 @@ import '../../styles/product-selection-admin.css';
               <div class="card-heading"><h2 id="style-form-title">Add Style</h2><button id="cancel-edit" class="secondary hidden" type="button">Cancel Edit</button></div>
               <form id="style-form">
                 <input name="id" type="hidden" />
-                <label>Style No. *<input name="styleNo" required maxlength="60" placeholder="e.g. TZ3562-8" /></label>
+                <label>Style No. *<input name="styleNo" required maxlength="60" placeholder="e.g. LD2660 set" /></label>
                 <fieldset><legend>Available Sizes *</legend><div class="size-checks">
                   {['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'].map((size) => <label><input name="sizes" type="checkbox" value={size} checked={['S', 'M', 'L'].includes(size)} /> {size}</label>)}
                 </div></fieldset>
@@ -56,6 +56,12 @@ import '../../styles/product-selection-admin.css';
               <div class="card-heading"><h2>Product Styles</h2><button id="refresh-styles" class="secondary" type="button">Refresh</button></div>
               <div class="table-wrap"><table><thead><tr><th>Style</th><th>Main Image</th><th>Sizes</th><th>Charts</th><th>Status</th><th>Actions</th></tr></thead><tbody id="styles-body"></tbody></table></div>
               <p id="styles-empty" class="empty">No styles added yet.</p>
+              <div id="styles-pagination" class="pagination hidden">
+                <label>Styles per page <select id="styles-per-page"><option value="10">10</option><option value="30">30</option><option value="50">50</option></select></label>
+                <span id="styles-page-info" aria-live="polite"></span>
+                <button id="styles-prev" class="secondary" type="button">Previous</button>
+                <button id="styles-next" class="secondary" type="button">Next</button>
+              </div>
             </section>
           </div>
         </section>

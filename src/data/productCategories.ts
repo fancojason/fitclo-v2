@@ -26,7 +26,7 @@ export const productCategories: ProductCategory[] = [
     eyebrow: 'SPORTS BRA MANUFACTURING',
     description:
       'Develop supportive, brand-right sports bras with Fitclo. From seamless studio bras to engineered high-impact styles, we help activewear brands balance fit, support, fabric hand feel and a distinctive visual identity.',
-    shortDescription: 'Seamless, longline and high-support bra development for private label collections.',
+    shortDescription: 'Browse sports bra styles and discuss ready-stock availability, private-label branding or OEM development. Confirm support, fabric, sizes and sampling for your chosen design.',
     heroImage: '/images/product-categories/sports-bras-hero.png',
     heroAlt: 'Female athlete wearing a supportive black sports bra in a premium activewear studio',
     focus: 'Support architecture, bra fit, cup options and sweat-ready performance fabrics.',

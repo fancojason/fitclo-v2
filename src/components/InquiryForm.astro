@@ -104,20 +104,20 @@ if (guide && isSpanish) Object.assign(copy, {
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Row 1 -->
           <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.name}</label>
+            <label for="inquiry-name" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.name}</label>
             <input 
               type="text" 
-              name="name" 
+              id="inquiry-name" name="name"
               placeholder="John Smith" 
               required 
               class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
             />
           </div>
           <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.company}</label>
+            <label for="inquiry-company" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.company}</label>
             <input 
               type="text" 
-              name="company" 
+              id="inquiry-company" name="company"
               placeholder={copy.companyPlaceholder}
               class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
             />
@@ -125,20 +125,20 @@ if (guide && isSpanish) Object.assign(copy, {
 
           <!-- Row 2 -->
           <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.email}</label>
+            <label for="inquiry-email" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.email}</label>
             <input 
               type="email" 
-              name="email" 
+              id="inquiry-email" name="email"
               placeholder="john@company.com" 
               required 
               class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
             />
           </div>
           <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.phone}</label>
+            <label for="inquiry-phone" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.phone}</label>
             <input 
               type="text" 
-              name="phone" 
+              id="inquiry-phone" name="phone"
               placeholder="+1 234 567 8900" 
               class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
             />
@@ -146,9 +146,9 @@ if (guide && isSpanish) Object.assign(copy, {
 
           <!-- Row 3 -->
           <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.productType}</label>
+            <label for="inquiry-product-type" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.productType}</label>
             <div class="relative">
-              <select name="product_type" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
+              <select id="inquiry-product-type" name="product_type" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
                 <option value="" disabled selected={!product} class="bg-[#0A0A0F]">{copy.selectProduct}</option>
                 {product && <option value={`${product.name} (${product.sku})`} selected>{product.name} · {product.sku}</option>}
                 <option value="Yoga Set" class="bg-[#0A0A0F]">{copy.yogaSet}</option>
@@ -165,9 +165,9 @@ if (guide && isSpanish) Object.assign(copy, {
             </div>
           </div>
           <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.quantity}</label>
+            <label for="inquiry-quantity" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.quantity}</label>
             <div class="relative">
-              {product || guide ? <input name="quantity" required type="text" aria-label={guide ? 'Cantidad estimada y unidad de compra' : 'Cantidad estimada en conjuntos'} placeholder={guide ? 'Indica cantidad y si son prendas o conjuntos' : 'Ej.: 50 conjuntos'} class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]" /> : <><select name="quantity" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
+              {product || guide ? <input id="inquiry-quantity" name="quantity" required type="text" aria-label={guide ? 'Cantidad estimada y unidad de compra' : 'Cantidad estimada en conjuntos'} placeholder={guide ? 'Indica cantidad y si son prendas o conjuntos' : 'Ej.: 50 conjuntos'} class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]" /> : <><select id="inquiry-quantity" name="quantity" required class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
                 <option value="" disabled selected class="bg-[#0A0A0F]">{copy.selectQuantity}</option>
                 {marketCountry && <option value="50 sets or pieces" class="bg-[#0A0A0F]">50 sets / pieces (selected ready-stock styles)</option>}
                 <option value="100-300 PCS" class="bg-[#0A0A0F]">{copy.lowMoq}</option>
@@ -184,9 +184,9 @@ if (guide && isSpanish) Object.assign(copy, {
 
           <!-- Row 4 -->
           <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.fabric}</label>
+            <label for="inquiry-material" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.fabric}</label>
             <div class="relative">
-              <select name="material" class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
+              <select id="inquiry-material" name="material" class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
                 {product ? <option value={product.fabric}>{product.fabric}</option> : <><option value="Nylon/Spandex (Standard)" class="bg-[#0A0A0F]">{copy.standard}</option>
                 <option value="Recycled Polyester" class="bg-[#0A0A0F]">{copy.recycled}</option>
                 <option value="Cotton Blend" class="bg-[#0A0A0F]">{copy.cotton}</option>
@@ -199,9 +199,9 @@ if (guide && isSpanish) Object.assign(copy, {
             </div>
           </div>
           <div class="space-y-2">
-            <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.logoPlacement}</label>
+            <label for="inquiry-logo-placement" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.logoPlacement}</label>
             <div class="relative">
-              <select name="logo_placement" class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
+              <select id="inquiry-logo-placement" name="logo_placement" class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white appearance-none focus:border-[#C9A84C]/50 outline-none transition-all text-[14px]">
                 <option value="Chest/Left Chest" class="bg-[#0A0A0F]">{copy.chest}</option>
                 <option value="Waistband" class="bg-[#0A0A0F]">{copy.waistband}</option>
                 <option value="Leg (Sides/Back)" class="bg-[#0A0A0F]">{copy.leg}</option>
@@ -217,9 +217,9 @@ if (guide && isSpanish) Object.assign(copy, {
 
         <!-- Full Width Message -->
         <div class="space-y-2">
-          <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.more}</label>
+          <label for="inquiry-message" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.more}</label>
           <textarea 
-            name="message" 
+            id="inquiry-message" name="message"
             rows="4" 
             placeholder={copy.morePlaceholder}
             class="w-full bg-[#15151a] border border-[#3f3f46] rounded-lg px-4 py-3 text-white focus:border-[#C9A84C]/50 outline-none transition-all placeholder:text-white/30 text-[14px]"
@@ -228,9 +228,9 @@ if (guide && isSpanish) Object.assign(copy, {
 
         <!-- Upload Section -->
         <div class="space-y-2">
-          <label class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.upload}</label>
+          <label for="inquiry-file" class="text-[11px] font-bold tracking-[0.15em] text-white/95 uppercase">{copy.upload}</label>
           <div class="relative group cursor-pointer">
-            <input type="file" name="file" accept=".png,.ai,.pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
+            <input type="file" id="inquiry-file" name="file" accept=".png,.ai,.pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
             <div class="w-full border border-dashed border-[#C9A84C]/40 bg-[#15151a] rounded-lg py-8 flex flex-col items-center justify-center transition-all group-hover:border-[#C9A84C] group-hover:bg-[#1a1a21]">
               <div class="mb-3 text-[#C9A84C]/60 group-hover:text-[#C9A84C] transition-colors">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

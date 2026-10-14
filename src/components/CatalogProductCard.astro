@@ -1,6 +1,7 @@
 ---
 import type { CatalogProduct } from '../data/productCatalog';
 import { getWhatsAppUrl } from '../lib/whatsapp';
+import StyleCodeCopy from './StyleCodeCopy.astro';
 
 interface Props {
   product: CatalogProduct;
@@ -58,7 +59,8 @@ const whatsappHref = getWhatsAppUrl({ productCode: product.styleCode, productNam
         <h3 class="catalog-product-name text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
       </div>
     </a>
-    <div class="mt-auto bg-white px-3 pb-4 pt-2">
+    <StyleCodeCopy code={product.styleCode} />
+    <div class="mt-auto bg-white px-3 pb-4 pt-2 text-center">
       <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="catalog-chat-button inline-flex items-center justify-center rounded-full border border-[#151515] bg-white px-5 py-2 text-[14px] font-bold leading-none text-[#151515] transition-colors hover:border-[#d8b456] hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]" aria-label={`Chat with Fitclo about ${product.name}`}>
         Chat Now
       </a>
@@ -72,7 +74,8 @@ const whatsappHref = getWhatsAppUrl({ productCode: product.styleCode, productNam
       <div class="flex min-h-[56px] items-center justify-center border-t border-black/5 bg-white px-3 pt-3 text-center">
         <h3 class="catalog-product-name text-[14px] font-bold leading-[1.35] text-[#151515] transition-colors group-hover:text-[#9b7824] font-['Century_Gothic',sans-serif]">{product.name}</h3>
       </div>
-      <div class="mt-auto bg-white px-3 pb-4 pt-2">
+      <StyleCodeCopy code={product.styleCode} />
+      <div class="mt-auto bg-white px-3 pb-4 pt-2 text-center">
         <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="catalog-chat-button inline-flex items-center justify-center rounded-full border border-[#151515] bg-white px-5 py-2 text-[14px] font-bold leading-none text-[#151515] transition-colors hover:border-[#d8b456] hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]" aria-label={`Chat with Fitclo about ${product.name}`}>
           Chat Now
         </a>

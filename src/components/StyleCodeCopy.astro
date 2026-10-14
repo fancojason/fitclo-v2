@@ -1,0 +1,65 @@
+---
+interface Props {
+  code?: string;
+  tone?: 'light' | 'dark';
+}
+
+const { code, tone = 'light' } = Astro.props;
+const styleCode = code?.trim();
+---
+
+<div class="flex min-h-[24px] items-center justify-center px-3 text-center font-['Century_Gothic',sans-serif]">
+  {styleCode && (
+    <button
+      type="button"
+      class:list={['style-code-copy relative cursor-copy bg-transparent p-0 text-[12px] leading-[1.3] focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2', tone === 'dark' ? 'text-white/55 focus-visible:outline-[#d8b456]' : 'text-[#757575] focus-visible:outline-[#9b7824]']}
+      data-copy-style-code={styleCode}
+      title="Click to copy"
+      aria-label={`Copy product style code ${styleCode}`}
+    >{styleCode}</button>
+  )}
+  <span class="sr-only" aria-live="polite" data-copy-status></span>
+</div>
+
+<style>
+  .style-code-copy[data-copy-feedback]::after {
+    content: attr(data-copy-feedback);
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    padding: 3px 7px;
+    border-radius: 4px;
+    background: #242424;
+    color: white;
+    font-size: 11px;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('click', async (event) => {
+    const button = (event.target as Element).closest<HTMLButtonElement>('[data-copy-style-code]');
+    if (!button) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const code = button.dataset.copyStyleCode;
+    if (!code) return;
+    let feedback = 'Copied!';
+    try {
+      await navigator.clipboard.writeText(code);
+    } catch {
+      feedback = 'Copy failed';
+    }
+    button.dataset.copyFeedback = feedback;
+    const status = button.parentElement?.querySelector<HTMLElement>('[data-copy-status]');
+    if (status) status.textContent = feedback === 'Copied!' ? `Copied ${code} to clipboard` : `Could not copy ${code}`;
+    window.setTimeout(() => {
+      if (button.dataset.copyFeedback !== feedback) return;
+      delete button.dataset.copyFeedback;
+      if (status) status.textContent = '';
+    }, 1800);
+  });
+</script>

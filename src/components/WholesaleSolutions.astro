@@ -1,6 +1,7 @@
 ---
 import { homeImage } from "../lib/home-image";
 import { getWhatsAppUrl } from '../lib/whatsapp';
+import StyleCodeCopy from './StyleCodeCopy.astro';
 const wholesaleProducts = [
   {
     badge: '🔥 NEW ARRIVAL',
@@ -366,9 +367,10 @@ const wholesaleProducts = [
             </div>
 
             <!-- Title -->
-            <h4 class="text-[17px] md:text-[18px] font-bold text-white mb-2 font-['Century_Gothic',sans-serif] tracking-tight">
+            <h4 class="text-center text-[17px] md:text-[18px] font-bold text-white mb-2 font-['Century_Gothic',sans-serif] tracking-tight">
               {'detailUrl' in product ? <a href={product.detailUrl} class="transition-colors hover:text-[#C9A84C]">{product.title}</a> : product.title}
             </h4>
+            <StyleCodeCopy code={'styleCode' in product ? product.styleCode : undefined} tone="dark" />
 
             <!-- Description -->
             <p class="text-gray-400 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif] mb-6 flex-grow line-clamp-3">

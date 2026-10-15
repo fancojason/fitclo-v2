@@ -1,4 +1,5 @@
 ---
+import { productDetailLinks } from '../data/productDetailLinks';
 import { productCategories } from '../data/productCategories';
 import { readyStockCatalog } from '../data/readyStockCatalog';
 import { getWhatsAppUrl } from '../lib/whatsapp';
@@ -51,6 +52,9 @@ const copy = isSpanish ? {
       <a href={catalogDownload} download class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-[#d8b456] px-6 text-center text-[13px] font-bold tracking-[0.05em] text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">{copy.download}</a>
     </div>
 
+    {!isSpanish && <nav aria-label="Shop ready-stock categories" class="mt-8 flex flex-wrap gap-3">
+      {[['matching-sets', 'Matching sets'], ['sports-bras', 'Sports bras'], ['leggings', 'Leggings'], ['training-pants', 'Training pants']].map(([value, label]) => <button type="button" data-ready-quick={value} aria-pressed="false" class="rounded-full border border-white/30 px-5 py-3 text-sm font-bold text-[#d8b456] aria-pressed:bg-[#d8b456] aria-pressed:text-black">{label}</button>)}
+    </nav>}
     <div class="mt-9 grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(180px,.6fr)_minmax(180px,.6fr)_auto]">
       <label class="relative block">
         <span class="sr-only">{copy.search}</span>
@@ -109,6 +113,7 @@ const copy = isSpanish ? {
                 <div class="col-span-2"><p class="font-bold tracking-[0.1em] text-[#d8b456]">{copy.branding}</p><p class="mt-1 text-white/80">{copy.brandingValue}</p></div>
               </div>
               <p class="mt-4 text-[11px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">{isSpanish ? copy.availabilityNote : product.availabilityNote}.</p>
+              {!isSpanish && productDetailLinks[product.id] && <a href={productDetailLinks[product.id]} class="mt-4 text-center text-sm font-bold text-[#d8b456] underline">View product details</a>}
               <div class="mt-auto pt-5 text-center">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[42px] items-center justify-center rounded-full border border-[#d8b456] px-4 text-center text-[12px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">{copy.check}</a>
               </div>
@@ -137,6 +142,7 @@ const copy = isSpanish ? {
       const query = normalize(search?.value ?? '');
       const selectedCategory = category?.value ?? 'all';
       const selectedMoq = moq?.value ?? 'all';
+      root.querySelectorAll<HTMLButtonElement>('[data-ready-quick]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.readyQuick === selectedCategory)));
       let visible = 0;
       cards.forEach((card) => {
         const matches = (selectedCategory === 'all' || card.dataset.category === selectedCategory)
@@ -149,6 +155,12 @@ const copy = isSpanish ? {
       empty?.classList.toggle('hidden', visible !== 0);
     };
 
+    root.querySelectorAll<HTMLButtonElement>('[data-ready-quick]').forEach((button) => button.addEventListener('click', () => {
+      if (category) category.value = button.dataset.readyQuick ?? 'all';
+      if (search) search.value = '';
+      if (moq) moq.value = 'all';
+      update();
+    }));
     search?.addEventListener('input', update);
     category?.addEventListener('change', update);
     moq?.addEventListener('change', update);

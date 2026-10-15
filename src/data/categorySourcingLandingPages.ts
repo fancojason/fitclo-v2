@@ -10,6 +10,7 @@ export type CategorySourcingLandingPage = {
   heroImageAlt?: string;
   productCodes: string[];
   productLinks?: Record<string, string>;
+  productBuyingNotes?: Record<string, string>;
   fabricNotes: string[];
   sizeNotes: string[];
   decisionRows: [string, string, string][];
@@ -52,6 +53,11 @@ export const categorySourcingLandingPages: CategorySourcingLandingPage[] = [
     heroTitle: 'Source sports bras by support intent, not just by a neckline photo.',
     heroText: 'A better private label sports-bra brief defines the activity, wearer, coverage, underband, straps, cup or pad choice, size plan and branding route. That gives buyers a concrete basis for sampling and approval.',
     productCodes: ['FC-BRA-127', 'FC-BRA-102', 'TZ4510-14'],
+    productBuyingNotes: {
+      'FC-BRA-127': 'Open-back criss-cross reference: check strap pressure, underband stability and neckline coverage on your target size range. This photograph does not establish a high-impact support rating. Individual bra MOQ: 50 pcs; confirm current stock.',
+      'FC-BRA-102': 'Seamless-knit reference: discuss the available cup or pad option, inspect pad position and assess band recovery after stretch. Confirm the exact construction before ordering. Individual bra MOQ: 50 pcs.',
+      'TZ4510-14': 'Coordinated three-piece set reference, not a standalone bra offer. Review bra fit together with the other pieces and confirm the set contents. Set MOQ: 50 sets; separate-piece purchasing requires a quote.',
+    },
     fabricNotes: ['Nylon / spandex directions for smooth stretch, support and coordinated-set programs.', 'Seamless knit polyamide / elastane for selected body-mapped bras and shaping zones.', 'Lining, elastic and cup or pad choices are specified separately from the shell fabric.'],
     sizeNotes: ['Set support intent and the planned size range before fitting the first sample.', 'Record key points such as bust, underbust, strap length and garment length for the selected construction.', 'Use representative fit reviews when the range extends beyond one base size.'],
     decisionRows: [['Support intent', 'Yoga, studio training, running or another use case?', 'Target activity, coverage and expected stability.'], ['Underband and straps', 'How should the bra anchor and adjust during movement?', 'Band width, elastic direction, strap construction and hardware notes.'], ['Cups or pads', 'Lined, removable, molded, fixed or unpadded?', 'Cup/pad construction, placement and care requirements.'], ['Branding', 'Logo at chest, back, band or other area?', 'Artwork, location, labels, hang tags and packaging.']],
@@ -100,6 +106,11 @@ export const categorySourcingLandingPages: CategorySourcingLandingPage[] = [
     heroTitle: 'Create courtwear that works from the baseline to the product page.',
     heroText: 'For tennis, pickleball and golf-inspired activewear, buyers need to settle silhouette, built-in-short construction, pocket use, movement, coverage, trim and branding before sample approval. Fitclo supports ready-stock and private label sourcing routes.',
     productCodes: ['FLT2134-1', 'TZ2134-2', 'B6505+K6510'],
+    productBuyingNotes: {
+      'FLT2134-1': 'Dress direction: the catalog records built-in shorts and contrast trim. Confirm inner-short length, coverage and pocket construction on the sample; a ball pocket is not confirmed. Catalog MOQ: 50 sets.',
+      'TZ2134-2': 'Tank-and-skort direction: the product detail page records a racerback tank, built-in shorts and side-slit pockets. Check pocket opening and retention with the intended contents; do not assume ball capacity. MOQ: 50 sets.',
+      'B6505+K6510': 'Bra-and-skirt direction: a halter sports bra paired with a high-waist tennis skirt. The catalog does not confirm pocket specifications or inner-short construction; request these details before sample approval. MOQ: 50 sets.',
+    },
     fabricNotes: ['Stretch performance fabric directions are selected against the dress, skort, tank or bra construction.', 'For skorts and dresses, review shell fabric and built-in-short fabric as separate functional choices where applicable.', 'Trim, contrast binding and pocket construction should be recorded in the sample brief.'],
     sizeNotes: ['Confirm intended dress, skirt or skort length and the fit of the built-in short.', 'Record waist, hip, rise, inseam, skirt length and top measurements relevant to the silhouette.', 'Test movement, pocket access and coverage on the selected sizes before bulk approval.'],
     decisionRows: [['Courtwear type', 'Tennis dress, tennis skort, skirt set or coordinated separates?', 'Style references, activity and feature priorities.'], ['Built-in-short details', 'Pocket, ball storage, leg opening and coverage requirements?', 'Construction notes and movement test plan.'], ['Fit and trim', 'Which length, contrast binding and top-to-bottom proportions are required?', 'POMs, colour/trim references and grading direction.'], ['Brand presentation', 'How will logo, labels, hang tags and packaging support the collection?', 'Artwork, locations and packaging brief.']],
@@ -148,6 +159,11 @@ export const categorySourcingLandingPages: CategorySourcingLandingPage[] = [
     heroTitle: 'Move from an approved product brief to an OEM activewear program.',
     heroText: 'OEM activewear is the route for buyers who need their own product details: silhouette, measurements, fabric, colors, trims, branding and packing. Fitclo helps structure the development questions before sampling and bulk planning.',
     productCodes: ['TZ4510-14', 'TZ4506-4', 'TZ2557-6'],
+    productBuyingNotes: {
+      'TZ4510-14': 'Use this set as a silhouette reference, then mark the components and construction you want to change. Its catalog MOQ is a stock offer, not an OEM quotation.',
+      'TZ4506-4': 'For a contrast-trim development, mark panel colors, binding widths and logo positions on front and back views. Confirm custom material minimums separately.',
+      'TZ2557-6': 'For a flare-set development, provide top measurements, waistband, rise and inseam targets. Approve the sample and size grading before bulk production.',
+    },
     fabricNotes: ['Start from the intended garment function, then document shell fabric, lining, elastic, mesh, trims and color direction.', 'Use physical swatches and an approved sample to confirm hand feel, coverage, stretch and recovery.', 'Keep the approved material direction consistent between sample review and bulk planning.'],
     sizeNotes: ['Provide a base size, points of measure, tolerances and grade direction wherever available.', 'Use a technical package or a documented reference brief rather than relying only on a product image.', 'Review representative sizes when the product range or construction makes this necessary.'],
     decisionRows: [['Development input', 'Do you have a tech pack, approved sample or only a reference direction?', 'Files, measurements, feature notes and target quantity.'], ['Product construction', 'Which fabric, seams, lining, trims and functional details are required?', 'BOM direction, views and construction notes.'], ['Sample gate', 'What must be approved before bulk?', 'Fit, material, color, logo, labels and packing reference.'], ['Bulk readiness', 'What must be aligned for the order and shipment plan?', 'Quantity, size mix, brand trims, inspection and destination context.']],

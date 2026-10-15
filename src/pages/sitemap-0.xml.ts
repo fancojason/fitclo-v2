@@ -78,6 +78,10 @@ const productDetailPages = Object.keys(productModules)
   .map((slug) => `/products/${slug}/`);
 
 const lastModifiedByPath = new Map<string, string>([
+  ['/blogs/white-label-vs-private-label-activewear/', '2026-10-15'],
+  ['/oem-activewear-manufacturer/', '2026-10-15'],
+  ['/tennis-wear-manufacturer/', '2026-10-15'],
+  ['/private-label-sports-bras/', '2026-10-15'],
   ['/printed-contrast-activewear-wholesale/', '2026-10-15'],
   ['/wholesale-flare-yoga-pants/', '2026-10-15'],
   ['/private-label-pilates-clothing/', '2026-10-15'],
@@ -106,7 +110,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/es/ready-stock-activewear/', '2026-09-04'],
   ['/guides/', '2026-07-10'],
   ['/inquiry/', '2026-08-16'],
-  ['/private-label/', '2026-07-10'],
+  ['/private-label/', '2026-10-15'],
   ['/premium-womens-activewear-manufacturer-china/', '2026-07-27'],
   ['/products/', '2026-07-23'],
   ['/products/capri-workout-set/', '2026-07-23'],
@@ -119,7 +123,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/products/0636/', '2026-09-03'],
   ['/products/womens-yoga-set/', '2026-07-16'],
   ['/products/wide-leg-workout-set/', '2026-07-17'],
-  ['/ready-to-ship/', '2026-07-10'],
+  ['/ready-to-ship/', '2026-10-15'],
   ['/ru/china-activewear-manufacturer-russia/', '2026-07-28'],
   ['/blogs/russia-activewear-sourcing-from-china/', '2026-07-28'],
   ['/blogs/wholesale-yoga-sets-russia-fitness-brands/', '2026-07-28'],

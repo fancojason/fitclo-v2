@@ -31,6 +31,9 @@ const staticPages = [
   '/guides/',
   '/inquiry/',
   '/private-label/',
+  '/private-label-pilates-clothing/',
+  '/wholesale-flare-yoga-pants/',
+  '/printed-contrast-activewear-wholesale/',
   '/private-label-yoga-sets/',
   '/private-label-sports-bras/',
   '/premium-womens-activewear-manufacturer-china/',
@@ -75,6 +78,9 @@ const productDetailPages = Object.keys(productModules)
   .map((slug) => `/products/${slug}/`);
 
 const lastModifiedByPath = new Map<string, string>([
+  ['/printed-contrast-activewear-wholesale/', '2026-10-15'],
+  ['/wholesale-flare-yoga-pants/', '2026-10-15'],
+  ['/private-label-pilates-clothing/', '2026-10-15'],
   ['/wholesale-to/philippines/', '2026-09-23'],
   ['/products/tz2570-4/', '2026-09-22'],
   ['/blogs/polka-dot-contrast-trim-activewear-wholesale/', '2026-09-22'],

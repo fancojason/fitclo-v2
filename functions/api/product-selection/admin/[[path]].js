@@ -7,6 +7,7 @@ import {
   isShopUrl,
   json,
   listStyles,
+  mergeSelectionItems,
   parseSizes,
   passwordsMatch,
   SIZE_KEYS,
@@ -144,7 +145,7 @@ async function submissionDetail(context, selectionId) {
   const submission = await db.prepare('SELECT * FROM product_selection_submissions WHERE selection_id = ?').bind(selectionId).first();
   if (!submission) return null;
   const items = (await db.prepare(`SELECT item.*, COALESCE(item.supplier_name_snapshot, supplier.name, '') AS supplier_name, COALESCE(item.supplier_url_snapshot, supplier.shop_url, '') AS supplier_url, COALESCE(item.product_url_snapshot, style.product_url, '') AS product_url FROM product_selection_items item LEFT JOIN product_styles style ON style.style_no = item.style_no_snapshot COLLATE NOCASE LEFT JOIN product_selection_suppliers supplier ON supplier.id = style.supplier_id WHERE item.submission_id = ? ORDER BY item.id`).bind(submission.id).all()).results;
-  return { submission, items };
+  return { submission, items: mergeSelectionItems(items, true) };
 }
 
 export async function onRequest(context) {

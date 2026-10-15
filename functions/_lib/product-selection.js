@@ -7,6 +7,30 @@ export const json = (data, status = 200, headers = {}) => new Response(JSON.stri
 });
 
 export const clean = (value, max = 500) => String(value ?? '').trim().slice(0, max);
+export const selectionIdentity = (style, color) => `${String(style).trim().toLocaleLowerCase()}\u0000${String(color).trim().replace(/\s+/g, ' ').toLocaleLowerCase()}`;
+
+export function mergeSelectionItems(items, stored = false) {
+  const merged = new Map();
+  for (const item of items) {
+    const key = selectionIdentity(stored ? item.style_no_snapshot : item.styleNo, stored ? item.color_snapshot : item.color);
+    if (!merged.has(key)) {
+      merged.set(key, stored ? { ...item } : { ...item, quantities: { ...item.quantities } });
+      continue;
+    }
+    const target = merged.get(key);
+    for (const size of SIZE_KEYS) {
+      const field = size.toLowerCase();
+      const first = stored ? target[field] : target.quantities[size];
+      const next = stored ? item[field] : item.quantities[size];
+      const sum = first === null && next === null ? null : Number(first || 0) + Number(next || 0);
+      if (!stored && sum !== null && sum > 1_000_000) throw new RangeError(`Combined ${size} quantity exceeds the limit.`);
+      if (stored) target[field] = sum;
+      else target.quantities[size] = sum;
+    }
+    target.total += item.total;
+  }
+  return [...merged.values()];
+}
 export const mediaUrl = (key) => `/product-selection-media/${String(key).split('/').map(encodeURIComponent).join('/')}`;
 export const isShopUrl = (value) => {
   try {

@@ -1,4 +1,4 @@
-import { clean, getStyleWithCharts, json, parseSizes, SIZE_KEYS, toPublicStyle } from '../../_lib/product-selection.js';
+import { clean, getStyleWithCharts, json, mergeSelectionItems, parseSizes, SIZE_KEYS, toPublicStyle } from '../../_lib/product-selection.js';
 
 const route = (context) => Array.isArray(context.params.path) ? context.params.path.join('/') : String(context.params.path || '');
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -75,16 +75,20 @@ async function submitSelection(context) {
     validated.push({ styleNo: style.style_no, color, quantities, total, supplierName: style.supplier_name || null, supplierUrl: style.supplier_url || null, productUrl: style.product_url || null });
   }
 
+  let combined;
+  try { combined = mergeSelectionItems(validated); }
+  catch { return json({ error: 'Combined quantity for a size exceeds the limit.' }, 400); }
+
   const date = new Date().toISOString().slice(0, 10).replaceAll('-', '');
   await db.prepare('INSERT OR IGNORE INTO product_selection_counters (selection_date, last_value) VALUES (?, 0)').bind(date).run();
   const counter = await db.prepare('UPDATE product_selection_counters SET last_value = last_value + 1 WHERE selection_date = ? RETURNING last_value').bind(date).first();
   const selectionId = `FS-${date}-${String(counter.last_value).padStart(4, '0')}`;
   const submission = await db.prepare('INSERT INTO product_selection_submissions (selection_id, idempotency_key, customer_name, company, whatsapp, email, country, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, submitted_at')
     .bind(selectionId, idempotencyKey, name, company, whatsapp, email, country, notes).first();
-  await db.batch(validated.map((item) => db.prepare('INSERT INTO product_selection_items (submission_id, style_no_snapshot, color_snapshot, xxs, xs, s, m, l, xl, xxl, total, supplier_name_snapshot, supplier_url_snapshot, product_url_snapshot) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+  await db.batch(combined.map((item) => db.prepare('INSERT INTO product_selection_items (submission_id, style_no_snapshot, color_snapshot, xxs, xs, s, m, l, xl, xxl, total, supplier_name_snapshot, supplier_url_snapshot, product_url_snapshot) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
     .bind(submission.id, item.styleNo, item.color, ...SIZE_KEYS.map((size) => item.quantities[size]), item.total, item.supplierName, item.supplierUrl, item.productUrl)));
 
-  const notification = sendNotification(context.env, { selectionId, name, company, whatsapp, email, country, notes }, validated).catch((error) => console.error('Product selection email failed:', error));
+  const notification = sendNotification(context.env, { selectionId, name, company, whatsapp, email, country, notes }, combined).catch((error) => console.error('Product selection email failed:', error));
   context.waitUntil?.(notification);
   return json({ success: true, selectionId, submittedAt: submission.submitted_at });
 }

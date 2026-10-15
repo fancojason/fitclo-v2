@@ -40,13 +40,23 @@ const track = (name: string, data: Record<string, string | number> = {}) => {
 
 const safeInteger = (value: unknown) => Math.max(0, Math.min(1_000_000, Math.floor(Number(value) || 0)));
 const emptyQuantities = (): Record<Size, number> => ({ XXS: 0, XS: 0, S: 0, M: 0, L: 0, XL: 0, XXL: 0 });
+const identity = (item: Selection) => `${item.styleNo.trim().toLocaleLowerCase()}\u0000${item.color.trim().replace(/\s+/g, ' ').toLocaleLowerCase()}`;
+function addOrMergeSelection(items: Selection[], selection: Selection) {
+  const existing = items.find((item) => identity(item) === identity(selection));
+  if (!existing) { items.push(selection); return true; }
+  if (sizes.some((size) => existing.quantities[size] + selection.quantities[size] > 1_000_000)) return false;
+  sizes.forEach((size) => { existing.quantities[size] += selection.quantities[size]; });
+  existing.availableSizes = sizes.filter((size) => existing.availableSizes.includes(size) || selection.availableSizes.includes(size));
+  existing.total += selection.total;
+  return true;
+}
 const persistSelections = () => sessionStorage.setItem(selectionKey, JSON.stringify(selections));
 
 function loadSelections() {
   try {
     const stored = JSON.parse(sessionStorage.getItem(selectionKey) || '[]');
     if (!Array.isArray(stored)) return;
-    selections = stored.slice(0, 100).map((item): Selection | null => {
+    const loaded = stored.slice(0, 100).map((item): Selection | null => {
       if (!item || typeof item.styleNo !== 'string' || typeof item.color !== 'string' || !Array.isArray(item.availableSizes)) return null;
       const availableSizes = sizes.filter((size) => item.availableSizes.includes(size));
       const quantities = emptyQuantities();
@@ -54,6 +64,8 @@ function loadSelections() {
       const total = sizes.reduce((sum, size) => sum + quantities[size], 0);
       return total ? { styleNo: item.styleNo, color: item.color, availableSizes, quantities, total } : null;
     }).filter(Boolean) as Selection[];
+    selections = [];
+    loaded.forEach((item) => { if (!addOrMergeSelection(selections, item)) selections.push(item); });
   } catch { selections = []; }
 }
 
@@ -172,7 +184,14 @@ addForm.addEventListener('submit', (event) => {
   const total = sizes.reduce((sum, size) => sum + quantities[size], 0);
   if (!total) { selectionError.textContent = 'Enter a quantity greater than 0 for at least one size.'; return; }
   const selection: Selection = { styleNo: currentStyle.styleNo, color: colorInput.value.trim(), availableSizes: [...currentStyle.availableSizes], quantities, total };
-  if (editIndex === null) selections.push(selection); else selections[editIndex] = selection;
+  if (editIndex === null) {
+    if (!addOrMergeSelection(selections, selection)) { selectionError.textContent = 'Combined quantity for a size exceeds the limit.'; return; }
+  } else {
+    const other = selections.find((item, index) => index !== editIndex && identity(item) === identity(selection));
+    if (other && sizes.some((size) => other.quantities[size] + selection.quantities[size] > 1_000_000)) { selectionError.textContent = 'Combined quantity for a size exceeds the limit.'; return; }
+    selections.splice(editIndex, 1);
+    addOrMergeSelection(selections, selection);
+  }
   const eventName = editIndex === null ? 'product_selection_add' : 'product_selection_edit';
   editIndex = null;
   renderSelections();

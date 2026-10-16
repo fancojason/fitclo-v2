@@ -42,7 +42,7 @@ const detailImages = [
 
 const quickFacts = [
   ['Set includes', 'Crop jacket + high-neck tank top + high waist gym leggings'],
-  ['Fabric', 'Nude-Feeling 78% Nylon / 22% Spandex'],
+  ['Fabric', 'Nude-Feeling 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane)'],
   ['Sizes', 'S, M, L, XL + or Customization'],
   ['MOQ', '50 Sets'],
   ['Branding', 'Logo, labels, hang tags, packaging, etc.'],
@@ -51,7 +51,7 @@ const quickFacts = [
 
 const specificationRows = [
   ['Product Type', 'Women 3 Piece Fitness Training Sportswear Set', 'Style Code', productCode],
-  ['Fabric', 'Nude-Feeling 78% Nylon / 22% Spandex', 'Sample', 'Available before bulk production'],
+  ['Fabric', 'Nude-Feeling 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane)', 'Sample', 'Available before bulk production'],
   ['Design', 'Crop jacket + high-neck tank top + high waist gym leggings', 'Private Label', 'Logo, labels, hang tags, packaging, etc.'],
   ['Sizes', 'S, M, L, XL + or Customization', 'OEM / ODM', 'Custom fabric, colors, fit, pattern and packaging, etc.'],
   ['Colors', 'Black, Abyss Blue, Black Coffee, Dark Red + customization, etc.', 'Logo Position', 'Front, back, waistband, legs, jacket, hang tags and packaging, etc.'],
@@ -63,7 +63,7 @@ const faqs = [
   {
     question: 'What is the fabric for TZ3562-10?',
     answer:
-      'TZ3562-10 uses Nude-Feeling 78% Nylon / 22% Spandex. The fabric is designed for soft touch, four-way stretch, stretch recovery, breathable comfort and smooth compression.',
+      'TZ3562-10 uses Nude-Feeling 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane). The fabric is designed for soft touch, four-way stretch, stretch recovery, breathable comfort and smooth compression.',
   },
   {
     question: 'Is this a 3-piece yoga set or a workout jacket set?',
@@ -108,7 +108,7 @@ const productSchema = {
   image: [...galleryImages.map((image) => `https://www.fitcloo.com${image.src}`), ...detailImages.map(([src]) => `https://www.fitcloo.com${src}`)],
   sku: productCode,
   mpn: productCode,
-  material: 'Nude-Feeling 78% Nylon / 22% Spandex',
+  material: 'Nude-Feeling 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane)',
   size: 'S, M, L, XL + or Customization',
   brand: {
     '@type': 'Brand',
@@ -124,7 +124,7 @@ const productSchema = {
   },
   additionalProperty: [
     { '@type': 'PropertyValue', name: 'Product type', value: 'Women 3 Piece Fitness Training Sportswear Set' },
-    { '@type': 'PropertyValue', name: 'Fabric', value: 'Nude-Feeling 78% Nylon / 22% Spandex' },
+    { '@type': 'PropertyValue', name: 'Fabric', value: 'Nude-Feeling 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane)' },
     { '@type': 'PropertyValue', name: 'Sizes', value: 'S, M, L, XL + or Customization' },
     { '@type': 'PropertyValue', name: 'MOQ', value: '50 Sets' },
     { '@type': 'PropertyValue', name: 'Applications', value: 'Yoga, Pilates, gym workouts, fitness training, running warm-up, studio classes and athleisure' },
@@ -384,7 +384,7 @@ const faqSchema = {
         <h2 id="fabric-heading" class="mt-4 text-[30px] font-bold leading-[1.16] sm:text-[38px] font-['Century_Gothic',sans-serif]">Nude-feeling nylon-spandex for a soft premium hand feel.</h2>
         <div class="mt-9 grid gap-6 md:grid-cols-3">
           {[
-            ['78% Nylon / 22% Spandex', 'A nude-feeling brushed performance base for soft touch, stretch recovery and premium compression.'],
+            ['78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane)', 'A nude-feeling brushed performance base for soft touch, stretch recovery and premium compression.'],
             ['Moisture-wicking structure', 'Built for yoga, gym, Pilates and athleisure scenes where comfort, opacity and recovery matter.'],
             ['Wear-resistant finish', 'Suitable for repeat wear, retail display, private label sampling and premium activewear merchandising.'],
           ].map(([title, description]) => (

@@ -21,7 +21,7 @@ const images = [
 const colors = ['Pink Drink', 'Graish Blue', 'Delicate Red', 'Date Brown', 'Black'];
 const facts = [
   ['Style', 'Halter sports bra + high-waist flare pants'],
-  ['Fabric', '90% Polyamide / 10% Elastane; seamless knitted nylon-spandex fabric'],
+  ['Fabric', '90% Polyamide / 10% Elastane (90% Nylon / 10% Spandex); seamless knitted nylon-spandex fabric'],
   ['Sizes', 'S / M / L / XL'],
   ['Colors shown', colors.join(' / ')],
   ['Stock & MOQ', 'Ready stock; 50 sets'],
@@ -29,7 +29,7 @@ const facts = [
 ];
 const specifications = [
   ['Model', sku, 'Set includes', 'Halter sports bra + flare pants'],
-  ['Fabric', '90% Polyamide / 10% Elastane, seamless knitted nylon-spandex fabric', 'Feature', 'Breathable, Quick Dry, Lightweight'],
+  ['Fabric', '90% Polyamide / 10% Elastane (90% Nylon / 10% Spandex), seamless knitted nylon-spandex fabric', 'Feature', 'Breathable, Quick Dry, Lightweight'],
   ['Sizes', 'S / M / L / XL', 'MOQ', '50 sets'],
   ['Bra', 'Halter strap, open back and removable padding shown in the supplied product guide', 'Pants', 'High-waist waistband and flared leg'],
   ['Colors', colors.join(', '), 'Stock', 'Ready stock; confirm current color and size availability'],
@@ -38,16 +38,16 @@ const faqs = [
   ['What comes in the TZ2557-3 set?', 'This two-piece set comprises the halter sports bra and matching high-waist flare pants. The matching-series picture also shows other tops, shorts and fitted leggings; those are styling references and are not included in this set.'],
   ['Is the bra backless?', 'The halter bra has an open-back design with a narrow back strap, as shown in the product images. Ask for a sample to assess support and coverage for your intended use; no high-impact support rating is specified.'],
   ['Are the pants flared or straight?', 'They are high-waist flare pants: the leg widens toward the hem. The color chart shows Pink Drink, Graish Blue, Delicate Red, Date Brown and Black.'],
-  ['What fabric and sizes are specified?', 'The supplied specification is 90% Polyamide / 10% Elastane seamless knitted nylon-spandex fabric in S, M, L and XL. The listed features are Breathable, Quick Dry and Lightweight.'],
+  ['What fabric and sizes are specified?', 'The supplied specification is 90% Polyamide / 10% Elastane (90% Nylon / 10% Spandex) seamless knitted nylon-spandex fabric in S, M, L and XL. The listed features are Breathable, Quick Dry and Lightweight.'],
   ['What is the wholesale minimum order?', 'The ready-stock MOQ is 50 sets. Send your preferred colors, size breakdown and destination so Fitclo can confirm current availability and a quote.'],
 ];
 const productSchema = {
   '@context': 'https://schema.org', '@type': 'Product', '@id': url + '#product',
   name: productName, sku, mpn: sku, url,
-  description: 'TZ2557-3 two-piece seamless knit yoga set with a backless halter sports bra and high-waist flare pants. 90% Polyamide / 10% Elastane; sizes S, M, L, XL; wholesale MOQ 50 sets.',
+  description: 'TZ2557-3 two-piece seamless knit yoga set with a backless halter sports bra and high-waist flare pants. 90% Polyamide / 10% Elastane (90% Nylon / 10% Spandex); sizes S, M, L, XL; wholesale MOQ 50 sets.',
   image: images.slice(0, 3).map(({ src }) => 'https://www.fitcloo.com' + src),
   brand: { '@type': 'Brand', name: 'Fitclo' }, category: 'Matching Sets / Yoga Sets',
-  material: '90% Polyamide / 10% Elastane, seamless knitted nylon-spandex fabric',
+  material: '90% Polyamide / 10% Elastane (90% Nylon / 10% Spandex), seamless knitted nylon-spandex fabric',
   size: ['S', 'M', 'L', 'XL'], color: colors,
   additionalProperty: [
     { '@type': 'PropertyValue', name: 'Feature', value: 'Breathable, Quick Dry, Lightweight' },
@@ -96,7 +96,7 @@ const whatsappUrl = getWhatsAppUrl({ productCode: sku, productName });
             <p class="text-[11px] font-bold tracking-[.2em] text-[#d8b456]">READY STOCK · WHOLESALE ACTIVEWEAR</p>
             <h1 class="mt-5 text-[38px] font-bold leading-[1.08] sm:text-[50px]">{productName}</h1>
             <p class="mt-3 text-[15px] font-semibold text-[#d8b456]">Style {sku}</p>
-            <p class="mt-6 max-w-[660px] text-[16px] leading-[1.75] text-white/75">A two-piece women's yoga and workout set pairing an open-back halter sports bra with high-waist flare pants. The wide ribbed waistband and flared leg give it a distinct studio-to-athleisure profile. The supplied specification is seamless knitted 90% Polyamide / 10% Elastane.</p>
+            <p class="mt-6 max-w-[660px] text-[16px] leading-[1.75] text-white/75">A two-piece women's yoga and workout set pairing an open-back halter sports bra with high-waist flare pants. The wide ribbed waistband and flared leg give it a distinct studio-to-athleisure profile. The supplied specification is seamless knitted 90% Polyamide / 10% Elastane (90% Nylon / 10% Spandex).</p>
             <dl class="mt-8 grid gap-x-8 gap-y-5 border-y border-white/15 py-6 sm:grid-cols-2">{facts.map(([label, value]) => <div><dt class="text-[11px] font-bold tracking-[.12em] text-[#d8b456]">{label}</dt><dd class="mt-2 text-[14px] leading-[1.55] text-white/85">{value}</dd></div>)}</dl>
             <div class="mt-8 flex flex-wrap gap-3"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center rounded-full bg-[#d8b456] px-6 text-[13px] font-bold text-[#101010]">Request Wholesale Quote</a><a href="#product-inquiry" class="inline-flex min-h-12 items-center rounded-full border border-white/35 px-6 text-[13px] font-bold">Send Product Inquiry</a></div>
           </div>

@@ -41,7 +41,7 @@ const detailImages = [
 
 const quickFacts = [
   ['Set includes', '3/4 sleeve crop top + high waist capri leggings'],
-  ['Fabric', 'Brushed 78% Nylon / 22% Spandex'],
+  ['Fabric', 'Brushed 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane)'],
   ['Sizes', 'S, M, L, XL + or Customization'],
   ['MOQ', '50 Sets'],
   ['Branding', 'Logo, labels, hang tags, packaging, etc.'],
@@ -50,7 +50,7 @@ const quickFacts = [
 
 const specificationRows = [
   ['Product Type', 'Women 2 Piece 3/4 Sleeve Capri Workout Set', 'Style Code', productCode],
-  ['Fabric', 'Brushed 78% Nylon / 22% Spandex', 'Sample', 'Available before bulk production'],
+  ['Fabric', 'Brushed 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane)', 'Sample', 'Available before bulk production'],
   ['Design', '3/4 sleeve crop top + high waist butt lift capri leggings', 'Private Label', 'Logo, labels, hang tags, packaging, etc.'],
   ['Sizes', 'S, M, L, XL + or Customization', 'OEM / ODM', 'Custom fabric, colors, fit, pattern and packaging, etc.'],
   ['Colors', 'Cherry Blossom, Cherry Red, Dark Blue, Chocolate Brown, Sauce Purple, Black + customization, etc.', 'Logo Position', 'Front, back, waist, sleeves, legs, etc.'],
@@ -61,7 +61,7 @@ const specificationRows = [
 const faqs = [
   {
     question: 'What is the fabric for TZ8455-12?',
-    answer: 'TZ8455-12 uses a brushed 78% Nylon / 22% Spandex fabric. It is designed for a soft hand feel, four-way stretch, close body comfort and everyday studio-to-running use.',
+    answer: 'TZ8455-12 uses a brushed 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane) fabric. It is designed for a soft hand feel, four-way stretch, close body comfort and everyday studio-to-running use.',
   },
   {
     question: 'Is this a capri leggings set or a two-piece yoga set?',
@@ -104,7 +104,7 @@ const productSchema = {
   image: [...galleryImages.map((image) => `https://www.fitcloo.com${image.src}`), ...detailImages.map(([src]) => `https://www.fitcloo.com${src}`)],
   sku: productCode,
   mpn: productCode,
-  material: 'Brushed 78% Nylon / 22% Spandex',
+  material: 'Brushed 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane)',
   size: 'S, M, L, XL + or Customization',
   brand: {
     '@type': 'Brand',
@@ -120,7 +120,7 @@ const productSchema = {
   },
   additionalProperty: [
     { '@type': 'PropertyValue', name: 'Product type', value: 'Women 2 Piece 3/4 Sleeve Capri Workout Set' },
-    { '@type': 'PropertyValue', name: 'Fabric', value: 'Brushed 78% Nylon / 22% Spandex' },
+    { '@type': 'PropertyValue', name: 'Fabric', value: 'Brushed 78% Nylon / 22% Spandex (78% Polyamide / 22% Elastane)' },
     { '@type': 'PropertyValue', name: 'Sizes', value: 'S, M, L, XL + or Customization' },
     { '@type': 'PropertyValue', name: 'Applications', value: 'Yoga, gym workout, running, Pilates, studio training and athleisure' },
     { '@type': 'PropertyValue', name: 'Features', value: 'Second skin, breathable, moisture absorption perspiration, butter soft, four-way stretch' },

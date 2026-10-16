@@ -42,7 +42,7 @@ const galleryImages = [
 const quickFacts = [
   ['Set includes', 'Strappy sports bra + high-waist leggings'],
   ['Colors shown', 'Black / Coffee Brown / Light Blue + other colors, etc.'],
-  ['Fabric & GSM', '68% Nylon / 32% Spandex, 230gsm'],
+  ['Fabric & GSM', '68% Nylon / 32% Spandex (68% Polyamide / 32% Elastane), 230gsm'],
   ['Sizes', '4, 6, 8, 10 + or Customization'],
   ['Branding', 'Logo, labels, hang tags, packaging, etc.'],
   ['MOQ', '50 Sets'],
@@ -50,7 +50,7 @@ const quickFacts = [
 
 const specificationRows = [
   ['Product Type', "2 Piece Women's Yoga Set", 'Sample', 'Available before bulk production'],
-  ['Fabric & GSM', '68% Nylon / 32% Spandex, 230gsm', 'Private Label', 'Logo, labels, hang tags, packaging, etc.'],
+  ['Fabric & GSM', '68% Nylon / 32% Spandex (68% Polyamide / 32% Elastane), 230gsm', 'Private Label', 'Logo, labels, hang tags, packaging, etc.'],
   ['Design', 'Multi-strap open-back bra + high-waist leggings', 'Logo & Labels', 'Heat transfer, silicone, embroidery or woven label'],
   ['Sizes', '4, 6, 8, 10 + or Customization', 'OEM / ODM', 'Custom fabric, colors, fit, sizing, pattern, packaging, etc.'],
   ['Colors', 'Black, Coffee Brown, Light Blue + custom colors, etc.', 'Shipping', 'Express, air freight or sea freight'],
@@ -112,7 +112,7 @@ const productSchema = {
   image: galleryImages.map((image) => `https://www.fitcloo.com${image.src}`),
   sku: productCode,
   mpn: productCode,
-  material: '68% Nylon / 32% Spandex',
+  material: '68% Nylon / 32% Spandex (68% Polyamide / 32% Elastane)',
   size: '4, 6, 8, 10 + or Customization',
   brand: {
     '@type': 'Brand',
@@ -129,7 +129,7 @@ const productSchema = {
   additionalProperty: [
     { '@type': 'PropertyValue', name: 'Components', value: 'Strappy sports bra + high-waist full-length leggings' },
     { '@type': 'PropertyValue', name: 'Design', value: 'Multi-strap open back; coordinated silhouette' },
-    { '@type': 'PropertyValue', name: 'Fabric & GSM', value: '68% Nylon / 32% Spandex, 230gsm' },
+    { '@type': 'PropertyValue', name: 'Fabric & GSM', value: '68% Nylon / 32% Spandex (68% Polyamide / 32% Elastane), 230gsm' },
     { '@type': 'PropertyValue', name: 'Sizes', value: '4, 6, 8, 10 + or Customization' },
     { '@type': 'PropertyValue', name: 'Sample', value: 'Available' },
     { '@type': 'PropertyValue', name: 'Private label', value: 'Logo, labels, hang tags, packaging, etc.' },

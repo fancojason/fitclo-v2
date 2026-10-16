@@ -114,7 +114,7 @@ export async function submitInquiry(fields: Record<string, FormDataEntryValue>) 
   // A confirmed provider acceptance is a lead event, not proof of inbox delivery.
   const result = await response.clone().json().catch(() => null);
   if (response.ok && result?.success && result.id) {
-    trackInquiryEvent('generate_lead', { product_code: String(fields.product_code || ''), inquiry_id: result.id });
+    trackInquiryEvent('generate_lead', { form_type: fields.product_code ? 'product_inquiry' : 'inquiry', product_code: String(fields.product_code || ''), inquiry_id: result.id });
   } else {
     trackInquiryEvent('form_submit_error', {
       error_type: response.ok ? 'provider_response' : `http_${response.status}`,

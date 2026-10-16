@@ -1,8 +1,26 @@
 ---
 import { homeImage } from "../lib/home-image";
 import { getWhatsAppUrl } from '../lib/whatsapp';
+import { getCatalogProductByStyleCode } from '../data/productCatalog';
 import StyleCodeCopy from './StyleCodeCopy.astro';
+const featuredCodes = ['TZ2578-15', 'TZ3005-2', 'TZ5529-19', 'LD2681-Set'];
+const featuredProducts = featuredCodes.map((code) => {
+  const product = getCatalogProductByStyleCode(code);
+  if (!product) throw new Error(`Homepage product not found: ${code}`);
+  return {
+    badge: 'NEW ARRIVAL',
+    title: product.name,
+    description: product.description,
+    image: product.image,
+    styleCode: product.styleCode,
+    moq: product.moq.replace('sets', 'Sets'),
+    leadTime: 'Confirm with Fitclo',
+    customization: 'Ask Fitclo',
+    selectValue: 'Yoga Set'
+  };
+});
 const wholesaleProducts = [
+  ...featuredProducts,
   {
     badge: '🔥 NEW ARRIVAL',
     title: "Women's Yoga Set",

@@ -1,0 +1,67 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+
+const title = 'How to Request an Activewear Manufacturing Quote Without a Tech Pack';
+const relatedReading = [
+  { title: 'Activewear tech pack template', link: '/blogs/activewear-tech-pack-template-specification-sheet/', desc: 'Move from an initial brief to a fuller specification.' },
+  { title: 'Activewear manufacturing cost guide', link: '/blogs/activewear-manufacturing-cost-guide/', desc: 'Understand the inputs behind a comparable quotation.' },
+  { title: 'Ready-to-ship activewear', link: '/ready-to-ship/', desc: 'Explore an existing-style route if development is not required.' },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle="Activewear Quote Without a Tech Pack: Buyer Brief | Fitclo"
+  description="No tech pack yet? Use a one-page activewear buyer brief to request a useful preliminary quote, identify unknowns and choose ready stock, private label or OEM development."
+  type="Activewear Buyer Guide"
+  articleKind="quote-request-guide"
+  date="October 17, 2026"
+  publishedIso="2026-10-17"
+  modifiedIso="2026-10-17"
+  articleImage="/images/intelligence/cover-factory-guide.png"
+  quickAnswerTitle="You can start an activewear quote conversation without a finished tech pack. Send a clear product reference, intended sourcing route, quantities by style and color, size range, fabric direction, branding needs and destination. Ask the supplier to mark every assumption and quote the unresolved parts separately."
+  quickTakeaways={[
+    'A preliminary quote is conditional until fabric, fit, construction and order mix are defined.',
+    'Existing stock, private labeling and a developed OEM style need different inputs.',
+    'One consistent brief makes follow-up questions and supplier comparisons easier.',
+  ]}
+  planningPlacement="before"
+  planningTableTitle="The minimum brief for a first activewear quote"
+  tableHeaders={['Field', 'What to send', 'If undecided']}
+  planningRows={[
+    ['Product and route', 'Garment type, front/back reference photos and whether you want an existing style or a new design.', 'Ask for both ready-stock and development routes if relevant.'],
+    ['Order plan', 'Estimated units by style, color and size; target delivery market.', 'Give a range and identify it as an estimate.'],
+    ['Material and fit', 'Preferred fabric feel or composition, coverage, support and fit priorities.', 'Send a physical reference or rank the performance requirements.'],
+    ['Branding and delivery', 'Logo, labels, packaging, target date and requested delivery basis.', 'Ask what the quoted price includes and what remains open.'],
+  ]}
+  relatedReading={relatedReading}
+  ctaTitle="Have a product idea but no completed tech pack?"
+  ctaText="Send Fitclo your reference images, category, estimated quantity, size range and branding plan. We can discuss which details need to be fixed before a meaningful quote or sample decision."
+  ctaHref="/inquiry/"
+  ctaLabel="Send a product brief"
+>
+  <p><strong>Can you get an activewear manufacturing quote without a tech pack?</strong> Yes, as an initial discussion. A photo and a target quantity can help identify the sourcing route, but they cannot define the final fabric, construction, fit or landed cost. The useful first step is a short buyer brief that separates decisions already made from those the supplier must help resolve.</p>
+
+  <h2>Choose the route before requesting a price</h2>
+  <p><a href="/ready-to-ship/">Ready-to-ship styles</a> start with an existing product: send its style reference, requested colors, sizes and quantities, then ask about current availability. <a href="/private-label/">Private label</a> adds a brand presentation such as logo, labels or packaging to a suitable base style. A new silhouette, pattern or construction belongs in an <a href="/oem-activewear-manufacturer/">OEM development</a> discussion and needs a fuller specification and sample process. The same reference image can lead to different costs and timelines under these routes, so state which one you want—or ask the supplier to compare them.</p>
+
+  <h2>Build a one-page brief that can be answered</h2>
+  <ol>
+    <li><strong>Identify the product.</strong> Write “women's longline sports bra,” “flare yoga pants” or the precise category. Attach a front view, back view and close-ups of details you want to retain. Label references as inspiration rather than claiming they are your own design.</li>
+    <li><strong>Describe the wearer and use.</strong> State the intended activity, coverage, support and feel. For leggings, note waistband, inseam, opacity and pocket needs. For sports bras, note band, straps, lining and padding decisions.</li>
+    <li><strong>Give an order matrix.</strong> List estimated units by style, color and size. A total of 500 pieces means something different when spread over many colorways and sizes. If the split is unknown, say so and ask for a provisional scenario.</li>
+    <li><strong>Separate fixed from flexible choices.</strong> If “soft hand feel” matters more than a particular fiber percentage, make that explicit. If a specific composition or trim is mandatory, attach its reference and ask whether it is available.</li>
+    <li><strong>Specify the retail presentation.</strong> Note logo artwork, placement, labels, hang tags, individual packing and barcodes. The brand can defer some choices, but should not assume they are included.</li>
+    <li><strong>Name the destination and timing.</strong> State the country, desired delivery window and any delivery term you want priced. Ask which currency, freight and duties are included.</li>
+  </ol>
+
+  <h2>Copyable first-contact brief</h2>
+  <blockquote><p>We are sourcing [product category] for [market]. We prefer [ready stock / private label / new OEM style]. The attached images show [features to retain] and [features to change]. Our estimated order is [units] across [colors] and [sizes]. Priority requirements are [fabric feel, coverage, support, fit or construction]. Branding needed: [logo, labels, packaging]. Target delivery: [month and destination]. Please identify available options, sample requirements, the MOQ basis, the delivery basis and all assumptions behind a preliminary quote. Mark any item that needs confirmation before a final price.</p></blockquote>
+
+  <h2>How to judge the reply</h2>
+  <p>A useful supplier response tells you what is available now, what must be developed, what has been assumed, and which decisions change price or lead time. If one supplier quotes an existing stock garment and another quotes a newly developed style, the two numbers are not comparable. Ask both to respond to the same brief and show inclusions, exclusions and the quantity basis. Our <a href="/blogs/activewear-manufacturing-cost-guide/">cost guide</a> explains those drivers in more detail.</p>
+  <p>Do not treat a first price as a purchase-order approval. Once the route is chosen, turn the brief into a measurement sheet, materials list, branding artwork and an agreed sample reference. The <a href="/blogs/activewear-tech-pack-template-specification-sheet/">tech pack template</a> helps organize those fields; the <a href="/blogs/activewear-sample-approval-checklist/">sample approval checklist</a> helps confirm what the finished garment must reproduce.</p>
+
+  <h2>What this guide does and does not verify</h2>
+  <p>The fields above are buyer planning recommendations, not a claim that every factory can quote every garment from images. The feasibility of any particular fabric, color, size range, MOQ, branding method or delivery date must be confirmed for the selected style. A product photograph cannot establish fiber composition, performance or a finished fit.</p>
+</EditorialArticleLayout>

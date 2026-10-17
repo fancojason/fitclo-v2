@@ -1,0 +1,73 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+
+const title = 'Activewear Purchase Order Checklist: What to Confirm Before Bulk Production';
+const relatedReading = [
+  { title: 'Sample approval checklist', link: '/blogs/activewear-sample-approval-checklist/', desc: 'Approve the physical reference before release.' },
+  { title: 'FOB vs DAP vs DDP for activewear', link: '/blogs/fob-vs-ddp-vs-dap-activewear-imports/', desc: 'Define delivery responsibilities precisely.' },
+  { title: 'Activewear quality inspection checklist', link: '/blogs/activewear-quality-inspection-checklist/', desc: 'Plan checks against the approved order.' },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle="Activewear Purchase Order Checklist Before Bulk | Fitclo"
+  description="A buyer's activewear PO checklist for style, fabric, size-color matrix, approved sample, branding, labels, delivery terms, inspection and change control."
+  type="Activewear Procurement Guide"
+  articleKind="purchase-order-checklist"
+  date="October 17, 2026"
+  publishedIso="2026-10-17"
+  modifiedIso="2026-10-17"
+  articleImage="/images/intelligence/cover-factory-guide.png"
+  quickAnswerTitle="Before releasing an activewear purchase order, make the accepted sample, written specification, style-color-size quantities, branding, packing, price basis, delivery term and approval responsibilities point to the same version. Resolve every 'to be confirmed' item before treating the order as production-ready."
+  quickTakeaways={[
+    'An approved sample and a PO must reference the same product revision.',
+    'State the order in style-color-size rows rather than one total quantity.',
+    'Assign owners and deadlines for labels, artwork, inspection and changes.',
+  ]}
+  planningPlacement="before"
+  planningTableTitle="Purchase-order release gates"
+  tableHeaders={['Gate', 'Evidence to attach or reference', 'Release question']}
+  planningRows={[
+    ['Product', 'Current tech pack, materials list, measurement chart and approved sample ID.', 'Does every line item point to the same revision?'],
+    ['Quantity', 'Style-color-size matrix and agreed tolerances.', 'Do row totals match the commercial total?'],
+    ['Branding', 'Approved artwork, placement, labels, tags and packing instructions.', 'Who signs off each component?'],
+    ['Commercial', 'Currency, unit price, payment schedule, Incoterm with named place and delivery window.', 'What costs and responsibilities are excluded?'],
+    ['Quality', 'Inspection criteria, sample retention and defect-resolution path.', 'How will the order be checked before shipment?'],
+  ]}
+  relatedReading={relatedReading}
+  ctaTitle="Preparing a first or repeat activewear order?"
+  ctaText="Share the style reference, quantities, approved sample status and destination with Fitclo. We can discuss the specifications that need to be settled for a realistic production conversation."
+  ctaHref="/inquiry/"
+  ctaLabel="Discuss an order brief"
+>
+  <p><strong>What belongs on an activewear purchase order before bulk production?</strong> The PO must be more than a style name, total quantity and unit price. It needs to identify exactly which garment version is approved, how many units of every color and size are required, what branding and packing are included, and how delivery and acceptance will work. This checklist is a buyer planning tool; the contract terms should be agreed with the supplier and relevant advisers.</p>
+
+  <h2>1. Freeze the product version</h2>
+  <p>Record a style code and revision date. Reference the final tech pack or written specification, the approved physical sample and any approved fabric and color standards. For a sports bra, identify the support construction, straps, pads, lining and elastic; for leggings, identify waistband, inseam, seams, pockets and coverage requirements. If a sample change is still pending, mark the PO as conditional and name the approval gate. Our <a href="/blogs/activewear-sample-approval-checklist/">sample checklist</a> covers the physical review in depth.</p>
+
+  <h2>2. Reconcile the style-color-size matrix</h2>
+  <p>Show units for each style, color and size. Check that the sum of line items equals the order total, and confirm whether tops and bottoms in a set are packed together or counted as separate units. Note any agreed over/under-delivery tolerance instead of assuming one exists. The matrix should also identify which quantities are ready stock and which require new production; do not apply a ready-stock MOQ to a developed OEM design.</p>
+
+  <h2>3. Attach material, color and trim decisions</h2>
+  <p>Write the agreed fiber composition and fabric reference where known, plus the approved color standard and any contrast trims. Specify logo method, artwork version, placement dimensions, label content, hang tags, hardware and individual packaging. If a substitute fabric or component may be proposed, require written approval before use. A visual reference alone is insufficient for material acceptance.</p>
+
+  <h2>4. Confirm destination-market label responsibility</h2>
+  <p>Agree who supplies label copy and who checks it for the destination market. For the United States, the <a href="https://www.ftc.gov/business-guidance/industry/clothing-and-textiles" rel="noopener noreferrer" target="_blank">FTC's clothing and textiles guidance</a> covers fiber content, country of origin, responsible business identity and care instructions. For EU sales, the <a href="https://europa.eu/youreurope/business/product-rules-compliance/textiles-and-footwear/textile-label/index_en.htm" rel="noopener noreferrer" target="_blank">European Commission's textile-label guidance</a> describes fiber-composition and language requirements. These sources do not replace market-specific legal review; label requirements vary by destination and product.</p>
+
+  <h2>5. Put price and delivery on one basis</h2>
+  <p>Include currency, unit price by line, any separately priced development or branding charges, payment milestones and delivery window. If using an Incoterm, state its version and named place. The <a href="https://library.iccwbo.org/content/clp/Others/incoterms_2020_checklist_2024-update.pdf" rel="noopener noreferrer" target="_blank">ICC Incoterms 2020 checklist</a> explains why the chosen rule changes cost, risk and responsibility; “shipping included” alone is not precise enough. See our <a href="/blogs/fob-vs-ddp-vs-dap-activewear-imports/">activewear import comparison</a> for a buyer-oriented explanation.</p>
+
+  <h2>6. Specify approval, inspection and change control</h2>
+  <p>Name the person who approves fabric, color, fit, artwork, labels and packing. Define when a pre-production review is required, what records will be retained and how an issue is escalated. The <a href="/blogs/activewear-quality-inspection-checklist/">quality inspection checklist</a> can help turn the approved specification into checks. Also state that any change to material, color, quantity, delivery or artwork needs a written revision to the order and a review of its price and timing effect.</p>
+
+  <h2>A final five-minute PO audit</h2>
+  <ol>
+    <li>Does every line identify a style, version, color, size, quantity and unit price?</li>
+    <li>Do the totals reconcile, and are set components counted consistently?</li>
+    <li>Is the approved sample identifiable and are open revisions closed?</li>
+    <li>Are label, logo, packing and destination requirements assigned to an owner?</li>
+    <li>Are delivery basis, inspection gates and written-change rules unambiguous?</li>
+  </ol>
+  <p>If any answer is “not yet,” hold the production release for that item. This is a procedural recommendation, not a promise of zero defects or guaranteed delivery; final feasibility and terms depend on the actual style and supplier agreement.</p>
+</EditorialArticleLayout>

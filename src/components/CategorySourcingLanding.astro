@@ -138,9 +138,9 @@ const faqSchema = {
       <a href="/es/ready-stock-activewear/">Consultar el programa de stock</a>
       <a href="/es/contact/">Solicitar una cotización</a>
       {buyerGuideLinks && <a data-buyer-guide-link href={buyerGuideLinks.href}>{buyerGuideLinks.label}</a>}
-      {isSpanish && <a href="/es/guias/">Ver todas las guías de compra</a>}
       {relatedSpanishProducts.map(([sku, label]) => <a data-related-spanish-product href={`/es/products/${sku}/`}>{label}</a>)}
     </nav>
   </div></section>}
+  {isSpanish && <p class="bg-[#090909] px-6 py-8 text-center text-sm leading-relaxed text-white/75">¿Necesitas preparar el brief, comparar modalidades o revisar una muestra? <a href="/es/guias/" class="text-[#d8b456] underline">Consulta las guías de compra y fabricación en español</a>.</p>}
   <InquiryForm />
 </BaseLayout>

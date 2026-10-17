@@ -138,6 +138,7 @@ const faqSchema = {
       <a href="/es/ready-stock-activewear/">Consultar el programa de stock</a>
       <a href="/es/contact/">Solicitar una cotización</a>
       {buyerGuideLinks && <a data-buyer-guide-link href={buyerGuideLinks.href}>{buyerGuideLinks.label}</a>}
+      {isSpanish && <a href="/es/guias/">Ver todas las guías de compra</a>}
       {relatedSpanishProducts.map(([sku, label]) => <a data-related-spanish-product href={`/es/products/${sku}/`}>{label}</a>)}
     </nav>
   </div></section>}

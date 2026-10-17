@@ -25,6 +25,7 @@ const whatsappUrl = getWhatsAppUrl({ customMessage: whatsappMessage });
     <img src={guide.image} alt={guide.imageAlt} loading="eager" width="1280" height="720" />
   </figure>
   <p>{guide.intro}</p>
+  <p><a href="/es/guias/">Explorar todas las guías de compra en español</a></p>
   <nav aria-label="Contenido de la guía">
     <p><strong>En esta guía</strong></p>
     <ol>{guide.sections.map((section, index) => <li><a href={`#paso-${index + 1}`}>{section.heading}</a></li>)}</ol>

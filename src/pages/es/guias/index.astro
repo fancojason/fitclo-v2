@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { spanishGuides } from '../../../content/es/guides';
+
+const pageUrl = 'https://www.fitcloo.com/es/guias/';
+const topics = [
+  { slug: 'moq-ropa-deportiva', label: 'MOQ y primer pedido', question: '¿Qué cantidad mínima corresponde a mi selección?', detail: 'Distingue conjuntos de prendas individuales y prepara modelos, colores, tallas y cantidades antes de solicitar una propuesta.' },
+  { slug: 'marca-privada-vs-oem-odm', label: 'Marca privada y OEM/ODM', question: '¿Partir de un modelo existente o desarrollar uno propio?', detail: 'Compara el alcance de diseño, muestras, logo, etiquetas y embalaje de cada ruta sin trasladar condiciones de stock a OEM.' },
+  { slug: 'precio-fabricar-ropa-deportiva-personalizada', label: 'Costos y cotización', question: '¿Qué información necesita una cotización comparable?', detail: 'Revisa tejido, confección, piezas del conjunto, cantidades y acabados antes de comparar propuestas.' },
+  { slug: 'desarrollar-coleccion-ropa-deportiva', label: 'Desarrollo de colección', question: '¿Cómo pasar del brief a una muestra aprobada?', detail: 'Organiza referencias, medidas, materiales, revisiones, marca y preparación de la producción.' },
+  { slug: 'problemas-calidad-ropa-deportiva-muestra-produccion', label: 'Calidad y producción', question: '¿Por qué la producción puede diferir de la muestra?', detail: 'Investiga color, logo, cintura, tallas y cambios de versión con un registro verificable del pedido.' },
+].map((topic) => ({ ...topic, guide: spanishGuides.find((guide) => guide.slug === topic.slug) }));
+---
+
+<BaseLayout
+  lang="es"
+  title="Guías para Comprar y Fabricar Ropa Deportiva | Fitclo"
+  description="Cinco guías en español para compradores B2B de ropa deportiva: MOQ, marca privada, OEM/ODM, cotización, desarrollo de muestras y control de calidad."
+  canonicalURL={pageUrl}
+  autoArticleSchema={false}
+>
+  <main class="bg-[#090909] pt-28 text-white">
+    <div class="mx-auto max-w-[1180px] px-6 pb-20 lg:px-10">
+      <nav aria-label="Ruta de navegación" class="mb-8 text-sm text-white/65"><a href="/es/" class="hover:text-[#d8b456]">Inicio</a><span aria-hidden="true"> / </span>Guías de compra</nav>
+      <p class="text-xs font-bold uppercase tracking-[.2em] text-[#d8b456]">Recursos para compradores B2B</p>
+      <h1 class="mt-4 max-w-[850px] font-['Century_Gothic',sans-serif] text-4xl font-bold leading-tight md:text-6xl">Guías para comprar y fabricar ropa deportiva</h1>
+      <p class="mt-6 max-w-[800px] text-lg leading-relaxed text-white/75">Elige la pregunta que corresponde a tu proyecto. Estas guías explican qué datos conviene preparar para evaluar stock, marca privada u OEM/ODM; las condiciones comerciales y la disponibilidad se confirman para cada modelo y pedido.</p>
+
+      <div class="mt-12 grid gap-5 md:grid-cols-2">
+        {topics.map(({ slug, label, question, detail, guide }, index) => guide && (
+          <article class="rounded-xl border border-white/15 bg-[#111218] p-7 md:p-8">
+            <p class="text-xs font-bold uppercase tracking-[.13em] text-[#d8b456]">{String(index + 1).padStart(2, '0')} · {label}</p>
+            <h2 class="mt-4 font-['Century_Gothic',sans-serif] text-2xl font-bold leading-snug"><a href={`/es/guias/${slug}/`} class="hover:text-[#d8b456]">{question}</a></h2>
+            <p class="mt-4 text-sm leading-relaxed text-white/70">{detail}</p>
+            <a href={`/es/guias/${slug}/`} class="mt-6 inline-block text-sm font-bold text-[#d8b456] underline underline-offset-4">Leer la guía: {guide.title}</a>
+          </article>
+        ))}
+      </div>
+
+      <section class="mt-16 border-t border-white/15 pt-10" aria-labelledby="rutas-de-compra">
+        <h2 id="rutas-de-compra" class="font-['Century_Gothic',sans-serif] text-2xl font-bold">Continúa con la ruta de compra adecuada</h2>
+        <p class="mt-3 max-w-[760px] text-sm leading-relaxed text-white/70">Las guías ayudan a preparar la conversación; consulta las páginas de servicio para identificar la modalidad y enviar una solicitud concreta.</p>
+        <nav aria-label="Rutas de compra" class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-[#d8b456]">
+          <a href="/es/ready-stock-activewear/" class="underline underline-offset-4">Ropa deportiva con stock</a>
+          <a href="/es/private-label-activewear/" class="underline underline-offset-4">Marca privada</a>
+          <a href="/es/oem-activewear-manufacturer/" class="underline underline-offset-4">Fabricación OEM/ODM</a>
+          <a href="/es/contact/" class="underline underline-offset-4">Enviar una consulta</a>
+        </nav>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

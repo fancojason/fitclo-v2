@@ -1,0 +1,113 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+
+const title = 'Sample Approved, Bulk Failed? 5 Activewear Quality Problems Buyers Can Trace';
+const image = '/images/blogs/sample-to-bulk-activewear-failures/bulk-legging-measurement-reference.png';
+const faqs = [
+  {
+    question: 'Why can bulk activewear differ from an approved sample?',
+    answer: 'The material lot, color standard, pattern revision, components, sewing settings or size grading used for bulk may differ from the approved reference. First identify which version and production lot produced the difference; do not assume one cause from a photograph.',
+  },
+  {
+    question: 'What should a buyer do when a logo peels after washing?',
+    answer: 'Keep the affected garment, care instructions, wash conditions, artwork approval and logo-method specification. Pause acceptance of the affected lot while the supplier and a qualified tester establish the failure mode and an agreed corrective action. A visual inspection alone cannot establish wash durability.',
+  },
+  {
+    question: 'Can a final AQL inspection prevent every quality issue?',
+    answer: 'No. Sampling inspection helps assess a defined lot against agreed criteria; it cannot replace an approved specification, sample, material check, in-line control or relevant performance testing. The sampling plan and defect definitions must be agreed before inspection.',
+  },
+  {
+    question: 'Which records matter most when the sample and bulk order disagree?',
+    answer: 'Keep the approved sample ID, latest tech-pack and pattern revisions, bill of materials, color reference, size chart with measurement tolerances, logo artwork, production-lot identity, care instructions and inspection findings in one issue record.',
+  },
+];
+const relatedReading = [
+  { title: 'Activewear sample approval checklist', link: '/blogs/activewear-sample-approval-checklist/', desc: 'Define the signed-off reference before bulk starts.' },
+  { title: 'Activewear colorfastness testing', link: '/blogs/activewear-colorfastness-testing-guide/', desc: 'Choose a test for wash, perspiration or rubbing exposure.' },
+  { title: 'Leggings that roll down, pill or go sheer', link: '/blogs/leggings-pilling-sheer-roll-down-quality-checklist/', desc: 'Investigate legging-specific wear complaints.' },
+  { title: 'Activewear quality inspection checklist', link: '/blogs/activewear-quality-inspection-checklist/', desc: 'Set lot, defect and packing checks before shipment.' },
+  { title: 'Activewear purchase order checklist', link: '/blogs/activewear-purchase-order-checklist/', desc: 'Keep specifications and release gates aligned.' },
+];
+---
+
+<EditorialArticleLayout
+  title={title}
+  seoTitle="Sample vs Bulk Activewear Quality: 5 Failures to Trace | Fitclo"
+  description="Why can approved activewear samples differ from bulk? Trace color variation, peeling logos, rolling waistbands, size drift and sample-to-production mismatch with a buyer evidence checklist."
+  type="Activewear Quality Troubleshooting"
+  articleKind="sample-to-bulk-quality-guide"
+  date="October 17, 2026"
+  readTime="10 min read"
+  articleImage={image}
+  publishedIso="2026-10-17"
+  modifiedIso="2026-10-17"
+  quickAnswerTitle="When bulk activewear fails after an approved sample, compare the affected garments with the exact signed-off reference and identify what changed: material lot, color, pattern, size grading, logo process or production instructions. Record the symptom, affected lot, measurement or test evidence and a written disposition before accepting a correction."
+  quickTakeaways={[
+    'A visible defect is a symptom; the cause needs evidence from the approved version and affected lot.',
+    'Color, logo, fit and measurements require different checks rather than one generic “quality pass.”',
+    'Hold the affected decision until the buyer and supplier agree the scope, correction and recheck.',
+  ]}
+  planningPlacement="before"
+  planningTableTitle="Five failures: what to compare first"
+  tableHeaders={['Observed problem', 'First comparison', 'Evidence to request']}
+  planningRows={[
+    ['Bulk color differs', 'Approved shade and actual fabric/trim lot under the agreed viewing conditions.', 'Color reference, lot ID and relevant wash, sweat or rub results.'],
+    ['Logo lifts or peels', 'Approved application and washed garments from the affected lot.', 'Artwork/process version, care method and post-wash inspection record.'],
+    ['Legging waistband rolls', 'Approved fit and bulk fit on the intended sizes during movement.', 'Pattern version, band construction, fabric stretch/recovery and fit notes.'],
+    ['Sizes drift', 'Points of measure against the current chart and tolerances.', 'Measured samples by size, grading revision and production-lot identity.'],
+    ['Bulk differs from sample', 'Signed sample, BOM, pattern, trims, artwork and packing version.', 'A single change log showing what was approved and what was actually used.'],
+  ]}
+  faqs={faqs}
+  relatedReading={relatedReading}
+  ctaTitle="Need to make an activewear quality brief more specific?"
+  ctaText="Send the style, approved reference, color and size plan, and the issue you need to prevent or investigate. Fitclo can discuss the product details and evidence to agree before a sourcing or production decision."
+  ctaHref="/inquiry/"
+  ctaLabel="Discuss a product quality brief"
+>
+  <figure>
+    <img src={image} alt="Illustrative image of black leggings measured across the waistband and inseam beside a sports bra and packing materials" loading="eager" fetchpriority="high" />
+    <figcaption>Illustrative measurement scene: compare bulk garments with the approved sample and size chart.</figcaption>
+  </figure>
+
+  <p><strong>Why does a bulk activewear order differ from the sample a buyer approved?</strong> A sample may be correct while one later decision is not: a different fabric lot arrives, a logo process changes, the pattern revision used for cutting is outdated, or the size chart never reaches the production team. A final inspection can reveal a mismatch, but it cannot reconstruct an approval that was never documented.</p>
+  <p>This guide is for wholesale, private-label and OEM/ODM buyers who need to turn five familiar complaints into a traceable question. It is not a list of FITCLO incidents, laboratory results or guaranteed remedies. For the broader inspection sequence, see our <a href="/blogs/activewear-quality-inspection-checklist/">activewear quality inspection checklist</a>.</p>
+
+  <h2>Before diagnosing: build one issue record</h2>
+  <p>Keep one file for the approved sample identifier, dated tech-pack revision, pattern revision, bill of materials, color reference, size chart and tolerances, logo artwork, care instructions and purchase-order version. Add the affected carton or production-lot identifier, clear photographs and the number of units checked. A photo of one garment shows a symptom; it does not tell you how much of a lot is affected.</p>
+  <p>Separate three decisions: <strong>containment</strong> (which units should be held), <strong>cause</strong> (what evidence explains the difference) and <strong>disposition</strong> (rework, replace, accept with agreement or another documented outcome). Agree who makes each decision. The <a href="/blogs/activewear-purchase-order-checklist/">purchase-order checklist</a> shows where these release responsibilities should be specified before bulk.</p>
+
+  <h2>1. Bulk colors are inconsistent with the approved shade</h2>
+  <p>Ask whether the difference is between the sample and bulk, between bulk lots, or only between garment panels or trims. Compare physical samples under the agreed viewing conditions with the approved color reference. Check fabric and trim lot identities; avoid deciding from phone photographs alone, where lighting and processing can change appearance.</p>
+  <p>Visual shade approval and colorfastness are related but different questions. The <a href="https://members.aatcc.org/store/tm61/495/" target="_blank" rel="noopener noreferrer">AATCC TM61 description</a> addresses accelerated laundering colorfastness, while <a href="https://members.aatcc.org/store/tm15/482/messages" target="_blank" rel="noopener noreferrer">TM15</a> addresses perspiration exposure. A qualified laboratory and buyer must choose the applicable method, specimen, acceptance grade and colorways; neither method by itself proves two batches match the same shade. Our <a href="/blogs/activewear-colorfastness-testing-guide/">colorfastness guide</a> explains the distinct wash, sweat and rubbing questions.</p>
+  <p><strong>Release question:</strong> Which fabric and trim lots are affected, what was the signed color standard, and has the buyer accepted a physical bulk comparison? Hold the affected lot until those questions are answered.</p>
+
+  <h2>2. A logo lifts, cracks or peels after washing</h2>
+  <p>First identify the exact application: heat transfer, print, silicone treatment, embroidery or another method. Keep the approved artwork, placement and method specification. Then compare an unused bulk garment with a washed one using the actual care instructions and recorded wash conditions. A peeling transfer, cracked print and loose embroidery call for different corrections; “make the logo stronger” is not a usable production instruction.</p>
+  <p>The <a href="https://www.aatcc.org/learn/online-test-method-training/laundering-module" target="_blank" rel="noopener noreferrer">AATCC laundering-method overview</a> identifies established ways to assess garment appearance and dimensional changes after washing. A laundering procedure does not supply an automatic pass threshold for a particular logo. Agree the wash method, number of cycles, appearance criteria and sample selection with the supplier or testing partner before claiming durability.</p>
+  <p><strong>Release question:</strong> Does the failed garment use the same artwork, material and application process as the approved reference, and does the agreed wash review reproduce the problem?</p>
+
+  <h2>3. A leggings waistband rolls during wear</h2>
+  <p>Recheck the complaint on the intended sizes and movements: walking, bending and squatting. Record whether the top edge folds, the whole band slides, or the front or back rise shifts. Those are different fit symptoms. Compare waistband height and angle, elastic or band construction, body-to-garment balance and the actual fabric with the approved sample. A heavier band is not automatically the right fix.</p>
+  <p>Stretch and recovery can be investigated, but the method must match the fabric. For example, <a href="https://store.astm.org/d2594_d2594m-21.html" target="_blank" rel="noopener noreferrer">ASTM D2594/D2594M</a> covers stretch properties of knitted fabrics within its stated scope; it is not a universal test for every compression knit or a substitute for on-body fitting. The dedicated <a href="/blogs/leggings-pilling-sheer-roll-down-quality-checklist/">legging roll-down guide</a> covers more causes and sample checks.</p>
+  <p><strong>Release question:</strong> Is the problem limited to a size, fabric lot or construction version, and can the proposed change be approved on a new fit sample before the remaining units are made?</p>
+
+  <h2>4. Bulk sizes drift from the measurement chart</h2>
+  <p>Use the current points-of-measure diagram and agreed measurement method. Compare several garments from each relevant size and production lot, not just one piece measured in a different position. Record the actual value beside the target and tolerance for waist, hip, rise, inseam or other style-specific points. Check whether grading, pattern revision, cutting, sewing and finishing were aligned; do not infer the cause from a single out-of-tolerance number.</p>
+  <p>If laundering may change dimensions, the <a href="https://members.aatcc.org/store/tm150/556/" target="_blank" rel="noopener noreferrer">AATCC TM150 overview</a> describes garment dimensional-change testing after home laundering and notes that the method may not suit certain stretch fabrics. Ask a qualified lab which procedure fits the actual garment. See our <a href="/blogs/activewear-sizing-and-grading-guide/">sizing and grading guide</a> for how to create the measurement reference in the first place.</p>
+  <p><strong>Release question:</strong> Which sizes and lots exceed the agreed tolerance, and what does a documented remeasurement show after both parties use the same method?</p>
+
+  <h2>5. The production garment is simply not the approved sample</h2>
+  <p>Sometimes no single defect explains the problem: the sample had a different lining, waistband, trim, pocket, pad, label or packing method. Lay the approved sample and bulk garment side by side, then compare the latest BOM, pattern, artwork, color and packing revisions. Track each divergence to a written approval or an unapproved substitution. This is a version-control problem before it becomes an inspection problem.</p>
+  <p>When a change is necessary, document the substitute, affected quantity, revised price or timing if relevant, and the new approval sample. Keep one final version as the production reference. Our <a href="/blogs/activewear-sample-approval-checklist/">sample approval guide</a> explains why comments and physical samples must stay connected.</p>
+  <p><strong>Release question:</strong> Can every difference be linked to a buyer-approved revision? If not, agree a written disposition before shipping the affected units.</p>
+
+  <h2>A practical buyer handoff that prevents repeat disputes</h2>
+  <ol>
+    <li>Give each approved sample and specification a matching style code and revision date.</li>
+    <li>List the measurable checks, methods and tolerances that matter for that particular product.</li>
+    <li>Record fabric, color and component lots when they can affect the approved result.</li>
+    <li>Review an early production sample before the full lot is completed, where the order calls for it.</li>
+    <li>Keep an issue log with photographs, measurements, affected quantities, owner and closure evidence.</li>
+  </ol>
+  <p>No generic checklist guarantees zero defects. The value is making a difference visible early enough to decide what to do, with the buyer and supplier looking at the same version of the product. For a new style, that starts before the PO is released; for a repeat style, it starts by confirming what—if anything—has changed since the last approved run.</p>
+</EditorialArticleLayout>

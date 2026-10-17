@@ -15,8 +15,8 @@ const whatsappUrl = getWhatsAppUrl({ customMessage: whatsappMessage });
 <EditorialArticleLayout
   lang="es" title={guide.title} seoTitle={guide.seoTitle} description={guide.description}
   type={guide.theme.split(' · ')[0]} articleKind="spanish-buyer-guide"
-  date="7 de septiembre de 2026" readTime="Guía para compradores B2B"
-  publishedIso="2026-09-07" modifiedIso="2026-09-07" articleImage={guide.image}
+  date={guide.date ?? '7 de septiembre de 2026'} readTime="Guía para compradores B2B"
+  publishedIso={guide.publishedIso ?? '2026-09-07'} modifiedIso={guide.publishedIso ?? '2026-09-07'} articleImage={guide.image}
   quickAnswerTitle={guide.quickAnswer} faqs={guide.faqs} relatedReading={guide.related}
   ctaTitle={guide.ctaTitle} ctaText={guide.ctaText} ctaLabel={guide.ctaLabel}
   ctaHref={whatsappUrl} whatsappMessage={whatsappMessage}

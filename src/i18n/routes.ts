@@ -18,6 +18,7 @@ export const localizedRoutePairs = [
   { en: '/blogs/oem-vs-odm-vs-private-label-activewear/', es: '/es/guias/marca-privada-vs-oem-odm/' },
   { en: '/blogs/activewear-manufacturing-cost-guide/', es: '/es/guias/precio-fabricar-ropa-deportiva-personalizada/' },
   { en: '/blogs/custom-activewear-manufacturing-process/', es: '/es/guias/desarrollar-coleccion-ropa-deportiva/' },
+  { en: '/blogs/activewear-sample-to-bulk-quality-failures/', es: '/es/guias/problemas-calidad-ropa-deportiva-muestra-produccion/' },
 ] as const;
 
 const normalizePath = (path: string) => {

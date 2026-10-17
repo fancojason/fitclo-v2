@@ -90,6 +90,7 @@ const lastModifiedByPath = new Map<string, string>([
   ['/blogs/polka-dot-contrast-trim-activewear-wholesale/', '2026-09-22'],
   ['/es/fabricante-ropa-deportiva-espana/', '2026-09-13'],
   ...spanishGuides.map((guide): [string, string] => [`/es/guias/${guide.slug}/`, '2026-09-07']),
+  ['/es/guias/problemas-calidad-ropa-deportiva-muestra-produccion/', '2026-10-17'],
   ...spanishProducts.map((product): [string, string] => [`/es/products/${product.slug}/`, '2026-09-07']),
   ...spanishCategoryPages.map((page): [string, string] => [`/es/${page.slug}/`, '2026-09-06']),
   ['/', '2026-07-04'],

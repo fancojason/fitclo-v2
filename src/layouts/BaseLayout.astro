@@ -78,20 +78,6 @@ const legacyType = legacyKind
   .split('-')
   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
   .join(' ');
-const legacyFaqs = [
-  {
-    question: `What is the main buyer decision in ${title.replace(/\s\|\s.*$/, '').toLowerCase()}?`,
-    answer: description,
-  },
-  {
-    question: 'Can Fitclo turn this guidance into a production recommendation?',
-    answer: 'Yes. Fitclo can compare fabric, MOQ, sampling, branding, quality control and shipping options for private label or OEM/ODM activewear projects.',
-  },
-  {
-    question: 'What project information should a buyer send Fitclo?',
-    answer: 'Send the product category, reference design or tech pack, target quantity, fabric direction, size range, logo method, destination market and required delivery date.',
-  },
-];
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -208,24 +194,11 @@ const autoArticle = isBlogArticle
     }
   : null;
 
-const legacyFaqSchema = isBlogArticle
-  ? {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: legacyFaqs.map((item) => ({
-        '@type': 'Question',
-        name: item.question,
-        acceptedAnswer: { '@type': 'Answer', text: item.answer },
-      })),
-    }
-  : null;
-
 const pageStructuredData = [
   organizationSchema,
   websiteSchema,
   ...(includeBreadcrumbSchema ? [breadcrumbSchema] : []),
   ...(autoArticle ? [autoArticle] : []),
-  ...(legacyFaqSchema ? [legacyFaqSchema] : []),
   ...schemaItems.filter(Boolean),
 ];
 const localizedContent = translations.length
@@ -291,7 +264,7 @@ const localizedContent = translations.length
     <Header lang={lang} />
     <main>
       {shouldUseLegacyShell ? (
-        <LegacyBlogShell title={title} description={description} articleKind={legacyKind} type={legacyType} faqs={autoArticleSchema ? legacyFaqs : []}>
+        <LegacyBlogShell title={title} description={description} articleKind={legacyKind} type={legacyType} faqs={[]}>
           <slot />
         </LegacyBlogShell>
       ) : (

@@ -52,7 +52,6 @@ const guidePages = [
   '/guides/leggings/',
   '/guides/moq/',
   '/guides/pricing/',
-  '/guides/private-label-vs-oem/',
   '/guides/sport-bras/',
   '/guides/yoga-sets/',
 ];

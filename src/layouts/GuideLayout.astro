@@ -356,48 +356,7 @@ const expertProfileByKind = {
 };
 const expertProfile = expertProfileByKind[articleKind] ?? expertProfileByKind['technical-guide'];
 
-const faqByKind = {
-  'buyer-guide': [
-    { question: `What should buyers verify first about ${title.toLowerCase()}?`, answer: quickAnswerTitle },
-    { question: 'What evidence is stronger than supplier claims?', answer: 'Use approved samples, live production evidence, written specifications, inspection records, export documents and clear responsibility for corrective action.' },
-    { question: 'When should a buyer reject a supplier?', answer: 'Reject or pause when the supplier cannot explain materials, production ownership, quality controls, realistic lead time or how defects will be corrected.' },
-  ],
-  'private-label-guide': [
-    { question: `What is the safest way to approach ${title.toLowerCase()}?`, answer: quickAnswerTitle },
-    { question: 'Is private label suitable for a first activewear collection?', answer: 'It can be, especially when a brand needs lower development risk, faster sampling and a focused test order before investing in fully custom products.' },
-    { question: 'What must be approved before bulk production?', answer: 'Approve the garment, measurements, fabric, logo, labels, care content, packaging and size presentation together on a complete sample.' },
-  ],
-  'manufacturing-guide': [
-    { question: `What is the main production lesson in ${title.toLowerCase()}?`, answer: quickAnswerTitle },
-    { question: 'What should buyers monitor during activewear production?', answer: 'Monitor material readiness, approved samples, cutting, key measurements, stitching, branding, quantity, final inspection and packing.' },
-    { question: 'How can brands reduce bulk quality risk?', answer: 'Use measurable specifications, a pre-production sample, in-line checks, final inspection and written corrective-action responsibilities.' },
-  ],
-  'fabric-guide': [
-    { question: `How should brands evaluate ${title.toLowerCase()}?`, answer: quickAnswerTitle },
-    { question: 'Which activewear fabric tests matter most?', answer: 'Prioritize product-specific opacity, stretch recovery, pilling, shrinkage, colorfastness, dimensional stability and wash testing.' },
-    { question: 'Why is a fabric swatch not enough for approval?', answer: 'Pattern tension, seams, color and garment fit change how the fabric stretches and performs, so final approval should use a finished garment sample.' },
-  ],
-  'comparison-center': [
-    { question: `Which option is better in ${title.toLowerCase()}?`, answer: quickAnswerTitle },
-    { question: 'What should be kept equal during a manufacturing comparison?', answer: 'Compare the same product brief, quality level, quantity, branding scope, delivery market and Incoterm so the result is meaningful.' },
-    { question: 'Should the lowest unit price decide the result?', answer: 'No. Include development time, MOQ, defect risk, freight, duty, inventory exposure and reorder flexibility.' },
-  ],
-  'business-guide': [
-    { question: `How should a brand use ${title.toLowerCase()}?`, answer: quickAnswerTitle },
-    { question: 'Which numbers should activewear brands model before ordering?', answer: 'Model landed cost, expected selling price, gross margin, discounts, returns, SKU-level demand, deposit timing and reorder lead time.' },
-    { question: 'When should a brand increase order volume?', answer: 'Increase volume after fit, quality and SKU-level demand are proven and the margin gain exceeds added inventory and cash-flow risk.' },
-  ],
-  'trend-report': [
-    { question: `How should brands interpret ${title.toLowerCase()}?`, answer: quickAnswerTitle },
-    { question: 'How can a brand tell whether a trend is commercially useful?', answer: 'Check customer relevance, price fit, manufacturing feasibility, content potential, margin and whether the direction can support reorders.' },
-    { question: 'Should every trend enter the next collection?', answer: 'No. Select only the signals that fit the brand customer and can be executed with reliable fabric, fit and production quality.' },
-  ],
-};
-const faqs = suppliedFaqs ?? faqByKind[articleKind] ?? [
-  { question: `What should buyers understand about ${title.toLowerCase()}?`, answer: quickAnswerTitle },
-  { question: 'How should a technical activewear feature be approved?', answer: 'Define its wearer benefit, production method, size-grading behavior and measurable movement, wash and durability tests.' },
-  { question: 'Can Fitclo help evaluate technical feasibility?', answer: 'Yes. Fitclo can review product references, fabrics, construction, sampling risk, MOQ and production requirements.' },
-];
+const faqs = suppliedFaqs ?? [];
 
 const sameCategory = intelligenceEntry
   ? intelligenceArticles.filter((article) => article.categorySlug === intelligenceEntry.categorySlug && article.link !== currentPath)

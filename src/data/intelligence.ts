@@ -738,7 +738,7 @@ export const intelligenceArticles = [
     categorySlug: 'comparison-center',
     title: 'Private Label vs OEM Activewear: Speed, MOQ and Product Control',
     desc: 'Understand the practical differences between branded stock programs and OEM development.',
-    link: '/blogs/private-label-vs-oem',
+    link: '/blogs/oem-vs-odm-vs-private-label-activewear',
     image: '/images/intelligence/cover-private-label.png',
     readTime: '7 min read',
     updated: 'Updated July 07, 2026',

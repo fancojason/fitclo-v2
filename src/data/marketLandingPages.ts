@@ -92,10 +92,10 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Define the collection use case first—studio, gym, lifestyle or seasonal drop—then select fabric, size range and branding route.',
     planningPriorities: ['Match product construction to low-, medium- or high-movement use.', 'Review fit and coverage during the sample stage.', 'Ask for current ready-stock availability before confirming an order.'],
     faqFocus: 'Australian activewear buyers',
-    seoTitle: 'Australian Activewear Manufacturer & Wholesale Supplier | Fitclo',
-    metaDescription: 'Source ready-stock, private-label and OEM activewear for Australian brands. Compare MOQ, samples, fabrics, branding, quality checks and delivery scope.',
-    headline: 'Private-label and wholesale activewear for Australian brands.',
-    quickAnswer: 'Fitclo supplies Australian activewear brands through ready-stock, private-label and OEM/ODM routes. Ready-stock MOQ starts from 50 sets for coordinated sets or 50 pcs for individual garments. Share the intended activity, product category, quantity, size and colour mix, branding needs and Australian destination so suitable styles, samples and shipment scope can be matched to the brief.',
+    seoTitle: 'Activewear Manufacturer in China for Australian Brands | Fitclo',
+    metaDescription: 'Source activewear from China for your Australian brand. Compare ready-stock wholesale, private label and OEM/ODM routes, samples, branding and delivery scope.',
+    headline: 'Wholesale activewear from China for Australian brands.',
+    quickAnswer: 'Fitclo is based in China and supplies Australian activewear brands through ready-stock, private-label and OEM/ODM routes. Ready-stock MOQ starts from 50 sets for coordinated sets or 50 pcs for individual garments; custom development is quoted separately. Share the intended activity, product category, quantity, size and colour mix, branding needs and Australian destination so suitable styles, samples and shipment scope can be matched to the brief.',
     inquiryMessage: 'Hello Fitclo, I am sourcing activewear for Australia. My product category is [category], estimated quantity is [quantity], and I need [ready stock / private label / OEM]. Please advise suitable styles, MOQ, sample and delivery options.',
     localPlanningTitle: 'Build an Australian activewear brief around use, fit and delivery scope.',
     localPlanningIntro: 'A clear quotation request connects the intended activity and customer to the size, colour, branding and shipment decisions the supplier needs to confirm.',
@@ -110,6 +110,10 @@ export const marketLandingPages: MarketLandingPage[] = [
       ['Sustainable activewear sourcing in Australia', 'Prepare evidence-based material and supplier questions without relying on vague sustainability claims.', '/blogs/sustainable-activewear-manufacturer-australia/'],
     ],
     additionalFaqs: [
+      {
+        question: 'Is Fitclo an activewear manufacturer located in Australia?',
+        answer: 'No. Fitclo is based in China and supplies Australian buyers internationally. Request a quote with your product brief and Australian delivery destination to confirm the applicable sourcing and shipment scope.',
+      },
       {
         question: 'What should an Australian buyer include in an activewear quotation request?',
         answer: 'Include the intended activity, product category or style references, estimated quantity, size and colour mix, branding requirements, delivery destination and preferred sourcing route. The destination postcode and shipment scope help the supplier compare the correct delivery options.',

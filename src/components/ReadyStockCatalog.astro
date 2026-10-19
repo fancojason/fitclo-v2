@@ -2,6 +2,7 @@
 import { productDetailLinks } from '../data/productDetailLinks';
 import { productCategories } from '../data/productCategories';
 import { readyStockCatalog } from '../data/readyStockCatalog';
+import { spanishProducts } from '../content/es/products';
 import { getWhatsAppUrl } from '../lib/whatsapp';
 import StyleCodeCopy from './StyleCodeCopy.astro';
 
@@ -18,10 +19,11 @@ const categories = Array.from(new Set(readyStockCatalog.map((product) => product
 }));
 
 const catalogDownload = '/downloads/ready-stock-activewear-line-sheet.pdf';
+const spanishDetailByCode = new Map(spanishProducts.map((product) => [product.sku, `/es/products/${product.slug}/`]));
 const copy = isSpanish ? {
   eyebrow: 'LISTA ACTUAL DE STOCK DISPONIBLE', title: 'Explora modelos antes de solicitar la combinación actual de colores y tallas.',
   intro: 'Usa los filtros para crear una selección práctica. Son modelos del programa de stock disponible con MOQ desde 50 unidades o 50 sets; la disponibilidad se confirma según color, tallas y requisitos de marca.',
-  download: 'Descargar lista de stock disponible', search: 'Buscar modelos en stock', searchPlaceholder: 'Buscar por modelo, categoría o característica',
+  download: 'Descargar catálogo de stock (PDF en inglés)', search: 'Buscar modelos en stock', searchPlaceholder: 'Buscar por modelo, categoría o característica',
   categoryFilter: 'Filtrar por categoría', allCategories: 'Todas las categorías', moqFilter: 'Filtrar por MOQ', allMoq: 'Todas las opciones de MOQ',
   sets: 'MOQ 50 sets', pcs: 'MOQ 50 unidades', clear: 'Limpiar filtros', shown: 'modelos del programa de stock disponible',
   brandOptions: 'Opciones de logo, etiquetas y embalaje', sample: 'Solicitud de muestra disponible', availability: 'Disponibilidad verificada antes del pedido',
@@ -113,6 +115,7 @@ const copy = isSpanish ? {
                 <div class="col-span-2"><p class="font-bold tracking-[0.1em] text-[#d8b456]">{copy.branding}</p><p class="mt-1 text-white/80">{copy.brandingValue}</p></div>
               </div>
               <p class="mt-4 text-[11px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">{isSpanish ? copy.availabilityNote : product.availabilityNote}.</p>
+              {isSpanish && spanishDetailByCode.get(product.styleCode) && <a href={spanishDetailByCode.get(product.styleCode)} class="mt-4 text-center text-sm font-bold text-[#d8b456] underline">Ver ficha, tejido y tallas</a>}
               {!isSpanish && productDetailLinks[product.id] && <a href={productDetailLinks[product.id]} class="mt-4 text-center text-sm font-bold text-[#d8b456] underline">View product details</a>}
               <div class="mt-auto pt-5 text-center">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[42px] items-center justify-center rounded-full border border-[#d8b456] px-4 text-center text-[12px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">{copy.check}</a>

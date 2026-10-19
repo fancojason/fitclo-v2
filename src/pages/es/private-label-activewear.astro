@@ -10,7 +10,7 @@ const privateLabelSchema = {
   serviceType: 'Fabricación de ropa deportiva de marca privada',
   provider: { '@id': 'https://www.fitcloo.com/#organization' },
   areaServed: ['United States', 'United Kingdom', 'Australia', 'Canada', 'European Union', 'Latin America'],
-  description: 'Fitclo ofrece fabricación de ropa deportiva de marca privada con personalización de logo, etiquetas, embalaje, muestras, desarrollo OEM/ODM y producción.',
+  description: 'Fitclo revisa logo, etiquetas y embalaje sobre modelos adecuados; MOQ, muestras y plazos se confirman para cada proyecto.',
   audience: { '@type': 'BusinessAudience', audienceType: 'Marcas y compradores B2B de ropa deportiva, yoga y fitness' },
   hasOfferCatalog: {
     '@type': 'OfferCatalog', name: 'Servicios de Ropa Deportiva de Marca Privada',
@@ -23,17 +23,17 @@ const privateLabelSchema = {
 };
 const process = [
   { step: '01', title: 'Consulta', desc: 'Revisamos tus conceptos de diseño y requisitos de tejido.' },
-  { step: '02', title: 'Diseño', desc: 'Preparamos tech packs y dibujos CAD para tu aprobación.' },
-  { step: '03', title: 'Muestra', desc: 'Producimos un prototipo físico para evaluar ajuste y calidad.' },
-  { step: '04', title: 'Producción', desc: 'Fabricación a escala con un riguroso control de calidad.' },
-  { step: '05', title: 'Envío', desc: 'Logística internacional y entrega segura puerta a puerta.' },
+  { step: '02', title: 'Alcance', desc: 'Definimos modelo, logo, etiquetas y embalaje que quieres consultar.' },
+  { step: '03', title: 'Muestra', desc: 'Confirmamos la opción de muestra para revisar ajuste, tejido y acabados.' },
+  { step: '04', title: 'Pedido', desc: 'Acordamos cantidades, muestra aprobada y controles aplicables.' },
+  { step: '05', title: 'Envío', desc: 'Cotizamos el destino y las condiciones de entrega del pedido.' },
 ];
 ---
 
 <BaseLayout
   lang="es"
   title="Fabricante de Ropa Deportiva de Marca Privada | Fitclo"
-  description="Desarrolla tu marca con Fitclo: fabricante de ropa deportiva de marca privada, servicios OEM/ODM, MOQ bajo, branding personalizado y prendas de yoga de alta calidad."
+  description="Consulta ropa deportiva de marca privada con Fitclo: modelos existentes, logo, etiquetas, embalaje y muestras. MOQ y plazos según producto y alcance."
   canonicalURL={canonicalURL}
   alternateLinks={getAlternateLinks('/private-label/', '/es/private-label-activewear/')}
   structuredData={[privateLabelSchema]}
@@ -62,13 +62,13 @@ const process = [
             ¿Qué es la <span class="text-[#C9A84C] italic">marca privada?</span>
           </h2>
           <div class="space-y-6 text-[15px] md:text-[16px] text-gray-600 font-['Century_Gothic',sans-serif] leading-relaxed">
-            <p>La marca privada te permite vender ropa deportiva de alta calidad fabricada por Fitclo con el nombre de tu propia marca. Nosotros aportamos infraestructura, tecnología y experiencia de confección; tú te concentras en marketing y crecimiento.</p>
-            <p>Ya necesites <strong class="text-black">aplicación de logo personalizado</strong>, <strong class="text-black">etiquetas colgantes</strong> específicas o <strong class="text-black">diseños OEM</strong> a medida, nuestro equipo mantiene tu identidad de marca en cada detalle.</p>
-            <div class="pt-4"><a href="/products" class="text-[#C9A84C] font-bold hover:underline font-['Century_Gothic',sans-serif] text-[14px] md:text-[15px] uppercase tracking-widest">Ver catálogo de productos para inspirarte →</a></div>
+            <p>La marca privada parte de una prenda existente y estudia cómo aplicar la identidad de tu marca. Comparte el modelo, el logo y los acabados deseados para revisar qué personalizaciones son viables antes de pedir.</p>
+            <p>Si necesitas cambiar <strong class="text-black">patronaje, tejido o construcción</strong>, consulta el <a href="/es/oem-activewear-manufacturer/" class="text-[#9b7426] underline">desarrollo OEM/ODM</a>. El MOQ desde 50 unidades o conjuntos corresponde a modelos seleccionados del <a href="/es/ready-stock-activewear/" class="text-[#9b7426] underline">programa de stock</a>; no es un MOQ universal para cualquier personalización.</p>
+            <div class="pt-4"><a href="/es/ready-stock-activewear/" class="text-[#9b7426] font-bold hover:underline font-['Century_Gothic',sans-serif] text-[14px] md:text-[15px] uppercase tracking-widest">Ver modelos del programa de stock →</a></div>
           </div>
           <div class="mt-12 grid grid-cols-2 gap-8">
-            <div class="border-l-4 border-[#C9A84C] pl-6 group"><span class="block text-3xl font-bold font-['Century_Gothic',sans-serif] group-hover:text-[#C9A84C] transition-colors">100+</span><span class="text-gray-500 uppercase text-[11px] font-bold tracking-widest font-['Century_Gothic',sans-serif]">Opciones de MOQ bajo</span></div>
-            <div class="border-l-4 border-[#C9A84C] pl-6 group"><span class="block text-3xl font-bold font-['Century_Gothic',sans-serif] group-hover:text-[#C9A84C] transition-colors">7-15D</span><span class="text-gray-500 uppercase text-[11px] font-bold tracking-widest font-['Century_Gothic',sans-serif]">Tiempo de muestreo</span></div>
+            <div class="border-l-4 border-[#C9A84C] pl-6"><span class="block text-xl font-bold font-['Century_Gothic',sans-serif]">MOQ según modelo</span><span class="text-gray-500 uppercase text-[11px] font-bold tracking-widest font-['Century_Gothic',sans-serif]">Confirma cantidad y acabados</span></div>
+            <div class="border-l-4 border-[#C9A84C] pl-6"><span class="block text-xl font-bold font-['Century_Gothic',sans-serif]">Muestra a consultar</span><span class="text-gray-500 uppercase text-[11px] font-bold tracking-widest font-['Century_Gothic',sans-serif]">Coste y plazo por proyecto</span></div>
           </div>
         </div>
         <div class="relative">
@@ -93,12 +93,23 @@ const process = [
       <div class="text-center mb-16"><h3 class="text-[#C9A84C] font-bold tracking-[0.2em] text-[12px] mb-3 uppercase font-['Century_Gothic',sans-serif]">OPCIONES DE MARCA</h3><h2 class="text-[30px] md:text-[38px] lg:text-[44px] font-bold text-black leading-tight font-['Century_Gothic',sans-serif] tracking-tight">Personalización de <span class="text-[#C9A84C] italic">marca</span></h2></div>
       <div class="grid md:grid-cols-3 gap-12">
         <div class="text-center group"><div class="w-20 h-20 bg-[#C9A84C]/10 rounded-full flex items-center justify-center mx-auto mb-6 text-[#C9A84C] group-hover:bg-[#C9A84C] group-hover:text-black transition-all"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg></div><h3 class="text-[20px] font-bold mb-4 font-['Century_Gothic',sans-serif] uppercase tracking-tight">Etiquetas personalizadas</h3><p class="text-gray-500 font-['Century_Gothic',sans-serif] text-[15px] leading-relaxed">Etiquetas tejidas, etiquetas de cuello por transferencia y etiquetas colgantes premium para reforzar tu marca.</p></div>
-        <div class="text-center group"><div class="w-20 h-20 bg-[#C9A84C]/10 rounded-full flex items-center justify-center mx-auto mb-6 text-[#C9A84C] group-hover:bg-[#C9A84C] group-hover:text-black transition-all"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg></div><h3 class="text-[20px] font-bold mb-4 font-['Century_Gothic',sans-serif] uppercase tracking-tight">Embalaje con tu marca</h3><p class="text-gray-500 font-['Century_Gothic',sans-serif] text-[15px] leading-relaxed">Bolsas, cajas personalizadas y materiales de envío sostenibles con tu logo.</p></div>
-        <div class="text-center group"><div class="w-20 h-20 bg-[#C9A84C]/10 rounded-full flex items-center justify-center mx-auto mb-6 text-[#C9A84C] group-hover:bg-[#C9A84C] group-hover:text-black transition-all"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><h3 class="text-[20px] font-bold mb-4 font-['Century_Gothic',sans-serif] uppercase tracking-tight">Estampados y colores</h3><p class="text-gray-500 font-['Century_Gothic',sans-serif] text-[15px] leading-relaxed">Sublimación, serigrafía, bordado e igualación de colores Pantone personalizados.</p></div>
+        <div class="text-center group"><div class="w-20 h-20 bg-[#C9A84C]/10 rounded-full flex items-center justify-center mx-auto mb-6 text-[#C9A84C] group-hover:bg-[#C9A84C] group-hover:text-black transition-all"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg></div><h3 class="text-[20px] font-bold mb-4 font-['Century_Gothic',sans-serif] uppercase tracking-tight">Embalaje con tu marca</h3><p class="text-gray-500 font-['Century_Gothic',sans-serif] text-[15px] leading-relaxed">Consulta bolsas, cajas y otros acabados según el modelo, la cantidad y el material solicitado.</p></div>
+        <div class="text-center group"><div class="w-20 h-20 bg-[#C9A84C]/10 rounded-full flex items-center justify-center mx-auto mb-6 text-[#C9A84C] group-hover:bg-[#C9A84C] group-hover:text-black transition-all"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><h3 class="text-[20px] font-bold mb-4 font-['Century_Gothic',sans-serif] uppercase tracking-tight">Estampados y colores</h3><p class="text-gray-500 font-['Century_Gothic',sans-serif] text-[15px] leading-relaxed">Consulta la técnica de logo y la viabilidad de color para el tejido y la cantidad elegidos.</p></div>
       </div>
     </div>
   </section>
 
   <p class="bg-[#090909] px-6 py-8 text-center text-sm leading-relaxed text-white/75">¿Estás comparando modalidades? <a href="/es/guias/marca-privada-vs-oem-odm/" class="text-[#d8b456] underline">Lee la guía de marca privada y OEM/ODM</a> o <a href="/es/guias/" class="text-[#d8b456] underline">explora las guías para compradores</a>.</p>
-  <InquiryForm />
+  <section class="bg-[#111111] px-6 py-16 text-white">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="text-3xl font-bold">Tres referencias para empezar a comparar</h2>
+      <p class="mt-4 leading-7 text-white/70">Consulta las fichas publicadas antes de elegir una prenda para tu marca. La disponibilidad, la aplicación del logo y el coste se confirman para cada modelo.</p>
+      <ul class="mt-7 grid gap-4 md:grid-cols-3">
+        <li><a class="block border border-white/20 p-5 text-[#d8b456] hover:underline" href="/es/products/0636/">0636 · Sujetador cruzado y leggings →</a></li>
+        <li><a class="block border border-white/20 p-5 text-[#d8b456] hover:underline" href="/es/products/3708/">3708 · Top y shorts de running →</a></li>
+        <li><a class="block border border-white/20 p-5 text-[#d8b456] hover:underline" href="/es/products/tz2557-6/">TZ2557-6 · Halter y leggings flare →</a></li>
+      </ul>
+    </div>
+  </section>
+  <InquiryForm guide={true} />
 </BaseLayout>

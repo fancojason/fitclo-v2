@@ -5,18 +5,24 @@ import { getCatalogProductByStyleCode } from '../data/productCatalog';
 import StyleCodeCopy from './StyleCodeCopy.astro';
 import { businessFacts } from '../data/businessFacts';
 const featuredCodes = ['TZ2578-15', 'TZ3005-2', 'TZ5529-19', 'LD2681-Set'];
+const featuredCardDetails: Record<string, { badge: string; customization: string }> = {
+  'TZ2578-15': { badge: '🔥 NEW ARRIVAL', customization: 'Logo / Hang Tag / Packaging Bag' },
+  'TZ3005-2': { badge: '2026 TREND', customization: 'Care Label / Color / Size' },
+  'TZ5529-19': { badge: '✨ WIDE-LEG STYLE', customization: 'Logo / Color Box / Design' },
+  'LD2681-Set': { badge: '💎 V-WAIST', customization: 'Hang Tag / Care Label / Packaging Bag' },
+};
 const featuredProducts = featuredCodes.map((code) => {
   const product = getCatalogProductByStyleCode(code);
   if (!product) throw new Error(`Homepage product not found: ${code}`);
   return {
-    badge: 'NEW ARRIVAL',
+    badge: featuredCardDetails[code].badge,
     title: product.name,
     description: product.description,
     image: product.image,
     styleCode: product.styleCode,
     moq: product.moq.replace('sets', 'Sets'),
-    leadTime: 'Confirm with Fitclo',
-    customization: 'Ask Fitclo',
+    leadTime: '2–7 days*',
+    customization: featuredCardDetails[code].customization,
     selectValue: 'Yoga Set'
   };
 });
@@ -347,7 +353,7 @@ const wholesaleProducts = [
       </div>
     </div>
 
-    <p class="mt-5 text-[12px] leading-5 text-white/55">*{businessFacts.readyStock.dispatch} {businessFacts.oem.moq} {businessFacts.oem.bulkProduction} {businessFacts.shipping}</p>
+    <p class="mt-5 text-[12px] leading-5 text-white/55">*The 2–7 day window shown for featured ready-stock styles is an estimate for order preparation after stock confirmation, not delivery. Branding, new colors, sizes, packaging or design changes are quoted with their own schedule. {businessFacts.readyStock.dispatch} {businessFacts.oem.moq} {businessFacts.oem.bulkProduction} {businessFacts.shipping}</p>
 
     <!-- 4-Column Premium Wholesale Products Grid replicating Luxopack, aligned perfectly left and right -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 lg:-ml-12 lg:-mr-12">
@@ -410,7 +416,7 @@ const wholesaleProducts = [
               </div>
               <div class="min-w-0">
                 <span class="block text-gray-500 uppercase tracking-wider mb-1">Customization</span>
-                <span class="block font-bold text-white text-[11px] md:text-[12px] whitespace-nowrap overflow-hidden text-ellipsis" title={product.customization}>{product.customization}</span>
+                <span class="block font-bold text-white text-[11px] md:text-[12px] leading-snug" title={product.customization}>{product.customization}</span>
               </div>
             </div>
 

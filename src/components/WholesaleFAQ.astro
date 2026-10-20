@@ -1,8 +1,9 @@
 ---
+import { businessFacts } from '../data/businessFacts';
 const faqs = [
   {
     question: "What is the MOQ for custom activewear?",
-    answer: "We specialize in B2B wholesale with a low MOQ of 50 pcs for ready-to-ship styles and 100-200 pcs for custom OEM designs. This allows growing brands to access factory-direct pricing."
+    answer: `${businessFacts.readyStock.trial} ${businessFacts.oem.moq}`
   },
   {
     question: "Do you offer private label services?",
@@ -14,7 +15,7 @@ const faqs = [
   },
   {
     question: "How long is shipping from your China factory?",
-    answer: "Standard production is 15-25 days. Shipping to the US/EU takes 5-7 days via air express (DHL/FedEx) or 25-35 days via sea freight for bulk wholesale orders."
+    answer: `${businessFacts.oem.bulkProduction} ${businessFacts.readyStock.dispatch} ${businessFacts.shipping}`
   }
 ];
 ---

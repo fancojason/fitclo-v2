@@ -3,6 +3,7 @@ import { homeImage } from "../lib/home-image";
 import { getWhatsAppUrl } from '../lib/whatsapp';
 import { getCatalogProductByStyleCode } from '../data/productCatalog';
 import StyleCodeCopy from './StyleCodeCopy.astro';
+import { businessFacts } from '../data/businessFacts';
 const featuredCodes = ['TZ2578-15', 'TZ3005-2', 'TZ5529-19', 'LD2681-Set'];
 const featuredProducts = featuredCodes.map((code) => {
   const product = getCatalogProductByStyleCode(code);
@@ -29,7 +30,7 @@ const wholesaleProducts = [
     detailUrl: '/products/womens-yoga-set/',
     styleCode: '3335',
     moq: '50 Sets',
-    leadTime: '7-10 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Label / Packing',
     selectValue: 'Yoga Set'
   },
@@ -41,7 +42,7 @@ const wholesaleProducts = [
     detailUrl: '/products/capri-workout-set/',
     styleCode: 'TZ4549-6',
     moq: '50 Sets',
-    leadTime: '7-10 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Color / Trim',
     selectValue: 'Yoga Set'
   },
@@ -51,7 +52,7 @@ const wholesaleProducts = [
     description: "Buttery-soft crossover leggings with high-waisted compression support. 100% squat-proof coverage and flatlock stitching for ultimate comfort.",
     image: '/images/migrated/third-party/h7d27da37e714412b9adb784a2f8645b1v-5bbc372d0b.webp',
     moq: '50 Pcs',
-    leadTime: '10-12 days',
+    leadTime: '2–3 days*',
     customization: 'Label / Length / Tag',
     selectValue: 'Leggings'
   },
@@ -73,7 +74,7 @@ const wholesaleProducts = [
     description: "Elegant off-shoulder yoga t-shirt with breathable, moisture-wicking fabric. Perfect for outdoor sports and high-end athleisure lifestyle.",
     image: '/images/migrated/third-party/h520e3b633c474afc8114bb1185cd10cf7-81e26a9f1d.webp',
     moq: '50 Pcs',
-    leadTime: '10-12 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Label / Pkg / Tags',
     selectValue: 'Yoga Tops'
   },
@@ -83,7 +84,7 @@ const wholesaleProducts = [
     description: "Premium compression workout tank top with built-in shelf bra. Breathable, moisture-wicking fabric for maximum comfort during training.",
     image: '/images/migrated/third-party/h562806e88b924244a95814d15769ed64p-8f3f6b908d.webp',
     moq: '50 Pcs',
-    leadTime: '10-12 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Label / Pkg / Tags',
     selectValue: 'Yoga Tops'
   },
@@ -93,7 +94,7 @@ const wholesaleProducts = [
     description: "High-waist seamless yoga biker shorts with scrunch butt lifting effect. Four-way stretch and squat-proof for intense workouts.",
     image: '/images/migrated/third-party/ha39d99ef0dec44eb9b423d0b8860bfc6s-e38bacd8d6.webp',
     moq: '50 Pcs',
-    leadTime: '7-10 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Color / Size',
     selectValue: 'Shorts'
   },
@@ -103,7 +104,7 @@ const wholesaleProducts = [
     description: "Elegant one-piece flared yoga jumpsuit featuring a deep V-neck and open back design for a sleek, high-end athleisure look.",
     image: '/images/migrated/third-party/h18faaf7b76ce499fb29fd8a0f9c3a519y-70229a3a1c.webp',
     moq: '50 Pcs',
-    leadTime: '12-15 days',
+    leadTime: 'Confirm with Fitclo',
     customization: 'Logo / Label / Pkg / Tags',
     selectValue: 'Multiple Types / others'
   },
@@ -113,7 +114,7 @@ const wholesaleProducts = [
     description: "Slim-fit full-zip training jacket with thumbholes and high-neck protection. Lightweight, breathable, and designed for outdoor performance.",
     image: '/images/migrated/third-party/h58675b8fe22f4f079d84fb0103d941355-22aafa49c1.webp',
     moq: '50 Pcs',
-    leadTime: '12-15 days',
+    leadTime: 'Confirm with Fitclo',
     customization: 'Logo / Label / Color / Pkg',
     selectValue: 'Multiple Types / others'
   },
@@ -123,7 +124,7 @@ const wholesaleProducts = [
     description: "Lightweight, double-layer running shorts with built-in liner and hidden zipper pocket. Engineered for maximum airflow and range of motion.",
     image: '/images/migrated/third-party/h984e3727f61e43989733e8edd3444063n-30b34e65fe.webp',
     moq: '50 Pcs',
-    leadTime: '7-10 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Label / Pkg / Tags',
     selectValue: 'Shorts'
   },
@@ -133,7 +134,7 @@ const wholesaleProducts = [
     description: "Premium men's athletic t-shirt with flatlock seams and anti-odor technology. High-durability fabric tailored for bodybuilding and cross-training.",
     image: '/images/migrated/third-party/ha15c02eb9afa405a99b21e7b8bd2db7ed-ae82a63f4c.webp',
     moq: '50 Pcs',
-    leadTime: '10-12 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Label / Pkg / Tags',
     selectValue: 'Multiple Types / others'
   },
@@ -143,7 +144,7 @@ const wholesaleProducts = [
     description: "Professional 2-piece tennis set including a supportive sports bra and high-waist pleated skirt. High-stretch, moisture-wicking fabric for peak agility.",
     image: '/images/migrated/third-party/h03e3e2128b9c458aab0c23e1628b1c12s-baf0798bbc.webp',
     moq: '50 Sets',
-    leadTime: '10-12 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Color / Size / Tag',
     selectValue: 'Yoga Set'
   },
@@ -153,7 +154,7 @@ const wholesaleProducts = [
     description: "Elegant halter neck crop top paired with high-waist flared yoga pants. Sleek, comfortable, and perfect for studio-to-street wear.",
     image: '/images/migrated/third-party/h7fb855f4021c442282960feede735508u-76d7eb82eb.webp',
     moq: '50 Sets',
-    leadTime: '10-12 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Color / Size',
     selectValue: 'Yoga Set'
   },
@@ -163,7 +164,7 @@ const wholesaleProducts = [
     description: "Supportive sports bra and high-waisted crossover leggings. Squat-proof, moisture-wicking fabric with a flattering V-cut waistline.",
     image: '/images/migrated/third-party/h88c276abc26c4684b0599dd337478291u-3e7417d808.webp',
     moq: '50 Sets',
-    leadTime: '7-10 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Label / Pkg',
     selectValue: 'Yoga Set'
   },
@@ -175,7 +176,7 @@ const wholesaleProducts = [
     detailUrl: '/products/wide-leg-workout-set/',
     styleCode: 'TZ3588-3',
     moq: '50 Sets',
-    leadTime: '12-15 days',
+    leadTime: 'Confirm with Fitclo',
     customization: 'Logo / Color / Tag',
     selectValue: 'Yoga Set'
   },
@@ -185,7 +186,7 @@ const wholesaleProducts = [
     description: "Classic racerback tank top and matching capri leggings. High-performance stretch fabric designed for high-intensity training and running.",
     image: '/images/migrated/third-party/h551e8c3c2b6c44928bc7be5acaf07853s-7c6ab3a8a3.webp',
     moq: '50 Sets',
-    leadTime: '7-10 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Label / Tags',
     selectValue: 'Yoga Set'
   },
@@ -195,7 +196,7 @@ const wholesaleProducts = [
     description: "Ultra-soft 350GSM heavy cotton fleece hoodie. Features a structured fit, kangaroo pocket, and premium ribbed cuffs for a high-end streetwear aesthetic.",
     image: '/images/migrated/third-party/h435e4c549528420c8262fa3599225f82k-d865ce81b6.webp',
     moq: '50 Pcs',
-    leadTime: '12-15 days',
+    leadTime: 'Confirm with Fitclo',
     customization: 'Logo / Color / Size / Label',
     selectValue: 'Multiple Types / others'
   },
@@ -205,7 +206,7 @@ const wholesaleProducts = [
     description: "Elegant halter-neck sports bra paired with high-waisted flared yoga pants. Features a signature open back and premium moisture-wicking fabric.",
     image: '/images/migrated/third-party/h143895ff824349cf957ba8de40f0b4eey-6d01966619.webp',
     moq: '50 Sets',
-    leadTime: '10-12 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Color / Size',
     selectValue: 'Yoga Set'
   },
@@ -217,7 +218,7 @@ const wholesaleProducts = [
     detailUrl: '/products/premium-3-piece-yoga-set/',
     styleCode: 'TZ3562-10',
     moq: '50 Sets',
-    leadTime: '15-20 days',
+    leadTime: 'Confirm with Fitclo',
     customization: 'Logo / Label / Pkg / Tags',
     selectValue: 'Yoga Set'
   },
@@ -227,7 +228,7 @@ const wholesaleProducts = [
     description: "Versatile studio set featuring a cross-back sports bra and flowy wide-leg active pants. Designed for maximum breathability and effortless movement.",
     image: '/images/migrated/third-party/h252cad5ce91d487d9b7557fbb34a37feo-226eebd5e3.webp',
     moq: '50 Sets',
-    leadTime: '10-12 days',
+    leadTime: '2–3 days*',
     customization: 'Logo / Color / Tag',
     selectValue: 'Yoga Set'
   },
@@ -236,8 +237,8 @@ const wholesaleProducts = [
     title: "Custom Zip Performance Set",
     description: "Bespoke zip-up performance set with contrast piping and open back design. Tailored with premium performance fabric co-developed with client.",
     image: '/images/migrated/third-party/h27c85f7b17c64339a2c34847e22f799ag-43056acba7.webp',
-    moq: '150 Pcs',
-    leadTime: '20-30 days',
+    moq: 'OEM quote*',
+    leadTime: '25–35 days*',
     customization: 'Full Bespoke / ODM',
     selectValue: 'Yoga Set'
   },
@@ -246,8 +247,8 @@ const wholesaleProducts = [
     title: "Deep-V Open Back Jumpsuit",
     description: "Custom navy blue jumpsuits featuring a signature open-back cutout. High-performance compression fabric sourced per client requirements.",
     image: '/images/migrated/third-party/h584606c73e61433b8c2016ece79e7f9c1-c6b4c8d415.webp',
-    moq: '150 Pcs',
-    leadTime: '20-30 days',
+    moq: 'OEM quote*',
+    leadTime: '25–35 days*',
     customization: 'Fabric / Pattern / Logo',
     selectValue: 'Multiple Types / others'
   },
@@ -256,8 +257,8 @@ const wholesaleProducts = [
     title: "Zip-Bra & Cross-Waist Set",
     description: "Sophisticated 2-piece set with a functional zip-front bra and crossover leggings. Full pattern development and sample service provided.",
     image: '/images/migrated/third-party/hb0aca160c56742728d9ea91d985fb2aeq-c49afc1d01.webp',
-    moq: '150 Sets',
-    leadTime: '20-30 days',
+    moq: 'OEM quote*',
+    leadTime: '25–35 days*',
     customization: 'Full Custom / Labels',
     selectValue: 'Yoga Set'
   },
@@ -266,8 +267,8 @@ const wholesaleProducts = [
     title: "Flared Compression Jumpsuit",
     description: "Grey flared studio jumpsuits with custom piping. Engineered for premium boutiques based on client's unique design and fit specs.",
     image: '/images/migrated/third-party/hb8098d7ea10f494e9f70b5fb9a5a61a4e-79d378de23.webp',
-    moq: '150 Pcs',
-    leadTime: '20-30 days',
+    moq: 'OEM quote*',
+    leadTime: '25–35 days*',
     customization: 'Fit / Design / Pkg',
     selectValue: 'Multiple Types / others'
   },
@@ -277,7 +278,7 @@ const wholesaleProducts = [
     description: "High-waist sculpting shorts with supportive racerback bra. Professional 4-needle 6-thread stitching. Available for immediate private label application.",
     image: "/images/migrated/third-party/h772bb8cd8d0b43248173234fa5346f67p-e38ed6b562.webp",
     moq: "50 Sets",
-    leadTime: "7-10 days",
+    leadTime: "2–3 days*",
     customization: "Logo / Label / Pkg",
     selectValue: "Yoga Set"
   },
@@ -287,7 +288,7 @@ const wholesaleProducts = [
     description: "Classic high-compression leggings paired with a versatile scoop-neck sports bra. 10+ colors available in stock for rapid branding and delivery.",
     image: "/images/migrated/third-party/h699564deaff04b57ab05c9d1e6b95066a-4d072dd4d4.webp",
     moq: "50 Sets",
-    leadTime: "7-10 days",
+    leadTime: "2–3 days*",
     customization: "Logo / Label / Pkg",
     selectValue: "Yoga Set"
   },
@@ -307,7 +308,7 @@ const wholesaleProducts = [
     description: "Elegant all-in-one tennis dress with built-in shorts and supportive racerback. High-performance moisture-wicking fabric designed for peak agility and style.",
     image: "/images/migrated/third-party/h9d1abad109d7478080461dad9271b7ecg-564616a33f.webp",
     moq: "50 Pcs",
-    leadTime: "7-10 days",
+    leadTime: "2–3 days*",
     customization: "Logo / Label / Pkg",
     selectValue: "Multiple Types / others"
   }
@@ -345,6 +346,8 @@ const wholesaleProducts = [
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
       </div>
     </div>
+
+    <p class="mt-5 text-[12px] leading-5 text-white/55">*{businessFacts.readyStock.dispatch} {businessFacts.oem.moq} {businessFacts.oem.bulkProduction} {businessFacts.shipping}</p>
 
     <!-- 4-Column Premium Wholesale Products Grid replicating Luxopack, aligned perfectly left and right -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 lg:-ml-12 lg:-mr-12">
@@ -402,7 +405,7 @@ const wholesaleProducts = [
                 <span class="block font-bold text-white text-[11px] md:text-[12px] whitespace-nowrap">{product.moq}</span>
               </div>
               <div>
-                <span class="block text-gray-500 uppercase tracking-wider mb-1">Lead Time</span>
+                <span class="block text-gray-500 uppercase tracking-wider mb-1">Timeline*</span>
                 <span class="block font-bold text-white text-[11px] md:text-[12px] whitespace-nowrap">{product.leadTime}</span>
               </div>
               <div class="min-w-0">

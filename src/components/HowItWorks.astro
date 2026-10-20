@@ -1,5 +1,6 @@
 ---
 import { getWhatsAppUrl } from '../lib/whatsapp';
+import { businessFacts } from '../data/businessFacts';
 const steps = [
   {
     number: "01",
@@ -52,7 +53,7 @@ const steps = [
       "Express Shipping (DHL/FedEx)",
       "Air Freight",
       "Sea Freight",
-      "DDP Shipping",
+      "DDP options, subject to route confirmation",
       "Amazon FBA Delivery",
       "Door-to-Door Service"
     ]
@@ -61,10 +62,10 @@ const steps = [
 
 const timeline = [
   { label: "Inquiry Response", value: "Within 24 Hours" },
-  { label: "Sample Development", value: "3–7 Days" },
-  { label: "Private Label Production", value: "15–25 Days" },
-  { label: "Ready-To-Ship Orders", value: "3–7 Days" },
-  { label: "Shipping", value: "Global Logistics Support" }
+  { label: "OEM Sample Development", value: "Usually 7–10 Days" },
+  { label: "OEM Bulk Production", value: "Usually 25–35 Days" },
+  { label: "Ready-Stock Dispatch", value: "Usually 2–3 Days*" },
+  { label: "Transit & Taxes", value: "Quoted by Destination" }
 ];
 ---
 
@@ -154,6 +155,7 @@ const timeline = [
             </div>
           ))}
         </div>
+        <p class="mt-4 text-[12px] leading-5 text-white/50">*{businessFacts.readyStock.dispatch} {businessFacts.shipping}</p>
       </div>
     </div>
   </div>

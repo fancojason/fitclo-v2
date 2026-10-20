@@ -1,4 +1,5 @@
 ---
+import { businessFacts } from '../data/businessFacts';
 const categories = [
   { id: 'all', label: 'All Questions', icon: 'all' },
   { id: 'manufacturing', label: 'Manufacturing', icon: 'factory' },
@@ -19,7 +20,7 @@ const faqs = [
     id: 2,
     category: 'moq',
     question: "What is the MOQ for private label activewear?",
-    answer: "MOQ depends on product type and customization requirements. For ready-to-ship styles with logo customization, MOQ starts from 50 pieces. For OEM activewear production, MOQ may vary depending on fabric and design complexity. Our team provides flexible solutions for both growing brands and established businesses."
+    answer: `${businessFacts.readyStock.trial} ${businessFacts.oem.moq}`
   },
   {
     id: 3,
@@ -31,7 +32,7 @@ const faqs = [
     id: 4,
     category: 'manufacturing',
     question: "What is the production lead time?",
-    answer: "Ready-to-ship products can usually be delivered within 7 days. Private label orders generally take 15–25 days depending on customization requirements. OEM development timelines vary according to fabric sourcing and sample approval. Our team provides a detailed timeline before production begins."
+    answer: `${businessFacts.readyStock.dispatch} ${businessFacts.oem.sampleDevelopment} ${businessFacts.oem.bulkProduction}`
   },
   {
     id: 5,
@@ -55,7 +56,7 @@ const faqs = [
     id: 8,
     category: 'shipping',
     question: "What shipping methods do you offer for international orders?",
-    answer: "We offer comprehensive global logistics solutions. For urgent orders, we use air express (DHL/FedEx/UPS) with 3-7 day delivery. For larger wholesale orders, we provide cost-effective sea freight (DDP/CIF) and railway options. We handle all export documentation and can deliver directly to your warehouse or Amazon FBA center."
+    answer: businessFacts.shipping
   }
 ];
 

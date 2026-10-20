@@ -586,4 +586,4 @@ Our team can review the project requirements and help identify the key developme
 
 **Fitclo Activewear**  
 B2B Activewear Manufacturing & Private Label Development  
-Dongguan, Guangdong, China
+Guangzhou, China

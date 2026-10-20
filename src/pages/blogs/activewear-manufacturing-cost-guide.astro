@@ -1,6 +1,7 @@
 ---
 import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
 import { whatsappIntelligenceUrl } from '../../data/intelligence';
+import { businessFacts } from '../../data/businessFacts';
 
 const title = 'How Much Does It Cost to Manufacture Leggings, Sports Bras and Yoga Sets?';
 const whatsappUrl = new URL(whatsappIntelligenceUrl);
@@ -90,6 +91,7 @@ const relatedReading = [
   <p><strong>How much does it cost to manufacture leggings, sports bras and yoga sets?</strong> The honest answer is: it depends on the product specification and order plan. A basic listing image does not tell a supplier the fabric quality, construction complexity, color count, size ratio, branding, packaging or delivery basis needed to make a comparable quote.</p>
 
   <p>For B2B buyers, the goal is not to chase an unexplained low number. It is to understand which decisions move the cost, which details are included, and how to compare two activewear manufacturer quotes on the same commercial basis. This guide gives you a practical framework for leggings, sports bras and coordinated yoga sets.</p>
+  <p>{businessFacts.readyStock.trial} {businessFacts.oem.moq} {businessFacts.oem.sampleFee} {businessFacts.readyStock.sample}</p>
 
   <h2>Why the same activewear category can cost very differently</h2>
   <p>Two pairs of leggings can both look black and high-waisted, yet have different yarn composition, fabric weight, opacity target, panel count, pocket construction, waistband finish, printing, labels and packing. The same applies to sports bras: a simple pull-on style is not costed in the same way as a lined, adjustable or multi-panel support style.</p>

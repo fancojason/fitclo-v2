@@ -1,4 +1,5 @@
 ---
+import { businessFacts } from '../data/businessFacts';
 import { getWhatsAppUrl } from '../lib/whatsapp';
 import { productDetailLinks } from '../data/productDetailLinks';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -100,7 +101,7 @@ const faqSchema = {
   </section>
 
   <section class="bg-[#111111] py-10 text-white"><div class="mx-auto grid max-w-[1320px] gap-6 px-6 md:grid-cols-3 lg:px-10">
-    <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">MOQ</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Ready-stock qualifying sets start from 50 sets; individual garments start from 50 pcs. Custom routes are reviewed against the brief.</p></div>
+    <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">MOQ</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">{businessFacts.readyStock.trial} {businessFacts.oem.moq}</p></div>
     <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">BRANDING</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Discuss logo, labels, hang tags and packaging with the selected product route.</p></div>
     <div class="border-l-2 border-[#d8b456] pl-5"><p class="text-[12px] font-bold tracking-[0.12em] text-[#d8b456]">SAMPLES</p><p class="mt-2 text-[15px] leading-[1.55] text-white/75">Confirm the appropriate sample option before approving fit, color, construction and branding.</p></div>
   </div></section>

@@ -1,3 +1,5 @@
+import { businessFacts } from './businessFacts';
+
 export type CategorySourcingLandingPage = {
   slug: string;
   eyebrow: string;
@@ -172,7 +174,9 @@ export const categorySourcingLandingPages: CategorySourcingLandingPage[] = [
       { question: 'What is OEM activewear manufacturing?', answer: 'OEM activewear manufacturing is a development route in which the buyer supplies or approves product-specific requirements such as design, materials, measurements, branding and packing, then the manufacturer develops and produces against that brief.' },
       { question: 'Can I start OEM activewear without a complete tech pack?', answer: 'You can start the discussion with references and product goals, but a clearer technical brief reduces ambiguity. Fitclo can help identify the information needed before sampling.' },
       { question: 'What should I approve before bulk production?', answer: 'Approve the relevant sample, fabric direction, measurements, color, construction, logo placement, labels, hang tags and packing requirements in a documented reference.' },
-      { question: 'What is the OEM MOQ?', answer: 'OEM MOQ is confirmed against the design, fabric, colorways, size range, trims and branding scope. Ready-stock qualifying styles have separate 50-piece or 50-set programme logic.' },
+      { question: 'What is the OEM MOQ?', answer: businessFacts.oem.moq },
+      { question: 'What is the usual OEM sample fee and development time?', answer: `${businessFacts.oem.sampleFee} ${businessFacts.oem.sampleDevelopment}` },
+      { question: 'How long does bulk production usually take?', answer: businessFacts.oem.bulkProduction },
       { question: 'Can Fitclo help with packaging and inspection planning?', answer: 'Yes. Share the packaging brief and the quality points that matter to your product so they can be incorporated into the sample and bulk discussion.' },
       { question: 'Does a ready-stock MOQ apply to a custom OEM style?', answer: 'No. A new pattern, fabric, color or construction may require different material commitments and a separate MOQ. Quote it from the approved brief rather than borrowing the 50-piece or 50-set ready-stock minimum.' },
     ],
@@ -221,6 +225,8 @@ export const categorySourcingLandingPages: CategorySourcingLandingPage[] = [
       { question: 'How many sample revisions are needed?', answer: 'It depends on the complexity of the product and the clarity of the starting brief. Focus on documenting each revision and the remaining approval points rather than assuming a fixed number.' },
       { question: 'Does a sample guarantee bulk production quality?', answer: 'A sample is an approval reference, but bulk consistency also depends on matching the approved materials, measurements, construction, branding and inspection plan. Keep those requirements documented.' },
       { question: 'Can sample development include private label details?', answer: 'Yes. Logo placement, labels, hang tags and packaging can be included in the discussion where they are relevant to the sample or bulk reference.' },
+      { question: 'What does an OEM sample cost and how long does development take?', answer: `${businessFacts.oem.sampleFee} ${businessFacts.oem.sampleDevelopment}` },
+      { question: 'How is a ready-stock sample priced?', answer: businessFacts.readyStock.sample },
     ],
     catalogPath: '/ready-to-ship/',
     catalogLabel: 'Explore Ready-Stock Starting Points',

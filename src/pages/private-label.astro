@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InquiryForm from '../components/InquiryForm.astro';
 import { getAlternateLinks } from '../i18n/routes';
+import { businessFacts } from '../data/businessFacts';
 
 const privateLabelSchema = {
   '@context': 'https://schema.org',
@@ -69,7 +70,7 @@ const privateLabelSchema = {
         Your Brand,<br /><span class="text-[#C9A84C] italic">Our Expertise</span>
       </h1>
       <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
-        Choose existing activewear with your branding, or develop a new product through OEM/ODM. Qualifying ready-stock styles start at 50 pcs or 50 sets; custom development has a separately confirmed MOQ.
+        Choose existing activewear with your branding, or develop a new product through OEM/ODM. {businessFacts.readyStock.trial} {businessFacts.oem.moq}
       </p>
     </div>
   </section>
@@ -194,7 +195,7 @@ const privateLabelSchema = {
       <p class="mt-5 max-w-3xl leading-7 text-white/70">Private label describes how the garment is presented under your brand. The actual work depends on what you want changed. Confirm the selected SKU, customization method and approved sample before comparing quotes.</p>
       <p class="mt-3 max-w-3xl text-sm leading-6 text-white/70">Sourcing for an Australian brand? See the <a class="font-bold text-[#C9A84C] underline" href="/wholesale-to/australia/">Australia activewear wholesale and private-label guide</a> for a country-specific brief and import handoff checklist.</p>
       <div class="mt-10 grid gap-5 md:grid-cols-3">
-        <article class="border border-white/15 p-6"><h3 class="text-xl font-bold">Ready-stock wholesale</h3><p class="mt-4 text-sm leading-6 text-white/70">Choose an existing style, confirm live colors and sizes, and order the garment as supplied. Qualifying sets start at 50 sets; individual garments at 50 pcs.</p><a class="mt-5 inline-block text-sm font-bold text-[#C9A84C]" href="/ready-to-ship/">Browse current programme →</a></article>
+        <article class="border border-white/15 p-6"><h3 class="text-xl font-bold">Ready-stock wholesale</h3><p class="mt-4 text-sm leading-6 text-white/70">Choose an existing style and confirm live colors and sizes. {businessFacts.readyStock.trial}</p><a class="mt-5 inline-block text-sm font-bold text-[#C9A84C]" href="/ready-to-ship/">Browse current programme →</a></article>
         <article class="border border-white/15 p-6"><h3 class="text-xl font-bold">Existing style + your brand</h3><p class="mt-4 text-sm leading-6 text-white/70">Discuss logo placement, brand and care labels, hang tags and packaging for the chosen SKU. Branding feasibility, cost and timing are confirmed for that style.</p><a class="mt-5 inline-block text-sm font-bold text-[#C9A84C]" href="/custom-activewear-labels-packaging/">Compare branding options →</a></article>
         <article class="border border-white/15 p-6"><h3 class="text-xl font-bold">Custom OEM / ODM</h3><p class="mt-4 text-sm leading-6 text-white/70">Specify a new fit, pattern, fabric, colors or construction. Send a reference or tech pack for a separate sample plan, MOQ and production quote.</p><a class="mt-5 inline-block text-sm font-bold text-[#C9A84C]" href="/oem-activewear-manufacturer/">Plan custom development →</a></article>
       </div>

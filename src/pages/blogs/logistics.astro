@@ -1,5 +1,6 @@
 ---
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import { businessFacts } from '../../data/businessFacts';
 ---
 <GuideLayout 
   title="Activewear Shipping & Logistics: Reducing Lead Times"
@@ -8,9 +9,9 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
 >
   <p>Production is only half the battle. Getting your goods to market efficiently is crucial.</p>
   <h3>Air Freight vs Sea Freight</h3>
-  <p>Air freight is fast (5-7 days) but expensive. Sea freight is cost-effective but takes 25-40 days. We recommend a hybrid strategy for new launches.</p>
+  <p>Air and sea freight have different cost, capacity and transit profiles. Request a quote for the destination, chargeable weight and chosen route rather than using one universal delivery estimate.</p>
   <h3>Understanding DDP Terms</h3>
-  <p>Delivered Duty Paid (DDP) means we handle all customs and taxes, delivering the goods directly to your warehouse.</p>
+  <p>DDP places defined import and duty responsibilities on the seller under the agreed terms; availability and covered charges must be confirmed for the specific destination and route. {businessFacts.shipping}</p>
   <h3>Peak Season Planning</h3>
   <p>Plan your Chinese New Year and Q4 holidays 3 months in advance to avoid container shortages and shipping delays.</p>
 </GuideLayout>

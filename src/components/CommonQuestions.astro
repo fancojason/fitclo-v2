@@ -1,4 +1,5 @@
 ---
+import { businessFacts } from '../data/businessFacts';
 const faqs = [
   {
     question: "How to find a reliable activewear manufacturer in China?",
@@ -6,7 +7,7 @@ const faqs = [
   },
   {
     question: "What is the MOQ for private label activewear?",
-    answer: "MOQ depends on product type and customization requirements. For ready-to-ship styles with logo customization, MOQ starts from 50 pieces. For OEM activewear production, MOQ may vary depending on fabric and design complexity. Our team provides flexible solutions for both growing brands and established businesses."
+    answer: `${businessFacts.readyStock.trial} ${businessFacts.oem.moq}`
   },
   {
     question: "Can I customize logo, labels and packaging?",
@@ -14,7 +15,7 @@ const faqs = [
   },
   {
     question: "How long does activewear production take?",
-    answer: "Ready-to-ship products can usually be delivered within 7 days. Private label orders generally take 15–25 days depending on customization requirements. OEM development timelines vary according to fabric sourcing and sample approval. Our team provides a detailed timeline before production begins."
+    answer: `${businessFacts.readyStock.dispatch} ${businessFacts.oem.sampleDevelopment} ${businessFacts.oem.bulkProduction} ${businessFacts.shipping}`
   },
   {
     question: "What fabrics do you use for activewear?",

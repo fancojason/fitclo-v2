@@ -1,3 +1,5 @@
+import { businessFactsEs, businessFacts } from '../../data/businessFacts';
+
 export const oemSpanishPage = {
   slug: 'oem-activewear-manufacturer',
   eyebrow: 'FABRICANTE OEM DE ROPA DEPORTIVA',
@@ -33,7 +35,9 @@ export const oemSpanishPage = {
     { question: '¿Qué es la fabricación OEM de ropa deportiva?', answer: 'Es una modalidad en la que el comprador aporta o aprueba requisitos específicos como diseño, materiales, medidas, marca y embalaje, y el fabricante desarrolla y produce conforme a ese brief.' },
     { question: '¿Puedo iniciar un proyecto OEM sin un tech pack completo?', answer: 'Puedes comenzar con referencias y objetivos de producto, pero un brief técnico más claro reduce ambigüedades. Fitclo puede ayudarte a identificar la información necesaria antes del muestreo.' },
     { question: '¿Qué debo aprobar antes de la producción?', answer: 'Aprueba la muestra correspondiente, tejido, medidas, color, construcción, ubicación del logo, etiquetas, etiquetas colgantes y requisitos de embalaje en una referencia documentada.' },
-    { question: '¿Cuál es el MOQ para producción OEM?', answer: 'El MOQ se confirma según diseño, tejido, colores, rango de tallas, avíos y alcance de personalización. Los modelos elegibles de stock disponible tienen una lógica independiente de 50 unidades o 50 sets.' },
+    { question: '¿Cuál es el MOQ para producción OEM?', answer: businessFactsEs.oemMoq },
+    { question: '¿Cuánto cuesta una muestra OEM?', answer: businessFactsEs.oemSampleFee },
+    { question: '¿Cuánto tardan la muestra y la producción?', answer: `${businessFactsEs.oemSampleDevelopment} ${businessFactsEs.oemBulkProduction}` },
     { question: '¿Fitclo puede ayudar con el embalaje y la inspección?', answer: 'Sí. Comparte el brief de embalaje y los puntos de calidad relevantes para incorporarlos a la evaluación de muestras y a la planificación de producción.' },
   ],
   catalogPath: '/products/',
@@ -50,7 +54,8 @@ export const oemSpanishTranslations = [
   ['View Product Directions', 'Ver opciones de productos'], ['Discuss on WhatsApp', 'Hablar por WhatsApp'], ['BUYER STARTING POINT', 'PUNTO DE PARTIDA PARA COMPRADORES'],
   ['Select a product route and target quantity.', 'Selecciona una modalidad de producto y la cantidad objetivo.'], ['Share fabric, color and size direction.', 'Comparte tus preferencias de tejido, color y tallas.'],
   ['Confirm sample, logo and packaging requirements.', 'Confirma los requisitos de muestra, logo y embalaje.'], ['Approve the product and quality reference before bulk.', 'Aprueba el producto y la referencia de calidad antes de la producción.'],
-  ['Ready-stock qualifying sets start from 50 sets; individual garments start from 50 pcs. Custom routes are reviewed against the brief.', 'Los conjuntos de stock disponible comienzan desde 50 sets y las prendas individuales desde 50 unidades. Los proyectos personalizados se evalúan según el brief.'],
+  [businessFacts.readyStock.trial, businessFactsEs.readyStockTrial],
+  [businessFacts.oem.moq, businessFactsEs.oemMoq],
   ['BRANDING', 'MARCA'], ['Discuss logo, labels, hang tags and packaging with the selected product route.', 'Define logo, etiquetas, etiquetas colgantes y embalaje según la modalidad elegida.'],
   ['SAMPLES', 'MUESTRAS'], ['Confirm the appropriate sample option before approving fit, color, construction and branding.', 'Confirma la opción de muestra adecuada antes de aprobar ajuste, color, confección y marca.'],
   ['RELATED PRODUCT DIRECTIONS', 'OPCIONES DE PRODUCTOS RELACIONADOS'], ['Start from relevant product references.', 'Empieza con referencias de producto relevantes.'],

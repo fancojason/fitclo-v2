@@ -1,12 +1,13 @@
 ---
+import { businessFacts } from '../data/businessFacts';
 const faqs = [
   {
     question: "What is your minimum order quantity (MOQ)?",
-    answer: "MOQ starts from 50 pieces for ready-to-ship styles with logo customization. For OEM activewear production, MOQ varies depending on fabric and design complexity. We provide flexible solutions for both growing and established brands."
+    answer: `${businessFacts.readyStock.trial} ${businessFacts.oem.moq}`
   },
   {
     question: "How long does production take?",
-    answer: "Ready-to-ship products can usually be delivered within 7 days. Private label orders generally take 15–25 days depending on customization requirements. OEM development timelines vary according to fabric sourcing and sample approval."
+    answer: `${businessFacts.readyStock.dispatch} ${businessFacts.oem.sampleDevelopment} ${businessFacts.oem.bulkProduction} ${businessFacts.shipping}`
   },
   {
     question: "Do you provide a physical sample before bulk production?",
@@ -26,7 +27,7 @@ const faqs = [
   },
   {
     question: "Do you ship worldwide? What about customs?",
-    answer: "Yes, we ship to over 50 countries via premium carriers like DHL, FedEx, and UPS, as well as sea freight. We handle all export documentation to ensure a smooth customs process."
+    answer: businessFacts.shipping
   }
 ];
 ---

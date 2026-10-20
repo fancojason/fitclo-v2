@@ -4,6 +4,7 @@ import { productCategories } from '../data/productCategories';
 import { readyStockCatalog } from '../data/readyStockCatalog';
 import { spanishProducts } from '../content/es/products';
 import { getWhatsAppUrl } from '../lib/whatsapp';
+import { businessFacts } from '../data/businessFacts';
 import StyleCodeCopy from './StyleCodeCopy.astro';
 
 const isSpanish = Astro.url.pathname.startsWith('/es/');
@@ -22,7 +23,7 @@ const catalogDownload = '/downloads/ready-stock-activewear-line-sheet.pdf';
 const spanishDetailByCode = new Map(spanishProducts.map((product) => [product.sku, `/es/products/${product.slug}/`]));
 const copy = isSpanish ? {
   eyebrow: 'LISTA ACTUAL DE STOCK DISPONIBLE', title: 'Explora modelos antes de solicitar la combinación actual de colores y tallas.',
-  intro: 'Usa los filtros para crear una selección práctica. Son modelos del programa de stock disponible con MOQ desde 50 unidades o 50 sets; la disponibilidad se confirma según color, tallas y requisitos de marca.',
+  intro: 'Explora modelos de stock disponible. Algunas referencias admiten pruebas desde 20 unidades por modelo, sujetas a confirmación de existencias; 50 unidades por modelo son una referencia habitual. Los conjuntos se cuentan por sets. Mezclar colores y tallas depende del stock.',
   download: 'Descargar catálogo de stock (PDF en inglés)', search: 'Buscar modelos en stock', searchPlaceholder: 'Buscar por modelo, categoría o característica',
   categoryFilter: 'Filtrar por categoría', allCategories: 'Todas las categorías', moqFilter: 'Filtrar por MOQ', allMoq: 'Todas las opciones de MOQ',
   sets: 'MOQ 50 sets', pcs: 'MOQ 50 unidades', clear: 'Limpiar filtros', shown: 'modelos del programa de stock disponible',
@@ -32,7 +33,7 @@ const copy = isSpanish ? {
   availabilityNote: 'Confirmar colores y combinación de tallas actuales',
 } : {
   eyebrow: 'CURRENT READY-STOCK LINE SHEET', title: 'Browse styles before you request the current colour and size mix.',
-  intro: 'Use the filters to create a practical shortlist. These are ready-stock programme styles with MOQ from 50 pcs or 50 sets; live availability is confirmed against your selected colour, size breakdown and branding requirement.',
+  intro: businessFacts.readyStock.trial,
   download: 'Download Ready-Stock Line Sheet', search: 'Search ready-stock styles', searchPlaceholder: 'Search style name, category or feature',
   categoryFilter: 'Filter by category', allCategories: 'All categories', moqFilter: 'Filter by MOQ', allMoq: 'All MOQ options',
   sets: 'MOQ 50 sets', pcs: 'MOQ 50 pcs', clear: 'Clear filters', shown: 'ready-stock programme styles shown',
@@ -89,6 +90,7 @@ const copy = isSpanish ? {
         <span><span class="mr-1.5 text-[#d8b456]">✓</span>{copy.availability}</span>
       </div>
     </div>
+    <p class="mt-4 text-[12px] leading-5 text-white/55">{isSpanish ? 'Las cantidades de las fichas son referencias por modelo y se confirman con el stock real. El plazo de 2–3 días se refiere al despacho sin personalización, no a la llegada al país de destino.' : `${businessFacts.readyStock.dispatch} The listed 50 pcs or 50 sets on a card is a style-specific reference to confirm, not a live stock guarantee.`}</p>
 
     <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4" data-ready-grid>
       {readyStockCatalog.map((product) => {

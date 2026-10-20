@@ -1,28 +1,29 @@
 ---
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import { businessFacts } from '../../data/businessFacts';
 ---
 
 <GuideLayout 
   title="The Logistics of Scale: Why DDP Shipping is a Game Changer for B2B Buyers" 
   type="STRATEGY"
-  description="Navigating international logistics. Why 'Delivered Duty Paid' (DDP) is the most efficient shipping method for scaling activewear brands."
+  description="How DDP terms can simplify activewear imports when the destination and logistics route support them. Request a route-specific quote."
 >
   <h2>Worry-Free Importing: The DDP Advantage</h2>
-  <p>For many international brand owners, the biggest headache isn't manufacturing—it's logistics. Dealing with customs, import duties, and local port clearance can be overwhelming. This is why <strong>DDP (Delivered Duty Paid)</strong> has become the gold standard for B2B activewear importing.</p>
+  <p>Customs, import duties and local clearance can complicate landed-cost planning. <strong>DDP (Delivered Duty Paid)</strong> may simplify an order when a suitable route is available and its scope is confirmed in writing.</p>
   
   <h3>What is DDP?</h3>
-  <p>DDP is a shipping agreement where the manufacturer (FITCLO) takes full responsibility for the goods until they arrive at your door. This includes all shipping costs, export/import duties, taxes, and customs clearance fees. You pay one flat rate, and we handle the rest.</p>
+  <p>Under an agreed DDP sale, the seller arranges delivery to the named destination and takes on the duties specified by the agreed Incoterm. The quote must identify the named place, covered charges and any exclusions. {businessFacts.shipping}</p>
 
-  <h3>Why Our Clients Choose DDP</h3>
+  <h3>When to Consider DDP</h3>
   <ul class="list-disc pl-6 space-y-4 my-6 text-gray-700">
-    <li><strong>Predictable Pricing:</strong> No surprise hidden fees or local port charges. You know your landed cost before production even starts.</li>
-    <li><strong>Zero Paperwork:</strong> We handle the complex documentation required for international customs, saving you hours of administrative work.</li>
-    <li><strong>Amazon FBA Ready:</strong> We can ship directly from our factory floor to Amazon warehouses globally, fully compliant with FBA standards.</li>
+    <li><strong>Comparable quotes:</strong> Ask which freight, duty, tax and local charges are included for the named destination.</li>
+    <li><strong>Clear responsibilities:</strong> Confirm importer requirements and documents for the specific country and route.</li>
+    <li><strong>Delivery planning:</strong> Review the estimated transit separately from sample development, production and dispatch.</li>
   </ul>
 
   <div class="mt-12 p-8 bg-[#C9A84C]/5 border border-[#C9A84C]/20 rounded-2xl">
     <h4 class="text-[#C9A84C] font-bold mb-4">Request a DDP Quote</h4>
-    <p class="text-gray-500 mb-6">Want to see the final "landed" cost for your next order? Provide your destination address during the inquiry process, and we'll calculate a full DDP shipping solution for you.</p>
+    <p class="text-gray-500 mb-6">Share the destination address, style, quantity and expected packed weight. We can check whether DDP is available on the actual route and quote its scope, cost and estimated transit.</p>
     <a href="/#inquiry" class="inline-block bg-[#C9A84C] text-black px-8 py-3 rounded-lg font-bold uppercase tracking-wider transition-all hover:bg-[#b8973d]">Get Shipping Quote →</a>
   </div>
 </GuideLayout>

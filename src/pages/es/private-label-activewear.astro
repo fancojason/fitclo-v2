@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
 import { getAlternateLinks } from '../../i18n/routes';
+import { businessFactsEs } from '../../data/businessFacts';
 
 const canonicalURL = 'https://www.fitcloo.com/es/private-label-activewear/';
 const privateLabelSchema = {
@@ -63,7 +64,7 @@ const process = [
           </h2>
           <div class="space-y-6 text-[15px] md:text-[16px] text-gray-600 font-['Century_Gothic',sans-serif] leading-relaxed">
             <p>La marca privada parte de una prenda existente y estudia cómo aplicar la identidad de tu marca. Comparte el modelo, el logo y los acabados deseados para revisar qué personalizaciones son viables antes de pedir.</p>
-            <p>Si necesitas cambiar <strong class="text-black">patronaje, tejido o construcción</strong>, consulta el <a href="/es/oem-activewear-manufacturer/" class="text-[#9b7426] underline">desarrollo OEM/ODM</a>. El MOQ desde 50 unidades o conjuntos corresponde a modelos seleccionados del <a href="/es/ready-stock-activewear/" class="text-[#9b7426] underline">programa de stock</a>; no es un MOQ universal para cualquier personalización.</p>
+            <p>Si necesitas cambiar <strong class="text-black">patronaje, tejido o construcción</strong>, consulta el <a href="/es/oem-activewear-manufacturer/" class="text-[#9b7426] underline">desarrollo OEM/ODM</a>. {businessFactsEs.readyStockTrial} {businessFactsEs.oemMoq}</p>
             <div class="pt-4"><a href="/es/ready-stock-activewear/" class="text-[#9b7426] font-bold hover:underline font-['Century_Gothic',sans-serif] text-[14px] md:text-[15px] uppercase tracking-widest">Ver modelos del programa de stock →</a></div>
           </div>
           <div class="mt-12 grid grid-cols-2 gap-8">

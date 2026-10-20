@@ -1,22 +1,24 @@
 ---
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import { businessFacts } from '../../data/businessFacts';
 ---
 
 <GuideLayout 
   title="Custom Activewear MOQ Guide" 
   type="MOQ GUIDE"
-  description="Don't let high MOQs stop your brand. Learn how Fitclo supports emerging brands with low MOQ options and scalable production."
+  description="Compare stock trial quantities with OEM/ODM minimums per style and color. Confirm pcs versus sets, stock, sample costs and production timing before ordering."
 >
   <h2>Understanding Minimum Order Quantities</h2>
-  <p>Minimum Order Quantity (MOQ) is the lowest number of units a factory is willing to produce for a single style/color. We offer flexible solutions for all brand sizes.</p>
+  <p>MOQ must specify both the unit and the scope: pieces or complete sets, per style and, for OEM/ODM, per color. A stock trial and a new custom production run have different requirements.</p>
   
   <h3>MOQ Tiers at Fitclo</h3>
   <ul>
-    <li>Ready-to-Ship: MOQ 1-50 pcs for quick testing</li>
-    <li>Private Label: MOQ 100-200 pcs per style/color</li>
-    <li>Full Custom (OEM): MOQ 300+ pcs for unique fabrics</li>
+    <li>Ready-stock trial: {businessFacts.readyStock.trial}</li>
+    <li>Private label on existing stock: confirm the selected SKU, stock and branding method before setting a minimum.</li>
+    <li>New OEM/ODM production: {businessFacts.oem.moq}</li>
   </ul>
 
   <h3>Why Low MOQ Matters</h3>
   <p>Low MOQs allow you to test market demand, manage inventory risk, and launch a wider variety of designs with less upfront capital.</p>
+  <p>{businessFacts.oem.sampleFee} {businessFacts.oem.sampleDevelopment} {businessFacts.oem.bulkProduction}</p>
 </GuideLayout>

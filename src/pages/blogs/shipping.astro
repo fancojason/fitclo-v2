@@ -1,5 +1,6 @@
 ---
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import { businessFacts } from '../../data/businessFacts';
 ---
 
 <GuideLayout
@@ -47,6 +48,7 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
   </ul>
 
   <h2>Build a Realistic Delivery Timeline</h2>
+  <p>{businessFacts.readyStock.dispatch} {businessFacts.oem.bulkProduction} {businessFacts.shipping}</p>
   <p>Transit time is only one part of delivery. Include booking availability, export handling, port or airport movement, customs inspection and last-mile delivery. Peak seasons, holidays and weather can add uncertainty, so avoid promising a launch based on the fastest quoted transit time.</p>
 
   <h2>Activewear Shipping Checklist Before Cargo Release</h2>

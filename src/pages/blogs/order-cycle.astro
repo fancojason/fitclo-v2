@@ -1,5 +1,6 @@
 ---
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import { businessFacts } from '../../data/businessFacts';
 ---
 
 <GuideLayout 
@@ -8,21 +9,21 @@ import GuideLayout from '../../layouts/GuideLayout.astro';
   description="Manage your expectations. A detailed breakdown of the time required for sampling, mass production, and global shipping."
 >
   <h2>Planning Your Collection Launch</h2>
-  <p>One of the biggest mistakes new brands make is underestimating the time required for manufacturing. A professional collection typically takes 3-4 months from concept to doorstep.</p>
+  <p>Plan sample development, sample approval, bulk production, dispatch and international transit as separate stages. The final door-to-door schedule depends on revisions, materials and the confirmed logistics route.</p>
   
-  <h3>Phase 1: Development & Sampling (2-4 Weeks)</h3>
-  <p>This includes finalizing tech packs, fabric sourcing, and creating the first Proto sample. If multiple revisions are needed, this phase can extend.</p>
+  <h3>Phase 1: Development & Sampling</h3>
+  <p>{businessFacts.oem.sampleDevelopment} Tech-pack finalization, sourcing and revisions may add time.</p>
 
-  <h3>Phase 2: Mass Production (4-6 Weeks)</h3>
-  <p>Once the PPS (Pre-Production Sample) is approved, mass production begins. This includes fabric knitting/dyeing, cutting, sewing, and final quality control inspections.</p>
+  <h3>Phase 2: Mass Production</h3>
+  <p>{businessFacts.oem.bulkProduction} This includes applicable material preparation, cutting, sewing and quality checks.</p>
 
-  <h3>Phase 3: Quality Control & Packing (1 Week)</h3>
+  <h3>Phase 3: Quality Control & Packing</h3>
   <p>Every piece is inspected, trimmed, ironed, and packed into your custom branded packaging.</p>
 
-  <h3>Phase 4: Global Shipping (1-4 Weeks)</h3>
+  <h3>Phase 4: Dispatch and International Transit</h3>
   <ul>
-    <li><strong>Air Freight:</strong> 5-9 days (Faster but more expensive)</li>
-    <li><strong>Sea Freight:</strong> 25-35 days (Economical for bulk orders)</li>
+    <li>{businessFacts.readyStock.dispatch}</li>
+    <li>{businessFacts.shipping}</li>
   </ul>
 
   <h3>Pro Tip: Peak Seasons</h3>

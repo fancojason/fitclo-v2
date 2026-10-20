@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('sm2606-bra');
+if (!product) throw new Error('Missing catalog product sm2606-bra');
+---
+<VerifiedProductDetail product={product} seoTitle="Contrast-Bound V-Neck Sports Bra SM2606-BRA | Fitclo" metaDescription="Review SM2606-BRA, a V-neck sports bra with pale contrast binding and a broad lower band. Ask Fitclo for confirmed support, sizing, fabric and current availability." designNotes={['Pale contrast binding outlines the V neckline and arm openings.', 'Broad shoulder straps and a horizontal lower band are visible in the supplied image.', 'Coordinated leggings are pictured for styling; the catalog item is the sports bra.']} buyerNote="Ask for a rear view, cup construction, padding options, support level and size chart. The image alone cannot verify performance or the availability of the matching leggings as a bundle." related={{href:'/products/y4100/',label:'Y4100 wrap-front halter sports bra'}} />

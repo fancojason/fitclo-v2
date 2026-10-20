@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('Y4100');
+if (!product) throw new Error('Missing catalog product Y4100');
+---
+<VerifiedProductDetail product={product} seoTitle="Wrap-Front Halter Sports Bra Y4100 | Wholesale Fitclo" metaDescription="Explore Y4100, a V-neck halter sports bra with a wrap-front lower edge. View the actual style image and ask Fitclo about support, sizes, stock and wholesale terms." designNotes={['Halter straps meet at the neck instead of continuing over both shoulders.', 'The front has a V neckline and overlapping fabric at the lower edge.', 'The matching leggings in the image are styling context; this SKU is the bra only.']} buyerNote="Request the back view, support and coverage specification, removable-cup information, garment measurements and a physical sample. Confirm whether any color shown on the page is currently available before quoting a collection." related={{href:'/products/sm2606-bra/',label:'SM2606-BRA contrast-bound V-neck bra'}} />

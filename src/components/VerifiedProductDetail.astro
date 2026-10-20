@@ -10,21 +10,29 @@ type Props = {
   metaDescription: string;
   designNotes: string[];
   buyerNote: string;
-  related: { href: string; label: string };
+  related?: { href: string; label: string };
 };
 const { product, seoTitle, metaDescription, designNotes, buyerNote, related } = Astro.props;
 const url = `https://www.fitcloo.com${Astro.url.pathname}`;
+const categoryLabels: Record<string, string> = {
+  'matching-sets': 'Matching Sets', 'sports-bras': 'Sports Bras',
+  'gym-shorts': 'Gym Shorts', leggings: 'Leggings', jackets: 'Jackets',
+  'tank-tops': 'Tank Tops', jumpsuits: 'Jumpsuits', dresses: 'Sports Dresses',
+};
+const categoryLabel = categoryLabels[product.category] || 'Products';
+const categoryUrl = `/products/${product.category}/`;
+const imageAlt = product.imageAlt?.includes(product.styleCode) ? product.imageAlt : `${product.imageAlt || product.name}, style ${product.styleCode}`;
 const whatsappUrl = getWhatsAppUrl({ productCode: product.styleCode, productName: product.name, category: product.category });
 const productSchema = {
   '@context': 'https://schema.org', '@type': 'Product', '@id': `${url}#product`,
   name: product.name, sku: product.styleCode, description: product.description,
   image: `https://www.fitcloo.com${product.image}`, url,
-  brand: { '@type': 'Brand', name: 'Fitclo' }, category: 'Matching activewear sets',
+  brand: { '@type': 'Brand', name: 'Fitclo' }, category: categoryLabel,
 };
 const breadcrumbSchema = {
   '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.fitcloo.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Matching Sets', item: 'https://www.fitcloo.com/products/matching-sets/' },
+    { '@type': 'ListItem', position: 2, name: categoryLabel, item: `https://www.fitcloo.com${categoryUrl}` },
     { '@type': 'ListItem', position: 3, name: product.name, item: url },
   ],
 };
@@ -32,9 +40,9 @@ const breadcrumbSchema = {
 <BaseLayout title={seoTitle} description={metaDescription} canonicalURL={url} image={`https://www.fitcloo.com${product.image}`} structuredData={[productSchema, breadcrumbSchema]} includeBreadcrumbSchema={false} whatsappProductCode={product.styleCode} whatsappProductName={product.name}>
   <main class="bg-[#090a0c] text-white">
     <div class="mx-auto max-w-[1240px] px-6 pb-20 pt-[112px] lg:px-10">
-      <nav aria-label="Breadcrumb" class="mb-8 text-xs text-white/60"><a href="/">Home</a> / <a href="/products/matching-sets/">Matching Sets</a> / {product.styleCode}</nav>
+      <nav aria-label="Breadcrumb" class="mb-8 text-xs text-white/60"><a href="/">Home</a> / <a href={categoryUrl}>{categoryLabel}</a> / {product.styleCode}</nav>
       <div class="grid gap-10 border-t border-white/15 pt-9 lg:grid-cols-2 lg:gap-16">
-        <figure><img src={product.image} alt={product.imageAlt || `${product.name}, style ${product.styleCode}`} width="1254" height="1254" fetchpriority="high" class="w-full border border-white/15 bg-[#111218]" /><figcaption class="mt-3 text-xs text-white/55">Style {product.styleCode}. Image is a product reference; confirm current colors before ordering.</figcaption></figure>
+        <figure><img src={product.image} alt={imageAlt} width="1254" height="1254" fetchpriority="high" class="w-full border border-white/15 bg-[#111218]" /><figcaption class="mt-3 text-xs text-white/55">Style {product.styleCode}. Image is a product reference; confirm current colors before ordering.</figcaption></figure>
         <div>
           <p class="text-xs font-bold tracking-[.18em] text-[#d8b456]">WHOLESALE ACTIVEWEAR · STYLE {product.styleCode}</p>
           <h1 class="mt-5 text-4xl font-bold leading-tight sm:text-5xl">{product.name}</h1>
@@ -42,7 +50,7 @@ const breadcrumbSchema = {
           <dl class="mt-8 grid gap-5 border-y border-white/15 py-6 sm:grid-cols-2">
             <div><dt class="text-xs text-[#d8b456]">Style code</dt><dd class="mt-2 font-semibold">{product.styleCode}</dd></div>
             <div><dt class="text-xs text-[#d8b456]">Catalog order reference</dt><dd class="mt-2 font-semibold">{product.moq} per style; confirm current terms</dd></div>
-            <div><dt class="text-xs text-[#d8b456]">Product category</dt><dd class="mt-2 font-semibold">Matching activewear set</dd></div>
+            <div><dt class="text-xs text-[#d8b456]">Product category</dt><dd class="mt-2 font-semibold">{categoryLabel}</dd></div>
             <div><dt class="text-xs text-[#d8b456]">Current variants</dt><dd class="mt-2 font-semibold">Confirm colors, sizes and live stock</dd></div>
           </dl>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center bg-[#d8b456] px-6 font-bold text-[#101010]">Ask about style {product.styleCode}</a>
@@ -54,7 +62,7 @@ const breadcrumbSchema = {
         <div><p class="text-xs font-bold tracking-[.18em] text-[#d8b456]">BUYER CHECKLIST</p><h2 class="mt-4 text-3xl font-bold">Confirm before purchasing</h2><p class="mt-6 leading-8 text-white/75">{buyerNote}</p><p class="mt-5 leading-8 text-white/75">Fabric composition, GSM, garment measurements, available colors and sizes, price and live inventory have not been verified for this style. Ask Fitclo for the current specification and sample before committing to a bulk order.</p></div>
       </section>
       <section class="mt-20 border-t border-white/15 pt-12"><p class="text-xs font-bold tracking-[.18em] text-[#d8b456]">SOURCING ROUTES</p><h2 class="mt-4 text-3xl font-bold">Ready stock, branding and custom development</h2><div class="mt-8 grid gap-7 md:grid-cols-3"><div><h3 class="text-lg font-bold">Ready-stock inquiry</h3><p class="mt-3 text-sm leading-7 text-white/70">The catalog lists this as a ready-stock style. The {product.moq} figure is a catalog reference, not a guarantee of live stock or a fixed color/size mix. {businessFacts.readyStock.dispatch}</p></div><div><h3 class="text-lg font-bold">Branding on an existing style</h3><p class="mt-3 text-sm leading-7 text-white/70">Ask which logo, label, hang-tag or packaging options are feasible for this specific style. Branding can change minimums and timing.</p></div><div><h3 class="text-lg font-bold">OEM/ODM version</h3><p class="mt-3 text-sm leading-7 text-white/70">For changes to fabric, pattern or construction, send a tech pack and quantity plan. {businessFacts.oem.moq}</p></div></div><p class="mt-8 text-sm leading-7 text-white/60">Ready-stock sample costs depend on the selected style. Freight, delivery time, DDP availability and taxes depend on the destination and shipping route.</p></section>
-      <section class="mt-20 border-t border-white/15 pt-12"><h2 class="text-3xl font-bold">Continue your shortlist</h2><p class="mt-5 leading-8 text-white/70">Compare <a href={related.href} class="text-[#d8b456] underline">{related.label}</a>, browse all <a href="/products/matching-sets/" class="text-[#d8b456] underline">matching sets</a>, or read the <a href="/blogs/" class="text-[#d8b456] underline">Fitclo buying guides</a>. When you contact us, include style {product.styleCode} so we can check the right product.</p></section>
+      <section class="mt-20 border-t border-white/15 pt-12"><h2 class="text-3xl font-bold">Continue your shortlist</h2><p class="mt-5 leading-8 text-white/70">{related && <>Compare <a href={related.href} class="text-[#d8b456] underline">{related.label}</a>, </>}browse all <a href={categoryUrl} class="text-[#d8b456] underline">{categoryLabel.toLowerCase()}</a>, or read the <a href="/blogs/" class="text-[#d8b456] underline">Fitclo buying guides</a>. When you contact us, include style {product.styleCode} so we can check the right product.</p></section>
     </div>
   </main>
 </BaseLayout>

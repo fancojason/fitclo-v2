@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('EBX7028');
+if (!product) throw new Error('Missing catalog product EBX7028');
+---
+<VerifiedProductDetail product={product} seoTitle="Contrast-Piped Longline Workout Tank EBX7028 | Fitclo" metaDescription="See EBX7028, a fitted sleeveless workout tank with pale contrast piping at the neckline, shoulder edges and hem. Ask Fitclo about measurements, fabric and stock." designNotes={['Light piping traces the scoop neckline and shoulder edges.', 'The fitted body extends below the bust to a straight hem with matching contrast trim.', 'The coordinated bottom in the photo is styling context; this listing is for the tank top.']} buyerNote="Confirm garment length, whether the top has any inner bra construction, fabric composition and the current size/color mix. Do not assume the pictured coordinated bottoms are included." />

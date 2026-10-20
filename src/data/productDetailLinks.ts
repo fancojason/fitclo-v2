@@ -1,4 +1,12 @@
 export const productDetailLinks: Record<string, string> = {
+  'wrap-front-halter-sports-bra-y4100': '/products/y4100/',
+  'contrast-bound-v-neck-sports-bra-sm2606-bra': '/products/sm2606-bra/',
+  'high-waist-fitted-biker-shorts-4073': '/products/4073/',
+  'v-seam-capri-leggings-a5796': '/products/a5796/',
+  'zip-front-workout-jacket-dwt7755': '/products/dwt7755/',
+  'contrast-piped-longline-workout-tank-top-ebx7028': '/products/ebx7028/',
+  'halter-open-back-flare-jumpsuit-yy126': '/products/yy126/',
+  'scoop-neck-racerback-tennis-dress-4160': '/products/4160/',
   'contrast-stripe-jacket-tank-capri-leggings-set-tz2578-15': '/products/tz2578-15/',
   'side-stripe-hoodie-wide-leg-pants-set-tz3005-2': '/products/tz3005-2/',
   'halter-tank-wide-leg-pants-set-tz5529-19': '/products/tz5529-19/',

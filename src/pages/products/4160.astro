@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('4160');
+if (!product) throw new Error('Missing catalog product 4160');
+---
+<VerifiedProductDetail product={product} seoTitle="Scoop-Neck Racerback Tennis Dress 4160 | Fitclo Wholesale" metaDescription="Review style 4160, a sleeveless tennis dress with a scoop neckline, racerback and short A-line skirt. Ask Fitclo to confirm the inner-short option, sizing and stock." designNotes={['The front view has a scoop neckline and sleeveless shoulders.', 'The back view shows a racerback cut.', 'The skirt extends to a short A-line hem; the image does not confirm any built-in shorts.']} buyerNote="Ask whether separate or built-in shorts are available, and confirm dress length, fabric, size chart and movement coverage with a sample. Colors in the image are references until live stock is checked." />

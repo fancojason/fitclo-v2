@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('DWT7755');
+if (!product) throw new Error('Missing catalog product DWT7755');
+---
+<VerifiedProductDetail product={product} seoTitle="Zip-Front Workout Jacket with Thumbholes DWT7755 | Fitclo" metaDescription="Review DWT7755, a fitted long-sleeve training jacket with a stand collar, full front zip and thumbholes. Confirm fabric, sizes, stock and branding options with Fitclo." designNotes={['The full-length front zipper runs to a short stand collar.', 'Long sleeves extend over the hand with thumb openings visible in the supplied front view.', 'The image includes both front and back views of the fitted jacket; the leggings are not part of this SKU.']} buyerNote="Request a close-up of the zipper, seam finish and thumb opening, plus jacket length and chest measurements. Ask for the current fabric, color chart and stock status before setting a launch date." />

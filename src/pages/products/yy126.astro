@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('YY126');
+if (!product) throw new Error('Missing catalog product YY126');
+---
+<VerifiedProductDetail product={product} seoTitle="Halter Open-Back Flare Yoga Jumpsuit YY126 | Fitclo" metaDescription="Explore YY126, a one-piece halter jumpsuit with an open back and flared full-length legs. View front and back product images and request confirmed fit, fabric and stock." designNotes={['A halter neckline connects the upper body into a single-piece silhouette.', 'The supplied back view shows an open back with a horizontal band.', 'The legs widen toward the hem into a full-length flare.']} buyerNote="Ask for torso length, inseam, neckline coverage and the method of putting on the one-piece garment. Confirm the current material, size chart, color options and sample availability before ordering." />

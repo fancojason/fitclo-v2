@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('4073');
+if (!product) throw new Error('Missing catalog product 4073');
+---
+<VerifiedProductDetail product={product} seoTitle="High-Waist Fitted Biker Shorts 4073 | Wholesale Fitclo" metaDescription="See style 4073, fitted biker shorts with a wide high-rise waistband and short leg. Review the product photo and confirm inseam, sizes, stock and wholesale pricing." designNotes={['A wide, high-rise waistband sits above the fitted short legs.', 'The front view shows a clean silhouette with a visible horizontal seam below the waistband.', 'This listing is for biker shorts, not the complete outfit worn by the model.']} buyerNote="Ask for measured inseam and rise, fabric composition, opacity test results and the current size/color chart. Confirm whether the pictured beige tone is presently in stock." />

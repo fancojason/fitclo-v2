@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('A5796');
+if (!product) throw new Error('Missing catalog product A5796');
+---
+<VerifiedProductDetail product={product} seoTitle="V-Seam Capri Workout Leggings A5796 | Fitclo Wholesale" metaDescription="Explore A5796 below-knee capri workout leggings with a high waistband and rear V seam. Ask Fitclo to verify inseam, fabric, sizing and ready-stock availability." designNotes={['The legs end below the knee at capri length rather than at the ankle.', 'A V-shaped seam is visible across the rear above the seat.', 'The image shows a broad high waistband and a fitted leg silhouette.']} buyerNote="Confirm the measured inseam and rise for each size, whether the rear seam and coverage meet your fit brief, and the current fabric and stock details. The burgundy image is a visual reference, not an inventory commitment." related={{href:'/products/capri-workout-set/',label:'a coordinated capri workout set'}} />

@@ -1,5 +1,6 @@
 ---
 import { businessFacts } from '../data/businessFacts';
+const { includeFaqSchema = true } = Astro.props;
 const categories = [
   { id: 'all', label: 'All Questions', icon: 'all' },
   { id: 'manufacturing', label: 'Manufacturing', icon: 'factory' },
@@ -75,7 +76,7 @@ const faqSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+{includeFaqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
 <section id="activewear-intelligence-v2" class="py-24 bg-[#050505] text-white font-['Century_Gothic',sans-serif]">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-16">

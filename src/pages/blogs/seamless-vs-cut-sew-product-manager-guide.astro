@@ -19,12 +19,12 @@ const articleSchema = {
     name: "Fitclo",
     logo: {
       "@type": "ImageObject",
-      url: "/images/migrated/third-party/h8f27abddb40d4300874f693d698ed50dd-cadc7ea119.webp"
+      url: "https://www.fitcloo.com/favicon.webp?v=3"
     }
   },
   datePublished: "2026-07-03",
   dateModified: "2026-07-11",
-  mainEntityOfPage: "https://www.fitcloo.com/blogs/seamless-vs-cut-sew-product-manager-guide"
+  mainEntityOfPage: "https://www.fitcloo.com/blogs/seamless-vs-cut-sew-product-manager-guide/"
 };
 const faqSchema = {
   "@context": "https://schema.org",
@@ -70,7 +70,6 @@ const matrix = [
 <BaseLayout title={`${title} | Fitclo Blog`} description={description} autoArticleSchema={false} legacyShell={true}>
   <article class="bg-white font-['Century_Gothic',sans-serif]">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <header class="blog-hero relative bg-[#06060a] pt-36 md:pt-44 pb-16 md:pb-20 text-white overflow-hidden">
       <div class="absolute inset-0 opacity-30">

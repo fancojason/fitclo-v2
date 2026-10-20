@@ -56,4 +56,3 @@ User-agent: Applebot-Extended
 Disallow: /
 
 Sitemap: https://www.fitcloo.com/sitemap-index.xml
-Sitemap: https://www.fitcloo.com/sitemap-0.xml

@@ -25,6 +25,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Plan a core activewear line around fit consistency, colour options and a size mix that suits your intended customer.',
     planningPriorities: ['Confirm the category mix before selecting styles.', 'Align size grading and fit comments during sampling.', 'Choose branding and pack-out details before bulk approval.'],
     faqFocus: 'US activewear buyers',
+    seoTitle: 'US Activewear Sourcing for DTC Brands & Studios | Fitclo',
+    metaDescription: 'Explore ready-stock, private-label and OEM activewear for US DTC brands, studios and retailers. Plan category mix, fit samples, branding and shipment scope.',
+    headline: 'Activewear sourcing for US DTC brands and studios.',
   },
   {
     slug: 'united-kingdom',
@@ -68,6 +71,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Use a documented brief to align fabrics, construction, colour references and brand components before bulk production.',
     planningPriorities: ['Share a measurement chart or fit reference early.', 'Decide whether ready stock, private label or OEM fits the project.', 'Review labelling and import needs with qualified local advisers.'],
     faqFocus: 'German activewear buyers',
+    seoTitle: 'Activewear Production for German Brands: Fit & Specs | Fitclo',
+    metaDescription: 'Plan activewear sourcing for German brands with documented measurements, fabrics, construction and sample approval. Compare ready-stock, private label and OEM routes.',
+    headline: 'Activewear sourcing for German brands with clear specifications.',
   },
   {
     slug: 'france',
@@ -76,6 +82,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Balance the collection silhouette with practical purchasing inputs: fabric direction, target quantity, colours and branding requirements.',
     planningPriorities: ['Choose performance fabric based on the use case, not only appearance.', 'Confirm the desired product finish on an approved sample.', 'Plan label, hang-tag and packaging information before bulk.'],
     faqFocus: 'French activewear buyers',
+    seoTitle: 'Yoga & Pilates Activewear Sourcing for France | Fitclo',
+    metaDescription: 'Source yoga sets, leggings and sports bras for French fitness brands. Compare fabric, sample finish, labels and ready-stock versus custom production routes.',
+    headline: 'Yoga and Pilates activewear sourcing for French brands.',
   },
   {
     slug: 'netherlands',
@@ -84,6 +93,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'A compact, well-specified collection is easier to sample, evaluate and reorder than a broad range without a clear size or colour plan.',
     planningPriorities: ['Start with commercially focused styles and a realistic quantity.', 'Use samples to review construction, measurements and logo placement.', 'Confirm logistics documentation for the actual shipment route.'],
     faqFocus: 'Netherlands activewear buyers',
+    seoTitle: 'Small-Range Activewear Sourcing for Dutch Brands | Fitclo',
+    metaDescription: 'Plan a focused activewear assortment for Netherlands ecommerce brands and distributors. Review samples, logo placement, size mix and the confirmed delivery route.',
+    headline: 'Focused activewear sourcing for Netherlands brands.',
   },
   {
     slug: 'australia',
@@ -131,6 +143,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Use sampling to validate the intended fabric weight, recovery and layering suitability before committing to a bulk order.',
     planningPriorities: ['Choose fabric and silhouette according to the intended wear season.', 'Check size mix and colour plan against the launch assortment.', 'Confirm destination paperwork with a customs or logistics specialist.'],
     faqFocus: 'Canadian activewear buyers',
+    seoTitle: 'Activewear Sets & Layers for Canadian Brands | Fitclo',
+    metaDescription: 'Source training sets and layers for Canadian activewear brands. Review seasonal fabric weight, recovery, samples, size mix and shipment scope before bulk approval.',
+    headline: 'Activewear sets and layers for Canadian brands.',
   },
   {
     slug: 'japan',
@@ -139,6 +154,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Bring measurement points, fabric expectations and finish requirements into the sample review so the bulk brief is unambiguous.',
     planningPriorities: ['Provide clear fit comments after sample review.', 'Confirm labels, hang tags and packaging as part of the final brief.', 'Coordinate shipment documents against the confirmed import route.'],
     faqFocus: 'Japanese activewear buyers',
+    seoTitle: 'Activewear Development for Japanese Brands | Fitclo',
+    metaDescription: 'Develop activewear for Japanese buyers with documented fit, measurements, finish and packaging. Compare stock, private-label and OEM sampling routes.',
+    headline: 'Activewear development with fit detail for Japanese brands.',
   },
   {
     slug: 'south-korea',
@@ -147,6 +165,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Combine a strong visual direction with defined fabric, fit and branding information so samples can be evaluated efficiently.',
     planningPriorities: ['Use reference images with measurable construction notes.', 'Confirm colour standards before production approval.', 'Keep the initial category range focused for faster buyer feedback.'],
     faqFocus: 'South Korean activewear buyers',
+    seoTitle: 'Coordinated Activewear Sets for South Korea | Fitclo',
+    metaDescription: 'Source coordinated sets and seamless styles for South Korean fitness labels. Align references, fabric, colour standards, sample fit and branding before production.',
+    headline: 'Coordinated activewear sourcing for South Korean brands.',
   },
   {
     slug: 'uae',
@@ -155,6 +176,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Select product options around the expected use case and brand positioning, then plan samples, labels and delivery documentation together.',
     planningPriorities: ['Clarify product coverage and fabric hand-feel expectations.', 'Confirm branding and packaging before the pre-production approval.', 'Verify destination-specific import requirements with a qualified local party.'],
     faqFocus: 'UAE activewear buyers',
+    seoTitle: 'Activewear Sourcing for UAE Retailers & Studios | Fitclo',
+    metaDescription: 'Plan activewear sourcing for UAE retailers and studios with attention to product coverage, fabric feel, branding, samples and destination-specific delivery scope.',
+    headline: 'Activewear sourcing for UAE retailers and studios.',
   },
   {
     slug: 'mexico',
@@ -163,6 +187,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Choose a buying route that fits the launch goal: ready stock for faster assortment testing, private label for brand presentation or OEM for a new design.',
     planningPriorities: ['Identify the quantity and size mix before requesting a quote.', 'Approve construction and fit with a sample where appropriate.', 'Plan documentation and the delivery route before bulk dispatch.'],
     faqFocus: 'Mexican activewear buyers',
+    seoTitle: 'Ready-Stock & Branded Activewear for Mexico | Fitclo',
+    metaDescription: 'Compare ready-stock, private-label and OEM activewear for Mexican fitness brands. Confirm size mix, samples, product requirements and shipment documentation.',
+    headline: 'Ready-stock and branded activewear for Mexican buyers.',
   },
   {
     slug: 'brazil',
@@ -171,6 +198,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'A clear brief lets the product team compare fabric, construction, colour and branding options before moving through sampling and bulk production.',
     planningPriorities: ['Prioritise fabric recovery, coverage and the intended activity level.', 'Set the logo, label and packaging plan alongside the product brief.', 'Confirm the import route and documents before shipment.'],
     faqFocus: 'Brazilian activewear buyers',
+    seoTitle: 'Yoga Sets & Leggings Sourcing for Brazil | Fitclo',
+    metaDescription: 'Source yoga sets, leggings and sports bras for Brazilian activewear labels. Review fabric recovery, coverage, colour, branding and import planning.',
+    headline: 'Yoga sets and leggings sourcing for Brazilian brands.',
   },
   {
     slug: 'singapore',
@@ -179,6 +209,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Begin with a focused assortment, then use samples to make practical decisions on fabric feel, fit, branding and final presentation.',
     planningPriorities: ['Keep the first order focused on the strongest categories.', 'Confirm fabric performance expectations in writing.', 'Coordinate lead-time and shipment plans after sample approval.'],
     faqFocus: 'Singapore activewear buyers',
+    seoTitle: 'Boutique Activewear Sourcing for Singapore | Fitclo',
+    metaDescription: 'Build a focused activewear assortment for Singapore boutiques, studios and wellness brands. Compare samples, fabric feel, fit, branding and shipping scope.',
+    headline: 'Boutique activewear sourcing for Singapore brands.',
   },
   {
     slug: 'saudi-arabia',
@@ -187,6 +220,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Use the product brief to align coverage, fabric, fit, size range and branding details before approving a sample or bulk order.',
     planningPriorities: ['Define the intended wearer and product coverage requirements.', 'Review the sample for fit, construction and colour direction.', 'Confirm destination documentation with the appointed logistics provider.'],
     faqFocus: 'Saudi Arabian activewear buyers',
+    seoTitle: 'Activewear Sourcing & Coverage for Saudi Brands | Fitclo',
+    metaDescription: 'Source activewear for Saudi fitness brands with a clear brief for coverage, fabric, fit, sizes and branding. Confirm samples and destination documentation.',
+    headline: 'Activewear sourcing with defined coverage for Saudi brands.',
   },
   {
     slug: 'spain',
@@ -195,6 +231,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Use a product-focused brief to compare ready-stock options and private-label development without making unnecessary commitments too early.',
     planningPriorities: ['Build the line around the core categories customers will recognise.', 'Use samples to confirm fabric hand feel and measurements.', 'Check labelling and import details before shipment with your advisers.'],
     faqFocus: 'Spanish activewear buyers',
+    seoTitle: 'Yoga, Pilates & Gym Wear Sourcing for Spain | Fitclo',
+    metaDescription: 'Compare yoga sets, leggings, bras and layers for Spanish activewear buyers. Review ready-stock options, samples, sizing, labels and import details.',
+    headline: 'Yoga, Pilates and gym wear sourcing for Spanish brands.',
   },
   {
     slug: 'italy',
@@ -203,6 +242,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'A robust technical and visual brief helps align silhouette, measurements, colour direction and branded finishing before production.',
     planningPriorities: ['Use references that show both design and construction intent.', 'Confirm fabric, trim and branding options at the sample stage.', 'Prepare packaging and delivery information before bulk confirmation.'],
     faqFocus: 'Italian activewear buyers',
+    seoTitle: 'Design-Led Activewear Development for Italy | Fitclo',
+    metaDescription: 'Develop activewear for Italian labels with a clear silhouette, construction, fabric, colour and branding brief. Review samples before production approval.',
+    headline: 'Design-led activewear development for Italian brands.',
   },
   {
     slug: 'poland',
@@ -211,6 +253,9 @@ export const marketLandingPages: MarketLandingPage[] = [
     launchContext: 'Start from a defined assortment and size plan, then select the right route—ready stock, private label or OEM—based on the project scope.',
     planningPriorities: ['Confirm which styles are suitable for current ready-stock checks.', 'Use samples to verify fit, grading and quality expectations.', 'Coordinate paperwork and delivery through the confirmed import route.'],
     faqFocus: 'Polish activewear buyers',
+    seoTitle: 'Ready-Stock & OEM Activewear for Poland | Fitclo',
+    metaDescription: 'Plan fitness and yoga ranges for Polish activewear brands. Compare current ready-stock styles with private-label and OEM routes, samples and delivery scope.',
+    headline: 'Ready-stock and OEM activewear sourcing for Polish brands.',
   },
 ];
 

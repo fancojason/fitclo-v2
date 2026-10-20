@@ -75,31 +75,11 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Can Fitclo supply activewear for Russian brands?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. Fitclo supports Russian buyers with ready-stock activewear, private label branding, sample review, OEM/ODM development and export coordination based on the selected product route.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'What is the MOQ for ready stock activewear?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'For many ready-stock styles, MOQ starts from 50 sets or pieces depending on the product type. Custom fabric, color and OEM development usually require higher MOQ.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Which products are popular for Russia?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Russian buyers often ask about yoga sets, capri workout sets, leggings, sports bras, gym tops, thermal-looking layers and private label capsule collections for online stores and studios.',
-        },
-      },
-    ],
+      ['Можно ли начать с небольшой партии?', 'Да. Для некоторых моделей в наличии возможна пробная партия от 20 шт. на модель после проверки остатков; 50 шт. на модель — распространённый ориентир.'],
+      ['Можно ли сделать private label?', 'Да. Fitclo поддерживает logo, woven label, care label, hang tag, packaging bag and selected trim customization.'],
+      ['Какие данные отправить для расчета?', 'Send product category, reference photos, quantity, size mix, color plan, destination country and branding requirement.'],
+      ['Можно ли сделать OEM модель?', 'Да, если у вас есть tech pack, reference sample или понятное описание посадки, ткани и деталей.'],
+    ].map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } })),
   },
 ];
 ---
@@ -241,7 +221,7 @@ const structuredData = [
         </div>
         <div class="space-y-4">
           {[
-            ['Можно ли начать с небольшой партии?', 'Да. Для многих ready-stock styles MOQ начинается от 50 sets/pcs. Это подходит для market testing и запуска новой коллекции.'],
+            ['Можно ли начать с небольшой партии?', 'Да. Для некоторых моделей в наличии возможна пробная партия от 20 шт. на модель после проверки остатков; 50 шт. на модель — распространённый ориентир.'],
             ['Можно ли сделать private label?', 'Да. Fitclo поддерживает logo, woven label, care label, hang tag, packaging bag and selected trim customization.'],
             ['Какие данные отправить для расчета?', 'Send product category, reference photos, quantity, size mix, color plan, destination country and branding requirement.'],
             ['Можно ли сделать OEM модель?', 'Да, если у вас есть tech pack, reference sample или понятное описание посадки, ткани и деталей.'],

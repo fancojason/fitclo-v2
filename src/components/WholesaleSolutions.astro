@@ -4,6 +4,7 @@ import { getWhatsAppUrl } from '../lib/whatsapp';
 import { getCatalogProductByStyleCode } from '../data/productCatalog';
 import StyleCodeCopy from './StyleCodeCopy.astro';
 import { businessFacts } from '../data/businessFacts';
+import { productDetailLinks } from '../data/productDetailLinks';
 const featuredCodes = ['TZ2578-15', 'TZ3005-2', 'TZ5529-19', 'LD2681-Set'];
 const stockCustomizationOptions = ['Logo', 'Hang Tag', 'Care Label', 'Packaging Bag', 'Color Box', 'Color', 'Size', 'Design'];
 const featuredCardDetails: Record<string, { badge: string; customization: string }> = {
@@ -21,6 +22,7 @@ const featuredProducts = featuredCodes.map((code) => {
     description: product.description,
     image: product.image,
     styleCode: product.styleCode,
+    detailUrl: productDetailLinks[product.id],
     moq: product.moq.replace('sets', 'Sets'),
     leadTime: '2–7 days*',
     customization: featuredCardDetails[code].customization,

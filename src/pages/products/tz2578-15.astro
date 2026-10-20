@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('TZ2578-15');
+if (!product) throw new Error('Missing catalog product TZ2578-15');
+---
+<VerifiedProductDetail product={product} seoTitle="Three-Piece Capri Workout Set TZ2578-15 | Fitclo" metaDescription="Explore TZ2578-15: a contrast-stripe zip jacket, tank and capri leggings set. Review the original product image and ask Fitclo about current stock, sizes and wholesale terms." designNotes={['Three-piece outfit: cropped zip-front jacket, fitted tank and below-knee capri leggings.', 'Contrast stripes run along the capri legs; the image shows two different color presentations.', 'A layered jacket-and-tank combination lets buyers review the pieces together as one coordinated set.']} buyerNote="Confirm whether all three pieces are supplied together for your chosen color and size mix. Ask for separate garment measurements for the jacket, tank and capri leggings, plus a current color chart and stock allocation." related={{href:'/products/tz2578-6/',label:'TZ2578-6 contrast-stripe tank and capri set'}} />

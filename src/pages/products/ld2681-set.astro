@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('LD2681-Set');
+if (!product) throw new Error('Missing catalog product LD2681-Set');
+---
+<VerifiedProductDetail product={product} seoTitle="Cutout Sports Bra & V-Waist Leggings LD2681-Set | Fitclo" metaDescription="Explore LD2681-Set: a front-cutout sports bra with an open back and matching V-waist leggings. View the supplied image and ask about stock, fit and wholesale terms." designNotes={['The sports bra has a small cutout below its front neckline.', 'The supplied back view shows an open-back bra with narrow connecting straps.', 'The full-length leggings have a shaped V front waist and matching rear seam detail.']} buyerNote="Ask for the bra support and coverage specification rather than assuming a support level from the photo. Confirm the exact style code on the supplier sheet, size chart, available colors, fabric and current set stock before quoting your customers." related={{href:'/products/0636/',label:'0636 cross-back sports bra and leggings set'}} />

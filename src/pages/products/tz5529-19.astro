@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('TZ5529-19');
+if (!product) throw new Error('Missing catalog product TZ5529-19');
+---
+<VerifiedProductDetail product={product} seoTitle="Halter Tank & Wide-Leg Yoga Pants Set TZ5529-19 | Fitclo" metaDescription="Review TZ5529-19, a cropped halter-neck tank and wide-leg pants set for wholesale activewear. Ask Fitclo to confirm current colors, sizes, stock and sampling." designNotes={['The cropped top has a halter neckline with an open upper back in the supplied front-and-back image.', 'Full-length wide-leg pants create a relaxed silhouette below the fitted top.', 'The source image shows both front and back views, helping buyers assess the neckline and pant shape.']} buyerNote="Confirm the halter closure, garment measurements and fit on a physical sample. Request current color and size options, fabric details and a live stock check; the colors pictured are not a stock guarantee." related={{href:'/products/tz2557-3/',label:'TZ2557-3 halter-back flare set'}} />

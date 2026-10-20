@@ -1,0 +1,7 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { getCatalogProductByStyleCode } from '../../data/productCatalog';
+const product = getCatalogProductByStyleCode('TZ3005-2');
+if (!product) throw new Error('Missing catalog product TZ3005-2');
+---
+<VerifiedProductDetail product={product} seoTitle="Side-Stripe Zip Hoodie & Wide-Leg Pants TZ3005-2 | Fitclo" metaDescription="Source TZ3005-2, a zip hoodie and wide-leg pants set with contrast side stripes. See the real product image and confirm current stock, sizing, fabric and wholesale pricing." designNotes={['A zip-front hooded top is paired with full-length wide-leg pants.', 'The jacket sleeves and pant legs carry contrasting side stripes.', 'The product image shows the jacket styled over a separate inner top; confirm what is included in the set before ordering.']} buyerNote="Ask whether the inner top shown under the open hoodie is included; the catalog identifies the hoodie and pants as the set. Request garment measurements, fabric composition, available colors and size allocation for your destination." related={{href:'/products/tz5555-7/',label:'TZ5555-7 cropped hoodie and wide-leg pants set'}} />

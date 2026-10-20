@@ -1,4 +1,8 @@
 export const productDetailLinks: Record<string, string> = {
+  'contrast-stripe-jacket-tank-capri-leggings-set-tz2578-15': '/products/tz2578-15/',
+  'side-stripe-hoodie-wide-leg-pants-set-tz3005-2': '/products/tz3005-2/',
+  'halter-tank-wide-leg-pants-set-tz5529-19': '/products/tz5529-19/',
+  'cutout-bra-v-waist-leggings-set-ld2681-set': '/products/ld2681-set/',
   'contrast-stripe-tank-capri-leggings-set-tz2578-6': '/products/tz2578-6/',
   'scoop-bra-leggings-set-tz9616-2': '/products/tz9616-2/',
   'zip-jacket-bra-leggings-set-tz5558-11': '/products/tz5558-11/',

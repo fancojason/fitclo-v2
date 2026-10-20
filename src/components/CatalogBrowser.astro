@@ -116,6 +116,7 @@ const catalogProducts = activeCategory
 </section>
 
 <script>
+  import { trackInquiryEvent } from '../lib/inquiry-client';
   const initCatalogBrowser = (root: HTMLElement) => {
     if (root.dataset.catalogReady === 'true') return;
     root.dataset.catalogReady = 'true';
@@ -144,6 +145,10 @@ const catalogProducts = activeCategory
     let search = normalizeSearch(params.get('q') || '');
     let currentPage = Math.max(1, Number.parseInt(params.get('page') || '1', 10) || 1);
     const productsPerPage = 16;
+    const trackSearch = () => trackInquiryEvent('catalog_search', { source_component: 'CatalogBrowser', has_query: String(Boolean(search)) });
+    root.querySelectorAll<HTMLAnchorElement>('.catalog-category-group a, [data-catalog-style]').forEach((link) => link.addEventListener('click', () => {
+      trackInquiryEvent('catalog_filter_use', { source_component: 'CatalogBrowser', filter_type: link.hasAttribute('data-catalog-style') ? 'subcategory' : 'category' });
+    }));
 
     if (searchInput && search) {
       searchInput.value = search;
@@ -337,7 +342,12 @@ const catalogProducts = activeCategory
       currentPage = 1;
       updatePageUrl('replace');
       refresh();
+      trackSearch();
       searchInput?.focus();
+    });
+
+    searchInput?.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') trackSearch();
     });
 
     searchInput?.addEventListener('search', () => {
@@ -345,6 +355,7 @@ const catalogProducts = activeCategory
       currentPage = 1;
       updatePageUrl('replace');
       refresh();
+      trackSearch();
     });
 
     window.addEventListener('popstate', () => {

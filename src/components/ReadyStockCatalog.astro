@@ -132,6 +132,7 @@ const copy = isSpanish ? {
 </section>
 
 <script>
+  import { trackInquiryEvent } from '../lib/inquiry-client';
   const normalize = (value: string) => value.trim().toLowerCase().replace(/\s+/g, ' ');
 
   document.querySelectorAll<HTMLElement>('[data-ready-stock-root]').forEach((root) => {
@@ -165,10 +166,12 @@ const copy = isSpanish ? {
       if (search) search.value = '';
       if (moq) moq.value = 'all';
       update();
+      trackInquiryEvent('catalog_filter_use', { source_component: 'ReadyStockCatalog', filter_type: 'quick_category' });
     }));
     search?.addEventListener('input', update);
-    category?.addEventListener('change', update);
-    moq?.addEventListener('change', update);
+    search?.addEventListener('change', () => trackInquiryEvent('catalog_search', { source_component: 'ReadyStockCatalog', has_query: String(Boolean(search.value.trim())) }));
+    category?.addEventListener('change', () => { update(); trackInquiryEvent('catalog_filter_use', { source_component: 'ReadyStockCatalog', filter_type: 'category' }); });
+    moq?.addEventListener('change', () => { update(); trackInquiryEvent('catalog_filter_use', { source_component: 'ReadyStockCatalog', filter_type: 'moq_unit' }); });
     clear?.addEventListener('click', () => {
       if (search) search.value = '';
       if (category) category.value = 'all';

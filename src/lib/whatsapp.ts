@@ -29,11 +29,17 @@ export function getWhatsAppMessage(context: WhatsAppContext = {}): { message: st
   if (context.customMessage) return { message: context.customMessage, messageType: 'custom', category: context.category || '' };
   const spanish = context.language === 'es';
   if (context.productCode) {
-    const style = `style ${context.productCode}${context.productName ? ` - ${context.productName}` : ''}`;
+    const name = context.productName?.trim() || 'this activewear style';
     return { message: spanish
-      ? `Hola Fitclo, me interesa el modelo ${context.productCode}${context.productName ? ` - ${context.productName}` : ''}. ¿Pueden confirmar los colores, tallas, MOQ y precio disponibles?`
-      : `Hello Fitclo, I'm interested in ${style}. Could you check the available colors, sizes, MOQ and price for me?`, messageType: 'product', category: context.category || '' };
+      ? `Hola Fitclo, me interesa ${name} (Modelo: ${context.productCode}). ¿Pueden compartir la disponibilidad actual de colores y tallas, MOQ, precio y opciones de muestras y envío?`
+      : `Hello Fitclo, I'm interested in ${name} (Style: ${context.productCode}). Could you share the current colour and size availability, MOQ, pricing, and sample and shipping options?`, messageType: 'product', category: context.category || '' };
   }
+  if (context.productName) return {
+    message: spanish
+      ? `Hola Fitclo, me interesa ${context.productName}. ¿Pueden confirmar el código de modelo, colores, tallas, MOQ, precio y opciones de muestras y envío?`
+      : `Hello Fitclo, I'm interested in ${context.productName} shown on your website. Could you confirm its style code, current colour and size availability, MOQ, pricing, and sample and shipping options?`,
+    messageType: 'product_unverified_code', category: context.category || '',
+  };
   const path = (context.path || '/').replace(/^\/(?:es|ru)\//, '/');
   if (/^\/ready-to-ship\/?$/.test(path)) return { message: spanish ? 'Hola Fitclo, me interesa su ropa deportiva en stock. ¿Pueden enviarme los modelos, colores, tallas y precios mayoristas disponibles?' : whatsappMessages.ready_stock, messageType: 'ready_stock', category: '' };
   if (/^\/(?:private-label|private-label-activewear)\/?$/.test(path)) return { message: spanish ? 'Hola Fitclo, quiero añadir mi logo, etiquetas y embalaje a sus modelos actuales de ropa deportiva. ¿Pueden mostrarme las opciones?' : whatsappMessages.private_label, messageType: 'private_label', category: '' };

@@ -40,6 +40,7 @@ const styleCode = code?.trim();
 </style>
 
 <script>
+  import { trackInquiryEvent } from '../lib/inquiry-client';
   document.addEventListener('click', async (event) => {
     const button = (event.target as Element).closest<HTMLButtonElement>('[data-copy-style-code]');
     if (!button) return;
@@ -50,6 +51,7 @@ const styleCode = code?.trim();
     let feedback = 'Copied!';
     try {
       await navigator.clipboard.writeText(code);
+      trackInquiryEvent('style_code_copy', { style_code: code, source_component: 'StyleCodeCopy' });
     } catch {
       feedback = 'Copy failed';
     }

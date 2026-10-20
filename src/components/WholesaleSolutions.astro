@@ -320,10 +320,12 @@ const wholesaleProducts = [
     selectValue: "Multiple Types / others"
   }
 ].map((product, index) => {
-  if (!product.moq.startsWith('50') || index < featuredCodes.length) return product;
+  if (!product.moq.startsWith('50')) return product;
+  if (index < featuredCodes.length) return { ...product, leadTime: '2–7 days*' };
   const first = (index * 3) % stockCustomizationOptions.length;
   return {
     ...product,
+    leadTime: '2–7 days*',
     customization: [0, 1, 2].map((offset) => stockCustomizationOptions[(first + offset) % stockCustomizationOptions.length]).join(' / '),
   };
 });
@@ -361,7 +363,7 @@ const wholesaleProducts = [
       </div>
     </div>
 
-    <p class="mt-5 text-[12px] leading-5 text-white/55">*The 2–7 day window shown for featured ready-stock styles is an estimate for order preparation after stock confirmation, not delivery. Branding, new colors, sizes, packaging or design changes are quoted with their own schedule. {businessFacts.readyStock.dispatch} {businessFacts.oem.moq} {businessFacts.oem.bulkProduction} {businessFacts.shipping}</p>
+    <p class="mt-5 text-[12px] leading-5 text-white/55">*The 2–7 day window shown for ready-stock styles is an estimate for order preparation after stock confirmation, not delivery. Branding, new colors, sizes, packaging or design changes are quoted with their own schedule. {businessFacts.readyStock.dispatch} {businessFacts.oem.moq} {businessFacts.oem.bulkProduction} {businessFacts.shipping}</p>
 
     <!-- 4-Column Premium Wholesale Products Grid replicating Luxopack, aligned perfectly left and right -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 lg:-ml-12 lg:-mr-12">

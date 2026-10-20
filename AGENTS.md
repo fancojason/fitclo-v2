@@ -1,3 +1,8 @@
+# Homepage ready-stock cards
+
+- When adding a ready-stock product to the homepage card grid, give it a style-specific badge and three distinct customization options selected from logo, hang tag, care label, packaging bag, color box, color, size, and design. Vary the combinations across cards so the grid covers all options; do not use the same badge or customization trio for every style.
+- Display `2–7 days*` as the estimated preparation timeline for ready-stock cards, subject to stock confirmation. Keep the existing caveat that this is not delivery time and customization needs its own quoted schedule. Do not apply this timeline to OEM/custom-production cards.
+
 # Product detail pages
 
 - When a product's fabric is given as Nylon / Spandex or Polyamide / Elastane, show the same percentages with both English naming pairs in visible Fabric fields and structured-data material. For example, `70% Nylon / 30% Spandex (70% Polyamide / 30% Elastane)`. Do this even when the source provides only one naming pair; these are alternate names for the same fibers, not additional ingredients. Preserve other layers, GSM and branded fiber names. Never infer missing percentages.

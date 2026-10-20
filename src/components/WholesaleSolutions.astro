@@ -5,6 +5,7 @@ import { getCatalogProductByStyleCode } from '../data/productCatalog';
 import StyleCodeCopy from './StyleCodeCopy.astro';
 import { businessFacts } from '../data/businessFacts';
 const featuredCodes = ['TZ2578-15', 'TZ3005-2', 'TZ5529-19', 'LD2681-Set'];
+const stockCustomizationOptions = ['Logo', 'Hang Tag', 'Care Label', 'Packaging Bag', 'Color Box', 'Color', 'Size', 'Design'];
 const featuredCardDetails: Record<string, { badge: string; customization: string }> = {
   'TZ2578-15': { badge: '🔥 NEW ARRIVAL', customization: 'Logo / Hang Tag / Packaging Bag' },
   'TZ3005-2': { badge: '2026 TREND', customization: 'Care Label / Color / Size' },
@@ -29,7 +30,7 @@ const featuredProducts = featuredCodes.map((code) => {
 const wholesaleProducts = [
   ...featuredProducts,
   {
-    badge: '🔥 NEW ARRIVAL',
+    badge: '🌈 MULTI-COLOR',
     title: "Women's Yoga Set",
     description: "Premium multi-color activewear set featuring high-waisted, squat-proof leggings and four-way stretch fabric. Engineered for yoga, gym, and everyday athleisure.",
     image: '/images/migrated/third-party/ha73bf41967194aeeb3016945aacc9ba9r-9c31f29b7a.webp',
@@ -309,7 +310,7 @@ const wholesaleProducts = [
     selectValue: "Sport Bras"
   },
   {
-    badge: '📦 NEW ARRIVAL',
+    badge: '🎾 TENNIS READY',
     title: "Active Performance Tennis Dress",
     description: "Elegant all-in-one tennis dress with built-in shorts and supportive racerback. High-performance moisture-wicking fabric designed for peak agility and style.",
     image: "/images/migrated/third-party/h9d1abad109d7478080461dad9271b7ecg-564616a33f.webp",
@@ -318,7 +319,14 @@ const wholesaleProducts = [
     customization: "Logo / Label / Pkg",
     selectValue: "Multiple Types / others"
   }
-];
+].map((product, index) => {
+  if (!product.moq.startsWith('50') || index < featuredCodes.length) return product;
+  const first = (index * 3) % stockCustomizationOptions.length;
+  return {
+    ...product,
+    customization: [0, 1, 2].map((offset) => stockCustomizationOptions[(first + offset) % stockCustomizationOptions.length]).join(' / '),
+  };
+});
 ---
 
 <section id="wholesale" class="pt-24 pb-12 bg-black text-white overflow-hidden border-t border-white/5">

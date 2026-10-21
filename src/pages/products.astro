@@ -35,7 +35,10 @@ const productSchema = {
   autoArticleSchema={false}
 >
   <section class="relative min-h-[520px] overflow-hidden bg-[#090909] pt-[80px]">
-    <img src="/images/product-categories/product-catalog-showroom-hero-v2.webp" alt="Fitclo activewear showroom with sports bras, leggings, training tops and sets" width="1672" height="941" loading="eager" class="absolute inset-0 h-full w-full object-cover object-center" fetchpriority="high" />
+    <picture>
+      <source media="(max-width: 480px)" srcset="/images/product-categories/product-catalog-showroom-hero-v2-mobile.webp" />
+      <img src="/images/product-categories/product-catalog-showroom-hero-v2.webp" alt="Fitclo activewear showroom with sports bras, leggings, training tops and sets" width="1672" height="941" loading="eager" class="absolute inset-0 h-full w-full object-cover object-center" fetchpriority="high" />
+    </picture>
     <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.95)_0%,rgba(5,5,5,0.82)_36%,rgba(5,5,5,0.32)_68%,rgba(5,5,5,0.18)_100%)]"></div>
     <div class="relative mx-auto flex min-h-[520px] max-w-[1320px] items-end px-6 pb-16 pt-24 lg:px-10 lg:pb-20">
       <div class="min-w-0 w-full max-w-[700px]">

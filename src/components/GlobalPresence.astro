@@ -60,6 +60,10 @@ const countries = [
                   <img 
                     src={`https://flagcdn.com/w80/${c.code}.png`} 
                     alt={c.name}
+                    width="80"
+                    height="60"
+                    loading="lazy"
+                    decoding="async"
                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
@@ -70,7 +74,7 @@ const countries = [
             ) : (
               <div class="group relative cursor-help">
                 <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-[#C9A84C]/30 group-hover:border-[#C9A84C] transition-all duration-300 shadow-[0_0_15px_rgba(201,168,76,0.1)]">
-                  <img src={`https://flagcdn.com/w80/${c.code}.png`} alt={c.name} class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                  <img src={`https://flagcdn.com/w80/${c.code}.png`} alt={c.name} width="80" height="60" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/90 text-white text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-[#C9A84C]/20 z-20">{c.name}</div>
               </div>

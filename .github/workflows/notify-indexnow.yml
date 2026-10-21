@@ -1,0 +1,43 @@
+name: Notify IndexNow of changed pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'functions/indexnow-key.txt.js'
+      - 'scripts/submit-indexnow.mjs'
+      - '.github/workflows/notify-indexnow.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: indexnow-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build current version
+        run: npm run build && mv dist /tmp/fitclo-current-dist
+      - name: Build previous version
+        run: |
+          git worktree add --detach /tmp/fitclo-previous HEAD^
+          cd /tmp/fitclo-previous
+          npm ci
+          npm run build
+      - name: Wait for the production deployment
+        run: sleep 120
+      - name: Verify live pages and notify
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: node scripts/submit-indexnow.mjs /tmp/fitclo-previous/dist /tmp/fitclo-current-dist

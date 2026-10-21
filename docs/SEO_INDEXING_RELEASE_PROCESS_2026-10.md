@@ -1,5 +1,9 @@
 # Fitclo SEO 发布后索引通知（2026-10-21）
 
+## 当前状态（2026-10-21）
+
+差异检测脚本、验证端点和本文档已提交；GitHub 令牌缺少 workflow 写入范围，.github/workflows/notify-indexnow.yml 尚未加入远端，因此自动通知**未启用**。Cloudflare/GitHub 也尚未配置专用 INDEXNOW_KEY，线上验证端点返回 404。还没有向 IndexNow 发送请求。
+
 ## 当前实现
 
 - 规范域名：`https://www.fitcloo.com/`。`/sitemap-index.xml` 指向 `/sitemap-0.xml`。生成的 sitemap 只列有尾斜杠的页面；构建后的 404、内部产品选择页、后台页和已重定向旧地址不列入。新工作流在发布前验证每个 sitemap URL 的生成 HTML、self-canonical 和非 noindex 状态；不一致即停止通知。
@@ -24,3 +28,4 @@
 - 记录请求时间与 URL；数天到数周后复查状态，不把提交成功当作已收录，更不承诺排名提升。
 
 官方参考：[IndexNow](https://www.indexnow.org/documentation)、[Google 重新抓取](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl)、[Google 站点地图](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)。
+

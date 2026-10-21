@@ -57,12 +57,12 @@ const isTrend = articleKind === 'trend-report';
 
 const articleImage = suppliedArticleImage ?? intelligenceEntry?.image ?? (
   isFabric
-    ? '/images/intelligence/cover-fabric-guide.png'
+    ? '/images/intelligence/cover-fabric-guide.webp'
     : isPrivateLabel || isBusiness
-      ? '/images/intelligence/cover-brand-planning.png'
+      ? '/images/intelligence/cover-brand-planning.webp'
       : isTrend
-        ? '/images/intelligence/cover-trend-report.png'
-        : '/images/intelligence/cover-factory-guide.png'
+        ? '/images/intelligence/cover-trend-report.webp'
+        : '/images/intelligence/cover-factory-guide.webp'
 );
 
 const quickAnswerByKind = {

@@ -18,7 +18,8 @@ const catalogProducts = activeCategory
   <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
     <div class="grid gap-8 lg:grid-cols-[270px_minmax(0,1fr)] lg:gap-12">
       <aside class="lg:sticky lg:top-[106px] lg:max-h-[calc(100vh-132px)] lg:overflow-y-auto lg:pr-4">
-        <div class="border-y border-white/15 py-5">
+        <button type="button" class="mb-3 flex min-h-11 w-full items-center justify-between border border-white/20 px-4 text-left text-sm font-bold text-white lg:hidden" aria-controls="catalog-category-filters" aria-expanded="false" data-catalog-mobile-toggle>Browse product categories <span aria-hidden="true">+</span></button>
+        <div id="catalog-category-filters" class="catalog-category-filters border-y border-white/15 py-5">
           <p class="text-[11px] font-bold tracking-[0.18em] text-white font-['Century_Gothic',sans-serif]">PRODUCT CATEGORIES</p>
           <a href="/products/#catalog" class={`mt-5 flex w-full items-center border-l-2 px-4 py-3 text-left text-[13px] font-bold font-['Century_Gothic',sans-serif] ${activeCategory ? 'border-white/15 bg-[#141414] text-white/70 transition-colors hover:border-[#c9a84c] hover:text-white' : 'border-[#c9a84c] bg-[#1d1d1d] text-white'}`}>All styles</a>
           <div class="mt-4 divide-y divide-white/10 border-y border-white/10">
@@ -131,6 +132,11 @@ const catalogProducts = activeCategory
     const styleLinks = Array.from(root.querySelectorAll<HTMLAnchorElement>('[data-catalog-style]'));
     const categoryToggles = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-catalog-category-toggle]'));
     const categoryPanels = Array.from(root.querySelectorAll<HTMLElement>('[data-catalog-category-panel]'));
+    const mobileToggle = root.querySelector<HTMLButtonElement>('[data-catalog-mobile-toggle]');
+    mobileToggle?.addEventListener('click', () => {
+      const open = mobileToggle.getAttribute('aria-expanded') !== 'true';
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    });
     const categoryHeading = root.querySelector<HTMLElement>('[data-catalog-heading]');
     const categoryParentLink = root.querySelector<HTMLAnchorElement>('[data-catalog-parent-link]');
     const categoryCurrent = root.querySelector<HTMLElement>('[data-catalog-category-current]');
@@ -372,6 +378,10 @@ const catalogProducts = activeCategory
 </script>
 
 <style>
+  @media (max-width: 1023px) {
+    [data-catalog-root][data-catalog-ready='true'] .catalog-category-filters { display: none; }
+    [data-catalog-root][data-catalog-ready='true'] [data-catalog-mobile-toggle][aria-expanded='true'] + .catalog-category-filters { display: block; }
+  }
   .catalog-style-link-active { color: #d8b456; }
   .catalog-view-button[aria-pressed='true'] { background: #d8b456; color: #080808; }
   .catalog-list-icon { display: grid; gap: 3px; width: 17px; }

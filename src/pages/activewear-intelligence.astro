@@ -56,7 +56,7 @@ const popular = [
     title: 'How to Find a Reliable Activewear Manufacturer in China',
     desc: 'A practical sourcing guide for checking factory credibility, production capability, quality systems and buyer risk before ordering.',
     link: '/blogs/china-activewear-manufacturer-checklist',
-    image: '/images/intelligence/cover-factory-guide.png',
+    image: '/images/intelligence/cover-factory-guide.webp',
     readTime: '11 min read',
     updated: 'Updated July 08, 2026',
   },
@@ -65,7 +65,7 @@ const popular = [
     title: 'How to Start an Activewear Brand from Scratch',
     desc: 'Plan your first activewear collection, launch route, supplier requirements, MOQ and product testing strategy.',
     link: '/blogs/launch-guide',
-    image: '/images/intelligence/cover-brand-planning.png',
+    image: '/images/intelligence/cover-brand-planning.webp',
     readTime: '8 min read',
     updated: 'Updated July 08, 2026',
   },
@@ -74,7 +74,7 @@ const popular = [
     title: 'Activewear Production Process Explained: From Design to Delivery',
     desc: 'See how activewear moves from design and sample approval into fabric sourcing, production, QC and shipment.',
     link: '/blogs/production-process-guide',
-    image: '/images/intelligence/cover-factory-guide.png',
+    image: '/images/intelligence/cover-factory-guide.webp',
     readTime: '8 min read',
     updated: 'Updated July 08, 2026',
   },
@@ -83,7 +83,7 @@ const popular = [
     title: 'Best Fabrics for Yoga Leggings: Nylon, Polyester and Spandex Explained',
     desc: 'Understand fabric composition, compression, opacity, recovery and hand feel for leggings and yoga sets.',
     link: '/blogs/fabrics',
-    image: '/images/intelligence/cover-fabric-guide.png',
+    image: '/images/intelligence/cover-fabric-guide.webp',
     readTime: '7 min read',
     updated: 'Updated July 08, 2026',
   },
@@ -92,7 +92,7 @@ const popular = [
     title: 'How to Customize Your Activewear Brand with Logo, Labels and Packaging',
     desc: 'Compare logo methods, woven labels, hangtags, packaging and stock-style customization for brand launches.',
     link: '/blogs/customization-options-explained',
-    image: '/images/intelligence/cover-private-label.png',
+    image: '/images/intelligence/cover-private-label.webp',
     readTime: '7 min read',
     updated: 'Updated July 08, 2026',
   },
@@ -101,7 +101,7 @@ const popular = [
     title: 'Activewear MOQ Explained: How Much Do You Need to Start?',
     desc: 'Learn how MOQ affects sampling, fabric choice, cash flow, unit cost and launch risk for activewear brands.',
     link: '/blogs/moq',
-    image: '/images/intelligence/cover-brand-planning.png',
+    image: '/images/intelligence/cover-brand-planning.webp',
     readTime: '7 min read',
     updated: 'Updated July 08, 2026',
   },
@@ -110,7 +110,7 @@ const popular = [
     title: 'OEM vs ODM vs Private Label Activewear Explained',
     desc: 'Compare manufacturing models by buyer control, factory support, speed, cost, MOQ and product uniqueness.',
     link: '/blogs/oem-vs-odm-vs-private-label-activewear',
-    image: '/images/intelligence/cover-private-label.png',
+    image: '/images/intelligence/cover-private-label.webp',
     readTime: '9 min read',
     updated: 'Updated July 08, 2026',
   },
@@ -119,7 +119,7 @@ const popular = [
     title: 'Activewear Trends 2026: What Brands Should Know',
     desc: 'Review fabric, styling, sustainability and market signals that can guide upcoming activewear collections.',
     link: '/blogs/activewear-trends-2026',
-    image: '/images/intelligence/cover-trend-report.png',
+    image: '/images/intelligence/cover-trend-report.webp',
     readTime: '8 min read',
     updated: 'Updated July 08, 2026',
   },
@@ -183,7 +183,7 @@ const breadcrumbSchema = {
 >
   <section class="hub-hero">
     <div class="hub-hero-media">
-      <img src="/images/intelligence/hero-activewear-intelligence.png" alt="Fitclo activewear intelligence knowledge hub" />
+      <img src="/images/intelligence/hero-activewear-intelligence.webp" alt="Fitclo activewear intelligence knowledge hub" width="1881" height="836" loading="eager" fetchpriority="high" />
     </div>
     <div class="hub-hero-inner">
       <p class="hub-brand">FITCLO</p>
@@ -272,7 +272,7 @@ const breadcrumbSchema = {
       <div class="popular-grid">
         {popular.map((article) => (
           <a class="popular-card" href={article.link}>
-            <img src={article.image} alt={article.title} loading="lazy" />
+            <img src={article.image} alt={article.title} loading="lazy" decoding="async" />
             <div>
               <span>{article.category}</span>
               <h3>{article.title}</h3>

@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "FWT3619");
+if (!product) throw new Error('Missing catalog product: FWT3619');
+---
+<VerifiedProductDetail product={product} seoTitle={"Half-Zip Brushed Sweatshirt FWT3619 | Fitclo"} metaDescription={"Source FWT3619, a relaxed women’s half-zip sweatshirt shown with brushed-fabric detail. Review the original image and ask about fabric composition, stock and wholesale terms."} designNotes={["The sweatshirt has a high stand collar, partial front zipper and relaxed dropped-shoulder shape.", "The source image includes an inset showing the brushed interior fabric surface.", "Matching bottoms are used to style the photo; this SKU is the sweatshirt only."]} buyerNote={"Request the verified fiber composition, fabric weight, garment measurements and care instructions. Confirm whether the photographed navy shade and desired sizes are currently available."} related={{ href: '/products/tz5555-7/', label: 'tz5555-7 related style' }} />

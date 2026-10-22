@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "NY6189+LBK6189");
+if (!product) throw new Error('Missing catalog product: NY6189+LBK6189');
+---
+<VerifiedProductDetail product={product} seoTitle={"Contrast Sports Bra & Flare Pants Set NY6189+LBK6189 | Fitclo"} metaDescription={"Explore NY6189+LBK6189, a contrast sports bra with flared pants and side-tie detail. View the actual product image and check ready-stock availability and wholesale terms."} designNotes={["The bra has contrasting neckline and underband panels visible in the front and back images.", "The full-length pants fit closely through the thigh and widen below the knee.", "A tie detail is visible at the side of the pants in the supplied image."]} buyerNote={"Confirm bra support, cup construction, pant inseam and the side-tie finish on a sample. Request the current fabric specification, sizes, colors and stock for both pieces together."} related={{ href: '/products/ny6231+ck6090/', label: 'NY6231+CK6090 related style' }} />

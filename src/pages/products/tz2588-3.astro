@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "TZ2588-3");
+if (!product) throw new Error('Missing catalog product: TZ2588-3');
+---
+<VerifiedProductDetail product={product} seoTitle={"Halter Sports Bra & Scrunch Leggings TZ2588-3 | Fitclo"} metaDescription={"Review TZ2588-3, a halter sports bra with V-waist scrunch leggings. See the supplied front and back images and ask about confirmed stock and fit."} designNotes={["The bra has a halter-style neckline and a cropped underband.", "The leggings show a shaped front waist and a ruched center-back seam in the source image.", "The photo shows front and back styling in two color presentations."]} buyerNote={"Check bra support and coverage, halter fit and the appearance of the ruched seam on a physical sample. Confirm fabric, sizes, current colors and available set quantities."} related={{ href: '/products/tz2588-5/', label: 'TZ2588-5 related style' }} />

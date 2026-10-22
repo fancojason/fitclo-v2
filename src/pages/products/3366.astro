@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "3366");
+if (!product) throw new Error('Missing catalog product: 3366');
+---
+<VerifiedProductDetail product={product} seoTitle={"Scoop-Neck Sports Bra & Leggings Set 3366 | Fitclo"} metaDescription={"Explore ready-stock style 3366, a scoop-neck sports bra and full-length leggings set. Compare its front and back views and ask for confirmed fit, stock and wholesale terms."} designNotes={["The front image shows a scoop-neck bra with broad shoulder straps.", "The back image shows an open scoop back on the bra and a high waistband on the leggings.", "The source photo presents two styled colorways and a swatch column; pictured colors are not a live inventory list."]} buyerNote={"Confirm bra padding, support, coverage and whether both pieces are supplied together in each size. Ask for garment measurements, fabric details, color availability and a sample before finalizing the range."} related={{ href: '/products/3378/', label: '3378 related style' }} />

@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "TZ2588-5");
+if (!product) throw new Error('Missing catalog product: TZ2588-5');
+---
+<VerifiedProductDetail product={product} seoTitle={"Off-Shoulder Crop Top & Scrunch Leggings TZ2588-5 | Fitclo"} metaDescription={"See TZ2588-5, an off-shoulder long-sleeve crop top and V-waist scrunch leggings set. Ask Fitclo about samples, size chart and ready-stock availability."} designNotes={["The long-sleeve cropped top sits below the shoulders in the supplied image.", "The fitted full-length leggings have a V-shaped front waist.", "A ruched center-back seam is visible on the leggings back view."]} buyerNote={"Confirm how the neckline stays in place during movement and review sleeve and top length. Request fabric, garment measurements, opacity, current colors and live stock for the full set."} related={{ href: '/products/tz2588-3/', label: 'TZ2588-3 related style' }} />

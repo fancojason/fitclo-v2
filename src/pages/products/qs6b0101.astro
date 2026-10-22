@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "QS6B0101");
+if (!product) throw new Error('Missing catalog product: QS6B0101');
+---
+<VerifiedProductDetail product={product} seoTitle={"Stripe-Trim Half-Zip Tennis Skirt Set QS6B0101 | Fitclo"} metaDescription={"Explore QS6B0101, a cropped half-zip long-sleeve top and tennis skirt set with multicolor stripe trim. Verify current stock, sizing and skirt construction."} designNotes={["The cropped top has a stand collar, partial front zipper and multicolor stripes along both sleeves.", "The short tennis skirt has a side slit and matching stripe trim at the waist.", "The original photo shows the coordinated top and skirt styled together in an off-white colorway."]} buyerNote={"Ask whether the skirt includes built-in shorts, since the image does not establish this. Verify skirt length, top measurements, fabric, available sizes and current set stock before quoting."} related={{ href: '/products/racerback-tennis-skirt-set/', label: 'racerback-tennis-skirt-set related style' }} />

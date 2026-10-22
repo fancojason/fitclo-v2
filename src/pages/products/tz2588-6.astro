@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "TZ2588-6");
+if (!product) throw new Error('Missing catalog product: TZ2588-6');
+---
+<VerifiedProductDetail product={product} seoTitle={"Off-Shoulder Top & Wide-Leg Pants TZ2588-6 | Fitclo"} metaDescription={"Explore TZ2588-6, a cropped off-shoulder long-sleeve top and wide-leg pants set. View original front and back styling and check availability."} designNotes={["The cropped top has a straight off-shoulder neckline and long fitted sleeves.", "The pants feature a V-shaped front waist and full-length wide legs.", "The source photo shows front and back views in different color presentations."]} buyerNote={"Ask for neckline stability, pant inseam and waistband measurements. Check fabric hand feel, drape and the current color/size mix on a sample and live inventory report."} related={{ href: '/products/tz2588-8/', label: 'TZ2588-8 related style' }} />

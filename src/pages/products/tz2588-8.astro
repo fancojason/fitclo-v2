@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "TZ2588-8");
+if (!product) throw new Error('Missing catalog product: TZ2588-8');
+---
+<VerifiedProductDetail product={product} seoTitle={"Layered Off-Shoulder Top & Wide-Leg Pants TZ2588-8 | Fitclo"} metaDescription={"Review TZ2588-8, a layered-look off-shoulder top with crossed-waist wide-leg pants. Confirm set components, fit, stock and wholesale terms."} designNotes={["The top has an off-shoulder neckline with a visible inner shoulder-strap layer.", "The wide-leg pants show a crossed waistband at the front.", "The supplied image presents front and back styling in two colorways."]} buyerNote={"Verify whether the layered appearance is sewn as one top or supplied as separate pieces. Request waist, inseam and top measurements, fabric details, current colors and set stock."} related={{ href: '/products/tz2588-6/', label: 'TZ2588-6 related style' }} />

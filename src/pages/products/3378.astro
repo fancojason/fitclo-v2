@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "3378");
+if (!product) throw new Error('Missing catalog product: 3378');
+---
+<VerifiedProductDetail product={product} seoTitle={"Strappy Tank & Leggings Set 3378 | Wholesale Fitclo"} metaDescription={"See Fitclo style 3378, a slim-strap tank and high-waist leggings set. Review the real front and back image and confirm sizes, materials, stock and wholesale price."} designNotes={["The fitted tank has narrow shoulder straps and a straight neckline.", "The back view shows the tank strap placement and the leggings waist from behind.", "The full-length leggings have a smooth, close-fitting silhouette in the supplied photo."]} buyerNote={"Ask whether the tank contains any built-in support or padding; the photo cannot establish that. Confirm top length, legging inseam, fabric, current colors and set stock with a sample."} related={{ href: '/products/3366/', label: '3366 related style' }} />

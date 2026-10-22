@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "3370");
+if (!product) throw new Error('Missing catalog product: 3370');
+---
+<VerifiedProductDetail product={product} seoTitle={"Zip Jacket & Leggings Workout Set 3370 | Fitclo Wholesale"} metaDescription={"Review 3370, a fitted zip-front jacket and full-length leggings set for wholesale fitness collections. Ask Fitclo about current color and size stock and sample options."} designNotes={["The jacket has a full front zipper, long sleeves and a close-fitting silhouette.", "The supplied image includes a front view and a back view in different color presentations.", "The leggings are fitted and ankle length in the supplied product image."]} buyerNote={"Request jacket and legging measurements separately, plus zipper construction and fabric details. Verify that the pictured two-piece combination and desired color/size allocation are available as a set."} related={{ href: '/products/3378/', label: '3378 related style' }} />

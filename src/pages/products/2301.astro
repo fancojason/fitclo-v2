@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "2301");
+if (!product) throw new Error('Missing catalog product: 2301');
+---
+<VerifiedProductDetail product={product} seoTitle={"High-Waist Biker Shorts 2301 | Ready-Stock Wholesale Fitclo"} metaDescription={"Review Fitclo 2301 high-waist biker shorts for wholesale activewear assortments. See the original product photo and request current sizes, colors, stock and pricing."} designNotes={["The product photo shows fitted, above-knee biker shorts with a broad high-rise waistband.", "A curved front seam separates the waistband from the short legs.", "The pictured brown pair is a color reference; the swatches in the source image require live stock confirmation."]} buyerNote={"Request measured rise and inseam, fabric composition, opacity and stretch-recovery information. Confirm whether the specific color and size mix you need is available before placing a ready-stock order."} related={{ href: '/products/4073/', label: '4073 related style' }} />

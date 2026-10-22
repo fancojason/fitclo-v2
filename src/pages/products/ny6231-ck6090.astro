@@ -1,0 +1,8 @@
+---
+import VerifiedProductDetail from '../../components/VerifiedProductDetail.astro';
+import { productCatalog } from '../../data/productCatalog';
+
+const product = productCatalog.find((item) => item.styleCode === "NY6231+CK6090");
+if (!product) throw new Error('Missing catalog product: NY6231+CK6090');
+---
+<VerifiedProductDetail product={product} seoTitle={"Contrast-Trim Bra & Wide-Leg Pants NY6231+CK6090 | Fitclo"} metaDescription={"Review NY6231+CK6090, a contrast-trim sports bra and folded-waist wide-leg pants set. Ask Fitclo for live stock, sizing, samples and wholesale pricing."} designNotes={["The bra has a horizontal contrast panel across the front and a narrow contrasting underband.", "The pants have a folded-look waistband and a relaxed full-length wide leg.", "The supplied image shows front and back styling across several color presentations."]} buyerNote={"Confirm the exact set components and whether the folded waistband can be worn in more than one position. Request garment measurements, material composition, live colors and size allocation."} related={{ href: '/products/ny6189+lbk6189/', label: 'NY6189+LBK6189 related style' }} />

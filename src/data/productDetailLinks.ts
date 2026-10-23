@@ -1,4 +1,5 @@
 export const productDetailLinks: Record<string, string> = {
+  'tie-front-long-sleeve-top-leggings-set-wt6089-ny1401-yk1352': '/products/wt6089-ny1401-yk1352/',
   'high-waist-biker-shorts-2301': '/products/2301/',
   'scoop-neck-sports-bra-leggings-set-3366': '/products/3366/',
   'zip-jacket-leggings-workout-set-3370': '/products/3370/',

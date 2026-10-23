@@ -106,10 +106,10 @@ const catalogProducts = activeCategory
         <div class="flex justify-end py-6">
           <a href="/ready-to-ship" class="text-[12px] font-bold tracking-[0.1em] text-[#d8b456] transition-colors hover:text-white font-['Century_Gothic',sans-serif]">READY-TO-SHIP PROGRAM &#8594;</a>
         </div>
-        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" data-catalog-grid>
+        <div class="grid scroll-mt-28 gap-4 sm:grid-cols-2 xl:grid-cols-4" data-catalog-grid>
           {catalogProducts.map((product) => <CatalogProductCard product={product} searchable />)}
         </div>
-        <nav class="mt-10 hidden items-center justify-center gap-2" aria-label="Product catalog pagination" data-catalog-pagination></nav>
+        <nav class="mt-10 hidden flex-wrap items-center justify-center gap-x-4 gap-y-3" aria-label="Product catalog pagination" data-catalog-pagination></nav>
         <p class="hidden border-y border-white/15 py-10 text-center text-[15px] text-white/55 font-['Century_Gothic',sans-serif]" data-catalog-empty>No styles match that search. Try a broader term or contact Fitclo with your reference design.</p>
       </div>
     </div>
@@ -143,13 +143,15 @@ const catalogProducts = activeCategory
     const categoryChildSeparator = root.querySelector<HTMLElement>('[data-catalog-child-separator]');
     const categoryChildCurrent = root.querySelector<HTMLElement>('[data-catalog-child-current]');
     const params = new URLSearchParams(window.location.search);
+    window.history.scrollRestoration = 'manual';
     const fixedCategory = root.dataset.catalogCategory || 'all';
     const fixedCategoryLabel = root.dataset.catalogCategoryLabel || '';
     let category = fixedCategory === 'all' ? params.get('category') || 'all' : fixedCategory;
     let subcategory = params.get('style') || '';
     const normalizeSearch = (value: string) => value.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
     let search = normalizeSearch(params.get('q') || '');
-    let currentPage = Math.max(1, Number.parseInt(params.get('page') || '1', 10) || 1);
+    const readPage = (value: string | null) => value && /^\d+$/.test(value) ? Math.max(1, Number(value)) : 1;
+    let currentPage = readPage(params.get('page'));
     const productsPerPage = 16;
     const trackSearch = () => trackInquiryEvent('catalog_search', { source_component: 'CatalogBrowser', has_query: String(Boolean(search)) });
     root.querySelectorAll<HTMLAnchorElement>('.catalog-category-group a, [data-catalog-style]').forEach((link) => link.addEventListener('click', () => {
@@ -225,6 +227,16 @@ const catalogProducts = activeCategory
 
       if (totalPages <= 1 || visible.length === 0) return;
 
+      const goToPage = (page: number) => {
+        if (page === currentPage || page < 1 || page > totalPages) return;
+        currentPage = page;
+        updatePageUrl('push');
+        refresh();
+        grid?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      const buttons = document.createElement('div');
+      buttons.className = 'catalog-pagination-pages';
       const createButton = (label: string, page: number, options: { active?: boolean; disabled?: boolean; aria?: string } = {}) => {
         const button = document.createElement('button');
         button.type = 'button';
@@ -237,34 +249,82 @@ const catalogProducts = activeCategory
           options.active ? 'catalog-page-button-active' : '',
           options.disabled ? 'catalog-page-button-disabled' : '',
         ].filter(Boolean).join(' ');
-        button.addEventListener('click', () => {
-          if (options.disabled || currentPage === page) return;
-          currentPage = page;
-          updatePageUrl('push');
-          refresh();
-          root.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
+        button.addEventListener('click', () => goToPage(page));
         return button;
       };
 
-      const maxNumbers = 5;
-      let start = Math.max(1, currentPage - Math.floor(maxNumbers / 2));
-      const end = Math.min(totalPages, start + maxNumbers - 1);
-      start = Math.max(1, end - maxNumbers + 1);
-
-      pagination.appendChild(createButton('<', currentPage - 1, {
+      buttons.appendChild(createButton('‹', currentPage - 1, {
         disabled: currentPage === 1,
         aria: 'Go to previous product page',
       }));
 
-      for (let page = start; page <= end; page += 1) {
-        pagination.appendChild(createButton(String(page), page, { active: page === currentPage }));
-      }
+      const pages = new Set([1, totalPages]);
+      for (let page = Math.max(1, currentPage - 2); page <= Math.min(totalPages, currentPage + 2); page += 1) pages.add(page);
+      const sortedPages = [...pages].sort((a, b) => a - b);
+      sortedPages.forEach((page, index) => {
+        const previous = sortedPages[index - 1];
+        if (previous && page - previous === 2) buttons.appendChild(createButton(String(previous + 1), previous + 1));
+        if (previous && page - previous > 2) {
+          const ellipsis = document.createElement('span');
+          ellipsis.className = 'catalog-pagination-ellipsis';
+          ellipsis.textContent = '…';
+          ellipsis.setAttribute('aria-hidden', 'true');
+          buttons.appendChild(ellipsis);
+        }
+        buttons.appendChild(createButton(String(page), page, { active: page === currentPage }));
+      });
 
-      pagination.appendChild(createButton('>', currentPage + 1, {
+      buttons.appendChild(createButton('›', currentPage + 1, {
         disabled: currentPage === totalPages,
         aria: 'Go to next product page',
       }));
+      pagination.appendChild(buttons);
+
+      if (totalPages > 10) {
+        const form = document.createElement('form');
+        form.className = 'catalog-pagination-jump';
+        form.setAttribute('aria-label', 'Go to product page');
+        const label = document.createElement('label');
+        label.textContent = 'Go to';
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.min = '1';
+        input.max = String(totalPages);
+        input.step = '1';
+        input.required = true;
+        input.inputMode = 'numeric';
+        input.setAttribute('aria-label', `Page number, 1 to ${totalPages}`);
+        input.setAttribute('aria-describedby', 'catalog-page-error');
+        const pageLabel = document.createElement('span');
+        pageLabel.textContent = 'Page';
+        const submit = document.createElement('button');
+        submit.type = 'submit';
+        submit.textContent = 'Go';
+        submit.className = 'catalog-page-button catalog-pagination-go';
+        const error = document.createElement('span');
+        error.id = 'catalog-page-error';
+        error.className = 'catalog-pagination-error';
+        error.setAttribute('role', 'status');
+        label.appendChild(input);
+        form.append(label, pageLabel, submit, error);
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const value = input.value.trim();
+          const page = /^\d+$/.test(value) ? Number(value) : NaN;
+          if (!Number.isSafeInteger(page) || page < 1 || page > totalPages) {
+            error.textContent = `Enter a page from 1 to ${totalPages}.`;
+            input.setAttribute('aria-invalid', 'true');
+            input.focus();
+            return;
+          }
+          goToPage(page);
+        });
+        input.addEventListener('input', () => {
+          error.textContent = '';
+          input.removeAttribute('aria-invalid');
+        });
+        pagination.appendChild(form);
+      }
     };
 
     const refresh = () => {
@@ -307,6 +367,7 @@ const catalogProducts = activeCategory
 
       empty?.classList.toggle('hidden', filtered.length !== 0);
       renderPagination(filtered);
+      if (new URLSearchParams(window.location.search).get('page') !== (currentPage > 1 ? String(currentPage) : null)) updatePageUrl('replace');
     };
 
     const setView = (view: 'grid' | 'list', resetPage = true) => {
@@ -366,9 +427,10 @@ const catalogProducts = activeCategory
 
     window.addEventListener('popstate', () => {
       const nextParams = new URLSearchParams(window.location.search);
-      const nextPage = Math.max(1, Number.parseInt(nextParams.get('page') || '1', 10) || 1);
+      const nextPage = readPage(nextParams.get('page'));
       currentPage = nextPage;
       refresh();
+      grid?.scrollIntoView({ block: 'start' });
     });
 
     setView('grid', false);
@@ -400,30 +462,37 @@ const catalogProducts = activeCategory
     box-shadow: inset 2px 0 0 rgba(216, 180, 86, 0.16);
   }
   :global(.catalog-product-hidden) { display: none !important; }
+  :global(.catalog-pagination-pages), :global(.catalog-pagination-jump) { display: flex; align-items: center; gap: 6px; }
+  :global(.catalog-pagination-pages) { justify-content: center; flex-wrap: wrap; }
+  :global(.catalog-pagination-ellipsis) { display: grid; width: 20px; height: 42px; place-items: center; color: rgba(255,255,255,.5); }
+  :global(.catalog-pagination-jump) { position: relative; white-space: nowrap; color: rgba(255,255,255,.68); font: 12px 'Century Gothic', sans-serif; }
+  :global(.catalog-pagination-jump label) { display: flex; align-items: center; gap: 6px; }
+  :global(.catalog-pagination-jump input) { width: 50px; height: 42px; border: 1px solid rgba(216,180,86,.25); border-radius: 7px; background: #151515; color: #fff; text-align: center; outline: none; }
+  :global(.catalog-pagination-jump input::-webkit-inner-spin-button) { appearance: none; }
+  :global(.catalog-pagination-jump input:focus-visible), :global(.catalog-page-button:focus-visible) { outline: 2px solid #d8b456; outline-offset: 2px; }
+  :global(.catalog-pagination-jump input[aria-invalid='true']) { border-color: #e3a5a5; }
+  :global(.catalog-pagination-error) { position: absolute; top: 100%; left: 0; margin-top: 3px; color: #e3a5a5; font-size: 11px; }
   :global(.catalog-page-button) {
     display: grid;
-    min-width: 34px;
-    height: 34px;
+    min-width: 42px;
+    height: 42px;
     place-items: center;
     border: 1px solid rgba(216, 180, 86, 0.22);
-    border-radius: 8px;
+    border-radius: 7px;
     background: #151515;
     color: rgba(255, 255, 255, 0.76);
     font-family: 'Century Gothic', sans-serif;
     font-size: 14px;
     font-weight: 700;
     line-height: 1;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
+    transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
   }
-  :global(.catalog-page-button:hover) { border-color: #d8b456; color: #fff; transform: translateY(-1px); }
+  :global(.catalog-page-button:hover) { border-color: #d8b456; color: #fff; }
   :global(.catalog-page-button-active),
   :global(.catalog-page-button-active:hover) {
     border-color: #d8b456;
     background: #d8b456;
     color: #080808;
-    box-shadow: 0 10px 24px rgba(216, 180, 86, 0.22);
-    transform: none;
   }
   :global(.catalog-page-button-disabled),
   :global(.catalog-page-button-disabled:hover) {
@@ -431,8 +500,12 @@ const catalogProducts = activeCategory
     border-color: rgba(255, 255, 255, 0.08);
     background: #101010;
     color: rgba(255, 255, 255, 0.22);
-    box-shadow: none;
-    transform: none;
+  }
+
+  @media (min-width: 1024px) and (max-width: 1199px) {
+    [data-catalog-pagination] { column-gap: 8px; }
+    :global(.catalog-pagination-pages) { gap: 4px; }
+    :global(.catalog-page-button) { min-width: 40px; height: 40px; }
   }
 
   @media (min-width: 640px) {

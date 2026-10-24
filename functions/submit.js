@@ -170,6 +170,7 @@ export async function onRequestPost(context) {
             ${data.page_url ? detailRow("Page URL", data.page_url) : ""}
             ${detailRow("Language", data.language || "en")}
             ${data.page_path ? detailRow("Page Path", data.page_path) : ""}
+            ${data.source_page ? detailRow("Source Page", data.source_page) : ""}
             ${attributionFields.filter(key => data[key]).map(key => detailRow(key, data[key])).join('')}
             ${attachment ? detailRow('Attachment', attachment.filename) : ''}
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">

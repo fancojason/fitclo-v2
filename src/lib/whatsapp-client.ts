@@ -25,7 +25,7 @@ function productOnPage(): Pick<WhatsAppContext, 'productCode' | 'productName'> {
 export function initWhatsAppLinks() {
   if (document.documentElement.dataset.whatsappLinks === 'ready') return;
   document.documentElement.dataset.whatsappLinks = 'ready';
-  const pageContext: WhatsAppContext = { path: window.location.pathname, language: document.documentElement.lang.startsWith('es') ? 'es' : 'en', ...productOnPage() };
+  const pageContext: WhatsAppContext = { path: window.location.pathname, language: document.documentElement.lang as WhatsAppContext['language'], ...productOnPage() };
   const contextFor = (link: HTMLElement): WhatsAppContext => {
     const product = link.dataset.waProductCode || link.dataset.waProductName ? link : link.closest<HTMLElement>('[data-wa-product-code]');
     if (product) return { path: pageContext.path, language: pageContext.language, productCode: product.dataset.waProductCode, productName: product.dataset.waProductName, category: product.dataset.waCategory };

@@ -4,10 +4,12 @@ import { marketLandingPaths } from '../data/marketLandingPages';
 import { spanishCategoryPages } from '../content/es/categories';
 import { spanishProducts } from '../content/es/products';
 import { spanishGuides } from '../content/es/guides';
+import { coreLocales, corePageSlugs, corePath, type CoreLanguage } from '../content/core-locales';
 
 const site = 'https://www.fitcloo.com';
 
 const staticPages = [
+  ...Object.keys(coreLocales).flatMap((language) => corePageSlugs.map((page) => corePath(language as CoreLanguage, page))),
   '/wholesale-to/philippines/',
   '/es/fabricante-ropa-deportiva-espana/',
   ...spanishGuides.map((guide) => `/es/guias/${guide.slug}/`),

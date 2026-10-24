@@ -1,0 +1,7 @@
+---
+import CoreLocalePage from '../../components/CoreLocalePage.astro';
+import { coreLocales, type CoreLanguage } from '../../content/core-locales';
+export function getStaticPaths() { return Object.keys(coreLocales).map((language) => ({ params: { locale: language === 'pt-BR' ? 'pt-br' : language }, props: { language } })); }
+const language = Astro.props.language as CoreLanguage;
+---
+<CoreLocalePage language={language} page="home" />

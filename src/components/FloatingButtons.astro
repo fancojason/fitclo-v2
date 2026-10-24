@@ -2,10 +2,13 @@
 import { getUi } from '../i18n/ui';
 import type { SiteLanguage } from '../i18n/routes';
 import { getWhatsAppUrl } from '../lib/whatsapp';
+import { coreLocales, type CoreLanguage } from '../content/core-locales';
 
-const language: SiteLanguage = Astro.props.lang === 'es' ? 'es' : 'en';
+const language: SiteLanguage = Astro.props.lang in coreLocales ? Astro.props.lang : Astro.props.lang === 'es' ? 'es' : 'en';
 const ui = getUi(language);
-const whatsappUrl = getWhatsAppUrl({ path: Astro.props.path, language, productCode: Astro.props.productCode, productName: Astro.props.productName, customMessage: Astro.props.message });
+const coreCopy = Astro.props.lang in coreLocales ? coreLocales[Astro.props.lang as CoreLanguage] : null;
+const buttonText = coreCopy ? coreCopy.nav.contact : ui.floating.quote;
+const whatsappUrl = getWhatsAppUrl({ path: Astro.props.path, language: Astro.props.lang, productCode: Astro.props.productCode, productName: Astro.props.productName, customMessage: Astro.props.message });
 ---
 
 <!-- Floating Controls (WhatsApp Left, Quote Right) -->
@@ -15,13 +18,13 @@ const whatsappUrl = getWhatsAppUrl({ path: Astro.props.path, language, productCo
     <button 
       id="wa-trigger"
       class="whatsapp-float"
-      aria-label={ui.floating.aria}
+      aria-label={coreCopy ? 'WhatsApp' : ui.floating.aria}
       data-wa-url={whatsappUrl}
       data-language={language}
     >
       <img src="/images/whatsapp-icon.webp" class="wa-img" alt="WhatsApp" />
     </button>
-    <span class="wa-tooltip font-['Century_Gothic',sans-serif]">{ui.floating.tooltip}</span>
+    <span class="wa-tooltip font-['Century_Gothic',sans-serif]">{coreCopy ? 'WhatsApp' : ui.floating.tooltip}</span>
   </div>
 
 <script>
@@ -37,7 +40,7 @@ const whatsappUrl = getWhatsAppUrl({ path: Astro.props.path, language, productCo
 
   <!-- Quote Right -->
   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="quote-float" data-wa-quote data-language={language}>
-    <span>{ui.floating.quote}</span>
+    <span>{buttonText}</span>
   </a>
 </div>
 

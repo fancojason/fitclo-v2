@@ -41,6 +41,11 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
 const homePath = isSpanish ? '/es/' : '/';
 const englishPath = getLocalizedRoute(Astro.url.pathname, 'en');
 const spanishPath = getLocalizedRoute(Astro.url.pathname, 'es');
+const newLanguageOptions = [
+  { language: 'de', label: 'Deutsch' },
+  { language: 'nl', label: 'Nederlands' },
+  { language: 'pt-BR', label: 'Português (Brasil)' },
+] as const;
 
 ---
 
@@ -109,6 +114,7 @@ const spanishPath = getLocalizedRoute(Astro.url.pathname, 'es');
           >
             <option value={englishPath} selected={!isSpanish}>EN</option>
             <option value={spanishPath} selected={isSpanish}>ES</option>
+            {newLanguageOptions.map(({ language, label }) => <option value={getLocalizedRoute(Astro.url.pathname, language)} data-language={language}>{label}</option>)}
           </select>
         </label>
       </nav>
@@ -117,6 +123,7 @@ const spanishPath = getLocalizedRoute(Astro.url.pathname, 'es');
         <select class="h-[34px] min-w-[60px] border border-white/25 bg-black px-2 text-[12px] font-bold text-white outline-none focus:border-[#C9A84C]" aria-label={ui.language.label} data-language-selector>
           <option value={englishPath} selected={!isSpanish}>EN</option>
           <option value={spanishPath} selected={isSpanish}>ES</option>
+          {newLanguageOptions.map(({ language, label }) => <option value={getLocalizedRoute(Astro.url.pathname, language)} data-language={language}>{label}</option>)}
         </select>
       </label>
     </div>
@@ -127,7 +134,7 @@ const spanishPath = getLocalizedRoute(Astro.url.pathname, 'es');
   document.querySelectorAll<HTMLSelectElement>('[data-language-selector]').forEach((selector) => {
     selector.addEventListener('change', () => {
       const fromLanguage = document.documentElement.lang || 'en';
-      const toLanguage = selector.selectedOptions[0]?.textContent?.toLowerCase() || 'en';
+      const toLanguage = selector.selectedOptions[0]?.dataset.language || (selector.selectedOptions[0]?.textContent?.toLowerCase() || 'en');
       const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, string>>; gtag?: (...args: unknown[]) => void };
       const parameters = {
         from_language: fromLanguage,

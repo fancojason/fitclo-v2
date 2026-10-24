@@ -85,6 +85,7 @@ export async function submitInquiry(fields: Record<string, FormDataEntryValue>) 
   const data: Record<string, unknown> = {
     ...fields, ...initInquiryAttribution(), language,
     page_path: window.location.pathname, page_url: window.location.href,
+    source_page: document.referrer.startsWith(window.location.origin) ? new URL(document.referrer).pathname : '',
   };
   delete data.file;
   const file = fields.file;

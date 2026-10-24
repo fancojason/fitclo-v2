@@ -1,0 +1,35 @@
+---
+import { coreLocales, corePageSlugs, corePath, type CoreLanguage } from '../content/core-locales';
+import { getLocalizedRoute, type SiteLanguage } from '../i18n/routes';
+
+const language = Astro.props.lang as CoreLanguage;
+const copy = coreLocales[language];
+const languages: { code: SiteLanguage; label: string }[] = [
+  { code: 'en', label: 'English' }, { code: 'es', label: 'Español' },
+  { code: 'de', label: 'Deutsch' }, { code: 'nl', label: 'Nederlands' }, { code: 'pt-BR', label: 'Português (Brasil)' },
+];
+---
+<header class="fixed left-0 top-0 z-50 w-full border-b border-[#C9A84C]/50 bg-black/95 text-white backdrop-blur-md">
+  <div class="mx-auto flex min-h-[76px] max-w-[1600px] flex-wrap items-center justify-between gap-3 px-6 py-3 lg:px-10">
+    <a href={corePath(language, 'home')} class="text-xl font-bold uppercase tracking-widest text-white">Fit<span class="text-[#C9A84C]">clo</span></a>
+    <nav aria-label={copy.name} class="order-3 flex w-full flex-wrap items-center gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-wide md:order-2 md:w-auto md:justify-center">
+      {corePageSlugs.map((page) => <a class:list={['hover:text-[#C9A84C]', Astro.url.pathname === corePath(language, page) ? 'text-[#C9A84C]' : 'text-white/85']} href={corePath(language, page)}>{copy.nav[page]}</a>)}
+    </nav>
+    <label class="order-2 md:order-3">
+      <span class="sr-only">{copy.name}</span>
+      <select aria-label={copy.name} data-language-selector class="max-w-[130px] border border-white/25 bg-black px-2 py-2 text-xs font-semibold text-white focus:border-[#C9A84C]">
+        {languages.map(({ code, label }) => <option value={getLocalizedRoute(Astro.url.pathname, code)} data-language={code} selected={code === language}>{label}</option>)}
+      </select>
+    </label>
+  </div>
+</header>
+<script>
+  document.querySelectorAll<HTMLSelectElement>('[data-language-selector]').forEach((selector) => {
+    selector.addEventListener('change', () => {
+      const toLanguage = selector.selectedOptions[0]?.dataset.language || 'en';
+      const analytics = window as Window & { gtag?: (...args: unknown[]) => void };
+      analytics.gtag?.('event', 'language_switch', { from_language: document.documentElement.lang, to_language: toLanguage, page_path: location.pathname });
+      location.assign(selector.value);
+    });
+  });
+</script>

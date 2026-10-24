@@ -18,3 +18,7 @@ dist/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local Spanish translation review artifacts
+.spanish-drafts/
+scripts/__pycache__/

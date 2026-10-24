@@ -42,8 +42,9 @@ def inspect(draft):
         errors.append(f"numbers lost: {dict(english_numbers - spanish_numbers)}")
     if spanish_numbers - english_numbers:
         warnings.append(f"new numeric tokens: {dict(spanish_numbers - english_numbers)}")
-    if any("https://www.fitcloo.com/" in script.get_text() for script in spanish.select('script[type="application/ld+json"]')):
-        warnings.append("structured data still contains English URLs")
+    source_url = f"https://www.fitcloo.com/{page.as_posix()}/"
+    if any(source_url in script.get_text() for script in spanish.select('script[type="application/ld+json"]')):
+        errors.append("structured data still points to this page's English URL")
     return {"page": str(page).replace("\\", "/"), "errors": errors, "warnings": warnings}
 
 

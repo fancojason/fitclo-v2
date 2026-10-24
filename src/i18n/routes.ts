@@ -1,4 +1,5 @@
 export type SiteLanguage = 'en' | 'es' | 'de' | 'nl' | 'pt-BR';
+import spanishMirrorPaths from '../data/spanishMirrorPaths.json';
 
 export const newLanguages = ['de', 'nl', 'pt-BR'] as const;
 export const languagePrefix: Record<SiteLanguage, string> = { en: '/', es: '/es/', de: '/de/', nl: '/nl/', 'pt-BR': '/pt-br/' };
@@ -36,7 +37,14 @@ export const getLanguageFromPath = (path: string): SiteLanguage =>
 export const getLocalizedRoute = (path: string, language: SiteLanguage) => {
   const normalizedPath = normalizePath(path);
   const pair = localizedRoutePairs.find((item) => Object.values(item).includes(normalizedPath));
+  if (!pair && language === 'es' && spanishMirrorPaths.includes(normalizedPath)) return `/es${normalizedPath}`;
+  if (!pair && language === 'en' && normalizedPath.startsWith('/es/') && spanishMirrorPaths.includes(normalizedPath.slice(3))) return normalizedPath.slice(3);
   return pair?.[language] ?? languagePrefix[language];
+};
+
+export const isSpanishMirror = (path: string) => {
+  const normalizedPath = normalizePath(path);
+  return spanishMirrorPaths.includes(normalizedPath) || (normalizedPath.startsWith('/es/') && spanishMirrorPaths.includes(normalizedPath.slice(3)));
 };
 
 export const getAlternateLinks = (englishPath: string, spanishPath: string) => {

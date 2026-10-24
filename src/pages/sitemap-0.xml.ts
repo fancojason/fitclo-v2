@@ -5,10 +5,12 @@ import { spanishCategoryPages } from '../content/es/categories';
 import { spanishProducts } from '../content/es/products';
 import { spanishGuides } from '../content/es/guides';
 import { coreLocales, corePageSlugs, corePath, type CoreLanguage } from '../content/core-locales';
+import spanishMirrorPaths from '../data/spanishMirrorPaths.json';
 
 const site = 'https://www.fitcloo.com';
 
 const staticPages = [
+  ...spanishMirrorPaths.map((path) => `/es${path}`),
   ...Object.keys(coreLocales).flatMap((language) => corePageSlugs.map((page) => corePath(language as CoreLanguage, page))),
   '/wholesale-to/philippines/',
   '/es/fabricante-ropa-deportiva-espana/',

@@ -1,4 +1,5 @@
 import { WHATSAPP_PHONE } from '../lib/whatsapp';
+import { getLocalizedRoute } from './routes';
 export type TranslationPair = readonly [english: string, spanish: string];
 
 const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -36,3 +37,10 @@ export const localizeEnglishWhatsAppLinks = (html: string, spanishMessage: strin
       }
     },
   );
+
+export const localizeSpanishInternalLinks = (html: string) =>
+  html.replace(/href="(\/(?!\/)[^"?#]*)([?#][^"]*)?"/g, (match, path: string, suffix = '') => {
+    const englishPath = path.startsWith('/es/') ? path.slice(3) : path;
+    const target = getLocalizedRoute(englishPath, 'es');
+    return target === '/es/' && path !== '/' ? match : `href="${target}${suffix}"`;
+  });

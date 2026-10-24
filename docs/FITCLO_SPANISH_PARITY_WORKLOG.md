@@ -1,26 +1,24 @@
-# Spanish site parity — work in progress
+# Spanish site parity — release record
 
-Updated 2026-10-24. This document records actual work, not a release claim.
+Updated 2026-10-24. The user approved machine translation followed by review of commercial facts and page quality.
 
-## Requested acceptance condition
+## Inventory and implementation
 
-A Spanish visitor can browse the same public information architecture as an English visitor, including the homepage, catalog, product detail pages, blog directory and corresponding articles. Equivalent pages preserve factual content and page structure while presenting Spanish text. Canonical and reciprocal hreflang must only name published equivalents.
+- The English build contains 205 blog detail routes and 61 product detail routes. The product catalog contains 254 entries.
+- This change adds 294 Spanish static counterparts from reviewed HTML drafts: 196 blog routes (including `/es/blogs/`), 53 product routes (including `/es/products/`), and 45 other public routes.
+- Existing curated Spanish pages remain in place, including the homepage, 8 product details, service/category pages and 5 guides. The `/es/` homepage retains the English homepage's section structure and now sends visitors to available Spanish counterparts.
+- The 5 English blog articles that already contain substantial Russian text remain untranslated. They are intentionally absent from Spanish hreflang and sitemap claims. One malformed English URL with a canonical pointing elsewhere is also excluded.
+- No homepage or primary-navigation layout was changed. Header/footer destinations and body links were localized where a counterpart exists. Spanish catalog cards retain English SKU search terms and add visible Spanish terms to the search index.
 
-## Current inventory from the local production build
+## Quality gates run locally
 
-- English blog routes: 205. Spanish `/es/blogs/` routes: 0. Five Spanish guides exist at `/es/guias/`; some correspond to English blog articles.
-- English product routes: 61. Spanish `/es/products/` detail routes: 8.
-- The English catalog data has 254 entries. Spanish ready-stock browsing exists, but there is no full Spanish counterpart to `/products/`.
-- German, Dutch and Brazilian Portuguese currently have five core pages each; they are outside this Spanish-first phase.
+- All 312 draft files passed heading/table/image/form structure checks and a numeric-token preservation check after corrections: 0 errors. Remaining extra-number warnings are Spanish spellings such as `30.000` or translated numbered steps; they do not indicate lost English quantities.
+- Common B2B terms were corrected across drafts, including *ropa deportiva*, *marca privada*, *producción en serie* and *mono*. High-traffic company, manufacturing, blog-directory and TZ2570-4 headings received specific editorial corrections.
+- The production build succeeded. The built Spanish mirror checker validated 294 pages for files, canonical, English/Spanish hreflang, structural parity, sitemap inclusion and Spanish internal link existence: 0 errors.
+- A final scan of all 320 built Spanish pages found 0 broken `/es/` destinations, including the existing Astro pages.
 
-Run `node scripts/audit-spanish-parity.mjs` after building to refresh the route inventory.
+## Maintenance
 
-## Translation experiment and quality gate
+The static mirror pages in `public/es/` are generated from English build output. After an English page materially changes, regenerate and review its Spanish draft before republishing. Run `scripts/prepare-spanish-mirror.py`, `npm run build`, `scripts/check-spanish-drafts.py`, and `scripts/check-spanish-mirror.py` for subsequent changes.
 
-The user authorized AI-first translation followed by factual and page review. An isolated draft generator translated 29 blog pages and the 254 catalog names/descriptions into `.spanish-drafts/`. These drafts were **not published** or added to the sitemap. The article draft check found 5 of 29 pages with lost numeric tokens and all 29 still had English URLs in structured data. The 254 catalog drafts preserved numeric tokens, but manual sampling found B2B terminology errors (for example, “bulk production” was translated as a bulk package) and several unnatural or misleading product names. The literal translator is therefore not safe to publish without correction.
-
-The generated drafts and translation cache are local review material only. Before publishing each page: verify all SKUs, compositions, sizes, MOQ, inventory and lead-time language; compare heading/table/image and FAQ structure; review Spanish terminology; rewrite all internal links and structured-data URLs; validate canonical, reciprocal hreflang and sitemap; build and visually inspect desktop/mobile output.
-
-## No production change in this phase yet
-
-The last live deployment remains the five-language core-page release. Do not describe the Spanish content parity task as deployed or complete until the full review and release checks have passed.
+This record describes local implementation and tests. Production deployment and live URL verification must be reported separately.

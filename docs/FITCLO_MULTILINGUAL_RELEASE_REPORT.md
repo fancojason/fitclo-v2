@@ -11,7 +11,7 @@ Updated 2026-10-24. This record distinguishes local checks from production verif
 | 5 Brazilian Portuguese core pages | PASS locally | Five static routes generated; logistics copy does not assert universal DDP, fixed taxes or customs time. |
 | 6 International SEO | PASS locally | `check-core-locales.mjs` validates 15 routes, canonicals, hreflang reciprocity, sitemap, links and EN/ES equivalents. |
 | 7 Inquiries and analytics | PASS locally | Shared `/submit` route, localized form and WhatsApp copy; existing submit tests pass; no real customer message sent. |
-| 8 Production and search platforms | PENDING | Local build and preview passed. Update after feature-branch preview and production verification. |
+| 8 Production and search platforms | PASS for deployment and submission | Cloudflare preview and production checks succeeded for commit `f6cce2166f0afea23b2a21e6af6d8bf33978a782`; all 15 production URLs returned 200 with their expected language and canonical. Google sitemap and IndexNow workflows both completed successfully. Indexing is not yet established. |
 
 ## Tests run
 
@@ -23,7 +23,9 @@ Updated 2026-10-24. This record distinguishes local checks from production verif
 
 ## Release and rollback
 
-Cloudflare Pages publishes from `main`. Push to the feature branch for a preview if Cloudflare Pages provides one; after preview verification and passing tests, publish by fast-forwarding or merging the reviewed feature commit into `main`. Revert that commit on `main` if production reveals a serious regression, then verify the old EN/ES URLs and new-route removal.
+Cloudflare Pages published the feature preview at `https://34b833ab.fitclo-v2.pages.dev` and the production deployment from `main` at commit `f6cce2166f0afea23b2a21e6af6d8bf33978a782`. Production verification on 2026-10-24 checked all 15 URLs for HTTP 200, language tag, canonical and hreflang. English and Spanish home/private-label pages and the sitemap also returned 200. If a serious regression appears, revert the feature commit on `main`, then verify the former English and Spanish URLs and removed new routes.
+
+Google Actions run `40058506290` logged `Submitted https://www.fitcloo.com/sitemap-index.xml for https://www.fitcloo.com/.` IndexNow run `40058506240` reported 15 added URL candidates and HTTP 200 acceptance. This is submission evidence, not evidence of crawl, indexation, rankings or leads. No additional account permission was needed for these automated submissions. GSC URL Inspection and Bing Webmaster Tools indexing status were not independently verified.
 
 ## Data not confirmed
 

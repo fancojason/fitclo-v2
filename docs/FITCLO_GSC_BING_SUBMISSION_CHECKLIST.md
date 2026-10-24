@@ -1,6 +1,6 @@
 # Search submission record — five-language core pages
 
-Status at implementation: local build generated all URLs; live submission must be verified after production deployment. The repository already has a Google sitemap-submission workflow and an IndexNow workflow on pushes to `main`. Neither proves crawling or indexing.
+Status on 2026-10-24: all 15 URLs returned HTTP 200 on the production domain and are present in the live sitemap. The Google sitemap workflow (`40058506290`) logged a successful submission of `https://www.fitcloo.com/sitemap-index.xml` for the verified site. The IndexNow workflow (`40058506240`) logged 15 newly added URL candidates and HTTP 200 acceptance. Neither proves crawling or indexing.
 
 Sitemap: `https://www.fitcloo.com/sitemap-index.xml` (the core URLs are in `https://www.fitcloo.com/sitemap-0.xml`).
 
@@ -12,4 +12,4 @@ Sitemap: `https://www.fitcloo.com/sitemap-index.xml` (the core URLs are in `http
 | `https://www.fitcloo.com/de/ready-stock-activewear/` | `https://www.fitcloo.com/nl/ready-stock-activewear/` | `https://www.fitcloo.com/pt-br/ready-stock-activewear/` |
 | `https://www.fitcloo.com/de/contact/` | `https://www.fitcloo.com/nl/contact/` | `https://www.fitcloo.com/pt-br/contact/` |
 
-After deployment: verify the fifteen live URLs, inspect the two existing GitHub Actions runs and record actual GSC / IndexNow acceptance or an exact permission error. For Google, sitemap acceptance is separate from URL Inspection requests, crawling and indexing. For Bing, IndexNow acceptance is only a notification, not proof of indexing. Manually request indexing of the three new language homepages in GSC only if authorized and the automated sitemap route has succeeded; do not flood the interface with repeated requests.
+Follow-up: inspect the three new language homepages in GSC URL Inspection after Google has had time to crawl; inspect Bing Webmaster Tools for discovery/indexing. Sitemap acceptance is separate from URL Inspection requests, crawling and indexing. IndexNow acceptance is a notification, not proof of Bing indexing. Do not repeatedly request indexing without a specific indexing issue.

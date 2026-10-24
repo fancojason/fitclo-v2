@@ -80,7 +80,11 @@ for draft in drafts:
     source = BUILT / english.strip("/") / "index.html"
     if not source.is_file():
         continue
-    canonical = BeautifulSoup(source.read_text(encoding="utf-8"), "html.parser").find("link", rel="canonical")
+    source_doc = BeautifulSoup(source.read_text(encoding="utf-8"), "html.parser")
+    robots = source_doc.find("meta", attrs={"name": "robots"})
+    if robots and "noindex" in (robots.get("content") or "").lower():
+        continue
+    canonical = source_doc.find("link", rel="canonical")
     if canonical and canonical.get("href") != SITE + english:
         continue
     spanish = SPECIAL.get(english, "/es" + english)

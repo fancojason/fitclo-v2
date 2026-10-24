@@ -28,6 +28,9 @@ for english in manifest:
     canonical = doc.find("link", rel="canonical")
     if canonical is None or canonical.get("href") != "https://www.fitcloo.com" + spanish:
         errors.append(f"{spanish}: canonical mismatch")
+    robots = doc.find("meta", attrs={"name": "robots"})
+    if robots and "noindex" in (robots.get("content") or "").lower():
+        errors.append(f"{spanish}: noindex page listed as a mirror")
     alternates = {link.get("hreflang"): link.get("href") for link in doc.select("link[hreflang]")}
     if alternates.get("en") != "https://www.fitcloo.com" + english:
         errors.append(f"{spanish}: English alternate mismatch")

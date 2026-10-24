@@ -20,6 +20,8 @@ const meaningful = (html) => {
   return main.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/\s+/g, ' ').trim();
 };
+const hasNoindex = (html) => [...html.matchAll(/<meta\b[^>]*>/gi)].some(([tag]) =>
+  /\bname="robots"/i.test(tag) && /\bcontent="[^"]*noindex/i.test(tag));
 const current = await urls(newDir);
 const previous = await urls(oldDir);
 const changes = [];
@@ -31,7 +33,7 @@ for (const url of new Set([...current, ...previous])) {
   if (!url.startsWith(`${origin}/`) && url !== `${origin}/`) throw new Error('Non-canonical sitemap host');
   if (!current.has(url)) { changes.push({ url, kind: 'removed' }); continue; }
   const html = await readFile(htmlPath(newDir, url), 'utf8');
-  if (canonicalOf(html) !== url || /<meta\s+name="robots"\s+content="[^"]*noindex/i.test(html)) {
+  if (canonicalOf(html) !== url || hasNoindex(html)) {
     throw new Error(`Non-indexable sitemap entry: ${url}`);
   }
   if (!previous.has(url)) { changes.push({ url, kind: 'added' }); continue; }
@@ -44,8 +46,13 @@ if (!changes.length) process.exit(0);
 if (!keyValid) { console.log('INDEXNOW_KEY not configured; notification skipped.'); process.exit(0); }
 const keyResponse = await fetch(keyLocation, { redirect: 'error' });
 if (!keyResponse.ok || (await keyResponse.text()).trim() !== key) throw new Error(`Live IndexNow key verification failed: HTTP ${keyResponse.status}`);
+const noindexRemovals = new Set();
 const verify = async ({url, kind}) => {
   const response = await fetch(url, { method: 'GET', redirect: 'manual' });
+  if (kind === 'removed' && response.status === 200 && hasNoindex(await response.text())) {
+    noindexRemovals.add(url);
+    return;
+  }
   if (kind === 'removed' ? ![404,410].includes(response.status) : response.status !== 200) {
     throw new Error(`Live URL state differs from build: ${url} HTTP ${response.status}`);
   }
@@ -59,8 +66,9 @@ const verify = async ({url, kind}) => {
 for (let index = 0; index < changes.length; index += 10) {
   await Promise.all(changes.slice(index, index + 10).map(verify));
 }
-for (let index = 0; index < changes.length; index += 50) {
-  const batch = changes.slice(index, index + 50);
+const notifiedChanges = changes.filter(({url}) => !noindexRemovals.has(url));
+for (let index = 0; index < notifiedChanges.length; index += 50) {
+  const batch = notifiedChanges.slice(index, index + 50);
   const response = await fetch('https://api.indexnow.org/indexnow', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -69,4 +77,5 @@ for (let index = 0; index < changes.length; index += 50) {
   console.log(`IndexNow response: HTTP ${response.status}; URLs: ${batch.map(x => `${x.kind} ${x.url}`).join(', ')}`);
   if (![200, 202].includes(response.status)) throw new Error('IndexNow notification was not accepted.');
 }
+if (noindexRemovals.size) console.log(`Skipped ${noindexRemovals.size} noindex pages removed from the sitemap.`);
 

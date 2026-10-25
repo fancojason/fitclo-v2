@@ -202,6 +202,12 @@ for draft in drafts:
                 option.string = "ES"
                 option["value"] = spanish
                 option["selected"] = ""
+    for quote in soup.select("header a.quote-nav-button"):
+        quote["class"] = ["quote-nav-button"]
+        label = quote.select_one("span")
+        if label:
+            label.string = "Solicitar cotización"
+            label.attrs.pop("class", None)
     if not soup.select_one('link[href="/css/language-menu.css"]'):
         soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/language-menu.css"))
     if not soup.select_one('script[src="/js/language-menu.js"]'):

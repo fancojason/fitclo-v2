@@ -13,7 +13,7 @@ const languages: { code: SiteLanguage; label: string }[] = [
   <div class="mx-auto flex min-h-[76px] max-w-[1600px] flex-wrap items-center justify-between gap-3 px-6 py-3 lg:px-10">
     <a href={corePath(language, 'home')} class="text-xl font-bold uppercase tracking-widest text-white">Fit<span class="text-[#C9A84C]">clo</span></a>
     <nav aria-label={copy.name} class="order-3 flex w-full flex-wrap items-center gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-wide md:order-2 md:w-auto md:justify-center">
-      {corePageSlugs.map((page) => <a class:list={['hover:text-[#C9A84C]', Astro.url.pathname === corePath(language, page) ? 'text-[#C9A84C]' : 'text-white/85']} href={corePath(language, page)}>{copy.nav[page]}</a>)}
+      {corePageSlugs.map((page) => <a class:list={['hover:text-[#C9A84C]', Astro.url.pathname === corePath(language, page) ? 'text-[#C9A84C]' : 'text-white/85', page === 'contact' && 'quote-nav-button core-quote-nav-button']} href={corePath(language, page)}>{copy.nav[page]}</a>)}
     </nav>
     <div class="order-2 md:order-3 language-menu-slot">
       <span class="sr-only">{copy.name}</span>

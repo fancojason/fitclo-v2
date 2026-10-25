@@ -108,7 +108,7 @@ const newLanguageOptions = [
             <span class={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-[#C9A84C] transition-transform duration-300 ${isActive(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
           </a>
         ))}
-        <a href={isSpanish ? '/es/contact/#inquiry' : '/inquiry/'} class="quote-nav-button ml-1 inline-flex h-[33px] -translate-y-[2.5px] self-center items-center justify-center bg-[#C9A84C] px-3 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0A0A0F] transition-colors duration-200 hover:bg-[#d4b55a]"><span class="-translate-y-px leading-none">{ui.nav.quote}</span></a>
+        <a href={isSpanish ? '/es/contact/#inquiry' : '/inquiry/'} class="quote-nav-button"><span>{ui.nav.quote}</span></a>
         <div class="relative -translate-y-[2.5px] self-center text-white/80">
           <span class="sr-only">{ui.language.label}</span>
           <select

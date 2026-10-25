@@ -208,8 +208,11 @@ for draft in drafts:
         if label:
             label.string = "Solicitar cotización"
             label.attrs.pop("class", None)
-    if not soup.select_one('link[href="/css/language-menu.css"]'):
-        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/language-menu.css"))
+    menu_css = soup.select_one('link[href^="/css/language-menu.css"]')
+    if menu_css:
+        menu_css["href"] = "/css/language-menu.css?v=2"
+    else:
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/language-menu.css?v=2"))
     if not soup.select_one('script[src="/js/language-menu.js"]'):
         soup.head.append(soup.new_tag("script", src="/js/language-menu.js", defer=""))
     for tag in soup.select("[data-language]"):

@@ -70,7 +70,7 @@ const newLanguageOptions = [
           </div>
         </a>
       </div>
-      <nav class="hidden md:flex items-center gap-7 lg:gap-9">
+      <nav class="hidden lg:flex items-center gap-4 xl:gap-9">
         <a href={homePath} class={`relative pb-1 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors duration-200 group ${isActive(homePath) ? 'text-[#C9A84C]' : 'text-white/90 hover:text-[#C9A84C]'}`}>
           {ui.nav.home}
           <span class={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-[#C9A84C] transition-transform duration-300 ${isActive(homePath) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
@@ -109,7 +109,7 @@ const newLanguageOptions = [
           </a>
         ))}
         <a href={isSpanish ? '/es/contact/#inquiry' : '/inquiry/'} class="quote-nav-button ml-1 inline-flex h-[33px] -translate-y-[2.5px] self-center items-center justify-center bg-[#C9A84C] px-3 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0A0A0F] transition-colors duration-200 hover:bg-[#d4b55a]"><span class="-translate-y-px leading-none">{ui.nav.quote}</span></a>
-        <label class="relative -translate-y-[2.5px] self-center text-white/80">
+        <div class="relative -translate-y-[2.5px] self-center text-white/80">
           <span class="sr-only">{ui.language.label}</span>
           <select
             class="h-[33px] min-w-[58px] cursor-pointer border border-white/20 bg-black px-2 text-[11px] font-bold uppercase tracking-[0.08em] text-white outline-none transition-colors hover:border-[#C9A84C] focus:border-[#C9A84C]"
@@ -120,16 +120,16 @@ const newLanguageOptions = [
             <option value={spanishPath} selected={isSpanish}>ES</option>
             {newLanguageOptions.map(({ language, label }) => <option value={getLocalizedRoute(Astro.url.pathname, language)} data-language={language}>{label}</option>)}
           </select>
-        </label>
+        </div>
       </nav>
-      <label class="relative md:hidden text-white/80">
+      <div class="relative lg:hidden text-white/80">
         <span class="sr-only">{ui.language.label}</span>
         <select class="h-[34px] min-w-[60px] border border-white/25 bg-black px-2 text-[12px] font-bold text-white outline-none focus:border-[#C9A84C]" aria-label={ui.language.label} data-language-selector>
           <option value={englishPath} selected={!isSpanish}>EN</option>
           <option value={spanishPath} selected={isSpanish}>ES</option>
           {newLanguageOptions.map(({ language, label }) => <option value={getLocalizedRoute(Astro.url.pathname, language)} data-language={language}>{label}</option>)}
         </select>
-      </label>
+      </div>
     </div>
   </div>
 </header>

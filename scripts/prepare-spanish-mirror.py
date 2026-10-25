@@ -182,13 +182,30 @@ for draft in drafts:
         except json.JSONDecodeError:
             pass
     for selector in soup.select("select[data-language-selector]"):
-        for option in selector.select("option"):
-            if option.get_text(strip=True).upper() == "EN":
+        if selector.parent.name == "label":
+            selector.parent.name = "div"
+        for ancestor in selector.parents:
+            if ancestor.name == "nav" and "md:flex" in ancestor.get("class", []):
+                ancestor["class"] = ["lg:flex" if item == "md:flex" else item for item in ancestor["class"]]
+            if ancestor.name == "nav" and "gap-7" in ancestor.get("class", []):
+                ancestor["class"] = ["gap-4" if item == "gap-7" else "xl:gap-9" if item == "lg:gap-9" else item for item in ancestor["class"]]
+            if ancestor.name == "header":
+                break
+        if "md:hidden" in selector.parent.get("class", []):
+            selector.parent["class"] = ["lg:hidden" if item == "md:hidden" else item for item in selector.parent["class"]]
+        for index, option in enumerate(selector.select("option")):
+            if index == 0:
+                option.string = "EN"
                 option["value"] = english
                 option.attrs.pop("selected", None)
-            elif option.get_text(strip=True).upper() == "ES":
+            elif index == 1:
+                option.string = "ES"
                 option["value"] = spanish
                 option["selected"] = ""
+    if not soup.select_one('link[href="/css/language-menu.css"]'):
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/language-menu.css"))
+    if not soup.select_one('script[src="/js/language-menu.js"]'):
+        soup.head.append(soup.new_tag("script", src="/js/language-menu.js", defer=""))
     for tag in soup.select("[data-language]"):
         if tag["data-language"] == "en":
             tag["data-language"] = "es"

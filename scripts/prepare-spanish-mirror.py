@@ -152,6 +152,10 @@ for draft in drafts:
         continue
     spanish = routes[english]
     soup = BeautifulSoup(draft.read_text(encoding="utf-8"), "html.parser")
+    if soup.header:
+        for node in list(soup.header.contents):
+            if isinstance(node, str) and "Línea Degradada Dorada De Navegación Superior" in node:
+                node.extract()
     if english == "/blogs/":
         for node in soup.find_all(string=True):
             correction = BLOG_LIST_RUSSIAN_COPY.get(str(node).strip())
@@ -210,9 +214,9 @@ for draft in drafts:
             label.attrs.pop("class", None)
     menu_css = soup.select_one('link[href^="/css/language-menu.css"]')
     if menu_css:
-        menu_css["href"] = "/css/language-menu.css?v=2"
+        menu_css["href"] = "/css/language-menu.css?v=3"
     else:
-        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/language-menu.css?v=2"))
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/language-menu.css?v=3"))
     if not soup.select_one('script[src="/js/language-menu.js"]'):
         soup.head.append(soup.new_tag("script", src="/js/language-menu.js", defer=""))
     for tag in soup.select("[data-language]"):

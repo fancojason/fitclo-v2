@@ -21,3 +21,5 @@ header a.quote-nav-button:focus-visible{outline:2px solid #f0d18a;outline-offset
 header a.quote-nav-button span{line-height:1;transform:none}
 @media(min-width:1280px){header a.quote-nav-button:not(.core-quote-nav-button){margin-right:-12px}}
 @media(max-width:1023px){header a.core-quote-nav-button{display:inline;color:rgba(255,255,255,.85);background:transparent;min-height:0;padding:0;border-radius:0;font-size:inherit;font-weight:inherit;line-height:inherit;letter-spacing:inherit}header a.core-quote-nav-button:hover{color:#c9a84c;background:transparent}}
+@media(min-width:1024px){header nav[class*="lg:flex"]{display:flex;column-gap:16px}header nav[class*="lg:flex"]+div[class*="lg:hidden"]{display:none}}
+@media(min-width:1280px){header nav[class*="lg:flex"]{column-gap:36px}}

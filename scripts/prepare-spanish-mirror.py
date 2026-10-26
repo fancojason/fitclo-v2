@@ -214,9 +214,9 @@ for draft in drafts:
             label.attrs.pop("class", None)
     menu_css = soup.select_one('link[href^="/css/language-menu.css"]')
     if menu_css:
-        menu_css["href"] = "/css/language-menu.css?v=3"
+        menu_css["href"] = "/css/language-menu.css?v=4"
     else:
-        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/language-menu.css?v=3"))
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/language-menu.css?v=4"))
     if not soup.select_one('script[src="/js/language-menu.js"]'):
         soup.head.append(soup.new_tag("script", src="/js/language-menu.js", defer=""))
     for tag in soup.select("[data-language]"):

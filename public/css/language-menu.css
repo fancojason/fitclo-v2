@@ -15,7 +15,7 @@
 .language-menu__check{display:flex;width:15px;height:15px;flex:none}
 .language-menu__trigger:focus-visible,.language-menu__item:focus-visible{outline:2px solid #c9a84c;outline-offset:2px}
 @media(max-width:767px){.language-menu__panel{max-width:calc(100vw - 32px)}}
-header a.quote-nav-button{display:inline-flex;flex:none;align-items:center;justify-content:center;min-height:40px;padding:0 21px;border-radius:5px;background:#c8a85d;color:#17140d;box-shadow:none;font-family:inherit;font-size:12px;font-weight:600;line-height:1;letter-spacing:.06em;text-decoration:none;white-space:nowrap;transform:none;transition:background-color 180ms ease,color 180ms ease}
+header a.quote-nav-button{display:inline-flex;flex:none;align-items:center;justify-content:center;min-height:36px;padding:0 21px;border-radius:5px;background:#c8a85d;color:#17140d;box-shadow:none;font-family:inherit;font-size:12px;font-weight:600;line-height:1;letter-spacing:.06em;text-decoration:none;white-space:nowrap;transform:none;transition:background-color 180ms ease,color 180ms ease}
 header a.quote-nav-button:hover{background:#d7b86f;color:#17140d}
 header a.quote-nav-button:focus-visible{outline:2px solid #f0d18a;outline-offset:3px}
 header a.quote-nav-button span{line-height:1;transform:none}

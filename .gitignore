@@ -21,4 +21,5 @@ Thumbs.db
 
 # Local Spanish translation review artifacts
 .spanish-drafts/
+.german-drafts/
 scripts/__pycache__/

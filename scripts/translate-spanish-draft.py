@@ -5,6 +5,7 @@ The output is intentionally outside public/ so an unreviewed translation cannot 
 """
 
 import argparse
+from collections import Counter
 import json
 import re
 import time
@@ -47,7 +48,7 @@ GLOSSARY = {
 }
 
 
-def translate(texts, cache):
+def translate(texts, cache, language="es"):
     missing = [text for text in texts if text not in cache]
     answer = []
     batch = []
@@ -70,7 +71,7 @@ def translate(texts, cache):
             try:
                 response = requests.get(
                     "https://translate.googleapis.com/translate_a/single",
-                    params={"client": "gtx", "sl": "en", "tl": "es", "dt": "t", "q": query},
+                    params={"client": "gtx", "sl": "en", "tl": language, "dt": "t", "q": query},
                     timeout=45,
                 )
                 response.raise_for_status()
@@ -91,10 +92,20 @@ def translate(texts, cache):
         batch.append(text)
     flush()
     restored = []
-    for value, number_map in zip(answer, number_maps, strict=True):
+    for original, value, number_map in zip(missing, answer, number_maps, strict=True):
+        if any(token not in value for token in number_map):
+            response = requests.get(
+                "https://translate.googleapis.com/translate_a/single",
+                params={"client": "gtx", "sl": "en", "tl": language, "dt": "t", "q": original},
+                timeout=45,
+            )
+            response.raise_for_status()
+            value = "".join(part[0] for part in response.json()[0])
+            if Counter(re.findall(r"\d+", original)) != Counter(re.findall(r"\d+", value)):
+                raise ValueError("Translation changed numeric facts")
+            restored.append(value)
+            continue
         for token, number in number_map.items():
-            if token not in value:
-                raise ValueError(f"Translation changed protected number token: {token}")
             value = value.replace(token, number)
         restored.append(value)
     cache.update(zip(missing, restored, strict=True))

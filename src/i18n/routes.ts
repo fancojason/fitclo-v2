@@ -1,5 +1,6 @@
 export type SiteLanguage = 'en' | 'es' | 'de' | 'nl' | 'pt-BR';
 import spanishMirrorPaths from '../data/spanishMirrorPaths.json';
+import germanMirrorPaths from '../data/germanMirrorPaths.json';
 
 export const newLanguages = ['de', 'nl', 'pt-BR'] as const;
 export const languagePrefix: Record<SiteLanguage, string> = { en: '/', es: '/es/', de: '/de/', nl: '/nl/', 'pt-BR': '/pt-br/' };
@@ -37,6 +38,11 @@ export const getLanguageFromPath = (path: string): SiteLanguage =>
 export const getLocalizedRoute = (path: string, language: SiteLanguage) => {
   const normalizedPath = normalizePath(path);
   const pair = localizedRoutePairs.find((item) => Object.values(item).includes(normalizedPath));
+  const englishPath = pair?.en ?? (normalizedPath.startsWith('/es/') ? normalizedPath.slice(3) : normalizedPath.startsWith('/de/') ? normalizedPath.slice(3) : normalizedPath);
+  const englishPair = pair ?? localizedRoutePairs.find((item) => item.en === englishPath);
+  if (language === 'de' && !pair?.de && germanMirrorPaths.includes(englishPath)) return `/de${englishPath}`;
+  if (language === 'en' && normalizedPath.startsWith('/de/') && germanMirrorPaths.includes(englishPath)) return englishPath;
+  if (language === 'es' && normalizedPath.startsWith('/de/')) return englishPair?.es ?? (spanishMirrorPaths.includes(englishPath) ? `/es${englishPath}` : '/es/');
   if (!pair && language === 'es' && spanishMirrorPaths.includes(normalizedPath)) return `/es${normalizedPath}`;
   if (!pair && language === 'en' && normalizedPath.startsWith('/es/') && spanishMirrorPaths.includes(normalizedPath.slice(3))) return normalizedPath.slice(3);
   return pair?.[language] ?? languagePrefix[language];
@@ -51,7 +57,7 @@ export const getAlternateLinks = (englishPath: string, spanishPath: string) => {
   const pair = localizedRoutePairs.find((item) => item.en === normalizePath(englishPath) && item.es === normalizePath(spanishPath));
   const languages: SiteLanguage[] = ['en', 'es', ...newLanguages];
   const links = languages.flatMap((language) => {
-    const path = language === 'en' ? englishPath : language === 'es' ? spanishPath : pair?.[language];
+    const path = language === 'en' ? englishPath : language === 'es' ? spanishPath : language === 'de' ? pair?.de ?? (germanMirrorPaths.includes(normalizePath(englishPath)) ? `/de${normalizePath(englishPath)}` : undefined) : pair?.[language];
     return path ? [{ hreflang: language, href: new URL(normalizePath(path), siteUrl).href }] : [];
   });
   return [...links, { hreflang: 'x-default', href: new URL(normalizePath(englishPath), siteUrl).href }];

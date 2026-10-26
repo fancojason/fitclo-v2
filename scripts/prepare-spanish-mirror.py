@@ -16,6 +16,8 @@ DRAFTS = ROOT / ".spanish-drafts"
 BUILT = ROOT / "dist"
 PUBLIC = ROOT / "public"
 MANIFEST = ROOT / "src" / "data" / "spanishMirrorPaths.json"
+GERMAN_MANIFEST = ROOT / "src" / "data" / "germanMirrorPaths.json"
+GERMAN_PATHS = set(json.loads(GERMAN_MANIFEST.read_text(encoding="utf-8"))) if GERMAN_MANIFEST.exists() else set()
 SITE = "https://www.fitcloo.com"
 SPECIAL = {
     "/": "/es/",
@@ -216,6 +218,9 @@ for draft in drafts:
                 option.string = "ES"
                 option["value"] = spanish
                 option["selected"] = ""
+            elif option.get("data-language") == "de" and english in GERMAN_PATHS:
+                option.string = "DE"
+                option["value"] = "/de" + english
     for quote in soup.select("header a.quote-nav-button"):
         quote["class"] = ["quote-nav-button"]
         label = quote.select_one("span")
@@ -234,7 +239,12 @@ for draft in drafts:
             tag["data-language"] = "es"
     for link in soup.select("link[hreflang]"):
         link.decompose()
-    for language, url in (("en", SITE + english), ("es", SITE + spanish), ("x-default", SITE + english)):
+    german_paths = GERMAN_PATHS
+    alternates = [("en", SITE + english), ("es", SITE + spanish)]
+    if english in german_paths:
+        alternates.append(("de", SITE + "/de" + english))
+    alternates.append(("x-default", SITE + english))
+    for language, url in alternates:
         link = soup.new_tag("link", rel="alternate", hreflang=language, href=url)
         soup.head.append(link)
     target = PUBLIC / spanish.strip("/") / "index.html"

@@ -7,6 +7,7 @@ import InquiryForm from './InquiryForm.astro';
 import StyleCodeCopy from './StyleCodeCopy.astro';
 import { getCatalogProductByStyleCode, type CatalogProduct } from '../data/productCatalog';
 import { getAlternateLinks, localizedRoutePairs, type SiteLanguage } from '../i18n/routes';
+import spanishMirrorPaths from '../data/spanishMirrorPaths.json';
 
 const { page, lang = 'en', canonicalPath, englishPath, translations = [] } = Astro.props;
 const language: SiteLanguage = lang === 'es' ? 'es' : 'en';
@@ -42,8 +43,8 @@ const heroImageAlt = page.heroImageAlt ?? (page.sourcingText ? page.productTrans
 const currentPath = canonicalPath ?? `/${page.slug}/`;
 const pageUrl = `https://www.fitcloo.com${currentPath}`;
 const routePair = localizedRoutePairs.find((pair) => pair.en === currentPath || pair.es === currentPath);
-const englishEquivalent = englishPath ?? routePair?.en;
-const spanishEquivalent = routePair?.es;
+const englishEquivalent = englishPath ?? routePair?.en ?? (!isSpanish ? currentPath : undefined);
+const spanishEquivalent = routePair?.es ?? (englishEquivalent && spanishMirrorPaths.includes(englishEquivalent) ? `/es${englishEquivalent}` : undefined);
 const alternateLinks = englishEquivalent && spanishEquivalent ? getAlternateLinks(englishEquivalent, spanishEquivalent) : [];
 const whatsappMessage = isSpanish
   ? `Hola Fitclo, estoy buscando ${page.title}. Compartan modelos adecuados, MOQ y opciones de muestra y marca privada.`

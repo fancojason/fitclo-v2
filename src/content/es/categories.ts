@@ -53,7 +53,7 @@ export const spanishCategoryPages: SpanishCategory[] = [
       { question: '¿Se pueden personalizar logo y etiquetas?', answer: 'Sí, se pueden estudiar logo, etiquetas, etiquetas colgantes y embalaje. Envía el archivo y la ubicación; comprueba el acabado sobre la prenda seleccionada antes de aprobar la producción.' },
       { question: '¿Qué envío para solicitar una muestra?', answer: 'Comparte el código o referencia, talla, color, largo, tejido previsto y objetivos de revisión. Fitclo confirma la modalidad de muestra y los requisitos del proyecto antes de avanzar.' },
     ],
-    catalogPath: '/products/leggings/', catalogLabel: 'Ver catálogo de leggings (inglés)',
+    catalogPath: '/products/leggings/', catalogLabel: 'Ver catálogo de leggings',
     sources: ['src/data/categorySourcingLandingPages.ts: private-label-leggings', 'src/data/productCatalog.ts: FC-LEG-103, TZ4506-4, TZ2557-6', 'src/data/readyStockCatalog.ts'],
   },
   {
@@ -82,7 +82,7 @@ export const spanishCategoryPages: SpanishCategory[] = [
       { question: '¿Puede coordinarse con leggings o shorts?', answer: 'Sí. Se puede estudiar la dirección de color, tejido y marca de las prendas. Confirma si el suministro será por conjuntos o por SKU separados y revisa el MOQ de cada modalidad.' },
       { question: '¿Cómo preparo una muestra de marca privada?', answer: 'Envía modelo, talla, color, actividad, construcción interior y ubicación del logo. Incluye etiquetas, etiquetas colgantes y embalaje; aprueba los detalles que correspondan antes de autorizar el pedido.' },
     ],
-    catalogPath: '/products/sports-bras/', catalogLabel: 'Ver sujetadores del catálogo (inglés)',
+    catalogPath: '/products/sports-bras/', catalogLabel: 'Ver sujetadores del catálogo',
     sources: ['src/data/categorySourcingLandingPages.ts: private-label-sports-bras', 'src/data/productCatalog.ts: FC-BRA-127, FC-BRA-102, TZ4510-14', 'src/data/readyStockCatalog.ts'],
   },
   {
@@ -111,7 +111,7 @@ export const spanishCategoryPages: SpanishCategory[] = [
       { question: '¿Pueden llevar mi marca y un embalaje de conjunto?', answer: 'Sí. Se pueden estudiar aplicación de logo, etiquetas, etiquetas colgantes, insertos y embalaje a nivel de colección. Confirma el contenido por paquete y los requisitos de cada pieza.' },
       { question: '¿Qué debo revisar en la muestra?', answer: 'Comprueba ajuste superior e inferior, cobertura, recuperación, color y marca. Documenta las correcciones por pieza y conserva la muestra y especificaciones aprobadas antes de planificar el pedido.' },
     ],
-    catalogPath: '/products/matching-sets/', catalogLabel: 'Ver conjuntos del catálogo (inglés)',
+    catalogPath: '/products/matching-sets/', catalogLabel: 'Ver conjuntos del catálogo',
     sources: ['src/data/categorySourcingLandingPages.ts: private-label-yoga-sets', 'src/data/productCategories.ts: matching-sets', 'src/data/productCatalog.ts: TZ4510-14, TZ5555-4, TZ4506-4', 'src/data/readyStockCatalog.ts'],
   },
   {
@@ -139,7 +139,7 @@ export const spanishCategoryPages: SpanishCategory[] = [
       { question: '¿Puede un short formar parte de una colección?', answer: 'Sí. Se puede estudiar junto con tops o sujetadores, coordinando color y marca. Confirma la unidad de compra y las tallas por pieza o conjunto antes de definir el surtido.' },
       { question: '¿Cómo solicito una muestra con mi logo?', answer: 'Envía el modelo, talla, color, largo previsto y archivo de logo con ubicación. Añade los requisitos de etiquetas, etiquetas colgantes y embalaje para confirmar qué se incluirá en la muestra.' },
     ],
-    catalogPath: '/products/gym-shorts/', catalogLabel: 'Ver shorts del catálogo (inglés)',
+    catalogPath: '/products/gym-shorts/', catalogLabel: 'Ver shorts del catálogo',
     sources: ['src/data/categorySourcingLandingPages.ts: gym-shorts-manufacturer', 'src/data/productCatalog.ts: FC-SHORT-107, FC-SHORT-110, TZ5529-15', 'src/data/readyStockCatalog.ts'],
   },
   {
@@ -197,7 +197,7 @@ export const spanishCategoryPages: SpanishCategory[] = [
       { question: '¿Puedo coordinar tops y shorts para mi marca?', answer: 'Sí, se puede estudiar la dirección de color, tejido y personalización junto con otras categorías. Confirma si el pedido se organiza por piezas o conjuntos y prepara SKU y tallas en consecuencia.' },
       { question: '¿Cómo preparo una muestra y los acabados de marca?', answer: 'Envía el código o referencias, talla, color, medidas de largo y sisa, archivo de logo y ubicación. Añade etiquetas, etiquetas colgantes y embalaje para acordar las aprobaciones necesarias.' },
     ],
-    catalogPath: '/products/tank-tops/', catalogLabel: 'Ver tops del catálogo (inglés)',
+    catalogPath: '/es/products/', catalogLabel: 'Ver catálogo de productos',
     sources: ['src/data/productCategories.ts: tank-tops', 'src/data/productCatalog.ts: EBX6116, FC-TANK-106, TZ2557-6', 'src/data/readyStockCatalog.ts'],
   },
 ];

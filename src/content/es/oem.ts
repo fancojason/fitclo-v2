@@ -50,6 +50,7 @@ export const oemSpanishPage = {
 };
 
 export const oemSpanishTranslations = [
+  [`${businessFacts.readyStock.trial} ${businessFacts.oem.moq}`, `${businessFactsEs.readyStockTrial} ${businessFactsEs.oemMoq}`],
   ['MOQ logic', 'Opciones de MOQ'], ['Sample review', 'Evaluación de muestras'], ['Private label options', 'Opciones de marca privada'],
   ['View Product Directions', 'Ver opciones de productos'], ['Discuss on WhatsApp', 'Hablar por WhatsApp'], ['BUYER STARTING POINT', 'PUNTO DE PARTIDA PARA COMPRADORES'],
   ['Select a product route and target quantity.', 'Selecciona una modalidad de producto y la cantidad objetivo.'], ['Share fabric, color and size direction.', 'Comparte tus preferencias de tejido, color y tallas.'],

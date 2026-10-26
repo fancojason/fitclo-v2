@@ -51,6 +51,12 @@ EDITORIAL_HEADINGS = {
         "Conjunto de entrenamiento con bloques de color: camiseta corta con tirantes dobles y pantalones acampanados plegables": "Conjunto deportivo de bloques de color con top corto de doble tirante y pantalones acampanados de cintura doblada",
     },
 }
+CATALOG_TERMS = {
+    "Sujetadores largos y cortos": "Sujetadores deportivos largos y tops cortos",
+    "Pantalones cortos de motociclista y de compresión": "Shorts ciclistas y de compresión",
+    "Pantalones cortos de yoga para motociclistas": "Shorts ciclistas de yoga",
+    "Polainas": "Leggings",
+}
 BLOG_LIST_RUSSIAN_COPY = {
     "ГИД ДЛЯ РОССИЙСКОГО РЫНКА": "GUÍA DEL MERCADO RUSO",
     "Производитель спортивной одежды для России: как брендам закупать ropa deportiva в China": "Fabricante de ropa deportiva para Rusia: cómo comprar en China",
@@ -171,6 +177,10 @@ for draft in drafts:
             if updated != str(node):
                 node.replace_with(updated)
     if english == "/products/":
+        for node in soup.find_all(string=True):
+            replacement = CATALOG_TERMS.get(str(node).strip())
+            if replacement:
+                node.replace_with(replacement)
         for card in soup.select("[data-catalog-search]"):
             card["data-catalog-search"] += " " + card.get_text(" ", strip=True).lower()
     for link in soup.find_all("a", href=True):

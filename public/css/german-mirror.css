@@ -1,0 +1,9 @@
+@media (max-width: 640px) {
+  html[lang="de"] main h1 {
+    font-size: clamp(30px, 8.5vw, 43px);
+    line-height: 1.08;
+  }
+  html[lang="de"] main :is(h1, h2, h3, p) {
+    overflow-wrap: anywhere;
+  }
+}

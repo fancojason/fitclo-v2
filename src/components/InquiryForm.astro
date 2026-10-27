@@ -330,7 +330,7 @@ if (guide && isSpanish) Object.assign(copy, {
       }
     } catch (err: any) {
       console.error('Submission Error:', err);
-      status.textContent = err instanceof Error && /10 MB|file could|archivo/.test(err.message) ? err.message : errorMessage;
+      status.textContent = err instanceof Error && /10 MB|file could|archivo|Datei konnte/.test(err.message) ? err.message : errorMessage;
       status.classList.replace('text-white/40', 'text-red-500');
       status.classList.remove('hidden');
       submitBtn.disabled = false;

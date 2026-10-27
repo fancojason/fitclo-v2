@@ -27,11 +27,19 @@ CORE = {
     "/contact/": "/de/contact/",
 }
 EDITORIAL = {
+    "B2B GROWTH": "B2B-WISSEN FÜR",
+    "INSIGHTS.": "MARKEN.",
+    "50–99 units (specify style and sets or pieces)": "50–99 Stück oder Sets (Modell angeben)",
+    "100 - 300 PCS (estimated quantity)": "100–300 Stück oder Sets (geplante Menge)",
+    "300 - 1,000 PCS": "300–1.000 Stück oder Sets",
+    "1,000 - 5,000 PCS": "1.000–5.000 Stück oder Sets",
+    "5,000+ PCS (High Volume)": "Über 5.000 Stück oder Sets",
     "Company Introduction": "Das Unternehmen Fitclo",
     "Why Customers Choose Fitclo": "Warum Kunden Fitclo wählen",
     "Global Certifications": "Internationale Zertifizierungen",
     "B2B GROWTH INSIGHTS.": "B2B-WISSEN FÜR MARKEN",
-    "Source private label leggings with fit, fabric and recovery clearly defined.": "Eigenmarken-Leggings mit klar definiertem Sitz, Material und Rücksprungverhalten beschaffen.",
+    "Source private label leggings with fit, fabric and recovery clearly defined.": "Eigenmarken-Leggings mit klarer Passform und Stoffwahl beschaffen.",
+    "A legging brief should cover more than a high waist and a color. Define the silhouette, fabric hand feel, coverage expectations, waistband, inseam, pockets or seam details, size range and branding before the sample route is confirmed.": "Ein Beschaffungsbriefing für Leggings umfasst mehr als Bundhöhe und Farbe. Legen Sie Schnitt, Stoffgriff, Blickdichte, Bund, Innenbeinlänge, Taschen und Nahtdetails, Größenbereich sowie Branding fest, bevor Sie das Muster beauftragen.",
     "Source sports bras by support intent, not just by a neckline photo.": "Sport-BHs nach gewünschtem Halt auswählen – nicht nur nach dem Ausschnittbild.",
     "Build a private label yoga-set collection with decisions buyers can approve.": "Eine Eigenmarken-Kollektion aus Yoga-Sets mit prüfbaren Produktentscheidungen entwickeln.",
     "Specify gym shorts for the movement, storage and fit your buyer expects.": "Sportshorts nach Bewegungsfreiheit, Taschen und gewünschter Passform spezifizieren.",
@@ -145,6 +153,8 @@ def translate_cache():
 
 
 def german_text(text, cache):
+    if text.strip() in {"FIT", "Fit", "fit", "CLO", "Clo", "clo", "FITCLO", "Fitclo"}:
+        return text.strip()
     if text.strip() in EDITORIAL:
         return EDITORIAL[text.strip()]
     result = cache.get(text.strip(), text)
@@ -188,9 +198,16 @@ def german_text(text, cache):
         "Sportbekleidung Sourcing": "Beschaffung von Sportbekleidung",
         "Sportbekleidung-Sourcing": "Beschaffung von Sportbekleidung",
         "Versandauftrag auf Verantwortlichkeiten": "Beschaffungsplan auf klare Zuständigkeiten",
+        "Ein Leggings-Slip": "Ein Beschaffungsbriefing für Leggings",
+        "Beispielbewertung": "Musterprüfung",
+        "Bildhauersets": "Sculpt-Sets",
+        "Ausgehöhlter Sport-BH": "Sport-BH mit Cut-out-Details",
+        "Support, Muster": "Halt, Muster",
+        "Stil 0636 für Käufer von Yoga-Sets, Fitnessstudio und Sportbekleidung.": "Modell 0636 für Käufer von Yoga-Sets und Sportbekleidung.",
     }
     for old, new in replacements.items():
         result = result.replace(old, new)
+    result = re.sub(r"\b(\d+)\s+Sätz(?:e|en)\b", r"\1 Sets", result)
     return result
 
 
@@ -233,7 +250,9 @@ def build_drafts():
         raise SystemExit(f"Translation cache misses {len(missing)} strings; run cache mode")
 
     for path in PATHS:
-        soup = BeautifulSoup(source_file(path).read_text(encoding="utf-8"), "html.parser")
+        source_html = source_file(path).read_text(encoding="utf-8")
+        original_soup = BeautifulSoup(source_html, "html.parser")
+        soup = BeautifulSoup(source_html, "html.parser")
         for node in list(soup.find_all(string=True)):
             if not isinstance(node, NavigableString) or isinstance(node, Comment) or not node.strip() or any(
                 parent.name in translator.SKIP_PARENTS for parent in node.parents
@@ -251,9 +270,21 @@ def build_drafts():
                 )):
                     continue
                 tag[attr] = german_text(tag[attr], cache)
+        if path.startswith("/products/"):
+            preserve = {"Fabric", "Main Fabric", "Outer Layer", "Material", "Colors", "Colors Shown"}
+            for english_row, german_row in zip(original_soup.select("table tr"), soup.select("table tr")):
+                english_cells = english_row.select("th, td")
+                german_cells = german_row.select("th, td")
+                for index in range(0, min(len(english_cells), len(german_cells)) - 1, 2):
+                    label = english_cells[index].get_text(" ", strip=True)
+                    if label in preserve:
+                        german_cells[index + 1].string = english_cells[index + 1].get_text(" ", strip=True)
+                    elif label == "Sample":
+                        german_cells[index].string = "Muster"
         target = f"/de{path}"
         canonical = SITE + target
         soup.html["lang"] = "de"
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/german-mirror.css"))
         for link in soup.find_all("link", rel="canonical"):
             link["href"] = canonical
         for meta in soup.find_all("meta"):
@@ -291,6 +322,17 @@ def build_drafts():
             button["data-language"] = "de"
         for quote in soup.select("[data-wa-quote]"):
             quote["data-language"] = "de"
+        for form in soup.select("form#inquiry-form"):
+            form.attrs.update({
+                "data-language": "de", "data-page-path": target,
+                "data-sending": "Anfrage wird gesendet …",
+                "data-success": "Anfrage gesendet. Wir melden uns nach Prüfung Ihrer Angaben.",
+                "data-error": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per WhatsApp.",
+                "data-no-file": "Keine Datei ausgewählt",
+            })
+            for option in form.select('select[name="quantity"] option'):
+                if option.get("value", "").startswith("20-49"):
+                    option.decompose()
         spanish_link = soup.find("link", hreflang="es")
         spanish_path = urlsplit(spanish_link["href"]).path if spanish_link else "/es/"
         for selector in soup.select("select[data-language-selector]"):
@@ -308,8 +350,6 @@ def build_drafts():
             card["data-catalog-search"] += " " + card.get_text(" ", strip=True).lower()
         for link in soup.select("link[hreflang]"):
             link.decompose()
-        original = SOURCE / path.strip("/") / "index.html"
-        original_soup = BeautifulSoup(original.read_text(encoding="utf-8"), "html.parser")
         original_es = original_soup.find("link", hreflang="es")
         for language, url in (("en", SITE + path), ("es", original_es.get("href") if original_es else ""), ("de", canonical), ("x-default", SITE + path)):
             if url:

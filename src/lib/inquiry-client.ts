@@ -82,6 +82,7 @@ export function initInquiryAttribution() {
 export async function submitInquiry(fields: Record<string, FormDataEntryValue>) {
   const language = document.documentElement.lang || 'en';
   const spanish = language.startsWith('es');
+  const german = language.startsWith('de');
   const data: Record<string, unknown> = {
     ...fields, ...initInquiryAttribution(), language,
     page_path: window.location.pathname, page_url: window.location.href,
@@ -92,12 +93,12 @@ export async function submitInquiry(fields: Record<string, FormDataEntryValue>) 
   if (file instanceof File && file.name) {
     if (!file.size || file.size > 10 * 1024 * 1024 || !/\.(png|ai|pdf)$/i.test(file.name)) {
       trackInquiryEvent('form_submit_error', { error_type: 'attachment_validation', product_code: String(fields.product_code || '') });
-      throw new Error(spanish ? 'Selecciona un archivo PNG, AI o PDF de hasta 10 MB.' : 'Choose a PNG, AI or PDF file up to 10 MB.');
+      throw new Error(spanish ? 'Selecciona un archivo PNG, AI o PDF de hasta 10 MB.' : german ? 'Bitte wählen Sie eine PNG-, AI- oder PDF-Datei bis 10 MB.' : 'Choose a PNG, AI or PDF file up to 10 MB.');
     }
     const content = await new Promise<string>((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => resolve(String(reader.result).split(',')[1]);
-      reader.onerror = () => reject(new Error(spanish ? 'No se pudo leer el archivo.' : 'The file could not be read.'));
+      reader.onerror = () => reject(new Error(spanish ? 'No se pudo leer el archivo.' : german ? 'Die Datei konnte nicht gelesen werden.' : 'The file could not be read.'));
       reader.readAsDataURL(file);
     });
     data.attachment = { filename: file.name, content };

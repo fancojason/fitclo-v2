@@ -88,7 +88,7 @@ def candidates(soup):
              if isinstance(node, NavigableString) and not isinstance(node, Comment) and node.strip()
              and not any(parent.name in translator.SKIP_PARENTS for parent in node.parents)]
     for tag in soup.find_all(True):
-        for attr in ("alt", "aria-label", "placeholder", "title", "content"):
+        for attr in ("alt", "aria-label", "placeholder", "title", "content", "data-alt", "data-label"):
             if not isinstance(tag.get(attr), str) or not tag[attr].strip():
                 continue
             if attr == "content" and not (tag.name == "meta" and (
@@ -202,6 +202,12 @@ def german_text(text, cache):
         "Beispielbewertung": "Musterprüfung",
         "Bildhauersets": "Sculpt-Sets",
         "Ausgehöhlter Sport-BH": "Sport-BH mit Cut-out-Details",
+        "ausgehöhlten Kreuzträgern": "Cut-out-Kreuzträgern",
+        "Produktabdeckung": "Produktansicht",
+        "Funktionsführer": "Detailansicht",
+        "Designanleitung für bauchfreies Tanktop": "Detailansicht des kurzen Tanktops",
+        "Anpassungsoptionen für Fitclo-Eigenmarkenlogos, -etiketten, -etiketten und -verpackungen für Sportbekleidungsmarken": "Eigenmarken-Optionen: Logo, Etiketten, Hangtags und Verpackung",
+        "Ready-Stock-Sportbekleidungslager": "Lager für sofort verfügbare Sportbekleidung",
         "Support, Muster": "Halt, Muster",
         "Stil 0636 für Käufer von Yoga-Sets, Fitnessstudio und Sportbekleidung.": "Modell 0636 für Käufer von Yoga-Sets und Sportbekleidung.",
     }
@@ -261,7 +267,7 @@ def build_drafts():
             original = str(node)
             node.replace_with(re.sub(r"\S(?:.*\S)?", lambda match: german_text(match.group(), cache), original, count=1, flags=re.S))
         for tag in soup.find_all(True):
-            for attr in ("alt", "aria-label", "placeholder", "title", "content"):
+            for attr in ("alt", "aria-label", "placeholder", "title", "content", "data-alt", "data-label"):
                 if not isinstance(tag.get(attr), str) or not tag[attr].strip():
                     continue
                 if attr == "content" and not (tag.name == "meta" and (

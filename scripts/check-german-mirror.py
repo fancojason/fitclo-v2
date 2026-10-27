@@ -43,6 +43,10 @@ def inspect(path):
         if any(option.get("value", "").startswith("20-49") for option in form.select('select[name="quantity"] option')):
             errors.append("German form advertises under-50 order")
     if path.startswith("/products/"):
+        for english_thumb, german_thumb in zip(en.select("[data-gallery-thumb]"), de.select("[data-gallery-thumb]")):
+            if english_thumb.get("data-alt") == german_thumb.get("data-alt") and len(english_thumb.get("data-alt", "")) > 25:
+                errors.append("untranslated gallery image description")
+                break
         if re.search(r"\b\d+\s+Sätz", de.get_text(" ", strip=True)):
             errors.append("quantity mistranslated as sentences")
         important = lambda doc: set(re.findall(

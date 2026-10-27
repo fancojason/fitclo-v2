@@ -29,6 +29,8 @@ CORE = {
 EDITORIAL = {
     "B2B GROWTH": "B2B-WISSEN FÜR",
     "INSIGHTS.": "MARKEN.",
+    "Source flare yoga pants by silhouette, not by a trend label.": "Schlaghosen für Yoga nach Schnitt und Passform auswählen.",
+    "Create courtwear that works from the baseline to the product page.": "Tennisbekleidung von Passform und Funktion bis zur Produktpräsentation planen.",
     "50–99 units (specify style and sets or pieces)": "50–99 Stück oder Sets (Modell angeben)",
     "100 - 300 PCS (estimated quantity)": "100–300 Stück oder Sets (geplante Menge)",
     "300 - 1,000 PCS": "300–1.000 Stück oder Sets",
@@ -287,6 +289,11 @@ def build_drafts():
                         german_cells[index + 1].string = english_cells[index + 1].get_text(" ", strip=True)
                     elif label == "Sample":
                         german_cells[index].string = "Muster"
+        if path == "/capabilities/":
+            headline = soup.find("h1")
+            if headline and headline.find("span"):
+                headline.contents[0].replace_with("Fertigung mit ")
+                headline.find("span").string = "Präzision"
         target = f"/de{path}"
         canonical = SITE + target
         soup.html["lang"] = "de"

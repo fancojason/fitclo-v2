@@ -1,5 +1,15 @@
 # Fitclo 运营变更日志
 
+## 2026-10-28 — 任务 02：西语产品资源修复（本地完成，待部署）
+
+- 保留任务01本地提交6562bd11与全部历史记录，未重置或覆盖用户工作。
+- 新增Astro build:done集成，仅绑定西语Capri、Matching Sets、Sports Bras三页的当次构建CSS/JS入口，不改public正文、图片、ALT或业务规则。
+- 正式旧CSS/JS重新请求404/MIME错误；Preview28个HTML、13份直接CSS/JS均200且MIME正确；图库、Quote、WhatsApp和手机布局验证通过。
+- build、9项Node测试、核心多语言和8页西语产品检查通过；逐文件对比只改变三份目标构建HTML且仅资源地址变化。
+- 全站缩略图检查未通过：既有德语TZ2557-3页，已证明本轮未改；另记favicon404与旧翻译问题待办，不扩大修复。
+- [执行报告](2026-10-28-spanish-product-assets-fix.md)、[基准](SITE_BASELINE.md)、[待办](BACKLOG.md)已记录。
+- 未部署、未push、未修改搜索平台或提交索引；等待老板批准生产发布。
+
 ## 2026-10-28 — 任务 01 V2.1：已有曝光的产品页面
 
 - 审计 `/products/matching-sets/`、`/products/capri-workout-set/`、`/products/sports-bras/`，在 GSC 以精确 URL 复核 2026-09-28 至 2026-10-25 的查询/页面数据，并确认三页已有索引记录。

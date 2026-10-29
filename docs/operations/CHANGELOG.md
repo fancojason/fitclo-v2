@@ -1,5 +1,30 @@
 # Fitclo 运营变更日志
 
+## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
+
+- Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。
+- 本地和远程各30HTML/11份Astro资源200、MIME正确，Sample及原CTA不变；证据见[03-C报告](2026-10-29-task03c-caption.md)及[浏览器JSON](2026-10-29-task03c-browser-evidence.json)。
+- 03-B历史回归/误判记录保留。PR #2继续Draft；main仍e2fcdb62，未合并/生产部署，无搜索平台提交；日志仅PR分支。最终文档提交触发的Preview以PR记录为准。
+
+
+## 2026-10-29 — 任务03-C：Caption选择器最小修复（Preview待验，未生产）
+
+- 保留03-B拦截历史：f8a813f7英文图库按钮data-gallery-label与caption选择器冲突，第一次缩略图被清空，caption不更新；此前纯数据单元测试未覆盖真实DOM选择器，任务03全部通过结论已纠正。原阻塞记录提交23379e71保留，并复制报告归档。
+- 仅将Capri caption选择器限定为figcaption [data-gallery-label]，三个语言实际DOM均唯一匹配文字span，不选按钮。无业务/SEO/图片/表单修改，继续复用既有资源binder。
+- 增加源码选择器防退化Node测试与scripts/capri-gallery.browser.mjs真实DOM检查：初始化、第二张/全部五图、source/ALT/caption、aria-pressed、5张缩略图保留、循环、无溢出及Sample默认。旧Preview实际报image 2: short caption；修复本地三语言1440px/390px通过。
+- build、13项Node测试、核心多语言、西语产品和任务01保护比较通过；972HTML仅三个Capri页变化，无新增缺失Astro资源。既有DE TZ2557-3缩略图失败保留。
+- 更新PR #2非生产分支以生成Preview，远程验收结果随后补记。PR #2保持Draft，不merge；PR #1不操作；main仍e2fcdb62，无生产部署或搜索提交。本日志仅PR分支，main未同步。
+
+
+## 2026-10-29 — 任务03：Capri图库ALT修复与SEO审查（独立分支，未上线）
+
+- 重新fetch确认main为e2fcdb62，任务02-B已于上海10:53:24成功部署f93ae484-1c5d-460f-9722-83c78f5f3d5e；PR #1仍为未合并文档PR，未操作。
+- 分离图库完整ALT与短caption，原图片、顺序、caption、业务参数与表单规则保留；复用构建机制仅补DE Capri资源绑定并添加ES/DE描述元数据。
+- build、12项Node测试、核心多语言/西语产品/保护比较通过；972个HTML仅英西德Capri三页变化、无新增缺失资源引用；Preview30个HTML/11份Astro资源200/MIME正确，三语言5图与390px验证通过。
+- 既有DE TZ2557-3缩略图检查失败保留；SEO已有覆盖，未强改Title/H1或新建重复页。
+- [任务03报告](2026-10-29-task03-capri-gallery-seo.md)与[待审批询盘类型方案](2026-10-29-capri-inquiry-proposal.md)已记录；未改Sample默认、MOQ或正式业务规则。
+- 本轮仅独立分支/待审查PR和预览，不推main、不生产部署、不提交索引；本日志不代表main已同步。
+
 ## 2026-10-28 — 任务 02：西语产品资源修复（本地完成，待部署）
 
 - 保留任务01本地提交6562bd11与全部历史记录，未重置或覆盖用户工作。

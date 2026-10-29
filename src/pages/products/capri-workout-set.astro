@@ -647,7 +647,7 @@ const faqSchema = {
 
   const gallery = document.querySelector<HTMLElement>('[data-product-gallery]');
   const galleryMain = gallery?.querySelector<HTMLImageElement>('[data-gallery-main]');
-  const galleryLabel = gallery?.querySelector<HTMLElement>('[data-gallery-label]');
+  const galleryLabel = gallery?.querySelector<HTMLElement>('figcaption [data-gallery-label]');
   const galleryPrevious = gallery?.querySelector<HTMLButtonElement>('[data-gallery-previous]');
   const galleryNext = gallery?.querySelector<HTMLButtonElement>('[data-gallery-next]');
   const galleryThumbnails = Array.from(gallery?.querySelectorAll<HTMLButtonElement>('[data-gallery-thumbnail]') || []);

@@ -1,5 +1,12 @@
 # Fitclo 运营待办
 
+## 任务03-C当前状态（独立PR分支）
+
+- 03-B阻塞已作最小代码修复：caption选择器限定figcaption，真实DOM脚本在旧Preview失败、修复本地EN/ES/DE桌面及390px通过。远程Preview/鼠标键盘验收完成后补记。PR #2仍Draft，不部署生产。
+- 生产仍e2fcdb62。保留03-B阻塞记录及其提交23379e71401e11d1cdbba764a8a87f54ae9f7bb3；不能把历史失败改写为从未发生。
+- 待运营总监复核Preview后另行批准生产发布。报价分类与Sample默认规则、MOQ/交期、DE TZ2557-3缩略图、favicon、既有翻译、其他产品SEO均未实施。
+
+
 ## 发布与审批状态
 
 - 已上线：任务02-B已于2026-10-29上海10:53:24部署e2fcdb62，部署f93ae484-1c5d-460f-9722-83c78f5f3d5e。原[任务02报告](2026-10-28-spanish-product-assets-fix.md)保留历史状态；发布记录PR #1仍未合并：https://github.com/fancojason/fitclo-v2/pull/1 。本轮未合并或关闭该PR。

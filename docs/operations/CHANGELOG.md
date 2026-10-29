@@ -1,5 +1,14 @@
 # Fitclo 运营变更日志
 
+## 2026-10-29 — 任务03-C：Caption选择器最小修复（Preview待验，未生产）
+
+- 保留03-B拦截历史：f8a813f7英文图库按钮data-gallery-label与caption选择器冲突，第一次缩略图被清空，caption不更新；此前纯数据单元测试未覆盖真实DOM选择器，任务03全部通过结论已纠正。原阻塞记录提交23379e71保留，并复制报告归档。
+- 仅将Capri caption选择器限定为figcaption [data-gallery-label]，三个语言实际DOM均唯一匹配文字span，不选按钮。无业务/SEO/图片/表单修改，继续复用既有资源binder。
+- 增加源码选择器防退化Node测试与scripts/capri-gallery.browser.mjs真实DOM检查：初始化、第二张/全部五图、source/ALT/caption、aria-pressed、5张缩略图保留、循环、无溢出及Sample默认。旧Preview实际报image 2: short caption；修复本地三语言1440px/390px通过。
+- build、13项Node测试、核心多语言、西语产品和任务01保护比较通过；972HTML仅三个Capri页变化，无新增缺失Astro资源。既有DE TZ2557-3缩略图失败保留。
+- 更新PR #2非生产分支以生成Preview，远程验收结果随后补记。PR #2保持Draft，不merge；PR #1不操作；main仍e2fcdb62，无生产部署或搜索提交。本日志仅PR分支，main未同步。
+
+
 ## 2026-10-29 — 任务03：Capri图库ALT修复与SEO审查（独立分支，未上线）
 
 - 重新fetch确认main为e2fcdb62，任务02-B已于上海10:53:24成功部署f93ae484-1c5d-460f-9722-83c78f5f3d5e；PR #1仍为未合并文档PR，未操作。

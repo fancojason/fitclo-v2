@@ -10,6 +10,12 @@ const ivoryAlt = 'Ivory Capri Workout Set with layered halter neckline and fold-
 const thumbnail = (dataset, aria) => ({ dataset, getAttribute: () => aria,
   querySelector: () => ({ getAttribute: () => '/ivory.webp' }) });
 
+test('caption lookup is scoped to figcaption, never the thumbnail metadata attribute', () => {
+  const source = readFileSync(new URL('../src/pages/products/capri-workout-set.astro', import.meta.url), 'utf8');
+  assert(source.includes("querySelector<HTMLElement>('figcaption [data-gallery-label]')"));
+  assert(!source.includes("querySelector<HTMLElement>('[data-gallery-label]')"));
+});
+
 test('selected ivory image keeps the full original ALT and the short caption', () => {
   assert.deepEqual(readGalleryItem(thumbnail({ galleryAlt: ivoryAlt, galleryLabel: 'Ivory colorway' }, 'View Ivory colorway')),
     { src: '/ivory.webp', alt: ivoryAlt, label: 'Ivory colorway' });

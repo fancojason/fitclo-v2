@@ -1,5 +1,12 @@
 # Fitclo 运营变更日志
 
+## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
+
+- Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。
+- 本地和远程各30HTML/11份Astro资源200、MIME正确，Sample及原CTA不变；证据见[03-C报告](2026-10-29-task03c-caption.md)及[浏览器JSON](2026-10-29-task03c-browser-evidence.json)。
+- 03-B历史回归/误判记录保留。PR #2继续Draft；main仍e2fcdb62，未合并/生产部署，无搜索平台提交；日志仅PR分支。最终文档提交触发的Preview以PR记录为准。
+
+
 ## 2026-10-29 — 任务03-C：Caption选择器最小修复（Preview待验，未生产）
 
 - 保留03-B拦截历史：f8a813f7英文图库按钮data-gallery-label与caption选择器冲突，第一次缩略图被清空，caption不更新；此前纯数据单元测试未覆盖真实DOM选择器，任务03全部通过结论已纠正。原阻塞记录提交23379e71保留，并复制报告归档。

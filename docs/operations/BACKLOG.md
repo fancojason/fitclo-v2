@@ -1,5 +1,12 @@
 # Fitclo 运营待办
 
+## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
+
+- Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。
+- 本地和远程各30HTML/11份Astro资源200、MIME正确，Sample及原CTA不变；证据见[03-C报告](2026-10-29-task03c-caption.md)及[浏览器JSON](2026-10-29-task03c-browser-evidence.json)。
+- 03-B历史回归/误判记录保留。PR #2继续Draft；main仍e2fcdb62，未合并/生产部署，无搜索平台提交；日志仅PR分支。最终文档提交触发的Preview以PR记录为准。
+
+
 ## 任务03-C当前状态（独立PR分支）
 
 - 03-B阻塞已作最小代码修复：caption选择器限定figcaption，真实DOM脚本在旧Preview失败、修复本地EN/ES/DE桌面及390px通过。远程Preview/鼠标键盘验收完成后补记。PR #2仍Draft，不部署生产。

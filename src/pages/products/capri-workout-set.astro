@@ -199,7 +199,7 @@ const faqSchema = {
           <div class="mt-4 grid grid-cols-[32px_repeat(5,minmax(0,1fr))_32px] items-center gap-2 sm:grid-cols-[40px_repeat(5,minmax(0,1fr))_40px]">
             <button type="button" class="grid aspect-square place-items-center border border-white/20 text-[25px] leading-none text-white/80 transition-colors hover:border-[#d8b456] hover:text-[#d8b456]" aria-label="Show previous product image" data-gallery-previous>‹</button>
             {galleryImages.map((image, index) => (
-              <button type="button" class="gallery-thumbnail relative aspect-square overflow-hidden border border-white/20 bg-[#111218] transition-colors hover:border-[#d8b456]" aria-label={`View ${image.label}`} aria-pressed={index === 0 ? 'true' : 'false'} data-gallery-thumbnail={index}>
+              <button type="button" class="gallery-thumbnail relative aspect-square overflow-hidden border border-white/20 bg-[#111218] transition-colors hover:border-[#d8b456]" aria-label={`View ${image.label}`} aria-pressed={index === 0 ? 'true' : 'false'} data-gallery-thumbnail={index} data-gallery-alt={image.alt} data-gallery-label={image.label}>
                 <img src={image.src} {...(index === 0 ? {} : productThumbnail(image.src))} alt="" width="180" height="180" loading="lazy" class="h-full w-full object-cover" />
               </button>
             ))}
@@ -624,6 +624,7 @@ const faqSchema = {
 
 <script>
   import { submitInquiry } from '../../lib/inquiry-client';
+  import { readGalleryItem } from '../../lib/product-gallery.mjs';
   const form = document.querySelector<HTMLFormElement>('[data-product-inquiry-form]');
   const status = document.querySelector<HTMLElement>('[data-product-form-status]');
   const pageUrlInput = form?.querySelector<HTMLInputElement>('[data-page-url]');
@@ -652,14 +653,7 @@ const faqSchema = {
   const galleryThumbnails = Array.from(gallery?.querySelectorAll<HTMLButtonElement>('[data-gallery-thumbnail]') || []);
 
   if (gallery && galleryMain && galleryLabel) {
-    const galleryItems = galleryThumbnails.map((thumbnail) => {
-      const image = thumbnail.querySelector('img');
-      return {
-        src: image?.getAttribute('src') || '',
-        alt: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
-        label: thumbnail.getAttribute('aria-label')?.replace(/^View\s+/, '') || '',
-      };
-    });
+    const galleryItems = galleryThumbnails.map(readGalleryItem);
     let activeGalleryIndex = Math.max(0, galleryItems.findIndex((item) => item.src === galleryMain.getAttribute('src')));
 
     const selectGalleryImage = (nextIndex: number) => {

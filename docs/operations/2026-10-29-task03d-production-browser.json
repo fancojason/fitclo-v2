@@ -1,0 +1,410 @@
+{
+  "date": "2026-10-29 Asia/Shanghai",
+  "productionCommit": "91847dba81636e0204140affc8e1d89ee3355764",
+  "deploymentId": "122f704f-49c8-4cc8-95e3-57a4b006209b",
+  "deployedAt": "2026-10-29 15:50:45 Asia/Shanghai",
+  "results": [
+    {
+      "url": "https://www.fitcloo.com/products/capri-workout-set/",
+      "lang": "en",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "initial": {
+        "image": 1,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+        "alt": "Capri Workout Set matching series with sports bra, tank top and capri legging options",
+        "caption": "Matching series",
+        "ariaPressed": true
+      },
+      "second": {
+        "image": 2,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+        "alt": "Capri Workout Set matching series with wide-leg pants, capri leggings, tank and sports bra options",
+        "caption": "Matching set options",
+        "ariaPressed": true
+      },
+      "images": [
+        {
+          "image": 1,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+          "alt": "Capri Workout Set matching series with sports bra, tank top and capri legging options",
+          "caption": "Matching series",
+          "ariaPressed": true
+        },
+        {
+          "image": 2,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+          "alt": "Capri Workout Set matching series with wide-leg pants, capri leggings, tank and sports bra options",
+          "caption": "Matching set options",
+          "ariaPressed": true
+        },
+        {
+          "image": 3,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-ivory.webp",
+          "alt": "Ivory Capri Workout Set with layered halter neckline and fold-over dotted waistband",
+          "caption": "Ivory colorway",
+          "ariaPressed": true
+        },
+        {
+          "image": 4,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-custom-branding.webp",
+          "alt": "Private label logo, tag and packaging customization options",
+          "caption": "Private label options",
+          "ariaPressed": true
+        },
+        {
+          "image": 5,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-stockroom.webp",
+          "alt": "Fitclo ready-stock activewear storage and packing area",
+          "caption": "Ready-stock program",
+          "ariaPressed": true
+        }
+      ],
+      "wrapNext": true,
+      "wrapPrevious": true,
+      "sample": "Sample"
+    },
+    {
+      "url": "https://www.fitcloo.com/products/capri-workout-set/",
+      "lang": "en",
+      "width": 390,
+      "scrollWidth": 390,
+      "initial": {
+        "image": 1,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+        "alt": "Capri Workout Set matching series with sports bra, tank top and capri legging options",
+        "caption": "Matching series",
+        "ariaPressed": true
+      },
+      "second": {
+        "image": 2,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+        "alt": "Capri Workout Set matching series with wide-leg pants, capri leggings, tank and sports bra options",
+        "caption": "Matching set options",
+        "ariaPressed": true
+      },
+      "images": [
+        {
+          "image": 1,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+          "alt": "Capri Workout Set matching series with sports bra, tank top and capri legging options",
+          "caption": "Matching series",
+          "ariaPressed": true
+        },
+        {
+          "image": 2,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+          "alt": "Capri Workout Set matching series with wide-leg pants, capri leggings, tank and sports bra options",
+          "caption": "Matching set options",
+          "ariaPressed": true
+        },
+        {
+          "image": 3,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-ivory.webp",
+          "alt": "Ivory Capri Workout Set with layered halter neckline and fold-over dotted waistband",
+          "caption": "Ivory colorway",
+          "ariaPressed": true
+        },
+        {
+          "image": 4,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-custom-branding.webp",
+          "alt": "Private label logo, tag and packaging customization options",
+          "caption": "Private label options",
+          "ariaPressed": true
+        },
+        {
+          "image": 5,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-stockroom.webp",
+          "alt": "Fitclo ready-stock activewear storage and packing area",
+          "caption": "Ready-stock program",
+          "ariaPressed": true
+        }
+      ],
+      "wrapNext": true,
+      "wrapPrevious": true,
+      "sample": "Sample"
+    },
+    {
+      "url": "https://www.fitcloo.com/es/products/capri-workout-set/",
+      "lang": "es",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "initial": {
+        "image": 1,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+        "alt": "Serie Capri Workout Set a juego con opciones de sujetador deportivo, camiseta sin mangas y leggings capri",
+        "caption": "Serie a juego",
+        "ariaPressed": true
+      },
+      "second": {
+        "image": 2,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+        "alt": "Serie Capri Workout Set a juego con opciones de pantalones de pierna ancha, leggings capri, camiseta sin mangas y sujetador deportivo",
+        "caption": "Ver opciones de conjuntos coincidentes",
+        "ariaPressed": true
+      },
+      "images": [
+        {
+          "image": 1,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+          "alt": "Serie Capri Workout Set a juego con opciones de sujetador deportivo, camiseta sin mangas y leggings capri",
+          "caption": "Ver series coincidentes",
+          "ariaPressed": true
+        },
+        {
+          "image": 2,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+          "alt": "Serie Capri Workout Set a juego con opciones de pantalones de pierna ancha, leggings capri, camiseta sin mangas y sujetador deportivo",
+          "caption": "Ver opciones de conjuntos coincidentes",
+          "ariaPressed": true
+        },
+        {
+          "image": 3,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-ivory.webp",
+          "alt": "Conjunto de entrenamiento Capri marfil con escote halter en capas y cinturilla doblada de lunares",
+          "caption": "Ver combinación de colores Marfil",
+          "ariaPressed": true
+        },
+        {
+          "image": 4,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-custom-branding.webp",
+          "alt": "Opciones de personalización de logotipo, etiquetas y embalaje para marca privada",
+          "caption": "Ver opciones de etiquetas privadas",
+          "ariaPressed": true
+        },
+        {
+          "image": 5,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-stockroom.webp",
+          "alt": "Área de almacenamiento y embalaje de ropa deportiva en stock de Fitclo",
+          "caption": "Ver programa de stock listo",
+          "ariaPressed": true
+        }
+      ],
+      "wrapNext": true,
+      "wrapPrevious": true,
+      "sample": "Sample"
+    },
+    {
+      "url": "https://www.fitcloo.com/es/products/capri-workout-set/",
+      "lang": "es",
+      "width": 390,
+      "scrollWidth": 390,
+      "initial": {
+        "image": 1,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+        "alt": "Serie Capri Workout Set a juego con opciones de sujetador deportivo, camiseta sin mangas y leggings capri",
+        "caption": "Serie a juego",
+        "ariaPressed": true
+      },
+      "second": {
+        "image": 2,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+        "alt": "Serie Capri Workout Set a juego con opciones de pantalones de pierna ancha, leggings capri, camiseta sin mangas y sujetador deportivo",
+        "caption": "Ver opciones de conjuntos coincidentes",
+        "ariaPressed": true
+      },
+      "images": [
+        {
+          "image": 1,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+          "alt": "Serie Capri Workout Set a juego con opciones de sujetador deportivo, camiseta sin mangas y leggings capri",
+          "caption": "Ver series coincidentes",
+          "ariaPressed": true
+        },
+        {
+          "image": 2,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+          "alt": "Serie Capri Workout Set a juego con opciones de pantalones de pierna ancha, leggings capri, camiseta sin mangas y sujetador deportivo",
+          "caption": "Ver opciones de conjuntos coincidentes",
+          "ariaPressed": true
+        },
+        {
+          "image": 3,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-ivory.webp",
+          "alt": "Conjunto de entrenamiento Capri marfil con escote halter en capas y cinturilla doblada de lunares",
+          "caption": "Ver combinación de colores Marfil",
+          "ariaPressed": true
+        },
+        {
+          "image": 4,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-custom-branding.webp",
+          "alt": "Opciones de personalización de logotipo, etiquetas y embalaje para marca privada",
+          "caption": "Ver opciones de etiquetas privadas",
+          "ariaPressed": true
+        },
+        {
+          "image": 5,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-stockroom.webp",
+          "alt": "Área de almacenamiento y embalaje de ropa deportiva en stock de Fitclo",
+          "caption": "Ver programa de stock listo",
+          "ariaPressed": true
+        }
+      ],
+      "wrapNext": true,
+      "wrapPrevious": true,
+      "sample": "Sample"
+    },
+    {
+      "url": "https://www.fitcloo.com/de/products/capri-workout-set/",
+      "lang": "de",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "initial": {
+        "image": 1,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+        "alt": "Capri-Workout-Set passend zur Serie mit Sport-BH, Tank-Top und Capri-Leggings",
+        "caption": "Passende Serie",
+        "ariaPressed": true
+      },
+      "second": {
+        "image": 2,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+        "alt": "Passende Capri-Workout-Set-Serie mit Optionen für weite Hosen, Capri-Leggings, Tanktops und Sport-BHs",
+        "caption": "Passende Set-Optionen anzeigen",
+        "ariaPressed": true
+      },
+      "images": [
+        {
+          "image": 1,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+          "alt": "Capri-Workout-Set passend zur Serie mit Sport-BH, Tank-Top und Capri-Leggings",
+          "caption": "Passende Serien anzeigen",
+          "ariaPressed": true
+        },
+        {
+          "image": 2,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+          "alt": "Passende Capri-Workout-Set-Serie mit Optionen für weite Hosen, Capri-Leggings, Tanktops und Sport-BHs",
+          "caption": "Passende Set-Optionen anzeigen",
+          "ariaPressed": true
+        },
+        {
+          "image": 3,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-ivory.webp",
+          "alt": "Elfenbeinfarbenes Capri-Workout-Set mit mehrlagigem Neckholder-Ausschnitt und umgeschlagenem Bund mit Punktmuster",
+          "caption": "Sehen Sie sich die Farbgebung Elfenbein an",
+          "ariaPressed": true
+        },
+        {
+          "image": 4,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-custom-branding.webp",
+          "alt": "Eigenmarken-Optionen für Logo, Hangtags und Verpackung",
+          "caption": "Eigenmarken-Optionen anzeigen",
+          "ariaPressed": true
+        },
+        {
+          "image": 5,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-stockroom.webp",
+          "alt": "Lager- und Verpackungsbereich für sofort verfügbare Sportbekleidung von Fitclo",
+          "caption": "Sehen Sie sich das Ready-Stock-Programm an",
+          "ariaPressed": true
+        }
+      ],
+      "wrapNext": true,
+      "wrapPrevious": true,
+      "sample": "Sample"
+    },
+    {
+      "url": "https://www.fitcloo.com/de/products/capri-workout-set/",
+      "lang": "de",
+      "width": 390,
+      "scrollWidth": 390,
+      "initial": {
+        "image": 1,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+        "alt": "Capri-Workout-Set passend zur Serie mit Sport-BH, Tank-Top und Capri-Leggings",
+        "caption": "Passende Serie",
+        "ariaPressed": true
+      },
+      "second": {
+        "image": 2,
+        "thumbnails": 5,
+        "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+        "alt": "Passende Capri-Workout-Set-Serie mit Optionen für weite Hosen, Capri-Leggings, Tanktops und Sport-BHs",
+        "caption": "Passende Set-Optionen anzeigen",
+        "ariaPressed": true
+      },
+      "images": [
+        {
+          "image": 1,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-main.webp",
+          "alt": "Capri-Workout-Set passend zur Serie mit Sport-BH, Tank-Top und Capri-Leggings",
+          "caption": "Passende Serien anzeigen",
+          "ariaPressed": true
+        },
+        {
+          "image": 2,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-matching-series.webp",
+          "alt": "Passende Capri-Workout-Set-Serie mit Optionen für weite Hosen, Capri-Leggings, Tanktops und Sport-BHs",
+          "caption": "Passende Set-Optionen anzeigen",
+          "ariaPressed": true
+        },
+        {
+          "image": 3,
+          "thumbnails": 5,
+          "src": "/images/products/capri-workout-set/capri-workout-set-ivory.webp",
+          "alt": "Elfenbeinfarbenes Capri-Workout-Set mit mehrlagigem Neckholder-Ausschnitt und umgeschlagenem Bund mit Punktmuster",
+          "caption": "Sehen Sie sich die Farbgebung Elfenbein an",
+          "ariaPressed": true
+        },
+        {
+          "image": 4,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-custom-branding.webp",
+          "alt": "Eigenmarken-Optionen für Logo, Hangtags und Verpackung",
+          "caption": "Eigenmarken-Optionen anzeigen",
+          "ariaPressed": true
+        },
+        {
+          "image": 5,
+          "thumbnails": 5,
+          "src": "/images/products/womens-yoga-set/womens-yoga-set-stockroom.webp",
+          "alt": "Lager- und Verpackungsbereich für sofort verfügbare Sportbekleidung von Fitclo",
+          "caption": "Sehen Sie sich das Ready-Stock-Programm an",
+          "ariaPressed": true
+        }
+      ],
+      "wrapNext": true,
+      "wrapPrevious": true,
+      "sample": "Sample"
+    }
+  ]
+}

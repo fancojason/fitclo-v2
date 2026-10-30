@@ -22,3 +22,16 @@
 本地Chrome六组（EN/ES/DE分别1440和390px）图库检查与询盘Mock检查通过：中性、Quote/Sample、四类和人工回空保留、重复CTA、失败保留、空类型成功reset及标记清除；generate_lead/quote_form_submit只在Mock成功各一次。30HTML/11Astro资源200和MIME正确。图库DOM测试通过，原生键盘及远程Preview另记。没有真实提交。
 
 运行文件：src/pages/products/capri-workout-set.astro、public/es/products/capri-workout-set/index.html、public/de/products/capri-workout-set/index.html。测试：scripts/capri-inquiry.browser.mjs、scripts/capri-gallery.browser.mjs（默认参数仍兼容旧Sample测试，当前分支显式传空）、scripts/check-capri-inquiry-protection.py、审计Mock脚本。共享inquiry-client/submit/CRM没有修改。无lint/typecheck/npm test独立命名脚本，未声称运行。
+
+
+## 远程Preview验收补记
+
+代码提交0135fd5f93dfd22fed8b6dd11e2d9068db2b6c09；Draft PR #4 https://github.com/fancojason/fitclo-v2/pull/4 。Cloudflare Preview部署49369fcd-d5f4-4c13-9c51-20a5eb5a03b8成功（2026-10-30上海17:37:50），https://49369fcd.fitclo-v2.pages.dev 。EN/ES/DE对应产品路径全部实际Chrome测试。
+
+六组1440/390px真实DOM输出见2026-10-30-task04b-browser-evidence.json：Quote中性、Sample预选、四种手选及手动回空保留、重复CTA各一次事件、现有必填拦截、空类型失败/成功Mock、失败内容/手选标记保留、成功reset中性并清标记、SKU/message保留、generate_lead和quote_form_submit仅Mock成功各1次。每组只拦截2次/submit（模拟502及200），没有真实请求离开该tab。
+
+三语言图库脚本均通过5图、full ALT/caption、首图保留、aria-pressed和循环；另做实际鼠标点击Ivory后Tab+Enter/Tab+Space，active4且缩略图5，ALT正确。三页Console无error/warn。390px无横向溢出。正式WhatsApp链接/模板未修改，也未发送消息。生产Sample行为仍应保留，另只读核对main未变。
+
+CRM结论：浏览器空值、后端mock接受、mock邮件保留SKU/正文和未指定、mock webhook原样收到空值均已验证；外部CRM成功创建且正确分类未验证。真实线索有同步失败或路由未知风险，不能承诺不会丢失。保留邮件只是已核实的现有路径，不等于CRM持久可靠；生产阻塞继续，下一步先取得CRM只读契约/管理员确认，必要时另批持久队列/重试/告警，禁止自动归Sample或增加未经批准枚举。
+
+本轮未改inquiry-client、submit或CRM后端、全站表单、字体和导航，无生产合并/部署或GSC/Bing/IndexNow提交。日志及证据仅独立分支；后续文档补记提交与代码提交运行内容一致，最终PR head见交接报告。已知DE TZ2557-3缩略图失败及DE非目标分类旧CSS警告保留。无独立lint/typecheck脚本，未声称执行。外部CRM真实兼容测试及生产发布均未完成，不能报告全链路生产通过。

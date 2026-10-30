@@ -1,0 +1,92 @@
+{
+  "testedCommit": "0135fd5f93dfd22fed8b6dd11e2d9068db2b6c09",
+  "previewDeployment": "49369fcd-d5f4-4c13-9c51-20a5eb5a03b8",
+  "externalCrmVerified": false,
+  "productionBlocked": true,
+  "results": [
+    {
+      "url": "https://49369fcd.fitclo-v2.pages.dev/products/capri-workout-set/#product-inquiry",
+      "language": "en",
+      "width": 1440,
+      "mockOnly": true,
+      "emptySubmissions": 2,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "manualChoices": 5,
+      "resetNeutral": true,
+      "failurePreserved": true
+    },
+    {
+      "url": "https://49369fcd.fitclo-v2.pages.dev/products/capri-workout-set/#product-inquiry",
+      "language": "en",
+      "width": 390,
+      "mockOnly": true,
+      "emptySubmissions": 2,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "manualChoices": 5,
+      "resetNeutral": true,
+      "failurePreserved": true
+    },
+    {
+      "url": "https://49369fcd.fitclo-v2.pages.dev/es/products/capri-workout-set/#product-inquiry",
+      "language": "es",
+      "width": 1440,
+      "mockOnly": true,
+      "emptySubmissions": 2,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "manualChoices": 5,
+      "resetNeutral": true,
+      "failurePreserved": true
+    },
+    {
+      "url": "https://49369fcd.fitclo-v2.pages.dev/es/products/capri-workout-set/#product-inquiry",
+      "language": "es",
+      "width": 390,
+      "mockOnly": true,
+      "emptySubmissions": 2,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "manualChoices": 5,
+      "resetNeutral": true,
+      "failurePreserved": true
+    },
+    {
+      "url": "https://49369fcd.fitclo-v2.pages.dev/de/products/capri-workout-set/#product-inquiry",
+      "language": "de",
+      "width": 1440,
+      "mockOnly": true,
+      "emptySubmissions": 2,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "manualChoices": 5,
+      "resetNeutral": true,
+      "failurePreserved": true
+    },
+    {
+      "url": "https://49369fcd.fitclo-v2.pages.dev/de/products/capri-workout-set/#product-inquiry",
+      "language": "de",
+      "width": 390,
+      "mockOnly": true,
+      "emptySubmissions": 2,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "manualChoices": 5,
+      "resetNeutral": true,
+      "failurePreserved": true
+    }
+  ]
+}

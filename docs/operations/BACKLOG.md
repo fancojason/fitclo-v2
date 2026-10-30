@@ -1,5 +1,13 @@
 # Fitclo 运营待办
 
+## 2026-10-30 04-E：邮件失败脱敏及隔离验收，未生产
+
+- 最新main98176845独立分支，未混入PR #4规则。仅共享submit失败日志结构化分类/去PII和异常友好提示；成功路径、字段、邮件/CRM业务不变。
+- 新邮件矩阵和Mock告警，Node15通过；告警原型默认关闭，不连接真实渠道。Cloudflare通知配置GET403，实际监控未验证。
+- build/多语言/西语/内容保护通过，972HTML哈希不变。本地9表单Mock通过；DE Contact既有390→405溢出、DE TZ2557-3失败及旧CSS警告保留，不能报全站全部通过。
+- [04-E专项报告](2026-10-30-task04e-mail-preview.md)含负责人清单/成本/上线闸门，远程Preview待补。无真实发送、无生产配置或搜索修改。
+
+
 ## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
 
 - Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。

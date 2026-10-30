@@ -1,5 +1,18 @@
 # Fitclo 运营变更日志
 
+## 2026-10-29 — 任务03-D：Capri ALT/Caption正式发布并生产验收
+
+- 老板03-D明确授权后，fetch确认main=e2fcdb62、PR #2 head=739a65c8；三个提交及12文件全部复核，9e9a9ab6之后只有文档，没有新增运行代码。03-B错误版本没有单独发布。
+- 最新head重跑build（367页）、13项Node、核心多语言、西语产品、任务01内容保护通过；972HTML仅三个Capri变化、新增缺失Astro资源0。当前head Preview三语言1440/390px及原生鼠标/Tab/Enter/Space重验通过。
+- PR #2正常转Ready并merge，最终生产main=91847dba81636e0204140affc8e1d89ee3355764（父提交e2fcdb62及739a65c8，tree与已验head相同）。没有force push或无关提交。PR #1未操作。
+- Cloudflare Production部署122f704f-49c8-4cc8-95e3-57a4b006209b，https://122f704f.fitclo-v2.pages.dev ，上海2026-10-29 15:50:45成功。
+- 正式EN/ES/DE在1440/390px六组真实DOM通过，全部五图source/完整ALT/短caption/aria-pressed、缩略图保留及循环正常；各语言原生鼠标+Tab/Enter/Space通过，Console无error/warn，Quote到原表单、Sample不变，WhatsApp原链接保留，未发消息或询盘。
+- 正式30HTML/11份唯一Astro资源200/MIME正确；三页引用hoisted.C31r8D9H.js，无旧hoisted.D_jpDeEJ.js引用；页面正文、图片、表单、SEO/schema与受保护构建一致。canonical/hreflang及sitemap保留。robots200，Cloudflare托管前缀与源文件不同，但源站原规则仍保留，本次未修改其配置。
+- 自动GSC sitemap工作流40837918259成功；自动IndexNow工作流40837918217仅检测3个更新URL并收到HTTP200。没有手动重复提交，不代表已重新收录或排名提升。
+- 无回滚、无本次关键阻塞。DE TZ2557-3既有缩略图失败、favicon/翻译、报价分类/Sample规则、MOQ交期继续保留。03-B拦截和03-C证据不删除。
+- 本发布补记在独立文档分支codex/task03d-release-log，避免为日志再次生产部署；本条尚未合并main。报告见[03-D生产报告](2026-10-29-task03d-production.md)，[六组生产浏览器输出](2026-10-29-task03d-production-browser.json)。
+
+
 ## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
 
 - Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。

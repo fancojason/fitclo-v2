@@ -1,0 +1,163 @@
+{
+  "testedCommit": "f66ac554b41fdfaadc3d9791c21a39be5b48ac58",
+  "deploymentId": "80c131c0-5c65-49cb-a33d-811084c2b286",
+  "environment": "preview",
+  "realEmailSent": false,
+  "realCrmCreated": false,
+  "realAlertEnabled": false,
+  "results": [
+    {
+      "url": "https://80c131c0.fitclo-v2.pages.dev/products/capri-workout-set/",
+      "language": "en",
+      "width": 390,
+      "scrollWidth": 390,
+      "mockOnly": true,
+      "failureCases": 4,
+      "retryAndRetention": true,
+      "rapidClicksSingleRequest": true,
+      "invalidEmailBlocked": true,
+      "requests": 5,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "sample": "Sample"
+    },
+    {
+      "url": "https://80c131c0.fitclo-v2.pages.dev/es/products/capri-workout-set/",
+      "language": "es",
+      "width": 390,
+      "scrollWidth": 390,
+      "mockOnly": true,
+      "failureCases": 4,
+      "retryAndRetention": true,
+      "rapidClicksSingleRequest": true,
+      "invalidEmailBlocked": true,
+      "requests": 5,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "sample": "Sample"
+    },
+    {
+      "url": "https://80c131c0.fitclo-v2.pages.dev/de/products/capri-workout-set/",
+      "language": "de",
+      "width": 390,
+      "scrollWidth": 390,
+      "mockOnly": true,
+      "failureCases": 4,
+      "retryAndRetention": true,
+      "rapidClicksSingleRequest": true,
+      "invalidEmailBlocked": true,
+      "requests": 5,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "sample": "Sample"
+    },
+    {
+      "url": "https://80c131c0.fitclo-v2.pages.dev/inquiry/",
+      "language": "en",
+      "width": 390,
+      "scrollWidth": 390,
+      "mockOnly": true,
+      "failureCases": 4,
+      "retryAndRetention": true,
+      "rapidClicksSingleRequest": true,
+      "invalidEmailBlocked": true,
+      "requests": 5,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "sample": "not-applicable"
+    },
+    {
+      "url": "https://80c131c0.fitclo-v2.pages.dev/contact/",
+      "language": "en",
+      "width": 390,
+      "scrollWidth": 390,
+      "mockOnly": true,
+      "failureCases": 4,
+      "retryAndRetention": true,
+      "rapidClicksSingleRequest": true,
+      "invalidEmailBlocked": true,
+      "requests": 5,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "sample": "not-applicable"
+    },
+    {
+      "url": "https://80c131c0.fitclo-v2.pages.dev/es/contact/",
+      "language": "es",
+      "width": 390,
+      "scrollWidth": 390,
+      "mockOnly": true,
+      "failureCases": 4,
+      "retryAndRetention": true,
+      "rapidClicksSingleRequest": true,
+      "invalidEmailBlocked": true,
+      "requests": 5,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "sample": "not-applicable"
+    },
+    {
+      "url": "https://80c131c0.fitclo-v2.pages.dev/de/contact/",
+      "language": "de",
+      "width": 390,
+      "scrollWidth": 405,
+      "mockOnly": true,
+      "failureCases": 4,
+      "retryAndRetention": true,
+      "rapidClicksSingleRequest": true,
+      "invalidEmailBlocked": true,
+      "requests": 5,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "sample": "not-applicable"
+    },
+    {
+      "url": "https://80c131c0.fitclo-v2.pages.dev/nl/contact/",
+      "language": "nl",
+      "width": 390,
+      "scrollWidth": 390,
+      "mockOnly": true,
+      "failureCases": 4,
+      "retryAndRetention": true,
+      "rapidClicksSingleRequest": true,
+      "invalidEmailBlocked": true,
+      "requests": 5,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "sample": "not-applicable"
+    },
+    {
+      "url": "https://80c131c0.fitclo-v2.pages.dev/pt-br/contact/",
+      "language": "pt-BR",
+      "width": 390,
+      "scrollWidth": 390,
+      "mockOnly": true,
+      "failureCases": 4,
+      "retryAndRetention": true,
+      "rapidClicksSingleRequest": true,
+      "invalidEmailBlocked": true,
+      "requests": 5,
+      "successEvents": {
+        "generate_lead": 1,
+        "quote_form_submit": 1
+      },
+      "sample": "not-applicable"
+    }
+  ]
+}

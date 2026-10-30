@@ -94,3 +94,18 @@ Resend email.sent表示API请求成功后尝试投递；email.delivered仅为交
 - src/pages/products/womens-yoga-set.astro
 - src/pages/products/wt6089-ny1401-yk1352.astro
 - src/pages/products/yw572-kw441.astro
+
+
+## 远程验收最终补记
+
+Draft PR #5 https://github.com/fancojason/fitclo-v2/pull/5 。测试运行代码提交f66ac554b41fdfaadc3d9791c21a39be5b48ac58；Cloudflare非生产部署80c131c0-5c65-49cb-a33d-811084c2b286，deploy success，上海2026-10-30 20:41:52。https://80c131c0.fitclo-v2.pages.dev 。后续提交只更新本报告/证据/日志，运行代码相同。
+
+真实Chrome远程390px九个页面全部完成邮件隔离功能检查，原始输出见2026-10-30-task04e-browser-evidence.json；每页Mock失败4次（provider502、service503、network、timeout）可重试且保留输入，快速两次点击仅1请求；错误email不发送；Mock成功1次，generate_lead及quote_form_submit各1。后端14场景与附件为本地Node执行，不把浏览器拦截当远程Function真实执行。没有向远程/submit真正POST。
+
+EN/ES/DE Capri额外1440px邮件测试及1440/390图库完整5图、ALT/caption、首图/循环通过；Quote锚点及WhatsApp入口保留，Sample默认未变。三语言真实鼠标/Tab/Enter/Space切图至active4且5张缩略图保留。远程30HTML/11Astro资源200、MIME正确。
+
+在Preview浏览器执行同一Mock告警纯函数，输出disabled、mock_recorded、suppressed、sink_failed，去除PII字段；没有通知目的地、无持久事件库、不是真正Cloudflare自动告警。
+
+既有DE Contact clientWidth390/scrollWidth405问题在远程同样存在，其HTML与main基线完全相同；故邮件功能通过，但不宣称整个移动端/全站回归全部通过。全站DE缩略图及旧CSS问题仍保留，无本轮新增HTML/资源回归。原消费者/投递/销售日常使用未验证，PR #4继续Draft，暂不建议上线。
+
+所有正式配置、main、PR #1/#3/#4未改，搜索平台未操作；真实投递、销售已读、CRM成功、真实自动告警均未验证或启用。下一步唯一任务为负责人完成清单确认及独立告警配置只读核定，选择经批准渠道后形成受控发布审批，不自动部署。

@@ -1,3 +1,9 @@
+// Fixed metadata only: never serialize provider bodies, customer fields, URLs or exceptions.
+const failureLog = (stage, category, providerStatus) => console.error(JSON.stringify({
+  event: 'inquiry_failure', stage, category,
+  ...(Number.isInteger(providerStatus) ? { provider_status: providerStatus } : {}),
+}));
+
 const escapeHtml = (value) => String(value ?? "")
   .slice(0, 5000)
   .replaceAll("&", "&amp;")
@@ -81,15 +87,10 @@ const syncCrmLead = async (data, env) => {
     });
 
     if (!response.ok) {
-      const responseText = await response.text().catch(() => "");
-      console.error(
-        "CRM sync failed and was ignored:",
-        response.status,
-        responseText.slice(0, 500),
-      );
+      failureLog("crm", "http_failure", response.status);
     }
   } catch (error) {
-    console.error("CRM sync failed and was ignored:", error);
+    failureLog("crm", "transport_failure");
   }
 };
 
@@ -99,7 +100,7 @@ export async function onRequestPost(context) {
     const RESEND_API_KEY = env.RESEND_API_KEY;
 
     if (!RESEND_API_KEY) {
-      console.error("Inquiry email is not configured: missing RESEND_API_KEY.");
+      failureLog("email", "configuration");
       return new Response(JSON.stringify({
         error: "The inquiry service is temporarily unavailable. Please contact us on WhatsApp.",
       }), {
@@ -182,8 +183,7 @@ export async function onRequestPost(context) {
     });
 
     if (!res.ok) {
-      const errorData = await res.json().catch(() => ({}));
-      console.error("Resend API Error:", res.status, errorData);
+      failureLog("email", [401, 403].includes(res.status) ? "authorization" : res.status === 429 ? "rate_limit" : "provider_http", res.status);
       return new Response(JSON.stringify({
         error: "We couldn't send your request right now. Please try again or contact us on WhatsApp.",
       }), {
@@ -193,14 +193,17 @@ export async function onRequestPost(context) {
     }
 
     const result = await res.json();
-    if (!result.id) return invalid('The email provider did not confirm acceptance. Please try again.', 502);
+    if (!result.id) {
+      failureLog('email', 'missing_provider_id');
+      return invalid('The email provider did not confirm acceptance. Please try again.', 502);
+    }
     console.log(JSON.stringify({ event: 'inquiry_accepted', id: result.id, language: data.language || 'en', page_path: typeof data.page_path === 'string' ? data.page_path.split('?')[0].slice(0,300) : '', has_attachment: Boolean(attachment) }));
     const crmTask = syncCrmLead(data, env);
 
     try {
       context.waitUntil?.(crmTask);
     } catch (error) {
-      console.error("Unable to register CRM background sync; failure was ignored:", error);
+      failureLog("crm", "background_registration");
     }
 
     return new Response(JSON.stringify({
@@ -211,8 +214,8 @@ export async function onRequestPost(context) {
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
-    console.error('Submit Function Error:', err);
-    return new Response(JSON.stringify({ error: err.message || "Internal Server Error" }), {
+    failureLog('email', err?.name === 'TimeoutError' || err?.name === 'AbortError' ? 'timeout' : err instanceof SyntaxError ? 'provider_response' : 'internal_or_transport');
+    return new Response(JSON.stringify({ error: "We couldn't send your request right now. Please try again or contact us on WhatsApp." }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });

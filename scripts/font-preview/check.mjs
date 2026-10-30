@@ -25,7 +25,7 @@ assert.equal(await readFile(new URL('../../dist/css/fitclo-typography.css',impor
 assert.ok(!css.includes('DM Sans'),'current preview is Poppins only');
 const genericH2=css.match(/(?:^|\n)main h2\s*\{([^}]+)\}/)?.[1]||'';
 assert.ok(!genericH2.includes('font-size'),'generic H2 must not override card title sizes');
-assert.equal((css.match(/font-size\s*:/g)||[]).length,2,'only navigation and its quote CTA may override font size');
+assert.equal((css.match(/font-size\s*:/g)||[]).length,3,'only navigation breakpoints and its quote CTA may override font size');
 const audit=JSON.parse(await readFile(new URL('../../docs/typography-original-size-comparison.json',import.meta.url),'utf8'));
 assert.equal(audit.checks.length,55);
 for(const check of audit.checks){

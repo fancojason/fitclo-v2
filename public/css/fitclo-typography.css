@@ -38,3 +38,19 @@ main [data-home-hero] h1 {
   html body header a.quote-nav-button:focus-visible { outline:2px solid #e6cf98; outline-offset:4px; }
 }
 
+
+/* Approved desktop navigation refinement; quote CTA and mobile stay unchanged. */
+@media (min-width:1024px) {
+  header nav > a:not(.quote-nav-button):is([class~="text-white/90"],[class~="text-white/85"]),
+  header nav > div > a:not(.quote-nav-button):is([class~="text-white/90"],[class~="text-white/85"]) { color:#e8e8e8; }
+  header nav > a:not(.quote-nav-button):hover,
+  header nav > div > a:not(.quote-nav-button):hover { color:#c9a84c; }
+  header nav > a:not(.quote-nav-button):focus-visible,
+  header nav > div > a:not(.quote-nav-button):focus-visible {
+    color:#c9a84c; outline:2px solid #c9a84c; outline-offset:6px; border-radius:2px;
+  }
+}
+@media (min-width:1280px) {
+  header nav > a:not(.quote-nav-button),
+  header nav > div > a:not(.quote-nav-button) { font-size:16px !important; }
+}

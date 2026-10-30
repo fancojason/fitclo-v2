@@ -1,5 +1,20 @@
 # Fitclo 运营变更日志
 
+## 2026-10-30 04-B：远程Preview通过，生产发布仍阻塞
+
+- PR #4 Draft；代码0135fd5f，Preview49369fcd-d5f4-4c13-9c51-20a5eb5a03b8。EN/ES/DE各1440/390真实浏览器询盘与图库六组通过，原生鼠标/键盘通过，Console无error/warn。
+- 空类型Mock失败保留、成功中性reset、手选保护、SKU/正文与成功事件各一次均通过；无真实邮件/CRM/WhatsApp发送。证据见[04-B报告](2026-10-30-task04b-preview.md)。
+- 实际外部CRM空值创建/展示/路由尚未验证，生产条件不满足；保持Draft，先审批/核实契约或持久待同步方案，不因Mock通过解除阻塞。main/其他业务/PR #1/#3未改。
+
+
+## 2026-10-30 04-B：方案C限定开发，本地通过，远程待验，生产阻塞
+
+- 复用04-A报告，不重复审计；最新基线98176845和其他优化保留。
+- 仅Capri EN/ES/DE新增可跳过中性选项及CTA/手选/reset规则；四值和共享后端、CRM、WhatsApp不变。
+- build、13Node、七类Mock、核心多语言、西语产品、最新基线保护比较通过，972HTML仅三页改变无新增缺失资源；本地六组真实浏览器图库及Mock提交通过。
+- 外部CRM空值创建/路由未确认，保持生产发布阻塞，不以Mock替代真实契约。详情见[04-B报告](2026-10-30-task04b-preview.md)。PR #1/#3未操作，main不推送，生产不部署，搜索不提交。
+
+
 ## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
 
 - Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。

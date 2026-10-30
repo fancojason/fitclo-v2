@@ -528,6 +528,7 @@ const faqSchema = {
         <div>
           <label for="product-inquiry-type" class="block text-[11px] font-bold tracking-[0.12em] text-white/85 font-['Century_Gothic',sans-serif]">INQUIRY TYPE</label>
           <select id="product-inquiry-type" name="inquiry_type" class="mt-2 w-full border border-white/20 bg-[#0b0c0f] px-4 py-3 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]">
+            <option value="" selected>Not sure? You can skip this</option>
             <option value="Sample">Sample</option>
             <option value="Ready Stock">Ready Stock</option>
             <option value="Private Label">Private Label</option>
@@ -680,9 +681,17 @@ const faqSchema = {
     galleryNext?.addEventListener('click', () => selectGalleryImage(activeGalleryIndex + 1));
   }
 
+  const inquiryType = form?.querySelector<HTMLSelectElement>('[name="inquiry_type"]');
+  let manuallySelectedType = false;
+  inquiryType?.addEventListener('change', () => { manuallySelectedType = true; });
+
   document.querySelectorAll<HTMLElement>('[data-product-track]').forEach((element) => {
     element.addEventListener('click', () => {
       const eventName = element.dataset.productTrack;
+      if (inquiryType && !manuallySelectedType) {
+        if (eventName === 'click_sample_cta') inquiryType.value = 'Sample';
+        else if (eventName === 'click_quote_cta') inquiryType.value = '';
+      }
       if (eventName) track(eventName, { product_name: 'Capri Workout Set', product_code: 'TZ4549-6' });
     });
   });
@@ -731,6 +740,7 @@ const faqSchema = {
 
         track('submit_product_inquiry', { product_name: 'Capri Workout Set', product_code: 'TZ4549-6' });
         form.reset();
+        manuallySelectedType = false;
         if (pageUrlInput) pageUrlInput.value = window.location.href;
         if (status) {
           status.textContent = 'Thank you. Your inquiry has been sent. The Fitclo team will reply with current details.';

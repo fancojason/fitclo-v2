@@ -1,6 +1,6 @@
 // Run checkCapriGallery.toString() in a real browser after loading a Capri page.
 // This exercises the page's own handlers; it does not replace the gallery code.
-export async function checkCapriGallery() {
+export async function checkCapriGallery(expectedInquiryType = 'Sample') {
   const assert = (ok, message) => { if (!ok) throw new Error(message); };
   const gallery = document.querySelector('[data-product-gallery]');
   const buttons = [...gallery.querySelectorAll('button[data-gallery-thumbnail]')];
@@ -46,6 +46,6 @@ export async function checkCapriGallery() {
   await verify(0);
   assert(document.documentElement.scrollWidth <= innerWidth, 'horizontal overflow');
   assert(caption.getBoundingClientRect().top >= main.getBoundingClientRect().bottom, 'caption must not overlap main image');
-  assert(document.querySelector('select[name="inquiry_type"]').value === 'Sample', 'Sample default changed');
-  return { url: location.href, lang: document.documentElement.lang, width: innerWidth, scrollWidth: document.documentElement.scrollWidth, initial, second, images, wrapNext: true, wrapPrevious: true, sample: 'Sample' };
+  assert(document.querySelector('select[name="inquiry_type"]').value === expectedInquiryType, 'inquiry default differs from test expectation');
+  return { url: location.href, lang: document.documentElement.lang, width: innerWidth, scrollWidth: document.documentElement.scrollWidth, initial, second, images, wrapNext: true, wrapPrevious: true, sample: expectedInquiryType };
 }

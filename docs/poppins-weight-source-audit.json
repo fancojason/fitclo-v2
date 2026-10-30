@@ -1,0 +1,16 @@
+{
+  "htmlFiles": 972,
+  "headingElements": {
+    "h1": 972,
+    "h4": 4057,
+    "h3": 7607,
+    "h2": 6667,
+    "h5": 28
+  },
+  "legacyHeavyClasses": {
+    "font-bold": 12396,
+    "font-[700]": 2,
+    "font-black": 675
+  },
+  "scope": "Static scan of all built HTML including language mirrors, not a claim that every route was browser-tested."
+}

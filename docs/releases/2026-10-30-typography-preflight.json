@@ -1,0 +1,23 @@
+{
+  "styledHtml": 971,
+  "plainVerificationFiles": [
+    "dist\\google9c49c246289193bf.html"
+  ],
+  "sitemapIndexableUrls": 967,
+  "readyStockCount": 249,
+  "keyRoutesSchemaChecked": [
+    "/",
+    "/ready-to-ship/",
+    "/products/",
+    "/products/3366/",
+    "/blogs/",
+    "/activewear-intelligence/",
+    "/es/",
+    "/es/guias/",
+    "/de/",
+    "/nl/",
+    "/pt-br/"
+  ],
+  "productionHeadersHavePreviewNoindex": false,
+  "fontCssMatchesApproved": true
+}

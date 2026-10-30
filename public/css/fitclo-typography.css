@@ -1,0 +1,40 @@
+/* Preserve component font sizes. Poppins needs lighter heading weights than
+   the previous family; keep this review layer separate until approval. */
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/poppins-400-latin.woff2') format('woff2'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/poppins-500-latin.woff2') format('woff2'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:600; font-display:swap; src:url('/fonts/poppins-600-latin.woff2') format('woff2'); }
+@font-face { font-family:'Poppins'; font-style:normal; font-weight:700; font-display:swap; src:url('/fonts/poppins-700-latin.woff2') format('woff2'); }
+html body, html body * { font-family:'Poppins',Arial,sans-serif !important; }
+header nav > a, header nav > div > a { font-size:15px !important; font-weight:500 !important; letter-spacing:.01em !important; text-transform:none !important; }
+@media (min-width:1024px) and (max-width:1199px) { header nav[class*='lg:flex'] { column-gap:12px; } }
+
+/* Font-width compatibility only: retain every original size. */
+main h2[class*='whitespace-nowrap'] { white-space:normal; }
+.style-code-copy { max-width:100%; overflow-wrap:anywhere; white-space:normal; }
+
+/* Headings keep their existing sizes; body copy and inline emphasis are intact. */
+html body h1 { font-weight:600 !important; }
+html body :is(h2,h3,h4,h5,h6) { font-weight:600 !important; }
+html body :is(h1,h2,h3,h4,h5,h6) :is(a,span,em,strong,b,i,button) { font-weight:inherit !important; }
+
+/* The large home display benefits from more air, rather than more weight. */
+main [data-home-hero] h1 {
+  font-weight:600 !important;
+  line-height:1.095 !important;
+  letter-spacing:-.03em !important;
+}
+#ready-stock-catalog h2 { line-height:1.15 !important; }
+
+/* A restrained desktop quote button; all destinations and labels are retained. */
+@media (min-width:1024px) {
+  html body header a.quote-nav-button {
+    min-height:42px; padding:0 18px; border:1px solid #b99c58;
+    border-radius:3px; background:#c7aa65; color:#17150f;
+    font-size:14px !important; font-weight:500 !important;
+    line-height:1 !important; letter-spacing:.012em !important;
+    box-shadow:none;
+  }
+  html body header a.quote-nav-button:hover { background:#d3b873; border-color:#d3b873; }
+  html body header a.quote-nav-button:focus-visible { outline:2px solid #e6cf98; outline-offset:4px; }
+}
+

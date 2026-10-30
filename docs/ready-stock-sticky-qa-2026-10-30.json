@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-30",
+  "preview": "https://7a04371b.fitclo-v2.pages.dev",
+  "alias": "https://codex-ready-stock-compact-pr.fitclo-v2.pages.dev",
+  "productionDeployed": false,
+  "desktop": {
+    "url": "https://7a04371b.fitclo-v2.pages.dev/ready-to-ship/",
+    "width": 1440,
+    "results": [
+      {
+        "name": "Toolbar starts in document flow",
+        "pass": true
+      },
+      {
+        "name": "Sticky below actual header",
+        "pass": true,
+        "toolbarTop": 76,
+        "headerBottom": 76
+      },
+      {
+        "name": "Deep search returns visible first result",
+        "pass": true,
+        "resultTop": 169,
+        "toolbarHeight": 77,
+        "scrollY": 1678
+      },
+      {
+        "name": "No-results message is visible after deep filtering",
+        "pass": true,
+        "emptyTop": 169
+      },
+      {
+        "name": "Clear restores 249 actual products",
+        "pass": true
+      },
+      {
+        "name": "Toolbar leaves viewport after catalog ends",
+        "pass": true,
+        "toolbarBottom": -396.375
+      },
+      {
+        "name": "No horizontal overflow",
+        "pass": true
+      },
+      {
+        "name": "Only intended H1 uses lighter sizing",
+        "pass": true,
+        "fontSize": "50px",
+        "lineHeight": "59px"
+      }
+    ]
+  },
+  "mobile": {
+    "url": "https://7a04371b.fitclo-v2.pages.dev/ready-to-ship/",
+    "width": 390,
+    "results": [
+      {
+        "name": "Toolbar starts in document flow",
+        "pass": true
+      },
+      {
+        "name": "Sticky below actual header",
+        "pass": true,
+        "toolbarTop": 76,
+        "headerBottom": 76
+      },
+      {
+        "name": "Mobile collapsed bar stays compact",
+        "pass": true,
+        "height": 73
+      },
+      {
+        "name": "Mobile options expand with correct ARIA",
+        "pass": true
+      },
+      {
+        "name": "Escape closes options and restores toggle focus",
+        "pass": true
+      },
+      {
+        "name": "Deep search returns visible first result",
+        "pass": true,
+        "resultTop": 164.5,
+        "toolbarHeight": 73,
+        "scrollY": 2749
+      },
+      {
+        "name": "Opening mobile filters does not obscure first result",
+        "pass": true,
+        "resultTop": 280.5,
+        "toolbarBottom": 265
+      },
+      {
+        "name": "No-results message is visible after deep filtering",
+        "pass": true,
+        "emptyTop": 164.5
+      },
+      {
+        "name": "Clear restores 249 actual products",
+        "pass": true
+      },
+      {
+        "name": "Toolbar leaves viewport after catalog ends",
+        "pass": true,
+        "toolbarBottom": -364.46875
+      },
+      {
+        "name": "No horizontal overflow",
+        "pass": true
+      },
+      {
+        "name": "Only intended H1 uses lighter sizing",
+        "pass": true,
+        "fontSize": "32px",
+        "lineHeight": "37.76px"
+      }
+    ]
+  },
+  "tablet": {
+    "url": "https://7a04371b.fitclo-v2.pages.dev/ready-to-ship/",
+    "width": 768,
+    "results": [
+      {
+        "name": "Toolbar starts in document flow",
+        "pass": true
+      },
+      {
+        "name": "Sticky below actual header",
+        "pass": true,
+        "toolbarTop": 76,
+        "headerBottom": 76
+      },
+      {
+        "name": "Deep search returns visible first result",
+        "pass": true,
+        "resultTop": 236.875,
+        "toolbarHeight": 145,
+        "scrollY": 2150
+      },
+      {
+        "name": "No-results message is visible after deep filtering",
+        "pass": true,
+        "emptyTop": 236.875
+      },
+      {
+        "name": "Clear restores 249 actual products",
+        "pass": true
+      },
+      {
+        "name": "Toolbar leaves viewport after catalog ends",
+        "pass": true,
+        "toolbarBottom": -395.53125
+      },
+      {
+        "name": "No horizontal overflow",
+        "pass": true
+      },
+      {
+        "name": "Only intended H1 uses lighter sizing",
+        "pass": true,
+        "fontSize": "40px",
+        "lineHeight": "47.2px"
+      }
+    ]
+  }
+}

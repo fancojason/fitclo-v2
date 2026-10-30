@@ -1,0 +1,1431 @@
+[
+  {
+    "path": "/",
+    "width": 1440,
+    "headingCount": 145,
+    "changedWeights": 145,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "64px",
+        "weight": 500,
+        "text": "PRIVATE LABEL ACTIVEWEAR MANUFACTURER IN CHINA"
+      },
+      {
+        "size": "12px",
+        "weight": 500,
+        "text": "Inside Our Factory"
+      },
+      {
+        "size": "36px",
+        "weight": 500,
+        "text": "See Your Clothing Being Made — Live."
+      },
+      {
+        "size": "12px",
+        "weight": 500,
+        "text": "Featured Categories"
+      },
+      {
+        "size": "36px",
+        "weight": 500,
+        "text": "Core Collections"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Sports Bra →"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Women Top →"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Tank Top →"
+      }
+    ],
+    "homeHero": {
+      "size": "64px",
+      "weight": "500",
+      "lineHeight": "72.96px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/ready-to-ship/",
+    "width": 1440,
+    "headingCount": 258,
+    "changedWeights": 257,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "58px",
+        "weight": 600,
+        "text": "A practical ready-stock catalog for your next activewear drop."
+      },
+      {
+        "size": "50px",
+        "weight": 500,
+        "text": "Browse styles before you request the current colour and size mix."
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Zip Jacket & Wide-Leg Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Half-Zip Sweatshirt & Wide-Leg Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Layered Tank & Polka-Dot Waistband Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Cross-Halter Tank & Flare Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Contrast-Piping Racerback Tank & Flare Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Wrap Top & Wide-Leg Pants Set"
+      }
+    ],
+    "homeHero": {
+      "size": "58px",
+      "weight": "600",
+      "lineHeight": "66.12px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/products/",
+    "width": 1440,
+    "headingCount": 259,
+    "changedWeights": 259,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "64px",
+        "weight": 600,
+        "text": "Browse activewear styles for your next collection."
+      },
+      {
+        "size": "43px",
+        "weight": 500,
+        "text": "Browse activewear styles."
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Zip Jacket & Wide-Leg Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Half-Zip Sweatshirt & Wide-Leg Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Layered Tank & Polka-Dot Waistband Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Cross-Halter Tank & Flare Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Contrast-Piping Racerback Tank & Flare Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Wrap Top & Wide-Leg Pants Set"
+      }
+    ],
+    "homeHero": {
+      "size": "64px",
+      "weight": "600",
+      "lineHeight": "66.56px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/products/3366/",
+    "width": 1440,
+    "headingCount": 8,
+    "changedWeights": 8,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "48px",
+        "weight": 600,
+        "text": "Scoop-Neck Sports Bra & Leggings Set"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "What this style shows"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "Confirm before purchasing"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "Ready stock, branding and custom development"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Ready-stock inquiry"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Branding on an existing style"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "OEM/ODM version"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "Continue your shortlist"
+      }
+    ],
+    "homeHero": {
+      "size": "48px",
+      "weight": "600",
+      "lineHeight": "48px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/blogs/",
+    "width": 1440,
+    "headingCount": 205,
+    "changedWeights": 205,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "72px",
+        "weight": 600,
+        "text": "B2B GROWTH INSIGHTS."
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Sample Approved, Bulk Failed? 5 Activewear Quality Problems Buyers Can Trac"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "How to Request an Activewear Manufacturing Quote Without a Tech Pack"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Activewear Purchase Order Checklist: What to Confirm Before Bulk Production"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Sports Bra Padding Options: Removable Pads, Sewn-In Pads and Molded Cups"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "French Terry vs Brushed Fleece: Which Fabric Is Better for Hoodies, Joggers"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Private Label Pilates Clothing: A Buyer Guide to Studio Sets, Fit and Sampl"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Flare Yoga Pants Wholesale: Fit, Inseam and Fabric Checks for Buyers"
+      }
+    ],
+    "homeHero": {
+      "size": "72px",
+      "weight": "600",
+      "lineHeight": "72px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/blogs/activewear-quality-inspection-checklist/",
+    "width": 1440,
+    "headingCount": 15,
+    "changedWeights": 15,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "43.2px",
+        "weight": 600,
+        "text": "Activewear Quality Inspection Checklist: AQL, Fit, Fabric and Packaging"
+      },
+      {
+        "size": "23.68px",
+        "weight": 500,
+        "text": "Activewear inspection plan: the checks to agree before bulk"
+      },
+      {
+        "size": "23.68px",
+        "weight": 500,
+        "text": "Start with the approved reference, not with AQL"
+      },
+      {
+        "size": "23.68px",
+        "weight": 500,
+        "text": "Build quality control into four practical stages"
+      },
+      {
+        "size": "23.68px",
+        "weight": 500,
+        "text": "Activewear garment inspection checklist"
+      },
+      {
+        "size": "17.28px",
+        "weight": 500,
+        "text": "Fabric and color"
+      },
+      {
+        "size": "17.28px",
+        "weight": 500,
+        "text": "Measurements and fit"
+      },
+      {
+        "size": "17.28px",
+        "weight": 500,
+        "text": "Workmanship and construction"
+      }
+    ],
+    "homeHero": {
+      "size": "43.2px",
+      "weight": "600",
+      "lineHeight": "49.68px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/activewear-intelligence/",
+    "width": 1440,
+    "headingCount": 32,
+    "changedWeights": 32,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "74.4px",
+        "weight": 600,
+        "text": "Activewear Intelligence"
+      },
+      {
+        "size": "22px",
+        "weight": 500,
+        "text": "Start With The Brand-Building Journey"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "How to Choose the Right Activewear Manufacturer for Your Brand"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "How to Start a Private Label Activewear Brand in 2026"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Activewear Manufacturing Process: From Design to Bulk Production"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Nylon vs Polyester: Which Fabric Is Better for Activewear?"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "OEM vs Private Label Activewear: Complete Guide for Brands"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Buyer Guide"
+      }
+    ],
+    "homeHero": {
+      "size": "74.4px",
+      "weight": "600",
+      "lineHeight": "71.424px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/private-label/",
+    "width": 1440,
+    "headingCount": 22,
+    "changedWeights": 22,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "72px",
+        "weight": 600,
+        "text": "Your Brand,Our Expertise"
+      },
+      {
+        "size": "12px",
+        "weight": 500,
+        "text": "OEM/ODM SOLUTIONS"
+      },
+      {
+        "size": "44px",
+        "weight": 500,
+        "text": "What is Private Label?"
+      },
+      {
+        "size": "12px",
+        "weight": 500,
+        "text": "THE WORKFLOW"
+      },
+      {
+        "size": "44px",
+        "weight": 500,
+        "text": "Our Manufacturing Process"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Consult"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Design"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Sample"
+      }
+    ],
+    "homeHero": {
+      "size": "72px",
+      "weight": "600",
+      "lineHeight": "72px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/oem-activewear-manufacturer/",
+    "width": 1440,
+    "headingCount": 13,
+    "changedWeights": 13,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "70px",
+        "weight": 600,
+        "text": "Move from an approved product brief to an OEM activewear program."
+      },
+      {
+        "size": "47px",
+        "weight": 500,
+        "text": "Start from relevant product references."
+      },
+      {
+        "size": "21px",
+        "weight": 500,
+        "text": "Women's 3 Piece Activewear Set Jacket Leggings Bra"
+      },
+      {
+        "size": "21px",
+        "weight": 500,
+        "text": "Contrast-Trim Halter Capri Leggings Set"
+      },
+      {
+        "size": "21px",
+        "weight": 500,
+        "text": "Seamless Halter Tank & Flare Leggings Set"
+      },
+      {
+        "size": "47px",
+        "weight": 500,
+        "text": "Turn an idea into a workable sourcing brief."
+      },
+      {
+        "size": "44px",
+        "weight": 500,
+        "text": "Choose the direction, then validate it on the right sample."
+      },
+      {
+        "size": "47px",
+        "weight": 500,
+        "text": "Approve the reference before you approve the production route."
+      }
+    ],
+    "homeHero": {
+      "size": "70px",
+      "weight": "600",
+      "lineHeight": "72.8px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/wholesale-to/australia/",
+    "width": 1440,
+    "headingCount": 36,
+    "changedWeights": 36,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "66px",
+        "weight": 600,
+        "text": "Wholesale activewear from China for Australian brands."
+      },
+      {
+        "size": "50px",
+        "weight": 500,
+        "text": "Activewear styles to shape a Australia assortment."
+      },
+      {
+        "size": "17px",
+        "weight": 500,
+        "text": "Women's 3 Piece Activewear Set Jacket Leggings Bra"
+      },
+      {
+        "size": "17px",
+        "weight": 500,
+        "text": "Women's 3/4-Length Wide-Leg Yoga Pants Set"
+      },
+      {
+        "size": "17px",
+        "weight": 500,
+        "text": "Cross-Back Scrunch Leggings Yoga Set"
+      },
+      {
+        "size": "17px",
+        "weight": 500,
+        "text": "Seamless Halter Tank & Flare Leggings Set"
+      },
+      {
+        "size": "17px",
+        "weight": 500,
+        "text": "Contrast-Trim Halter Capri Leggings Set"
+      },
+      {
+        "size": "17px",
+        "weight": 500,
+        "text": "Capri Workout Set"
+      }
+    ],
+    "homeHero": {
+      "size": "66px",
+      "weight": "600",
+      "lineHeight": "67.32px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/es/",
+    "width": 1440,
+    "headingCount": 145,
+    "changedWeights": 145,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "64px",
+        "weight": 500,
+        "text": "FABRICANTE DE ROPA DEPORTIVA DE MARCA PRIVADA EN CHINA"
+      },
+      {
+        "size": "12px",
+        "weight": 500,
+        "text": "Dentro de nuestra fábrica"
+      },
+      {
+        "size": "36px",
+        "weight": 500,
+        "text": "Mira cómo se fabrica tu colección — en directo."
+      },
+      {
+        "size": "12px",
+        "weight": 500,
+        "text": "Categorías destacadas"
+      },
+      {
+        "size": "36px",
+        "weight": 500,
+        "text": "Colecciones principales"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Sujetadores deportivos →"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Tops para mujer →"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Camisetas sin mangas →"
+      }
+    ],
+    "homeHero": {
+      "size": "64px",
+      "weight": "500",
+      "lineHeight": "72.96px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/es/contact/#inquiry"
+    }
+  },
+  {
+    "path": "/es/guias/",
+    "width": 1440,
+    "headingCount": 7,
+    "changedWeights": 7,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "60px",
+        "weight": 600,
+        "text": "Guías para comprar y fabricar ropa deportiva"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Qué cantidad mínima corresponde a mi selección?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Partir de un modelo existente o desarrollar uno propio?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Qué información necesita una cotización comparable?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Cómo pasar del brief a una muestra aprobada?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Por qué la producción puede diferir de la muestra?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "Continúa con la ruta de compra adecuada"
+      }
+    ],
+    "homeHero": {
+      "size": "60px",
+      "weight": "600",
+      "lineHeight": "60px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/es/contact/#inquiry"
+    }
+  },
+  {
+    "path": "/de/",
+    "width": 1440,
+    "headingCount": 7,
+    "changedWeights": 7,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "60px",
+        "weight": 600,
+        "text": "Sportbekleidung für Ihre Marke beschaffen"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "Beschaffung mit Fitclo"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Verfügbare Modelle für den Großhandel"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Private Label auf bestehenden Styles"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "OEM/ODM für eigene Entwürfe"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "So bereiten wir Ihr Projekt vor"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "Häufige Fragen"
+      }
+    ],
+    "homeHero": {
+      "size": "60px",
+      "weight": "600",
+      "lineHeight": "60px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/de/contact/"
+    }
+  },
+  {
+    "path": "/pt-br/",
+    "width": 1440,
+    "headingCount": 7,
+    "changedWeights": 7,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "60px",
+        "weight": 600,
+        "text": "Roupas fitness para sua marca"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "Formas de comprar"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Roupas fitness no atacado"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Marca própria em modelos existentes"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Desenvolvimento OEM/ODM"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "Como preparar sua compra"
+      },
+      {
+        "size": "30px",
+        "weight": 500,
+        "text": "Perguntas frequentes"
+      }
+    ],
+    "homeHero": {
+      "size": "60px",
+      "weight": "600",
+      "lineHeight": "60px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/pt-br/contact/"
+    }
+  },
+  {
+    "path": "/",
+    "width": 390,
+    "headingCount": 145,
+    "changedWeights": 145,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "36px",
+        "weight": 500,
+        "text": "PRIVATE LABEL ACTIVEWEAR MANUFACTURER IN CHINA"
+      },
+      {
+        "size": "11px",
+        "weight": 500,
+        "text": "Inside Our Factory"
+      },
+      {
+        "size": "26px",
+        "weight": 500,
+        "text": "See Your Clothing Being Made — Live."
+      },
+      {
+        "size": "11px",
+        "weight": 500,
+        "text": "Featured Categories"
+      },
+      {
+        "size": "26px",
+        "weight": 500,
+        "text": "Core Collections"
+      },
+      {
+        "size": "15px",
+        "weight": 500,
+        "text": "Sports Bra →"
+      },
+      {
+        "size": "15px",
+        "weight": 500,
+        "text": "Women Top →"
+      },
+      {
+        "size": "15px",
+        "weight": 500,
+        "text": "Tank Top →"
+      }
+    ],
+    "homeHero": {
+      "size": "36px",
+      "weight": "500",
+      "lineHeight": "41.04px"
+    },
+    "quote": {
+      "size": "15px",
+      "height": 0,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/ready-to-ship/",
+    "width": 390,
+    "headingCount": 258,
+    "changedWeights": 257,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "36px",
+        "weight": 600,
+        "text": "A practical ready-stock catalog for your next activewear drop."
+      },
+      {
+        "size": "34px",
+        "weight": 500,
+        "text": "Browse styles before you request the current colour and size mix."
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Zip Jacket & Wide-Leg Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Half-Zip Sweatshirt & Wide-Leg Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Layered Tank & Polka-Dot Waistband Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Cross-Halter Tank & Flare Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Contrast-Piping Racerback Tank & Flare Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Wrap Top & Wide-Leg Pants Set"
+      }
+    ],
+    "homeHero": {
+      "size": "36px",
+      "weight": "600",
+      "lineHeight": "41.04px"
+    },
+    "quote": {
+      "size": "15px",
+      "height": 0,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/products/",
+    "width": 390,
+    "headingCount": 259,
+    "changedWeights": 259,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "42px",
+        "weight": 600,
+        "text": "Browse activewear styles for your next collection."
+      },
+      {
+        "size": "31px",
+        "weight": 500,
+        "text": "Browse activewear styles."
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Zip Jacket & Wide-Leg Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Half-Zip Sweatshirt & Wide-Leg Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Layered Tank & Polka-Dot Waistband Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Cross-Halter Tank & Flare Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Contrast-Piping Racerback Tank & Flare Pants Set"
+      },
+      {
+        "size": "14px",
+        "weight": 500,
+        "text": "Wrap Top & Wide-Leg Pants Set"
+      }
+    ],
+    "homeHero": {
+      "size": "42px",
+      "weight": "600",
+      "lineHeight": "43.68px"
+    },
+    "quote": {
+      "size": "15px",
+      "height": 0,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/blogs/",
+    "width": 390,
+    "headingCount": 205,
+    "changedWeights": 205,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "48px",
+        "weight": 600,
+        "text": "B2B GROWTH INSIGHTS."
+      },
+      {
+        "size": "19px",
+        "weight": 500,
+        "text": "Sample Approved, Bulk Failed? 5 Activewear Quality Problems Buyers Can Trac"
+      },
+      {
+        "size": "19px",
+        "weight": 500,
+        "text": "How to Request an Activewear Manufacturing Quote Without a Tech Pack"
+      },
+      {
+        "size": "19px",
+        "weight": 500,
+        "text": "Activewear Purchase Order Checklist: What to Confirm Before Bulk Production"
+      },
+      {
+        "size": "19px",
+        "weight": 500,
+        "text": "Sports Bra Padding Options: Removable Pads, Sewn-In Pads and Molded Cups"
+      },
+      {
+        "size": "19px",
+        "weight": 500,
+        "text": "French Terry vs Brushed Fleece: Which Fabric Is Better for Hoodies, Joggers"
+      },
+      {
+        "size": "19px",
+        "weight": 500,
+        "text": "Private Label Pilates Clothing: A Buyer Guide to Studio Sets, Fit and Sampl"
+      },
+      {
+        "size": "19px",
+        "weight": 500,
+        "text": "Flare Yoga Pants Wholesale: Fit, Inseam and Fabric Checks for Buyers"
+      }
+    ],
+    "homeHero": {
+      "size": "48px",
+      "weight": "600",
+      "lineHeight": "48px"
+    },
+    "quote": {
+      "size": "15px",
+      "height": 0,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/activewear-intelligence/",
+    "width": 390,
+    "headingCount": 32,
+    "changedWeights": 32,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "40.8px",
+        "weight": 600,
+        "text": "Activewear Intelligence"
+      },
+      {
+        "size": "22px",
+        "weight": 500,
+        "text": "Start With The Brand-Building Journey"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "How to Choose the Right Activewear Manufacturer for Your Brand"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "How to Start a Private Label Activewear Brand in 2026"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Activewear Manufacturing Process: From Design to Bulk Production"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Nylon vs Polyester: Which Fabric Is Better for Activewear?"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "OEM vs Private Label Activewear: Complete Guide for Brands"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Buyer Guide"
+      }
+    ],
+    "homeHero": {
+      "size": "40.8px",
+      "weight": "600",
+      "lineHeight": "39.168px"
+    },
+    "quote": {
+      "size": "15px",
+      "height": 0,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/es/guias/",
+    "width": 390,
+    "headingCount": 7,
+    "changedWeights": 7,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "36px",
+        "weight": 600,
+        "text": "Guías para comprar y fabricar ropa deportiva"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Qué cantidad mínima corresponde a mi selección?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Partir de un modelo existente o desarrollar uno propio?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Qué información necesita una cotización comparable?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Cómo pasar del brief a una muestra aprobada?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "¿Por qué la producción puede diferir de la muestra?"
+      },
+      {
+        "size": "24px",
+        "weight": 500,
+        "text": "Continúa con la ruta de compra adecuada"
+      }
+    ],
+    "homeHero": {
+      "size": "36px",
+      "weight": "600",
+      "lineHeight": "45px"
+    },
+    "quote": {
+      "size": "15px",
+      "height": 0,
+      "weight": "500",
+      "href": "/es/contact/#inquiry"
+    }
+  },
+  {
+    "path": "/",
+    "width": 1440,
+    "headingCount": 149,
+    "changedWeights": 149,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "64px",
+        "weight": 500,
+        "text": "PRIVATE LABEL ACTIVEWEAR MANUFACTURER IN CHINA"
+      },
+      {
+        "size": "12px",
+        "weight": 500,
+        "text": "Inside Our Factory"
+      },
+      {
+        "size": "36px",
+        "weight": 500,
+        "text": "See Your Clothing Being Made — Live."
+      },
+      {
+        "size": "12px",
+        "weight": 500,
+        "text": "Featured Categories"
+      },
+      {
+        "size": "36px",
+        "weight": 500,
+        "text": "Core Collections"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Sports Bra →"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Women Top →"
+      },
+      {
+        "size": "16px",
+        "weight": 500,
+        "text": "Tank Top →"
+      }
+    ],
+    "homeHero": {
+      "size": "64px",
+      "weight": "500",
+      "lineHeight": "72.96px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/ready-to-ship/",
+    "width": 1440,
+    "headingCount": 262,
+    "changedWeights": 261,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "58px",
+        "weight": 600,
+        "text": "A practical ready-stock catalog for your next activewear drop."
+      },
+      {
+        "size": "50px",
+        "weight": 500,
+        "text": "Browse styles before you request the current colour and size mix."
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Zip Jacket & Wide-Leg Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Half-Zip Sweatshirt & Wide-Leg Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Layered Tank & Polka-Dot Waistband Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Cross-Halter Tank & Flare Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Contrast-Piping Racerback Tank & Flare Pants Set"
+      },
+      {
+        "size": "18px",
+        "weight": 500,
+        "text": "Wrap Top & Wide-Leg Pants Set"
+      }
+    ],
+    "homeHero": {
+      "size": "58px",
+      "weight": "600",
+      "lineHeight": "66.12px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  },
+  {
+    "path": "/blogs/",
+    "width": 1440,
+    "headingCount": 209,
+    "changedWeights": 209,
+    "sizeChanges": [],
+    "heavyAfter": [],
+    "overflowBefore": false,
+    "overflowAfter": false,
+    "sample": [
+      {
+        "size": "72px",
+        "weight": 600,
+        "text": "B2B GROWTH INSIGHTS."
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Sample Approved, Bulk Failed? 5 Activewear Quality Problems Buyers Can Trac"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "How to Request an Activewear Manufacturing Quote Without a Tech Pack"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Activewear Purchase Order Checklist: What to Confirm Before Bulk Production"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Sports Bra Padding Options: Removable Pads, Sewn-In Pads and Molded Cups"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "French Terry vs Brushed Fleece: Which Fabric Is Better for Hoodies, Joggers"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Private Label Pilates Clothing: A Buyer Guide to Studio Sets, Fit and Sampl"
+      },
+      {
+        "size": "20px",
+        "weight": 500,
+        "text": "Flare Yoga Pants Wholesale: Fit, Inseam and Fabric Checks for Buyers"
+      }
+    ],
+    "homeHero": {
+      "size": "72px",
+      "weight": "600",
+      "lineHeight": "72px"
+    },
+    "quote": {
+      "size": "13px",
+      "height": 42,
+      "weight": "500",
+      "href": "/inquiry/"
+    }
+  }
+]

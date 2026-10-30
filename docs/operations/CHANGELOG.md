@@ -43,3 +43,52 @@
 - 发现：对应西语静态页旧资源引用缺失；正式 Capri 西语旧 CSS/JS 返回404；Capri图库切换ALT缩短；报价表单默认Sample；Product富结果资格缺少经核实的报价/评价数据。
 - 待审批：优先修复目标西语资源引用和构建资源检查，再同步处理Capri图库；MOQ/OEM单位与时间含义需商业确认。
 - 未执行：生产页面修改、部署、GSC/Bing/IndexNow提交。受保护商业内容、图片、URL、Title/H1及schema事实保留。无真实WhatsApp消息或表单测试询盘。
+
+## 2026-10-29 — Poppins + DM Sans 本地字体预览
+
+- 状态：仅开发与预览，未部署生产、未推送或合并生产分支。
+- 完成：Poppins 导航/标题/按钮，DM Sans 正文/FAQ/参数；保留 15px/500 自然大小写导航；本机 Original / New 对比控制。
+- 预览：http://127.0.0.1:4331/?font=new
+- 报告：docs/operations/2026-10-29-poppins-dm-sans-preview.md
+- 检查：构建、代表页面响应式、五语字形覆盖、本地 HTTP 与资源检查；GSC/Bing/sitemap/IndexNow 均未执行。
+- 后续：等待用户明确确认后再讨论正式接入与部署。
+
+## 2026-10-29 — 按用户选择恢复纯 Poppins 预览
+用户拒绝 DM Sans 组合，当前预览恢复纯 Poppins：导航 15px/500、自然大小写；恢复上一版 14px 产品卡标题、16px 指南正文等排版。关闭 DM 版比较控制，已验证页面没有 DM Sans 请求，桌面及 390px 手机无横向溢出。未部署生产。当前地址：http://127.0.0.1:4331/?version=poppins 。DM 方案仅作为历史记录保留。
+
+
+## 2026-10-29 — 纯 Poppins 全站字号角色审计与修复（仅预览）
+
+- 盘点 972 个 HTML；发现通用 H2 字号覆盖 612 个博客卡标题及 21 个知识分类卡标题的风险。
+- 按组件职责修复：知识分类 16px、博客卡 20/18px、知识区块 22–26px、文章标题 28–36px；保留 15px/500 自然大小写导航。
+- 修复长组合型号在卡片中的换行；不改型号、图片、文案、路由或复制逻辑。
+- 80 个代表页面与视口组合最终通过容器边界和排版检查；未新增字体，未加载 DM Sans。
+- 报告：docs/operations/2026-10-29-poppins-typography-role-audit.md
+- 预览：http://127.0.0.1:4331/activewear-intelligence/?review=type-audit
+- 未生产部署，未推送 main，未执行 GSC/Bing/sitemap/IndexNow 提交。
+`n2026-10-29：当前预览改为保留原站字号，仅替换 Poppins；导航为 15px/500 自然大小写。55 组比较中导航以外字号变化为 0。报告：docs/operations/2026-10-29-poppins-original-size-preview.md。仅本地预览，未部署。
+
+
+## 2026-10-29 Ready to Ship 局部优化（仅预览，未上线）
+
+修复 hidden/flex 筛选冲突，移除英文 MOQ 筛选，加入 Compact Browse；保留 249 款产品及原始数据。组合已选 Poppins 原字号字体方案。Cloudflare preview 部署 240781c3 成功，手机/平板/桌面回归通过；未部署生产，未提交 GSC/Bing/IndexNow。报告：2026-10-29-ready-stock-compact-preview.md。预览：https://240781c3.fitclo-v2.pages.dev/ready-to-ship/ 。等待用户确认。
+
+
+## 2026-10-30 Ready to Ship 吸顶筛选与 H1（仅预览，未上线）
+
+目录内吸顶、手机紧凑搜索及 Filters 展开、深处筛选返回结果顶部；修复手机展开后的滚动锚点遮挡。仅该页 H1 调整为32/40/50px、600字重、1.18行高。367页构建通过，最新HTTPS预览390/768/1440px验证通过。预览别名不变，最新固定版本7a04371b，生产未部署、GSC/Bing/IndexNow未执行。报告：2026-10-30-ready-stock-sticky-preview.md。
+
+
+## 2026-10-30 Ready to Ship H1 放大、不加粗（仅预览）
+
+按用户反馈将H1调整为Poppins 36/44/52/58px、保持600字重、1.14行高，仅一行class改动。桌面1440px标题文字右边缘比说明多45.84px；手机320/390px无横向溢出，367页构建通过。预览别名不变，固定版本54fc395d；生产未部署。详见2026-10-30-ready-stock-hero-larger-poppins.md。
+
+
+## 2026-10-30 Poppins全站字重与导航询盘按钮（仅预览）
+
+保留已确认字号，主标题600、区块/产品名500；英文首页标语500并放松行距。导航CTA调整为13px/500、42px高和细边框。静态扫972个HTML，14代表路由23浏览器样本2685标题对比无字号变化或新增横向溢出。构建367页通过；预览b08de27b成功、别名不变；生产未部署，GSC/Bing/IndexNow未提交。报告：2026-10-30-poppins-weight-refinement.md。
+
+
+## 2026-10-30 Poppins两版之间的中间值（仅预览）
+
+按用户反馈将区块标题、卡片和产品名由500调至600；首页标语600，行高1.095、字距-.03em，取旧版与轻版之间；Ready to Ship目录标题行高1.15；导航询盘按钮14px/500。其余字号、图片、文案、功能不变。静态CSS改动，复用上一轮已通过构建的HTML；HTTP/字体资源检查通过，桌面首页/目录/博客和390px手机无横向溢出。实现提交3753ccf，仍仅非生产预览，待用户确认。

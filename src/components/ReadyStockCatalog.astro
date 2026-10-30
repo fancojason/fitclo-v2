@@ -44,7 +44,7 @@ const copy = isSpanish ? {
 };
 ---
 
-<section id="ready-stock-catalog" class="bg-[#090909] py-16 text-white md:py-24" data-ready-stock-root>
+<section id="ready-stock-catalog" class="bg-[#090909] py-16 text-white md:py-24" data-ready-stock-root data-ready-enhanced={!isSpanish ? "true" : undefined}>
   <div class="mx-auto max-w-[1320px] px-6 lg:px-10">
     <div class="grid gap-8 border-b border-white/15 pb-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
       <div>
@@ -58,12 +58,17 @@ const copy = isSpanish ? {
     {!isSpanish && <nav aria-label="Shop ready-stock categories" class="mt-8 flex flex-wrap gap-3">
       {[['matching-sets', 'Matching sets'], ['sports-bras', 'Sports bras'], ['leggings', 'Leggings'], ['training-pants', 'Training pants']].map(([value, label]) => <button type="button" data-ready-quick={value} aria-pressed="false" class="rounded-full border border-white/30 px-5 py-3 text-sm font-bold text-[#d8b456] aria-pressed:bg-[#d8b456] aria-pressed:text-black">{label}</button>)}
     </nav>}
-    <div class="mt-9 grid gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(180px,.6fr)_minmax(180px,.6fr)_auto]">
+    <div class:list={["mt-9 grid gap-4", isSpanish ? "lg:grid-cols-[minmax(0,1.4fr)_minmax(180px,.6fr)_minmax(180px,.6fr)_auto]" : "ready-toolbar"]}>
       <label class="relative block">
         <span class="sr-only">{copy.search}</span>
         <input type="search" placeholder={copy.searchPlaceholder} class="h-[52px] w-full border border-white/15 bg-[#141414] px-5 pr-12 text-[14px] text-white outline-none transition-colors placeholder:text-white/40 focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-search />
         <span class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[#d8b456]" aria-hidden="true">⌕</span>
       </label>
+      {!isSpanish && <button type="button" class="ready-mobile-toggle" data-ready-filters-toggle aria-expanded="false" aria-controls="ready-filter-options">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="M2 4h12M4 8h8M6 12h4" /></svg>
+        Filters
+      </button>}
+      <div class:list={[isSpanish ? "contents" : "ready-filter-panel"]} id={!isSpanish ? "ready-filter-options" : undefined}>
       <label>
         <span class="sr-only">{copy.categoryFilter}</span>
         <select class="h-[52px] w-full border border-white/15 bg-[#141414] px-4 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-category>
@@ -71,6 +76,7 @@ const copy = isSpanish ? {
           {categories.map((category) => <option value={category.value}>{category.label}</option>)}
         </select>
       </label>
+      {isSpanish && <>
       <label>
         <span class="sr-only">{copy.moqFilter}</span>
         <select class="h-[52px] w-full border border-white/15 bg-[#141414] px-4 text-[14px] text-white outline-none transition-colors focus:border-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-moq>
@@ -79,11 +85,17 @@ const copy = isSpanish ? {
           <option value="pcs">{copy.pcs}</option>
         </select>
       </label>
+      </>}
       <button type="button" class="h-[52px] border border-white/20 px-6 text-[12px] font-bold tracking-[0.08em] text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456] font-['Century_Gothic',sans-serif]" data-ready-clear>{copy.clear}</button>
+      {!isSpanish && <button type="button" data-ready-compact aria-pressed="false" aria-controls="ready-stock-products" class="ready-compact-toggle h-[52px] inline-flex items-center justify-center gap-2 border border-white/20 px-4 text-[12px] font-bold text-white transition-colors hover:border-[#d8b456] hover:text-[#d8b456]">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><rect x="1" y="1" width="5" height="5" rx=".5"/><rect x="10" y="1" width="5" height="5" rx=".5"/><rect x="1" y="10" width="5" height="5" rx=".5"/><rect x="10" y="10" width="5" height="5" rx=".5"/></svg>
+        Compact Browse
+      </button>}
+      </div>
     </div>
 
     <div class="mt-5 flex flex-wrap items-center justify-between gap-4 text-[12px] font-['Century_Gothic',sans-serif]">
-      <p class="text-white/55"><span class="font-bold text-white" data-ready-count>{readyStockCatalog.length}</span> {copy.shown}</p>
+      <p class="text-white/55"><span class="font-bold text-white" data-ready-count aria-live="polite" aria-atomic="true">{readyStockCatalog.length}</span> {copy.shown}</p>
       <div class="flex flex-wrap gap-x-5 gap-y-2 text-white/70">
         <span><span class="mr-1.5 text-[#d8b456]">✓</span>{copy.brandOptions}</span>
         <span><span class="mr-1.5 text-[#d8b456]">✓</span>{copy.sample}</span>
@@ -92,7 +104,7 @@ const copy = isSpanish ? {
     </div>
     <p class="mt-4 text-[12px] leading-5 text-white/55">{isSpanish ? 'Las cantidades de las fichas son referencias por modelo y se confirman con el stock real. El plazo de 2–3 días se refiere al despacho sin personalización, no a la llegada al país de destino.' : `${businessFacts.readyStock.dispatch} The listed 50 pcs or 50 sets on a card is a style-specific reference to confirm, not a live stock guarantee.`}</p>
 
-    <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4" data-ready-grid>
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4" data-ready-grid id="ready-stock-products">
       {readyStockCatalog.map((product) => {
         const categoryLabel = categoryLabels.get(product.category) ?? product.category.replace(/-/g, ' ');
         const displayName = isSpanish ? categoryLabel : product.name;
@@ -108,18 +120,18 @@ const copy = isSpanish ? {
             </div>
             <div class="flex flex-1 flex-col p-5">
               <p class="text-[10px] font-bold tracking-[0.16em] text-[#d8b456] font-['Century_Gothic',sans-serif]">{categoryLabel.toUpperCase()}</p>
-              <h3 class="mt-3 break-words [overflow-wrap:anywhere] text-center text-[18px] font-bold leading-[1.3] text-white font-['Century_Gothic',sans-serif]">{displayName}</h3>
+              <h3 class="mt-3 break-words [overflow-wrap:anywhere] text-center text-[18px] font-bold leading-[1.3] text-white font-['Century_Gothic',sans-serif]">{!isSpanish && productDetailLinks[product.id] ? <a href={productDetailLinks[product.id]} class="hover:text-[#d8b456] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#d8b456]">{displayName}</a> : displayName}</h3>
               <StyleCodeCopy code={product.styleCode} tone="dark" />
-              <p class="mt-3 line-clamp-3 text-[13px] leading-[1.6] text-white/60 font-['Century_Gothic',sans-serif]">{displayDescription}</p>
-              <div class="mt-5 grid grid-cols-2 gap-x-3 gap-y-3 border-y border-white/10 py-4 text-[11px] font-['Century_Gothic',sans-serif]">
+              <p data-ready-detail class="mt-3 line-clamp-3 text-[13px] leading-[1.6] text-white/60 font-['Century_Gothic',sans-serif]">{displayDescription}</p>
+              <div data-ready-detail class="mt-5 grid grid-cols-2 gap-x-3 gap-y-3 border-y border-white/10 py-4 text-[11px] font-['Century_Gothic',sans-serif]">
                 <div><p class="font-bold tracking-[0.1em] text-[#d8b456]">MOQ</p><p class="mt-1 text-white">{product.moq}</p></div>
                 <div><p class="font-bold tracking-[0.1em] text-[#d8b456]">{copy.sampleLabel}</p><p class="mt-1 text-white">{copy.sampleValue}</p></div>
                 <div class="col-span-2"><p class="font-bold tracking-[0.1em] text-[#d8b456]">{copy.branding}</p><p class="mt-1 text-white/80">{copy.brandingValue}</p></div>
               </div>
-              <p class="mt-4 text-[11px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">{isSpanish ? copy.availabilityNote : product.availabilityNote}.</p>
+              <p data-ready-detail class="mt-4 text-[11px] leading-[1.55] text-white/45 font-['Century_Gothic',sans-serif]">{isSpanish ? copy.availabilityNote : product.availabilityNote}.</p>
               {isSpanish && spanishDetailByCode.get(product.styleCode) && <a href={spanishDetailByCode.get(product.styleCode)} class="mt-4 text-center text-sm font-bold text-[#d8b456] underline">Ver ficha, tejido y tallas</a>}
-              {!isSpanish && productDetailLinks[product.id] && <a href={productDetailLinks[product.id]} class="mt-4 text-center text-sm font-bold text-[#d8b456] underline">View product details</a>}
-              <div class="mt-auto pt-5 text-center">
+              {!isSpanish && productDetailLinks[product.id] && <a data-ready-detail href={productDetailLinks[product.id]} class="mt-4 text-center text-sm font-bold text-[#d8b456] underline">View product details</a>}
+              <div data-ready-detail class="mt-auto pt-5 text-center">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[42px] items-center justify-center rounded-full border border-[#d8b456] px-4 text-center text-[12px] font-bold text-[#d8b456] transition-colors hover:bg-[#d8b456] hover:text-black font-['Century_Gothic',sans-serif]">{copy.check}</a>
               </div>
             </div>
@@ -127,7 +139,7 @@ const copy = isSpanish ? {
         );
       })}
     </div>
-    <p class="mt-10 hidden border-y border-white/15 py-10 text-center text-[15px] text-white/60 font-['Century_Gothic',sans-serif]" data-ready-empty>{copy.noMatch}</p>
+    <p class="mt-10 hidden border-y border-white/15 py-10 text-center text-[15px] text-white/60 font-['Century_Gothic',sans-serif]" data-ready-empty>{copy.noMatch}{!isSpanish && <button type="button" data-ready-clear class="mx-auto mt-4 block border border-[#d8b456] px-5 py-3 font-bold text-[#d8b456]">Clear filters</button>}</p>
   </div>
 </section>
 
@@ -139,12 +151,50 @@ const copy = isSpanish ? {
     const search = root.querySelector<HTMLInputElement>('[data-ready-search]');
     const category = root.querySelector<HTMLSelectElement>('[data-ready-category]');
     const moq = root.querySelector<HTMLSelectElement>('[data-ready-moq]');
-    const clear = root.querySelector<HTMLButtonElement>('[data-ready-clear]');
+    const clearButtons = root.querySelectorAll<HTMLButtonElement>('[data-ready-clear]');
+    const compact = root.querySelector<HTMLButtonElement>('[data-ready-compact]');
+    const enhanced = root.hasAttribute('data-ready-enhanced');
+    const toolbar = root.querySelector<HTMLElement>('.ready-toolbar');
+    const filtersToggle = root.querySelector<HTMLButtonElement>('[data-ready-filters-toggle]');
+    let headerHeight = 0;
+    if (enhanced) {
+      root.dataset.readyInteractive = 'true';
+      const header = document.querySelector('header');
+      const measureHeader = () => {
+        headerHeight = header?.getBoundingClientRect().height ?? 0;
+        root.style.setProperty('--ready-header-offset', `${headerHeight}px`);
+      };
+      measureHeader();
+      if (header) new ResizeObserver(measureHeader).observe(header);
+      filtersToggle?.addEventListener('click', () => {
+        const previousScroll = window.scrollY;
+        const pinned = toolbar && toolbar.getBoundingClientRect().top <= headerHeight + 1;
+        const expanded = filtersToggle.getAttribute('aria-expanded') !== 'true';
+        filtersToggle.setAttribute('aria-expanded', String(expanded));
+        root.classList.toggle('filters-open', expanded);
+        // Keep the reading position as the panel changes height; do not anchor behind it.
+        if (pinned) requestAnimationFrame(() => window.scrollTo({ top: previousScroll, behavior: 'instant' as ScrollBehavior }));
+      });
+      toolbar?.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && filtersToggle?.getAttribute('aria-expanded') === 'true') {
+          filtersToggle.setAttribute('aria-expanded', 'false');
+          root.classList.remove('filters-open');
+          filtersToggle.focus();
+        }
+      });
+    }
+    compact?.addEventListener('click', () => {
+      const enabled = compact.getAttribute('aria-pressed') !== 'true';
+      compact.setAttribute('aria-pressed', String(enabled));
+      root.classList.toggle('is-compact', enabled);
+    });
     const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-ready-card]'));
     const count = root.querySelector<HTMLElement>('[data-ready-count]');
     const empty = root.querySelector<HTMLElement>('[data-ready-empty]');
 
-    const update = () => {
+    const update = (userAction = false) => {
+      // Capture position before hiding cards, so browser scroll anchoring cannot lose the intent.
+      const returnToResults = userAction && enhanced && toolbar && toolbar.getBoundingClientRect().top <= headerHeight + 1;
       const query = normalize(search?.value ?? '');
       const selectedCategory = category?.value ?? 'all';
       const selectedMoq = moq?.value ?? 'all';
@@ -153,30 +203,74 @@ const copy = isSpanish ? {
       cards.forEach((card) => {
         const matches = (selectedCategory === 'all' || card.dataset.category === selectedCategory)
           && (selectedMoq === 'all' || card.dataset.moq === selectedMoq)
-          && (!query || (card.dataset.search ?? '').includes(query));
+          && (!query || normalize(card.dataset.search ?? '').includes(query));
         card.hidden = !matches;
         if (matches) visible += 1;
       });
       if (count) count.textContent = String(visible);
       empty?.classList.toggle('hidden', visible !== 0);
+      if (returnToResults) {
+        const result = visible ? root.querySelector<HTMLElement>('[data-ready-grid]') : empty;
+        if (result) window.scrollTo({ top: Math.max(0, result.getBoundingClientRect().top + window.scrollY - headerHeight - toolbar.getBoundingClientRect().height - 16), behavior: 'instant' as ScrollBehavior });
+      }
     };
 
     root.querySelectorAll<HTMLButtonElement>('[data-ready-quick]').forEach((button) => button.addEventListener('click', () => {
       if (category) category.value = button.dataset.readyQuick ?? 'all';
-      if (search) search.value = '';
       if (moq) moq.value = 'all';
-      update();
+      update(true);
       trackInquiryEvent('catalog_filter_use', { source_component: 'ReadyStockCatalog', filter_type: 'quick_category' });
     }));
-    search?.addEventListener('input', update);
+    search?.addEventListener('input', () => update(true));
     search?.addEventListener('change', () => trackInquiryEvent('catalog_search', { source_component: 'ReadyStockCatalog', has_query: String(Boolean(search.value.trim())) }));
-    category?.addEventListener('change', () => { update(); trackInquiryEvent('catalog_filter_use', { source_component: 'ReadyStockCatalog', filter_type: 'category' }); });
-    moq?.addEventListener('change', () => { update(); trackInquiryEvent('catalog_filter_use', { source_component: 'ReadyStockCatalog', filter_type: 'moq_unit' }); });
-    clear?.addEventListener('click', () => {
+    category?.addEventListener('change', () => { update(true); trackInquiryEvent('catalog_filter_use', { source_component: 'ReadyStockCatalog', filter_type: 'category' }); });
+    moq?.addEventListener('change', () => { update(true); trackInquiryEvent('catalog_filter_use', { source_component: 'ReadyStockCatalog', filter_type: 'moq_unit' }); });
+    clearButtons.forEach((clear) => clear.addEventListener('click', () => {
       if (search) search.value = '';
       if (category) category.value = 'all';
       if (moq) moq.value = 'all';
-      update();
-    });
+      update(true);
+    }));
+    update();
   });
 </script>
+
+<style>
+  /* Explicitly outrank the card's display:flex utility when filtering. */
+  [data-ready-stock-root] [data-ready-card][hidden] { display: none !important; }
+  [data-ready-enhanced] { overflow-anchor: none; }
+  [data-ready-enhanced] .ready-toolbar {
+    grid-template-columns: minmax(0,1fr);
+    position: sticky; top: var(--ready-header-offset, 76px); z-index: 30;
+    padding-block: 12px; background: #090909; border-bottom: 1px solid #ffffff20;
+  }
+  .ready-filter-panel { display: contents; }
+  .ready-mobile-toggle { display: none; }
+  [data-ready-enhanced] .ready-toolbar button { font-weight: 500; letter-spacing: 0; }
+  [data-ready-enhanced] .ready-toolbar { isolation: isolate; }
+  [data-ready-enhanced] .ready-toolbar > * { min-width: 0; }
+  [data-ready-enhanced] .ready-toolbar :is(button,input,select):focus-visible,
+  [data-ready-enhanced] [data-ready-clear]:focus-visible { outline: 2px solid #d8b456; outline-offset: 3px; }
+  [data-ready-enhanced] .ready-compact-toggle[aria-pressed="true"] { background:#d8b456; border-color:#d8b456; color:#090909; }
+  [data-ready-enhanced].is-compact [data-ready-detail] { display:none; }
+  @media(min-width:480px) { [data-ready-enhanced] .ready-toolbar { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } }
+  @media(min-width:1024px) { [data-ready-enhanced] .ready-toolbar { grid-template-columns: minmax(0,1fr) minmax(175px,.5fr) auto auto; } }
+</style>
+
+<style>
+  @media (max-width:767px) {
+    [data-ready-enhanced][data-ready-interactive] .ready-toolbar { grid-template-columns: minmax(0,1fr) 96px; gap: 10px; }
+    [data-ready-enhanced][data-ready-interactive] .ready-mobile-toggle {
+      display: inline-flex; align-items:center; justify-content:center; gap:6px;
+      min-height:48px; border:1px solid #ffffff30; color:#fff; background:#141414; font-size:13px;
+    }
+    [data-ready-enhanced][data-ready-interactive] .ready-filter-panel { display:none; grid-column:1 / -1; }
+    [data-ready-enhanced][data-ready-interactive].filters-open .ready-filter-panel { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px; }
+    [data-ready-enhanced] .ready-filter-panel > label { grid-column:1 / -1; }
+    [data-ready-enhanced] .ready-toolbar :is(input,select,button) { height:48px; min-width:0; }
+    [data-ready-enhanced] .ready-toolbar input { padding-left:12px; padding-right:32px; }
+    [data-ready-enhanced] .ready-toolbar label > span[aria-hidden] { right:12px; }
+    [data-ready-enhanced] .ready-filter-panel button { padding-inline:10px; }
+    [data-ready-enhanced] .ready-mobile-toggle[aria-expanded="true"] { border-color:#d8b456; color:#d8b456; }
+  }
+</style>

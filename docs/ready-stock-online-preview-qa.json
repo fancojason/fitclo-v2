@@ -1,0 +1,380 @@
+{
+  "mobile": {
+    "url": "https://240781c3.fitclo-v2.pages.dev/ready-to-ship/",
+    "viewport": 390,
+    "total": 249,
+    "results": [
+      {
+        "name": "Search: 24321+24322",
+        "pass": true,
+        "count": 1
+      },
+      {
+        "name": "Search: 24321",
+        "pass": true,
+        "count": 1
+      },
+      {
+        "name": "Search:   bX6147  ",
+        "pass": true,
+        "count": 1
+      },
+      {
+        "name": "Search: leggings",
+        "pass": true,
+        "count": 77
+      },
+      {
+        "name": "Matching Sets dropdown",
+        "pass": true,
+        "count": 176
+      },
+      {
+        "name": "Keyword AND category",
+        "pass": true,
+        "count": 64
+      },
+      {
+        "name": "Mode retains filters",
+        "pass": true,
+        "count": 64
+      },
+      {
+        "name": "Compact hides details and shortens card",
+        "pass": true
+      },
+      {
+        "name": "Clear restores full original order",
+        "pass": true,
+        "count": 249
+      },
+      {
+        "name": "Clear retains mode",
+        "pass": true
+      },
+      {
+        "name": "Detailed content restored",
+        "pass": true
+      },
+      {
+        "name": "Quick category: matching-sets",
+        "pass": true,
+        "count": 176
+      },
+      {
+        "name": "Quick category sync: matching-sets",
+        "pass": true
+      },
+      {
+        "name": "Quick category: sports-bras",
+        "pass": true,
+        "count": 11
+      },
+      {
+        "name": "Quick category sync: sports-bras",
+        "pass": true
+      },
+      {
+        "name": "Quick category: leggings",
+        "pass": true,
+        "count": 13
+      },
+      {
+        "name": "Quick category sync: leggings",
+        "pass": true
+      },
+      {
+        "name": "Quick category: training-pants",
+        "pass": true,
+        "count": 6
+      },
+      {
+        "name": "Quick category sync: training-pants",
+        "pass": true
+      },
+      {
+        "name": "No matches",
+        "pass": true,
+        "count": 0
+      },
+      {
+        "name": "Empty state visible",
+        "pass": true
+      },
+      {
+        "name": "Empty state clear action",
+        "pass": true,
+        "count": 249
+      },
+      {
+        "name": "No MOQ control",
+        "pass": true
+      },
+      {
+        "name": "Product-specific WhatsApp links retained",
+        "pass": true
+      },
+      {
+        "name": "Existing detail destinations accessible",
+        "pass": true,
+        "destinations": 49
+      },
+      {
+        "name": "No horizontal viewport overflow",
+        "pass": true
+      }
+    ]
+  },
+  "tablet": {
+    "url": "https://240781c3.fitclo-v2.pages.dev/ready-to-ship/",
+    "viewport": 768,
+    "total": 249,
+    "results": [
+      {
+        "name": "Search: 24321+24322",
+        "pass": true,
+        "count": 1
+      },
+      {
+        "name": "Search: 24321",
+        "pass": true,
+        "count": 1
+      },
+      {
+        "name": "Search:   bX6147  ",
+        "pass": true,
+        "count": 1
+      },
+      {
+        "name": "Search: leggings",
+        "pass": true,
+        "count": 77
+      },
+      {
+        "name": "Matching Sets dropdown",
+        "pass": true,
+        "count": 176
+      },
+      {
+        "name": "Keyword AND category",
+        "pass": true,
+        "count": 64
+      },
+      {
+        "name": "Mode retains filters",
+        "pass": true,
+        "count": 64
+      },
+      {
+        "name": "Compact hides details and shortens card",
+        "pass": true
+      },
+      {
+        "name": "Clear restores full original order",
+        "pass": true,
+        "count": 249
+      },
+      {
+        "name": "Clear retains mode",
+        "pass": true
+      },
+      {
+        "name": "Detailed content restored",
+        "pass": true
+      },
+      {
+        "name": "Quick category: matching-sets",
+        "pass": true,
+        "count": 176
+      },
+      {
+        "name": "Quick category sync: matching-sets",
+        "pass": true
+      },
+      {
+        "name": "Quick category: sports-bras",
+        "pass": true,
+        "count": 11
+      },
+      {
+        "name": "Quick category sync: sports-bras",
+        "pass": true
+      },
+      {
+        "name": "Quick category: leggings",
+        "pass": true,
+        "count": 13
+      },
+      {
+        "name": "Quick category sync: leggings",
+        "pass": true
+      },
+      {
+        "name": "Quick category: training-pants",
+        "pass": true,
+        "count": 6
+      },
+      {
+        "name": "Quick category sync: training-pants",
+        "pass": true
+      },
+      {
+        "name": "No matches",
+        "pass": true,
+        "count": 0
+      },
+      {
+        "name": "Empty state visible",
+        "pass": true
+      },
+      {
+        "name": "Empty state clear action",
+        "pass": true,
+        "count": 249
+      },
+      {
+        "name": "No MOQ control",
+        "pass": true
+      },
+      {
+        "name": "Product-specific WhatsApp links retained",
+        "pass": true
+      },
+      {
+        "name": "Existing detail destinations accessible",
+        "pass": true,
+        "destinations": 49
+      },
+      {
+        "name": "No horizontal viewport overflow",
+        "pass": true
+      }
+    ]
+  },
+  "desktop": {
+    "url": "https://240781c3.fitclo-v2.pages.dev/ready-to-ship/",
+    "viewport": 1440,
+    "total": 249,
+    "results": [
+      {
+        "name": "Search: 24321+24322",
+        "pass": true,
+        "count": 1
+      },
+      {
+        "name": "Search: 24321",
+        "pass": true,
+        "count": 1
+      },
+      {
+        "name": "Search:   bX6147  ",
+        "pass": true,
+        "count": 1
+      },
+      {
+        "name": "Search: leggings",
+        "pass": true,
+        "count": 77
+      },
+      {
+        "name": "Matching Sets dropdown",
+        "pass": true,
+        "count": 176
+      },
+      {
+        "name": "Keyword AND category",
+        "pass": true,
+        "count": 64
+      },
+      {
+        "name": "Mode retains filters",
+        "pass": true,
+        "count": 64
+      },
+      {
+        "name": "Compact hides details and shortens card",
+        "pass": true
+      },
+      {
+        "name": "Clear restores full original order",
+        "pass": true,
+        "count": 249
+      },
+      {
+        "name": "Clear retains mode",
+        "pass": true
+      },
+      {
+        "name": "Detailed content restored",
+        "pass": true
+      },
+      {
+        "name": "Quick category: matching-sets",
+        "pass": true,
+        "count": 176
+      },
+      {
+        "name": "Quick category sync: matching-sets",
+        "pass": true
+      },
+      {
+        "name": "Quick category: sports-bras",
+        "pass": true,
+        "count": 11
+      },
+      {
+        "name": "Quick category sync: sports-bras",
+        "pass": true
+      },
+      {
+        "name": "Quick category: leggings",
+        "pass": true,
+        "count": 13
+      },
+      {
+        "name": "Quick category sync: leggings",
+        "pass": true
+      },
+      {
+        "name": "Quick category: training-pants",
+        "pass": true,
+        "count": 6
+      },
+      {
+        "name": "Quick category sync: training-pants",
+        "pass": true
+      },
+      {
+        "name": "No matches",
+        "pass": true,
+        "count": 0
+      },
+      {
+        "name": "Empty state visible",
+        "pass": true
+      },
+      {
+        "name": "Empty state clear action",
+        "pass": true,
+        "count": 249
+      },
+      {
+        "name": "No MOQ control",
+        "pass": true
+      },
+      {
+        "name": "Product-specific WhatsApp links retained",
+        "pass": true
+      },
+      {
+        "name": "Existing detail destinations accessible",
+        "pass": true,
+        "destinations": 49
+      },
+      {
+        "name": "No horizontal viewport overflow",
+        "pass": true
+      }
+    ]
+  }
+}

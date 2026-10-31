@@ -69,3 +69,15 @@
 3. P2 若About获独立发布批准，记录上线基线并在2–4周观察该页真实引荐、WhatsApp点击、表单成功和销售确认线索；30天复测同题，不保证流量增长。
 
 仍需老板的最少资料：法律主体/品牌关系与公开许可；实际控制的企业主页/目录URL（没有可明确说没有）；拟继续强化声明的可核验证据。无需银行账户资料。无新增收费。生产未修改。
+
+## 远程Preview验收补记（2026-10-31）
+
+- 运行代码 commit：541228e81e2da2266cb36dd2610fa4421edd47a7；Draft PR https://github.com/fancojason/fitclo-v2/pull/8。
+- Cloudflare Preview deployment：30777dcf-9250-4666-bd90-206aa212b2e6；API确认build/deploy success、来源分支及完整SHA一致。
+- 审阅地址：https://30777dcf.fitclo-v2.pages.dev/about/#fitclo-supplier-profile 。
+- 远程30份核心HTML及11份直接CSS/JS资源全部200，MIME正确，canonical核对通过；目标About额外核对2 CSS/1 JS均200，8条新内部链接200，无坏图。
+- 真实浏览器1440及390截图已人工检查，scrollWidth分别1440/390，无横向溢出；手机原生点击新Contact链接成功进入/contact/并保留原表单；未提交询盘。WhatsApp href号码/预填内容沿用原helper，未发送消息。About浏览器console无error/warn。
+- 资源结果见 task05d-preview-http.json，部署/生产独立证据见 task05d-preview.json。截图临时文件 fitclo-05d-preview-desktop.png / fitclo-05d-preview-mobile.png 已查看。
+- 再fetch origin/main仍为0c931c0ae4abc1372afda392b14fd1137fa484fe；PR4/5均OPEN Draft未操作；生产API仍46eb031f成功。正式/about/普通GET200且无新增区块；一次带task05d查询串的命令行请求403，未绕过防护，不据此推断网站停机。
+- 仅把远程验收补记推到独立分支，未合并/未部署生产。补记只增文档，不改变已验运行代码；可使用上述不可变Preview复核，不把后来文档Preview自动视为已验。
+- 本轮没有调用GSC/Bing/IndexNow提交；没有新增页面、URL或Schema。未取得新的AI推荐/合格询盘证据。现有DE资源警告与既有翻译/缩略图待办未修复，不声称全站零问题。

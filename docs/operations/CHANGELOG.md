@@ -1,5 +1,22 @@
 # Fitclo 运营变更日志
 
+## 2026-10-31 — PR7生产验收通过；PR6独立发布整合中
+
+- PR7生产main b1ae8e188fca9f6f597f750db87d3df5aac26ca0、Cloudflare e8943b11-6b70-4a3a-9101-67418b82c0b6 build/deploy成功；正式EN/DE新鲜HTML无错误品类href，三个目标200，桌面及390布局和原询盘入口核对通过。
+- 构建早期一条子构建canceled信息已检查上下文；后续正式build/deploy完成，生产实物通过。不把合并当成上线证据。
+- PR7自动GSC sitemap工作流已提交；IndexNow工作流成功但0候选，未发URL请求。提交不等于收录。
+- 老板已明确批准PR6在独立闸门通过后生产发布；本次仅合入main保留Header修复，并保留05A/05B全部历史记录。当前仍待最终集成测试、Preview和生产验收；PR4/5不操作。
+
+## 2026-10-31 — 任务05-B：Header品类URL（仅独立分支）
+
+- Preview验收补记：代码fca9f3f9，Draft PR #7；Cloudflare c824f82a build/deploy成功。22品类目标200、55/58锚点存在（3既有缺失）、30HTML/11资源200；桌面原生菜单点击及五语言390通过限定检查。仅既有favicon404单列。证据已保存，未生产部署；本补记不改变运行代码。
+
+- 从最新main98176845建立独立分支；没有携带PR6的私标文案，也不操作PR4/5/6。
+- 修复Header品类拼接并增加精确构建期镜像绑定：仅已知品类的Header href，保留ES特殊映射/fragment/视觉/商业及询盘内容。未批量重建语言页面。
+- Build、16 Node、15核心语言、8 ES产品及重点产品审计通过。972 HTML逐字保护仅636页的25,440处href改变；CSS/执行资源和所有非Header内容不变。
+- 本地22目标200；58锚点55存在，ES Tops三缺失为既有问题；未扩修缩略图/旧静态资源。远程Preview与浏览器验收另补，不能视为正式上线。
+- 证据见[05-B报告](2026-10-31-task05b-header-links.md)及同目录JSON；不推main/不生产部署/不提交搜索平台。
+
 ## 2026-10-31 — 任务05-A V2.0：AI采购发现基线与私标单页（独立分支，未生产）
 
 - 远程验收完成：代码253db542088b9cfeb7fe71a1d71a16d0328ab446，[Draft PR #6](https://github.com/fancojason/fitclo-v2/pull/6)，Preview1a62cbb6-019c-4c25-90f6-ecc2dbc5af0c build/deploy成功；30HTML/11资源200/MIME正确，1440/390、Quote锚点、新内链、WhatsApp参数、SEO均验证。浏览器证据JSON同目录。此补记为文档提交，不改变运行代码或生产。

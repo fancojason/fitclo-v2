@@ -2,6 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Stats from '../components/Stats.astro';
 import InquiryForm from '../components/InquiryForm.astro';
+import { getWhatsAppUrl } from '../lib/whatsapp';
+
+const whatsappUrl = getWhatsAppUrl({ path: '/about/', language: 'en' });
 ---
 
 <BaseLayout
@@ -25,6 +28,29 @@ import InquiryForm from '../components/InquiryForm.astro';
       <p class="text-lg md:text-xl text-white/70 max-w-3xl mx-auto font-['Century_Gothic',sans-serif] leading-relaxed">
         A professional activewear manufacturer and exporter dedicated to quality and innovation.
       </p>
+    </div>
+  </section>
+
+  <section id="fitclo-supplier-profile" aria-labelledby="fitclo-profile-heading" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="fitclo-profile-heading" class="text-3xl font-bold text-black mb-6">Fitclo supplier profile</h2>
+      <p class="text-gray-600 leading-relaxed">Fitclo is a B2B women's activewear supplier based in Guangzhou, China. We work with activewear brands, retailers, wholesalers and startup labels. Our official website is <a href="https://www.fitcloo.com/" class="text-black underline underline-offset-4">www.fitcloo.com</a>.</p>
+      <div class="mt-10 grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Products and buyers</h3>
+          <p class="text-gray-600 leading-relaxed">Explore <a href="/products/leggings/" class="text-black underline underline-offset-4">leggings</a>, <a href="/products/sports-bras/" class="text-black underline underline-offset-4">sports bras</a>, <a href="/products/matching-sets/" class="text-black underline underline-offset-4">matching sets</a>, tops, shorts and other activewear for your retail range or brand collection.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Sourcing routes</h3>
+          <p class="text-gray-600 leading-relaxed">Choose <a href="/ready-to-ship/" class="text-black underline underline-offset-4">ready-stock wholesale</a>, discuss <a href="/private-label/" class="text-black underline underline-offset-4">branding an existing style</a>, or plan <a href="/oem-activewear-manufacturer/" class="text-black underline underline-offset-4">custom OEM/ODM development</a>. Availability and order terms are confirmed for your selected style and requirements.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Official sales contacts</h3>
+          <p class="text-gray-600 leading-relaxed">Guangzhou, China<br /><a href="mailto:sales@fitcloo.com" class="text-black underline underline-offset-4">sales@fitcloo.com</a><br /><a href={whatsappUrl} class="text-black underline underline-offset-4">WhatsApp: +86 171 6083 7538</a></p>
+          <p class="mt-4"><a href="/contact/" class="text-black underline underline-offset-4">Contact Fitclo about your project</a></p>
+        </div>
+      </div>
+      <p class="mt-5 text-gray-600 leading-relaxed"><strong class="text-black">Before confirming an order:</strong> check which company will issue your quotation, contract and payment documentation. Review any required certificate or test report by holder, scope and validity, then confirm the selected product, sample approval and order terms in writing. Use our <a href="/blogs/activewear-supplier-vetting-guide/" class="text-black underline underline-offset-4">supplier vetting guide</a> to prepare your questions.</p>
     </div>
   </section>
 

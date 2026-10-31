@@ -1,0 +1,203 @@
+{
+  "task": "05-D",
+  "date": "2026-10-31",
+  "source_file": "docs/operations/2026-10-31-task05a-ai-question-baseline.json",
+  "source_sha256": "b55b9f7ff465c460da9acdc44964907e7647ec1f3a08b6424fc84820355897da",
+  "questions_rewritten": false,
+  "real_platform_tests": 0,
+  "questions": [
+    {
+      "original_id": 1,
+      "prompt": "Recommend China-based wholesale suppliers of women's activewear for a small US retailer. Compare stock ordering, branding and sampling.",
+      "target_url": "https://www.fitcloo.com/ready-to-ship/",
+      "platform_results": [
+        {
+          "platform": "ChatGPT Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        },
+        {
+          "platform": "Claude Web Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        }
+      ]
+    },
+    {
+      "original_id": 7,
+      "prompt": "For a UK activewear startup, which Chinese suppliers can brand an existing style instead of developing a new pattern?",
+      "target_url": "https://www.fitcloo.com/private-label/",
+      "platform_results": [
+        {
+          "platform": "ChatGPT Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        },
+        {
+          "platform": "Claude Web Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        }
+      ]
+    },
+    {
+      "original_id": 6,
+      "prompt": "Where can I source women's gym wear with my own logo, care labels, hang tags and packaging?",
+      "target_url": "https://www.fitcloo.com/private-label/",
+      "platform_results": [
+        {
+          "platform": "ChatGPT Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        },
+        {
+          "platform": "Claude Web Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        }
+      ]
+    },
+    {
+      "original_id": 5,
+      "prompt": "Recommend private label activewear suppliers in Guangzhou, China, for a new European fitness brand.",
+      "target_url": "https://www.fitcloo.com/private-label/",
+      "platform_results": [
+        {
+          "platform": "ChatGPT Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        },
+        {
+          "platform": "Claude Web Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        }
+      ]
+    },
+    {
+      "original_id": 12,
+      "prompt": "Should a small activewear brand start with ready stock, an existing style with its logo, or full OEM development?",
+      "target_url": "https://www.fitcloo.com/private-label/",
+      "platform_results": [
+        {
+          "platform": "ChatGPT Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        },
+        {
+          "platform": "Claude Web Search",
+          "status": "未直接验证",
+          "actual_test_date": null,
+          "model_or_search_mode": null,
+          "raw_answer": null,
+          "evidence_url_or_file": null,
+          "fitclo_mentioned": null,
+          "fitclo_link": null,
+          "supplier_candidate": null,
+          "fitclo_source_cited": null,
+          "citation_urls": null,
+          "other_suppliers": null,
+          "limitation": "No authorized real platform search session in this conversation; no repeated access investigation or simulated answer."
+        }
+      ]
+    }
+  ],
+  "manual_protocol": [
+    "Use a fresh chat on each real platform; retain visible model and enabled web-search mode.",
+    "Send the exact original question, without mentioning Fitclo in advance.",
+    "Save the complete answer and citations with date and mode.",
+    "Record mention, supplier shortlist, fitcloo link and source citation separately.",
+    "Record other suppliers and all cited URLs; do not interpret one answer as stable ranking."
+  ],
+  "automation_created": false
+}

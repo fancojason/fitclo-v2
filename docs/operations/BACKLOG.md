@@ -1,5 +1,14 @@
 # Fitclo 运营待办
 
+## 2026-10-31 — 任务05-B（独立分支，未生产）
+
+- 远程验收已完成：代码fca9f3f9111b356f517a7a54e905ba912dfd15ab，Draft PR #7，Preview c824f82a-b49a-42d2-b40c-65060bfac7fb成功；22目标/58锚点、30HTML/11资源及真实桌面/五语言390验证。正式网站仍未应用修复，待独立生产审批。
+
+- Header品类缺斜线修复：英文源组件一行拼接；复制DE镜像通过构建期白名单Header href修复，不重建翻译/不改public正文。16 Node/核心语言/ES产品检查通过。
+- 972 HTML保护比较仅636页Header链接改变（EN325、DE311），其他内容及资源引用不变。22目标200；58锚点中ES Tops三个既有fragment缺失，单列不扩修。
+- Draft PR/非生产Preview验收见[05-B报告](2026-10-31-task05b-header-links.md)。PR4/5/6未操作，不生产部署、不提交索引。
+- 唯一下一建议：由老板审查05-A PR #6的已验Preview并决定独立受控发布审批；不重复05-A研究。原历史记录保留。
+
 ## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
 
 - Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。

@@ -42,7 +42,7 @@ const homePath = isSpanish ? '/es/' : '/';
 const productsPath = isSpanish ? '/es/products/' : '/products';
 const categoryPath = (slug: string) => isSpanish && slug === 'tank-tops'
   ? '/es/fabricante-de-tops-deportivos/'
-  : `${productsPath}${slug}/`;
+  : `${productsPath.replace(/\/$/, '')}/${slug}/`;
 const englishPath = getLocalizedRoute(Astro.url.pathname, 'en');
 const spanishPath = getLocalizedRoute(Astro.url.pathname, 'es');
 const newLanguageOptions = [

@@ -1,0 +1,86 @@
+{
+  "checked_date": "2026-10-31",
+  "results": [
+    {
+      "path": "/",
+      "language": "en",
+      "width": 390,
+      "scrollWidth": 390,
+      "headerHeight": 76,
+      "visibleHeaderLinks": [
+        "/"
+      ],
+      "languageButtons": 1
+    },
+    {
+      "path": "/es/",
+      "language": "es",
+      "width": 390,
+      "scrollWidth": 390,
+      "headerHeight": 76,
+      "visibleHeaderLinks": [
+        "/es/"
+      ],
+      "languageButtons": 1
+    },
+    {
+      "path": "/de/",
+      "language": "de",
+      "width": 390,
+      "scrollWidth": 390,
+      "headerHeight": 111,
+      "visibleHeaderLinks": [
+        "/de/",
+        "/de/",
+        "/de/private-label-activewear/",
+        "/de/oem-activewear-manufacturer/",
+        "/de/ready-stock-activewear/",
+        "/de/contact/"
+      ],
+      "languageButtons": 1
+    },
+    {
+      "path": "/nl/",
+      "language": "nl",
+      "width": 390,
+      "scrollWidth": 390,
+      "headerHeight": 111,
+      "visibleHeaderLinks": [
+        "/nl/",
+        "/nl/",
+        "/nl/private-label-activewear/",
+        "/nl/oem-activewear-manufacturer/",
+        "/nl/ready-stock-activewear/",
+        "/nl/contact/"
+      ],
+      "languageButtons": 1
+    },
+    {
+      "path": "/pt-br/",
+      "language": "pt-BR",
+      "width": 390,
+      "scrollWidth": 390,
+      "headerHeight": 111,
+      "visibleHeaderLinks": [
+        "/pt-br/",
+        "/pt-br/",
+        "/pt-br/private-label-activewear/",
+        "/pt-br/oem-activewear-manufacturer/",
+        "/pt-br/ready-stock-activewear/",
+        "/pt-br/contact/"
+      ],
+      "languageButtons": 1
+    }
+  ],
+  "native_language_menu": {
+    "page": "/pt-br/",
+    "open_aria_expanded": "true",
+    "escape_aria_expanded": "false"
+  },
+  "native_mobile_link": {
+    "from": "/pt-br/",
+    "to": "/pt-br/private-label-activewear/",
+    "status": "page opened; width390/scroll390"
+  },
+  "note": "No new mobile category menu was added. EN/ES baseline exposes Logo and language control; DE/NL/PT core pages retain existing wrapping links."
+}

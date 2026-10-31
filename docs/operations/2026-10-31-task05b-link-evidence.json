@@ -1,0 +1,470 @@
+{
+  "checked_date": "2026-10-31",
+  "before": {
+    "pages_by_language": {
+      "en": 325,
+      "de": 311
+    },
+    "links": {
+      "/productssports-bras/": 636,
+      "/productssports-bras/#seamless": 636,
+      "/productssports-bras/#longline": 636,
+      "/productssports-bras/#high-support": 636,
+      "/productsgym-shorts/": 636,
+      "/productsgym-shorts/#womens": 636,
+      "/productsgym-shorts/#mens": 636,
+      "/productsgym-shorts/#biker": 636,
+      "/productstraining-pants/": 636,
+      "/productstraining-pants/#womens": 636,
+      "/productstraining-pants/#mens": 636,
+      "/productstraining-pants/#performance": 636,
+      "/productsleggings/": 636,
+      "/productsleggings/#seamless": 636,
+      "/productsleggings/#cut-sew": 636,
+      "/productsleggings/#flare": 636,
+      "/productst-shirts/": 636,
+      "/productst-shirts/#unisex": 636,
+      "/productst-shirts/#mens": 636,
+      "/productst-shirts/#womens": 636,
+      "/productstank-tops/": 636,
+      "/productstank-tops/#womens": 636,
+      "/productstank-tops/#mens": 636,
+      "/productstank-tops/#racerback": 636,
+      "/productsmatching-sets/": 636,
+      "/productsmatching-sets/#yoga": 636,
+      "/productsmatching-sets/#mens": 636,
+      "/productsmatching-sets/#three-piece": 636,
+      "/productsjumpsuits/": 636,
+      "/productsjumpsuits/#full-length": 636,
+      "/productsjumpsuits/#short": 636,
+      "/productsjumpsuits/#bodysuit": 636,
+      "/productsjackets/": 636,
+      "/productsjackets/#womens": 636,
+      "/productsjackets/#mens": 636,
+      "/productsjackets/#outerwear": 636,
+      "/productsdresses/": 636,
+      "/productsdresses/#tennis": 636,
+      "/productsskirts/": 636,
+      "/productsskirts/#tennis": 636
+    }
+  },
+  "after_local": {
+    "base": "http://127.0.0.1:4322",
+    "sources": [
+      {
+        "path": "/",
+        "status": 200,
+        "category_links": 40
+      },
+      {
+        "path": "/es/",
+        "status": 200,
+        "category_links": 42
+      },
+      {
+        "path": "/de/",
+        "status": 200,
+        "category_links": 0
+      },
+      {
+        "path": "/nl/",
+        "status": 200,
+        "category_links": 0
+      },
+      {
+        "path": "/pt-br/",
+        "status": 200,
+        "category_links": 0
+      },
+      {
+        "path": "/de/products/capri-workout-set/",
+        "status": 200,
+        "category_links": 40
+      }
+    ],
+    "category_destinations": [
+      {
+        "path": "/es/fabricante-de-tops-deportivos/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/es/fabricante-de-tops-deportivos/"
+      },
+      {
+        "path": "/es/products/dresses/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/es/products/gym-shorts/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/es/products/jackets/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/es/products/jumpsuits/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/es/products/leggings/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/es/products/matching-sets/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/es/products/skirts/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/es/products/sports-bras/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/es/products/t-shirts/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/es/products/training-pants/",
+        "http": 200,
+        "canonical": null
+      },
+      {
+        "path": "/products/dresses/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/dresses/"
+      },
+      {
+        "path": "/products/gym-shorts/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/gym-shorts/"
+      },
+      {
+        "path": "/products/jackets/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/jackets/"
+      },
+      {
+        "path": "/products/jumpsuits/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/jumpsuits/"
+      },
+      {
+        "path": "/products/leggings/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/leggings/"
+      },
+      {
+        "path": "/products/matching-sets/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/matching-sets/"
+      },
+      {
+        "path": "/products/skirts/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/skirts/"
+      },
+      {
+        "path": "/products/sports-bras/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/sports-bras/"
+      },
+      {
+        "path": "/products/t-shirts/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/t-shirts/"
+      },
+      {
+        "path": "/products/tank-tops/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/tank-tops/"
+      },
+      {
+        "path": "/products/training-pants/",
+        "http": 200,
+        "canonical": "https://www.fitcloo.com/products/training-pants/"
+      }
+    ],
+    "anchors": [
+      {
+        "href": "/es/fabricante-de-tops-deportivos/#mens",
+        "exists": false
+      },
+      {
+        "href": "/es/fabricante-de-tops-deportivos/#racerback",
+        "exists": false
+      },
+      {
+        "href": "/es/fabricante-de-tops-deportivos/#womens",
+        "exists": false
+      },
+      {
+        "href": "/es/products/dresses/#tennis",
+        "exists": true
+      },
+      {
+        "href": "/es/products/gym-shorts/#biker",
+        "exists": true
+      },
+      {
+        "href": "/es/products/gym-shorts/#mens",
+        "exists": true
+      },
+      {
+        "href": "/es/products/gym-shorts/#womens",
+        "exists": true
+      },
+      {
+        "href": "/es/products/jackets/#mens",
+        "exists": true
+      },
+      {
+        "href": "/es/products/jackets/#outerwear",
+        "exists": true
+      },
+      {
+        "href": "/es/products/jackets/#womens",
+        "exists": true
+      },
+      {
+        "href": "/es/products/jumpsuits/#bodysuit",
+        "exists": true
+      },
+      {
+        "href": "/es/products/jumpsuits/#full-length",
+        "exists": true
+      },
+      {
+        "href": "/es/products/jumpsuits/#short",
+        "exists": true
+      },
+      {
+        "href": "/es/products/leggings/#cut-sew",
+        "exists": true
+      },
+      {
+        "href": "/es/products/leggings/#flare",
+        "exists": true
+      },
+      {
+        "href": "/es/products/leggings/#seamless",
+        "exists": true
+      },
+      {
+        "href": "/es/products/matching-sets/#mens",
+        "exists": true
+      },
+      {
+        "href": "/es/products/matching-sets/#three-piece",
+        "exists": true
+      },
+      {
+        "href": "/es/products/matching-sets/#yoga",
+        "exists": true
+      },
+      {
+        "href": "/es/products/skirts/#tennis",
+        "exists": true
+      },
+      {
+        "href": "/es/products/sports-bras/#high-support",
+        "exists": true
+      },
+      {
+        "href": "/es/products/sports-bras/#longline",
+        "exists": true
+      },
+      {
+        "href": "/es/products/sports-bras/#seamless",
+        "exists": true
+      },
+      {
+        "href": "/es/products/t-shirts/#mens",
+        "exists": true
+      },
+      {
+        "href": "/es/products/t-shirts/#unisex",
+        "exists": true
+      },
+      {
+        "href": "/es/products/t-shirts/#womens",
+        "exists": true
+      },
+      {
+        "href": "/es/products/training-pants/#mens",
+        "exists": true
+      },
+      {
+        "href": "/es/products/training-pants/#performance",
+        "exists": true
+      },
+      {
+        "href": "/es/products/training-pants/#womens",
+        "exists": true
+      },
+      {
+        "href": "/products/dresses/#tennis",
+        "exists": true
+      },
+      {
+        "href": "/products/gym-shorts/#biker",
+        "exists": true
+      },
+      {
+        "href": "/products/gym-shorts/#mens",
+        "exists": true
+      },
+      {
+        "href": "/products/gym-shorts/#womens",
+        "exists": true
+      },
+      {
+        "href": "/products/jackets/#mens",
+        "exists": true
+      },
+      {
+        "href": "/products/jackets/#outerwear",
+        "exists": true
+      },
+      {
+        "href": "/products/jackets/#womens",
+        "exists": true
+      },
+      {
+        "href": "/products/jumpsuits/#bodysuit",
+        "exists": true
+      },
+      {
+        "href": "/products/jumpsuits/#full-length",
+        "exists": true
+      },
+      {
+        "href": "/products/jumpsuits/#short",
+        "exists": true
+      },
+      {
+        "href": "/products/leggings/#cut-sew",
+        "exists": true
+      },
+      {
+        "href": "/products/leggings/#flare",
+        "exists": true
+      },
+      {
+        "href": "/products/leggings/#seamless",
+        "exists": true
+      },
+      {
+        "href": "/products/matching-sets/#mens",
+        "exists": true
+      },
+      {
+        "href": "/products/matching-sets/#three-piece",
+        "exists": true
+      },
+      {
+        "href": "/products/matching-sets/#yoga",
+        "exists": true
+      },
+      {
+        "href": "/products/skirts/#tennis",
+        "exists": true
+      },
+      {
+        "href": "/products/sports-bras/#high-support",
+        "exists": true
+      },
+      {
+        "href": "/products/sports-bras/#longline",
+        "exists": true
+      },
+      {
+        "href": "/products/sports-bras/#seamless",
+        "exists": true
+      },
+      {
+        "href": "/products/t-shirts/#mens",
+        "exists": true
+      },
+      {
+        "href": "/products/t-shirts/#unisex",
+        "exists": true
+      },
+      {
+        "href": "/products/t-shirts/#womens",
+        "exists": true
+      },
+      {
+        "href": "/products/tank-tops/#mens",
+        "exists": true
+      },
+      {
+        "href": "/products/tank-tops/#racerback",
+        "exists": true
+      },
+      {
+        "href": "/products/tank-tops/#womens",
+        "exists": true
+      },
+      {
+        "href": "/products/training-pants/#mens",
+        "exists": true
+      },
+      {
+        "href": "/products/training-pants/#performance",
+        "exists": true
+      },
+      {
+        "href": "/products/training-pants/#womens",
+        "exists": true
+      }
+    ],
+    "missing_anchors": [
+      "/es/fabricante-de-tops-deportivos/#mens",
+      "/es/fabricante-de-tops-deportivos/#racerback",
+      "/es/fabricante-de-tops-deportivos/#womens"
+    ],
+    "resources": [
+      {
+        "path": "/_astro/_page_.UjI308L3.css",
+        "http": 200,
+        "mime": "text/css"
+      },
+      {
+        "path": "/_astro/activewear-quality-control-inspection.2ZLCkXpf.css",
+        "http": 200,
+        "mime": "text/css"
+      },
+      {
+        "path": "/_astro/hoisted.BE8s0FSM.js",
+        "http": 200,
+        "mime": "text/javascript"
+      },
+      {
+        "path": "/_astro/hoisted.BqrL9k8o.js",
+        "http": 200,
+        "mime": "text/javascript"
+      },
+      {
+        "path": "/_astro/hoisted.C31r8D9H.js",
+        "http": 200,
+        "mime": "text/javascript"
+      },
+      {
+        "path": "/_astro/hoisted.CfXP08wg.js",
+        "http": 200,
+        "mime": "text/javascript"
+      }
+    ]
+  },
+  "note": "Copied DE headers intentionally keep their existing English category destinations; ES tank-top mapping unchanged. HTTP success and fragment presence are separate."
+}

@@ -1,0 +1,328 @@
+{
+  "production_checked_date": "2026-10-30",
+  "delivery_date": "2026-10-31",
+  "production_pages": [
+    {
+      "url": "https://www.fitcloo.com/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/about/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/about/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/contact/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/contact/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/private-label/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/private-label/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/manufacturing/",
+      "status": 404,
+      "canonical": null,
+      "robots": null,
+      "x_robots_tag": null,
+      "lang": null
+    },
+    {
+      "url": "https://www.fitcloo.com/oem-activewear-manufacturer/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/oem-activewear-manufacturer/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/ready-to-ship/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/ready-to-ship/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/products/matching-sets/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/products/matching-sets/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/products/sports-bras/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/products/sports-bras/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/products/leggings/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/products/leggings/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/products/capri-workout-set/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/products/capri-workout-set/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "en"
+    },
+    {
+      "url": "https://www.fitcloo.com/es/private-label-activewear/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/es/private-label-activewear/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "es"
+    },
+    {
+      "url": "https://www.fitcloo.com/de/private-label-activewear/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/de/private-label-activewear/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "de"
+    },
+    {
+      "url": "https://www.fitcloo.com/nl/private-label-activewear/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/nl/private-label-activewear/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "nl"
+    },
+    {
+      "url": "https://www.fitcloo.com/pt-br/private-label-activewear/",
+      "status": 200,
+      "canonical": "https://www.fitcloo.com/pt-br/private-label-activewear/",
+      "robots": "index, follow",
+      "x_robots_tag": null,
+      "lang": "pt-BR"
+    }
+  ],
+  "production_robots": {
+    "status": 200,
+    "body": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a Content-Signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a Content-Signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a Content-Signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via Content-Signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tuning AI models.\n# use:      how AI systems may consume the content (immediate, reference, or full).\n\n# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF\n# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT\n# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.\n\n# BEGIN Cloudflare Managed content\n\n\nUser-agent: *\nContent-Signal: search=yes,ai-train=no,use=reference\nAllow: /\n\n# Training crawlers\nUser-agent: Amazonbot\nDisallow: /\n\nUser-agent: Applebot-Extended\nDisallow: /\n\nUser-agent: Bytespider\nDisallow: /\n\nUser-agent: CCBot\nDisallow: /\n\nUser-agent: ClaudeBot\nDisallow: /\n\nUser-agent: Diffbot\nDisallow: /\n\nUser-agent: Google-Extended\nDisallow: /\n\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: omgili\nDisallow: /\n\nUser-agent: anthropic-ai\nDisallow: /\n\nUser-agent: Claude-Web\nDisallow: /\n\nUser-agent: cohere-ai\nDisallow: /\n\nUser-agent: MistralAI-Training\nDisallow: /\n\nUser-agent: meta-externalagent\nDisallow: /\n\nUser-agent: GoogleOther\nDisallow: /\n\nUser-agent: Baiduspider\nDisallow: /\n\nUser-agent: PetalBot\nDisallow: /\n\nUser-agent: AwarioSmartBot\nUser-agent: AwarioRssBot\nDisallow: /\n\nUser-agent: Google-CloudVertexBot\nDisallow: /\n\nUser-agent: QualifiedBot\nDisallow: /\n\nUser-agent: Cotoyogi\nDisallow: /\n\nUser-agent: ICC-Crawler\nDisallow: /\n\nUser-agent: atlassian-bot\nDisallow: /\n\nUser-agent: FishBot\nDisallow: /\n\nUser-agent: BorderxBot\nDisallow: /\n\nUser-agent: NavuBot\nDisallow: /\n\nUser-agent: SemrushBot-SWA\nDisallow: /\n\nUser-agent: WARDBot\nDisallow: /\n\nUser-agent: magpie-crawler\nDisallow: /\n\nUser-agent: KimiBot\nDisallow: /\n\nUser-agent: CitibotSiteCrawler\nDisallow: /\n\n# END Cloudflare Managed Content\n\nUser-agent: *\nContent-Signal: search=yes,ai-input=yes,ai-train=no,use=reference\nAllow: /\n\n# Permit search and retrieval crawlers that can surface and cite Fitclo's\n# public content in AI answers. These remain separate from training crawlers.\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\nUser-agent: Perplexity-User\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: Googlebot\nAllow: /\n\nUser-agent: Applebot\nAllow: /\n\nUser-agent: YandexBot\nAllow: /\n\nUser-agent: YandexImages\nAllow: /\n\n# Keep training and mixed training/grounding controls consistent with\n# the no-training signal and Cloudflare managed robots.txt. Google Search\n# is controlled separately by Googlebot above.\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: ClaudeBot\nDisallow: /\n\nUser-agent: Google-Extended\nDisallow: /\n\nUser-agent: Amazonbot\nDisallow: /\n\nUser-agent: Applebot-Extended\nDisallow: /\n\nSitemap: https://www.fitcloo.com/sitemap-index.xml\n"
+  },
+  "ua_spoof_only_not_verified_bot": {
+    "OAI-SearchBot": {
+      "status": 200,
+      "has_private_label_text": true
+    },
+    "ChatGPT-User": {
+      "status": 200,
+      "has_private_label_text": true
+    },
+    "Claude-SearchBot": {
+      "status": 200,
+      "has_private_label_text": true
+    },
+    "Claude-User": {
+      "status": 200,
+      "has_private_label_text": true
+    },
+    "PerplexityBot": {
+      "status": 200,
+      "has_private_label_text": true
+    },
+    "Bingbot": {
+      "status": 200,
+      "has_private_label_text": true
+    },
+    "Googlebot": {
+      "status": 200,
+      "has_private_label_text": true
+    }
+  },
+  "cloudflare": {
+    "zones_status": 200,
+    "plan": "Free Website",
+    "bot_management": {
+      "status": 403,
+      "success": null,
+      "result": null,
+      "errors": null
+    },
+    "rulesets": {
+      "status": 403,
+      "success": null,
+      "result": null,
+      "errors": null
+    },
+    "robots_setting": {
+      "status": 403,
+      "success": null,
+      "result": null,
+      "errors": null
+    },
+    "security_level": {
+      "status": 403,
+      "success": null,
+      "result": null,
+      "errors": null
+    },
+    "pages": {
+      "status": 200,
+      "production_branch": "main",
+      "source_config": {
+        "production_branch": "main",
+        "production_deployments_enabled": true,
+        "preview_deployment_setting": "all",
+        "preview_branch_includes": [
+          "*"
+        ],
+        "preview_branch_excludes": []
+      },
+      "latest_production": {
+        "id": "d3082f46-8d4e-4a0e-a7fc-ea6b10d947aa",
+        "url": "https://d3082f46.fitclo-v2.pages.dev",
+        "environment": "production",
+        "latest_stage": {
+          "name": "deploy",
+          "started_on": "2026-10-30T05:31:20.300216Z",
+          "ended_on": "2026-10-30T05:31:35.609148Z",
+          "status": "success"
+        },
+        "deployment_trigger": {
+          "type": "github:push",
+          "metadata": {
+            "branch": "main",
+            "commit_hash": "9817684564c66682ef3340d015205958731eac25",
+            "commit_message": "Refine responsive desktop navigation typography",
+            "commit_dirty": false
+          }
+        }
+      }
+    }
+  },
+  "verified_bot_analytics": {
+    "status": 200,
+    "response": {
+      "data": null,
+      "errors": [
+        {
+          "message": "zone '6a34b091ba8839f0d37bf3844513b404' does not have access to the field 'botdetectionids' from the path",
+          "path": [
+            "viewer",
+            "zones",
+            "0",
+            "httpRequestsAdaptiveGroups"
+          ],
+          "extensions": {
+            "code": "authz",
+            "timestamp": "2026-10-30T14:28:43.69721954Z",
+            "ray_id": "a52b1bab8af72ecc-LAX"
+          }
+        }
+      ]
+    },
+    "start": "2026-10-29T14:28:41+00:00",
+    "end": "2026-10-30T14:28:41+00:00"
+  },
+  "external_and_existing_navigation": {
+    "external_reference": {
+      "url": "https://elahivertexinternational.com/streetwear-sample-approval/",
+      "status": 200,
+      "literal_html_links": [
+        {
+          "text": "fitcloo.com",
+          "href": "https://www.fitcloo.com/blogs/activewear-sample-approval-checklist/?utm_source=chatgpt.com"
+        }
+      ]
+    },
+    "/capabilities/": {
+      "status": 200,
+      "h1": [
+        "Manufacturing Excellence"
+      ]
+    },
+    "/productssports-bras/": {
+      "status": 404,
+      "h1": []
+    },
+    "/products/sports-bras/": {
+      "status": 200,
+      "h1": [
+        "Sports Bra Manufacturer for Activewear Brands"
+      ]
+    },
+    "production_header_links": [
+      "/productssports-bras/",
+      "/productssports-bras/#seamless",
+      "/productssports-bras/#longline",
+      "/productssports-bras/#high-support",
+      "/productsleggings/",
+      "/productsleggings/#seamless",
+      "/productsleggings/#cut-sew",
+      "/productsleggings/#flare"
+    ]
+  },
+  "content_protection": {
+    "baseline_commit": "9817684564c66682ef3340d015205958731eac25",
+    "html_files": 972,
+    "changed_html": [
+      "private-label/index.html"
+    ],
+    "unreferenced_generated_wrapper_names_changed": [
+      "_astro/hoisted.BfqpzkIG.js",
+      "_astro/hoisted.DP4_v8T0.js"
+    ],
+    "css_changed": false,
+    "original_visible_body_preserved": true,
+    "title_h1_metadata_schema_hreflang_images_header_footer_form_preserved": true,
+    "new_links_resolve_in_build": true,
+    "existing_missing_asset_html_count": 600,
+    "existing_missing_examples": {
+      "de/products/matching-sets/index.html": [
+        "/_astro/_page_.DQ4YutuP.css",
+        "/_astro/activewear-quality-control-inspection.Brx38vIn.css"
+      ],
+      "de/products/sports-bras/index.html": [
+        "/_astro/_page_.DQ4YutuP.css",
+        "/_astro/activewear-quality-control-inspection.Brx38vIn.css"
+      ]
+    },
+    "no_new_missing_resources": "All other HTML and CSS unchanged; changed wrappers unreferenced; all selected-page entries exist."
+  },
+  "local_tests": {
+    "build": "pass; 367 Astro-generated / 972 total HTML",
+    "node_tests": {
+      "pass": 13,
+      "fail": 0
+    },
+    "core_locales": 15,
+    "spanish_product_routes": 8,
+    "priority_product_protection": 3,
+    "local_http": {
+      "html": 30,
+      "css_js": 11,
+      "status": 200,
+      "mime_correct": true
+    },
+    "lint_typecheck": "No configured package scripts; not run.",
+    "thumbnail_check": "Existing DE TZ2557-3 failure; no source modification."
+  }
+}

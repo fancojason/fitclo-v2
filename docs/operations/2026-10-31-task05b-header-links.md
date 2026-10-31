@@ -2,6 +2,8 @@
 
 日期：2026-10-31，Asia/Shanghai。仅开发/测试/Draft PR/非生产Preview，禁止生产发布。远程信息见验收补记。
 
+状态：限定修复、本地验证、Draft PR及非生产Preview验收已完成。正式网站未修改。
+
 ## 基线及范围
 
 - fetch最新 main：9817684564c66682ef3340d015205958731eac25。从干净main新建 `codex/header-category-links`，没有携带05-A的页面改动。PR #4/#5/#6未操作，不合并任何PR。
@@ -64,3 +66,14 @@
 仅推送独立分支产生Preview，main不推、不合并，不生产部署、不请求GSC/Bing/IndexNow。日志只存在本分支。
 
 唯一建议下一任务：老板审阅任务05-A的Draft PR #6与已通过的私标Preview，若接受限定内容改进，给出独立受控生产发布审批。05-A代码/Preview已有验收，未发现必须重新开展全套研究的阻塞；本轮不据此自行合并。之后恢复AI供应商发现、真实品牌可信度和采购内容增长工作。本任务的已知非目标问题不自动排在增长前面。
+
+## 远程验收补记
+
+- 代码提交：fca9f3f9111b356f517a7a54e905ba912dfd15ab；[Draft PR #7](https://github.com/fancojason/fitclo-v2/pull/7)。后续验收文档提交不修改运行代码。
+- Preview部署c824f82a-b49a-42d2-b40c-65060bfac7fb：[英文首页](https://c824f82a.fitclo-v2.pages.dev/)、[复制德语Capri](https://c824f82a.fitclo-v2.pages.dev/de/products/capri-workout-set/)。Cloudflare API确认environment=preview、source为完整代码SHA、deploy success；完成时间2026-10-31 09:46:29（Asia/Shanghai）。
+- 远程22品类目标全部200；58子分类锚点55存在，原有ES Tops三缺失与本地一致。另抽查30重点HTML/11份直接CSS/JS200/MIME正确；未把这些结果扩大为全站资源通过。
+- 真实桌面1440：Products hover菜单可见并原生点击Leggings；德语复制Header原生展开Produkte并点击Matching Sets到原定英文目标；西语Productos点击Tank Tops保持特殊映射。英文菜单截图已实际查看。
+- 五语言390远程均scrollWidth390；EN/ES76px、DE/NL/PT核心111px高度保持，未创建原先没有的手机品类菜单。巴葡语言菜单原生打开aria-expanded=true、Esc关闭false；原生点击Marca própria到巴葡私标页正常。见preview/mobile证据JSON。
+- 复制DE Capri浏览器发现既有favicon.ico404；定位资源后确认非本次CSS/JS错误。没有真实表单提交、邮件或消息。
+- Cloudflare项目生产分支main、Preview all；当前生产仍d3082f46-8d4e-4a0e-a7fc-ea6b10d947aa/main98176845成功版。原PR4/5/6未修改。未部署生产/提交搜索平台，生产导航尚未应用本修复。
+- 下一项仅建议PR6独立发布审批。若之后main先纳入05-B，PR6正式发布前须保留本修复并做必要集成回归，不强制捆绑两个PR，不重复05-A研究。

@@ -1,5 +1,13 @@
 # Fitclo 运营变更日志
 
+## 2026-10-31 — 任务05-B：Header品类URL（仅独立分支）
+
+- 从最新main98176845建立独立分支；没有携带PR6的私标文案，也不操作PR4/5/6。
+- 修复Header品类拼接并增加精确构建期镜像绑定：仅已知品类的Header href，保留ES特殊映射/fragment/视觉/商业及询盘内容。未批量重建语言页面。
+- Build、16 Node、15核心语言、8 ES产品及重点产品审计通过。972 HTML逐字保护仅636页的25,440处href改变；CSS/执行资源和所有非Header内容不变。
+- 本地22目标200；58锚点55存在，ES Tops三缺失为既有问题；未扩修缩略图/旧静态资源。远程Preview与浏览器验收另补，不能视为正式上线。
+- 证据见[05-B报告](2026-10-31-task05b-header-links.md)及同目录JSON；不推main/不生产部署/不提交搜索平台。
+
 ## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
 
 - Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。

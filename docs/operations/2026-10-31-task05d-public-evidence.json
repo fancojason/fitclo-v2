@@ -1,0 +1,177 @@
+{
+  "checked_at": "2026-10-31",
+  "pages": [
+    {
+      "url": "https://www.fitcloo.com/",
+      "http": 200,
+      "title": "Factory Direct Activewear Manufacturer | Private Label Yoga Wear Wholesale | FITCLO",
+      "canonical": "https://www.fitcloo.com/",
+      "organization": null,
+      "social_links": [
+        {
+          "text": "LinkedIn",
+          "href": "#"
+        },
+        {
+          "text": "Instagram",
+          "href": "#"
+        }
+      ],
+      "private_label_update_present": false,
+      "bad_header_category_links": 0
+    },
+    {
+      "url": "https://www.fitcloo.com/about/",
+      "http": 200,
+      "title": "About Us | FITCLO - Professional Activewear Manufacturer",
+      "canonical": "https://www.fitcloo.com/about/",
+      "organization": null,
+      "social_links": [
+        {
+          "text": "LinkedIn",
+          "href": "#"
+        },
+        {
+          "text": "Instagram",
+          "href": "#"
+        }
+      ],
+      "private_label_update_present": false,
+      "bad_header_category_links": 0
+    },
+    {
+      "url": "https://www.fitcloo.com/contact/",
+      "http": 200,
+      "title": "Contact Us | FITCLO",
+      "canonical": "https://www.fitcloo.com/contact/",
+      "organization": null,
+      "social_links": [
+        {
+          "text": "LinkedIn",
+          "href": "#"
+        },
+        {
+          "text": "Instagram",
+          "href": "#"
+        }
+      ],
+      "private_label_update_present": false,
+      "bad_header_category_links": 0
+    },
+    {
+      "url": "https://www.fitcloo.com/private-label/",
+      "http": 200,
+      "title": "Private Label Activewear Manufacturer | Custom Sportswear Solutions",
+      "canonical": "https://www.fitcloo.com/private-label/",
+      "organization": null,
+      "social_links": [
+        {
+          "text": "LinkedIn",
+          "href": "#"
+        },
+        {
+          "text": "Instagram",
+          "href": "#"
+        }
+      ],
+      "private_label_update_present": true,
+      "bad_header_category_links": 0
+    },
+    {
+      "url": "https://www.fitcloo.com/capabilities/",
+      "http": 200,
+      "title": "Advanced Manufacturing Capabilities | Activewear Factory | FITCLO",
+      "canonical": "https://www.fitcloo.com/capabilities/",
+      "organization": null,
+      "social_links": [
+        {
+          "text": "LinkedIn",
+          "href": "#"
+        },
+        {
+          "text": "Instagram",
+          "href": "#"
+        }
+      ],
+      "private_label_update_present": false,
+      "bad_header_category_links": 0
+    },
+    {
+      "url": "https://www.fitcloo.com/oem-activewear-manufacturer/",
+      "http": 200,
+      "title": "OEM Activewear Manufacturer | Tech Pack to Bulk Production",
+      "canonical": "https://www.fitcloo.com/oem-activewear-manufacturer/",
+      "organization": null,
+      "social_links": [
+        {
+          "text": "LinkedIn",
+          "href": "#"
+        },
+        {
+          "text": "Instagram",
+          "href": "#"
+        }
+      ],
+      "private_label_update_present": false,
+      "bad_header_category_links": 0
+    },
+    {
+      "url": "https://www.fitcloo.com/ready-to-ship/",
+      "http": 200,
+      "title": "Ready-Stock Activewear Catalog | FITCLO",
+      "canonical": "https://www.fitcloo.com/ready-to-ship/",
+      "organization": null,
+      "social_links": [
+        {
+          "text": "LinkedIn",
+          "href": "#"
+        },
+        {
+          "text": "Instagram",
+          "href": "#"
+        }
+      ],
+      "private_label_update_present": false,
+      "bad_header_category_links": 0
+    }
+  ],
+  "third_party_pages": [
+    {
+      "url": "https://www.chilat.com/blog/2096788147174543362",
+      "http": 200,
+      "title": "Top 10 proveedores de ropa de yoga en China: Guía 2026 - Chilat",
+      "fitcloo_links": [
+        {
+          "text": "FITCLO",
+          "href": "https://www.fitcloo.com/"
+        },
+        {
+          "text": "FITCLO Activewear",
+          "href": "https://www.fitcloo.com/"
+        }
+      ],
+      "ownership_independence_verified": false,
+      "factory_audit_proof": false
+    },
+    {
+      "url": "https://elahivertexinternational.com/streetwear-sample-approval/",
+      "http": 200,
+      "title": "Streetwear Sample Approval: 9 Costly Mistakes",
+      "fitcloo_links": [
+        {
+          "text": "fitcloo.com",
+          "href": "https://www.fitcloo.com/blogs/activewear-sample-approval-checklist/?utm_source=chatgpt.com"
+        }
+      ],
+      "ownership_independence_verified": false,
+      "factory_audit_proof": false
+    }
+  ],
+  "production": {
+    "id": "46eb031f-41de-4b82-b5b5-5c89b684bb3e",
+    "commit": "0c931c0ae4abc1372afda392b14fd1137fa484fe",
+    "environment": "production",
+    "status": "success"
+  },
+  "note": "Public content evidence only. Site-stated claims are not independent verification."
+}

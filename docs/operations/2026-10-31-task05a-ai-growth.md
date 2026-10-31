@@ -1,6 +1,6 @@
 # 任务05-A V2.0：AI供应商发现与 Private Label 单页 Preview
 
-执行：2026-10-30 至 2026-10-31（Asia/Shanghai）。状态：研究和限定开发完成；本报告的 Preview/提交信息以文末验收补记为准。禁止生产发布。
+执行：2026-10-30 至 2026-10-31（Asia/Shanghai）。状态：研究、限定开发、Draft PR和非生产Preview验收完成；ChatGPT/Claude推荐实测、验证机器人日志和当前Google收录证据受权限限制。禁止生产发布。
 
 ## 1. 来源、边界与基线
 
@@ -117,6 +117,8 @@ GA4 请求90天实际返回首日09-08，只有50天有活动行，06月以来�
 
 已知失败/边界：全站缩略图检查仍在DE TZ2557-3失败；非目标ES/DE静态旧资源缺失是main既有问题，并非本轮新增。核心抽查资源200不代表全站所有静态资源通过，不将此包装为全站通过。
 
+静态扫描具体发现600份既有HTML含缺失旧Astro资源引用；其页面与CSS均与本轮main基线相同，不是本轮新产生。此为构建扫描计数，**没有逐一验证600页的生产浏览器影响**。已保存聚合和示例，不为凑本轮通过而批量重建语言页。
+
 本轮新发现的既有线上重要问题：Header `productsPath='/products'` 与 `${productsPath}${slug}/` 拼接，生成 `/productssports-bras/` 等错误品类链接。原始生产HTML包含该链接，实际404，而正确 `/products/sports-bras/`200；此处与修改后header逐字相同，非本轮引入。影响客户进入产品，应作为下一项限定修复，不在本页PR夹带更改。
 
 ## 8. 未来30天仅3项任务
@@ -150,3 +152,11 @@ GA4 请求90天实际返回首日09-08，只有50天有活动行，06月以来�
 本轮有真实GSC/GA4/Bing普通搜索数据；没有真实ChatGPT/Claude推荐答案，不能宣称已被推荐或引用。搜索机器人robots与页面文字条件通过，Cloudflare验证机器人日志无权限，Bing AI Performance/当前GoogleURL收录检查暂无数据。选择 `/private-label/` 做限定可引用采购说明、真实SKU内链与brief，原商业内容及功能保持，等待Draft/Preview验收补记与老板单独生产批准。下一项建议修复已证实的Header品类404，避免采购流量进入无效入口；与现货目录已完成搜索/筛选不是同一任务。原PR4/5及所有main工作不变。
 
 **是否修改生产网站：否。是否提交GSC/Bing/IndexNow：否，Preview不应提交搜索引擎。** 提交成功、抓取、索引、AI引用、访问、有效询盘和订单必须分别报告。没有自动回传ChatGPT项目。
+
+## 远程Preview验收补记 — 2026-10-31
+
+- 代码及研究提交：253db542088b9cfeb7fe71a1d71a16d0328ab446；[Draft PR #6](https://github.com/fancojason/fitclo-v2/pull/6)，不合并。后续验收日志是独立文档提交，不改变运行代码。
+- Cloudflare Preview：1a62cbb6-019c-4c25-90f6-ecc2dbc5af0c；[预览选页](https://1a62cbb6.fitclo-v2.pages.dev/private-label/)。API确认environment=preview、source=253db542完整SHA、build/deploy success；完成时间2026-10-31 08:52:22 Asia/Shanghai。
+- 远程30 HTML及11份直接CSS/JS200、MIME正确；选页3资源200，8个新增链接/锚点均正常，canonical仍指生产URL，六组原hreflang保持。表单唯一、原必填字段和WhatsApp参数不变，原生Quote点击进入#inquiry。无真实提交或消息。
+- 1440桌面scrollWidth1440、390手机scrollWidth390，三卡单列358px，无横向溢出；导航高度76px不变；型号nowrap、锚点96px留白。远程Console无error/warn，真实截图已查看。详见 `2026-10-31-task05a-browser-evidence.json`。
+- 后续验收日志提交仅记录这些结果；以上Preview验收明确针对代码253db542，不将其他文档提交的未验Preview冒称已验。生产main及Cloudflare生产部署未改，PR4/5未操作。

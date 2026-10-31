@@ -1,0 +1,158 @@
+{
+  "checked_date": "2026-10-31",
+  "preview_commit": "253db542088b9cfeb7fe71a1d71a16d0328ab446",
+  "preview_deployment_id": "1a62cbb6-019c-4c25-90f6-ecc2dbc5af0c",
+  "preview_url": "https://1a62cbb6.fitclo-v2.pages.dev/private-label/",
+  "desktop": {
+    "url": "https://1a62cbb6.fitclo-v2.pages.dev/private-label/",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "headerHeight": 76,
+    "h1": "Your Brand,Our Expertise",
+    "canonical": "https://www.fitcloo.com/private-label/",
+    "hreflang": [
+      {
+        "language": "en",
+        "url": "https://www.fitcloo.com/private-label/"
+      },
+      {
+        "language": "es",
+        "url": "https://www.fitcloo.com/es/private-label-activewear/"
+      },
+      {
+        "language": "de",
+        "url": "https://www.fitcloo.com/de/private-label-activewear/"
+      },
+      {
+        "language": "nl",
+        "url": "https://www.fitcloo.com/nl/private-label-activewear/"
+      },
+      {
+        "language": "pt-BR",
+        "url": "https://www.fitcloo.com/pt-br/private-label-activewear/"
+      },
+      {
+        "language": "x-default",
+        "url": "https://www.fitcloo.com/private-label/"
+      }
+    ],
+    "newSections": 2,
+    "formCount": 1,
+    "whatsapp": [
+      "https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%27m%20interested%20in%20adding%20my%20logo%2C%20labels%20and%20packaging%20to%20your%20existing%20activewear%20styles.%20Could%20you%20show%20me%20the%20available%20options%3F",
+      "https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%27m%20interested%20in%20adding%20my%20logo%2C%20labels%20and%20packaging%20to%20your%20existing%20activewear%20styles.%20Could%20you%20show%20me%20the%20available%20options%3F",
+      "https://api.whatsapp.com/send?phone=8617160837538&text=Hello%20Fitclo%2C%20I%27m%20interested%20in%20adding%20my%20logo%2C%20labels%20and%20packaging%20to%20your%20existing%20activewear%20styles.%20Could%20you%20show%20me%20the%20available%20options%3F"
+    ],
+    "resources": [
+      {
+        "path": "/_astro/_page_.UjI308L3.css",
+        "status": 200,
+        "mime": "text/css; charset=utf-8"
+      },
+      {
+        "path": "/_astro/activewear-quality-control-inspection.2ZLCkXpf.css",
+        "status": 200,
+        "mime": "text/css; charset=utf-8"
+      },
+      {
+        "path": "/_astro/hoisted.slyyr-5c.js",
+        "status": 200,
+        "mime": "application/javascript"
+      }
+    ],
+    "links": [
+      {
+        "href": "/private-label/#sourcing-routes",
+        "status": 200
+      },
+      {
+        "href": "/private-label/#private-label-brief",
+        "status": 200
+      },
+      {
+        "href": "/products/womens-yoga-set/",
+        "status": 200
+      },
+      {
+        "href": "/products/capri-workout-set/",
+        "status": 200
+      },
+      {
+        "href": "/products/tz2570-4/",
+        "status": 200
+      },
+      {
+        "href": "/custom-activewear-labels-packaging/",
+        "status": 200
+      },
+      {
+        "href": "/blogs/activewear-sample-approval-checklist/",
+        "status": 200
+      },
+      {
+        "href": "/private-label/#inquiry",
+        "status": 200
+      }
+    ]
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "headerHeight": 76,
+    "cards": [
+      {
+        "left": 16,
+        "width": 358
+      },
+      {
+        "left": 16,
+        "width": 358
+      },
+      {
+        "left": 16,
+        "width": 358
+      }
+    ],
+    "skuSpans": [
+      {
+        "text": "TZ4549-6",
+        "whiteSpace": "nowrap"
+      },
+      {
+        "text": "TZ2570-4",
+        "whiteSpace": "nowrap"
+      }
+    ],
+    "briefScrollMargin": "96px"
+  },
+  "native_quote_click": {
+    "hash": "#inquiry",
+    "form_in_view": true,
+    "required_fields": [
+      "name",
+      "email",
+      "product_type",
+      "quantity"
+    ],
+    "submitted": false
+  },
+  "console": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "http_regression": {
+    "html": 30,
+    "css_js": 11,
+    "status": 200,
+    "mime_correct": true
+  },
+  "screenshots_reviewed": [
+    "C:/Users/a/AppData/Local/Temp/fitclo-05a-preview-mobile.png",
+    "C:/Users/a/AppData/Local/Temp/fitclo-05a-preview-desktop.png"
+  ],
+  "limitations": [
+    "No actual inquiry, message or email sent.",
+    "No production deployment or search submission.",
+    "No claim all non-target legacy static resources work."
+  ]
+}

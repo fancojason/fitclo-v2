@@ -2,6 +2,8 @@
 
 ## 2026-10-31 — 任务05-A V2.0：AI采购发现基线与私标单页（独立分支，未生产）
 
+- 远程验收完成：代码253db542088b9cfeb7fe71a1d71a16d0328ab446，[Draft PR #6](https://github.com/fancojason/fitclo-v2/pull/6)，Preview1a62cbb6-019c-4c25-90f6-ecc2dbc5af0c build/deploy成功；30HTML/11资源200/MIME正确，1440/390、Quote锚点、新内链、WhatsApp参数、SEO均验证。浏览器证据JSON同目录。此补记为文档提交，不改变运行代码或生产。
+
 - 最新main98176845，生产d3082f46成功；03-D已合并上线，后续字体/导航/现货浏览保留。任务04各成果保留在原分支，PR #4/#5仍未合并，本轮未操作；以下旧日志按历史保留。
 - 实际读取GSC/GA4/Bing汇总：日期和证据见[05-A报告](2026-10-31-task05a-ai-growth.md)及同目录analytics JSON。ChatGPT/Claude没有可用登录会话，20条固定采购问题标“未直接验证”，不把GA4来源或Google搜索当推荐回答。
 - robots最终响应允许搜索/用户检索，训练仍禁止；Cloudflare机器人检测统计无权限，不声称真实机器人已成功抓取。确认外站Fitclo链接自带ChatGPT UTM，提示归因边界。

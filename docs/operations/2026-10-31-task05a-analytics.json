@@ -1,0 +1,2225 @@
+{
+  "checked_at": "2026-10-30",
+  "sources": {
+    "gsc": "https://www.fitcloo.com/",
+    "ga4": "545188884",
+    "bing": "https://www.fitcloo.com/"
+  },
+  "periods": {
+    "28": {
+      "start": "2026-09-30",
+      "end": "2026-10-27",
+      "gsc": {
+        "clicks": 141,
+        "impressions": 2603,
+        "ctr": 0.05416826738378794,
+        "position": 14.383784786784481
+      },
+      "ga4": {
+        "days_with_rows": 28,
+        "first_row": "2026-09-30",
+        "sessions_by_source": {
+          "chatgpt.com / ai-assistant": 701,
+          "(direct) / (none)": 659,
+          "google / organic": 162,
+          "bing / organic": 6,
+          "l.wl.co / referral": 75,
+          "yahoo / organic": 1,
+          "baidu / organic": 2,
+          "chilat.com / referral": 2,
+          "(not set)": 7,
+          "facebook.com / referral": 1,
+          "duckduckgo / organic": 1,
+          "chatgpt.com / (none)": 4,
+          "search.google.com / referral": 14,
+          "perplexity / (not set)": 1
+        }
+      }
+    },
+    "90": {
+      "start": "2026-07-30",
+      "end": "2026-10-27",
+      "gsc": {
+        "clicks": 354,
+        "impressions": 7319,
+        "ctr": 0.04836726328733434,
+        "position": 20.9524495832764
+      },
+      "ga4": {
+        "days_with_rows": 50,
+        "first_row": "2026-09-08",
+        "sessions_by_source": {
+          "chatgpt.com / ai-assistant": 1236,
+          "google / organic": 312,
+          "(direct) / (none)": 913,
+          "l.wl.co / referral": 107,
+          "baidu / organic": 3,
+          "(not set)": 11,
+          "y1mgioupltb.feishu.cn / referral": 7,
+          "chatgpt.com / (none)": 6,
+          "facebook.com / referral": 6,
+          "m.facebook.com / referral": 1,
+          "bing / organic": 7,
+          "l.instagram.com / referral": 1,
+          "copilot.com / (not set)": 1,
+          "yahoo / organic": 1,
+          "chilat.com / referral": 2,
+          "duckduckgo / organic": 1,
+          "search.google.com / referral": 14,
+          "perplexity / (not set)": 1
+        }
+      }
+    },
+    "prior28": {
+      "start": "2026-09-02",
+      "end": "2026-09-29",
+      "gsc": {
+        "clicks": 130,
+        "impressions": 2135,
+        "ctr": 0.06088992974238876,
+        "position": 15.272119250585478
+      },
+      "ga4": {
+        "days_with_rows": 22,
+        "first_row": "2026-09-08",
+        "sessions_by_source": {
+          "chatgpt.com / ai-assistant": 535,
+          "google / organic": 150,
+          "(direct) / (none)": 254,
+          "l.wl.co / referral": 32,
+          "baidu / organic": 1,
+          "(not set)": 4,
+          "y1mgioupltb.feishu.cn / referral": 7,
+          "chatgpt.com / (none)": 2,
+          "facebook.com / referral": 5,
+          "m.facebook.com / referral": 1,
+          "bing / organic": 1,
+          "l.instagram.com / referral": 1,
+          "copilot.com / (not set)": 1
+        }
+      }
+    }
+  },
+  "limitations": [
+    "GA4 source labels do not prove a specific AI answer or buyer qualification.",
+    "90-day GA4 request returned activity starting 2026-09-08; earlier tracking completeness unverified.",
+    "Query rows are incomplete/anonymized and not equal to page/site totals."
+  ],
+  "monthly_gsc": {
+    "status": "done",
+    "data": [
+      {
+        "year_month": "2026|6",
+        "clicks": 40,
+        "impressions": 224
+      },
+      {
+        "year_month": "2026|7",
+        "clicks": 72,
+        "impressions": 981
+      },
+      {
+        "year_month": "2026|8",
+        "clicks": 75,
+        "impressions": 2491
+      },
+      {
+        "year_month": "2026|9",
+        "clicks": 150,
+        "impressions": 2300
+      },
+      {
+        "year_month": "2026|10",
+        "clicks": 121,
+        "impressions": 2438
+      }
+    ],
+    "total_rows": 5
+  },
+  "sitemaps": {
+    "status": "done",
+    "data": [
+      {
+        "path": null,
+        "last_submitted": null,
+        "last_downloaded": null,
+        "submitted": 0,
+        "errors": 0,
+        "warnings": 0
+      },
+      {
+        "path": "https://www.fitcloo.com/sitemap-index.xml",
+        "last_submitted": "2026-10-30T10:17:39.307Z",
+        "last_downloaded": "2026-10-30T10:17:39.918Z",
+        "submitted": 967,
+        "errors": 0,
+        "warnings": 0
+      }
+    ],
+    "total_rows": 2
+  },
+  "gsc_pages_28": [
+    {
+      "page": "https://www.fitcloo.com/es/private-label-activewear/",
+      "clicks": 6,
+      "impressions": 81,
+      "ctr": 0.0741,
+      "position": 3.3704
+    },
+    {
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 2,
+      "impressions": 103,
+      "ctr": 0.0194,
+      "position": 52.4951
+    },
+    {
+      "page": "https://www.fitcloo.com/es/oem-activewear-manufacturer/",
+      "clicks": 1,
+      "impressions": 18,
+      "ctr": 0.0556,
+      "position": 9.8333
+    },
+    {
+      "page": "https://www.fitcloo.com/products/capri-workout-set/",
+      "clicks": 1,
+      "impressions": 99,
+      "ctr": 0.0101,
+      "position": 8.9293
+    },
+    {
+      "page": "https://www.fitcloo.com/nl/private-label-activewear/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 11.3333
+    },
+    {
+      "page": "https://www.fitcloo.com/oem-activewear-manufacturer/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 25.6512
+    },
+    {
+      "page": "https://www.fitcloo.com/pt-br/private-label-activewear/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "page": "https://www.fitcloo.com/ready-to-ship/",
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 3.1111
+    },
+    {
+      "page": "https://www.fitcloo.com/wholesale-to/australia/",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 43.8947
+    }
+  ],
+  "gsc_pages_prior28": [
+    {
+      "page": "https://www.fitcloo.com/es/private-label-activewear/",
+      "clicks": 2,
+      "impressions": 37,
+      "ctr": 0.0541,
+      "position": 4.5135
+    },
+    {
+      "page": "https://www.fitcloo.com/es/oem-activewear-manufacturer/",
+      "clicks": 1,
+      "impressions": 10,
+      "ctr": 0.1,
+      "position": 7.3
+    },
+    {
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 1,
+      "impressions": 22,
+      "ctr": 0.0455,
+      "position": 2.6364
+    },
+    {
+      "page": "https://www.fitcloo.com/oem-activewear-manufacturer/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "page": "https://www.fitcloo.com/products/capri-workout-set/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 130,
+      "ctr": 0,
+      "position": 52.4615
+    }
+  ],
+  "gsc_pages_90": [
+    {
+      "page": "https://www.fitcloo.com/es/private-label-activewear/",
+      "clicks": 8,
+      "impressions": 118,
+      "ctr": 0.0678,
+      "position": 3.7288
+    },
+    {
+      "page": "https://www.fitcloo.com/es/oem-activewear-manufacturer/",
+      "clicks": 2,
+      "impressions": 28,
+      "ctr": 0.0714,
+      "position": 8.9286
+    },
+    {
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 2,
+      "impressions": 494,
+      "ctr": 0.004,
+      "position": 69.2652
+    },
+    {
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 1,
+      "impressions": 67,
+      "ctr": 0.0149,
+      "position": 17.4627
+    },
+    {
+      "page": "https://www.fitcloo.com/products/capri-workout-set/",
+      "clicks": 1,
+      "impressions": 109,
+      "ctr": 0.0092,
+      "position": 9.0917
+    },
+    {
+      "page": "https://www.fitcloo.com/nl/private-label-activewear/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 11.3333
+    },
+    {
+      "page": "https://www.fitcloo.com/oem-activewear-manufacturer/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 4.6
+    },
+    {
+      "page": "https://www.fitcloo.com/pt-br/private-label-activewear/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "page": "https://www.fitcloo.com/ready-to-ship/",
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 3.1111
+    },
+    {
+      "page": "https://www.fitcloo.com/wholesale-to/australia/",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 43.8947
+    }
+  ],
+  "gsc_high_intent_query_page_28": [
+    {
+      "query": "active wear manufacturers",
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "activewear manufacturer melbourne",
+      "page": "https://www.fitcloo.com/blogs/sustainable-activewear-manufacturer-australia/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 72.5
+    },
+    {
+      "query": "activewear supplier",
+      "page": "https://www.fitcloo.com/wholesale-to/australia/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 93
+    },
+    {
+      "query": "activewear wholesale australia",
+      "page": "https://www.fitcloo.com/wholesale-to/australia/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 52
+    },
+    {
+      "query": "blank yoga pants wholesale",
+      "page": "https://www.fitcloo.com/wholesale-flare-yoga-pants/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "query": "bra manufacturer",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 25
+    },
+    {
+      "query": "capri workout set",
+      "page": "https://www.fitcloo.com/products/capri-workout-set/",
+      "clicks": 0,
+      "impressions": 31,
+      "ctr": 0,
+      "position": 9.3548
+    },
+    {
+      "query": "capri workout sets",
+      "page": "https://www.fitcloo.com/products/capri-workout-set/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "custom activewear manufacturers",
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "query": "custom gym wear manufacturers",
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "query": "fabricante ropa deportiva españa",
+      "page": "https://www.fitcloo.com/es/fabricante-ropa-deportiva-espana/",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 42.4211
+    },
+    {
+      "query": "fabricantes de ropa deportiva",
+      "page": "https://www.fitcloo.com/es/fabricante-ropa-deportiva-espana/",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 59.5714
+    },
+    {
+      "query": "fabricantes ropa deportiva",
+      "page": "https://www.fitcloo.com/es/fabricante-ropa-deportiva-espana/",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 62.6
+    },
+    {
+      "query": "fashionning yiwu seamless manufacturer",
+      "page": "https://www.fitcloo.com/blogs/yiwu-seamless-activewear-manufacturing/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 38
+    },
+    {
+      "query": "fitness bra manufacturer",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 94
+    },
+    {
+      "query": "fitness clothing manufacturers australia",
+      "page": "https://www.fitcloo.com/blogs/sustainable-activewear-manufacturer-australia/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 78.5
+    },
+    {
+      "query": "fitness wholesale clothing in germany",
+      "page": "https://www.fitcloo.com/wholesale-to/germany/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 51
+    },
+    {
+      "query": "groothandel sportkleding",
+      "page": "https://www.fitcloo.com/nl/ready-stock-activewear/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "query": "gym shorts manufacturer",
+      "page": "https://www.fitcloo.com/products/gym-shorts/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 83
+    },
+    {
+      "query": "gym shorts supplier",
+      "page": "https://www.fitcloo.com/products/gym-shorts/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 89.5
+    },
+    {
+      "query": "low moq",
+      "page": "https://www.fitcloo.com/blogs/moq/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 93.6667
+    },
+    {
+      "query": "low moq ropa de mujer fabricante china",
+      "page": "https://www.fitcloo.com/es/blogs/low-moq-scaling-guide/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "query": "private label activewear manufacturer uk",
+      "page": "https://www.fitcloo.com/blogs/private-label-activewear-manufacturer-uk/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "query": "private label fitness apparel manufacturers",
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "query": "private label fitness apparel manufacturers uk",
+      "page": "https://www.fitcloo.com/blogs/private-label-activewear-manufacturer-uk/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 75.6667
+    },
+    {
+      "query": "private label gym clothing",
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 93
+    },
+    {
+      "query": "private label sportkleding",
+      "page": "https://www.fitcloo.com/nl/private-label-activewear/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 16.5
+    },
+    {
+      "query": "private label sports bras",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "private label sportswear",
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 82
+    },
+    {
+      "query": "private label yoga wear",
+      "page": "https://www.fitcloo.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 160
+    },
+    {
+      "query": "sport bra manufacturer",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 89.5
+    },
+    {
+      "query": "sports bra manufacturer",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0,
+      "position": 76.7692
+    },
+    {
+      "query": "sports bra manufacturers",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 87.2
+    },
+    {
+      "query": "sports bra manufacturers usa",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 83.3333
+    },
+    {
+      "query": "sports bra supplier",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 90.5
+    },
+    {
+      "query": "sports wear manufacturer",
+      "page": "https://www.fitcloo.com/private-label/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "sportsbra manufacturers",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 67.2
+    },
+    {
+      "query": "training gym shorts manufacturer",
+      "page": "https://www.fitcloo.com/products/gym-shorts/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 78
+    },
+    {
+      "query": "which manufacturers can produce matching activewear sets in multiple sizes and colors?",
+      "page": "https://www.fitcloo.com/products/matching-sets/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "wholesale activewear leggings",
+      "page": "https://www.fitcloo.com/wholesale-to/australia/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "query": "wholesale activewear suppliers",
+      "page": "https://www.fitcloo.com/wholesale-to/australia/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 82.6667
+    },
+    {
+      "query": "wholesale leggings australia",
+      "page": "https://www.fitcloo.com/wholesale-to/australia/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 18
+    },
+    {
+      "query": "wholesale womens activewear",
+      "page": "https://www.fitcloo.com/wholesale-to/australia/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 56
+    },
+    {
+      "query": "women sports bra supplier",
+      "page": "https://www.fitcloo.com/products/sports-bras/",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 91.4286
+    }
+  ],
+  "gsc_countries_28": [
+    {
+      "country": "Spain",
+      "clicks": 35,
+      "impressions": 234,
+      "position": 23.312
+    },
+    {
+      "country": "United States",
+      "clicks": 24,
+      "impressions": 918,
+      "position": 18.2407
+    },
+    {
+      "country": "Australia",
+      "clicks": 9,
+      "impressions": 99,
+      "position": 15.7172
+    },
+    {
+      "country": "Mexico",
+      "clicks": 6,
+      "impressions": 103,
+      "position": 6.4466
+    },
+    {
+      "country": "Costa Rica",
+      "clicks": 5,
+      "impressions": 18,
+      "position": 3.1111
+    },
+    {
+      "country": "Chile",
+      "clicks": 4,
+      "impressions": 48,
+      "position": 7.8542
+    },
+    {
+      "country": "Peru",
+      "clicks": 4,
+      "impressions": 28,
+      "position": 6.2857
+    },
+    {
+      "country": "Canada",
+      "clicks": 3,
+      "impressions": 53,
+      "position": 11
+    },
+    {
+      "country": "United Kingdom",
+      "clicks": 3,
+      "impressions": 98,
+      "position": 9.6224
+    },
+    {
+      "country": "India",
+      "clicks": 3,
+      "impressions": 74,
+      "position": 8.3919
+    },
+    {
+      "country": "Ireland",
+      "clicks": 3,
+      "impressions": 16,
+      "position": 8.5625
+    },
+    {
+      "country": "Israel",
+      "clicks": 3,
+      "impressions": 5,
+      "position": 2.4
+    },
+    {
+      "country": "Singapore",
+      "clicks": 3,
+      "impressions": 12,
+      "position": 6.5
+    },
+    {
+      "country": "Thailand",
+      "clicks": 3,
+      "impressions": 23,
+      "position": 39.5652
+    },
+    {
+      "country": "Argentina",
+      "clicks": 2,
+      "impressions": 47,
+      "position": 9.6383
+    },
+    {
+      "country": "Germany",
+      "clicks": 2,
+      "impressions": 66,
+      "position": 15.5303
+    },
+    {
+      "country": "Dominican Republic",
+      "clicks": 2,
+      "impressions": 9,
+      "position": 5.1111
+    },
+    {
+      "country": "Hungary",
+      "clicks": 2,
+      "impressions": 4,
+      "position": 2
+    },
+    {
+      "country": "Netherlands",
+      "clicks": 2,
+      "impressions": 17,
+      "position": 7.4706
+    },
+    {
+      "country": "Philippines",
+      "clicks": 2,
+      "impressions": 19,
+      "position": 13.6842
+    },
+    {
+      "country": "Portugal",
+      "clicks": 2,
+      "impressions": 17,
+      "position": 27.7647
+    },
+    {
+      "country": "Venezuela",
+      "clicks": 2,
+      "impressions": 22,
+      "position": 8.4091
+    },
+    {
+      "country": "Brazil",
+      "clicks": 1,
+      "impressions": 91,
+      "position": 11.3626
+    },
+    {
+      "country": "Switzerland",
+      "clicks": 1,
+      "impressions": 8,
+      "position": 3.75
+    },
+    {
+      "country": "Denmark",
+      "clicks": 1,
+      "impressions": 7,
+      "position": 7.1429
+    }
+  ],
+  "ga4_ai_events_90": [
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/poland",
+      "event_name": "generate_lead",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/",
+      "event_name": "whatsapp_click",
+      "event_count": 122
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/oem-activewear-manufacturer",
+      "event_name": "whatsapp_click",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/uae",
+      "event_name": "whatsapp_click",
+      "event_count": 5
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/es",
+      "event_name": "whatsapp_click",
+      "event_count": 116
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/united-states",
+      "event_name": "whatsapp_click",
+      "event_count": 4
+    },
+    {
+      "session_source_medium": "chatgpt.com / (none)",
+      "landing_page": "/es/contact",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/mexico",
+      "event_name": "whatsapp_click",
+      "event_count": 15
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/es/private-label-activewear",
+      "event_name": "generate_lead",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "(not set)",
+      "event_name": "whatsapp_click",
+      "event_count": 6
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/es/private-label-activewear",
+      "event_name": "whatsapp_click",
+      "event_count": 14
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/brazil",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products",
+      "event_name": "whatsapp_click",
+      "event_count": 19
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/spain",
+      "event_name": "whatsapp_click",
+      "event_count": 7
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/saudi-arabia",
+      "event_name": "whatsapp_click",
+      "event_count": 6
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/poland",
+      "event_name": "whatsapp_click",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/es/fabricante-ropa-deportiva-espana",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/womens-yoga-set",
+      "event_name": "whatsapp_click",
+      "event_count": 13
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/blogs/dfyne-style-activewear-manufacturing",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/es",
+      "event_name": "generate_lead",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products",
+      "event_name": "generate_lead",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/wide-leg-workout-set",
+      "event_name": "whatsapp_click",
+      "event_count": 9
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/ready-to-ship",
+      "event_name": "whatsapp_click",
+      "event_count": 47
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/contact",
+      "event_name": "generate_lead",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/ready-to-ship",
+      "event_name": "generate_lead",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/private-label",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/womens-yoga-set",
+      "event_name": "generate_lead",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/netherlands",
+      "event_name": "whatsapp_click",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/philippines",
+      "event_name": "generate_lead",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/france",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/philippines",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "copilot.com / (not set)",
+      "landing_page": "/es",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/",
+      "event_name": "generate_lead",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/product-selection",
+      "event_name": "generate_lead",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/contact",
+      "event_name": "whatsapp_click",
+      "event_count": 4
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/private-label-yoga-sets",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/seamless-activewear-manufacturer",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/es/contact",
+      "event_name": "whatsapp_click",
+      "event_count": 4
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/es/oem-activewear-manufacturer",
+      "event_name": "whatsapp_click",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/es/contact",
+      "event_name": "generate_lead",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/blogs/business-models",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/matching-sets",
+      "event_name": "whatsapp_click",
+      "event_count": 9
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/capri-workout-set",
+      "event_name": "whatsapp_click",
+      "event_count": 7
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/oem-activewear-manufacturer",
+      "event_name": "generate_lead",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/about",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/tz4506-3",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/0636",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/es/fabricante-de-leggings",
+      "event_name": "whatsapp_click",
+      "event_count": 4
+    },
+    {
+      "session_source_medium": "chatgpt.com / (none)",
+      "landing_page": "/es",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/singapore",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/blogs/activewear-manufacturer-ecuador-import-planning",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/inquiry",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/product-selection",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/tz5555-7",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / (none)",
+      "landing_page": "/",
+      "event_name": "whatsapp_click",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/leggings",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/**",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/tz5558-11",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/printed-contrast-activewear-wholesale",
+      "event_name": "whatsapp_click",
+      "event_count": 2
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/products/tz9599-6",
+      "event_name": "whatsapp_click",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/australia",
+      "event_name": "whatsapp_click",
+      "event_count": 3
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/spain",
+      "event_name": "generate_lead",
+      "event_count": 1
+    },
+    {
+      "session_source_medium": "chatgpt.com / ai-assistant",
+      "landing_page": "/wholesale-to/spain",
+      "event_name": "quote_form_submit",
+      "event_count": 1
+    }
+  ],
+  "bing_queries_90": [
+    {
+      "query": "european activewear manufacturer merino wool tencel private label germany italy lithuania",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "china yoga clothing silk",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "sports bra support band underband research fit",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "marca china teatlon ropa deportiva",
+      "clicks": 1,
+      "impressions": 1
+    },
+    {
+      "query": "guangzhou yoga activewear shopping brands",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "yoga brand better together size chart",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "activewear odor polyester nylon fabric avoid merino odor study",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "buyer activewear whatsapp saudi arabia",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "body mapping apparel design thermal zones",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "thermal mapping inspired shorts",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "yoga wear fabric factory",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "is brushed back cotton another term for fleece for hoodies?",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "marca deportiva privada",
+      "clicks": 1,
+      "impressions": 1
+    },
+    {
+      "query": "sample feedback fit comments activewear leggings waistband inseam",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "brushed fleece vs loopback french terry",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "polyester cotton exercise clothing odor study drying",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "sports bra manufacturing cost vs leggings fob price",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "activewear factory price sports bra vs leggings cost comparison",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "guangzhou activewear  wholesale",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "french rterry vs brushed fleece",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "long geverdyfabric testing",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "site.acs.org workout clothes polyester odor wash fabric softener",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "yoga accessories export factory",
+      "clicks": 0,
+      "impressions": 6
+    },
+    {
+      "query": "what is the cogs for activewear leggings",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "\"quality checks\" for osro strap support",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "australian mens activewear \"wholesale\" \"@\"",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "women activewear private label brands netherlands official website contact",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "fitcloo.com",
+      "clicks": 1,
+      "impressions": 7
+    },
+    {
+      "query": "fitclo.com",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "shop fancy activewear line sheet",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "fancy activewear line sheet",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "personas que pueden ayudarme a crear mi marca de ropa deportiva desde china",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "\"wholesale activewear\" (\"founder at\" or \"ceo of\" or \"owner of\") daegu kr",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "mexico activewear manufacturer private label leggings sports bras low minimum",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "italy activewear manufacturer women premium leggings bonded private label small moq",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "oem/odm activewear manufacturer  china top 10",
+      "clicks": 1,
+      "impressions": 2
+    },
+    {
+      "query": "why polyester workout clothes retain odor bacteria research blog",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "\"hangzhou\" activewear manufacturer \"50 pcs\" custom sports bra shorts brand",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "sports bra stretch fabric distribution official explanation",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "squat testing for garment",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "ga28Events": {
+    "status": "done",
+    "data": [
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "event_name": "whatsapp_click",
+        "event_count": 344
+      },
+      {
+        "session_source_medium": "(direct) / (none)",
+        "event_name": "whatsapp_click",
+        "event_count": 196
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "event_name": "generate_lead",
+        "event_count": 8
+      },
+      {
+        "session_source_medium": "google / organic",
+        "event_name": "whatsapp_click",
+        "event_count": 74
+      },
+      {
+        "session_source_medium": "google / organic",
+        "event_name": "generate_lead",
+        "event_count": 2
+      },
+      {
+        "session_source_medium": "l.wl.co / referral",
+        "event_name": "whatsapp_click",
+        "event_count": 29
+      },
+      {
+        "session_source_medium": "chilat.com / referral",
+        "event_name": "generate_lead",
+        "event_count": 1
+      },
+      {
+        "session_source_medium": "chilat.com / referral",
+        "event_name": "whatsapp_click",
+        "event_count": 1
+      },
+      {
+        "session_source_medium": "(direct) / (none)",
+        "event_name": "generate_lead",
+        "event_count": 7
+      },
+      {
+        "session_source_medium": "bing / organic",
+        "event_name": "whatsapp_click",
+        "event_count": 4
+      },
+      {
+        "session_source_medium": "l.wl.co / referral",
+        "event_name": "generate_lead",
+        "event_count": 6
+      },
+      {
+        "session_source_medium": "(not set)",
+        "event_name": "whatsapp_click",
+        "event_count": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / (none)",
+        "event_name": "whatsapp_click",
+        "event_count": 3
+      },
+      {
+        "session_source_medium": "search.google.com / referral",
+        "event_name": "whatsapp_click",
+        "event_count": 2
+      },
+      {
+        "session_source_medium": "google / organic",
+        "event_name": "quote_form_submit",
+        "event_count": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "event_name": "quote_form_submit",
+        "event_count": 1
+      }
+    ],
+    "total_rows": 16
+  },
+  "gaPriorEvents": {
+    "status": "done",
+    "data": [
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "event_name": "generate_lead",
+        "event_count": 10
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "event_name": "whatsapp_click",
+        "event_count": 123
+      },
+      {
+        "session_source_medium": "google / organic",
+        "event_name": "whatsapp_click",
+        "event_count": 34
+      },
+      {
+        "session_source_medium": "(direct) / (none)",
+        "event_name": "whatsapp_click",
+        "event_count": 19
+      },
+      {
+        "session_source_medium": "y1mgioupltb.feishu.cn / referral",
+        "event_name": "generate_lead",
+        "event_count": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / (none)",
+        "event_name": "whatsapp_click",
+        "event_count": 1
+      },
+      {
+        "session_source_medium": "(direct) / (none)",
+        "event_name": "generate_lead",
+        "event_count": 2
+      },
+      {
+        "session_source_medium": "l.wl.co / referral",
+        "event_name": "whatsapp_click",
+        "event_count": 8
+      },
+      {
+        "session_source_medium": "google / organic",
+        "event_name": "generate_lead",
+        "event_count": 2
+      },
+      {
+        "session_source_medium": "copilot.com / (not set)",
+        "event_name": "whatsapp_click",
+        "event_count": 1
+      },
+      {
+        "session_source_medium": "l.wl.co / referral",
+        "event_name": "generate_lead",
+        "event_count": 1
+      }
+    ],
+    "total_rows": 11
+  },
+  "gaLand": {
+    "status": "done",
+    "data": [
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/",
+        "sessions": 316
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es",
+        "sessions": 211
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products",
+        "sessions": 81
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/ready-to-ship",
+        "sessions": 75
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es/private-label-activewear",
+        "sessions": 63
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "(not set)",
+        "sessions": 56
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/womens-yoga-set",
+        "sessions": 55
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/mexico",
+        "sessions": 30
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/australia",
+        "sessions": 20
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es/fabricante-ropa-deportiva-espana",
+        "sessions": 19
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/spain",
+        "sessions": 16
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/saudi-arabia",
+        "sessions": 13
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/product-selection",
+        "sessions": 12
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/wide-leg-workout-set",
+        "sessions": 12
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/activewear-tech-pack-template-specification-sheet",
+        "sessions": 11
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/philippines",
+        "sessions": 11
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/seamless-activewear-manufacturer",
+        "sessions": 10
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/uae",
+        "sessions": 10
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/contact",
+        "sessions": 9
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es/contact",
+        "sessions": 9
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/united-states",
+        "sessions": 9
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es/ready-stock-activewear",
+        "sessions": 8
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/0636",
+        "sessions": 8
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/capri-workout-set",
+        "sessions": 8
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/tz2557-6",
+        "sessions": 8
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/tz4506-3",
+        "sessions": 8
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/matching-sets",
+        "sessions": 7
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/tz5558-11",
+        "sessions": 7
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/poland",
+        "sessions": 7
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/about",
+        "sessions": 6
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/dfyne-style-activewear-manufacturing",
+        "sessions": 6
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/inquiry",
+        "sessions": 6
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/private-label",
+        "sessions": 6
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/france",
+        "sessions": 6
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/united-kingdom",
+        "sessions": 6
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/3708",
+        "sessions": 5
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/leggings",
+        "sessions": 5
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/netherlands",
+        "sessions": 5
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es/fabricante-de-leggings",
+        "sessions": 4
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/sports-bras",
+        "sessions": 4
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/tz2570-4",
+        "sessions": 4
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/tennis-wear-manufacturer",
+        "sessions": 4
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/brazil",
+        "sessions": 4
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/oem-activewear-manufacturer",
+        "sessions": 3
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/yw572-kw441",
+        "sessions": 3
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/canada",
+        "sessions": 3
+      },
+      {
+        "session_source_medium": "chatgpt.com / (none)",
+        "landing_page": "/",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/activewear-manufacturer-ecuador-import-planning",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/anatomical-panel-design",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/minimalist-luxury-manufacturing",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/capabilities",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/printed-contrast-activewear-wholesale",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/private-label-yoga-sets",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/gym-shorts",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/premium-3-piece-yoga-set",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/tz5555-7",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/tz9599-6",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/germany",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/wholesale-to/singapore",
+        "sessions": 2
+      },
+      {
+        "session_source_medium": "chatgpt.com / (none)",
+        "landing_page": "/es",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / (none)",
+        "landing_page": "/es/contact",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / (none)",
+        "landing_page": "/product-selection",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / (none)",
+        "landing_page": "/products/tz2557-6",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/**",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/activewear-quality-control-inspection",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/activewear-tech-pack-pattern-development",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/activewear-manufacturing-cost-guide",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/built-in-bra-tank-stay-put-leggings-development-guide",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/business-models",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/china-activewear-manufacturer-checklist",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/leggings-stretching-craftsmanship-details",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/polka-dot-contrast-trim-activewear-wholesale",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/technical-transparency-video",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/blogs/white-label-vs-private-label-activewear",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es/fabricante-de-tops-deportivos",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es/oem-activewear-manufacturer",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es/products/tz4506-4",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/es/ropa-deportiva-al-por-mayor",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/private-label-sports-bras",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/jumpsuits",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/racerback-tennis-skirt-set",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/training-pants",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/tz4535-12",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/tz5555-4",
+        "sessions": 1
+      },
+      {
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "landing_page": "/products/wt6089-ny1401-yk1352",
+        "sessions": 1
+      }
+    ],
+    "total_rows": 85
+  },
+  "gaMonthly": {
+    "status": "done",
+    "data": [
+      {
+        "year_month": "202610",
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "sessions": 660
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "(direct) / (none)",
+        "sessions": 644
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "chatgpt.com / ai-assistant",
+        "sessions": 575
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "(direct) / (none)",
+        "sessions": 263
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "google / organic",
+        "sessions": 157
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "google / organic",
+        "sessions": 152
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "l.wl.co / referral",
+        "sessions": 71
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "l.wl.co / referral",
+        "sessions": 33
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "search.google.com / referral",
+        "sessions": 14
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "y1mgioupltb.feishu.cn / referral",
+        "sessions": 7
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "(not set)",
+        "sessions": 7
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "facebook.com / referral",
+        "sessions": 5
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "bing / organic",
+        "sessions": 5
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "(not set)",
+        "sessions": 4
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "chatgpt.com / (none)",
+        "sessions": 4
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "bing / organic",
+        "sessions": 2
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "chatgpt.com / (none)",
+        "sessions": 2
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "baidu / organic",
+        "sessions": 2
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "chilat.com / referral",
+        "sessions": 2
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "baidu / organic",
+        "sessions": 1
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "copilot.com / (not set)",
+        "sessions": 1
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "l.instagram.com / referral",
+        "sessions": 1
+      },
+      {
+        "year_month": "202609",
+        "session_source_medium": "m.facebook.com / referral",
+        "sessions": 1
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "duckduckgo / organic",
+        "sessions": 1
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "facebook.com / referral",
+        "sessions": 1
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "perplexity / (not set)",
+        "sessions": 1
+      },
+      {
+        "year_month": "202610",
+        "session_source_medium": "yahoo / organic",
+        "sessions": 1
+      }
+    ],
+    "total_rows": 27
+  },
+  "privateQueries": {
+    "status": "done",
+    "data": [
+      {
+        "page": "https://www.fitcloo.com/private-label/",
+        "query": "active wear manufacturers",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 10
+      },
+      {
+        "page": "https://www.fitcloo.com/private-label/",
+        "query": "custom activewear manufacturers",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 88
+      },
+      {
+        "page": "https://www.fitcloo.com/private-label/",
+        "query": "custom gym wear manufacturers",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 90
+      },
+      {
+        "page": "https://www.fitcloo.com/private-label/",
+        "query": "custom logo activewear",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 43
+      },
+      {
+        "page": "https://www.fitcloo.com/private-label/",
+        "query": "fitclo",
+        "clicks": 0,
+        "impressions": 40,
+        "position": 1.075
+      },
+      {
+        "page": "https://www.fitcloo.com/private-label/",
+        "query": "private label fitness apparel manufacturers",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 90
+      },
+      {
+        "page": "https://www.fitcloo.com/private-label/",
+        "query": "private label gym clothing",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 93
+      },
+      {
+        "page": "https://www.fitcloo.com/private-label/",
+        "query": "private label sportswear",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 82
+      },
+      {
+        "page": "https://www.fitcloo.com/private-label/",
+        "query": "sports wear manufacturer",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 3
+      }
+    ],
+    "total_rows": 9
+  }
+}

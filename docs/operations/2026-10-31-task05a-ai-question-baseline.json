@@ -1,0 +1,767 @@
+{
+  "created_at": "2026-10-31",
+  "direct_platform_tests": 0,
+  "questions": [
+    {
+      "id": 1,
+      "group": "A",
+      "language": "EN",
+      "prompt": "Recommend China-based wholesale suppliers of women's activewear for a small US retailer. Compare stock ordering, branding and sampling.",
+      "candidate_fitclo_url": "https://www.fitcloo.com/ready-to-ship/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "group": "A",
+      "language": "EN",
+      "prompt": "Where can a UK yoga studio buy ready-stock women's yoga sets from China and confirm colors and sizes before ordering?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/ready-to-ship/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "group": "A",
+      "language": "EN",
+      "prompt": "Which suppliers can ship existing activewear styles to Australia, and what should I confirm about stock, freight and customs?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/wholesale-to/australia/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "group": "A",
+      "language": "EN",
+      "prompt": "Which manufacturers can produce matching activewear sets in multiple sizes and colors, and how do they count sets versus pieces?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/products/matching-sets/",
+      "question_type": "Question adapted from a real GSC query; recommendation volume unknown",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "group": "B",
+      "language": "EN",
+      "prompt": "Recommend private label activewear suppliers in Guangzhou, China, for a new European fitness brand.",
+      "candidate_fitclo_url": "https://www.fitcloo.com/private-label/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "group": "B",
+      "language": "EN",
+      "prompt": "Where can I source women's gym wear with my own logo, care labels, hang tags and packaging?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/private-label/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "group": "B",
+      "language": "EN",
+      "prompt": "For a UK activewear startup, which Chinese suppliers can brand an existing style instead of developing a new pattern?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/private-label/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "group": "B",
+      "language": "EN",
+      "prompt": "How should I compare quotes for existing-style private label yoga sets when branding and shipping are priced separately?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/private-label/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "group": "C",
+      "language": "EN",
+      "prompt": "Where can a US brand develop custom women's leggings in China from a tech pack? What evidence should I request?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/oem-activewear-manufacturer/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "group": "C",
+      "language": "EN",
+      "prompt": "Recommend OEM sports bra manufacturers and explain how to evaluate samples, sizing and support claims.",
+      "candidate_fitclo_url": "https://www.fitcloo.com/private-label-sports-bras/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "group": "C",
+      "language": "EN",
+      "prompt": "How can I find an ODM activewear supplier that can review fabric, fit, labels and sample approval before production?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/oem-activewear-manufacturer/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "group": "D",
+      "language": "EN",
+      "prompt": "Should a small activewear brand start with ready stock, an existing style with its logo, or full OEM development?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/private-label/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "group": "D",
+      "language": "EN",
+      "prompt": "Which activewear suppliers support smaller test orders, and how can I verify the minimum for each style and color?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/ready-to-ship/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "group": "D",
+      "language": "EN",
+      "prompt": "What should I send a Chinese private label activewear supplier to get a usable first quotation?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/private-label/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "group": "E",
+      "language": "ES",
+      "prompt": "¿Qué proveedores de China ofrecen conjuntos deportivos para mujer en stock y opciones de logo para una marca nueva en México?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/es/private-label-activewear/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "group": "E",
+      "language": "ES",
+      "prompt": "¿Cómo comparo un pedido de ropa deportiva en stock con fabricación OEM para mi marca en España?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/es/oem-activewear-manufacturer/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "group": "E",
+      "language": "DE",
+      "prompt": "Welche Anbieter in China liefern Damen-Sportbekleidung für eine kleine deutsche Marke mit eigenem Logo und Etiketten?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/de/private-label-activewear/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "group": "E",
+      "language": "DE",
+      "prompt": "Wie prüfe ich Mindestmenge, Muster und Größen bei einem chinesischen Hersteller von Leggings und Sport-BHs?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/de/oem-activewear-manufacturer/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "group": "E",
+      "language": "PT-BR",
+      "prompt": "Quais fornecedores chineses oferecem moda fitness feminina em estoque com aplicação da minha marca para uma empresa no Brasil?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/pt-br/private-label-activewear/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "group": "E",
+      "language": "PT-BR",
+      "prompt": "Como comparar peças fitness de pronta entrega com desenvolvimento OEM, incluindo amostras e frete para o Brasil?",
+      "candidate_fitclo_url": "https://www.fitcloo.com/pt-br/oem-activewear-manufacturer/",
+      "question_type": "待验证采购种子问题；不是平台热搜量",
+      "platform_results": [
+        {
+          "platform": "ChatGPT",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        },
+        {
+          "platform": "Claude",
+          "checked_date": "2026-10-30",
+          "mode": "不可见：没有可接手的已登录平台会话或获授权搜索接口",
+          "status": "未直接验证",
+          "brand_mentioned": null,
+          "fitcloo_link": null,
+          "source_citations": null,
+          "supplier_candidate": null,
+          "other_suppliers": null,
+          "raw_answer": null,
+          "source_urls": [],
+          "limitation": "未发送到真实平台；公开搜索研究及GA4不替代推荐答案"
+        }
+      ]
+    }
+  ],
+  "manual_protocol": "每个平台使用独立新对话、记录可见模型/搜索开关/日期/完整原问题和原回答，保存引用URL及候选名单。第一轮不提Fitclo品牌，不用本项目上下文影响回答。相同问题2–4周后再测；不创建自动定时任务。单次结果不代表长期表现。"
+}

@@ -1,5 +1,14 @@
 # Fitclo 运营待办
 
+## 2026-10-31 — 任务05-A当前记录（仅独立分支）
+
+- 已完成真实搜索/引荐汇总和单页本地改进；[05-A报告](2026-10-31-task05a-ai-growth.md)含20问题记录、商业事实分级、30天3项计划。正式网站尚未改动，Draft/Preview证据另补。
+- 唯一建议下一项：限定修复Header品类URL拼接缺斜线（生产 /productssports-bras/404，正确路径200），不重做导航、不重复现货筛选。
+- 待独立审批：本轮私标页生产发布；真实公司主体/品牌关系及有效外部资料URL确认；之后固定问题平台实测及AI来源口径复测。未确认不造证书、排名、客户数字或sameAs。
+- 数据限制：ChatGPT/Claude推荐未直接验证；Cloudflare检测ID无权限；Bing AI Performance和GSC URL Inspection无连接字段。GA4来源标签不等于推荐，外站已有ChatGPT UTM链接。
+- main已包含03-D及字体/导航/现货浏览更新；旧待办的03上线措辞为历史，当前生产基准98176845。PR #4/#5未合并、未修改，04-F销售确认记录不在main，不重启CRM审计。
+- 本轮不扩修既有DE TZ2557-3缩略图、旧静态资源及其他页面；不生产部署、不提交Preview到GSC/Bing/IndexNow。
+
 ## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
 
 - Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。

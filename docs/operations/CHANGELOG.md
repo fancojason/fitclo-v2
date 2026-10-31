@@ -1,5 +1,14 @@
 # Fitclo 运营变更日志
 
+## 2026-10-31 — 任务05-A V2.0：AI采购发现基线与私标单页（独立分支，未生产）
+
+- 最新main98176845，生产d3082f46成功；03-D已合并上线，后续字体/导航/现货浏览保留。任务04各成果保留在原分支，PR #4/#5仍未合并，本轮未操作；以下旧日志按历史保留。
+- 实际读取GSC/GA4/Bing汇总：日期和证据见[05-A报告](2026-10-31-task05a-ai-growth.md)及同目录analytics JSON。ChatGPT/Claude没有可用登录会话，20条固定采购问题标“未直接验证”，不把GA4来源或Google搜索当推荐回答。
+- robots最终响应允许搜索/用户检索，训练仍禁止；Cloudflare机器人检测统计无权限，不声称真实机器人已成功抓取。确认外站Fitclo链接自带ChatGPT UTM，提示归因边界。
+- 仅英文private-label.astro新增企业/采购路线说明、三个真实型号入口、5项报价brief及既有内容内链；原Title/H1/schema/图片/商业声明/表单和导航保持。build/13 Node/core locales/ES产品/重点产品保护通过，972 HTML仅该页改变、CSS不变。
+- 既有DE缩略图及非目标静态旧资源失败未扩修。新增发现的既有Header品类URL缺斜线，正式404，单列下一项限定修复。
+- 本轮只允许Draft PR/非生产Preview，远程验收见报告补记；未合并main/部署生产/提交索引，没有自动回传ChatGPT。
+
 ## 任务03-C远程验收补记 — 2026-10-29（仍未生产）
 
 - Preview1451089d-63a4-4c67-8bb3-6ddc9dce176f对应代码9e9a9ab6：EN/ES/DE桌面1440/手机390实际DOM六组通过；全部5图source/完整ALT/短caption/aria-pressed、5张缩略图保留与循环正常；原生鼠标/Tab+Enter/Space逐语言通过，Console无error/warn。

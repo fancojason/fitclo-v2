@@ -62,3 +62,14 @@ Fitclo is a B2B women's activewear supplier based in Guangzhou, China. We suppor
 - baseline与集成版build均通过。972 HTML仅about/index.html改变，其他971相同；全部新产品目录数据/图片与最新main完全相同。CSS与被引用JS不变，原商业正文/图片/SEO/Schema/Header/Footer/表单保护通过。
 - 16 Node、15核心语言、8ES产品、3重点英语产品检查通过；既有DE matching-sets/sports-bras旧CSS警告保留。项目无独立lint/typecheck/npm test脚本，未运行不存在的命令。
 - 原五题测试包与05-D逐字一致；两AI平台未直接验证。远程Preview及浏览器结果另补。
+
+## 远程Preview最终验收（2026-11-05）
+
+- 已验代码/集成文档SHA：7d69c88586ba7b9e7055fe5332005b2404909f8a；Draft PR8保持Draft。最新main集成merge为3deafd35aa3608f132d58a6c7dffc62080684c7f。
+- 新Preview：https://6c6d8f90.fitclo-v2.pages.dev/about/#fitclo-supplier-profile；deployment 6c6d8f90-0b4e-4ef9-b7e1-34a3d1b2ebb8。Cloudflare API确认对应完整SHA、build/deploy success。最初deploy仍active时一次HTTP检查404，等待success后重新检查通过，不将active视为成功。
+- 30核心HTML/11直接资源均200且MIME正确；About额外2CSS/1JS均200，8新增内链200、无坏图。原canonical和robots保持不变。1440和390真实浏览器截图已查看，scrollWidth分别1440/390，原生点击Contact进入/contact/并显示原表单，未提交真实询盘。WhatsApp号码/消息沿用现有helper，仅核对href，未发送。About console未见error/warn。
+- 产品目录及Ready to Ship页面HTTP200，可见抽查新型号CK6277、TZ5586-1；整个目录数据/图片与main逐字或文件哈希保护不变。首页源码未出现这两个型号，不把目录新产品误说成首页新增展示。
+- 问题包工作区CRLF与git blob字节比较曾失败，随后JSON结构比较完全一致、Git无变更；题目/结果未改写，不把换行符差异当新题。
+- 生产仍为main7630001a4b34579fad7038b09535fa7e14cc599b，Cloudflare27b42322-1bae-4e69-b1c3-f2dfe49f6d8a成功；本轮只独立分支push与Preview，无生产部署，无GSC/Bing/IndexNow提交。不是AI推荐或询盘增长证明。
+- 结论：PR8具备独立生产审批条件；技术测试和品牌保密审阅通过，无需等待公开法律主体材料。仅待老板明确批准生产发布。若main再更新，应限定复核后发布，不能直接使用旧基线。
+- 本补记只改运营文档，已验运行代码不变。不可变Preview以上述URL为验收对象，文档push新Preview不冒充另次已验部署。

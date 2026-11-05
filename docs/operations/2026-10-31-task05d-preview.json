@@ -1,0 +1,106 @@
+{
+  "preview": {
+    "id": "30777dcf-9250-4666-bd90-206aa212b2e6",
+    "environment": "preview",
+    "url": "https://30777dcf.fitclo-v2.pages.dev",
+    "latest_stage": {
+      "name": "deploy",
+      "started_on": "2026-10-31T03:46:20.854029Z",
+      "ended_on": "2026-10-31T03:46:31.052695Z",
+      "status": "success"
+    },
+    "deployment_trigger": {
+      "type": "github:push",
+      "metadata": {
+        "branch": "codex/brand-identity-evidence",
+        "commit_hash": "541228e81e2da2266cb36dd2610fa4421edd47a7",
+        "commit_message": "Add verified supplier profile to About and record AI evidence baseline",
+        "commit_dirty": false
+      }
+    },
+    "stages": [
+      {
+        "name": "queued",
+        "started_on": "2026-10-31T03:45:18.351144Z",
+        "ended_on": "2026-10-31T03:45:18.362734Z",
+        "status": "success"
+      },
+      {
+        "name": "initialize",
+        "started_on": "2026-10-31T03:45:18.362734Z",
+        "ended_on": "2026-10-31T03:45:22.75566Z",
+        "status": "success"
+      },
+      {
+        "name": "clone_repo",
+        "started_on": "2026-10-31T03:45:22.75566Z",
+        "ended_on": "2026-10-31T03:45:32.133664Z",
+        "status": "success"
+      },
+      {
+        "name": "build",
+        "started_on": "2026-10-31T03:45:32.133664Z",
+        "ended_on": "2026-10-31T03:46:20.854029Z",
+        "status": "success"
+      },
+      {
+        "name": "deploy",
+        "started_on": "2026-10-31T03:46:20.854029Z",
+        "ended_on": "2026-10-31T03:46:31.052695Z",
+        "status": "success"
+      }
+    ]
+  },
+  "production": {
+    "id": "46eb031f-41de-4b82-b5b5-5c89b684bb3e",
+    "environment": "production",
+    "url": "https://46eb031f.fitclo-v2.pages.dev",
+    "latest_stage": {
+      "name": "deploy",
+      "started_on": "2026-10-31T02:57:28.07396Z",
+      "ended_on": "2026-10-31T02:57:43.520894Z",
+      "status": "success"
+    },
+    "deployment_trigger": {
+      "type": "github:push",
+      "metadata": {
+        "branch": "main",
+        "commit_hash": "0c931c0ae4abc1372afda392b14fd1137fa484fe",
+        "commit_message": "Publish approved private-label sourcing improvements (PR #6)\n\nOwner-authorized independent release after PR #7 production acceptance and integrated Preview520b3ea7 verification. Preserve Header repairs and all protected commercial/form/SEO behavior. PR #4/#5 untouched.",
+        "commit_dirty": false
+      }
+    },
+    "stages": [
+      {
+        "name": "queued",
+        "started_on": "2026-10-31T02:56:33.669572Z",
+        "ended_on": "2026-10-31T02:56:33.670587Z",
+        "status": "success"
+      },
+      {
+        "name": "initialize",
+        "started_on": "2026-10-31T02:56:33.670587Z",
+        "ended_on": "2026-10-31T02:56:36.413235Z",
+        "status": "success"
+      },
+      {
+        "name": "clone_repo",
+        "started_on": "2026-10-31T02:56:36.413235Z",
+        "ended_on": "2026-10-31T02:56:49.533135Z",
+        "status": "success"
+      },
+      {
+        "name": "build",
+        "started_on": "2026-10-31T02:56:49.533135Z",
+        "ended_on": "2026-10-31T02:57:28.07396Z",
+        "status": "success"
+      },
+      {
+        "name": "deploy",
+        "started_on": "2026-10-31T02:57:28.07396Z",
+        "ended_on": "2026-10-31T02:57:43.520894Z",
+        "status": "success"
+      }
+    ]
+  }
+}

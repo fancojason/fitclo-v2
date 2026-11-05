@@ -1,0 +1,106 @@
+{
+  "preview": {
+    "id": "6c6d8f90-0b4e-4ef9-b7e1-34a3d1b2ebb8",
+    "environment": "preview",
+    "url": "https://6c6d8f90.fitclo-v2.pages.dev",
+    "latest_stage": {
+      "name": "deploy",
+      "started_on": "2026-11-05T09:52:10.486775Z",
+      "ended_on": "2026-11-05T09:52:22.176896Z",
+      "status": "success"
+    },
+    "deployment_trigger": {
+      "type": "github:push",
+      "metadata": {
+        "branch": "codex/brand-identity-evidence",
+        "commit_hash": "7d69c88586ba7b9e7055fe5332005b2404909f8a",
+        "commit_message": "Prepare About release gate with brand-only privacy policy",
+        "commit_dirty": false
+      }
+    },
+    "stages": [
+      {
+        "name": "queued",
+        "started_on": "2026-11-05T09:51:07.830328Z",
+        "ended_on": "2026-11-05T09:51:07.834633Z",
+        "status": "success"
+      },
+      {
+        "name": "initialize",
+        "started_on": "2026-11-05T09:51:07.834633Z",
+        "ended_on": "2026-11-05T09:51:09.656117Z",
+        "status": "success"
+      },
+      {
+        "name": "clone_repo",
+        "started_on": "2026-11-05T09:51:09.656117Z",
+        "ended_on": "2026-11-05T09:51:21.57007Z",
+        "status": "success"
+      },
+      {
+        "name": "build",
+        "started_on": "2026-11-05T09:51:21.57007Z",
+        "ended_on": "2026-11-05T09:52:10.486775Z",
+        "status": "success"
+      },
+      {
+        "name": "deploy",
+        "started_on": "2026-11-05T09:52:10.486775Z",
+        "ended_on": "2026-11-05T09:52:22.176896Z",
+        "status": "success"
+      }
+    ]
+  },
+  "production": {
+    "id": "27b42322-1bae-4e69-b1c3-f2dfe49f6d8a",
+    "environment": "production",
+    "url": "https://27b42322.fitclo-v2.pages.dev",
+    "latest_stage": {
+      "name": "deploy",
+      "started_on": "2026-11-04T11:08:10.772307Z",
+      "ended_on": "2026-11-04T11:08:24.73652Z",
+      "status": "success"
+    },
+    "deployment_trigger": {
+      "type": "github:push",
+      "metadata": {
+        "branch": "main",
+        "commit_hash": "7630001a4b34579fad7038b09535fa7e14cc599b",
+        "commit_message": "Add 19 ready-stock product cards with MOQ 50",
+        "commit_dirty": false
+      }
+    },
+    "stages": [
+      {
+        "name": "queued",
+        "started_on": "2026-11-04T11:07:25.185235Z",
+        "ended_on": "2026-11-04T11:07:25.190761Z",
+        "status": "success"
+      },
+      {
+        "name": "initialize",
+        "started_on": "2026-11-04T11:07:25.190761Z",
+        "ended_on": "2026-11-04T11:07:28.333185Z",
+        "status": "success"
+      },
+      {
+        "name": "clone_repo",
+        "started_on": "2026-11-04T11:07:28.333185Z",
+        "ended_on": "2026-11-04T11:07:37.893298Z",
+        "status": "success"
+      },
+      {
+        "name": "build",
+        "started_on": "2026-11-04T11:07:37.893298Z",
+        "ended_on": "2026-11-04T11:08:10.772307Z",
+        "status": "success"
+      },
+      {
+        "name": "deploy",
+        "started_on": "2026-11-04T11:08:10.772307Z",
+        "ended_on": "2026-11-04T11:08:24.73652Z",
+        "status": "success"
+      }
+    ]
+  }
+}

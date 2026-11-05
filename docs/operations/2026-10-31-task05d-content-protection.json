@@ -1,0 +1,13 @@
+{
+  "baseline_commit": "0c931c0ae4abc1372afda392b14fd1137fa484fe",
+  "html_count": 972,
+  "only_changed_html": [
+    "about/index.html"
+  ],
+  "other_html_unchanged": 971,
+  "unreferenced_wrapper_changes": [],
+  "css_and_referenced_js_unchanged": true,
+  "original_commercial_copy_images_schema_meta_header_footer_form_preserved": true,
+  "new_internal_links_exist": true,
+  "no_strong_claims_copied_into_new_section": true
+}

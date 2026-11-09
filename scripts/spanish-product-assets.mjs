@@ -1,5 +1,5 @@
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 import { parse } from 'parse5';
@@ -76,11 +76,53 @@ function assetRole(url) {
   return `${match[1]}.${match[2]}`;
 }
 
-// Preserve approved translated copy; bind current assets and existing Capri image descriptions.
+function formFields(html) {
+  const forms = [];
+  function visit(node, fields) {
+    const attrs = Object.fromEntries((node.attrs || []).map(a => [a.name, a.value]));
+    if (node.tagName === 'form') { fields = []; forms.push(fields); }
+    if (fields && ['input', 'select', 'textarea', 'button'].includes(node.tagName)) {
+      fields.push([node.tagName, attrs.name || '', attrs.type || '', attrs.id || '']);
+    }
+    for (const child of node.childNodes || []) visit(child, fields);
+  }
+  visit(parse(html));
+  return forms;
+}
+
+// Only repair mirrors with inquiry forms and missing assets; never guess an equivalent handler.
+export function localizedFormAssetTargets(directory) {
+  const targets = [];
+  for (const locale of ['es', 'de']) {
+    const root = join(directory, locale);
+    if (!existsSync(root)) continue;
+    function visit(folder) {
+      for (const entry of readdirSync(folder, { withFileTypes: true })) {
+        const file = join(folder, entry.name);
+        if (entry.isDirectory()) { visit(file); continue; }
+        if (entry.name !== 'index.html') continue;
+        const html = readFileSync(file, 'utf8');
+        if (!/<form\b[^>]*(?:id=["']inquiry-form["']|data-product-inquiry-form)/i.test(html)) continue;
+        if (!assets(html).some(url => !existsSync(join(directory, url.slice(1))))) continue;
+        const parts = relative(root, dirname(file)).split(sep).filter(Boolean);
+        const slug = parts.pop() || '';
+        const section = parts.join('/');
+        const sourceFile = join(directory, section, slug, 'index.html');
+        assert(existsSync(sourceFile), `Missing equivalent source for ${file}`);
+        assert.deepEqual(formFields(html), formFields(readFileSync(sourceFile, 'utf8')), `Inquiry form structure differs: ${file}`);
+        targets.push({ locale, section, slug });
+      }
+    }
+    visit(root);
+  }
+  return targets;
+}
+
+// Preserve translated copy; bind equivalent-page assets, including inquiry forms.
 export function bindSpanishProductAssets(directory, targets = repairedProductSlugs.map(slug => ({ slug, locale: 'es' }))) {
-  const plans = targets.map(({ slug, locale }) => {
-    const source = readFileSync(join(directory, 'products', slug, 'index.html'), 'utf8');
-    const target = join(directory, locale, 'products', slug, 'index.html');
+  const plans = targets.map(({ slug, locale, section = 'products' }) => {
+    const source = readFileSync(join(directory, section, slug, 'index.html'), 'utf8');
+    const target = join(directory, locale, section, slug, 'index.html');
     const original = readFileSync(target, 'utf8');
     const current = new Map();
     for (const url of assets(source)) {
@@ -101,7 +143,7 @@ export function bindSpanishProductAssets(directory, targets = repairedProductSlu
       assert(existsSync(join(directory, url.slice(1))), `Unresolved translated entry: ${url}`);
     }
     if (slug === 'capri-workout-set') html = bindCapriAlt(html, source, locale);
-    return { target, original, html, route: `/${locale}/products/${slug}/` };
+    return { target, original, html, route: `/${[locale, section, slug].filter(Boolean).join('/')}/` };
   });
   // Validate all plans before writing any output.
   for (const plan of plans) {
@@ -116,9 +158,14 @@ export default function spanishProductAssets() {
     hooks: {
       'astro:build:done': ({ dir, logger }) => {
         const targets = [...repairedProductSlugs.map(slug => ({ slug, locale: 'es' })),
-          { slug: 'capri-workout-set', locale: 'de' }];
+          { slug: 'capri-workout-set', locale: 'de' },
+          ...['es', 'de'].map(locale => ({ slug: 'inquiry', locale, section: '' }))];
         for (const result of bindSpanishProductAssets(fileURLToPath(dir), targets)) {
           logger.info(`Bound ${result.route} to ${result.assets.length} generated CSS/JS entries`);
+        }
+        const formTargets = localizedFormAssetTargets(fileURLToPath(dir));
+        for (const result of bindSpanishProductAssets(fileURLToPath(dir), formTargets)) {
+          logger.info(`Repaired inquiry form assets: ${result.route}`);
         }
       },
     },

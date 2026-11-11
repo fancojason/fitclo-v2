@@ -1,0 +1,34 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+---
+
+<EditorialArticleLayout
+  title={"Missing Sizes in an Activewear Shipment? A Buyer’s Receiving and Shortage Checklist"}
+  seoTitle={"Activewear Shipment Shortage: Receiving Checklist | Fitclo"}
+  description={"Reconcile activewear cartons against the packing list and report missing sizes, wrong variants or damage using a clear supplier evidence pack."}
+  type="Activewear Procurement Guide"
+  articleKind="activewear-shipment-shortage-receiving-checklist"
+  date="November 11, 2026"
+  publishedIso="2026-11-11"
+  modifiedIso="2026-11-11"
+  readTime="4 min read"
+  quickAnswerTitle={"Compare three records before claiming a shortage: the agreed PO, the final packing list for this shipment, and the warehouse's actual receipt. Start with carton IDs, then count the affected SKU and size rows. Report the exact difference and preserve labels and photos before putting affected stock away."}
+  planningPlacement="before"
+  tableHeaders={['Decision', 'What to check', 'Next step']}
+  planningRows={[["Missing carton","Check carton IDs, carrier handover and whether it was assigned to another shipment.","Record the carton ID and tracking or shipment reference."],["Missing units in received carton","Open and count against the carton-level list; retain labels and packing photos.","Report expected and actual quantities per SKU."],["Wrong variant or damaged units","Record what was physically received and keep affected goods separate.","Show separate counts for missing, wrong and damaged goods."]]}
+  faqs={[{"question":"Is the packing list proof of what arrived?","answer":"It is the shipment reference. Compare it with the warehouse count and, where needed, the carrier handover record."},{"question":"What if the right number of cartons arrived but sizes are wrong?","answer":"Count at SKU level, photograph the carton and item labels, and record shortages and overages as separate rows."}]}
+  relatedReading={[{"title":"Activewear quality inspection checklist","link":"/blogs/activewear-quality-inspection-checklist/","desc":"Related buyer guidance from Fitclo."},{"title":"Activewear purchase order checklist","link":"/blogs/activewear-purchase-order-checklist/","desc":"Related buyer guidance from Fitclo."}]}
+  ctaTitle="Discuss your order requirements with Fitclo"
+  ctaText="Send your style references, quantities, destination and the requirements you want confirmed before placing an order."
+  ctaHref="/inquiry/"
+  ctaLabel="Request a quote"
+>
+<h2>Get a carton-level packing list before arrival</h2>
+<p>Ask the supplier to identify the shipment, carton IDs and the SKU, colour, size and quantity inside each carton. Where the receiver uses an advance shipping notice (ASN), agree how carton or pallet identifiers will match it. The <a href="https://www.gs1.org/docs/tl/GS1_Logistic_Label_Guideline.pdf">GS1 Logistic Label Guideline</a> explains the relationship between logistics labels, despatch information and receiving checks. For a simple order without an ASN, a carton-numbered spreadsheet can serve the same reconciliation task.</p>
+<h2>Distinguish short shipment, short delivery and mispacking</h2>
+<p>Consider a hypothetical order of 120 sets. The final list says 100 were packed for this shipment and 20 are scheduled separately. If the warehouse counts 98, there are two units to investigate against the shipment and 20 outstanding against the order. If a carton never arrived, reconcile the shipment handover before opening a product shortage case. If all cartons arrived, count the affected variants instead of relying on gross weight or the overall total.</p>
+<p>A warehouse can count the expected total and still be short of the right size. If a carton lists 12 black M leggings but contains ten black M and two black L, record a shortage of two M and an overage of two L. Avoid silently netting the sizes together. For a prepacked set, check whether both pieces are present and match the pack label before recording the set as sellable stock.</p>
+<h2>Send a discrepancy note the supplier can act on</h2>
+<p>Use one row per affected carton and SKU: PO, shipment reference, carton ID, expected count, received count, issue type and evidence filename. Attach the carton label, the relevant packing list row, and a photo or recount record. Keep packaging until the cause and next step are agreed. Check the notification window under your supplier and carrier terms, then request a written disposition such as a recount, split-shipment confirmation or another agreed resolution.</p>
+<p>For a future Fitclo order, share your receiving template and carton labelling requirements during <a href="/inquiry/">the quotation discussion</a>. Define the handoff before shipment. The <a href="/blogs/activewear-quality-inspection-checklist/">pre-shipment inspection guide</a> covers upstream checks; this checklist begins when the goods reach your warehouse.</p>
+</EditorialArticleLayout>

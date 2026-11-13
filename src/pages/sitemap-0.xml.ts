@@ -36,6 +36,8 @@ const staticPages = [
   '/es/ready-stock-activewear/',
   '/custom-activewear-labels-packaging/',
   '/guides/',
+  '/nl/guides/',
+  '/pt-br/guides/',
   '/inquiry/',
   '/private-label/',
   '/private-label-pilates-clothing/',

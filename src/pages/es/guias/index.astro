@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getAlternateLinks } from '../../../i18n/routes';
 import { spanishGuides } from '../../../content/es/guides';
 
 const pageUrl = 'https://www.fitcloo.com/es/guias/';
@@ -17,6 +18,7 @@ const topics = [
   title="Guías para Comprar y Fabricar Ropa Deportiva | Fitclo"
   description="Cinco guías en español para compradores B2B de ropa deportiva: MOQ, marca privada, OEM/ODM, cotización, desarrollo de muestras y control de calidad."
   canonicalURL={pageUrl}
+  alternateLinks={getAlternateLinks('/guides/', '/es/guias/')}
   autoArticleSchema={false}
 >
   <main class="bg-[#090909] pt-28 text-white">

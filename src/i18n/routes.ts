@@ -9,6 +9,7 @@ type LocalizedRoutePair = { en: string; es: string; de?: string; nl?: string; 'p
 const siteUrl = 'https://www.fitcloo.com';
 
 export const localizedRoutePairs: LocalizedRoutePair[] = [
+  { en: '/guides/', es: '/es/guias/', nl: '/nl/guides/', 'pt-BR': '/pt-br/guides/' },
   { en: '/wholesale-to/spain/', es: '/es/fabricante-ropa-deportiva-espana/' },
   { en: '/', es: '/es/', de: '/de/', nl: '/nl/', 'pt-BR': '/pt-br/' },
   { en: '/private-label/', es: '/es/private-label-activewear/', de: '/de/private-label-activewear/', nl: '/nl/private-label-activewear/', 'pt-BR': '/pt-br/private-label-activewear/' },

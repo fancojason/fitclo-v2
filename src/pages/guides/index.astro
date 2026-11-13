@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAlternateLinks } from '../../i18n/routes';
 
 const guides = [
   {
@@ -42,6 +43,7 @@ const guides = [
 ---
 
 <BaseLayout
+  alternateLinks={getAlternateLinks('/guides/', '/es/guias/')}
   title="The Fitclo Activewear Blog | Expert Manufacturing Guides"
   description="Explore Fitclo manufacturing guides for activewear sourcing, MOQ planning, custom leggings, sports bras, yoga sets, private label production and factory-direct pricing."
 >

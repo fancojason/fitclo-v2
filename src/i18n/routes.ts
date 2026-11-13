@@ -1,21 +1,22 @@
-export type SiteLanguage = 'en' | 'es' | 'de' | 'nl' | 'pt-BR';
+export type SiteLanguage = 'en' | 'es' | 'de' | 'nl' | 'pt-BR' | 'ru';
 import spanishMirrorPaths from '../data/spanishMirrorPaths.json';
 import germanMirrorPaths from '../data/germanMirrorPaths.json';
 
-export const newLanguages = ['de', 'nl', 'pt-BR'] as const;
-export const languagePrefix: Record<SiteLanguage, string> = { en: '/', es: '/es/', de: '/de/', nl: '/nl/', 'pt-BR': '/pt-br/' };
-type LocalizedRoutePair = { en: string; es: string; de?: string; nl?: string; 'pt-BR'?: string };
+export const newLanguages = ['de', 'nl', 'pt-BR', 'ru'] as const;
+export const languagePrefix: Record<SiteLanguage, string> = { en: '/', es: '/es/', de: '/de/', nl: '/nl/', 'pt-BR': '/pt-br/', ru: '/ru/' };
+type LocalizedRoutePair = { en: string; es: string; de?: string; nl?: string; 'pt-BR'?: string; ru?: string };
 
 const siteUrl = 'https://www.fitcloo.com';
 
 export const localizedRoutePairs: LocalizedRoutePair[] = [
-  { en: '/guides/', es: '/es/guias/', nl: '/nl/guides/', 'pt-BR': '/pt-br/guides/' },
+  { en: '/products/', es: '/es/products/', ru: '/ru/products/' },
+  { en: '/guides/', es: '/es/guias/', nl: '/nl/guides/', 'pt-BR': '/pt-br/guides/', ru: '/ru/guides/' },
   { en: '/wholesale-to/spain/', es: '/es/fabricante-ropa-deportiva-espana/' },
-  { en: '/', es: '/es/', de: '/de/', nl: '/nl/', 'pt-BR': '/pt-br/' },
-  { en: '/private-label/', es: '/es/private-label-activewear/', de: '/de/private-label-activewear/', nl: '/nl/private-label-activewear/', 'pt-BR': '/pt-br/private-label-activewear/' },
-  { en: '/oem-activewear-manufacturer/', es: '/es/oem-activewear-manufacturer/', de: '/de/oem-activewear-manufacturer/', nl: '/nl/oem-activewear-manufacturer/', 'pt-BR': '/pt-br/oem-activewear-manufacturer/' },
-  { en: '/ready-to-ship/', es: '/es/ready-stock-activewear/', de: '/de/ready-stock-activewear/', nl: '/nl/ready-stock-activewear/', 'pt-BR': '/pt-br/ready-stock-activewear/' },
-  { en: '/contact/', es: '/es/contact/', de: '/de/contact/', nl: '/nl/contact/', 'pt-BR': '/pt-br/contact/' },
+  { en: '/', es: '/es/', de: '/de/', nl: '/nl/', 'pt-BR': '/pt-br/', ru: '/ru/' },
+  { en: '/private-label/', es: '/es/private-label-activewear/', de: '/de/private-label-activewear/', nl: '/nl/private-label-activewear/', 'pt-BR': '/pt-br/private-label-activewear/', ru: '/ru/private-label-activewear/' },
+  { en: '/oem-activewear-manufacturer/', es: '/es/oem-activewear-manufacturer/', de: '/de/oem-activewear-manufacturer/', nl: '/nl/oem-activewear-manufacturer/', 'pt-BR': '/pt-br/oem-activewear-manufacturer/', ru: '/ru/oem-activewear-manufacturer/' },
+  { en: '/ready-to-ship/', es: '/es/ready-stock-activewear/', de: '/de/ready-stock-activewear/', nl: '/nl/ready-stock-activewear/', 'pt-BR': '/pt-br/ready-stock-activewear/', ru: '/ru/ready-stock-activewear/' },
+  { en: '/contact/', es: '/es/contact/', de: '/de/contact/', nl: '/nl/contact/', 'pt-BR': '/pt-br/contact/', ru: '/ru/contact/' },
   { en: '/private-label-leggings/', es: '/es/fabricante-de-leggings/' },
   { en: '/private-label-sports-bras/', es: '/es/fabricante-de-sujetadores-deportivos/' },
   { en: '/private-label-yoga-sets/', es: '/es/fabricante-de-conjuntos-de-yoga/' },

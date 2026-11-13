@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { productCatalog } from '../../data/productCatalog';
+import { getWhatsAppUrl } from '../../lib/whatsapp';
+
+const categories = {
+  'sports-bras': 'Спортивные топы',
+  leggings: 'Легинсы',
+  'matching-sets': 'Спортивные комплекты',
+  'gym-shorts': 'Шорты',
+  'training-pants': 'Тренировочные брюки',
+  't-shirts': 'Футболки',
+  'tank-tops': 'Майки',
+  jumpsuits: 'Комбинезоны',
+  jackets: 'Куртки',
+  dresses: 'Спортивные платья',
+  skirts: 'Спортивные юбки',
+};
+---
+
+<BaseLayout lang="ru" title="Каталог спортивной одежды оптом | Fitclo" description="Выберите категорию и артикул спортивной одежды. Уточните наличие, размеры, минимальный заказ и варианты маркировки у Fitclo.">
+  <main class="mx-auto max-w-6xl px-6 pb-24 pt-40 text-white">
+    <h1 class="text-4xl font-bold">Каталог спортивной одежды</h1>
+    <p class="mt-5 max-w-3xl text-white/75">Выберите категорию и артикул. Актуальные цвета, размеры, наличие и минимальный заказ уточняются по модели.</p>
+    <nav class="mt-6 flex flex-wrap gap-4" aria-label="Категории">
+      {Object.entries(categories).map(([id, title]) => <a class="text-[#d8b456] underline" href={`#${id}`}>{title}</a>)}
+    </nav>
+    {Object.entries(categories).map(([id, title]) => (
+      <section id={id} class="mt-10 scroll-mt-36 border-t border-white/15 pt-5">
+        <h2 class="text-xl font-semibold">{title}</h2>
+        <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {productCatalog.filter(product => product.category === id).map(product => (
+            <li class="border border-white/15 p-3">
+              <img src={product.image} alt={product.name} lang="en" loading="lazy" decoding="async" width="320" height="320" class="mb-3 aspect-square w-full object-contain" />
+              <p class="font-semibold">{product.styleCode}</p>
+              <p lang="en" class="text-sm text-white/75">{product.name}</p>
+              <a class="mt-2 inline-block text-[#d8b456] underline" href={getWhatsAppUrl({ language: 'ru', productCode: product.styleCode, productName: product.name })}>Уточнить модель в WhatsApp</a>
+            </li>
+          ))}
+        </ul>
+        <a class="mt-4 inline-block text-white/75 underline" href={`/products/${id}/`} hreflang="en">Фотографии и подробности на английском</a>
+      </section>
+    ))}
+  </main>
+</BaseLayout>

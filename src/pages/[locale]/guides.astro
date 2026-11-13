@@ -7,11 +7,23 @@ export function getStaticPaths() {
   return [
     { params: { locale: 'nl' }, props: { language: 'nl' } },
     { params: { locale: 'pt-br' }, props: { language: 'pt-BR' } },
+    { params: { locale: 'ru' }, props: { language: 'ru' } },
   ];
 }
 
-const { language } = Astro.props as { language: 'nl' | 'pt-BR' };
+const { language } = Astro.props as { language: 'nl' | 'pt-BR' | 'ru' };
 const copy = {
+  ru: {
+    title: 'Руководство по закупке спортивной одежды',
+    intro: 'Сравните закупку готовых моделей, выпуск под своим брендом и разработку OEM/ODM. Подготовьте данные для расчёта заказа.',
+    sections: [
+      ['Наличие и минимальный заказ', 'Укажите артикулы и количество по цветам и размерам. Для комплектов уточните единицу заказа и допустимые сочетания размеров верха и низа.', 'ready-stock-activewear', 'Проверить готовые модели'],
+      ['Маркировка и упаковка', 'Перед заказом согласуйте логотип, этикетки, упаковку и макет штрихкода. Для каждой розничной позиции укажите отдельную строку с артикулом, цветом и размером.', 'private-label-activewear', 'Обсудить выпуск под вашим брендом'],
+      ['Образец и серийный заказ', 'Утвердите ткань, размеры и внешний вид образца. Запросите отдельно стоимость разработки, сроки производства, дату отправки и условия перевозки до пункта назначения.', 'oem-activewear-manufacturer', 'Обсудить разработку OEM/ODM'],
+    ],
+    cta: 'Запросить цену',
+    related: 'Подробные руководства на английском',
+  },
   nl: {
     title: 'Inkoopgids voor sportkleding',
     intro: 'Vergelijk voorraadmodellen, private label en OEM/ODM. Gebruik deze gids om een offerte voor uw collectie voor te bereiden.',

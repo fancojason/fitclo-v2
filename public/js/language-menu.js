@@ -1,6 +1,6 @@
 (() => {
-  const names = { en: 'English', es: 'Español', de: 'Deutsch', nl: 'Nederlands', 'pt-BR': 'Português (Brasil)' };
-  const labels = { en: 'Choose language', es: 'Elegir idioma', de: 'Sprache wählen', nl: 'Kies taal', 'pt-BR': 'Escolher idioma' };
+  const names = { en: 'English', es: 'Español', de: 'Deutsch', nl: 'Nederlands', 'pt-BR': 'Português (Brasil)', ru: 'Русский' };
+  const labels = { en: 'Choose language', es: 'Elegir idioma', de: 'Sprache wählen', nl: 'Kies taal', 'pt-BR': 'Escolher idioma', ru: 'Выбрать язык' };
   const globe = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3Z"/></svg>';
   const chevron = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 6 4.5 4 4.5-4"/></svg>';
   const check = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8 3.2 3.2L13 4.5"/></svg>';

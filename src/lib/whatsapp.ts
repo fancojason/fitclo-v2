@@ -6,7 +6,7 @@ export type WhatsAppContext = {
   productName?: string;
   category?: string;
   customMessage?: string;
-  language?: 'en' | 'es' | 'de' | 'nl' | 'pt-BR';
+  language?: 'en' | 'es' | 'de' | 'nl' | 'pt-BR' | 'ru';
 };
 
 export const whatsappMessages = {
@@ -49,6 +49,16 @@ const coreMessages = {
 export function getWhatsAppMessage(context: WhatsAppContext = {}): { message: string; messageType: string; category: string } {
   if (context.customMessage) return { message: context.customMessage, messageType: 'custom', category: context.category || '' };
   const spanish = context.language === 'es';
+  if (context.language === 'ru') {
+    const subject = context.productCode
+      ? `Интересует модель ${context.productCode}${context.productName ? ` (${context.productName})` : ''}.`
+      : 'Интересует оптовая закупка спортивной одежды.';
+    return {
+      message: `Здравствуйте, Fitclo! ${subject} Уточните, пожалуйста, наличие, размеры, минимальный заказ и цену.`,
+      messageType: context.productCode ? 'product' : 'homepage',
+      category: context.category || '',
+    };
+  }
   const core = context.language === 'de' || context.language === 'nl' || context.language === 'pt-BR' ? coreMessages[context.language] : null;
   if (context.productCode) {
     const name = context.productName?.trim() || 'this activewear style';

@@ -38,6 +38,8 @@ const staticPages = [
   '/guides/',
   '/nl/guides/',
   '/pt-br/guides/',
+  '/ru/guides/',
+  '/ru/products/',
   '/inquiry/',
   '/private-label/',
   '/private-label-pilates-clothing/',

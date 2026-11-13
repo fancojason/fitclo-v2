@@ -1,6 +1,7 @@
 import type { SiteLanguage } from '../i18n/routes';
+import russian from './ru-core.json';
 
-export type CoreLanguage = Extract<SiteLanguage, 'de' | 'nl' | 'pt-BR'>;
+export type CoreLanguage = Extract<SiteLanguage, 'de' | 'nl' | 'pt-BR' | 'ru'>;
 export type CorePage = 'home' | 'private-label-activewear' | 'oem-activewear-manufacturer' | 'ready-stock-activewear' | 'contact';
 type Section = { heading: string; text: string };
 type Question = { question: string; answer: string };
@@ -15,6 +16,7 @@ export const corePageSlugs: CorePage[] = ['home', 'private-label-activewear', 'o
 export const corePath = (language: CoreLanguage, page: CorePage) => `/${language === 'pt-BR' ? 'pt-br' : language}/${page === 'home' ? '' : `${page}/`}`;
 
 export const coreLocales: Record<CoreLanguage, LocaleCopy> = {
+  ru: russian,
   de: {
     name: 'Deutsch', nav: { home: 'Startseite', 'private-label-activewear': 'Private Label', 'oem-activewear-manufacturer': 'OEM/ODM', 'ready-stock-activewear': 'Lagerware', contact: 'Anfrage' },
     footer: 'Fitclo · Sportbekleidung aus Guangzhou, China. Großhandel mit verfügbaren Modellen, Markenanpassung und individuelle Entwicklung.',

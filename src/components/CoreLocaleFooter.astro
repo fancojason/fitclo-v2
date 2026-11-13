@@ -11,6 +11,9 @@ const copy = coreLocales[language];
       {corePageSlugs.map((page) => <a class="hover:text-[#C9A84C]" href={corePath(language, page)}>{copy.nav[page]}</a>)}
       {language === 'nl' && <a class="hover:text-[#C9A84C]" href="/nl/guides/">Inkoopgids</a>}
       {language === 'pt-BR' && <a class="hover:text-[#C9A84C]" href="/pt-br/guides/">Guia de compra</a>}
+      {language === 'ru' && <a class="hover:text-[#C9A84C]" href="/ru/china-activewear-manufacturer-russia/">Поставки для покупателей из России</a>}
+      {language === 'ru' && <a class="hover:text-[#C9A84C]" href="/ru/guides/">Руководство по закупке</a>}
+      {language === 'ru' && <a class="hover:text-[#C9A84C]" href="/ru/products/">Каталог моделей</a>}
     </nav>
     <div class="text-sm leading-7 text-white/70"><p>{copy.footerNote}</p><a class="mt-3 block text-[#C9A84C]" href="mailto:sales@fitcloo.com">sales@fitcloo.com</a><a class="mt-2 block text-[#C9A84C]" target="_blank" rel="noopener noreferrer" href={getWhatsAppUrl({ path: Astro.url.pathname, language })}>WhatsApp</a></div>
   </div>

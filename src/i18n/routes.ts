@@ -1,6 +1,7 @@
 export type SiteLanguage = 'en' | 'es' | 'de' | 'nl' | 'pt-BR' | 'ru';
 import spanishMirrorPaths from '../data/spanishMirrorPaths.json';
 import germanMirrorPaths from '../data/germanMirrorPaths.json';
+import russianMirrorPaths from '../data/russianMirrorPaths.json';
 
 export const newLanguages = ['de', 'nl', 'pt-BR', 'ru'] as const;
 export const languagePrefix: Record<SiteLanguage, string> = { en: '/', es: '/es/', de: '/de/', nl: '/nl/', 'pt-BR': '/pt-br/', ru: '/ru/' };
@@ -40,8 +41,13 @@ export const getLanguageFromPath = (path: string): SiteLanguage =>
 export const getLocalizedRoute = (path: string, language: SiteLanguage) => {
   const normalizedPath = normalizePath(path);
   const pair = localizedRoutePairs.find((item) => Object.values(item).includes(normalizedPath));
-  const englishPath = pair?.en ?? (normalizedPath.startsWith('/es/') ? normalizedPath.slice(3) : normalizedPath.startsWith('/de/') ? normalizedPath.slice(3) : normalizedPath);
+  const englishPath = pair?.en ?? (/^\/(?:es|de|ru)\//.test(normalizedPath) ? normalizedPath.slice(3) : normalizedPath);
   const englishPair = pair ?? localizedRoutePairs.find((item) => item.en === englishPath);
+  if (russianMirrorPaths.includes(englishPath)) {
+    if (language === 'ru') return `/ru${englishPath}`;
+    if (language === 'en' && normalizedPath.startsWith('/ru/')) return englishPath;
+    if (language === 'es' && spanishMirrorPaths.includes(englishPath)) return `/es${englishPath}`;
+  }
   if (language === 'de' && !pair?.de && germanMirrorPaths.includes(englishPath)) return `/de${englishPath}`;
   if (language === 'en' && normalizedPath.startsWith('/de/') && germanMirrorPaths.includes(englishPath)) return englishPath;
   if (language === 'es' && normalizedPath.startsWith('/de/')) return englishPair?.es ?? (spanishMirrorPaths.includes(englishPath) ? `/es${englishPath}` : '/es/');

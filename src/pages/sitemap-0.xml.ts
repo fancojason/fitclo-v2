@@ -8,6 +8,8 @@ import { coreLocales, corePageSlugs, corePath, type CoreLanguage } from '../cont
 import spanishMirrorPaths from '../data/spanishMirrorPaths.json';
 import germanMirrorPaths from '../data/germanMirrorPaths.json';
 import germanBlogPaths from '../data/de-MirrorPaths.json';
+import dutchMirrorPaths from '../data/nl-MirrorPaths.json';
+import portugueseMirrorPaths from '../data/pt-br-MirrorPaths.json';
 import russianMirrorPaths from '../data/russianMirrorPaths.json';
 
 const site = 'https://www.fitcloo.com';
@@ -15,6 +17,8 @@ const site = 'https://www.fitcloo.com';
 const staticPages = [
   ...spanishMirrorPaths.map((path) => `/es${path}`),
   ...germanMirrorPaths.map((path) => `/de${path}`),
+  ...dutchMirrorPaths.map(path => `/nl${path}`),
+  ...portugueseMirrorPaths.map(path => `/pt-br${path}`),
   ...germanBlogPaths.map((path) => `/de${path}`),
   ...russianMirrorPaths.map((path) => `/ru${path}`),
   ...Object.keys(coreLocales).flatMap((language) => corePageSlugs.map((page) => corePath(language as CoreLanguage, page))),

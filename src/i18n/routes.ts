@@ -1,6 +1,7 @@
 export type SiteLanguage = 'en' | 'es' | 'de' | 'nl' | 'pt-BR' | 'ru';
 import spanishMirrorPaths from '../data/spanishMirrorPaths.json';
 import germanMirrorPaths from '../data/germanMirrorPaths.json';
+import germanBlogPaths from '../data/de-MirrorPaths.json';
 import russianMirrorPaths from '../data/russianMirrorPaths.json';
 
 export const newLanguages = ['de', 'nl', 'pt-BR', 'ru'] as const;
@@ -43,6 +44,10 @@ export const getLocalizedRoute = (path: string, language: SiteLanguage) => {
   const pair = localizedRoutePairs.find((item) => Object.values(item).includes(normalizedPath));
   const englishPath = pair?.en ?? (/^\/(?:es|de|ru)\//.test(normalizedPath) ? normalizedPath.slice(3) : normalizedPath);
   const englishPair = pair ?? localizedRoutePairs.find((item) => item.en === englishPath);
+  if (germanBlogPaths.includes(englishPath)) {
+    if (language === 'de') return `/de${englishPath}`;
+    if (language === 'en' && normalizedPath.startsWith('/de/')) return englishPath;
+  }
   if (russianMirrorPaths.includes(englishPath)) {
     if (language === 'ru') return `/ru${englishPath}`;
     if (language === 'en' && normalizedPath.startsWith('/ru/')) return englishPath;

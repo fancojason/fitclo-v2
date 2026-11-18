@@ -7,5 +7,6 @@ import russianMirrors from './scripts/russian-mirrors.mjs';
 
 export default defineConfig({
   site: 'https://www.fitcloo.com',
-  integrations: [tailwind(), spanishProductAssets(), typographyAssets(), headerCategoryLinks(), russianMirrors()]
+  integrations: [tailwind(), spanishProductAssets(), typographyAssets(), headerCategoryLinks(), russianMirrors(),
+    russianMirrors({ prefix: 'de', language: 'de', ogLocale: 'de_DE', data: 'de-mirror.json' })]
 });

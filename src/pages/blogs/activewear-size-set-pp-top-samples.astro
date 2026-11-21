@@ -1,0 +1,54 @@
+---
+import EditorialArticleLayout from '../../layouts/EditorialArticleLayout.astro';
+---
+
+<EditorialArticleLayout
+  title="Size Set vs. Pre-Production vs. TOP Samples for Activewear"
+  seoTitle="Activewear Size Set vs. PP vs. TOP Samples | Fitclo"
+  description="Compare fit samples, size sets, pre-production samples and top-of-production samples. Know what to approve before bulk activewear goes ahead."
+  type="Activewear Sampling Guide"
+  articleKind="sample-stage-comparison"
+  date="November 21, 2026"
+  publishedIso="2026-11-21"
+  readTime="5 min read"
+  quickAnswerTitle="Use a fit sample to approve the base fit, a size set to check fit across sizes, and a pre-production (PP) sample to approve the intended production materials and finish before the agreed bulk release. A top-of-production (TOP) sample comes from actual bulk production and helps verify what the production line is making."
+  planningPlacement="before"
+  planningTableTitle="Which sample answers your question?"
+  tableHeaders={['Sample', 'Buyer decision', 'Evidence to keep']}
+  planningRows={[
+    ['Fit sample', 'Does the base size fit and move correctly?', 'Fit comments, measurement points and revised pattern reference'],
+    ['Size set', 'Does the approved fit grade correctly across selected sizes?', 'Measurements and fit comments by size'],
+    ['Pre-production (PP)', 'Can production follow the intended materials, construction and branding?', 'Signed physical reference and material and artwork versions'],
+    ['Top of production (TOP)', 'Do the first actual bulk units match the approved reference?', 'Production-run reference, measurements, photos and discrepancy log'],
+  ]}
+  faqs={[
+    { question: 'Can an approved PP sample also cover size grading?', answer: 'Only to the extent that the sizes were actually checked. A single-size PP sample does not establish that the other sizes fit correctly.' },
+    { question: 'Is a lab dip the same as a fabric swatch?', answer: 'A swatch may show an existing fabric or colour. A lab dip is a small dye trial used to evaluate a proposed custom shade on the intended material.' },
+    { question: 'Is a TOP sample a final inspection?', answer: 'A TOP sample checks units from actual production. A final inspection covers the agreed scope for the shipment, which can include measurements, workmanship, assortment and packaging.' },
+  ]}
+  relatedReading={[
+    { title: 'Activewear sample approval checklist', link: '/blogs/activewear-sample-approval-checklist/', desc: 'Record fit, fabric, colour and branding decisions clearly.' },
+    { title: 'Activewear sampling and development', link: '/activewear-sampling-product-development/', desc: 'Discuss the development route for your style.' },
+  ]}
+  ctaTitle="Discuss the sample plan for your activewear order"
+  ctaText="Share your style code or tech pack, size range, fabric direction, artwork and target quantity. Fitclo can discuss which checks make sense for the proposed order."
+  ctaHref="/inquiry/"
+  ctaLabel="Send your sample requirements"
+>
+  <h2>Decide what you need to prove before ordering another sample</h2>
+  <p>For a new leggings pattern, start by checking waistband position, coverage and movement in the base size. Once the fit is agreed, choose size-set samples that test your actual grading risk. For example, an order covering several size ranges may warrant checks at the ends of the run and where a pattern block changes. Record which sizes were tried so the approval is meaningful later.</p>
+  <p>For an existing stock style with a new logo, ask to see the right garment and the proposed application. Document which colour and size were reviewed, the logo location and the artwork revision. If the colour or material changes, decide what needs fresh approval. Agree sample scope and any fees with the supplier before work begins.</p>
+
+  <h2>Approve custom colour on the intended material</h2>
+  <p>For a stock colour, ask for the current colour reference and confirm availability. For a custom shade, send a physical reference or an agreed colour standard and ask whether a lab dip is appropriate. Record the approved reference, fabric and viewing conditions. For a matching top and bottom in different fabrics, compare the two together. Similar colour names can still produce an obvious mismatch on a finished set.</p>
+  <p>Check bulk shade against the agreed reference if colour is critical. For dye transfer, fading or contrast trim staining, use separate <a href="/blogs/activewear-colorfastness-testing-guide/">colourfastness checks</a>.</p>
+
+  <h2>Put the approval rule in the order brief</h2>
+  <ol>
+    <li>Use one revision for the tech pack, artwork, measurement sheet and approved sample.</li>
+    <li>List any exceptions on the PP sample, including substitute fabric, missing labels or unapproved colour. Assign an owner and date to close each one.</li>
+    <li>Agree which approvals are required before bulk cutting, which checks happen during production, and who signs off if the results differ.</li>
+    <li>If a TOP sample is required, identify the production lot and define how the supplier should handle deviations before the rest of the order moves forward.</li>
+  </ol>
+  <p>Retail vendor manuals illustrate how these gates can differ by buyer. <a href="https://www.dxl.com/media/content/vendors/Chapter6-ProductDevelopmentProcess-Privatelabel81822.pdf">DXL’s vendor guide</a> describes PP using intended bulk materials and trims. <a href="https://assets.ctfassets.net/6ufjjlh0gzjl/3kc9Ft8MiJ6wQRx0snFT1x/8b8dda6e946f0e8c77355cdca96c79ad/URBN_New_Vendor_Quick_Start_Guide_FAQ_-_10.15.24.pdf">URBN’s vendor guide</a> specifies pulling TOP samples from actual bulk production. Agree the requirements for your own order.</p>
+</EditorialArticleLayout>

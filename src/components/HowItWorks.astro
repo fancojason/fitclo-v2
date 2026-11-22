@@ -90,23 +90,23 @@ const timeline = [
       {steps.map((step) => (
         <div class="group relative">
           <!-- Step Number (Luxopack Style: Darker, Faded Gold, Montserrat) -->
-          <div class="text-[52px] font-bold text-[#443B22] font-['Century_Gothic',sans-serif] leading-none mb-6">
+          <div class="text-[52px] font-bold text-[#a38b57] font-['Century_Gothic',sans-serif] leading-none mb-6">
             {step.number}
           </div>
 
           <div class="relative">
-            <h4 class="text-[17px] font-bold text-white mb-3 font-['Century_Gothic',sans-serif]">
+            <h3 class="text-[17px] font-bold text-white mb-3 font-['Century_Gothic',sans-serif]">
               {step.title}
-            </h4>
+            </h3>
 
             <p class="text-white/60 text-[13px] leading-relaxed font-['Century_Gothic',sans-serif] mb-8 min-h-[40px]">
               {step.description}
             </p>
 
             <div class="pt-8 border-t border-white/10">
-              <h5 class="text-[#C9A84C] font-bold tracking-[0.1em] text-[11px] md:text-[12px] mb-4 uppercase font-['Century_Gothic',sans-serif]">
+              <h4 class="text-[#C9A84C] font-bold tracking-[0.1em] text-[11px] md:text-[12px] mb-4 uppercase font-['Century_Gothic',sans-serif]">
                 {step.subTitle}
-              </h5>
+              </h4>
               <ul class="space-y-2.5">
                 {step.items.map(item => (
                   <li class="flex items-start text-[12px] text-white/60 font-['Century_Gothic',sans-serif] leading-tight">
@@ -139,7 +139,7 @@ const timeline = [
 
         <div class="flex flex-col md:flex-row items-center justify-between mb-10 gap-6">
           <div class="text-center md:text-left">
-            <h4 class="text-white text-[18px] font-bold font-['Century_Gothic',sans-serif] mb-2">Typical Timeline</h4>
+            <h3 class="text-white text-[18px] font-bold font-['Century_Gothic',sans-serif] mb-2">Typical Timeline</h3>
             <p class="text-white/60 text-[13px] font-['Century_Gothic',sans-serif]">Transparent delivery times for every project stage.</p>
           </div>
           <a href={getWhatsAppUrl({ path: Astro.url.pathname })} target="_blank" class="inline-block border border-[#C9A84C]/30 text-[#C9A84C] font-bold py-2.5 px-6 rounded-md hover:bg-[#C9A84C] hover:text-black transition-all text-[12px] uppercase tracking-widest font-['Century_Gothic',sans-serif]">

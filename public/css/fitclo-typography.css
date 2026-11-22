@@ -54,3 +54,15 @@ main [data-home-hero] h1 {
   header nav > a:not(.quote-nav-button),
   header nav > div > a:not(.quote-nav-button) { font-size:16px !important; }
 }
+/* Keep distant homepage cards out of the initial layout work. */
+@media (max-width: 767px) {
+  main:has(> [data-home-hero]) [data-home-stock-grid] > :nth-child(n + 5) {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 690px;
+  }
+}
+
+/* Give secondary labels enough contrast on the homepage's dark panels. */
+main:has(> [data-home-hero]) :is([class~="text-gray-500"], [class~="text-white/30"], [class~="text-white/40"]) {
+  color: #a3a3a6;
+}

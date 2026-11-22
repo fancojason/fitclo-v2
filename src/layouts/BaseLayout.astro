@@ -250,19 +250,7 @@ const localizedContent = translations.length
         const googleTag = document.createElement('script');
         googleTag.async = true;
         googleTag.src = 'https://www.googletagmanager.com/gtag/js?id=G-VT6KCKVKPD';
-        if (window.location.pathname === '/') {
-          const loadAnalytics = () => {
-            window.removeEventListener('pointerdown', loadAnalytics);
-            window.removeEventListener('keydown', loadAnalytics);
-            if (!googleTag.isConnected) document.head.appendChild(googleTag);
-          };
-          window.addEventListener('pointerdown', loadAnalytics, { once: true, passive: true });
-          window.addEventListener('keydown', loadAnalytics, { once: true });
-          window.addEventListener('load', () => {
-            if ('requestIdleCallback' in window) window.requestIdleCallback(loadAnalytics, { timeout: 1500 });
-            else window.setTimeout(loadAnalytics, 700);
-          }, { once: true });
-        } else document.head.appendChild(googleTag);
+        document.head.appendChild(googleTag);
       }
     </script>
   </head>

@@ -12,4 +12,13 @@ for (const robots of ['index, follow', 'noindex, nofollow']) {
   assert(!result.includes('zoho-puvi-regular.woff2'), 'remove unused preload only');
   assert.equal(result, injectTypography(result, '/css/fitclo-typography.css?v=test'), 'no duplicate stylesheet');
 }
+const stylesheet = '/css/fitclo-typography.css?v=test';
+const homepage = '<html><head><link rel="stylesheet" href="/css/language-menu.css?v=4"><style>body{color:white}</style></head><body>' + body + '</body></html>';
+const homepageStyles = { languageMenu: '.language-menu{display:flex}', typography: 'body{font-family:Poppins}' };
+const optimized = injectTypography(homepage, stylesheet, homepageStyles);
+assert(!optimized.includes('/css/'), 'homepage styles require no additional requests');
+assert(optimized.indexOf('fitclo-home-language-menu') < optimized.indexOf('body{color:white}'), 'retain original language CSS cascade');
+assert(optimized.indexOf('fitclo-home-typography') > optimized.indexOf('body{color:white}'), 'retain original typography CSS cascade');
+assert.equal(optimized, injectTypography(optimized, stylesheet, homepageStyles), 'no duplicate inline styles');
+
 console.log('PASS: typography injection preserves indexability, canonical, schema and localized body; idempotent asset insertion.');
